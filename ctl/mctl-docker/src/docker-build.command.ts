@@ -38,11 +38,11 @@ class DockerBuildCommand extends Command {
       const changedFiles = await getChangedFiles()
 
       if (this.verbose) {
-        this.context.stdout.write('Changed files:')
+        this.context.stdout.write('Changed files:\n')
 
-        changedFiles.forEach((changedFile) => this.context.stdout.write(changedFile))
+        changedFiles.forEach((changedFile) => this.context.stdout.write(`${changedFile}\n`))
 
-        this.context.stdout.write('')
+        this.context.stdout.write('\n')
       }
 
       workspaces = workspaces.filter((workspace) =>
@@ -51,11 +51,11 @@ class DockerBuildCommand extends Command {
     }
 
     if (this.verbose) {
-      this.context.stdout.write('Changed workspaces:')
+      this.context.stdout.write('Changed workspaces:\n')
 
-      workspaces.forEach((workspace) => this.context.stdout.write(workspace.cwd))
+      workspaces.forEach((workspace) => this.context.stdout.write(`${workspace.cwd}\n`))
 
-      this.context.stdout.write('')
+      this.context.stdout.write('\n')
     }
 
     const workspaceWithDockerfiles = workspaces.filter((workspace) =>
