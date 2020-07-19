@@ -14,19 +14,19 @@
   },
   "devDependencies": {
     "@monstrs/tsconfig": "^0.2.0",
-    "@types/node": "^14.0.5",
-    "@yarnpkg/pnpify": "^2.0.0-rc.22",
-    "typescript": "^3.9.3"
+    "@types/node": "^14.0.23",
+    "@yarnpkg/pnpify": "^2.1.0",
+    "typescript": "^3.9.7"
   },
   "dependencies": {
     "@monstrs/code-format": "workspace:0.0.2",
     "@monstrs/code-lint": "workspace:0.0.13",
     "@monstrs/code-test": "workspace:0.0.7",
     "any-observable": "0.5.1",
-    "clipanion": "^2.3.1",
-    "execa": "^4.0.2",
-    "lint-staged": "^10.2.6",
-    "rxjs": "^6.5.5"
+    "clipanion": "^2.4.2",
+    "execa": "^4.0.3",
+    "lint-staged": "^10.2.11",
+    "rxjs": "^6.6.0"
   },
   "peerDependencies": {
     "typescript": "*"
