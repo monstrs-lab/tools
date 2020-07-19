@@ -1,0 +1,32 @@
+{
+  "name": "@monstrs/mctl-docker",
+  "version": "0.2.0",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rm -r -f dist",
+    "prepublishOnly": "yarn run build",
+    "prebuild": "yarn clean",
+    "build": "yarn pnpify tsc -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@monstrs/tsconfig": "^0.2.0",
+    "@types/node": "^14.0.5",
+    "@yarnpkg/pnpify": "^2.0.0-rc.22",
+    "typescript": "^3.9.3"
+  },
+  "dependencies": {
+    "@monstrs/code-changes": "workspace:0.0.2",
+    "@monstrs/code-workspaces": "workspace:0.0.2",
+    "clipanion": "^2.3.1",
+    "execa": "^4.0.3"
+  },
+  "publishConfig": {
+    "access": "public",
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
+  }
+}

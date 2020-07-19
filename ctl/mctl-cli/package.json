@@ -1,0 +1,56 @@
+{
+  "name": "@monstrs/mctl-cli",
+  "version": "0.2.14",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "bin": {
+    "mctl": "bin/dev"
+  },
+  "files": [
+    "dist",
+    "bin/run"
+  ],
+  "scripts": {
+    "clean": "rm -r -f dist && rm -r -f pre-dist",
+    "prepublishOnly": "yarn run build",
+    "prebuild": "yarn clean",
+    "build": "yarn pnpify tsc -p tsconfig.json && cp -r ./pre-dist/mctl-cli/src ./dist"
+  },
+  "devDependencies": {
+    "@babel/register": "^7.9.0",
+    "@monstrs/tsconfig": "^0.2.0",
+    "@types/babel__core": "7.1.7",
+    "@types/node": "^14.0.5",
+    "@yarnpkg/pnpify": "^2.0.0-rc.22",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.9.3"
+  },
+  "publishConfig": {
+    "access": "public",
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts",
+    "bin": {
+      "mctl": "./bin/run"
+    }
+  },
+  "dependencies": {
+    "@monstrs/mctl-checks": "workspace:0.2.6",
+    "@monstrs/mctl-commit": "workspace:0.2.6",
+    "@monstrs/mctl-commitmsg": "workspace:0.2.5",
+    "@monstrs/mctl-docker": "workspace:0.2.0",
+    "@monstrs/mctl-format": "workspace:0.2.5",
+    "@monstrs/mctl-lint": "workspace:0.2.7",
+    "@monstrs/mctl-precommit": "workspace:0.2.6",
+    "@monstrs/mctl-test": "workspace:0.2.6",
+    "@monstrs/mctl-typecheck": "workspace:0.2.5",
+    "clipanion": "^2.3.1"
+  },
+  "peerDependencies": {
+    "typescript": "*"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
+  }
+}

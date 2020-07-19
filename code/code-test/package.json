@@ -1,0 +1,42 @@
+{
+  "name": "@monstrs/code-test",
+  "version": "0.0.7",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "files": [
+    "dist",
+    "config.js"
+  ],
+  "scripts": {
+    "exec": "yarn run build && yarn node run.js",
+    "clean": "rm -r -f dist",
+    "prebuild": "yarn clean",
+    "prepublishOnly": "yarn run build",
+    "build": "yarn pnpify tsc -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@types/globby": "9.1.0",
+    "@types/jest": "^25.2.3",
+    "@types/node": "^14.0.5",
+    "@yarnpkg/pnpify": "^2.0.0-rc.22",
+    "jest-haste-map": "^26.0.1",
+    "typescript": "^3.9.3"
+  },
+  "dependencies": {
+    "@jest/core": "^26.0.1",
+    "@jest/test-result": "^26.0.1",
+    "@jest/types": "^26.0.1",
+    "@monstrs/prettier-plugin-import-sort": "^0.2.2",
+    "@monstrs/tsconfig": "^0.2.0",
+    "globby": "^11.0.0",
+    "ignore": "^5.1.6",
+    "jest-emotion": "^10.0.32",
+    "jest-static-stubs": "^0.0.1",
+    "prettier": "^2.0.5",
+    "ts-jest": "^26.0.0"
+  },
+  "publishConfig": {
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
+  }
+}

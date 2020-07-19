@@ -1,0 +1,35 @@
+{
+  "name": "@monstrs/code-commitlint",
+  "version": "0.0.4",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "exec": "yarn run build && yarn node test.js",
+    "clean": "rm -r -f dist",
+    "prebuild": "yarn clean",
+    "prepublishOnly": "yarn run build",
+    "build": "yarn pnpify tsc -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@monstrs/tsconfig": "^0.2.0",
+    "@types/globby": "9.1.0",
+    "@types/node": "^14.0.5",
+    "@yarnpkg/pnpify": "^2.0.0-rc.22",
+    "typescript": "^3.9.3"
+  },
+  "dependencies": {
+    "@commitlint/config-conventional": "^8.3.4",
+    "@commitlint/config-lerna-scopes": "^8.3.4",
+    "@commitlint/format": "^8.3.4",
+    "@commitlint/lint": "^8.3.5",
+    "@commitlint/load": "^8.3.5",
+    "@commitlint/read": "^8.3.4"
+  },
+  "publishConfig": {
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
+  }
+}

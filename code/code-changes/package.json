@@ -1,0 +1,32 @@
+{
+  "name": "@monstrs/code-changes",
+  "version": "0.0.2",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "exec": "yarn run build && yarn node test.js",
+    "clean": "rm -r -f dist",
+    "prebuild": "yarn clean",
+    "prepublishOnly": "yarn run build",
+    "build": "yarn pnpify tsc -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@babel/types": "^7.9.6",
+    "@monstrs/tsconfig": "^0.2.0",
+    "@types/execa": "2.0.0",
+    "@types/node": "^14.0.5",
+    "@yarnpkg/pnpify": "^2.0.0-rc.22",
+    "typescript": "^3.9.3"
+  },
+  "publishConfig": {
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
+  },
+  "dependencies": {
+    "@monstrs/code-github": "workspace:0.0.2",
+    "execa": "^4.0.3"
+  }
+}

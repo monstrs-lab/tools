@@ -1,0 +1,42 @@
+{
+  "name": "@monstrs/mctl-checks",
+  "version": "0.2.6",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rm -r -f dist",
+    "prepublishOnly": "yarn run build",
+    "prebuild": "yarn clean",
+    "build": "yarn pnpify tsc -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@monstrs/tsconfig": "^0.2.0",
+    "@types/node": "^14.0.5",
+    "@yarnpkg/pnpify": "^2.0.0-rc.22",
+    "eslint": "^7.1.0",
+    "typescript": "^3.9.3"
+  },
+  "dependencies": {
+    "@actions/github": "^2.2.0",
+    "@monstrs/code-lint": "workspace:0.0.13",
+    "@monstrs/code-test": "workspace:0.0.7",
+    "clipanion": "^2.3.1",
+    "execa": "^4.0.2"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
+  },
+  "peerDependencies": {
+    "typescript": "*"
+  },
+  "publishConfig": {
+    "access": "public",
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
+  }
+}
