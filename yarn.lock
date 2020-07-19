@@ -1967,7 +1967,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-lint@workspace:0.0.15, @monstrs/code-lint@workspace:code/code-lint":
+"@monstrs/code-lint@workspace:0.0.16, @monstrs/code-lint@workspace:code/code-lint":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-lint@workspace:code/code-lint"
   dependencies:
@@ -2047,7 +2047,7 @@ __metadata:
   dependencies:
     "@actions/github": ^4.0.0
     "@monstrs/code-github": "workspace:0.0.4"
-    "@monstrs/code-lint": "workspace:0.0.15"
+    "@monstrs/code-lint": "workspace:0.0.16"
     "@monstrs/code-test": "workspace:0.0.9"
     "@monstrs/tsconfig": ^0.2.0
     "@types/node": ^14.0.23
@@ -2166,7 +2166,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/mctl-lint@workspace:ctl/mctl-lint"
   dependencies:
-    "@monstrs/code-lint": "workspace:0.0.15"
+    "@monstrs/code-lint": "workspace:0.0.16"
     "@monstrs/tsconfig": ^0.2.0
     "@types/node": ^14.0.23
     "@yarnpkg/pnpify": ^2.1.0
@@ -2185,7 +2185,7 @@ __metadata:
   resolution: "@monstrs/mctl-precommit@workspace:ctl/mctl-precommit"
   dependencies:
     "@monstrs/code-format": "workspace:0.0.4"
-    "@monstrs/code-lint": "workspace:0.0.15"
+    "@monstrs/code-lint": "workspace:0.0.16"
     "@monstrs/code-test": "workspace:0.0.9"
     "@monstrs/tsconfig": ^0.2.0
     "@types/node": ^14.0.23

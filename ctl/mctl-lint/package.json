@@ -19,7 +19,7 @@
     "typescript": "^3.9.7"
   },
   "dependencies": {
-    "@monstrs/code-lint": "workspace:0.0.15",
+    "@monstrs/code-lint": "workspace:0.0.16",
     "clipanion": "^2.4.2",
     "typescript": "*"
   },

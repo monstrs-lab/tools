@@ -16,7 +16,7 @@ class Linter {
 
     this.engine = new CLIEngine({
       baseConfig: {
-        extends: [require.resolve('./rules/base')],
+        extends: [require.resolve('../rules/base')],
       },
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
       useEslintrc: false,

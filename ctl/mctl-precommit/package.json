@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@monstrs/code-format": "workspace:0.0.4",
-    "@monstrs/code-lint": "workspace:0.0.15",
+    "@monstrs/code-lint": "workspace:0.0.16",
     "@monstrs/code-test": "workspace:0.0.9",
     "any-observable": "0.5.1",
     "clipanion": "^2.4.2",
