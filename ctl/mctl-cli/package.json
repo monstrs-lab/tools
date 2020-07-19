@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/mctl-cli",
-  "version": "0.2.15",
+  "version": "0.2.16",
   "license": "MIT",
   "main": "src/index.ts",
   "bin": {
@@ -34,7 +34,7 @@
     }
   },
   "dependencies": {
-    "@monstrs/mctl-checks": "workspace:0.2.6",
+    "@monstrs/mctl-checks": "workspace:0.2.7",
     "@monstrs/mctl-commit": "workspace:0.2.6",
     "@monstrs/mctl-commitmsg": "workspace:0.2.5",
     "@monstrs/mctl-docker": "workspace:0.2.0",
