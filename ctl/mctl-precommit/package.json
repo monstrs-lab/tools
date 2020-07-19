@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/mctl-precommit",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -19,9 +19,9 @@
     "typescript": "^3.9.7"
   },
   "dependencies": {
-    "@monstrs/code-format": "workspace:0.0.4",
-    "@monstrs/code-lint": "workspace:0.0.16",
-    "@monstrs/code-test": "workspace:0.0.9",
+    "@monstrs/code-format": "workspace:0.0.5",
+    "@monstrs/code-lint": "workspace:0.0.17",
+    "@monstrs/code-test": "workspace:0.0.10",
     "any-observable": "0.5.1",
     "clipanion": "^2.4.2",
     "execa": "^4.0.3",
