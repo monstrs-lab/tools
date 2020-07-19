@@ -1,0 +1,18 @@
+releases:
+  "@monstrs/code-changes": patch
+  "@monstrs/code-commitlint": patch
+  "@monstrs/code-format": patch
+  "@monstrs/code-github": patch
+  "@monstrs/code-lint": patch
+  "@monstrs/code-test": patch
+  "@monstrs/code-workspaces": patch
+  "@monstrs/mctl-checks": patch
+  "@monstrs/mctl-cli": patch
+  "@monstrs/mctl-commit": patch
+  "@monstrs/mctl-commitmsg": patch
+  "@monstrs/mctl-docker": patch
+  "@monstrs/mctl-format": patch
+  "@monstrs/mctl-lint": patch
+  "@monstrs/mctl-precommit": patch
+  "@monstrs/mctl-test": patch
+  "@monstrs/mctl-typecheck": patch
