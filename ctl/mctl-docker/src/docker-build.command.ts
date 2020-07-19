@@ -32,9 +32,11 @@ class DockerBuildCommand extends Command {
     const codeVersion = await getVersion()
     const version = this.tagPrefix ? `${this.tagPrefix}-${codeVersion}` : codeVersion
 
-    let workspaces = await getWorkspaces()
+    let workspaces = []
 
-    if (!this.all) {
+    if (this.all) {
+      workspaces = await getWorkspaces()
+    } else {
       const changedFiles = await getChangedFiles()
 
       if (this.verbose) {
@@ -45,9 +47,7 @@ class DockerBuildCommand extends Command {
         this.context.stdout.write('\n')
       }
 
-      workspaces = workspaces.filter((workspace) =>
-        changedFiles.some((changedFile) => changedFile.startsWith(workspace.cwd))
-      )
+      workspaces = await getWorkspaces(changedFiles, true)
     }
 
     if (this.verbose) {
