@@ -11,10 +11,10 @@
     "bin/run"
   ],
   "scripts": {
-    "clean": "rm -r -f dist && rm -r -f pre-dist",
+    "clean": "rm -r -f dist",
     "prepublishOnly": "yarn run build",
     "prebuild": "yarn clean",
-    "build": "yarn pnpify tsc -p tsconfig.json && cp -r ./pre-dist/mctl-cli/src ./dist"
+    "build": "yarn pnpify tsc -p tsconfig.json"
   },
   "devDependencies": {
     "@babel/register": "^7.9.0",
