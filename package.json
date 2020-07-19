@@ -24,7 +24,7 @@
     "@babel/preset-typescript": "^7.9.0",
     "@babel/runtime": "^7.9.6",
     "@babel/types": "^7.9.6",
-    "@monstrs/mctl-cli": "workspace:0.2.17",
+    "@monstrs/mctl-cli": "workspace:0.2.18",
     "@monstrs/tsconfig": "^0.2.0",
     "@types/aria-query": "4.2.0",
     "@types/array.prototype.flat": "1.2.1",
