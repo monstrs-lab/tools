@@ -64,7 +64,7 @@ export const getWorkspaces = async (
 
     // @ts-ignore
     for (const descriptor of resolvedSet.values()) {
-      const nested = project.tryWorkspaceByDescriptor(descriptor)
+      const nested = project.tryWorkspaceByDescriptor(descriptor as any)
 
       if (nested) {
         if (!withDependentsWorkspaces[nested.anchoredLocator.locatorHash]) {
