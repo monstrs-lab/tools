@@ -10,7 +10,7 @@ class ReleaseCheckCommand extends Command {
   @Command.Path(`check`, `release`)
   async execute() {
     try {
-      const { stdout, stderr } = await execa('yarn', [
+      const { stdout, stderr, exitCode } = await execa('yarn', [
         'workspaces',
         'foreach',
         '-p',
@@ -19,25 +19,31 @@ class ReleaseCheckCommand extends Command {
       ])
 
       if (this.verbose) {
+        this.context.stdout.write(`exit code: ${exitCode}\n`)
+
         if (stdout) {
-          this.context.stdout.write(stdout)
+          this.context.stdout.write(`stdout: ${stdout}\n`)
         }
 
         if (stderr) {
-          this.context.stdout.write(stderr)
+          this.context.stdout.write(`stderr: ${stderr}\n`)
         }
       }
 
       await this.check(stderr)
     } catch (error) {
+      if (this.verbose) {
+        this.context.stdout.write(`error: ${error.stderr || error.message}\n`)
+      }
+
       await this.check(error.stderr || error.message)
     }
   }
 
   async check(message?: any) {
-    const lines = (message || '').split('\n')
+    const lines = (message || '').trim().split('\n').filter(line => line)
 
-    const success = lines.length === 0 || (lines.length === 1 && lines[0].includes('Done'))
+    const success = lines.length === 0
 
     const summary = lines
       .map((line) => {
