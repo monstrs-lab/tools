@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/mctl-cli",
-  "version": "0.2.21",
+  "version": "0.2.22",
   "license": "MIT",
   "main": "src/index.ts",
   "bin": {
@@ -34,15 +34,15 @@
     }
   },
   "dependencies": {
-    "@monstrs/mctl-checks": "workspace:0.2.12",
-    "@monstrs/mctl-commit": "workspace:0.2.11",
-    "@monstrs/mctl-commitmsg": "workspace:0.2.10",
-    "@monstrs/mctl-docker": "workspace:0.2.5",
-    "@monstrs/mctl-format": "workspace:0.2.10",
-    "@monstrs/mctl-lint": "workspace:0.2.12",
-    "@monstrs/mctl-precommit": "workspace:0.2.11",
-    "@monstrs/mctl-test": "workspace:0.2.11",
-    "@monstrs/mctl-typecheck": "workspace:0.2.10",
+    "@monstrs/mctl-checks": "workspace:0.2.13",
+    "@monstrs/mctl-commit": "workspace:0.2.12",
+    "@monstrs/mctl-commitmsg": "workspace:0.2.11",
+    "@monstrs/mctl-docker": "workspace:0.2.6",
+    "@monstrs/mctl-format": "workspace:0.2.11",
+    "@monstrs/mctl-lint": "workspace:0.2.13",
+    "@monstrs/mctl-precommit": "workspace:0.2.12",
+    "@monstrs/mctl-test": "workspace:0.2.12",
+    "@monstrs/mctl-typecheck": "workspace:0.2.11",
     "clipanion": "^2.4.2"
   },
   "peerDependencies": {

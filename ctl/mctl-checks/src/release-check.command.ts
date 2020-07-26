@@ -4,14 +4,31 @@ import { Command }                 from 'clipanion'
 import { Conclusion, createCheck } from './github'
 
 class ReleaseCheckCommand extends Command {
+  @Command.Boolean(`-v,--verbose`)
+  verbose: boolean = false
+
   @Command.Path(`check`, `release`)
   async execute() {
     try {
-      const { all } = await execa('yarn', ['workspaces', 'foreach', '-p', 'run', 'build'], {
-        all: true,
-      })
+      const { stdout, stderr } = await execa('yarn', [
+        'workspaces',
+        'foreach',
+        '-p',
+        'run',
+        'build',
+      ])
 
-      await this.check(all)
+      if (this.verbose) {
+        if (stdout) {
+          this.context.stdout.write(stdout)
+        }
+
+        if (stderr) {
+          this.context.stdout.write(stderr)
+        }
+      }
+
+      await this.check(stderr)
     } catch (error) {
       await this.check(error.stderr || error.message)
     }
