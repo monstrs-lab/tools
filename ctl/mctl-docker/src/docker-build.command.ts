@@ -27,10 +27,13 @@ class DockerBuildCommand extends Command {
   @Command.Boolean(`-v,--verbose`)
   verbose: boolean = false
 
+  @Command.String(`-e,--pushed-output-file`)
+  pushedOutputFile: string
+
   @Command.Path(`docker`, `build`)
   async execute() {
-    const codeVersion = await getVersion()
-    const version = this.tagPrefix ? `${this.tagPrefix}-${codeVersion}` : codeVersion
+    const revision = await getVersion()
+    const version = this.tagPrefix ? `${this.tagPrefix}-${revision}` : revision
 
     let workspaces = []
 
@@ -102,6 +105,10 @@ class DockerBuildCommand extends Command {
           stdio: 'inherit',
         })
       }
+    }
+
+    if (this.pushedOutputFile) {
+      fs.writeFileSync(this.pushedOutputFile, JSON.stringify(pushTags, null, 2))
     }
   }
 }

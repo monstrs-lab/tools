@@ -41,7 +41,10 @@ class ReleaseCheckCommand extends Command {
   }
 
   async check(message?: any) {
-    const lines = (message || '').trim().split('\n').filter(line => line)
+    const lines = (message || '')
+      .trim()
+      .split('\n')
+      .filter((line) => line)
 
     const success = lines.length === 0
 

@@ -75,6 +75,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:ctl/mctl-format"
       },
       {
+        "name": "@monstrs/mctl-github",
+        "reference": "workspace:ctl/mctl-github"
+      },
+      {
         "name": "@monstrs/mctl-lint",
         "reference": "workspace:ctl/mctl-lint"
       },
@@ -107,6 +111,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@monstrs/mctl-commitmsg", ["workspace:ctl/mctl-commitmsg"]],
       ["@monstrs/mctl-docker", ["workspace:ctl/mctl-docker"]],
       ["@monstrs/mctl-format", ["workspace:ctl/mctl-format"]],
+      ["@monstrs/mctl-github", ["workspace:ctl/mctl-github"]],
       ["@monstrs/mctl-lint", ["virtual:b595e221efc02d1daf4868d0911d75a70b0149948ec714e676b211af50141aaa81b00b584078780c4f787f044dc5dab5dbece80327bdb939604adb5e8c375853#workspace:ctl/mctl-lint", "workspace:ctl/mctl-lint"]],
       ["@monstrs/mctl-precommit", ["virtual:b595e221efc02d1daf4868d0911d75a70b0149948ec714e676b211af50141aaa81b00b584078780c4f787f044dc5dab5dbece80327bdb939604adb5e8c375853#workspace:ctl/mctl-precommit", "workspace:ctl/mctl-precommit"]],
       ["@monstrs/mctl-test", ["workspace:ctl/mctl-test"]],
@@ -2732,6 +2737,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@monstrs/mctl-commitmsg", "workspace:ctl/mctl-commitmsg"],
             ["@monstrs/mctl-docker", "workspace:ctl/mctl-docker"],
             ["@monstrs/mctl-format", "workspace:ctl/mctl-format"],
+            ["@monstrs/mctl-github", "workspace:ctl/mctl-github"],
             ["@monstrs/mctl-lint", "virtual:b595e221efc02d1daf4868d0911d75a70b0149948ec714e676b211af50141aaa81b00b584078780c4f787f044dc5dab5dbece80327bdb939604adb5e8c375853#workspace:ctl/mctl-lint"],
             ["@monstrs/mctl-precommit", "virtual:b595e221efc02d1daf4868d0911d75a70b0149948ec714e676b211af50141aaa81b00b584078780c4f787f044dc5dab5dbece80327bdb939604adb5e8c375853#workspace:ctl/mctl-precommit"],
             ["@monstrs/mctl-test", "workspace:ctl/mctl-test"],
@@ -2759,6 +2765,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@monstrs/mctl-commitmsg", "workspace:ctl/mctl-commitmsg"],
             ["@monstrs/mctl-docker", "workspace:ctl/mctl-docker"],
             ["@monstrs/mctl-format", "workspace:ctl/mctl-format"],
+            ["@monstrs/mctl-github", "workspace:ctl/mctl-github"],
             ["@monstrs/mctl-lint", "virtual:b595e221efc02d1daf4868d0911d75a70b0149948ec714e676b211af50141aaa81b00b584078780c4f787f044dc5dab5dbece80327bdb939604adb5e8c375853#workspace:ctl/mctl-lint"],
             ["@monstrs/mctl-precommit", "virtual:b595e221efc02d1daf4868d0911d75a70b0149948ec714e676b211af50141aaa81b00b584078780c4f787f044dc5dab5dbece80327bdb939604adb5e8c375853#workspace:ctl/mctl-precommit"],
             ["@monstrs/mctl-test", "workspace:ctl/mctl-test"],
@@ -2844,6 +2851,22 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:14.0.23"],
             ["@yarnpkg/pnpify", "virtual:db35841ccdab27f023c0f9c43b3bcce7d83c8a459243abc73162fc32d9f205e8a6ec026fddeb489744996ae047cf95e1ecd0fce8f858f6131c7d53332e357b75#npm:2.1.0"],
             ["clipanion", "npm:2.4.2"],
+            ["typescript", "patch:typescript@npm%3A3.9.7#builtin<compat/typescript>::version=3.9.7&hash=5b02a2"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
+      ["@monstrs/mctl-github", [
+        ["workspace:ctl/mctl-github", {
+          "packageLocation": "./ctl/mctl-github/",
+          "packageDependencies": [
+            ["@monstrs/mctl-github", "workspace:ctl/mctl-github"],
+            ["@monstrs/code-github", "workspace:code/code-github"],
+            ["@monstrs/tsconfig", "npm:0.2.0"],
+            ["@types/node", "npm:14.0.23"],
+            ["@yarnpkg/pnpify", "virtual:db35841ccdab27f023c0f9c43b3bcce7d83c8a459243abc73162fc32d9f205e8a6ec026fddeb489744996ae047cf95e1ecd0fce8f858f6131c7d53332e357b75#npm:2.1.0"],
+            ["clipanion", "npm:2.4.2"],
+            ["execa", "npm:4.0.3"],
             ["typescript", "patch:typescript@npm%3A3.9.7#builtin<compat/typescript>::version=3.9.7&hash=5b02a2"]
           ],
           "linkType": "SOFT",
