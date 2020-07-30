@@ -34,9 +34,11 @@ export default {
     stripInternal: false,
 
     sourceMap: false,
-    target: 'es5',
+    target: 'es2017',
 
     jsx: 'react',
+
+    outDir: './dist',
   },
   exclude: ['node_modules', 'src/**/*.spec.ts', 'src/**/*.test.ts'],
 }

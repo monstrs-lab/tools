@@ -25,6 +25,16 @@ class TypeScript {
     return this.run(config)
   }
 
+  build(include = [], override = {}) {
+    const config = this.getCompilerConfig(include, override)
+
+    if (config.errors && config.errors.length > 0) {
+      return groupDiagnostics(config.errors)
+    }
+
+    return this.run(config, false)
+  }
+
   private run(config, noEmit = true) {
     const program = ts.createProgram(config.fileNames, {
       ...config.options,
@@ -36,8 +46,8 @@ class TypeScript {
     return groupDiagnostics(ts.getPreEmitDiagnostics(program).concat(result.diagnostics))
   }
 
-  private getCompilerConfig(include = []) {
-    return ts.parseJsonConfigFileContent({ ...base, include }, ts.sys, this.cwd)
+  private getCompilerConfig(include = [], override = {}) {
+    return ts.parseJsonConfigFileContent({ ...base, ...override, include }, ts.sys, this.cwd)
   }
 }
 
