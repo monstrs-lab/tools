@@ -22,7 +22,7 @@ class GithubCreateDeploymentCommand extends Command {
       let images = JSON.parse(fs.readFileSync(this.fromPushedImages).toString())
 
       if (this.excludeTag) {
-          images = images.filter(image => image.split(':').pop() !== this.excludeTag)
+        images = images.filter((image) => image.split(':').pop() !== this.excludeTag)
       }
 
       await Promise.all(
@@ -42,17 +42,17 @@ class GithubCreateDeploymentCommand extends Command {
   }
 
   getEnvironmentForImage(image) {
-      const parts = image.split(':')
+    const parts = image.split(':')
 
-      parts.pop()
+    parts.pop()
 
-      let name = parts.join(':')
+    let name = parts.join(':')
 
-      if (this.extractRegistry) {
-        name = name.replace(this.extractRegistry, '')
-      }
+    if (this.extractRegistry) {
+      name = name.replace(this.extractRegistry, '')
+    }
 
-      return `${this.environment}-${name}`
+    return `${this.environment}-${name}`
   }
 }
 
