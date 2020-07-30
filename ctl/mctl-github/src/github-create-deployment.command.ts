@@ -31,7 +31,7 @@ class GithubCreateDeploymentCommand extends Command {
             environment: this.getEnvironmentForImage(image),
             description: `Deploy ${image}`,
             auto_merge: false,
-            task: 'deploy',
+            task: image,
             payload: {
               image,
             },
