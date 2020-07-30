@@ -16,7 +16,7 @@
     "@monstrs/tsconfig": "^0.2.0",
     "@types/node": "^14.0.23",
     "@yarnpkg/pnpify": "^2.1.0",
-    "eslint": "^7.1.0",
+    "eslint": "^7.5.0",
     "typescript": "^3.9.7"
   },
   "dependencies": {
@@ -24,7 +24,7 @@
     "@monstrs/code-github": "workspace:0.0.15",
     "@monstrs/code-lint": "workspace:0.0.27",
     "@monstrs/code-test": "workspace:0.0.20",
-    "clipanion": "^2.4.2",
+    "clipanion": "^2.4.4",
     "execa": "^4.0.3"
   },
   "peerDependenciesMeta": {

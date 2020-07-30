@@ -21,12 +21,12 @@
     "typescript": "^3.9.7"
   },
   "dependencies": {
-    "@commitlint/config-conventional": "^8.3.4",
-    "@commitlint/config-lerna-scopes": "^8.3.4",
-    "@commitlint/format": "^8.3.4",
-    "@commitlint/lint": "^8.3.5",
-    "@commitlint/load": "^8.3.5",
-    "@commitlint/read": "^8.3.4"
+    "@commitlint/config-conventional": "^9.1.1",
+    "@commitlint/config-lerna-scopes": "^9.1.1",
+    "@commitlint/format": "^9.1.1",
+    "@commitlint/lint": "^9.1.1",
+    "@commitlint/load": "^9.1.1",
+    "@commitlint/read": "^9.1.1"
   },
   "publishConfig": {
     "main": "dist/index.js",

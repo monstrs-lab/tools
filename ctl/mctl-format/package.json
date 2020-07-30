@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@monstrs/code-format": "workspace:0.0.15",
-    "clipanion": "^2.4.2"
+    "clipanion": "^2.4.4"
   },
   "publishConfig": {
     "access": "public",

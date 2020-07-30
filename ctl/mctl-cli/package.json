@@ -17,7 +17,7 @@
     "build": "yarn pnpify tsc -p tsconfig.json"
   },
   "devDependencies": {
-    "@babel/register": "^7.9.0",
+    "@babel/register": "^7.10.5",
     "@monstrs/tsconfig": "^0.2.0",
     "@types/babel__core": "7.1.9",
     "@types/node": "^14.0.23",
@@ -44,7 +44,7 @@
     "@monstrs/mctl-precommit": "workspace:0.2.19",
     "@monstrs/mctl-test": "workspace:0.2.19",
     "@monstrs/mctl-typecheck": "workspace:0.2.18",
-    "clipanion": "^2.4.2"
+    "clipanion": "^2.4.4"
   },
   "peerDependencies": {
     "typescript": "*"

@@ -23,7 +23,7 @@
     "@monstrs/code-lint": "workspace:0.0.27",
     "@monstrs/code-test": "workspace:0.0.20",
     "any-observable": "0.5.1",
-    "clipanion": "^2.4.2",
+    "clipanion": "^2.4.4",
     "execa": "^4.0.3",
     "lint-staged": "^10.2.11",
     "rxjs": "^6.6.0"
