@@ -12,6 +12,7 @@ import { LintCommand }                               from '@monstrs/mctl-lint'
 import { PreCommitCommand }                          from '@monstrs/mctl-precommit'
 import { FormatStagedCommand, LintStagedCommand }    from '@monstrs/mctl-precommit'
 import { TestStagedCommand, TypeCheckStagedCommand } from '@monstrs/mctl-precommit'
+import { ServiceBuildCommand }                       from '@monstrs/mctl-service'
 import { TestCommand }                               from '@monstrs/mctl-test'
 import { TypeCheckCommand }                          from '@monstrs/mctl-typecheck'
 
@@ -46,6 +47,8 @@ const run = () => {
   cli.register(DockerBuildCommand)
 
   cli.register(GithubCreateDeploymentCommand)
+
+  cli.register(ServiceBuildCommand)
 
   try {
     cli.runExit(process.argv.slice(2), {
