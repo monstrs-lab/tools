@@ -119,3 +119,14 @@ export const getChangedWorkspaces = async () => {
     changedFiles.some((changedFile) => changedFile.startsWith(workspace.cwd))
   )
 }
+
+export const getRootWorkspace = async (): Promise<Workspace> => {
+  const configuration = await Configuration.find(
+    process.cwd() as PortablePath,
+    getPluginConfiguration()
+  )
+
+  const { project } = await Project.find(configuration, process.cwd() as PortablePath)
+
+  return project.topLevelWorkspace
+}

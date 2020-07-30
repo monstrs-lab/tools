@@ -47,6 +47,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:code/code-test"
       },
       {
+        "name": "@monstrs/code-typescript",
+        "reference": "workspace:code/code-typescript"
+      },
+      {
         "name": "@monstrs/code-workspaces",
         "reference": "workspace:code/code-workspaces"
       },
@@ -104,6 +108,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@monstrs/code-github", ["workspace:code/code-github"]],
       ["@monstrs/code-lint", ["virtual:1f6d0f6a10b4de4dd3527ec201ddcf1f1ab886f402201fb5fdb9c02cf5238a01fc18af00ccebdc3129a032e4ffc5c8867af0b2c005b27bf4471f7fd69e8d5798#workspace:code/code-lint", "workspace:code/code-lint"]],
       ["@monstrs/code-test", ["workspace:code/code-test"]],
+      ["@monstrs/code-typescript", ["workspace:code/code-typescript"]],
       ["@monstrs/code-workspaces", ["workspace:code/code-workspaces"]],
       ["@monstrs/mctl-checks", ["virtual:b595e221efc02d1daf4868d0911d75a70b0149948ec714e676b211af50141aaa81b00b584078780c4f787f044dc5dab5dbece80327bdb939604adb5e8c375853#workspace:ctl/mctl-checks", "workspace:ctl/mctl-checks"]],
       ["@monstrs/mctl-cli", ["virtual:93762f395d50e2410536eefd1c9656e618c9e599e2d023ef5341f0dd44b7c10b9c8541440da9da71a8fae8443bde146c84aabb5f6bc6020be89f6fe1913af10c#workspace:ctl/mctl-cli", "workspace:ctl/mctl-cli"]],
@@ -2949,6 +2954,23 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT",
         }]
       ]],
+      ["@monstrs/code-typescript", [
+        ["workspace:code/code-typescript", {
+          "packageLocation": "./code/code-typescript/",
+          "packageDependencies": [
+            ["@monstrs/code-typescript", "workspace:code/code-typescript"],
+            ["@babel/code-frame", "npm:7.10.4"],
+            ["@monstrs/tsconfig", "npm:0.2.0"],
+            ["@types/babel__code-frame", "npm:7.0.1"],
+            ["@types/chalk", "npm:2.2.0"],
+            ["@types/node", "npm:14.0.23"],
+            ["@yarnpkg/pnpify", "virtual:db35841ccdab27f023c0f9c43b3bcce7d83c8a459243abc73162fc32d9f205e8a6ec026fddeb489744996ae047cf95e1ecd0fce8f858f6131c7d53332e357b75#npm:2.1.0"],
+            ["chalk", "npm:4.1.0"],
+            ["typescript", "patch:typescript@npm%3A3.9.7#builtin<compat/typescript>::version=3.9.7&hash=5b02a2"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
       ["@monstrs/code-workspaces", [
         ["workspace:code/code-workspaces", {
           "packageLocation": "./code/code-workspaces/",
@@ -2975,6 +2997,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@monstrs/code-github", "workspace:code/code-github"],
             ["@monstrs/code-lint", "virtual:1f6d0f6a10b4de4dd3527ec201ddcf1f1ab886f402201fb5fdb9c02cf5238a01fc18af00ccebdc3129a032e4ffc5c8867af0b2c005b27bf4471f7fd69e8d5798#workspace:code/code-lint"],
             ["@monstrs/code-test", "workspace:code/code-test"],
+            ["@monstrs/code-typescript", "workspace:code/code-typescript"],
+            ["@monstrs/code-workspaces", "workspace:code/code-workspaces"],
             ["@monstrs/tsconfig", "npm:0.2.0"],
             ["@types/node", "npm:14.0.23"],
             ["@yarnpkg/pnpify", "virtual:93762f395d50e2410536eefd1c9656e618c9e599e2d023ef5341f0dd44b7c10b9c8541440da9da71a8fae8443bde146c84aabb5f6bc6020be89f6fe1913af10c#npm:2.1.0"],
@@ -2996,6 +3020,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@monstrs/code-github", "workspace:code/code-github"],
             ["@monstrs/code-lint", "virtual:1f6d0f6a10b4de4dd3527ec201ddcf1f1ab886f402201fb5fdb9c02cf5238a01fc18af00ccebdc3129a032e4ffc5c8867af0b2c005b27bf4471f7fd69e8d5798#workspace:code/code-lint"],
             ["@monstrs/code-test", "workspace:code/code-test"],
+            ["@monstrs/code-typescript", "workspace:code/code-typescript"],
+            ["@monstrs/code-workspaces", "workspace:code/code-workspaces"],
             ["@monstrs/tsconfig", "npm:0.2.0"],
             ["@types/node", "npm:14.0.23"],
             ["@yarnpkg/pnpify", "virtual:93762f395d50e2410536eefd1c9656e618c9e599e2d023ef5341f0dd44b7c10b9c8541440da9da71a8fae8443bde146c84aabb5f6bc6020be89f6fe1913af10c#npm:2.1.0"],
@@ -3192,6 +3218,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@monstrs/code-format", "workspace:code/code-format"],
             ["@monstrs/code-lint", "virtual:1f6d0f6a10b4de4dd3527ec201ddcf1f1ab886f402201fb5fdb9c02cf5238a01fc18af00ccebdc3129a032e4ffc5c8867af0b2c005b27bf4471f7fd69e8d5798#workspace:code/code-lint"],
             ["@monstrs/code-test", "workspace:code/code-test"],
+            ["@monstrs/code-typescript", "workspace:code/code-typescript"],
             ["@monstrs/tsconfig", "npm:0.2.0"],
             ["@types/node", "npm:14.0.23"],
             ["@yarnpkg/pnpify", "virtual:db35841ccdab27f023c0f9c43b3bcce7d83c8a459243abc73162fc32d9f205e8a6ec026fddeb489744996ae047cf95e1ecd0fce8f858f6131c7d53332e357b75#npm:2.1.0"],
@@ -3214,6 +3241,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@monstrs/code-format", "workspace:code/code-format"],
             ["@monstrs/code-lint", "virtual:1f6d0f6a10b4de4dd3527ec201ddcf1f1ab886f402201fb5fdb9c02cf5238a01fc18af00ccebdc3129a032e4ffc5c8867af0b2c005b27bf4471f7fd69e8d5798#workspace:code/code-lint"],
             ["@monstrs/code-test", "workspace:code/code-test"],
+            ["@monstrs/code-typescript", "workspace:code/code-typescript"],
             ["@monstrs/tsconfig", "npm:0.2.0"],
             ["@types/node", "npm:14.0.23"],
             ["@yarnpkg/pnpify", "virtual:db35841ccdab27f023c0f9c43b3bcce7d83c8a459243abc73162fc32d9f205e8a6ec026fddeb489744996ae047cf95e1ecd0fce8f858f6131c7d53332e357b75#npm:2.1.0"],
@@ -3247,12 +3275,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./ctl/mctl-typecheck/",
           "packageDependencies": [
             ["@monstrs/mctl-typecheck", "workspace:ctl/mctl-typecheck"],
+            ["@monstrs/code-typescript", "workspace:code/code-typescript"],
+            ["@monstrs/code-workspaces", "workspace:code/code-workspaces"],
             ["@monstrs/tsconfig", "npm:0.2.0"],
             ["@types/execa", "npm:2.0.0"],
             ["@types/node", "npm:14.0.23"],
             ["@yarnpkg/pnpify", "virtual:db35841ccdab27f023c0f9c43b3bcce7d83c8a459243abc73162fc32d9f205e8a6ec026fddeb489744996ae047cf95e1ecd0fce8f858f6131c7d53332e357b75#npm:2.1.0"],
             ["clipanion", "npm:2.4.4"],
-            ["execa", "npm:4.0.3"],
             ["typescript", "patch:typescript@npm%3A3.9.7#builtin<compat/typescript>::version=3.9.7&hash=5b02a2"]
           ],
           "linkType": "SOFT",
@@ -3633,6 +3662,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["@types/babel__code-frame", [
+        ["npm:7.0.1", {
+          "packageLocation": "./.yarn/cache/@types-babel__code-frame-npm-7.0.1-d747ce7217-89c185cabe.zip/node_modules/@types/babel__code-frame/",
+          "packageDependencies": [
+            ["@types/babel__code-frame", "npm:7.0.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["@types/babel__core", [
         ["npm:7.1.7", {
           "packageLocation": "./.yarn/cache/@types-babel__core-npm-7.1.7-f2ee4098a7-f440303059.zip/node_modules/@types/babel__core/",
@@ -3699,6 +3737,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/keyv", "npm:3.1.1"],
             ["@types/node", "npm:14.0.5"],
             ["@types/responselike", "npm:1.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/chalk", [
+        ["npm:2.2.0", {
+          "packageLocation": "./.yarn/cache/@types-chalk-npm-2.2.0-aa14c60d4f-9cded9031f.zip/node_modules/@types/chalk/",
+          "packageDependencies": [
+            ["@types/chalk", "npm:2.2.0"],
+            ["chalk", "npm:4.1.0"]
           ],
           "linkType": "HARD",
         }]
