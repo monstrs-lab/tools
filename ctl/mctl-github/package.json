@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/mctl-github",
-  "version": "0.2.13",
+  "version": "0.2.14",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -19,7 +19,7 @@
     "typescript": "^3.9.7"
   },
   "dependencies": {
-    "@monstrs/code-github": "workspace:0.0.15",
+    "@monstrs/code-github": "workspace:0.0.16",
     "clipanion": "^2.4.4",
     "execa": "^4.0.3"
   },

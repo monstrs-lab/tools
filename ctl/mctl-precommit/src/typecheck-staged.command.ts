@@ -1,5 +1,6 @@
-import execa       from 'execa'
-import { Command } from 'clipanion'
+import { Command }    from 'clipanion'
+
+import { TypeScript } from '@monstrs/code-typescript'
 
 class TypeCheckStagedCommand extends Command {
   @Command.Rest({ required: 0 })
@@ -7,18 +8,18 @@ class TypeCheckStagedCommand extends Command {
 
   @Command.Path(`staged`, `typecheck`)
   async execute() {
-    try {
-      await execa('yarn', ['pnpify', 'tsc', '--noEmit', ...this.files], {
-        stdio: 'inherit',
-      })
-    } catch (error) {
-      if (error.stderr) {
-        this.context.stdout.write(error.stderr)
-      }
+    const ts = new TypeScript()
 
-      if (error.exitCode !== 0) {
-        process.exit(error.exitCode === null ? 0 : error.exitCode)
-      }
+    const result = ts.check(this.files)
+
+    Object.values(result)
+      .flat()
+      .forEach((diagnostic) => {
+        this.context.stdout.write(ts.formatDiagnostic(diagnostic))
+      })
+
+    if (result.errors.length > 0) {
+      process.exit(1)
     }
   }
 }

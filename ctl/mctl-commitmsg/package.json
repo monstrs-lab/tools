@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/mctl-commitmsg",
-  "version": "0.2.18",
+  "version": "0.2.19",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -19,7 +19,7 @@
     "typescript": "^3.9.7"
   },
   "dependencies": {
-    "@monstrs/code-commitlint": "workspace:0.0.20",
+    "@monstrs/code-commitlint": "workspace:0.0.21",
     "clipanion": "^2.4.4"
   },
   "publishConfig": {

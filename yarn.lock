@@ -2171,12 +2171,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@monstrs/code-changes@workspace:0.0.15, @monstrs/code-changes@workspace:code/code-changes":
+"@monstrs/code-changes@workspace:0.0.16, @monstrs/code-changes@workspace:code/code-changes":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-changes@workspace:code/code-changes"
   dependencies:
     "@babel/types": ^7.10.5
-    "@monstrs/code-github": "workspace:0.0.15"
+    "@monstrs/code-github": "workspace:0.0.16"
     "@monstrs/tsconfig": ^0.2.0
     "@types/execa": 2.0.0
     "@types/node": ^14.0.23
@@ -2186,7 +2186,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-commitlint@workspace:0.0.20, @monstrs/code-commitlint@workspace:code/code-commitlint":
+"@monstrs/code-commitlint@workspace:0.0.21, @monstrs/code-commitlint@workspace:code/code-commitlint":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-commitlint@workspace:code/code-commitlint"
   dependencies:
@@ -2204,7 +2204,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-format@workspace:0.0.15, @monstrs/code-format@workspace:code/code-format":
+"@monstrs/code-format@workspace:0.0.16, @monstrs/code-format@workspace:code/code-format":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-format@workspace:code/code-format"
   dependencies:
@@ -2221,7 +2221,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-github@workspace:0.0.15, @monstrs/code-github@workspace:code/code-github":
+"@monstrs/code-github@workspace:0.0.16, @monstrs/code-github@workspace:code/code-github":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-github@workspace:code/code-github"
   dependencies:
@@ -2235,11 +2235,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-lint@workspace:0.0.27, @monstrs/code-lint@workspace:code/code-lint":
+"@monstrs/code-lint@workspace:0.0.28, @monstrs/code-lint@workspace:code/code-lint":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-lint@workspace:code/code-lint"
   dependencies:
-    "@monstrs/code-format": "workspace:0.0.15"
+    "@monstrs/code-format": "workspace:0.0.16"
     "@monstrs/tsconfig": ^0.2.0
     "@types/eslint": 7.2.0
     "@types/globby": 9.1.0
@@ -2270,7 +2270,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-test@workspace:0.0.20, @monstrs/code-test@workspace:code/code-test":
+"@monstrs/code-test@workspace:0.0.21, @monstrs/code-test@workspace:code/code-test":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-test@workspace:code/code-test"
   dependencies:
@@ -2294,11 +2294,26 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-workspaces@workspace:0.0.15, @monstrs/code-workspaces@workspace:code/code-workspaces":
+"@monstrs/code-typescript@workspace:0.0.28, @monstrs/code-typescript@workspace:code/code-typescript":
+  version: 0.0.0-use.local
+  resolution: "@monstrs/code-typescript@workspace:code/code-typescript"
+  dependencies:
+    "@babel/code-frame": ^7.10.4
+    "@monstrs/tsconfig": ^0.2.0
+    "@types/babel__code-frame": 7.0.1
+    "@types/chalk": 2.2.0
+    "@types/node": ^14.0.23
+    "@yarnpkg/pnpify": ^2.1.0
+    chalk: ^4.1.0
+    typescript: ^3.9.7
+  languageName: unknown
+  linkType: soft
+
+"@monstrs/code-workspaces@workspace:0.0.16, @monstrs/code-workspaces@workspace:code/code-workspaces":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-workspaces@workspace:code/code-workspaces"
   dependencies:
-    "@monstrs/code-changes": "workspace:0.0.15"
+    "@monstrs/code-changes": "workspace:0.0.16"
     "@monstrs/tsconfig": ^0.2.0
     "@types/node": ^14.0.23
     "@yarnpkg/cli": ^2.1.1
@@ -2309,14 +2324,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-checks@workspace:0.2.20, @monstrs/mctl-checks@workspace:ctl/mctl-checks":
+"@monstrs/mctl-checks@workspace:0.2.21, @monstrs/mctl-checks@workspace:ctl/mctl-checks":
   version: 0.0.0-use.local
   resolution: "@monstrs/mctl-checks@workspace:ctl/mctl-checks"
   dependencies:
     "@actions/github": ^4.0.0
-    "@monstrs/code-github": "workspace:0.0.15"
-    "@monstrs/code-lint": "workspace:0.0.27"
-    "@monstrs/code-test": "workspace:0.0.20"
+    "@monstrs/code-github": "workspace:0.0.16"
+    "@monstrs/code-lint": "workspace:0.0.28"
+    "@monstrs/code-test": "workspace:0.0.21"
+    "@monstrs/code-typescript": "workspace:0.0.28"
+    "@monstrs/code-workspaces": "workspace:0.0.16"
     "@monstrs/tsconfig": ^0.2.0
     "@types/node": ^14.0.23
     "@yarnpkg/pnpify": ^2.1.0
@@ -2332,21 +2349,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-cli@workspace:0.2.29, @monstrs/mctl-cli@workspace:ctl/mctl-cli":
+"@monstrs/mctl-cli@workspace:0.2.30, @monstrs/mctl-cli@workspace:ctl/mctl-cli":
   version: 0.0.0-use.local
   resolution: "@monstrs/mctl-cli@workspace:ctl/mctl-cli"
   dependencies:
     "@babel/register": ^7.10.5
-    "@monstrs/mctl-checks": "workspace:0.2.20"
-    "@monstrs/mctl-commit": "workspace:0.2.19"
-    "@monstrs/mctl-commitmsg": "workspace:0.2.18"
-    "@monstrs/mctl-docker": "workspace:0.2.13"
-    "@monstrs/mctl-format": "workspace:0.2.18"
-    "@monstrs/mctl-github": "workspace:0.2.13"
-    "@monstrs/mctl-lint": "workspace:0.2.20"
-    "@monstrs/mctl-precommit": "workspace:0.2.19"
-    "@monstrs/mctl-test": "workspace:0.2.19"
-    "@monstrs/mctl-typecheck": "workspace:0.2.18"
+    "@monstrs/mctl-checks": "workspace:0.2.21"
+    "@monstrs/mctl-commit": "workspace:0.2.20"
+    "@monstrs/mctl-commitmsg": "workspace:0.2.19"
+    "@monstrs/mctl-docker": "workspace:0.2.14"
+    "@monstrs/mctl-format": "workspace:0.2.19"
+    "@monstrs/mctl-github": "workspace:0.2.14"
+    "@monstrs/mctl-lint": "workspace:0.2.21"
+    "@monstrs/mctl-precommit": "workspace:0.2.20"
+    "@monstrs/mctl-test": "workspace:0.2.20"
+    "@monstrs/mctl-typecheck": "workspace:0.2.19"
     "@monstrs/tsconfig": ^0.2.0
     "@types/babel__core": 7.1.9
     "@types/node": ^14.0.23
@@ -2364,7 +2381,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-commit@workspace:0.2.19, @monstrs/mctl-commit@workspace:ctl/mctl-commit":
+"@monstrs/mctl-commit@workspace:0.2.20, @monstrs/mctl-commit@workspace:ctl/mctl-commit":
   version: 0.0.0-use.local
   resolution: "@monstrs/mctl-commit@workspace:ctl/mctl-commit"
   dependencies:
@@ -2390,11 +2407,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-commitmsg@workspace:0.2.18, @monstrs/mctl-commitmsg@workspace:ctl/mctl-commitmsg":
+"@monstrs/mctl-commitmsg@workspace:0.2.19, @monstrs/mctl-commitmsg@workspace:ctl/mctl-commitmsg":
   version: 0.0.0-use.local
   resolution: "@monstrs/mctl-commitmsg@workspace:ctl/mctl-commitmsg"
   dependencies:
-    "@monstrs/code-commitlint": "workspace:0.0.20"
+    "@monstrs/code-commitlint": "workspace:0.0.21"
     "@monstrs/tsconfig": ^0.2.0
     "@types/node": ^14.0.23
     "@yarnpkg/pnpify": ^2.1.0
@@ -2403,12 +2420,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-docker@workspace:0.2.13, @monstrs/mctl-docker@workspace:ctl/mctl-docker":
+"@monstrs/mctl-docker@workspace:0.2.14, @monstrs/mctl-docker@workspace:ctl/mctl-docker":
   version: 0.0.0-use.local
   resolution: "@monstrs/mctl-docker@workspace:ctl/mctl-docker"
   dependencies:
-    "@monstrs/code-changes": "workspace:0.0.15"
-    "@monstrs/code-workspaces": "workspace:0.0.15"
+    "@monstrs/code-changes": "workspace:0.0.16"
+    "@monstrs/code-workspaces": "workspace:0.0.16"
     "@monstrs/tsconfig": ^0.2.0
     "@types/node": ^14.0.23
     "@yarnpkg/pnpify": ^2.1.0
@@ -2418,11 +2435,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-format@workspace:0.2.18, @monstrs/mctl-format@workspace:ctl/mctl-format":
+"@monstrs/mctl-format@workspace:0.2.19, @monstrs/mctl-format@workspace:ctl/mctl-format":
   version: 0.0.0-use.local
   resolution: "@monstrs/mctl-format@workspace:ctl/mctl-format"
   dependencies:
-    "@monstrs/code-format": "workspace:0.0.15"
+    "@monstrs/code-format": "workspace:0.0.16"
     "@monstrs/tsconfig": ^0.2.0
     "@types/node": ^14.0.23
     "@yarnpkg/pnpify": ^2.1.0
@@ -2431,11 +2448,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-github@workspace:0.2.13, @monstrs/mctl-github@workspace:ctl/mctl-github":
+"@monstrs/mctl-github@workspace:0.2.14, @monstrs/mctl-github@workspace:ctl/mctl-github":
   version: 0.0.0-use.local
   resolution: "@monstrs/mctl-github@workspace:ctl/mctl-github"
   dependencies:
-    "@monstrs/code-github": "workspace:0.0.15"
+    "@monstrs/code-github": "workspace:0.0.16"
     "@monstrs/tsconfig": ^0.2.0
     "@types/node": ^14.0.23
     "@yarnpkg/pnpify": ^2.1.0
@@ -2445,11 +2462,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-lint@workspace:0.2.20, @monstrs/mctl-lint@workspace:ctl/mctl-lint":
+"@monstrs/mctl-lint@workspace:0.2.21, @monstrs/mctl-lint@workspace:ctl/mctl-lint":
   version: 0.0.0-use.local
   resolution: "@monstrs/mctl-lint@workspace:ctl/mctl-lint"
   dependencies:
-    "@monstrs/code-lint": "workspace:0.0.27"
+    "@monstrs/code-lint": "workspace:0.0.28"
     "@monstrs/tsconfig": ^0.2.0
     "@types/node": ^14.0.23
     "@yarnpkg/pnpify": ^2.1.0
@@ -2463,13 +2480,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-precommit@workspace:0.2.19, @monstrs/mctl-precommit@workspace:ctl/mctl-precommit":
+"@monstrs/mctl-precommit@workspace:0.2.20, @monstrs/mctl-precommit@workspace:ctl/mctl-precommit":
   version: 0.0.0-use.local
   resolution: "@monstrs/mctl-precommit@workspace:ctl/mctl-precommit"
   dependencies:
-    "@monstrs/code-format": "workspace:0.0.15"
-    "@monstrs/code-lint": "workspace:0.0.27"
-    "@monstrs/code-test": "workspace:0.0.20"
+    "@monstrs/code-format": "workspace:0.0.16"
+    "@monstrs/code-lint": "workspace:0.0.28"
+    "@monstrs/code-test": "workspace:0.0.21"
+    "@monstrs/code-typescript": "workspace:0.0.28"
     "@monstrs/tsconfig": ^0.2.0
     "@types/node": ^14.0.23
     "@yarnpkg/pnpify": ^2.1.0
@@ -2487,11 +2505,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-test@workspace:0.2.19, @monstrs/mctl-test@workspace:ctl/mctl-test":
+"@monstrs/mctl-test@workspace:0.2.20, @monstrs/mctl-test@workspace:ctl/mctl-test":
   version: 0.0.0-use.local
   resolution: "@monstrs/mctl-test@workspace:ctl/mctl-test"
   dependencies:
-    "@monstrs/code-test": "workspace:0.0.20"
+    "@monstrs/code-test": "workspace:0.0.21"
     "@monstrs/tsconfig": ^0.2.0
     "@types/node": ^14.0.23
     "@yarnpkg/pnpify": ^2.1.0
@@ -2500,16 +2518,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-typecheck@workspace:0.2.18, @monstrs/mctl-typecheck@workspace:ctl/mctl-typecheck":
+"@monstrs/mctl-typecheck@workspace:0.2.19, @monstrs/mctl-typecheck@workspace:ctl/mctl-typecheck":
   version: 0.0.0-use.local
   resolution: "@monstrs/mctl-typecheck@workspace:ctl/mctl-typecheck"
   dependencies:
+    "@monstrs/code-typescript": "workspace:0.0.28"
+    "@monstrs/code-workspaces": "workspace:0.0.16"
     "@monstrs/tsconfig": ^0.2.0
     "@types/execa": 2.0.0
     "@types/node": ^14.0.23
     "@yarnpkg/pnpify": ^2.1.0
     clipanion: ^2.4.4
-    execa: ^4.0.3
     typescript: ^3.9.7
   languageName: unknown
   linkType: soft
@@ -2855,6 +2874,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/babel__code-frame@npm:7.0.1":
+  version: 7.0.1
+  resolution: "@types/babel__code-frame@npm:7.0.1"
+  checksum: 89c185cabe675e732e83df04aaae0698357e97a9c7cc5bce5cf6cc2efd6478536214e87d4daf79988b3bb8941693dbc6da8daf905f3fcaddbd441086ab1bbc14
+  languageName: node
+  linkType: hard
+
 "@types/babel__core@npm:7.1.9, @types/babel__core@npm:^7.0.0":
   version: 7.1.9
   resolution: "@types/babel__core@npm:7.1.9"
@@ -2918,6 +2944,15 @@ __metadata:
     "@types/node": "*"
     "@types/responselike": "*"
   checksum: 3dae802a0808573986c56b92bf16cd031a5b648b6c893d20c7ef6bfda3fc72a2107c7978697d2b27b14febc597162d6959985eeb5befc307a9f9f3c5081d4905
+  languageName: node
+  linkType: hard
+
+"@types/chalk@npm:2.2.0":
+  version: 2.2.0
+  resolution: "@types/chalk@npm:2.2.0"
+  dependencies:
+    chalk: "*"
+  checksum: 9cded9031f180268be59010fc1e13c7b4384e51f0ca8b75bc7a40bdd46f5f3c4859953525fb53663287e5bb25ca5df59396c276ce5c09e1a83aa7a2aec6a9f59
   languageName: node
   linkType: hard
 
@@ -12808,7 +12843,7 @@ fsevents@^2.1.2:
     "@babel/preset-typescript": ^7.10.4
     "@babel/runtime": ^7.10.5
     "@babel/types": ^7.10.5
-    "@monstrs/mctl-cli": "workspace:0.2.29"
+    "@monstrs/mctl-cli": "workspace:0.2.30"
     "@monstrs/tsconfig": ^0.2.0
     "@types/aria-query": 4.2.0
     "@types/array.prototype.flat": 1.2.1

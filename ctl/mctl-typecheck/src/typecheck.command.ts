@@ -1,21 +1,25 @@
-import execa       from 'execa'
-import { Command } from 'clipanion'
+import { Command }          from 'clipanion'
+
+import { TypeScript }       from '@monstrs/code-typescript'
+import { getRootWorkspace } from '@monstrs/code-workspaces'
 
 class TypeCheckCommand extends Command {
   @Command.Path(`typecheck`)
   async execute() {
-    try {
-      await execa('yarn', ['pnpify', 'tsc', '--noEmit', '-p', process.cwd()], {
-        stdio: 'inherit',
-      })
-    } catch (error) {
-      if (error.stderr) {
-        this.context.stdout.write(error.stderr)
-      }
+    const ts = new TypeScript()
 
-      if (error.exitCode !== 0) {
-        process.exit(error.exitCode === null ? 0 : error.exitCode)
-      }
+    const { manifest } = await getRootWorkspace()
+
+    const result = ts.check(manifest.workspaceDefinitions.map((definition) => definition.pattern))
+
+    Object.values(result)
+      .flat()
+      .forEach((diagnostic) => {
+        this.context.stdout.write(ts.formatDiagnostic(diagnostic))
+      })
+
+    if (result.errors.length > 0) {
+      process.exit(1)
     }
   }
 }

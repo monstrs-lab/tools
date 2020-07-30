@@ -1,80 +1,71 @@
-import execa                                                    from 'execa'
-import { Command }                                              from 'clipanion'
+import path                               from 'path'
+import { Command }                        from 'clipanion'
+import { Diagnostic, DiagnosticCategory } from 'typescript'
 
-import { Annotation, AnnotationLevel, Conclusion, createCheck } from './github'
+import { TypeScript }                     from '@monstrs/code-typescript'
+import { getRootWorkspace }               from '@monstrs/code-workspaces'
 
-const getAnnotationLevel = (level: string): AnnotationLevel => {
-  if (level !== 'failure') {
+import { Annotation, AnnotationLevel }    from './github'
+import { Conclusion, createCheck }        from './github'
+
+const getAnnotationLevel = (category: number): AnnotationLevel => {
+  if (category === DiagnosticCategory.Warning) {
     return AnnotationLevel.Warning
   }
 
   return AnnotationLevel.Failure
 }
 
-const formatLine = (line: string): Annotation => {
-  const [file, rule, message] = line.split(':')
+const formatDiagnostic = (diagnostic: Diagnostic, details): Annotation => {
+  const pos = diagnostic.file.getLineAndCharacterOfPosition(diagnostic.start!)
+  const line = pos.line + 1
 
-  const [filePath, position] = file.split(/\(|\)/).filter((f: any) => f)
-  const [startLine] = position.split(',')
-  const [level] = rule.trim().split(' ')
+  const filePath = path.posix.normalize(
+    path.relative(process.cwd(), diagnostic.file.fileName).replace(/\\/, '/')
+  )
 
   return {
     path: filePath,
-    start_line: Number(startLine || 0),
-    end_line: Number(startLine || 0),
-    annotation_level: getAnnotationLevel(level),
-    title: rule.trim(),
-    message: message.trim(),
-    raw_details: `(${rule.trim()}): ${message.trim()}`,
+    start_line: line,
+    end_line: line,
+    title: diagnostic.messageText as string,
+    message: diagnostic.messageText as string,
+    raw_details: details as string,
+    annotation_level: getAnnotationLevel(diagnostic.category),
   }
 }
 
 class TypeCheckCommand extends Command {
   @Command.Path(`check`, `typecheck`)
   async execute() {
-    try {
-      const result = await execa('yarn', [
-        'pnpify',
-        'tsc',
-        '--noEmit',
-        '-p',
-        process.cwd(),
-        '--pretty',
-        'false',
-      ])
+    const ts = new TypeScript()
 
-      await this.check(result.all)
-    } catch (error) {
-      await this.check(error.all)
-    }
+    const { manifest } = await getRootWorkspace()
+
+    const result = ts.check(manifest.workspaceDefinitions.map((definition) => definition.pattern))
+
+    const annotations = Object.values(result)
+      .flat()
+      .filter((diagnostic: Diagnostic) => diagnostic.file)
+      .map((diagnostic: Diagnostic) =>
+        formatDiagnostic(diagnostic, ts.formatDiagnostic(diagnostic, true))
+      )
+
+    await this.check(
+      result.errors.length > 0 ? Conclusion.Failure : Conclusion.Success,
+      annotations
+    )
   }
 
-  async check(output: string = '') {
-    const annotations: Annotation[] = output
-      .split('\n')
-      .reduce((result: string[], line: string, index: number) => {
-        if (line.includes(' TS')) {
-          return [...result, line]
-        }
-
-        if (result.length > 0 && result[result.length - 1]) {
-          result[result.length - 1] = result[result.length - 1] + line // eslint-disable-line
-        }
-
-        return result
-      }, [])
-      .map(formatLine)
-
-    await createCheck(
-      'TypeCheck',
-      annotations.length > 0 ? Conclusion.Failure : Conclusion.Success,
-      {
-        title: annotations.length > 0 ? `Errors ${annotations.length}` : 'Successful',
-        summary:
-          annotations.length > 0 ? `Found ${annotations.length} errors` : 'All checks passed',
-        annotations,
-      }
-    )
+  async check(conclusion, annotations) {
+    await createCheck('TypeCheck', conclusion, {
+      title: conclusion === Conclusion.Failure ? `Errors ${annotations.length}` : 'Successful',
+      summary:
+        conclusion === Conclusion.Failure
+          ? `Found ${annotations.length} errors`
+          : 'All checks passed',
+      annotations,
+    })
   }
 }
 

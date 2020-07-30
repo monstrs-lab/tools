@@ -1,7 +1,7 @@
 const config = {
   extends: [
-      require.resolve('@commitlint/config-lerna-scopes'),
-      require.resolve('@commitlint/config-conventional')
+    require.resolve('@commitlint/config-lerna-scopes'),
+    require.resolve('@commitlint/config-conventional'),
   ],
   rules: {
     'scope-enum': [0, 'always', ['deps', 'common', 'front', 'back', 'devops']],
