@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/mctl-typecheck",
-  "version": "0.2.20",
+  "version": "0.2.21",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -20,8 +20,8 @@
     "typescript": "^3.9.7"
   },
   "dependencies": {
-    "@monstrs/code-typescript": "workspace:0.0.29",
-    "@monstrs/code-workspaces": "workspace:0.0.17",
+    "@monstrs/code-typescript": "workspace:0.0.30",
+    "@monstrs/code-workspaces": "workspace:0.0.18",
     "clipanion": "^2.4.4"
   },
   "publishConfig": {

@@ -1,3 +1,4 @@
+import deepmerge            from 'deepmerge'
 import ts                   from 'typescript'
 
 import { base }             from './config'
@@ -47,7 +48,11 @@ class TypeScript {
   }
 
   private getCompilerConfig(include = [], override = {}) {
-    return ts.parseJsonConfigFileContent({ ...base, ...override, include }, ts.sys, this.cwd)
+    return ts.parseJsonConfigFileContent(
+      deepmerge(base, { compilerOptions: override }, { include } as any),
+      ts.sys,
+      this.cwd
+    )
   }
 }
 
