@@ -16,7 +16,7 @@ const getAnnotationLevel = (category: number): AnnotationLevel => {
   return AnnotationLevel.Failure
 }
 
-const formatDiagnostic = (diagnostic: Diagnostic, details): Annotation => {
+const formatDiagnostic = (diagnostic: Diagnostic, details: string): Annotation => {
   const pos = diagnostic.file.getLineAndCharacterOfPosition(diagnostic.start!)
   const line = pos.line + 1
 
@@ -24,13 +24,20 @@ const formatDiagnostic = (diagnostic: Diagnostic, details): Annotation => {
     path.relative(process.cwd(), diagnostic.file.fileName).replace(/\\/, '/')
   )
 
+  // eslint-disable-next-line prefer-destructuring
+  let messageText: any = diagnostic.messageText
+
+  if (messageText && messageText.messageText) {
+    messageText = messageText.messageText
+  }
+
   return {
     path: filePath,
     start_line: line,
     end_line: line,
-    title: diagnostic.messageText as string,
-    message: diagnostic.messageText as string,
-    raw_details: details as string,
+    title: messageText,
+    message: messageText,
+    raw_details: details,
     annotation_level: getAnnotationLevel(diagnostic.category),
   }
 }

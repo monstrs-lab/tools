@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/mctl-format",
-  "version": "0.2.20",
+  "version": "0.2.21",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -19,7 +19,7 @@
     "typescript": "^3.9.7"
   },
   "dependencies": {
-    "@monstrs/code-format": "workspace:0.0.17",
+    "@monstrs/code-format": "workspace:0.0.18",
     "clipanion": "^2.4.4"
   },
   "publishConfig": {

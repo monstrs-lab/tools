@@ -4260,12 +4260,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
                   ['@monstrs/tsconfig', 'npm:0.2.0'],
                   ['@types/babel__code-frame', 'npm:7.0.1'],
                   ['@types/chalk', 'npm:2.2.0'],
+                  ['@types/deepmerge', 'npm:2.2.0'],
                   ['@types/node', 'npm:14.0.23'],
                   [
                     '@yarnpkg/pnpify',
                     'virtual:db35841ccdab27f023c0f9c43b3bcce7d83c8a459243abc73162fc32d9f205e8a6ec026fddeb489744996ae047cf95e1ecd0fce8f858f6131c7d53332e357b75#npm:2.1.0',
                   ],
                   ['chalk', 'npm:4.1.0'],
+                  ['deepmerge', 'npm:4.2.2'],
                   [
                     'typescript',
                     'patch:typescript@npm%3A3.9.7#builtin<compat/typescript>::version=3.9.7&hash=5b02a2',
@@ -5619,6 +5621,23 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
                 packageLocation:
                   './.yarn/cache/@types-debug-npm-4.1.5-3464d6c971-416ad24bc5.zip/node_modules/@types/debug/',
                 packageDependencies: [['@types/debug', 'npm:4.1.5']],
+                linkType: 'HARD',
+              },
+            ],
+          ],
+        ],
+        [
+          '@types/deepmerge',
+          [
+            [
+              'npm:2.2.0',
+              {
+                packageLocation:
+                  './.yarn/cache/@types-deepmerge-npm-2.2.0-fdf10de75b-a2a38a7735.zip/node_modules/@types/deepmerge/',
+                packageDependencies: [
+                  ['@types/deepmerge', 'npm:2.2.0'],
+                  ['deepmerge', 'npm:4.2.2'],
+                ],
                 linkType: 'HARD',
               },
             ],
