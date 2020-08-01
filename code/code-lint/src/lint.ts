@@ -26,7 +26,11 @@ class Linter {
   }
 
   lintFiles(files: string[] = []) {
-    return this.engine.executeOnFiles(files)
+    const ignorer = ignore().add(ignoreConfig)
+
+    return this.engine.executeOnFiles(
+      files.filter((file) => ignorer.filter([path.relative(this.cwd, file)]).length !== 0)
+    )
   }
 
   lint() {
@@ -34,11 +38,11 @@ class Linter {
 
     const patterns = createPatterns(this.cwd)
 
-    const filePaths = globby
+    const files = globby
       .sync(patterns, { dot: true, nodir: true } as any)
-      .filter((filePath) => ignorer.filter([path.relative(this.cwd, filePath)]).length !== 0)
+      .filter((file) => ignorer.filter([path.relative(this.cwd, file)]).length !== 0)
 
-    return this.lintFiles(filePaths)
+    return this.lintFiles(files)
   }
 
   format(results: any, format = 'stylish') {
