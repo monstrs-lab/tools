@@ -40,6 +40,7 @@
     "@monstrs/mctl-docker": "workspace:0.2.17",
     "@monstrs/mctl-format": "workspace:0.2.22",
     "@monstrs/mctl-github": "workspace:0.2.17",
+    "@monstrs/mctl-library": "workspace:0.2.17",
     "@monstrs/mctl-lint": "workspace:0.2.24",
     "@monstrs/mctl-precommit": "workspace:0.2.23",
     "@monstrs/mctl-service": "workspace:0.2.17",

@@ -8,6 +8,7 @@ import { CommitmsgCommand }                          from '@monstrs/mctl-commitm
 import { DockerBuildCommand }                        from '@monstrs/mctl-docker'
 import { FormatCommand }                             from '@monstrs/mctl-format'
 import { GithubCreateDeploymentCommand }             from '@monstrs/mctl-github'
+import { LibraryBuildCommand }                       from '@monstrs/mctl-library'
 import { LintCommand }                               from '@monstrs/mctl-lint'
 import { PreCommitCommand }                          from '@monstrs/mctl-precommit'
 import { FormatStagedCommand, LintStagedCommand }    from '@monstrs/mctl-precommit'
@@ -49,6 +50,8 @@ const run = () => {
   cli.register(GithubCreateDeploymentCommand)
 
   cli.register(ServiceBuildCommand)
+
+  cli.register(LibraryBuildCommand)
 
   try {
     cli.runExit(process.argv.slice(2), {
