@@ -1,34 +1,29 @@
 {
-  "name": "@monstrs/code-commitlint",
-  "version": "0.0.25",
+  "name": "@monstrs/mctl-library",
+  "version": "0.2.18",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "exec": "yarn run build && yarn node test.js",
     "clean": "rm -r -f dist",
-    "prebuild": "yarn clean",
     "prepublishOnly": "yarn run build",
+    "prebuild": "yarn clean",
     "build": "yarn pnpify tsc -p tsconfig.json"
   },
   "devDependencies": {
     "@monstrs/tsconfig": "^0.2.0",
-    "@types/globby": "9.1.0",
     "@types/node": "^14.0.23",
     "@yarnpkg/pnpify": "^2.1.0",
     "typescript": "^3.9.7"
   },
   "dependencies": {
-    "@commitlint/config-conventional": "^9.1.1",
-    "@commitlint/config-lerna-scopes": "^9.1.1",
-    "@commitlint/format": "^9.1.1",
-    "@commitlint/lint": "^9.1.1",
-    "@commitlint/load": "^9.1.1",
-    "@commitlint/read": "^9.1.1"
+    "@monstrs/code-typescript": "workspace:0.0.32",
+    "clipanion": "^2.4.4"
   },
   "publishConfig": {
+    "access": "public",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts"
   }

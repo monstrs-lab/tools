@@ -1,7 +1,7 @@
 import path                               from 'path'
 import { Command }                        from 'clipanion'
-import { Diagnostic, DiagnosticCategory } from 'typescript'
 
+import { Diagnostic, DiagnosticCategory } from '@monstrs/code-typescript'
 import { TypeScript }                     from '@monstrs/code-typescript'
 import { getRootWorkspace }               from '@monstrs/code-workspaces'
 
