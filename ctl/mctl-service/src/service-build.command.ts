@@ -1,24 +1,21 @@
-import { Command }    from 'clipanion'
+import { Command } from 'clipanion'
 
-import { TypeScript } from '@monstrs/code-typescript'
+import { build }   from '@monstrs/code-service'
 
 class ServiceBuildCommand extends Command {
   @Command.Path(`service`, `build`)
   async execute() {
-    const ts = new TypeScript()
+    const { errors, warnings } = await build({ cwd: process.cwd() })
 
-    const result = ts.build(['./src'], {
-      declaration: false,
-      module: 'commonjs',
+    errors.forEach((error) => {
+      this.context.stdout.write(error.message)
     })
 
-    Object.values(result)
-      .flat()
-      .forEach((diagnostic) => {
-        this.context.stdout.write(ts.formatDiagnostic(diagnostic))
-      })
+    warnings.forEach((warning) => {
+      this.context.stdout.write(warning.message)
+    })
 
-    if (result.errors.length > 0) {
+    if (errors.length > 0) {
       process.exit(1)
     }
   }

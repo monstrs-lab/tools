@@ -4,7 +4,7 @@ import path                            from 'path'
 import { Command }                     from 'clipanion'
 
 import { getChangedFiles, getVersion } from '@monstrs/code-changes'
-import { getWorkspaces }               from '@monstrs/code-workspaces'
+import { getWorkspaces }               from '@monstrs/code-project'
 
 interface BuildCommandOptions {
   dockerfile: string

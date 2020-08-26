@@ -14,6 +14,7 @@ import { PreCommitCommand }                          from '@monstrs/mctl-precomm
 import { FormatStagedCommand, LintStagedCommand }    from '@monstrs/mctl-precommit'
 import { TestStagedCommand, TypeCheckStagedCommand } from '@monstrs/mctl-precommit'
 import { ServiceBuildCommand }                       from '@monstrs/mctl-service'
+import { ServiceStartCommand }                       from '@monstrs/mctl-service'
 import { TestCommand }                               from '@monstrs/mctl-test'
 import { TypeCheckCommand }                          from '@monstrs/mctl-typecheck'
 
@@ -50,19 +51,21 @@ const run = () => {
   cli.register(GithubCreateDeploymentCommand)
 
   cli.register(ServiceBuildCommand)
+  cli.register(ServiceStartCommand)
 
   cli.register(LibraryBuildCommand)
 
-  try {
-    cli.runExit(process.argv.slice(2), {
+  cli
+    .runExit(process.argv.slice(2), {
       stdin: process.stdin,
       stdout: process.stdout,
       stderr: process.stderr,
     })
-  } catch (error) {
-    process.stdout.write(error.stack || error.message)
-    process.exitCode = 1
-  }
+    .catch((error) => {
+      process.stdout.write(error.stack || error.message)
+      process.exitCode = 1
+    })
+    .finally(() => process.exit())
 }
 
 export { run }

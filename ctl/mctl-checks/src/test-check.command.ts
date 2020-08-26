@@ -8,7 +8,7 @@ class TestCheckCommand extends Command {
   @Command.Path(`check`, `test`)
   async execute() {
     const { results }: any = await test(process.cwd(), { silent: true })
-    console.log(results) // eslint-disable-line
+
     const cwd: string = process.env.GITHUB_WORKSPACE || process.cwd()
 
     const assertions = results.testResults

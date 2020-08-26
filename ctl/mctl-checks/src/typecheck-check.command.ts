@@ -3,7 +3,7 @@ import { Command }                        from 'clipanion'
 
 import { Diagnostic, DiagnosticCategory } from '@monstrs/code-typescript'
 import { TypeScript }                     from '@monstrs/code-typescript'
-import { getRootWorkspace }               from '@monstrs/code-workspaces'
+import { getRootWorkspace }               from '@monstrs/code-project'
 
 import { Annotation, AnnotationLevel }    from './github'
 import { Conclusion, createCheck }        from './github'

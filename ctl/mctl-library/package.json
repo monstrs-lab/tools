@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/mctl-library",
-  "version": "0.2.18",
+  "version": "0.2.19",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -19,7 +19,7 @@
     "typescript": "^3.9.7"
   },
   "dependencies": {
-    "@monstrs/code-typescript": "workspace:0.0.32",
+    "@monstrs/code-typescript": "workspace:0.0.33",
     "clipanion": "^2.4.4"
   },
   "publishConfig": {
