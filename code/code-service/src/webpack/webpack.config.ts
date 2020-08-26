@@ -46,6 +46,7 @@ export const createWebpackConfig = async (cwd, environment) => {
       transpileOnly: true,
       experimentalWatchApi: true,
       compilerOptions: base.compilerOptions,
+      configFile: path.join(__dirname, '../../tsconfig.stub.json'),
     })
 
   config.module
