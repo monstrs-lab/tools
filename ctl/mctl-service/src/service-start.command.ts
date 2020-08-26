@@ -2,6 +2,17 @@ import { Command } from 'clipanion'
 
 import { watch }   from '@monstrs/code-service'
 
+const waitSignals = (watcher) =>
+  new Promise((resolve) => {
+    process.on('SIGINT', () => {
+      watcher.close(() => resolve())
+    })
+
+    process.on('SIGTERM', () => {
+      watcher.close(() => resolve())
+    })
+  })
+
 class ServiceStartCommand extends Command {
   @Command.Path(`service`, `start`)
   async execute() {
@@ -11,15 +22,7 @@ class ServiceStartCommand extends Command {
       }
     })
 
-    process.on('SIGINT', () => {
-      watcher.close()
-      process.exit()
-    })
-
-    process.on('SIGTERM', () => {
-      watcher.close()
-      process.exit()
-    })
+    await waitSignals(watcher)
   }
 }
 

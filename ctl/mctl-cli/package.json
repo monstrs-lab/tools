@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/mctl-cli",
-  "version": "0.2.35",
+  "version": "0.2.36",
   "license": "MIT",
   "main": "src/index.ts",
   "bin": {
@@ -34,18 +34,18 @@
     }
   },
   "dependencies": {
-    "@monstrs/mctl-checks": "workspace:0.2.26",
-    "@monstrs/mctl-commit": "workspace:0.2.25",
-    "@monstrs/mctl-commitmsg": "workspace:0.2.24",
-    "@monstrs/mctl-docker": "workspace:0.2.19",
-    "@monstrs/mctl-format": "workspace:0.2.24",
-    "@monstrs/mctl-github": "workspace:0.2.19",
-    "@monstrs/mctl-library": "workspace:0.2.19",
-    "@monstrs/mctl-lint": "workspace:0.2.26",
-    "@monstrs/mctl-precommit": "workspace:0.2.25",
-    "@monstrs/mctl-service": "workspace:0.2.19",
-    "@monstrs/mctl-test": "workspace:0.2.25",
-    "@monstrs/mctl-typecheck": "workspace:0.2.24",
+    "@monstrs/mctl-checks": "workspace:0.2.27",
+    "@monstrs/mctl-commit": "workspace:0.2.26",
+    "@monstrs/mctl-commitmsg": "workspace:0.2.25",
+    "@monstrs/mctl-docker": "workspace:0.2.20",
+    "@monstrs/mctl-format": "workspace:0.2.25",
+    "@monstrs/mctl-github": "workspace:0.2.20",
+    "@monstrs/mctl-library": "workspace:0.2.20",
+    "@monstrs/mctl-lint": "workspace:0.2.27",
+    "@monstrs/mctl-precommit": "workspace:0.2.26",
+    "@monstrs/mctl-service": "workspace:0.2.20",
+    "@monstrs/mctl-test": "workspace:0.2.26",
+    "@monstrs/mctl-typecheck": "workspace:0.2.25",
     "clipanion": "^2.4.4"
   },
   "peerDependencies": {
