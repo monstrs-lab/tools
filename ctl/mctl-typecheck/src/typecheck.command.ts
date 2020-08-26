@@ -1,7 +1,7 @@
 import { Command }          from 'clipanion'
 
 import { TypeScript }       from '@monstrs/code-typescript'
-import { getRootWorkspace } from '@monstrs/code-workspaces'
+import { getRootWorkspace } from '@monstrs/code-project'
 
 class TypeCheckCommand extends Command {
   @Command.Path(`typecheck`)
