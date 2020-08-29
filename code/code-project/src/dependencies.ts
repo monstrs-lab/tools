@@ -4,6 +4,8 @@ import { Configuration, Project }         from '@yarnpkg/core'
 import { WorkspaceResolver, structUtils } from '@yarnpkg/core'
 import { PortablePath }                   from '@yarnpkg/fslib'
 import { getPluginConfiguration }         from '@yarnpkg/cli'
+import fg from 'fast-glob'
+import path from 'path'
 import { promises as fs }                 from 'fs'
 
 const FORCE_UNPLUGGED_PACKAGES = new Set([
@@ -16,7 +18,7 @@ const FORCE_UNPLUGGED_PACKAGES = new Set([
   'core-js-pure',
 ])
 
-export const getProjectUnpluggedDependencies = async (): Promise<Set<String>> => {
+export const getTempProjectUnpluggedDependencies = async (): Promise<Set<String>> => {
   const configuration = await Configuration.find(
     process.cwd() as PortablePath,
     getPluginConfiguration()
@@ -37,6 +39,31 @@ export const getProjectUnpluggedDependencies = async (): Promise<Set<String>> =>
       }
     }
   })
+
+  return dependenciesNames
+}
+
+export const getProjectUnpluggedDependencies = async (): Promise<Set<String>> => {
+  const configuration = await Configuration.find(
+    process.cwd() as PortablePath,
+    getPluginConfiguration()
+  )
+
+  const entries = await fg('**/*/package.json', { cwd: configuration.get(`pnpUnpluggedFolder`) })
+
+  const dependenciesNames = new Set<string>()
+
+  await Promise.all(
+    entries.map(entry => path.join(configuration.get(`pnpUnpluggedFolder`), entry)).map(async entry => {
+      try {
+        const { name } = JSON.parse((await fs.readFile(entry)).toString())
+
+        if (name && !FORCE_UNPLUGGED_PACKAGES.has(name)) {
+          dependenciesNames.add(name)
+        }
+      } catch {}
+    })
+  )
 
   return dependenciesNames
 }
