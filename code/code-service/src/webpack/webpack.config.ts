@@ -1,17 +1,25 @@
-import Config                          from 'webpack-chain'
-import path                            from 'path'
-import webpack                         from 'webpack'
+import Config                              from 'webpack-chain'
+import path                                from 'path'
+import webpack                             from 'webpack'
 
-import { getProjectDependenciesNames } from '@monstrs/code-project'
-import { base }                        from '@monstrs/code-typescript'
+import { getProjectUnpluggedDependencies } from '@monstrs/code-project'
+import { getWorkspace }                    from '@monstrs/code-project'
+import { base }                            from '@monstrs/code-typescript'
 
-import { StartServerPlugin }           from './plugins'
+import { StartServerPlugin }               from './plugins'
 
 export const createWebpackConfig = async (cwd, environment) => {
-  const externals = Array.from(await getProjectDependenciesNames()).reduce(
+  const workspace = await getWorkspace(cwd)
+
+  const workspaceExternals: Array<String> = Object.keys(
+    workspace?.manifest?.raw?.externalDependencies || {}
+  )
+  const unpluggedExternals: Array<String> = Array.from(await getProjectUnpluggedDependencies())
+
+  const externals = workspaceExternals.concat(unpluggedExternals).reduce(
     (result, dependency: string) => ({
       ...result,
-      [dependency]: `commonjs ${dependency}`,
+      [dependency]: `commonjs2 ${dependency}`,
     }),
     {}
   )

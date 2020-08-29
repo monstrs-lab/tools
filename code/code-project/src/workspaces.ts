@@ -131,18 +131,8 @@ export const getRootWorkspace = async (): Promise<Workspace> => {
   return project.topLevelWorkspace
 }
 
-/*
-reference: 'npm:3.1.1',
-    version: '3.1.1',
-    languageName: 'node',
-    linkType: 'HARD',
+export const getWorkspace = async (byFilePath: string): Promise<Workspace | undefined> => {
+  const workspaces = await getWorkspaces([byFilePath])
 
-scope: 'monstrs',
-  name: 'code-lint',
-  locatorHash: 'ab590d3dc8ff289001e64de987b8db6ff8bbf760e160853b24613a5686699ac59384a181ae92a1430e0ddff6d9986ffd6e6f4bc6e7b178e9a3ef9e2aca53e629',
-  reference: 'workspace:code/code-lint',
-  version: '0.0.0-use.local',
-  languageName: 'unknown',
-  linkType: 'SOFT',
-
-    */
+  return workspaces[0]
+}
