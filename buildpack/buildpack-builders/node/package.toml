@@ -1,0 +1,2 @@
+[[dependencies]]
+  image = "monstrs/buildpack-yarn-install:0.0.1"

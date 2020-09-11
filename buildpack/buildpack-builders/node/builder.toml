@@ -1,0 +1,14 @@
+[[buildpacks]]
+id = "tech.monstrs.buildpacks.yarn-install"
+version = "0.0.1"
+image = "monstrs/buildpack-yarn-install:0.0.1"
+
+[[order]]
+[[order.group]]
+id = "tech.monstrs.buildpacks.yarn-install"
+version = "0.0.1"
+
+[stack]
+id = "tech.monstrs.stacks.node"
+run-image = "monstrs/stack-node:run"
+build-image = "monstrs/stack-node:build"
