@@ -1,11 +1,11 @@
 /* eslint-disable no-restricted-syntax */
 
+import fg                                 from 'fast-glob'
+import path                               from 'path'
 import { Configuration, Project }         from '@yarnpkg/core'
 import { WorkspaceResolver, structUtils } from '@yarnpkg/core'
 import { PortablePath }                   from '@yarnpkg/fslib'
 import { getPluginConfiguration }         from '@yarnpkg/cli'
-import fg from 'fast-glob'
-import path from 'path'
 import { promises as fs }                 from 'fs'
 
 const FORCE_UNPLUGGED_PACKAGES = new Set([
@@ -49,20 +49,24 @@ export const getProjectUnpluggedDependencies = async (): Promise<Set<String>> =>
     getPluginConfiguration()
   )
 
-  const entries = await fg('**/*/package.json', { cwd: configuration.get(`pnpUnpluggedFolder`) })
+  const entries = await fg('*/node_modules/*/package.json', {
+    cwd: configuration.get(`pnpUnpluggedFolder`),
+  })
 
   const dependenciesNames = new Set<string>()
 
   await Promise.all(
-    entries.map(entry => path.join(configuration.get(`pnpUnpluggedFolder`), entry)).map(async entry => {
-      try {
-        const { name } = JSON.parse((await fs.readFile(entry)).toString())
+    entries
+      .map((entry) => path.join(configuration.get(`pnpUnpluggedFolder`), entry))
+      .map(async (entry) => {
+        try {
+          const { name } = JSON.parse((await fs.readFile(entry)).toString())
 
-        if (name && !FORCE_UNPLUGGED_PACKAGES.has(name)) {
-          dependenciesNames.add(name)
-        }
-      } catch {}
-    })
+          if (name && !FORCE_UNPLUGGED_PACKAGES.has(name)) {
+            dependenciesNames.add(name)
+          }
+        } catch {} // eslint-disable-line
+      })
   )
 
   return dependenciesNames

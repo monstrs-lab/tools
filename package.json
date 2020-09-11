@@ -73,6 +73,7 @@
     "xregexp": "^4.3.0"
   },
   "workspaces": [
+    "buildpack/*",
     "code/**/*",
     "ctl/**/*"
   ],
