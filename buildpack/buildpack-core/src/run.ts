@@ -7,7 +7,7 @@ import { Config }      from './cnb'
 import { build }       from './build'
 import { detect }      from './detect'
 
-export const run = async (detector: Detector, builder: Builder) => {
+export const run = async (detector: Detector, builder?: Builder) => {
   const config = new Config(process.argv.slice(1, process.argv.length))
 
   const phase = path.basename(config.arguments[0])
@@ -15,7 +15,9 @@ export const run = async (detector: Detector, builder: Builder) => {
   if (phase === 'detect') {
     await detect(detector, config)
   } else if (phase === 'build') {
-    await build(builder, config)
+    if (builder) {
+      await build(builder, config)
+    }
   } else {
     ExitHandler.error(new Error(`Unsupported phase ${phase}`))
   }

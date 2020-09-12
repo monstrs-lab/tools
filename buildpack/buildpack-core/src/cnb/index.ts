@@ -1,3 +1,5 @@
+export * from './buildpack-plan.entry'
+export * from './buildpack.plan'
 export * from './detect.context'
 export * from './build.context'
 export * from './exit.handler'

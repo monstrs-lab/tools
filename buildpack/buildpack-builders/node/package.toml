@@ -1,2 +1,8 @@
 [[dependencies]]
   image = "monstrs/buildpack-yarn-install:0.0.1"
+
+[[dependencies]]
+  image = "monstrs/buildpack-node-start:0.0.1"
+
+[[dependencies]]
+  image = "monstrs/buildpack-yarn-workspace-start:0.0.1"
