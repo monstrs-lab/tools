@@ -5521,16 +5521,18 @@ class YarnWorkspaceStartDetector {
         }
         const { stdout } = await (0,execa_default())('yarn', ['workspaces', 'list', '--json']);
         const workspaces = stdout.split('\n').map((item) => JSON.parse(item));
-        const workspace = workspaces.find((workspace) => workspace.name === process.env.WORKSPACE);
+        const workspace = workspaces.find(({ name }) => name === process.env.WORKSPACE);
         if (!workspace) {
             return null;
         }
         const entrypoint = `${workspace.location}/dist/index.js`;
         return {
-            provides: [],
+            provides: [{
+                    name: 'yarn-workspace-start'
+                }],
             requires: [
                 {
-                    name: 'node-start',
+                    name: 'yarn-workspace-start',
                     metadata: {
                         entrypoint,
                     },
@@ -5540,10 +5542,20 @@ class YarnWorkspaceStartDetector {
     }
 }
 
+// CONCATENATED MODULE: ./src/yarn-workspace-start.builder.ts
+class YarnWorkspaceStartBuilder {
+    async build(ctx) {
+        const entry = ctx.plan.getEntry('yarn-workspace-start');
+        const entrypoint = entry.metadata.entrypoint || 'dist/index.js';
+        ctx.addWebProcess(['yarn', 'pnpify', 'node', entrypoint]);
+    }
+}
+
 // CONCATENATED MODULE: ./src/index.ts
 
 
-(0,src.run)(new YarnWorkspaceStartDetector());
+
+(0,src.run)(new YarnWorkspaceStartDetector(), new YarnWorkspaceStartBuilder());
 const core = __webpack_require__(6774);
 
 })();

@@ -19,9 +19,5 @@ id = "tech.monstrs.buildpacks.yarn-workspace-build"
 version = "0.0.1"
 
 [[order.group]]
-id = "tech.monstrs.buildpacks.node-start"
-version = "0.0.1"
-
-[[order.group]]
 id = "tech.monstrs.buildpacks.yarn-workspace-start"
 version = "0.0.1"

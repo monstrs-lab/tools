@@ -29,10 +29,14 @@ export class YarnWorkspaceStartDetector implements Detector {
     const entrypoint = `${workspace.location}/dist/index.js`
 
     return {
-      provides: [],
+      provides: [
+        {
+          name: 'yarn-workspace-start',
+        },
+      ],
       requires: [
         {
-          name: 'node-start',
+          name: 'yarn-workspace-start',
           metadata: {
             entrypoint,
           },
