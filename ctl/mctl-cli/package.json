@@ -42,6 +42,7 @@
     "@monstrs/mctl-github": "workspace:0.2.24",
     "@monstrs/mctl-library": "workspace:0.2.24",
     "@monstrs/mctl-lint": "workspace:0.2.31",
+    "@monstrs/mctl-pack": "workspace:0.2.24",
     "@monstrs/mctl-precommit": "workspace:0.2.30",
     "@monstrs/mctl-service": "workspace:0.2.24",
     "@monstrs/mctl-test": "workspace:0.2.30",

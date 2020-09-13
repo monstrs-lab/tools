@@ -10,6 +10,7 @@ import { FormatCommand }                             from '@monstrs/mctl-format'
 import { GithubCreateDeploymentCommand }             from '@monstrs/mctl-github'
 import { LibraryBuildCommand }                       from '@monstrs/mctl-library'
 import { LintCommand }                               from '@monstrs/mctl-lint'
+import { PackCommand }                               from '@monstrs/mctl-pack'
 import { PreCommitCommand }                          from '@monstrs/mctl-precommit'
 import { FormatStagedCommand, LintStagedCommand }    from '@monstrs/mctl-precommit'
 import { TestStagedCommand, TypeCheckStagedCommand } from '@monstrs/mctl-precommit'
@@ -47,6 +48,7 @@ const run = () => {
   cli.register(ReleaseCheckCommand)
 
   cli.register(DockerBuildCommand)
+  cli.register(PackCommand)
 
   cli.register(GithubCreateDeploymentCommand)
 

@@ -2495,6 +2495,7 @@ __metadata:
     "@monstrs/mctl-github": "workspace:0.2.24"
     "@monstrs/mctl-library": "workspace:0.2.24"
     "@monstrs/mctl-lint": "workspace:0.2.31"
+    "@monstrs/mctl-pack": "workspace:0.2.24"
     "@monstrs/mctl-precommit": "workspace:0.2.30"
     "@monstrs/mctl-service": "workspace:0.2.24"
     "@monstrs/mctl-test": "workspace:0.2.30"
@@ -2625,6 +2626,21 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
+  languageName: unknown
+  linkType: soft
+
+"@monstrs/mctl-pack@workspace:0.2.24, @monstrs/mctl-pack@workspace:ctl/mctl-pack":
+  version: 0.0.0-use.local
+  resolution: "@monstrs/mctl-pack@workspace:ctl/mctl-pack"
+  dependencies:
+    "@monstrs/code-changes": "workspace:0.0.26"
+    "@monstrs/code-project": "workspace:0.0.26"
+    "@monstrs/tsconfig": ^0.2.0
+    "@types/node": ^14.0.23
+    "@yarnpkg/pnpify": ^2.1.0
+    clipanion: ^2.4.4
+    execa: ^4.0.3
+    typescript: ^3.9.7
   languageName: unknown
   linkType: soft
 
