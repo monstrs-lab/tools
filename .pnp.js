@@ -35,6 +35,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:buildpack/buildpack-yarn-install"
       },
       {
+        "name": "@monstrs/buildpack-yarn-workspace-build",
+        "reference": "workspace:buildpack/buildpack-yarn-workspace-build"
+      },
+      {
         "name": "@monstrs/buildpack-yarn-workspace-start",
         "reference": "workspace:buildpack/buildpack-yarn-workspace-start"
       },
@@ -138,6 +142,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@monstrs/buildpack-core", ["workspace:buildpack/buildpack-core"]],
       ["@monstrs/buildpack-node-start", ["workspace:buildpack/buildpack-node-start"]],
       ["@monstrs/buildpack-yarn-install", ["workspace:buildpack/buildpack-yarn-install"]],
+      ["@monstrs/buildpack-yarn-workspace-build", ["workspace:buildpack/buildpack-yarn-workspace-build"]],
       ["@monstrs/buildpack-yarn-workspace-start", ["workspace:buildpack/buildpack-yarn-workspace-start"]],
       ["@monstrs/code-changes", ["workspace:code/code-changes"]],
       ["@monstrs/code-commitlint", ["workspace:code/code-commitlint"]],
@@ -2951,6 +2956,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT",
         }]
       ]],
+      ["@monstrs/buildpack-yarn-workspace-build", [
+        ["workspace:buildpack/buildpack-yarn-workspace-build", {
+          "packageLocation": "./buildpack/buildpack-yarn-workspace-build/",
+          "packageDependencies": [
+            ["@monstrs/buildpack-yarn-workspace-build", "workspace:buildpack/buildpack-yarn-workspace-build"],
+            ["@babel/core", "npm:7.10.5"],
+            ["@babel/plugin-proposal-async-generator-functions", "virtual:6edcd2783bcb80396c2bec03a284cb737a14969f400f14e7f54a93ca1c438dc5e2305a99d1d6cf16443cb0d19286f5c1763a238acf93b30ee499827dd2be5613#npm:7.10.5"],
+            ["@babel/plugin-proposal-class-properties", "virtual:6edcd2783bcb80396c2bec03a284cb737a14969f400f14e7f54a93ca1c438dc5e2305a99d1d6cf16443cb0d19286f5c1763a238acf93b30ee499827dd2be5613#npm:7.10.4"],
+            ["@babel/plugin-proposal-decorators", "virtual:6edcd2783bcb80396c2bec03a284cb737a14969f400f14e7f54a93ca1c438dc5e2305a99d1d6cf16443cb0d19286f5c1763a238acf93b30ee499827dd2be5613#npm:7.10.5"],
+            ["@babel/plugin-proposal-nullish-coalescing-operator", "virtual:6edcd2783bcb80396c2bec03a284cb737a14969f400f14e7f54a93ca1c438dc5e2305a99d1d6cf16443cb0d19286f5c1763a238acf93b30ee499827dd2be5613#npm:7.10.4"],
+            ["@babel/plugin-proposal-optional-chaining", "virtual:6edcd2783bcb80396c2bec03a284cb737a14969f400f14e7f54a93ca1c438dc5e2305a99d1d6cf16443cb0d19286f5c1763a238acf93b30ee499827dd2be5613#npm:7.10.4"],
+            ["@babel/plugin-transform-modules-commonjs", "virtual:6edcd2783bcb80396c2bec03a284cb737a14969f400f14e7f54a93ca1c438dc5e2305a99d1d6cf16443cb0d19286f5c1763a238acf93b30ee499827dd2be5613#npm:7.10.4"],
+            ["@babel/preset-typescript", "virtual:6edcd2783bcb80396c2bec03a284cb737a14969f400f14e7f54a93ca1c438dc5e2305a99d1d6cf16443cb0d19286f5c1763a238acf93b30ee499827dd2be5613#npm:7.10.4"],
+            ["@babel/runtime", "npm:7.10.5"],
+            ["@babel/types", "npm:7.10.5"],
+            ["@monstrs/buildpack-core", "workspace:buildpack/buildpack-core"],
+            ["@monstrs/mctl-cli", "virtual:93762f395d50e2410536eefd1c9656e618c9e599e2d023ef5341f0dd44b7c10b9c8541440da9da71a8fae8443bde146c84aabb5f6bc6020be89f6fe1913af10c#workspace:ctl/mctl-cli"],
+            ["execa", "npm:4.0.3"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
       ["@monstrs/buildpack-yarn-workspace-start", [
         ["workspace:buildpack/buildpack-yarn-workspace-start", {
           "packageLocation": "./buildpack/buildpack-yarn-workspace-start/",
@@ -3024,6 +3051,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["globby", "npm:11.0.1"],
             ["ignore", "npm:5.1.8"],
             ["prettier", "npm:2.0.5"],
+            ["prettier-plugin-toml", "npm:0.3.1"],
             ["typescript", "patch:typescript@npm%3A3.9.7#builtin<compat/typescript>::version=3.9.7&hash=5b02a2"]
           ],
           "linkType": "SOFT",
@@ -3876,6 +3904,27 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@szmarczak/http-timer", "npm:4.0.5"],
             ["defer-to-connect", "npm:2.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@toml-tools/lexer", [
+        ["npm:0.3.1", {
+          "packageLocation": "./.yarn/cache/@toml-tools-lexer-npm-0.3.1-fb17e55dd3-1d845adff5.zip/node_modules/@toml-tools/lexer/",
+          "packageDependencies": [
+            ["@toml-tools/lexer", "npm:0.3.1"],
+            ["chevrotain", "npm:4.1.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@toml-tools/parser", [
+        ["npm:0.3.1", {
+          "packageLocation": "./.yarn/cache/@toml-tools-parser-npm-0.3.1-92339187a3-28d7500f02.zip/node_modules/@toml-tools/parser/",
+          "packageDependencies": [
+            ["@toml-tools/parser", "npm:0.3.1"],
+            ["@toml-tools/lexer", "npm:0.3.1"],
+            ["chevrotain", "npm:4.1.1"]
           ],
           "linkType": "HARD",
         }]
@@ -6991,6 +7040,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/chardet-npm-0.7.0-27933dd6c7-b71a4ee464.zip/node_modules/chardet/",
           "packageDependencies": [
             ["chardet", "npm:0.7.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["chevrotain", [
+        ["npm:4.1.1", {
+          "packageLocation": "./.yarn/cache/chevrotain-npm-4.1.1-efb4d0cd87-e4c0847e2f.zip/node_modules/chevrotain/",
+          "packageDependencies": [
+            ["chevrotain", "npm:4.1.1"],
+            ["regexp-to-ast", "npm:0.3.5"]
           ],
           "linkType": "HARD",
         }]
@@ -14725,6 +14784,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["prettier", [
+        ["npm:1.19.1", {
+          "packageLocation": "./.yarn/cache/prettier-npm-1.19.1-e56d246fd2-e5fcdfe5e1.zip/node_modules/prettier/",
+          "packageDependencies": [
+            ["prettier", "npm:1.19.1"]
+          ],
+          "linkType": "HARD",
+        }],
         ["npm:2.0.5", {
           "packageLocation": "./.yarn/cache/prettier-npm-2.0.5-f0ee4e15ce-d249d89361.zip/node_modules/prettier/",
           "packageDependencies": [
@@ -14739,6 +14805,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["prettier-linter-helpers", "npm:1.0.0"],
             ["fast-diff", "npm:1.2.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["prettier-plugin-toml", [
+        ["npm:0.3.1", {
+          "packageLocation": "./.yarn/cache/prettier-plugin-toml-npm-0.3.1-a4a923f5b6-d0886c738d.zip/node_modules/prettier-plugin-toml/",
+          "packageDependencies": [
+            ["prettier-plugin-toml", "npm:0.3.1"],
+            ["@toml-tools/lexer", "npm:0.3.1"],
+            ["@toml-tools/parser", "npm:0.3.1"],
+            ["prettier", "npm:1.19.1"]
           ],
           "linkType": "HARD",
         }]
@@ -15415,6 +15493,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["regex-not", "npm:1.0.2"],
             ["extend-shallow", "npm:3.0.2"],
             ["safe-regex", "npm:1.1.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["regexp-to-ast", [
+        ["npm:0.3.5", {
+          "packageLocation": "./.yarn/cache/regexp-to-ast-npm-0.3.5-58e437ff63-2acbd6e3b0.zip/node_modules/regexp-to-ast/",
+          "packageDependencies": [
+            ["regexp-to-ast", "npm:0.3.5"]
           ],
           "linkType": "HARD",
         }]

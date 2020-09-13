@@ -2241,6 +2241,26 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@monstrs/buildpack-yarn-workspace-build@workspace:buildpack/buildpack-yarn-workspace-build":
+  version: 0.0.0-use.local
+  resolution: "@monstrs/buildpack-yarn-workspace-build@workspace:buildpack/buildpack-yarn-workspace-build"
+  dependencies:
+    "@babel/core": ^7.10.5
+    "@babel/plugin-proposal-async-generator-functions": ^7.10.5
+    "@babel/plugin-proposal-class-properties": ^7.10.4
+    "@babel/plugin-proposal-decorators": ^7.10.5
+    "@babel/plugin-proposal-nullish-coalescing-operator": ^7.10.4
+    "@babel/plugin-proposal-optional-chaining": ^7.10.4
+    "@babel/plugin-transform-modules-commonjs": ^7.10.4
+    "@babel/preset-typescript": ^7.10.4
+    "@babel/runtime": ^7.10.5
+    "@babel/types": ^7.10.5
+    "@monstrs/buildpack-core": "workspace:0.0.1"
+    "@monstrs/mctl-cli": "workspace:0.2.40"
+    execa: ^4.0.3
+  languageName: unknown
+  linkType: soft
+
 "@monstrs/buildpack-yarn-workspace-start@workspace:buildpack/buildpack-yarn-workspace-start":
   version: 0.0.0-use.local
   resolution: "@monstrs/buildpack-yarn-workspace-start@workspace:buildpack/buildpack-yarn-workspace-start"
@@ -2307,6 +2327,7 @@ __metadata:
     globby: ^11.0.1
     ignore: ^5.1.8
     prettier: ^2.0.5
+    prettier-plugin-toml: ^0.3.1
     typescript: ^3.9.7
   languageName: unknown
   linkType: soft
@@ -2997,6 +3018,25 @@ __metadata:
   dependencies:
     defer-to-connect: ^2.0.0
   checksum: 13d8f71dbd792b620b2cd13d72d086ef031ebefd5263a9db2f34693a32e4d90920fa1d7075cd59bf0c9810b2b1b93ad36d89fc88aba4cd3b8022df7ecc5ffdec
+  languageName: node
+  linkType: hard
+
+"@toml-tools/lexer@npm:*, @toml-tools/lexer@npm:^0.3.1":
+  version: 0.3.1
+  resolution: "@toml-tools/lexer@npm:0.3.1"
+  dependencies:
+    chevrotain: 4.1.1
+  checksum: 1d845adff527e10921ef05bb6fa6d4795c4b1cbd634dd2b24470c1166cf5a3ed1bacaf24192209ed17de12beeecde057c62346622057eb3fd20da57a297a94fe
+  languageName: node
+  linkType: hard
+
+"@toml-tools/parser@npm:^0.3.1":
+  version: 0.3.1
+  resolution: "@toml-tools/parser@npm:0.3.1"
+  dependencies:
+    "@toml-tools/lexer": ^0.3.1
+    chevrotain: 4.1.1
+  checksum: 28d7500f0260ce7fc29ad74414dfc0da502ea8df20f94d5d952a72204bd2661265eb3df572e3f8e9b502ada40f8ea8d27ad13e57ddf3497cef19f2ae26ac27a6
   languageName: node
   linkType: hard
 
@@ -5573,6 +5613,15 @@ __metadata:
   version: 0.7.0
   resolution: "chardet@npm:0.7.0"
   checksum: b71a4ee4648489291af86418b96247824a8c1ee4f4f95d6268967fb40e9fbf70500e72fb737d5186a23cf98c8a02b91d68cb2f426d7428e92883af9d31a037ec
+  languageName: node
+  linkType: hard
+
+"chevrotain@npm:4.1.1":
+  version: 4.1.1
+  resolution: "chevrotain@npm:4.1.1"
+  dependencies:
+    regexp-to-ast: 0.3.5
+  checksum: e4c0847e2f435fc695c068b57ba6c922694b712f8cb07d86e3464173142af84ee43e9ff32e716c4150760796d6a88b5496c431dca9156db86116e1e5d5a03431
   languageName: node
   linkType: hard
 
@@ -12641,6 +12690,25 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"prettier-plugin-toml@npm:^0.3.1":
+  version: 0.3.1
+  resolution: "prettier-plugin-toml@npm:0.3.1"
+  dependencies:
+    "@toml-tools/parser": ^0.3.1
+    prettier: ^1.16.0
+  checksum: d0886c738dc9fe640dc1ed4b3bd48846b48acfcf64b8ad487290c945c44ade35aea99753aef8f44710d32be76be8436447a0a381a588f561177f2378850621fe
+  languageName: node
+  linkType: hard
+
+"prettier@npm:^1.16.0":
+  version: 1.19.1
+  resolution: "prettier@npm:1.19.1"
+  bin:
+    prettier: ./bin-prettier.js
+  checksum: e5fcdfe5e159ef5c5480245353cf8fb5bbd1b8afff266f31f281641825238f8a645e58472f77cd75a09ccc45d44c335466e8d901ec138c2bda05e1bd6ea1077c
+  languageName: node
+  linkType: hard
+
 "prettier@npm:^2.0.5":
   version: 2.0.5
   resolution: "prettier@npm:2.0.5"
@@ -13255,6 +13323,13 @@ fsevents@^1.2.7:
     extend-shallow: ^3.0.2
     safe-regex: ^1.1.0
   checksum: 3d6d95b4fda3cabe7222b3800876491825a865ae6ca4c90bb10fd0f6442d0c57d180657bb65358b4509bdd1cecad1bd2d23e7d15a69f9c523f501cc4431b950b
+  languageName: node
+  linkType: hard
+
+"regexp-to-ast@npm:0.3.5":
+  version: 0.3.5
+  resolution: "regexp-to-ast@npm:0.3.5"
+  checksum: 2acbd6e3b07f7a02b2b33bdf25af39e96af596bb82c3e38aa4f6ea3d86686b7840f77f3681affb2f6e06b09cc829761ceca5914b4538621db4247e5d348ed9cd
   languageName: node
   linkType: hard
 

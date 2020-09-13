@@ -6,7 +6,10 @@ const config = {
   tabWidth: 2,
   jsxSingleQuote: true,
   trailingComma: 'es5',
-  plugins: [require.resolve('@monstrs/prettier-plugin-import-sort')],
+  plugins: [
+    require.resolve('@monstrs/prettier-plugin-import-sort'),
+    require.resolve('prettier-plugin-toml'),
+  ],
   printWidth: 100,
 }
 
@@ -29,7 +32,7 @@ const ignore = [
   '.terraform',
 ]
 
-const patterns: string[] = ['./**/*.{js,ts,tsx,yml,yaml,json,graphql,md,mdx}']
+const patterns: string[] = ['./**/*.{js,ts,tsx,yml,yaml,json,graphql,md,mdx,toml}']
 
 const ignorePatterns: string[] = [
   '!**/node_modules/**',

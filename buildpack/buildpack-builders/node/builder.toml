@@ -1,30 +1,4 @@
-[[buildpacks]]
-id = "tech.monstrs.buildpacks.yarn-install"
-version = "0.0.1"
-image = "monstrs/buildpack-yarn-install:0.0.1"
-
-[[buildpacks]]
-id = "tech.monstrs.buildpacks.node-start"
-version = "0.0.1"
-image = "monstrs/buildpack-node-start:0.0.1"
-
-[[buildpacks]]
-id = "tech.monstrs.buildpacks.yarn-workspace-start"
-version = "0.0.1"
-image = "monstrs/buildpack-yarn-workspace-start:0.0.1"
-
 [[order]]
-[[order.group]]
-id = "tech.monstrs.buildpacks.yarn-install"
-version = "0.0.1"
-
-[[order.group]]
-id = "tech.monstrs.buildpacks.node-start"
-version = "0.0.1"
-
-[[order.group]]
-id = "tech.monstrs.buildpacks.yarn-workspace-start"
-version = "0.0.1"
 
 [stack]
 id = "tech.monstrs.stacks.node"
