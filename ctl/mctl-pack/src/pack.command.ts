@@ -1,6 +1,8 @@
 import execa                           from 'execa'
 import fs                              from 'fs'
+import tempy                           from 'tempy'
 import { Command }                     from 'clipanion'
+import { stringify }                   from '@iarna/toml'
 
 import { getChangedFiles, getVersion } from '@monstrs/code-changes'
 import { getWorkspaces }               from '@monstrs/code-project'
@@ -73,7 +75,7 @@ class PackCommand extends Command {
       const registry = `${this.registry}${workspace.manifest.name.scope}-${workspace.manifest.name.name}`
 
       commands.push({
-        name: workspace.manifest.name.name,
+        name: workspace.manifest.raw.name,
         path: workspace.cwd,
         registry,
       })
@@ -86,20 +88,41 @@ class PackCommand extends Command {
       const currentVersion = `${command.registry}:${version}`
       const latestVersion = `${command.registry}:latest`
 
+      const descriptor = {
+        project: {
+          id: command.name,
+          name: command.name,
+          version: '0.0.1',
+        },
+        build: {
+          exclude: ['.git', '.yarn/unplugged'],
+          env: [
+            {
+              name: 'WORKSPACE',
+              value: command.name,
+            },
+          ],
+        },
+      }
+
+      const descriptorPath = tempy.file({ extension: 'toml' })
+
+      fs.writeFileSync(descriptorPath, stringify(descriptor))
+
       // eslint-disable-next-line no-await-in-loop
       await execa(
         'pack',
         [
           'build',
           latestVersion,
-          '--env',
-          `WORKSPACE=${command.name}`,
-          '--path',
-          command.path,
+          '--descriptor',
+          descriptorPath,
           '--buildpack',
           'monstrs/buildpack-yarn-workspace:0.0.1',
         ],
-        { stdio: 'inherit' }
+        {
+          stdio: 'inherit',
+        }
       )
 
       // eslint-disable-next-line no-await-in-loop

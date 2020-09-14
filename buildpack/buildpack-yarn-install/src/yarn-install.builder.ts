@@ -27,7 +27,7 @@ export class YarnInstallBuilder implements Builder {
       }
 
       if (fs.existsSync(layerUnpluggedPath)) {
-        await execa('cp', ['--archive', layerUnpluggedPath, unpluggedPath])
+        await execa('cp', ['--archive', layerUnpluggedPath, '.yarn'])
       }
     } else {
       await this.install(ctx.workingDir)
@@ -39,7 +39,7 @@ export class YarnInstallBuilder implements Builder {
 
         fs.mkdirSync(layerUnpluggedPath)
 
-        await execa('cp', ['--archive', unpluggedPath, layerUnpluggedPath])
+        await execa('cp', ['--archive', unpluggedPath, yarnLayer.path])
       }
 
       yarnLayer.metadata.cacheSha = cacheSha

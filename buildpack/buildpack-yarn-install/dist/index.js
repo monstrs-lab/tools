@@ -1,18 +1,59 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 6398:
+/***/ 9076:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Z": () => /* binding */ BuildContext
-/* harmony export */ });
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "Z": () => /* binding */ BuildContext
+});
+
+// EXTERNAL MODULE: external "fs"
+var external_fs_ = __webpack_require__(5747);
+var external_fs_default = /*#__PURE__*/__webpack_require__.n(external_fs_);
+
+// EXTERNAL MODULE: ../../.yarn/cache/@iarna-toml-npm-2.2.5-6da1399e8e-929a8516a2.zip/node_modules/@iarna/toml/toml.js
+var toml = __webpack_require__(8292);
+
+// EXTERNAL MODULE: external "path"
+var external_path_ = __webpack_require__(5622);
+
+// CONCATENATED MODULE: ../buildpack-core/src/cnb/launch.ts
+
+
+
+class Launch {
+    constructor() {
+        this.processes = [];
+    }
+    addWebProcess([command, ...args]) {
+        this.processes.push({ type: 'web', command, direct: true, args });
+    }
+    save(layersPath) {
+        if (this.processes.length > 0) {
+            const launchPath = (0,external_path_.join)(layersPath, 'launch.toml');
+            external_fs_default().writeFileSync(launchPath, (0,toml.stringify)({
+                processes: this.processes,
+            }));
+        }
+    }
+}
+
+// CONCATENATED MODULE: ../buildpack-core/src/cnb/build.context.ts
+
 class BuildContext {
-    constructor(workingDir, buildpackPath, layers) {
+    constructor(workingDir, buildpackPath, layers, plan) {
         this.workingDir = workingDir;
         this.buildpackPath = buildpackPath;
         this.layers = layers;
+        this.plan = plan;
+        this.launch = new Launch();
+    }
+    addWebProcess(command) {
+        this.launch.addWebProcess(command);
     }
 }
 
@@ -22,6 +63,54 @@ class BuildContext {
 /***/ 6315:
 /***/ (() => {
 
+
+
+/***/ }),
+
+/***/ 3543:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "R": () => /* binding */ BuildpackPlanEntry
+/* harmony export */ });
+class BuildpackPlanEntry {
+    constructor(name, version = null, metadata = {}) {
+        this.name = name;
+        this.version = version;
+        this.metadata = metadata;
+    }
+}
+
+
+/***/ }),
+
+/***/ 2453:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "D": () => /* binding */ BuildpackPlan
+/* harmony export */ });
+/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5747);
+/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(fs__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _iarna_toml__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8292);
+/* harmony import */ var _buildpack_plan_entry__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3543);
+
+
+
+class BuildpackPlan {
+    constructor(entries) {
+        this.entries = entries;
+    }
+    static load(planPath) {
+        const { entries = [] } = (0,_iarna_toml__WEBPACK_IMPORTED_MODULE_1__.parse)(fs__WEBPACK_IMPORTED_MODULE_0___default().readFileSync(planPath).toString());
+        return new BuildpackPlan(entries.map((entry) => new _buildpack_plan_entry__WEBPACK_IMPORTED_MODULE_2__/* .BuildpackPlanEntry */ .R(entry.name, entry.version, entry.metadata)));
+    }
+    getEntry(name) {
+        return this.entries.find((entry) => entry.name === name);
+    }
+}
 
 
 /***/ }),
@@ -101,29 +190,35 @@ ExitHandler.PassStatusCode = 0;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "DetectContext": () => /* reexport safe */ _detect_context__WEBPACK_IMPORTED_MODULE_0__.a,
-/* harmony export */   "BuildContext": () => /* reexport safe */ _build_context__WEBPACK_IMPORTED_MODULE_1__.Z,
-/* harmony export */   "ExitHandler": () => /* reexport safe */ _exit_handler__WEBPACK_IMPORTED_MODULE_2__.t,
-/* harmony export */   "Config": () => /* reexport safe */ _config__WEBPACK_IMPORTED_MODULE_5__.D,
-/* harmony export */   "Layers": () => /* reexport safe */ _layers__WEBPACK_IMPORTED_MODULE_6__.S,
-/* harmony export */   "Layer": () => /* reexport safe */ _layer__WEBPACK_IMPORTED_MODULE_7__.m
+/* harmony export */   "BuildpackPlanEntry": () => /* reexport safe */ _buildpack_plan_entry__WEBPACK_IMPORTED_MODULE_0__.R,
+/* harmony export */   "BuildpackPlan": () => /* reexport safe */ _buildpack_plan__WEBPACK_IMPORTED_MODULE_1__.D,
+/* harmony export */   "DetectContext": () => /* reexport safe */ _detect_context__WEBPACK_IMPORTED_MODULE_2__.a,
+/* harmony export */   "BuildContext": () => /* reexport safe */ _build_context__WEBPACK_IMPORTED_MODULE_3__.Z,
+/* harmony export */   "ExitHandler": () => /* reexport safe */ _exit_handler__WEBPACK_IMPORTED_MODULE_4__.t,
+/* harmony export */   "Config": () => /* reexport safe */ _config__WEBPACK_IMPORTED_MODULE_7__.D,
+/* harmony export */   "Layers": () => /* reexport safe */ _layers__WEBPACK_IMPORTED_MODULE_8__.S,
+/* harmony export */   "Layer": () => /* reexport safe */ _layer__WEBPACK_IMPORTED_MODULE_9__.m
 /* harmony export */ });
-/* harmony import */ var _detect_context__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6804);
-/* harmony import */ var _build_context__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6398);
-/* harmony import */ var _exit_handler__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7236);
-/* harmony import */ var _detector__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6479);
-/* harmony import */ var _detector__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_detector__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _buildpack_plan_entry__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3543);
+/* harmony import */ var _buildpack_plan__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2453);
+/* harmony import */ var _detect_context__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6804);
+/* harmony import */ var _build_context__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9076);
+/* harmony import */ var _exit_handler__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7236);
+/* harmony import */ var _detector__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(6479);
+/* harmony import */ var _detector__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_detector__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
-/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _detector__WEBPACK_IMPORTED_MODULE_3__) if(["default","DetectContext","BuildContext","ExitHandler"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _detector__WEBPACK_IMPORTED_MODULE_3__[__WEBPACK_IMPORT_KEY__]
+/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _detector__WEBPACK_IMPORTED_MODULE_5__) if(["default","BuildpackPlanEntry","BuildpackPlan","DetectContext","BuildContext","ExitHandler"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _detector__WEBPACK_IMPORTED_MODULE_5__[__WEBPACK_IMPORT_KEY__]
 /* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
-/* harmony import */ var _builder__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6315);
-/* harmony import */ var _builder__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_builder__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _builder__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(6315);
+/* harmony import */ var _builder__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_builder__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
-/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _builder__WEBPACK_IMPORTED_MODULE_4__) if(["default","DetectContext","BuildContext","ExitHandler"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _builder__WEBPACK_IMPORTED_MODULE_4__[__WEBPACK_IMPORT_KEY__]
+/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _builder__WEBPACK_IMPORTED_MODULE_6__) if(["default","BuildpackPlanEntry","BuildpackPlan","DetectContext","BuildContext","ExitHandler"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _builder__WEBPACK_IMPORTED_MODULE_6__[__WEBPACK_IMPORT_KEY__]
 /* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
-/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(4983);
-/* harmony import */ var _layers__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(6981);
-/* harmony import */ var _layer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(5171);
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(4983);
+/* harmony import */ var _layers__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(6981);
+/* harmony import */ var _layer__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(5171);
+
+
 
 
 
@@ -276,16 +371,18 @@ var toml = __webpack_require__(8292);
 
 
 
+
 const build = async (builder, config) => {
     if (config.arguments.length !== 4) {
         cnb.ExitHandler.error(new Error(`Expected 3 arguments and received ${config.arguments.length - 1}`));
     }
-    const context = new cnb.BuildContext(process.cwd(), process.env.CNB_BUILDPACK_DIR
-        ? process.env.CNB_BUILDPACK_DIR
-        : config.arguments[0].replace('/bin/build', ''), new cnb.Layers(config.arguments[1]));
     try {
+        const context = new cnb.BuildContext(process.cwd(), process.env.CNB_BUILDPACK_DIR
+            ? process.env.CNB_BUILDPACK_DIR
+            : config.arguments[0].replace('/bin/build', ''), new cnb.Layers(config.arguments[1]), cnb.BuildpackPlan.load(config.arguments[3]));
         await builder.build(context);
         context.layers.save();
+        context.launch.save(context.layers.path);
     }
     catch (error) {
         cnb.ExitHandler.error(error);
@@ -331,7 +428,9 @@ const run = async (detector, builder) => {
         await detect(detector, config);
     }
     else if (phase === 'build') {
-        await build(builder, config);
+        if (builder) {
+            await build(builder, config);
+        }
     }
     else {
         cnb.ExitHandler.error(new Error(`Unsupported phase ${phase}`));
@@ -5439,7 +5538,7 @@ class YarnInstallBuilder {
                 external_fs_default().rmdirSync(unpluggedPath, { recursive: true });
             }
             if (external_fs_default().existsSync(layerUnpluggedPath)) {
-                await (0,execa_default())('cp', ['--archive', layerUnpluggedPath, unpluggedPath]);
+                await (0,execa_default())('cp', ['--archive', layerUnpluggedPath, '.yarn']);
             }
         }
         else {
@@ -5449,7 +5548,7 @@ class YarnInstallBuilder {
                     external_fs_default().rmdirSync(layerUnpluggedPath, { recursive: true });
                 }
                 external_fs_default().mkdirSync(layerUnpluggedPath);
-                await (0,execa_default())('cp', ['--archive', unpluggedPath, layerUnpluggedPath]);
+                await (0,execa_default())('cp', ['--archive', unpluggedPath, yarnLayer.path]);
             }
             yarnLayer.metadata.cacheSha = cacheSha;
         }

@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/mctl-pack",
-  "version": "0.2.24",
+  "version": "0.2.31",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -19,10 +19,12 @@
     "typescript": "^3.9.7"
   },
   "dependencies": {
-    "@monstrs/code-changes": "workspace:0.0.26",
-    "@monstrs/code-project": "workspace:0.0.26",
+    "@iarna/toml": "^2.2.5",
+    "@monstrs/code-changes": "workspace:0.0.33",
+    "@monstrs/code-project": "workspace:0.0.33",
     "clipanion": "^2.4.4",
-    "execa": "^4.0.3"
+    "execa": "^4.0.3",
+    "tempy": "0.7.0"
   },
   "publishConfig": {
     "access": "public",
