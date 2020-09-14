@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/mctl-pack",
-  "version": "0.2.31",
+  "version": "0.2.32",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -20,8 +20,8 @@
   },
   "dependencies": {
     "@iarna/toml": "^2.2.5",
-    "@monstrs/code-changes": "workspace:0.0.33",
-    "@monstrs/code-project": "workspace:0.0.33",
+    "@monstrs/code-changes": "workspace:0.0.34",
+    "@monstrs/code-project": "workspace:0.0.34",
     "clipanion": "^2.4.4",
     "execa": "^4.0.3",
     "tempy": "0.7.0"

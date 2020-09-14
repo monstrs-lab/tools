@@ -119,6 +119,8 @@ class PackCommand extends Command {
           descriptorPath,
           '--buildpack',
           'monstrs/buildpack-yarn-workspace:0.0.1',
+          '--builder',
+          'monstrs/builder-base:buster'
         ],
         {
           stdio: 'inherit',
