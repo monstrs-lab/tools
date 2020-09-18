@@ -9,6 +9,7 @@
   ],
   "dependencies": {
     "@monstrs/buildpack-core": "workspace:0.0.1",
+    "@monstrs/log": "^0.0.3",
     "execa": "^4.0.3"
   },
   "devDependencies": {
@@ -22,7 +23,7 @@
     "@babel/preset-typescript": "^7.10.4",
     "@babel/runtime": "^7.10.5",
     "@babel/types": "^7.10.5",
-    "@monstrs/mctl-cli": "workspace:0.2.48"
+    "@monstrs/mctl-cli": "workspace:0.2.49"
   },
   "scripts": {
     "clean": "rm -r -f dist",

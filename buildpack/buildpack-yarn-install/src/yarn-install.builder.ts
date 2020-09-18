@@ -3,12 +3,18 @@ import fs               from 'fs'
 import path             from 'path'
 import { createHash }   from 'crypto'
 
+import { log } from '@monstrs/log'
+
 import { Builder }      from '@monstrs/buildpack-core'
 import { BuildContext } from '@monstrs/buildpack-core'
 import { BuildResult }  from '@monstrs/buildpack-core'
 
 export class YarnInstallBuilder implements Builder {
+  private logger = log.getLogger(YarnInstallBuilder.name)
+
   async build(ctx: BuildContext): Promise<BuildResult> {
+    this.logger.info('Resolving installation process')
+
     const yarnLayer = ctx.layers.get('yarn-install', true, true)
 
     const unpluggedPath = '.yarn/unplugged'

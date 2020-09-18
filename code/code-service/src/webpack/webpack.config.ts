@@ -53,7 +53,7 @@ export const createWebpackConfig = async (cwd, environment) => {
     .options({
       transpileOnly: true,
       experimentalWatchApi: true,
-      compilerOptions: base.compilerOptions,
+      compilerOptions: { ...base.compilerOptions, sourceMap: true },
       configFile: path.join(__dirname, '../../tsconfig.stub.json'),
     })
 
@@ -62,6 +62,8 @@ export const createWebpackConfig = async (cwd, environment) => {
     .test(/\.proto$/)
     .use('proto')
     .loader(require.resolve('./loaders/proto-dependencies.loader'))
+
+  config.devtool(environment === 'production' ? 'source-map' : 'eval-cheap-module-source-map' as any)
 
   return config.toConfig()
 }
