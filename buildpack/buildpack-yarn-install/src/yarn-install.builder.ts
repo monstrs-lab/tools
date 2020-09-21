@@ -1,9 +1,8 @@
 import execa            from 'execa'
 import fs               from 'fs'
 import path             from 'path'
+import { log }          from '@monstrs/log'
 import { createHash }   from 'crypto'
-
-import { log } from '@monstrs/log'
 
 import { Builder }      from '@monstrs/buildpack-core'
 import { BuildContext } from '@monstrs/buildpack-core'

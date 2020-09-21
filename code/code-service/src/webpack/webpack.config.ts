@@ -63,7 +63,9 @@ export const createWebpackConfig = async (cwd, environment) => {
     .use('proto')
     .loader(require.resolve('./loaders/proto-dependencies.loader'))
 
-  config.devtool(environment === 'production' ? 'source-map' : 'eval-cheap-module-source-map' as any)
+  config.devtool(
+    environment === 'production' ? 'source-map' : ('eval-cheap-module-source-map' as any)
+  )
 
   return config.toConfig()
 }

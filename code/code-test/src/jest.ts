@@ -2,6 +2,8 @@ import { AggregatedResult } from '@jest/test-result'
 import { Config }           from '@jest/types'
 import { runCLI }           from '@jest/core'
 
+import { config }           from './jest.config'
+
 const test = async (
   project: string,
   options?: any,
@@ -20,7 +22,7 @@ const test = async (
     passWithNoTests: false,
     runTestsByPath: false,
     testLocationInResults: true,
-    config: require.resolve('../config.js'),
+    config: JSON.stringify(config),
     maxConcurrency: 5,
     notifyMode: 'failure-change',
     _: files || [],

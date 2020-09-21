@@ -3210,6 +3210,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@jest/core", "npm:26.2.0"],
             ["@jest/test-result", "npm:26.2.0"],
             ["@jest/types", "npm:26.2.0"],
+            ["@monstrs/code-typescript", "workspace:code/code-typescript"],
             ["@monstrs/prettier-plugin-import-sort", "virtual:d8b38287bd890bf0ad21f6e800842fd8ea95c0aa0dfd5964a9cd867bb44d41908f59e214b06bb2717ded8a5e6b1cd2b2516c2bcfbdb7684fd25e8eacd49bdee8#npm:0.2.2"],
             ["@monstrs/tsconfig", "npm:0.2.0"],
             ["@types/globby", "npm:9.1.0"],
@@ -18787,6 +18788,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/winston-transport-npm-4.4.0-e1b3134c1e-16050844d2.zip/node_modules/winston-transport/",
           "packageDependencies": [
             ["winston-transport", "npm:4.4.0"],
+            ["logform", "npm:2.2.0"],
             ["readable-stream", "npm:2.3.7"],
             ["triple-beam", "npm:1.3.0"]
           ],
