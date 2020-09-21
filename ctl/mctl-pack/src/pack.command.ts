@@ -120,7 +120,7 @@ class PackCommand extends Command {
           '--buildpack',
           'monstrs/buildpack-yarn-workspace:0.0.1',
           '--builder',
-          'monstrs/builder-base:buster'
+          'monstrs/builder-base:buster',
         ],
         {
           stdio: 'inherit',
