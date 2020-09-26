@@ -3587,8 +3587,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@monstrs/code-typescript", "workspace:code/code-typescript"],
             ["@monstrs/tsconfig", "npm:0.2.0"],
             ["@types/node", "npm:14.11.2"],
+            ["@types/rimraf", "npm:3.0.0"],
             ["@yarnpkg/pnpify", "virtual:57a606d1bacd9cd81a8f5a1c6fd90ca9081c16c58b5c5d0c019a396761aeb0771a758f1dd47d9789a943de672e96b6edb8667488d992f050ee62a012730b724d#npm:2.2.1"],
             ["clipanion", "npm:2.6.1"],
+            ["rimraf", "npm:3.0.2"],
             ["typescript", "patch:typescript@npm%3A4.0.3#builtin<compat/typescript>::version=4.0.3&hash=5b02a2"]
           ],
           "linkType": "SOFT",
@@ -4407,6 +4409,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:14.0.5"]
           ],
           "linkType": "HARD",
+        }],
+        ["npm:7.1.3", {
+          "packageLocation": "./.yarn/cache/@types-glob-npm-7.1.3-44516e2aab-633bf1dda9.zip/node_modules/@types/glob/",
+          "packageDependencies": [
+            ["@types/glob", "npm:7.1.3"],
+            ["@types/minimatch", "npm:3.0.3"],
+            ["@types/node", "npm:14.0.5"]
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["@types/globby", [
@@ -4659,6 +4670,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-responselike-npm-1.0.0-85dd08af42-e6e6613c80.zip/node_modules/@types/responselike/",
           "packageDependencies": [
             ["@types/responselike", "npm:1.0.0"],
+            ["@types/node", "npm:14.0.5"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/rimraf", [
+        ["npm:3.0.0", {
+          "packageLocation": "./.yarn/cache/@types-rimraf-npm-3.0.0-8a09fb283d-00a00a430f.zip/node_modules/@types/rimraf/",
+          "packageDependencies": [
+            ["@types/rimraf", "npm:3.0.0"],
+            ["@types/glob", "npm:7.1.3"],
             ["@types/node", "npm:14.0.5"]
           ],
           "linkType": "HARD",

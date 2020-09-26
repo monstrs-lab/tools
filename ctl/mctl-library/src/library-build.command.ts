@@ -1,6 +1,8 @@
-import { Command }    from 'clipanion'
+import rimraf             from 'rimraf'
+import { Command }        from 'clipanion'
+import { promises as fs } from 'fs'
 
-import { TypeScript } from '@monstrs/code-typescript'
+import { TypeScript }     from '@monstrs/code-typescript'
 
 class LibraryBuildCommand extends Command {
   @Command.String(`-t,--target`)
@@ -8,6 +10,8 @@ class LibraryBuildCommand extends Command {
 
   @Command.Path(`library`, `build`)
   async execute() {
+    await this.cleanTarget()
+
     const ts = new TypeScript()
 
     const result = ts.build(['./src'], {
@@ -25,6 +29,19 @@ class LibraryBuildCommand extends Command {
     if (result.errors.length > 0) {
       process.exit(1)
     }
+  }
+
+  protected async cleanTarget() {
+    try {
+      await fs.access(this.target)
+    } catch {
+      return
+    }
+
+    try {
+      rimraf.sync(this.target)
+      // eslint-disable-next-line
+    } catch {}
   }
 }
 
