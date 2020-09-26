@@ -6,31 +6,33 @@ import { format }                                         from 'prettier'
 
 import { config, createPatterns, ignore as ignoreConfig } from './config'
 
-const formatFiles = (files: string[] = []) => {
-  files.forEach((filename: string) => {
-    const input = fs.readFileSync(filename, 'utf8')
+const formatFiles = (files: string[] = [], projectPath?: string) => {
+  const ignorer = ignore().add(ignoreConfig)
+  const cwd = projectPath || process.cwd()
 
-    const output = format(input, { ...config, filepath: filename })
+  files
+    .filter((filePath) => ignorer.filter([path.relative(cwd, filePath)]).length !== 0)
+    .forEach((filename: string) => {
+      const input = fs.readFileSync(filename, 'utf8')
 
-    const isDifferent = output !== input
+      const output = format(input, { ...config, filepath: filename })
 
-    if (isDifferent) {
-      fs.writeFileSync(filename, output, 'utf8')
-    }
-  })
+      const isDifferent = output !== input
+
+      if (isDifferent) {
+        fs.writeFileSync(filename, output, 'utf8')
+      }
+    })
 }
 
 const formatProject = (projectPath?: string) => {
-  const ignorer = ignore().add(ignoreConfig)
   const cwd = projectPath || process.cwd()
 
   const patterns = createPatterns(cwd)
 
-  const filePaths = globby
-    .sync(patterns, { dot: true, nodir: true } as any)
-    .filter((filePath) => ignorer.filter([path.relative(cwd, filePath)]).length !== 0)
+  const filePaths = globby.sync(patterns, { dot: true, onlyFiles: true })
 
-  formatFiles(filePaths)
+  formatFiles(filePaths, projectPath)
 }
 
 export { formatFiles, formatProject }
