@@ -27,7 +27,6 @@ module.exports = {
     '@typescript-eslint/brace-style': baseStyleRules['brace-style'],
 
     camelcase: 'off',
-    '@typescript-eslint/camelcase': baseStyleRules.camelcase,
 
     'func-call-spacing': 'off',
     '@typescript-eslint/func-call-spacing': baseStyleRules['func-call-spacing'],
@@ -82,6 +81,22 @@ module.exports = {
         devDependencies: baseImportsRules[
           'import/no-extraneous-dependencies'
         ][1].devDependencies.map((glob) => glob.replace('js,jsx', 'js,jsx,ts,tsx')),
+      },
+    ],
+
+    '@typescript-eslint/naming-convention': [
+      'error',
+      {
+        selector: 'variable',
+        format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
+      },
+      {
+        selector: 'function',
+        format: ['camelCase', 'PascalCase'],
+      },
+      {
+        selector: 'typeLike',
+        format: ['PascalCase'],
       },
     ],
   },

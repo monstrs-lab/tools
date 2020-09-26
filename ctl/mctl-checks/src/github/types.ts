@@ -1,3 +1,5 @@
+/* eslint-disable no-shadow */
+
 export enum AnnotationLevel {
   Warning = 'warning',
   Failure = 'failure',
