@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-format",
-  "version": "0.0.35",
+  "version": "0.0.37",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
