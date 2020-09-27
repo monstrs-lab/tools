@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/mctl-docker",
-  "version": "0.2.39",
+  "version": "0.2.40",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -19,8 +19,8 @@
     "typescript": "^4.0.3"
   },
   "dependencies": {
-    "@monstrs/code-changes": "workspace:0.0.41",
-    "@monstrs/code-project": "workspace:0.0.41",
+    "@monstrs/code-changes": "workspace:0.0.42",
+    "@monstrs/code-project": "workspace:0.0.42",
     "clipanion": "^2.6.1",
     "execa": "^4.0.3"
   },
