@@ -7,8 +7,11 @@ import { BuildResult }  from '@monstrs/buildpack-core'
 export class YarnWorkspaceBuildBuilder implements Builder {
   async build(ctx: BuildContext): Promise<BuildResult> {
     const entry = ctx.plan.getEntry('yarn-workspace-build')
-    const { workspace } = entry.metadata
 
-    await execa('yarn', ['workspace', workspace, 'build'])
+    if (entry) {
+      const { workspace } = entry.metadata
+
+      await execa('yarn', ['workspace', workspace, 'build'])
+    }
   }
 }

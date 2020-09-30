@@ -9,6 +9,7 @@ import { getExternals }      from './externals'
 
 export const createWebpackConfig = async (cwd, environment) => {
   const externals = (await getExternals(cwd)).reduce(
+    // @ts-ignore
     (result, dependency: string) => ({
       ...result,
       [dependency]: `commonjs2 ${dependency}`,

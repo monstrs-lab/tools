@@ -10,7 +10,7 @@ const getWorkspaceChildrenRecursive = (
   rootWorkspace: Workspace,
   project: Project
 ): Array<Workspace> => {
-  const workspaceList = []
+  const workspaceList: Array<Workspace> = []
   // @ts-ignore
   for (const childWorkspaceCwd of rootWorkspace.workspacesCwds) {
     const childWorkspace = project.workspacesByCwd.get(childWorkspaceCwd)

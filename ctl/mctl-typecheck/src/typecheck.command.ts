@@ -10,12 +10,17 @@ class TypeCheckCommand extends Command {
 
     const { manifest } = await getRootWorkspace()
 
-    const result = ts.check(manifest.workspaceDefinitions.map((definition) => definition.pattern))
+    const workspaces: Array<string> = manifest.workspaceDefinitions.map(
+      (definition) => definition.pattern
+    )
+
+    const result = ts.check(workspaces)
 
     Object.values(result)
       .flat()
       .forEach((diagnostic) => {
         this.context.stdout.write(ts.formatDiagnostic(diagnostic))
+        this.context.stdout.write('\n\n')
       })
 
     if (result.errors.length > 0) {

@@ -37,7 +37,6 @@
     "@monstrs/mctl-checks": "workspace:0.2.47",
     "@monstrs/mctl-commit": "workspace:0.2.46",
     "@monstrs/mctl-commitmsg": "workspace:0.2.45",
-    "@monstrs/mctl-docker": "workspace:0.2.40",
     "@monstrs/mctl-format": "workspace:0.2.45",
     "@monstrs/mctl-github": "workspace:0.2.40",
     "@monstrs/mctl-library": "workspace:0.2.40",

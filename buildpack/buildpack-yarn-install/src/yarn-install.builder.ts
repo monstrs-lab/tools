@@ -47,7 +47,7 @@ export class YarnInstallBuilder implements Builder {
         await execa('cp', ['--archive', unpluggedPath, yarnLayer.path])
       }
 
-      yarnLayer.metadata.cacheSha = cacheSha
+      yarnLayer.setMetadata('cacheSha', cacheSha)
     }
   }
 

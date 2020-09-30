@@ -37,7 +37,7 @@
     "protocol-buffers-schema": "^3.4.0",
     "ts-loader": "^8.0.4",
     "typescript": "^4.0.3",
-    "webpack": "5.0.0-beta.28",
+    "webpack": "5.0.0-rc.3",
     "webpack-chain": "^6.5.1"
   }
 }

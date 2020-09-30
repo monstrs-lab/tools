@@ -1,5 +1,6 @@
 import rimraf             from 'rimraf'
 import { Command }        from 'clipanion'
+import { ModuleKind }     from 'typescript'
 import { promises as fs } from 'fs'
 
 import { TypeScript }     from '@monstrs/code-typescript'
@@ -15,9 +16,9 @@ class LibraryBuildCommand extends Command {
     const ts = new TypeScript()
 
     const result = ts.build(['./src'], {
-      declaration: true,
-      module: 'commonjs',
+      module: ModuleKind.CommonJS,
       outDir: this.target,
+      declaration: true,
     })
 
     Object.values(result)

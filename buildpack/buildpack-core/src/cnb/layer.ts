@@ -1,9 +1,10 @@
 import fs                   from 'fs'
+import { AnyJson }          from '@iarna/toml'
 import { parse, stringify } from '@iarna/toml'
 import { join }             from 'path'
 
 export class Layer {
-  metadata: { [key: string]: string } = {}
+  metadata: { [key: string]: string | null } = {}
 
   constructor(
     readonly name: string,
@@ -43,11 +44,15 @@ export class Layer {
     fs.writeFileSync(
       metadataPath,
       stringify({
-        metadata: this.metadata,
+        metadata: this.metadata as AnyJson,
         build: this.build,
         cache: this.cache,
         launch: this.launch,
       })
     )
+  }
+
+  setMetadata(key: string, value: string | null): void {
+    this.metadata[key] = value
   }
 }

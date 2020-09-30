@@ -26,12 +26,8 @@ export default {
     removeComments: true,
     resolveJsonModule: true,
 
-    strict: false,
-    strictBindCallApply: false,
-    strictFunctionTypes: false,
-    strictNullChecks: false,
+    strict: true,
     strictPropertyInitialization: false,
-    stripInternal: false,
 
     sourceMap: false,
     target: 'es2017',

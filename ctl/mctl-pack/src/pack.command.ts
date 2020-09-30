@@ -4,8 +4,8 @@ import tempy                           from 'tempy'
 import { Command }                     from 'clipanion'
 import { stringify }                   from '@iarna/toml'
 
+import { Workspace, getWorkspaces }    from '@monstrs/code-project'
 import { getChangedFiles, getVersion } from '@monstrs/code-changes'
-import { getWorkspaces }               from '@monstrs/code-project'
 
 interface BuildCommandOptions {
   name: string
@@ -29,15 +29,12 @@ class PackCommand extends Command {
   @Command.Boolean(`-v,--verbose`)
   verbose: boolean = false
 
-  @Command.String(`-e,--pushed-output-file`)
-  pushedOutputFile: string
-
   @Command.Path(`pack`)
   async execute() {
     const revision = await getVersion()
     const version = this.tagPrefix ? `${this.tagPrefix}-${revision}` : revision
 
-    let workspaces = []
+    let workspaces: Array<Workspace> = []
 
     if (this.all) {
       workspaces = await getWorkspaces()
@@ -63,22 +60,23 @@ class PackCommand extends Command {
       this.context.stdout.write('\n')
     }
 
-    const workspacesForPackage = workspaces.filter((workspace) => {
-      const build = workspace.manifest.scripts.get('build')
-
-      return build && build.includes('mctl service build')
-    })
-
     const commands: BuildCommandOptions[] = []
 
-    workspacesForPackage.forEach((workspace) => {
-      const registry = `${this.registry}${workspace.manifest.name.scope}-${workspace.manifest.name.name}`
+    workspaces.forEach((workspace: Workspace) => {
+      const { scripts, name } = workspace.manifest
 
-      commands.push({
-        name: workspace.manifest.raw.name,
-        path: workspace.cwd,
-        registry,
-      })
+      const buildCommand = scripts.get('build')
+
+      if (name && buildCommand && buildCommand.includes('mctl service build')) {
+        const image = [name.name, name.scope].filter(Boolean).join('-')
+        const registry = `${this.registry}${image}`
+
+        commands.push({
+          name: workspace.manifest.raw.name,
+          path: workspace.cwd,
+          registry,
+        })
+      }
     })
 
     const pushTags: string[] = []
@@ -144,10 +142,6 @@ class PackCommand extends Command {
           stdio: 'inherit',
         })
       }
-    }
-
-    if (this.pushedOutputFile) {
-      fs.writeFileSync(this.pushedOutputFile, JSON.stringify(pushTags, null, 2))
     }
   }
 }

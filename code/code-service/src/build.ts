@@ -27,13 +27,18 @@ export const build = async ({ cwd }: BuildOptions): Promise<BuildResult> => {
             warnings: [],
           })
         }
-      } else {
+      } else if (stats) {
         const { errors, warnings } = stats.toJson()
 
         resolve({
           // eslint-disable-next-line
           errors: errors.map((error) => ({ message: error.message })),
           warnings: warnings.map((warning) => ({ message: warning.message })),
+        })
+      } else {
+        resolve({
+          errors: [],
+          warnings: [],
         })
       }
     })

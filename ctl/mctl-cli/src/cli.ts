@@ -5,7 +5,6 @@ import { LintCheckCommand, TestCheckCommand }        from '@monstrs/mctl-checks'
 import { ReleaseCheckCommand }                       from '@monstrs/mctl-checks'
 import { CommitCommand }                             from '@monstrs/mctl-commit'
 import { CommitmsgCommand }                          from '@monstrs/mctl-commitmsg'
-import { DockerBuildCommand }                        from '@monstrs/mctl-docker'
 import { FormatCommand }                             from '@monstrs/mctl-format'
 import { GithubCreateDeploymentCommand }             from '@monstrs/mctl-github'
 import { LibraryBuildCommand }                       from '@monstrs/mctl-library'
@@ -47,7 +46,6 @@ const run = () => {
   cli.register(TestCheckCommand)
   cli.register(ReleaseCheckCommand)
 
-  cli.register(DockerBuildCommand)
   cli.register(PackCommand)
 
   cli.register(GithubCreateDeploymentCommand)

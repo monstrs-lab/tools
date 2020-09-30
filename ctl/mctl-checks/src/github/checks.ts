@@ -9,7 +9,7 @@ export const createCheck = async (name: string, conclusion: string, output: any)
   const params: any = {
     ...context.repo,
     name,
-    head_sha: event.after || event.pull_request.head.sha || (process.env.GITHUB_SHA as any),
+    head_sha: event.after || event.pull_request?.head.sha || (process.env.GITHUB_SHA as any),
     status: 'completed',
     completed_at: new Date().toISOString(),
     conclusion,

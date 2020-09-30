@@ -7,9 +7,14 @@ export class Layers {
 
   constructor(readonly path: string) {}
 
-  get(name: string, build: boolean = false, cache: boolean = false, launch: boolean = false) {
+  get(
+    name: string,
+    build: boolean = false,
+    cache: boolean = false,
+    launch: boolean = false
+  ): Layer {
     if (this.layers.has(name)) {
-      return this.layers.get(name)
+      return this.layers.get(name)!
     }
 
     const layer = new Layer(name, join(this.path, name), build, cache, launch)
