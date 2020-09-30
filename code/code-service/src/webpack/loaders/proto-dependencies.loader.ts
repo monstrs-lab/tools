@@ -12,7 +12,7 @@ export const getProtoFileName = (resourcePath) => {
 export default function (source) {
   const { imports } = parse(source)
 
-  const dependencies = []
+  const dependencies: Array<string> = []
 
   imports.forEach((importPath) => {
     if (!path.isAbsolute(importPath)) {

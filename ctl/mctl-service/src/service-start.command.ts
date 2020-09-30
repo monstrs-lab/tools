@@ -16,10 +16,12 @@ const waitSignals = (watcher) =>
 class ServiceStartCommand extends Command {
   @Command.Path(`service`, `start`)
   async execute() {
-    const watcher = await watch({ cwd: process.cwd() }, (error) => {
+    const watcher = await watch({ cwd: process.cwd() }, (error): undefined => {
       if (error) {
         this.context.stdout.write(error)
       }
+
+      return undefined
     })
 
     await waitSignals(watcher)

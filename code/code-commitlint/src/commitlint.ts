@@ -9,6 +9,7 @@ const lint = async (message: string) => {
   return commitlint(
     message,
     options.rules,
+    // @ts-ignore
     options.parserPreset ? { parserOpts: options.parserPreset.parserOpts } : {}
   )
 }

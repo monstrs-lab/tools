@@ -1,10 +1,18 @@
 import { DiagnosticCategory } from 'typescript'
+import { Diagnostic }         from 'typescript'
 
 import { DiagnosticGroup }    from './constants'
 
-export const groupDiagnostics = (diagnostics = []) =>
+export interface GroupedDiagnostics {
+  [DiagnosticGroup.Warning]: Array<Diagnostic>
+  [DiagnosticGroup.Error]: Array<Diagnostic>
+  [DiagnosticGroup.Suggestion]: Array<Diagnostic>
+  [DiagnosticGroup.Message]: Array<Diagnostic>
+}
+
+export const groupDiagnostics = (diagnostics: Array<Diagnostic> = []): GroupedDiagnostics =>
   diagnostics.reduce(
-    (result, diagnostic) => {
+    (result: GroupedDiagnostics, diagnostic) => {
       if (diagnostic.category === DiagnosticCategory.Error) {
         result[DiagnosticGroup.Error].push(diagnostic)
       } else if (diagnostic.category === DiagnosticCategory.Warning) {

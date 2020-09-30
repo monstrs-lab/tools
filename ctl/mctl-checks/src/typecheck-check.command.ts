@@ -17,12 +17,17 @@ const getAnnotationLevel = (category: number): AnnotationLevel => {
 }
 
 const formatDiagnostic = (diagnostic: Diagnostic, details: string): Annotation => {
-  const pos = diagnostic.file.getLineAndCharacterOfPosition(diagnostic.start!)
-  const line = pos.line + 1
+  let filePath = ''
+  let line = 0
 
-  const filePath = path.posix.normalize(
-    path.relative(process.cwd(), diagnostic.file.fileName).replace(/\\/, '/')
-  )
+  if (diagnostic.file) {
+    const pos = diagnostic.file.getLineAndCharacterOfPosition(diagnostic.start!)
+    line = pos.line + 1
+
+    filePath = path.posix.normalize(
+      path.relative(process.cwd(), diagnostic.file.fileName).replace(/\\/, '/')
+    )
+  }
 
   // eslint-disable-next-line prefer-destructuring
   let messageText: any = diagnostic.messageText

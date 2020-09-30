@@ -176,8 +176,12 @@ export class StartServerPlugin {
     worker.once('exit', this._handleChildExit)
     worker.once('error', this._handleChildError)
     worker.on('message', this._handleChildMessage)
+
+    // @ts-ignore
     worker.stdout.on('data', (data) => this._worker_info(data.toString()))
+    // @ts-ignore
     worker.stderr.on('data', (data) => this._worker_error(data.toString()))
+
     this.worker = worker
 
     if (callback) callback()

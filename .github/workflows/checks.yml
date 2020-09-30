@@ -39,6 +39,6 @@ jobs:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
 
       - name: Docker
-        run: yarn mctl docker build --registry 'monstrs/test-' -v
+        run: yarn mctl pack --registry 'monstrs/test-' -v
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
