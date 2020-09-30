@@ -37,8 +37,3 @@ jobs:
         run: yarn mctl check release
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
-
-      - name: Docker
-        run: yarn mctl pack --registry 'monstrs/test-' -v
-        env:
-          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
