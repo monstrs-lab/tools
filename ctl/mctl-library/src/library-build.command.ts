@@ -16,7 +16,7 @@ class LibraryBuildCommand extends Command {
     const ts = new TypeScript()
 
     const result = ts.build(['./src'], {
-      module: ModuleKind.CommonJS,
+      module: 'commonjs' as any,
       outDir: this.target,
       declaration: true,
     })
