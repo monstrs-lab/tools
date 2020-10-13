@@ -1,14 +1,11 @@
 import { Command }                                              from 'clipanion'
 
-import { test }                                                 from '@monstrs/code-test'
-
 import { Annotation, AnnotationLevel, Conclusion, createCheck } from './github'
 
-class TestCheckCommand extends Command {
-  @Command.Path(`check`, `test`)
-  async execute() {
-    const { results }: any = await test(process.cwd(), { silent: true })
+abstract class BaseTestCheckCommand extends Command {
+  abstract execute(): Promise<number | void>
 
+  async executeResults(results: any, type: 'Unit' | 'Integration') {
     const cwd: string = process.env.GITHUB_WORKSPACE || process.cwd()
 
     const assertions = results.testResults
@@ -34,12 +31,17 @@ class TestCheckCommand extends Command {
       message: assertion.title,
     }))
 
-    await createCheck('Test', annotations.length > 0 ? Conclusion.Failure : Conclusion.Success, {
-      title: annotations.length > 0 ? `Errors ${annotations.length}` : 'Successful',
-      summary: annotations.length > 0 ? `Found ${annotations.length} errors` : 'All checks passed',
-      annotations,
-    })
+    await createCheck(
+      `Test:${type}`,
+      annotations.length > 0 ? Conclusion.Failure : Conclusion.Success,
+      {
+        title: annotations.length > 0 ? `Errors ${annotations.length}` : 'Successful',
+        summary:
+          annotations.length > 0 ? `Found ${annotations.length} errors` : 'All checks passed',
+        annotations,
+      }
+    )
   }
 }
 
-export { TestCheckCommand }
+export { BaseTestCheckCommand }

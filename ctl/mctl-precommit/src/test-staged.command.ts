@@ -1,6 +1,6 @@
 import { Command } from 'clipanion'
 
-import { test }    from '@monstrs/code-test'
+import { unit }    from '@monstrs/code-test'
 
 class TestStagedCommand extends Command {
   @Command.Rest({ required: 0 })
@@ -8,7 +8,7 @@ class TestStagedCommand extends Command {
 
   @Command.Path(`staged`, `test`)
   async execute() {
-    await test(process.cwd(), { bail: true, findRelatedTests: true }, this.files)
+    await unit(process.cwd(), { bail: true, findRelatedTests: true }, this.files)
   }
 }
 

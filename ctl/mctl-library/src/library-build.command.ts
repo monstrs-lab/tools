@@ -1,6 +1,5 @@
 import rimraf             from 'rimraf'
 import { Command }        from 'clipanion'
-import { ModuleKind }     from 'typescript'
 import { promises as fs } from 'fs'
 
 import { TypeScript }     from '@monstrs/code-typescript'
