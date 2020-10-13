@@ -1,7 +1,9 @@
 import { Cli }                                       from 'clipanion'
 
 import { TypeCheckCommand as CheckTypeCommand }      from '@monstrs/mctl-checks'
-import { LintCheckCommand, TestCheckCommand }        from '@monstrs/mctl-checks'
+import { LintCheckCommand }                          from '@monstrs/mctl-checks'
+import { TestIntegrationCheckCommand }               from '@monstrs/mctl-checks'
+import { TestUnitCheckCommand }                      from '@monstrs/mctl-checks'
 import { ReleaseCheckCommand }                       from '@monstrs/mctl-checks'
 import { CommitCommand }                             from '@monstrs/mctl-commit'
 import { CommitmsgCommand }                          from '@monstrs/mctl-commitmsg'
@@ -15,7 +17,8 @@ import { FormatStagedCommand, LintStagedCommand }    from '@monstrs/mctl-precomm
 import { TestStagedCommand, TypeCheckStagedCommand } from '@monstrs/mctl-precommit'
 import { ServiceBuildCommand }                       from '@monstrs/mctl-service'
 import { ServiceStartCommand }                       from '@monstrs/mctl-service'
-import { TestCommand }                               from '@monstrs/mctl-test'
+import { TestIntegrationCommand }                    from '@monstrs/mctl-test'
+import { TestUnitCommand }                           from '@monstrs/mctl-test'
 import { TypeCheckCommand }                          from '@monstrs/mctl-typecheck'
 
 import { binaryVersion }                             from './constants'
@@ -30,7 +33,9 @@ const run = () => {
   cli.register(LintCommand)
   cli.register(FormatCommand)
   cli.register(TypeCheckCommand)
-  cli.register(TestCommand)
+
+  cli.register(TestIntegrationCommand)
+  cli.register(TestUnitCommand)
 
   cli.register(CommitCommand)
   cli.register(CommitmsgCommand)
@@ -43,7 +48,8 @@ const run = () => {
 
   cli.register(CheckTypeCommand)
   cli.register(LintCheckCommand)
-  cli.register(TestCheckCommand)
+  cli.register(TestIntegrationCheckCommand)
+  cli.register(TestUnitCheckCommand)
   cli.register(ReleaseCheckCommand)
 
   cli.register(PackCommand)
