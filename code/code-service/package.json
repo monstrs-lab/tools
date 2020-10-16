@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-service",
-  "version": "0.0.45",
+  "version": "0.0.47",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -31,8 +31,8 @@
     "typings": "dist/index.d.ts"
   },
   "dependencies": {
-    "@monstrs/code-project": "workspace:0.0.45",
-    "@monstrs/code-typescript": "workspace:0.0.57",
+    "@monstrs/code-project": "workspace:0.0.47",
+    "@monstrs/code-typescript": "workspace:0.0.59",
     "file-loader": "^6.1.0",
     "protocol-buffers-schema": "^3.4.0",
     "ts-loader": "^8.0.4",

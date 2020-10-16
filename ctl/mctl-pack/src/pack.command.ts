@@ -29,6 +29,9 @@ class PackCommand extends Command {
   @Command.Boolean(`-v,--verbose`)
   verbose: boolean = false
 
+  @Command.String(`-e,--tags-output-file`)
+  tagsOutputFile: string
+
   @Command.Path(`pack`)
   async execute() {
     const revision = await getVersion()
@@ -142,6 +145,10 @@ class PackCommand extends Command {
           stdio: 'inherit',
         })
       }
+    }
+
+    if (this.tagsOutputFile) {
+      fs.writeFileSync(this.tagsOutputFile, JSON.stringify(pushTags, null, 2))
     }
   }
 }
