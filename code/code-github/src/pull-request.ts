@@ -3,15 +3,14 @@ import { context }    from '@actions/github'
 
 import { getOctokit } from './octokit'
 
-export const getPullRequestFilesPage = async (page = 0) => {
+export const getPullRequestFilesPage = async (page = 0, pullNumber) => {
   const octokit = getOctokit()
-  const event = context.payload
 
   const cwd = process.cwd()
 
   const { data }: any = await octokit.pulls.listFiles({
     ...context.repo,
-    pull_number: event.number,
+    pull_number: pullNumber,
     per_page: 100,
     page,
   })
@@ -23,9 +22,11 @@ export const getPullRequestFiles = async () => {
   const octokit = getOctokit()
   const event = context.payload
 
+  const pullNumber = process.env.PULL_REQUEST_NUMBER || event.number
+
   const { data } = await octokit.pulls.get({
     ...context.repo,
-    pull_number: event.number,
+    pull_number: pullNumber,
   })
 
   const pages = Math.ceil(data.changed_files / 100)
@@ -33,7 +34,7 @@ export const getPullRequestFiles = async () => {
   const result = await Promise.all(
     Array(pages)
       .fill(null)
-      .map((_, page) => getPullRequestFilesPage(page))
+      .map((_, page) => getPullRequestFilesPage(page, pullNumber))
   )
 
   return result.flat()
