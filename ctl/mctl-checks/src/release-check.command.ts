@@ -1,5 +1,5 @@
-import execa from 'execa'
-import { Command } from 'clipanion'
+import execa                       from 'execa'
+import { Command }                 from 'clipanion'
 
 import { Conclusion, createCheck } from './github'
 

@@ -6,7 +6,10 @@ const config = {
   tabWidth: 2,
   jsxSingleQuote: true,
   trailingComma: 'es5',
-  plugins: [require.resolve('@monstrs/prettier-plugin-import-sort')],
+  plugins: [
+    require.resolve('@monstrs/prettier-plugin-import-sort'),
+    require.resolve('@monstrs/prettier-plugin-import-align'),
+  ],
   printWidth: 100,
 }
 

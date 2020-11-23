@@ -1,4 +1,4 @@
-import { context } from '@actions/github'
+import { context }    from '@actions/github'
 
 import { getOctokit } from '@monstrs/code-github'
 

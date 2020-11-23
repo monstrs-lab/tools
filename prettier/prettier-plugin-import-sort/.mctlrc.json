@@ -1,0 +1,5 @@
+{
+  "collection": "@monstrs/schematics-workspace",
+  "schematic": "library",
+  "migration": "1573354115211"
+}

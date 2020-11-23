@@ -1,0 +1,1 @@
+# prettier-plugin-import-align

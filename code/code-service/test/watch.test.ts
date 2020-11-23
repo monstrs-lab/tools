@@ -1,9 +1,10 @@
-import path from 'path'
+import path             from 'path'
 import waitForLocalhost from 'wait-for-localhost'
 
-import { watch } from '../src'
+import { watch }        from '../src'
 
-const closeWatcher = (watcher) => new Promise((resolve) => watcher.close(() => resolve()))
+const closeWatcher = (watcher): Promise<void> =>
+  new Promise((resolve) => watcher.close(() => resolve()))
 
 describe('service', () => {
   describe('watch', () => {

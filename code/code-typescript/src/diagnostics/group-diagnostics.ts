@@ -1,7 +1,7 @@
 import { DiagnosticCategory } from 'typescript'
-import { Diagnostic } from 'typescript'
+import { Diagnostic }         from 'typescript'
 
-import { DiagnosticGroup } from './constants'
+import { DiagnosticGroup }    from './constants'
 
 export interface GroupedDiagnostics {
   [DiagnosticGroup.Warning]: Array<Diagnostic>

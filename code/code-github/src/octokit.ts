@@ -1,4 +1,4 @@
-import { GitHub } from '@actions/github/lib/utils'
+import { GitHub }                      from '@actions/github/lib/utils'
 import { getOctokit as createOctokit } from '@actions/github'
 
 let octokit

@@ -1,6 +1,6 @@
-import { Command } from 'clipanion'
+import { Command }          from 'clipanion'
 
-import { TypeScript } from '@monstrs/code-typescript'
+import { TypeScript }       from '@monstrs/code-typescript'
 import { getRootWorkspace } from '@monstrs/code-project'
 
 class TypeCheckCommand extends Command {

@@ -1,6 +1,6 @@
-import { Command } from 'clipanion'
+import { Command }              from 'clipanion'
 
-import { integration } from '@monstrs/code-test'
+import { integration }          from '@monstrs/code-test'
 
 import { BaseTestCheckCommand } from './base-test-check.command'
 

@@ -1,11 +1,11 @@
-import path from 'path'
+import path            from 'path'
 
 import { ExitHandler } from './cnb'
-import { Detector } from './cnb'
-import { Builder } from './cnb'
-import { Config } from './cnb'
-import { build } from './build'
-import { detect } from './detect'
+import { Detector }    from './cnb'
+import { Builder }     from './cnb'
+import { Config }      from './cnb'
+import { build }       from './build'
+import { detect }      from './detect'
 
 export const run = async (detector: Detector, builder?: Builder) => {
   const config = new Config(process.argv.slice(1, process.argv.length))

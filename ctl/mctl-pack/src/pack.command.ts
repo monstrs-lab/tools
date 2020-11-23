@@ -1,10 +1,10 @@
-import execa from 'execa'
-import fs from 'fs'
-import tempy from 'tempy'
-import { Command } from 'clipanion'
-import { stringify } from '@iarna/toml'
+import execa                           from 'execa'
+import fs                              from 'fs'
+import tempy                           from 'tempy'
+import { Command }                     from 'clipanion'
+import { stringify }                   from '@iarna/toml'
 
-import { Workspace, getWorkspaces } from '@monstrs/code-project'
+import { Workspace, getWorkspaces }    from '@monstrs/code-project'
 import { getChangedFiles, getVersion } from '@monstrs/code-changes'
 
 interface BuildCommandOptions {

@@ -1,8 +1,8 @@
-import execa from 'execa'
+import execa                              from 'execa'
 
 import { IsGithubEnv, getPullRequestSha } from '@monstrs/code-github'
 
-import { getChangedFiles } from './changed-files'
+import { getChangedFiles }                from './changed-files'
 
 export const NEXT_VERSION = 'next'
 

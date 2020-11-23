@@ -1,8 +1,8 @@
-import { BuildContext } from './cnb'
-import { ExitHandler } from './cnb'
-import { Builder } from './cnb'
-import { Layers } from './cnb'
-import { Config } from './cnb'
+import { BuildContext }  from './cnb'
+import { ExitHandler }   from './cnb'
+import { Builder }       from './cnb'
+import { Layers }        from './cnb'
+import { Config }        from './cnb'
 import { BuildpackPlan } from './cnb'
 
 export const build = async (builder: Builder, config: Config) => {

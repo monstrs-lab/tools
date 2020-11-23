@@ -1,4 +1,4 @@
-import { Command } from 'clipanion'
+import { Command }    from 'clipanion'
 
 import { TypeScript } from '@monstrs/code-typescript'
 

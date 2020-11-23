@@ -1,5 +1,5 @@
-import path from 'path'
-import { context } from '@actions/github'
+import path           from 'path'
+import { context }    from '@actions/github'
 
 import { getOctokit } from './octokit'
 

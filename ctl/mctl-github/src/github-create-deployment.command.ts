@@ -1,5 +1,5 @@
-import fs from 'fs'
-import { Command } from 'clipanion'
+import fs                   from 'fs'
+import { Command }          from 'clipanion'
 
 import { createDeployment } from '@monstrs/code-github'
 
