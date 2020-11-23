@@ -1,8 +1,8 @@
-import fs from 'fs'
-import globby from 'globby'
-import ignore from 'ignore'
-import path from 'path'
-import { format } from 'prettier'
+import fs                                                 from 'fs'
+import globby                                             from 'globby'
+import ignore                                             from 'ignore'
+import path                                               from 'path'
+import { format }                                         from 'prettier'
 
 import { config, createPatterns, ignore as ignoreConfig } from './config'
 

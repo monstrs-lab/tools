@@ -1,11 +1,11 @@
-import Config from 'webpack-chain'
-import path from 'path'
-import webpack from 'webpack'
+import Config                from 'webpack-chain'
+import path                  from 'path'
+import webpack               from 'webpack'
 
-import { base } from '@monstrs/code-typescript'
+import { base }              from '@monstrs/code-typescript'
 
 import { StartServerPlugin } from './plugins'
-import { getExternals } from './externals'
+import { getExternals }      from './externals'
 
 export const createWebpackConfig = async (cwd, environment) => {
   const externals = (await getExternals(cwd)).reduce(

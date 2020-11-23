@@ -3,7 +3,7 @@ import { base } from '@monstrs/code-typescript'
 export const unitConfig = {
   testRegex: '\\.test\\.(ts|tsx)$',
   modulePathIgnorePatterns: ['dist', 'integration'],
-  snapshotSerializers: [require.resolve('@emotion/jest')],
+  snapshotSerializers: [require.resolve('@emotion/jest/serializer')],
   moduleNameMapper: {
     '^.+\\.(jpg|jpeg|gif|png|mp4|mkv|avi|webm|swf|wav|mid)$': 'jest-static-stubs/$1',
   },
@@ -21,7 +21,7 @@ export const unitConfig = {
 export const integrationConfig = {
   testRegex: '/integration/.*\\.test\\.(ts|tsx)$',
   modulePathIgnorePatterns: ['dist'],
-  snapshotSerializers: [require.resolve('@emotion/jest')],
+  snapshotSerializers: [require.resolve('@emotion/jest/serializer')],
   moduleNameMapper: {
     '^.+\\.(jpg|jpeg|gif|png|mp4|mkv|avi|webm|swf|wav|mid)$': 'jest-static-stubs/$1',
   },

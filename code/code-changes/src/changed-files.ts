@@ -1,5 +1,5 @@
-import execa from 'execa'
-import path from 'path'
+import execa                                from 'execa'
+import path                                 from 'path'
 
 import { IsGithubEnv, getPullRequestFiles } from '@monstrs/code-github'
 

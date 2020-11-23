@@ -1,8 +1,8 @@
-import execa from 'execa'
+import execa            from 'execa'
 
-import { Builder } from '@monstrs/buildpack-core'
+import { Builder }      from '@monstrs/buildpack-core'
 import { BuildContext } from '@monstrs/buildpack-core'
-import { BuildResult } from '@monstrs/buildpack-core'
+import { BuildResult }  from '@monstrs/buildpack-core'
 
 export class YarnWorkspaceBuildBuilder implements Builder {
   async build(ctx: BuildContext): Promise<BuildResult> {

@@ -1,7 +1,7 @@
-import { Command } from 'clipanion'
-import { Linter as EslintLinter } from 'eslint'
+import { Command }                                              from 'clipanion'
+import { Linter as EslintLinter }                               from 'eslint'
 
-import { Linter } from '@monstrs/code-lint'
+import { Linter }                                               from '@monstrs/code-lint'
 
 import { Annotation, AnnotationLevel, Conclusion, createCheck } from './github'
 

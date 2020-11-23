@@ -1,8 +1,8 @@
 import { Command } from 'clipanion'
 
-import { watch } from '@monstrs/code-service'
+import { watch }   from '@monstrs/code-service'
 
-const waitSignals = (watcher) =>
+const waitSignals = (watcher): Promise<void> =>
   new Promise((resolve) => {
     process.on('SIGINT', () => {
       watcher.close(() => resolve())

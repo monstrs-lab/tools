@@ -1,12 +1,12 @@
-import path from 'path'
-import { Command } from 'clipanion'
+import path                               from 'path'
+import { Command }                        from 'clipanion'
 
 import { Diagnostic, DiagnosticCategory } from '@monstrs/code-typescript'
-import { TypeScript } from '@monstrs/code-typescript'
-import { getRootWorkspace } from '@monstrs/code-project'
+import { TypeScript }                     from '@monstrs/code-typescript'
+import { getRootWorkspace }               from '@monstrs/code-project'
 
-import { Annotation, AnnotationLevel } from './github'
-import { Conclusion, createCheck } from './github'
+import { Annotation, AnnotationLevel }    from './github'
+import { Conclusion, createCheck }        from './github'
 
 const getAnnotationLevel = (category: number): AnnotationLevel => {
   if (category === DiagnosticCategory.Warning) {

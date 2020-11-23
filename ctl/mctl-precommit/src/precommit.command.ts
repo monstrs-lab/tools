@@ -1,7 +1,7 @@
-import lintStaged from 'lint-staged'
+import lintStaged  from 'lint-staged'
 import { Command } from 'clipanion'
 
-import { config } from './config'
+import { config }  from './config'
 
 class PreCommitCommand extends Command {
   @Command.Path(`precommit`)

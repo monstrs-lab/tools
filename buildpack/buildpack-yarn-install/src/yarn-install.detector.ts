@@ -1,9 +1,9 @@
-import fs from 'fs'
-import path from 'path'
+import fs                from 'fs'
+import path              from 'path'
 
-import { Detector } from '@monstrs/buildpack-core'
+import { Detector }      from '@monstrs/buildpack-core'
 import { DetectContext } from '@monstrs/buildpack-core'
-import { DetectResult } from '@monstrs/buildpack-core'
+import { DetectResult }  from '@monstrs/buildpack-core'
 
 export class YarnInstallDetector implements Detector {
   async detect(ctx: DetectContext): Promise<DetectResult> {
