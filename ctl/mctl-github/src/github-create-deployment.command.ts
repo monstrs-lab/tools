@@ -36,6 +36,10 @@ class GithubCreateDeploymentCommand extends Command {
             payload: {
               image,
             },
+            required_contexts: [],
+            mediaType: {
+              previews: ['ant-man']
+            },
           })
         )
       )

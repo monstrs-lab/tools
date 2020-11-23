@@ -148,7 +148,7 @@ class PackCommand extends Command {
     }
 
     if (this.tagsOutputFile) {
-      fs.writeFileSync(this.tagsOutputFile, JSON.stringify(pushTags, null, 2))
+      fs.writeFileSync(this.tagsOutputFile, JSON.stringify(pushTags))
     }
   }
 }

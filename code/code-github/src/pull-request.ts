@@ -43,5 +43,10 @@ export const getPullRequestFiles = async () => {
 export const getPullRequestSha = (): string => {
   const event = context.payload
 
-  return event.after || event.pull_request?.head?.sha || process.env.GITHUB_SHA
+  return (
+    process.env.GITHUB_PULL_REQUST_HEAD_SHA ||
+    event.after ||
+    event.pull_request?.head?.sha ||
+    process.env.GITHUB_SHA
+  )
 }
