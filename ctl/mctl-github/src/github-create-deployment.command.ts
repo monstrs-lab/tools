@@ -1,5 +1,5 @@
-import fs                   from 'fs'
-import { Command }          from 'clipanion'
+import fs from 'fs'
+import { Command } from 'clipanion'
 
 import { createDeployment } from '@monstrs/code-github'
 
@@ -38,7 +38,7 @@ class GithubCreateDeploymentCommand extends Command {
             },
             required_contexts: [],
             mediaType: {
-              previews: ['ant-man']
+              previews: ['ant-man'],
             },
           })
         )

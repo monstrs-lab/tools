@@ -1,6 +1,6 @@
 import { Command } from 'clipanion'
 
-import { build }   from '@monstrs/code-service'
+import { build } from '@monstrs/code-service'
 
 class ServiceBuildCommand extends Command {
   @Command.Path(`service`, `build`)

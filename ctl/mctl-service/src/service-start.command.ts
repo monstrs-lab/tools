@@ -1,6 +1,6 @@
 import { Command } from 'clipanion'
 
-import { watch }   from '@monstrs/code-service'
+import { watch } from '@monstrs/code-service'
 
 const waitSignals = (watcher) =>
   new Promise((resolve) => {

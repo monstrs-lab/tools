@@ -1,27 +1,69 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 9076:
+/***/ 3477:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "Z": () => /* binding */ BuildContext
+  "BuildContext": () => /* reexport */ BuildContext,
+  "BuildpackPlan": () => /* reexport */ BuildpackPlan,
+  "BuildpackPlanEntry": () => /* reexport */ BuildpackPlanEntry,
+  "Config": () => /* reexport */ Config,
+  "DetectContext": () => /* reexport */ DetectContext,
+  "ExitHandler": () => /* reexport */ ExitHandler,
+  "Layer": () => /* reexport */ Layer,
+  "Layers": () => /* reexport */ Layers,
+  "run": () => /* reexport */ run
 });
+
+;// CONCATENATED MODULE: ../buildpack-core/src/cnb/buildpack-plan.entry.ts
+class BuildpackPlanEntry {
+    constructor(name, version = null, metadata = {}) {
+        this.name = name;
+        this.version = version;
+        this.metadata = metadata;
+    }
+}
 
 // EXTERNAL MODULE: external "fs"
 var external_fs_ = __webpack_require__(5747);
 var external_fs_default = /*#__PURE__*/__webpack_require__.n(external_fs_);
-
 // EXTERNAL MODULE: ../../.yarn/cache/@iarna-toml-npm-2.2.5-6da1399e8e-929a8516a2.zip/node_modules/@iarna/toml/toml.js
 var toml = __webpack_require__(8292);
+;// CONCATENATED MODULE: ../buildpack-core/src/cnb/buildpack.plan.ts
+
+
+
+class BuildpackPlan {
+    constructor(entries) {
+        this.entries = entries;
+    }
+    static load(planPath) {
+        const { entries = [] } = (0,toml.parse)(external_fs_default().readFileSync(planPath).toString());
+        return new BuildpackPlan(entries.map((entry) => new BuildpackPlanEntry(entry.name, entry.version, entry.metadata)));
+    }
+    getEntry(name) {
+        return this.entries.find((entry) => entry.name === name);
+    }
+}
+
+;// CONCATENATED MODULE: ../buildpack-core/src/cnb/detect.context.ts
+class DetectContext {
+    constructor(workingDir, buildpackPath) {
+        this.workingDir = workingDir;
+        this.buildpackPath = buildpackPath;
+    }
+}
 
 // EXTERNAL MODULE: external "path"
 var external_path_ = __webpack_require__(5622);
-
-// CONCATENATED MODULE: ../buildpack-core/src/cnb/launch.ts
+var external_path_default = /*#__PURE__*/__webpack_require__.n(external_path_);
+;// CONCATENATED MODULE: ../buildpack-core/src/cnb/launch.ts
 
 
 
@@ -42,7 +84,7 @@ class Launch {
     }
 }
 
-// CONCATENATED MODULE: ../buildpack-core/src/cnb/build.context.ts
+;// CONCATENATED MODULE: ../buildpack-core/src/cnb/build.context.ts
 
 class BuildContext {
     constructor(workingDir, buildpackPath, layers, plan) {
@@ -57,114 +99,7 @@ class BuildContext {
     }
 }
 
-
-/***/ }),
-
-/***/ 6315:
-/***/ (() => {
-
-
-
-/***/ }),
-
-/***/ 3543:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "R": () => /* binding */ BuildpackPlanEntry
-/* harmony export */ });
-class BuildpackPlanEntry {
-    constructor(name, version = null, metadata = {}) {
-        this.name = name;
-        this.version = version;
-        this.metadata = metadata;
-    }
-}
-
-
-/***/ }),
-
-/***/ 2453:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "D": () => /* binding */ BuildpackPlan
-/* harmony export */ });
-/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5747);
-/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(fs__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _iarna_toml__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8292);
-/* harmony import */ var _buildpack_plan_entry__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3543);
-
-
-
-class BuildpackPlan {
-    constructor(entries) {
-        this.entries = entries;
-    }
-    static load(planPath) {
-        const { entries = [] } = (0,_iarna_toml__WEBPACK_IMPORTED_MODULE_1__.parse)(fs__WEBPACK_IMPORTED_MODULE_0___default().readFileSync(planPath).toString());
-        return new BuildpackPlan(entries.map((entry) => new _buildpack_plan_entry__WEBPACK_IMPORTED_MODULE_2__/* .BuildpackPlanEntry */ .R(entry.name, entry.version, entry.metadata)));
-    }
-    getEntry(name) {
-        return this.entries.find((entry) => entry.name === name);
-    }
-}
-
-
-/***/ }),
-
-/***/ 4983:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "D": () => /* binding */ Config
-/* harmony export */ });
-class Config {
-    constructor(args) {
-        this.args = args;
-    }
-    get arguments() {
-        return this.args;
-    }
-}
-
-
-/***/ }),
-
-/***/ 6804:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "a": () => /* binding */ DetectContext
-/* harmony export */ });
-class DetectContext {
-    constructor(workingDir, buildpackPath) {
-        this.workingDir = workingDir;
-        this.buildpackPath = buildpackPath;
-    }
-}
-
-
-/***/ }),
-
-/***/ 6479:
-/***/ (() => {
-
-
-
-/***/ }),
-
-/***/ 7236:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "t": () => /* binding */ ExitHandler
-/* harmony export */ });
+;// CONCATENATED MODULE: ../buildpack-core/src/cnb/exit.handler.ts
 class ExitHandler {
     static pass() {
         process.exit(ExitHandler.PassStatusCode);
@@ -181,68 +116,17 @@ ExitHandler.ErrorStatusCode = 1;
 ExitHandler.FailStatusCode = 100;
 ExitHandler.PassStatusCode = 0;
 
+;// CONCATENATED MODULE: ../buildpack-core/src/cnb/config.ts
+class Config {
+    constructor(args) {
+        this.args = args;
+    }
+    get arguments() {
+        return this.args;
+    }
+}
 
-/***/ }),
-
-/***/ 5808:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "BuildpackPlanEntry": () => /* reexport safe */ _buildpack_plan_entry__WEBPACK_IMPORTED_MODULE_0__.R,
-/* harmony export */   "BuildpackPlan": () => /* reexport safe */ _buildpack_plan__WEBPACK_IMPORTED_MODULE_1__.D,
-/* harmony export */   "DetectContext": () => /* reexport safe */ _detect_context__WEBPACK_IMPORTED_MODULE_2__.a,
-/* harmony export */   "BuildContext": () => /* reexport safe */ _build_context__WEBPACK_IMPORTED_MODULE_3__.Z,
-/* harmony export */   "ExitHandler": () => /* reexport safe */ _exit_handler__WEBPACK_IMPORTED_MODULE_4__.t,
-/* harmony export */   "Config": () => /* reexport safe */ _config__WEBPACK_IMPORTED_MODULE_7__.D,
-/* harmony export */   "Layers": () => /* reexport safe */ _layers__WEBPACK_IMPORTED_MODULE_8__.S,
-/* harmony export */   "Layer": () => /* reexport safe */ _layer__WEBPACK_IMPORTED_MODULE_9__.m
-/* harmony export */ });
-/* harmony import */ var _buildpack_plan_entry__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3543);
-/* harmony import */ var _buildpack_plan__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2453);
-/* harmony import */ var _detect_context__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6804);
-/* harmony import */ var _build_context__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9076);
-/* harmony import */ var _exit_handler__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7236);
-/* harmony import */ var _detector__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(6479);
-/* harmony import */ var _detector__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_detector__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
-/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _detector__WEBPACK_IMPORTED_MODULE_5__) if(["default","BuildpackPlanEntry","BuildpackPlan","DetectContext","BuildContext","ExitHandler"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _detector__WEBPACK_IMPORTED_MODULE_5__[__WEBPACK_IMPORT_KEY__]
-/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
-/* harmony import */ var _builder__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(6315);
-/* harmony import */ var _builder__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_builder__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
-/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _builder__WEBPACK_IMPORTED_MODULE_6__) if(["default","BuildpackPlanEntry","BuildpackPlan","DetectContext","BuildContext","ExitHandler"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _builder__WEBPACK_IMPORTED_MODULE_6__[__WEBPACK_IMPORT_KEY__]
-/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
-/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(4983);
-/* harmony import */ var _layers__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(6981);
-/* harmony import */ var _layer__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(5171);
-
-
-
-
-
-
-
-
-
-
-
-
-/***/ }),
-
-/***/ 5171:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "m": () => /* binding */ Layer
-/* harmony export */ });
-/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5747);
-/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(fs__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _iarna_toml__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8292);
-/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(5622);
-/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_2__);
+;// CONCATENATED MODULE: ../buildpack-core/src/cnb/layer.ts
 
 
 
@@ -257,16 +141,16 @@ class Layer {
     }
     reset() {
         this.metadata = {};
-        if (fs__WEBPACK_IMPORTED_MODULE_0___default().existsSync(this.path)) {
-            fs__WEBPACK_IMPORTED_MODULE_0___default().rmdirSync(this.path);
+        if (external_fs_default().existsSync(this.path)) {
+            external_fs_default().rmdirSync(this.path);
         }
-        fs__WEBPACK_IMPORTED_MODULE_0___default().mkdirSync(this.path);
+        external_fs_default().mkdirSync(this.path);
     }
     load(layersPath) {
-        const metadataPath = (0,path__WEBPACK_IMPORTED_MODULE_2__.join)(layersPath, `${this.name}.toml`);
-        if (fs__WEBPACK_IMPORTED_MODULE_0___default().existsSync(metadataPath)) {
+        const metadataPath = (0,external_path_.join)(layersPath, `${this.name}.toml`);
+        if (external_fs_default().existsSync(metadataPath)) {
             try {
-                const parsed = (0,_iarna_toml__WEBPACK_IMPORTED_MODULE_1__.parse)(fs__WEBPACK_IMPORTED_MODULE_0___default().readFileSync(metadataPath).toString());
+                const parsed = (0,toml.parse)(external_fs_default().readFileSync(metadataPath).toString());
                 this.metadata = parsed.metadata || {};
             }
             catch (error) {
@@ -275,29 +159,20 @@ class Layer {
         }
     }
     save(layersPath) {
-        const metadataPath = (0,path__WEBPACK_IMPORTED_MODULE_2__.join)(layersPath, `${this.name}.toml`);
-        fs__WEBPACK_IMPORTED_MODULE_0___default().writeFileSync(metadataPath, (0,_iarna_toml__WEBPACK_IMPORTED_MODULE_1__.stringify)({
+        const metadataPath = (0,external_path_.join)(layersPath, `${this.name}.toml`);
+        external_fs_default().writeFileSync(metadataPath, (0,toml.stringify)({
             metadata: this.metadata,
             build: this.build,
             cache: this.cache,
             launch: this.launch,
         }));
     }
+    setMetadata(key, value) {
+        this.metadata[key] = value;
+    }
 }
 
-
-/***/ }),
-
-/***/ 6981:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "S": () => /* binding */ Layers
-/* harmony export */ });
-/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5622);
-/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _layer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5171);
+;// CONCATENATED MODULE: ../buildpack-core/src/cnb/layers.ts
 
 
 class Layers {
@@ -309,7 +184,7 @@ class Layers {
         if (this.layers.has(name)) {
             return this.layers.get(name);
         }
-        const layer = new _layer__WEBPACK_IMPORTED_MODULE_1__/* .Layer */ .m(name, (0,path__WEBPACK_IMPORTED_MODULE_0__.join)(this.path, name), build, cache, launch);
+        const layer = new Layer(name, (0,external_path_.join)(this.path, name), build, cache, launch);
         layer.load(this.path);
         this.layers.set(name, layer);
         return layer;
@@ -321,84 +196,50 @@ class Layers {
     }
 }
 
-
-/***/ }),
-
-/***/ 6774:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "run": () => /* reexport safe */ _run__WEBPACK_IMPORTED_MODULE_1__.K
-/* harmony export */ });
-/* harmony import */ var _cnb__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5808);
-/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
-/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _cnb__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== "default") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _cnb__WEBPACK_IMPORTED_MODULE_0__[__WEBPACK_IMPORT_KEY__]
-/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
-/* harmony import */ var _run__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5425);
+;// CONCATENATED MODULE: ../buildpack-core/src/cnb/index.ts
 
 
 
 
-/***/ }),
 
-/***/ 5425:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  "K": () => /* binding */ run
-});
 
-// EXTERNAL MODULE: ../buildpack-core/src/cnb/index.ts
-var cnb = __webpack_require__(5808);
 
-// EXTERNAL MODULE: external "fs"
-var external_fs_ = __webpack_require__(5747);
-var external_fs_default = /*#__PURE__*/__webpack_require__.n(external_fs_);
 
-// EXTERNAL MODULE: external "path"
-var external_path_ = __webpack_require__(5622);
-var external_path_default = /*#__PURE__*/__webpack_require__.n(external_path_);
 
-// EXTERNAL MODULE: ../../.yarn/cache/@iarna-toml-npm-2.2.5-6da1399e8e-929a8516a2.zip/node_modules/@iarna/toml/toml.js
-var toml = __webpack_require__(8292);
-
-// CONCATENATED MODULE: ../buildpack-core/src/build.ts
+;// CONCATENATED MODULE: ../buildpack-core/src/build.ts
 
 
 
 
 const build = async (builder, config) => {
     if (config.arguments.length !== 4) {
-        cnb.ExitHandler.error(new Error(`Expected 3 arguments and received ${config.arguments.length - 1}`));
+        ExitHandler.error(new Error(`Expected 3 arguments and received ${config.arguments.length - 1}`));
     }
     try {
-        const context = new cnb.BuildContext(process.cwd(), process.env.CNB_BUILDPACK_DIR
+        const context = new BuildContext(process.cwd(), process.env.CNB_BUILDPACK_DIR
             ? process.env.CNB_BUILDPACK_DIR
-            : config.arguments[0].replace('/bin/build', ''), new cnb.Layers(config.arguments[1]), cnb.BuildpackPlan.load(config.arguments[3]));
+            : config.arguments[0].replace('/bin/build', ''), new Layers(config.arguments[1]), BuildpackPlan.load(config.arguments[3]));
         await builder.build(context);
         context.layers.save();
         context.launch.save(context.layers.path);
     }
     catch (error) {
-        cnb.ExitHandler.error(error);
+        ExitHandler.error(error);
     }
 };
 
-// CONCATENATED MODULE: ../buildpack-core/src/detect.ts
+;// CONCATENATED MODULE: ../buildpack-core/src/detect.ts
 
 
 
 
 const detect = async (detector, config) => {
     if (config.arguments.length !== 3) {
-        cnb.ExitHandler.error(new Error(`Expected 2 arguments and received ${config.arguments.length - 1}`));
+        ExitHandler.error(new Error(`Expected 2 arguments and received ${config.arguments.length - 1}`));
     }
-    const context = new cnb.DetectContext(process.cwd(), process.env.CNB_BUILDPACK_DIR
+    const context = new DetectContext(process.cwd(), process.env.CNB_BUILDPACK_DIR
         ? process.env.CNB_BUILDPACK_DIR
         : config.arguments[0].replace('/bin/detect', ''));
     try {
@@ -407,22 +248,22 @@ const detect = async (detector, config) => {
             external_fs_default().writeFileSync(config.arguments[2], (0,toml.stringify)(result));
         }
         else {
-            cnb.ExitHandler.fail();
+            ExitHandler.fail();
         }
     }
     catch (error) {
-        cnb.ExitHandler.error(error);
+        ExitHandler.error(error);
     }
 };
 
-// CONCATENATED MODULE: ../buildpack-core/src/run.ts
+;// CONCATENATED MODULE: ../buildpack-core/src/run.ts
 
 
 
 
 
 const run = async (detector, builder) => {
-    const config = new cnb.Config(process.argv.slice(1, process.argv.length));
+    const config = new Config(process.argv.slice(1, process.argv.length));
     const phase = external_path_default().basename(config.arguments[0]);
     if (phase === 'detect') {
         await detect(detector, config);
@@ -433,9 +274,13 @@ const run = async (detector, builder) => {
         }
     }
     else {
-        cnb.ExitHandler.error(new Error(`Unsupported phase ${phase}`));
+        ExitHandler.error(new Error(`Unsupported phase ${phase}`));
     }
 };
+
+;// CONCATENATED MODULE: ../buildpack-core/src/index.ts
+
+
 
 
 /***/ }),
@@ -3065,7 +2910,7 @@ module.exports = eos;
 
 /***/ }),
 
-/***/ 1115:
+/***/ 8425:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -3076,12 +2921,12 @@ const crossSpawn = __webpack_require__(1905);
 const stripFinalNewline = __webpack_require__(3097);
 const npmRunPath = __webpack_require__(5847);
 const onetime = __webpack_require__(834);
-const makeError = __webpack_require__(9072);
-const normalizeStdio = __webpack_require__(8379);
-const {spawnedKill, spawnedCancel, setupTimeout, setExitHandler} = __webpack_require__(6350);
-const {handleInput, getSpawnedResult, makeAllStream, validateInputSync} = __webpack_require__(4142);
-const {mergePromise, getSpawnedPromise} = __webpack_require__(959);
-const {joinCommand, parseCommand} = __webpack_require__(3234);
+const makeError = __webpack_require__(1288);
+const normalizeStdio = __webpack_require__(2107);
+const {spawnedKill, spawnedCancel, setupTimeout, setExitHandler} = __webpack_require__(1063);
+const {handleInput, getSpawnedResult, makeAllStream, validateInputSync} = __webpack_require__(8169);
+const {mergePromise, getSpawnedPromise} = __webpack_require__(6043);
+const {joinCommand, parseCommand} = __webpack_require__(7325);
 
 const DEFAULT_MAX_BUFFER = 1000 * 1000 * 100;
 
@@ -3305,8 +3150,12 @@ module.exports.node = (scriptPath, args, options = {}) => {
 	}
 
 	const stdio = normalizeStdio.node(options);
+	const defaultExecArgv = process.execArgv.filter(arg => !arg.startsWith('--inspect'));
 
-	const {nodePath = process.execPath, nodeOptions = process.execArgv} = options;
+	const {
+		nodePath = process.execPath,
+		nodeOptions = defaultExecArgv
+	} = options;
 
 	return execa(
 		nodePath,
@@ -3329,7 +3178,7 @@ module.exports.node = (scriptPath, args, options = {}) => {
 
 /***/ }),
 
-/***/ 3234:
+/***/ 7325:
 /***/ ((module) => {
 
 "use strict";
@@ -3344,27 +3193,21 @@ const joinCommand = (file, args = []) => {
 	return [file, ...args].join(' ');
 };
 
-// Allow spaces to be escaped by a backslash if not meant as a delimiter
-const handleEscaping = (tokens, token, index) => {
-	if (index === 0) {
-		return [token];
-	}
-
-	const previousToken = tokens[tokens.length - 1];
-
-	if (previousToken.endsWith('\\')) {
-		return [...tokens.slice(0, -1), `${previousToken.slice(0, -1)} ${token}`];
-	}
-
-	return [...tokens, token];
-};
-
 // Handle `execa.command()`
 const parseCommand = command => {
-	return command
-		.trim()
-		.split(SPACES_REGEXP)
-		.reduce(handleEscaping, []);
+	const tokens = [];
+	for (const token of command.trim().split(SPACES_REGEXP)) {
+		// Allow spaces to be escaped by a backslash if not meant as a delimiter
+		const previousToken = tokens[tokens.length - 1];
+		if (previousToken && previousToken.endsWith('\\')) {
+			// Merge previous token with current one
+			tokens[tokens.length - 1] = `${previousToken.slice(0, -1)} ${token}`;
+		} else {
+			tokens.push(token);
+		}
+	}
+
+	return tokens;
 };
 
 module.exports = {
@@ -3375,7 +3218,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 9072:
+/***/ 1288:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -3469,7 +3312,7 @@ module.exports = makeError;
 
 /***/ }),
 
-/***/ 6350:
+/***/ 1063:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -3589,7 +3432,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 959:
+/***/ 6043:
 /***/ ((module) => {
 
 "use strict";
@@ -3643,7 +3486,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 8379:
+/***/ 2107:
 /***/ ((module) => {
 
 "use strict";
@@ -3703,7 +3546,7 @@ module.exports.node = opts => {
 
 /***/ }),
 
-/***/ 4142:
+/***/ 8169:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -5370,7 +5213,7 @@ function wrappy (fn, cb) {
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("assert");
+module.exports = require("assert");;
 
 /***/ }),
 
@@ -5378,7 +5221,7 @@ module.exports = require("assert");
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("child_process");
+module.exports = require("child_process");;
 
 /***/ }),
 
@@ -5386,7 +5229,7 @@ module.exports = require("child_process");
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("events");
+module.exports = require("events");;
 
 /***/ }),
 
@@ -5394,7 +5237,7 @@ module.exports = require("events");
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("fs");
+module.exports = require("fs");;
 
 /***/ }),
 
@@ -5402,7 +5245,7 @@ module.exports = require("fs");
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("os");
+module.exports = require("os");;
 
 /***/ }),
 
@@ -5410,7 +5253,7 @@ module.exports = require("os");
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("path");
+module.exports = require("path");;
 
 /***/ }),
 
@@ -5418,7 +5261,7 @@ module.exports = require("path");
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("stream");
+module.exports = require("stream");;
 
 /***/ })
 
@@ -5492,28 +5335,40 @@ module.exports = require("stream");
 (() => {
 "use strict";
 
-// EXTERNAL MODULE: ../../.yarn/cache/execa-npm-4.0.3-b70e1b2212-65b237d178.zip/node_modules/execa/index.js
-var execa = __webpack_require__(1115);
+// EXTERNAL MODULE: ../buildpack-core/src/index.ts + 13 modules
+var src = __webpack_require__(3477);
+// EXTERNAL MODULE: ../../.yarn/cache/execa-npm-4.1.0-cc675b4189-79bd736acd.zip/node_modules/execa/index.js
+var execa = __webpack_require__(8425);
 var execa_default = /*#__PURE__*/__webpack_require__.n(execa);
+;// CONCATENATED MODULE: ./src/yarn-workspace-build.builder.ts
 
-// EXTERNAL MODULE: ../buildpack-core/src/index.ts
-var src = __webpack_require__(6774);
+class YarnWorkspaceBuildBuilder {
+    async build(ctx) {
+        const entry = ctx.plan.getEntry('yarn-workspace-build');
+        if (entry) {
+            const { workspace } = entry.metadata;
+            await execa_default()('yarn', ['workspace', workspace, 'build']);
+        }
+    }
+}
 
-// CONCATENATED MODULE: ./src/yarn-workspace-build.detector.ts
+;// CONCATENATED MODULE: ./src/yarn-workspace-build.detector.ts
 class YarnWorkspaceBuildDetector {
     async detect(ctx) {
         if (!process.env.WORKSPACE) {
             return null;
         }
         return {
-            provides: [{
-                    name: 'yarn-workspace-build'
-                }],
+            provides: [
+                {
+                    name: 'yarn-workspace-build',
+                },
+            ],
             requires: [
                 {
                     name: 'yarn-workspace-build',
                     metadata: {
-                        workspace: process.env.WORKSPACE
+                        workspace: process.env.WORKSPACE,
                     },
                 },
             ],
@@ -5521,24 +5376,15 @@ class YarnWorkspaceBuildDetector {
     }
 }
 
-// CONCATENATED MODULE: ./src/yarn-workspace-build.builder.ts
-
-class YarnWorkspaceBuildBuilder {
-    async build(ctx) {
-        const entry = ctx.plan.getEntry('yarn-workspace-build');
-        const workspace = entry.metadata.workspace;
-        await (0,execa_default())('yarn', ['workspace', workspace, 'build']);
-    }
-}
-
-// CONCATENATED MODULE: ./src/index.ts
+;// CONCATENATED MODULE: ./src/index.ts
 
 
 
 (0,src.run)(new YarnWorkspaceBuildDetector(), new YarnWorkspaceBuildBuilder());
-const core = __webpack_require__(6774);
+const core = __webpack_require__(3477);
 
 })();
 
 /******/ })()
 ;
+//# sourceMappingURL=index.js.map

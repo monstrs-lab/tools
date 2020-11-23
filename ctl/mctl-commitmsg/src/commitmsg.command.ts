@@ -1,4 +1,4 @@
-import { Command }            from 'clipanion'
+import { Command } from 'clipanion'
 
 import { format, lint, read } from '@monstrs/code-commitlint'
 

@@ -1,6 +1,6 @@
-import fs            from 'fs'
+import fs from 'fs'
 import { stringify } from '@iarna/toml'
-import { join }      from 'path'
+import { join } from 'path'
 
 export class Launch {
   processes: {

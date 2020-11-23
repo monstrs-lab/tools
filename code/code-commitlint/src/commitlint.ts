@@ -1,5 +1,5 @@
 import commitlint from '@commitlint/lint'
-import load       from '@commitlint/load'
+import load from '@commitlint/load'
 
 import { config } from './config'
 

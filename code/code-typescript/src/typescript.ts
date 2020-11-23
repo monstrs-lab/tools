@@ -1,8 +1,8 @@
-import deepmerge            from 'deepmerge'
-import ts                   from 'typescript'
-import { CompilerOptions }  from 'typescript'
+import deepmerge from 'deepmerge'
+import ts from 'typescript'
+import { CompilerOptions } from 'typescript'
 
-import { base }             from './config'
+import { base } from './config'
 import { groupDiagnostics } from './diagnostics'
 import { formatDiagnostic } from './diagnostics'
 

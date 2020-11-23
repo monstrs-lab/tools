@@ -1,6 +1,6 @@
-import { context }           from '@actions/github'
+import { context } from '@actions/github'
 
-import { getOctokit }        from './octokit'
+import { getOctokit } from './octokit'
 import { getPullRequestSha } from './pull-request'
 
 export const createDeployment = async (options) => {

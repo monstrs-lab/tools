@@ -1,6 +1,6 @@
 import { Command } from 'clipanion'
 
-import { unit }    from '@monstrs/code-test'
+import { unit } from '@monstrs/code-test'
 
 class TestStagedCommand extends Command {
   @Command.Rest({ required: 0 })

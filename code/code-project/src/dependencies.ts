@@ -1,12 +1,12 @@
 /* eslint-disable no-restricted-syntax */
 
-import fg                                 from 'fast-glob'
-import path                               from 'path'
-import { Configuration, Project }         from '@yarnpkg/core'
+import fg from 'fast-glob'
+import path from 'path'
+import { Configuration, Project } from '@yarnpkg/core'
 import { WorkspaceResolver, structUtils } from '@yarnpkg/core'
-import { PortablePath }                   from '@yarnpkg/fslib'
-import { getPluginConfiguration }         from '@yarnpkg/cli'
-import { promises as fs }                 from 'fs'
+import { PortablePath } from '@yarnpkg/fslib'
+import { getPluginConfiguration } from '@yarnpkg/cli'
+import { promises as fs } from 'fs'
 
 const FORCE_UNPLUGGED_PACKAGES = new Set([
   'nan',

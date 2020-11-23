@@ -1,6 +1,6 @@
 import fileLoader from 'file-loader'
-import path       from 'path'
-import { parse }  from 'protocol-buffers-schema'
+import path from 'path'
+import { parse } from 'protocol-buffers-schema'
 
 export const getProtoFileName = (resourcePath) => {
   const hash = Buffer.from(path.dirname(resourcePath)).toString('hex')

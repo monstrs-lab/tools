@@ -1,10 +1,10 @@
-import fs                from 'fs'
-import { stringify }     from '@iarna/toml'
+import fs from 'fs'
+import { stringify } from '@iarna/toml'
 
 import { DetectContext } from './cnb'
-import { ExitHandler }   from './cnb'
-import { Detector }      from './cnb'
-import { Config }        from './cnb'
+import { ExitHandler } from './cnb'
+import { Detector } from './cnb'
+import { Config } from './cnb'
 
 export const detect = async (detector: Detector, config: Config) => {
   if (config.arguments.length !== 3) {
