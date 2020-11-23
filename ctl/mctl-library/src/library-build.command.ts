@@ -1,8 +1,8 @@
-import rimraf             from 'rimraf'
-import { Command }        from 'clipanion'
+import rimraf from 'rimraf'
+import { Command } from 'clipanion'
 import { promises as fs } from 'fs'
 
-import { TypeScript }     from '@monstrs/code-typescript'
+import { TypeScript } from '@monstrs/code-typescript'
 
 class LibraryBuildCommand extends Command {
   @Command.String(`-t,--target`)

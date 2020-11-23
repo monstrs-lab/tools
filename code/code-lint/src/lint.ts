@@ -1,8 +1,8 @@
 /* eslint-disable no-restricted-syntax */
-import globby                                     from 'globby'
-import ignore                                     from 'ignore'
-import path                                       from 'path'
-import { CLIEngine }                              from 'eslint'
+import globby from 'globby'
+import ignore from 'ignore'
+import path from 'path'
+import { CLIEngine } from 'eslint'
 
 import { createPatterns, ignore as ignoreConfig } from './config'
 

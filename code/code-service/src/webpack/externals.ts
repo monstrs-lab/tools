@@ -1,5 +1,5 @@
 import { getProjectUnpluggedDependencies } from '@monstrs/code-project'
-import { getWorkspace }                    from '@monstrs/code-project'
+import { getWorkspace } from '@monstrs/code-project'
 
 export const unusedExternals = [
   // nestjs

@@ -1,7 +1,7 @@
 module.exports = {
   testRegex: '\\.test\\.(ts|tsx)$',
   modulePathIgnorePatterns: ['dist'],
-  snapshotSerializers: [require.resolve('jest-emotion')],
+  snapshotSerializers: [require.resolve('@emotion/jest')],
   moduleNameMapper: {
     '^.+\\.(jpg|jpeg|gif|png|mp4|mkv|avi|webm|swf|wav|mid)$': 'jest-static-stubs/$1',
   },

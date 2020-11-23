@@ -1,10 +1,10 @@
 /* eslint-disable no-restricted-syntax */
 
 import { Configuration, Project, Workspace } from '@yarnpkg/core'
-import { PortablePath }                      from '@yarnpkg/fslib'
-import { getPluginConfiguration }            from '@yarnpkg/cli'
+import { PortablePath } from '@yarnpkg/fslib'
+import { getPluginConfiguration } from '@yarnpkg/cli'
 
-import { getChangedFiles }                   from '@monstrs/code-changes'
+import { getChangedFiles } from '@monstrs/code-changes'
 
 const getWorkspaceChildrenRecursive = (
   rootWorkspace: Workspace,

@@ -17,12 +17,12 @@
   "devDependencies": {
     "@monstrs/tsconfig": "^0.2.0",
     "@types/file-loader": "4.2.0",
-    "@types/node": "^14.11.2",
+    "@types/node": "^14.14.9",
     "@types/protocol-buffers-schema": "3.4.0",
     "@types/wait-for-localhost": "3.1.0",
-    "@types/webpack": "4.41.22",
-    "@yarnpkg/fslib": "^2.2.1",
-    "@yarnpkg/pnpify": "^2.2.1",
+    "@types/webpack": "4.41.25",
+    "@yarnpkg/fslib": "^2.3.0",
+    "@yarnpkg/pnpify": "^2.3.3",
     "typescript": "^4.0.3",
     "wait-for-localhost": "^3.3.0"
   },
@@ -33,11 +33,11 @@
   "dependencies": {
     "@monstrs/code-project": "workspace:0.0.51",
     "@monstrs/code-typescript": "workspace:0.0.63",
-    "file-loader": "^6.1.0",
+    "file-loader": "^6.2.0",
     "protocol-buffers-schema": "^3.4.0",
-    "ts-loader": "^8.0.4",
+    "ts-loader": "^8.0.11",
     "typescript": "^4.0.3",
-    "webpack": "5.0.0-rc.3",
+    "webpack": "5.6.0",
     "webpack-chain": "^6.5.1"
   }
 }

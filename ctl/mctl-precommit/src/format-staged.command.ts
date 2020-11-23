@@ -1,4 +1,4 @@
-import { Command }     from 'clipanion'
+import { Command } from 'clipanion'
 
 import { formatFiles } from '@monstrs/code-format'
 

@@ -1,6 +1,6 @@
 import { Command } from 'clipanion'
 
-import { Linter }  from '@monstrs/code-lint'
+import { Linter } from '@monstrs/code-lint'
 
 class LintStagedCommand extends Command {
   @Command.Rest({ required: 0 })

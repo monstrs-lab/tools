@@ -1,8 +1,8 @@
 /* eslint-disable */
 
 import childProcess from 'child_process'
-import sysPath      from 'path'
-import webpack      from 'webpack'
+import sysPath from 'path'
+import webpack from 'webpack'
 
 const webpackMajorVersion =
   typeof webpack.version !== 'undefined' ? parseInt(webpack.version[0]) : 3

@@ -1,5 +1,5 @@
-import path          from 'path'
-import { Command }   from 'clipanion'
+import path from 'path'
+import { Command } from 'clipanion'
 import { bootstrap } from 'commitizen/dist/cli/git-cz'
 
 class CommitCommand extends Command {

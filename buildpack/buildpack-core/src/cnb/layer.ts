@@ -1,7 +1,7 @@
-import fs                   from 'fs'
-import { AnyJson }          from '@iarna/toml'
+import fs from 'fs'
+import { AnyJson } from '@iarna/toml'
 import { parse, stringify } from '@iarna/toml'
-import { join }             from 'path'
+import { join } from 'path'
 
 export class Layer {
   metadata: { [key: string]: string | null } = {}

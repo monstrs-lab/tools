@@ -1,9 +1,9 @@
-import { AggregatedResult }  from '@jest/test-result'
-import { Config }            from '@jest/types'
-import { runCLI }            from '@jest/core'
+import { AggregatedResult } from '@jest/test-result'
+import { Config } from '@jest/types'
+import { runCLI } from '@jest/core'
 
 import { integrationConfig } from './jest.config'
-import { unitConfig }        from './jest.config'
+import { unitConfig } from './jest.config'
 
 const unit = async (
   project: string,

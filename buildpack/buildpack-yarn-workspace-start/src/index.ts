@@ -1,6 +1,6 @@
-import { run }                        from '@monstrs/buildpack-core'
+import { run } from '@monstrs/buildpack-core'
 
-import { YarnWorkspaceStartBuilder }  from './yarn-workspace-start.builder'
+import { YarnWorkspaceStartBuilder } from './yarn-workspace-start.builder'
 import { YarnWorkspaceStartDetector } from './yarn-workspace-start.detector'
 
 run(new YarnWorkspaceStartDetector(), new YarnWorkspaceStartBuilder())
