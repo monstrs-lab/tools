@@ -36,5 +36,11 @@ export default {
 
     outDir: './dist',
   },
-  exclude: ['node_modules', 'src/**/*.spec.ts', 'src/**/*.test.ts', '**/*/dist/**/*.d.ts'],
+  exclude: [
+    'node_modules',
+    'src/**/*.spec.ts',
+    'src/**/*.test.ts',
+    '**/*/dist/**/*.d.ts',
+    'integration/**/*.test.ts',
+  ],
 }
