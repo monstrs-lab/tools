@@ -1686,24 +1686,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["@commitlint/config-lerna-scopes", [
-        ["virtual:88fb380b7a98bbb6e501e45140a82925e6ef6e74eaed14965cb60e185dcc6f5596c3f83bd991fd02437ace2f0b00227266d48aea25f9a506dc7264ffad52b00d#npm:11.0.0", {
-          "packageLocation": "./.yarn/$$virtual/@commitlint-config-lerna-scopes-virtual-295346f08b/0/cache/@commitlint-config-lerna-scopes-npm-11.0.0-86949229c5-86b4b95c29.zip/node_modules/@commitlint/config-lerna-scopes/",
-          "packageDependencies": [
-            ["@commitlint/config-lerna-scopes", "virtual:88fb380b7a98bbb6e501e45140a82925e6ef6e74eaed14965cb60e185dcc6f5596c3f83bd991fd02437ace2f0b00227266d48aea25f9a506dc7264ffad52b00d#npm:11.0.0"],
-            ["@types/lerna", null],
-            ["import-from", "npm:3.0.0"],
-            ["lerna", null],
-            ["resolve-pkg", "npm:2.0.0"],
-            ["semver", "npm:7.3.2"]
-          ],
-          "packagePeers": [
-            "@types/lerna",
-            "lerna"
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["@commitlint/ensure", [
         ["npm:11.0.0", {
           "packageLocation": "./.yarn/cache/@commitlint-ensure-npm-11.0.0-32383fac77-e42cc3000b.zip/node_modules/@commitlint/ensure/",
@@ -3316,7 +3298,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@monstrs/code-commitlint", "workspace:code/code-commitlint"],
             ["@commitlint/config-conventional", "npm:11.0.0"],
-            ["@commitlint/config-lerna-scopes", "virtual:88fb380b7a98bbb6e501e45140a82925e6ef6e74eaed14965cb60e185dcc6f5596c3f83bd991fd02437ace2f0b00227266d48aea25f9a506dc7264ffad52b00d#npm:11.0.0"],
             ["@commitlint/format", "npm:11.0.0"],
             ["@commitlint/lint", "npm:11.0.0"],
             ["@commitlint/load", "npm:11.0.0"],
@@ -16579,16 +16560,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["resolve-global", "npm:1.0.0"],
             ["global-dirs", "npm:0.1.1"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["resolve-pkg", [
-        ["npm:2.0.0", {
-          "packageLocation": "./.yarn/cache/resolve-pkg-npm-2.0.0-7b70eb3262-5f86c1ba8c.zip/node_modules/resolve-pkg/",
-          "packageDependencies": [
-            ["resolve-pkg", "npm:2.0.0"],
-            ["resolve-from", "npm:5.0.0"]
           ],
           "linkType": "HARD",
         }]
