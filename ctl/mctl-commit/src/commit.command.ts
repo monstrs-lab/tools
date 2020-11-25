@@ -1,6 +1,5 @@
-import path          from 'path'
 import { Command }   from 'clipanion'
-import { bootstrap } from 'commitizen/dist/cli/git-cz'
+import { bootstrap } from './bootstrap'
 
 class CommitCommand extends Command {
   @Command.Rest({ required: 0 })
@@ -9,15 +8,7 @@ class CommitCommand extends Command {
   @Command.Path(`commit`)
   async execute() {
     try {
-      bootstrap(
-        {
-          cliPath: require.resolve('commitizen/package.json').replace('package.json', ''),
-          config: {
-            path: path.join(__dirname, '../adapter/index.js'),
-          },
-        },
-        [null, ...this.args]
-      )
+      await bootstrap(this.args)
     } catch (error) {
       this.context.stdout.write(error.message)
 
