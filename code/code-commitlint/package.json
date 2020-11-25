@@ -22,7 +22,6 @@
   },
   "dependencies": {
     "@commitlint/config-conventional": "^11.0.0",
-    "@commitlint/config-lerna-scopes": "^11.0.0",
     "@commitlint/format": "^11.0.0",
     "@commitlint/lint": "^11.0.0",
     "@commitlint/load": "^11.0.0",
