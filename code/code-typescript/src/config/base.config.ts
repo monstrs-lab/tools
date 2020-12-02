@@ -37,6 +37,7 @@ export default {
     outDir: './dist',
   },
   exclude: [
+    'integration',
     'node_modules',
     'src/**/*.spec.ts',
     'src/**/*.test.ts',
