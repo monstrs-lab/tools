@@ -13,7 +13,6 @@ class ReleaseCheckCommand extends Command {
       const { stdout, stderr, exitCode } = await execa('yarn', [
         'workspaces',
         'foreach',
-        '--topological',
         '--parallel',
         '--verbose',
         'run',

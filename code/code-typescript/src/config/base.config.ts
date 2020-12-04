@@ -41,6 +41,8 @@ export default {
     'node_modules',
     'src/**/*.spec.ts',
     'src/**/*.test.ts',
+    'src/**/*.story.ts',
+    'src/**/*.stories.ts',
     '**/*/dist/**/*.d.ts',
     'integration/**/*.test.ts',
   ],
