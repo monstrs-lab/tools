@@ -51,10 +51,26 @@ export const createWebpackConfig = async (cwd, environment) => {
     })
 
   config.module
+    .rule('jaeger-client-thrift')
+    .test(/thrift\.js$/)
+    .use('jaeger-client-thrift')
+    .loader(require.resolve('string-replace-loader'))
+    .options({
+      search: `_path2.default.join(__dirname, './jaeger-idl/thrift/jaeger.thrift')`,
+      replace: `require('./jaeger-idl/thrift/jaeger.thrift').default`,
+    })
+
+  config.module
     .rule('protos')
     .test(/\.proto$/)
     .use('proto')
     .loader(require.resolve('./loaders/proto-dependencies.loader'))
+
+  config.module
+    .rule('thrift')
+    .test(/\.thrift$/)
+    .use('thrift')
+    .loader(require.resolve('./loaders/thrift.loader'))
 
   config.devtool(
     environment === 'production' ? 'source-map' : ('eval-cheap-module-source-map' as any)

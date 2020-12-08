@@ -3450,6 +3450,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@yarnpkg/pnpify", "virtual:57a606d1bacd9cd81a8f5a1c6fd90ca9081c16c58b5c5d0c019a396761aeb0771a758f1dd47d9789a943de672e96b6edb8667488d992f050ee62a012730b724d#npm:2.3.3"],
             ["file-loader", "virtual:5ae41ee3cd3458f3cf40ce517387f15a09242f6f1330942b6a2e07d7e31df094e8debca5d9583d5aee61c7f6b6500e26684e57f8a8bbcb4f2def07322b63d5b8#npm:6.2.0"],
             ["protocol-buffers-schema", "npm:3.4.0"],
+            ["string-replace-loader", "virtual:5ae41ee3cd3458f3cf40ce517387f15a09242f6f1330942b6a2e07d7e31df094e8debca5d9583d5aee61c7f6b6500e26684e57f8a8bbcb4f2def07322b63d5b8#npm:3.0.1"],
             ["ts-loader", "virtual:5ae41ee3cd3458f3cf40ce517387f15a09242f6f1330942b6a2e07d7e31df094e8debca5d9583d5aee61c7f6b6500e26684e57f8a8bbcb4f2def07322b63d5b8#npm:8.0.11"],
             ["typescript", "patch:typescript@npm%3A4.1.2#builtin<compat/typescript>::version=4.1.2&hash=cc6730"],
             ["wait-for-localhost", "npm:3.3.0"],
@@ -17525,6 +17526,23 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["string-length", "npm:4.0.1"],
             ["char-regex", "npm:1.0.2"],
             ["strip-ansi", "npm:6.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["string-replace-loader", [
+        ["virtual:5ae41ee3cd3458f3cf40ce517387f15a09242f6f1330942b6a2e07d7e31df094e8debca5d9583d5aee61c7f6b6500e26684e57f8a8bbcb4f2def07322b63d5b8#npm:3.0.1", {
+          "packageLocation": "./.yarn/$$virtual/string-replace-loader-virtual-8f6196fcf9/0/cache/string-replace-loader-npm-3.0.1-9999aa544b-744e05dcd8.zip/node_modules/string-replace-loader/",
+          "packageDependencies": [
+            ["string-replace-loader", "virtual:5ae41ee3cd3458f3cf40ce517387f15a09242f6f1330942b6a2e07d7e31df094e8debca5d9583d5aee61c7f6b6500e26684e57f8a8bbcb4f2def07322b63d5b8#npm:3.0.1"],
+            ["@types/webpack", "npm:4.41.25"],
+            ["loader-utils", "npm:2.0.0"],
+            ["schema-utils", "npm:3.0.0"],
+            ["webpack", "virtual:5ae41ee3cd3458f3cf40ce517387f15a09242f6f1330942b6a2e07d7e31df094e8debca5d9583d5aee61c7f6b6500e26684e57f8a8bbcb4f2def07322b63d5b8#npm:5.6.0"]
+          ],
+          "packagePeers": [
+            "@types/webpack",
+            "webpack"
           ],
           "linkType": "HARD",
         }]

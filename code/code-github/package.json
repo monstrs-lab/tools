@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-github",
-  "version": "0.0.59",
+  "version": "0.0.61",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
