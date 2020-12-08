@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-test",
-  "version": "0.0.66",
+  "version": "0.0.67",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -27,8 +27,8 @@
     "@jest/core": "^26.6.3",
     "@jest/test-result": "^26.6.2",
     "@jest/types": "^26.6.2",
-    "@monstrs/code-typescript": "workspace:0.0.73",
-    "@monstrs/prettier-plugin-import-sort": "^0.2.14",
+    "@monstrs/code-typescript": "workspace:0.0.74",
+    "@monstrs/prettier-plugin-import-sort": "^0.2.15",
     "@monstrs/tsconfig": "^0.2.0",
     "globby": "^11.0.1",
     "ignore": "^5.1.8",

@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/mctl-checks",
-  "version": "0.2.66",
+  "version": "0.2.67",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -21,11 +21,11 @@
   },
   "dependencies": {
     "@actions/github": "^4.0.0",
-    "@monstrs/code-github": "workspace:0.0.61",
-    "@monstrs/code-lint": "workspace:0.0.73",
-    "@monstrs/code-project": "workspace:0.0.61",
-    "@monstrs/code-test": "workspace:0.0.66",
-    "@monstrs/code-typescript": "workspace:0.0.73",
+    "@monstrs/code-github": "workspace:0.0.62",
+    "@monstrs/code-lint": "workspace:0.0.74",
+    "@monstrs/code-project": "workspace:0.0.62",
+    "@monstrs/code-test": "workspace:0.0.67",
+    "@monstrs/code-typescript": "workspace:0.0.74",
     "clipanion": "^2.6.2",
     "execa": "^4.1.0"
   },

@@ -1876,6 +1876,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["@creditkarma/thrift-parser", [
+        ["npm:1.2.0", {
+          "packageLocation": "./.yarn/cache/@creditkarma-thrift-parser-npm-1.2.0-886ec1407f-e5d3aaaecf.zip/node_modules/@creditkarma/thrift-parser/",
+          "packageDependencies": [
+            ["@creditkarma/thrift-parser", "npm:1.2.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["@dabh/diagnostics", [
         ["npm:2.0.2", {
           "packageLocation": "./.yarn/cache/@dabh-diagnostics-npm-2.0.2-83eb005a83-557eff796a.zip/node_modules/@dabh/diagnostics/",
@@ -3438,6 +3447,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./code/code-service/",
           "packageDependencies": [
             ["@monstrs/code-service", "workspace:code/code-service"],
+            ["@creditkarma/thrift-parser", "npm:1.2.0"],
             ["@monstrs/code-project", "workspace:code/code-project"],
             ["@monstrs/code-typescript", "workspace:code/code-typescript"],
             ["@monstrs/tsconfig", "npm:0.2.0"],

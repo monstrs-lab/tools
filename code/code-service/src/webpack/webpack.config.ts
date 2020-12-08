@@ -60,6 +60,16 @@ export const createWebpackConfig = async (cwd, environment) => {
       replace: `require('./jaeger-idl/thrift/jaeger.thrift').default`,
     })
 
+    config.module
+    .rule('jaeger-uds-sender-thrift')
+    .test(/udp_sender\.js$/)
+    .use('jaeger-uds-sender-thrift')
+    .loader(require.resolve('string-replace-loader'))
+    .options({
+      search: `_path2.default.join(__dirname, '../thriftrw-idl/agent.thrift')`,
+      replace: `require('../thriftrw-idl/agent.thrift').default`,
+})
+
   config.module
     .rule('protos')
     .test(/\.proto$/)

@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-project",
-  "version": "0.0.61",
+  "version": "0.0.62",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -25,7 +25,7 @@
     "typings": "dist/index.d.ts"
   },
   "dependencies": {
-    "@monstrs/code-changes": "workspace:0.0.61",
+    "@monstrs/code-changes": "workspace:0.0.62",
     "@yarnpkg/cli": "^2.3.3",
     "@yarnpkg/core": "^2.3.1",
     "fast-glob": "^3.2.4"
