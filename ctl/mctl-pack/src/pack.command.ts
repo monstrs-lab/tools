@@ -70,11 +70,13 @@ class PackCommand extends Command {
 
       const buildCommand = scripts.get('build')
 
-      if (
-        name &&
+      const canBundle =
         buildCommand &&
-        (buildCommand.includes('mctl service build') || buildCommand.includes('next build'))
-      ) {
+        (buildCommand.includes('mctl service build') ||
+          buildCommand.includes('mctl renderer build') ||
+          buildCommand.includes('next build'))
+
+      if (name && canBundle) {
         const image = [name.name, name.scope].filter(Boolean).join('-')
         const registry = `${this.registry}${image}`
 
