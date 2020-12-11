@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/mctl-lint",
-  "version": "0.2.67",
+  "version": "0.2.69",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -14,12 +14,12 @@
   },
   "devDependencies": {
     "@monstrs/tsconfig": "^0.2.0",
-    "@types/node": "^14.14.9",
-    "@yarnpkg/pnpify": "^2.3.3",
+    "@types/node": "^14.14.12",
+    "@yarnpkg/pnpify": "^2.4.0",
     "typescript": "^4.1.2"
   },
   "dependencies": {
-    "@monstrs/code-lint": "workspace:0.0.74",
+    "@monstrs/code-lint": "workspace:0.0.76",
     "clipanion": "^2.6.2",
     "typescript": "*"
   },

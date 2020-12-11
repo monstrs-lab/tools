@@ -27,6 +27,9 @@ export const unusedExternals = [
   'mysql2',
   'mssql',
   'sql.js',
+
+  // nextjs
+  'next',
 ]
 
 export const getExternals = async (cwd: string) => {

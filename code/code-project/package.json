@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-project",
-  "version": "0.0.62",
+  "version": "0.0.64",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -15,9 +15,9 @@
   },
   "devDependencies": {
     "@monstrs/tsconfig": "^0.2.0",
-    "@types/node": "^14.14.9",
-    "@yarnpkg/fslib": "^2.3.0",
-    "@yarnpkg/pnpify": "^2.3.3",
+    "@types/node": "^14.14.12",
+    "@yarnpkg/fslib": "^2.4.0",
+    "@yarnpkg/pnpify": "^2.4.0",
     "typescript": "^4.1.2"
   },
   "publishConfig": {
@@ -25,9 +25,9 @@
     "typings": "dist/index.d.ts"
   },
   "dependencies": {
-    "@monstrs/code-changes": "workspace:0.0.62",
-    "@yarnpkg/cli": "^2.3.3",
-    "@yarnpkg/core": "^2.3.1",
+    "@monstrs/code-changes": "workspace:0.0.64",
+    "@yarnpkg/cli": "^2.4.0",
+    "@yarnpkg/core": "^2.4.0",
     "fast-glob": "^3.2.4"
   }
 }

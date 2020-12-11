@@ -17,6 +17,9 @@ import { FormatStagedCommand, LintStagedCommand }    from '@monstrs/mctl-precomm
 import { TestStagedCommand, TypeCheckStagedCommand } from '@monstrs/mctl-precommit'
 import { ServiceBuildCommand }                       from '@monstrs/mctl-service'
 import { ServiceStartCommand }                       from '@monstrs/mctl-service'
+import { ServiceDevCommand }                         from '@monstrs/mctl-service'
+import { RendererBuildCommand }                      from '@monstrs/mctl-renderer'
+import { RendererDevCommand }                        from '@monstrs/mctl-renderer'
 import { TestIntegrationCommand }                    from '@monstrs/mctl-test'
 import { TestUnitCommand }                           from '@monstrs/mctl-test'
 import { TypeCheckCommand }                          from '@monstrs/mctl-typecheck'
@@ -58,6 +61,10 @@ const run = () => {
 
   cli.register(ServiceBuildCommand)
   cli.register(ServiceStartCommand)
+  cli.register(ServiceDevCommand)
+
+  cli.register(RendererBuildCommand)
+  cli.register(RendererDevCommand)
 
   cli.register(LibraryBuildCommand)
 

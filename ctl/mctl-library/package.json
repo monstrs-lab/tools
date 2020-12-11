@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/mctl-library",
-  "version": "0.2.60",
+  "version": "0.2.62",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -14,13 +14,13 @@
   },
   "devDependencies": {
     "@monstrs/tsconfig": "^0.2.0",
-    "@types/node": "^14.14.9",
+    "@types/node": "^14.14.12",
     "@types/rimraf": "^3.0.0",
-    "@yarnpkg/pnpify": "^2.3.3",
+    "@yarnpkg/pnpify": "^2.4.0",
     "typescript": "^4.1.2"
   },
   "dependencies": {
-    "@monstrs/code-typescript": "workspace:0.0.74",
+    "@monstrs/code-typescript": "workspace:0.0.76",
     "clipanion": "^2.6.2",
     "rimraf": "^3.0.2"
   },

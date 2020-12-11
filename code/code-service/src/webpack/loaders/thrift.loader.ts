@@ -1,7 +1,7 @@
-import { parse }             from '@creditkarma/thrift-parser'
-import { SyntaxType }        from '@creditkarma/thrift-parser'
-import fileLoader            from 'file-loader'
-import path                  from 'path'
+import { parse }      from '@creditkarma/thrift-parser'
+import { SyntaxType } from '@creditkarma/thrift-parser'
+import fileLoader     from 'file-loader'
+import path           from 'path'
 
 export const getThriftFileName = (resourcePath) => {
   return `./${path.basename(resourcePath)}`

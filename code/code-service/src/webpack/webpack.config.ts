@@ -25,6 +25,8 @@ export const createWebpackConfig = async (cwd, environment) => {
     .target('async-node')
     .optimization.minimize(false)
 
+  config.node.set('__dirname', false).set('__filename', false)
+
   config.entry('index').add(path.join(cwd, 'src/index'))
 
   config.output.path(path.join(cwd, 'dist')).filename('[name].js')
@@ -60,7 +62,7 @@ export const createWebpackConfig = async (cwd, environment) => {
       replace: `require('./jaeger-idl/thrift/jaeger.thrift').default`,
     })
 
-    config.module
+  config.module
     .rule('jaeger-uds-sender-thrift')
     .test(/udp_sender\.js$/)
     .use('jaeger-uds-sender-thrift')
@@ -68,7 +70,7 @@ export const createWebpackConfig = async (cwd, environment) => {
     .options({
       search: `_path2.default.join(__dirname, '../thriftrw-idl/agent.thrift')`,
       replace: `require('../thriftrw-idl/agent.thrift').default`,
-})
+    })
 
   config.module
     .rule('protos')
