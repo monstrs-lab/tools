@@ -11,8 +11,8 @@ export interface BuildResult {
   warnings: any[]
 }
 
-export const build = async ({ cwd }: BuildOptions): Promise<BuildResult> => {
-  const config = await createWebpackConfig(cwd, 'production')
+export const build = async ({ cwd }: BuildOptions, plugins?: any): Promise<BuildResult> => {
+  const config = await createWebpackConfig(cwd, 'production', plugins)
 
   const compiler = webpack(config)
 

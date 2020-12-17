@@ -7,7 +7,7 @@ require(`@babel/register`)({
    extensions: [`.tsx`, `.ts`],
    only: [
      // TODO: read from package.json workspaces
-     p => p.includes('code/') || p.includes('ctl/') || p.includes('prettier/'),
+     p => p.includes('code/') || p.includes('ctl/') || p.includes('prettier/') || p.includes('webpack/'),
    ],
    plugins: [
     `@babel/plugin-transform-modules-commonjs`,

@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@monstrs/code-service": "workspace:0.0.66",
+    "@monstrs/webpack-start-server-plugin": "workspace:0.2.0",
     "clipanion": "^2.6.2"
   },
   "publishConfig": {

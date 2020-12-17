@@ -6,7 +6,53 @@ declare const module: any
 const monitorFn = () => {
   // Handle hot updates, copied with slight adjustments from webpack/hot/signal.js
   if (module.hot) {
-    const log = (type, msg) => console[type](`sswp> ${msg}`)
+    const log = (type, msg) => {
+      console.log(
+        JSON.stringify({
+          severity: type.toUpperCase(),
+          name: 'start-server:monitor',
+          body: msg,
+        })
+      )
+    }
+
+    function logApplyRecult(updatedModules, renewedModules) {
+      var unacceptedModules = updatedModules.filter(function (moduleId) {
+        return renewedModules && renewedModules.indexOf(moduleId) < 0
+      })
+
+      if (unacceptedModules.length > 0) {
+        log(
+          'warning',
+          "[HMR] The following modules couldn't be hot updated: (They would need a full reload!)"
+        )
+        unacceptedModules.forEach(function (moduleId) {
+          log('warning', '[HMR]  - ' + moduleId)
+        })
+      }
+
+      if (!renewedModules || renewedModules.length === 0) {
+        log('info', '[HMR] Nothing hot updated.')
+      } else {
+        log('info', '[HMR] Updated modules:')
+        renewedModules.forEach(function (moduleId) {
+          if (typeof moduleId === 'string' && moduleId.indexOf('!') !== -1) {
+            var parts = moduleId.split('!')
+            //log.groupCollapsed("info", "[HMR]  - " + parts.pop());
+            log('info', '[HMR]  - ' + moduleId)
+            //log.groupEnd("info");
+          } else {
+            log('info', '[HMR]  - ' + moduleId)
+          }
+        })
+        var numberIds = renewedModules.every(function (moduleId) {
+          return typeof moduleId === 'number'
+        })
+        if (numberIds)
+          log('info', '[HMR] Consider using the optimization.moduleIds: "named" for module names.')
+      }
+    }
+
     // TODO don't show this when sending signal instead of message
     log('log', 'Handling Hot Module Reloading')
     var checkForUpdate = function checkForUpdate(fromUpdate) {
@@ -31,7 +77,7 @@ const monitorFn = () => {
               },
             })
             .then(function (renewedModules) {
-              require('webpack/hot/log-apply-result')(updatedModules, renewedModules)
+              logApplyRecult(updatedModules, renewedModules)
 
               checkForUpdate(true)
             })
@@ -43,7 +89,8 @@ const monitorFn = () => {
               process.send('SSWP_HMR_FAIL')
             }
             log('warn', 'Cannot apply update.')
-            log('warn', '' + err.stack || err.message)
+            //log('warn', '' + err.stack || err.message)
+            log('warn', err)
             log('error', 'Quitting process - will reload on next file change\u0007\n\u0007\n\u0007')
             process.exit(222)
           } else {
