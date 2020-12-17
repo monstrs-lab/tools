@@ -1,13 +1,22 @@
-import Config                from 'webpack-chain'
-import path                  from 'path'
-import webpack               from 'webpack'
+import Config           from 'webpack-chain'
+import path             from 'path'
+import webpack          from 'webpack'
 
-import { base }              from '@monstrs/code-typescript'
+import { base }         from '@monstrs/code-typescript'
 
-import { StartServerPlugin } from './plugins'
-import { getExternals }      from './externals'
+import { getExternals } from './externals'
 
-export const createWebpackConfig = async (cwd, environment) => {
+export interface WebpackConfigPlugin {
+  name: string
+  use: any
+  args: any[]
+}
+
+export const createWebpackConfig = async (
+  cwd,
+  environment,
+  plugins: WebpackConfigPlugin[] = []
+) => {
   const externals = (await getExternals(cwd)).reduce(
     // @ts-ignore
     (result, dependency: string) => ({
@@ -37,7 +46,10 @@ export const createWebpackConfig = async (cwd, environment) => {
 
   config.when(environment === 'development', () => {
     config.plugin('hot').use(webpack.HotModuleReplacementPlugin)
-    config.plugin('start-server').use(StartServerPlugin, [{ entryName: 'index' }])
+  })
+
+  plugins.forEach((plugin) => {
+    config.plugin(plugin.name).use(plugin.use, plugin.args)
   })
 
   config.module
