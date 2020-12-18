@@ -1,3 +1,4 @@
+/* eslint-disable react/static-property-placement */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/no-did-update-set-state */
 /* eslint-disable react/no-string-refs */
@@ -25,10 +26,14 @@ export interface KeyMap {
 export class Logs extends Component<any, any> {
   keyMap: KeyMap
 
+  static defaultProps = {
+    height: process.stdout.rows,
+  }
+
   constructor(props) {
     super(props)
 
-    const initialRow = process.stdout.rows - 3
+    const initialRow = this.props.height
 
     this.state = {
       rows: [],
@@ -97,7 +102,8 @@ export class Logs extends Component<any, any> {
   }
 
   setMaxRow() {
-    const maxRow = process.stdout.rows - 3
+    const maxRow = this.props.height
+
     this.setState({ maxRow, halfRow: Math.floor(maxRow / 2) - 1 })
     this.setDisplayRange()
   }
@@ -197,8 +203,8 @@ export class Logs extends Component<any, any> {
 
     const selectedData = this.props.rows[selectedIndex] || {}
     const detailProps = {
-      top: halfRow + 3,
-      height: `100%-${halfRow + 3}`,
+      top: halfRow,
+      height: `100%-${halfRow}`,
       data: selectedData,
       mode: detailMode,
     }

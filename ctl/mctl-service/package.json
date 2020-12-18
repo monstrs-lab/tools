@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/mctl-service",
-  "version": "0.2.66",
+  "version": "0.2.67",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -22,9 +22,9 @@
     "typescript": "^4.1.2"
   },
   "dependencies": {
-    "@monstrs/code-service": "workspace:0.0.68",
-    "@monstrs/mctl-dashboard": "workspace:0.2.66",
-    "@monstrs/webpack-start-server-plugin": "workspace:0.2.2",
+    "@monstrs/code-service": "workspace:0.0.69",
+    "@monstrs/mctl-dashboard": "workspace:0.2.67",
+    "@monstrs/webpack-start-server-plugin": "workspace:0.2.3",
     "blessed": "^0.1.81",
     "clipanion": "^2.6.2",
     "react": "^17.0.1",

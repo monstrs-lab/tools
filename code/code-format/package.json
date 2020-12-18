@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-format",
-  "version": "0.0.68",
+  "version": "0.0.69",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -22,8 +22,8 @@
     "typescript": "^4.1.2"
   },
   "dependencies": {
-    "@monstrs/prettier-plugin-import-align": "workspace:0.2.21",
-    "@monstrs/prettier-plugin-import-sort": "workspace:0.2.21",
+    "@monstrs/prettier-plugin-import-align": "workspace:0.2.22",
+    "@monstrs/prettier-plugin-import-sort": "workspace:0.2.22",
     "globby": "^11.0.1",
     "ignore": "^5.1.8",
     "prettier": "^2.2.1",
