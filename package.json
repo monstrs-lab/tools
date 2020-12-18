@@ -15,7 +15,7 @@
     "checkcommit": "mctl precommit"
   },
   "devDependencies": {
-    "@monstrs/mctl-cli": "workspace:0.2.80",
+    "@monstrs/mctl-cli": "workspace:0.2.81",
     "@monstrs/tsconfig": "^0.2.0",
     "@types/aria-query": "4.2.0",
     "@types/array.prototype.flat": "1.2.1",
