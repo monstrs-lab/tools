@@ -41,7 +41,7 @@ export class LogsReader extends Component<any, any> {
   }
 
   componentDidUpdate(props) {
-    if (props.process !== this.props.proces) {
+    if (props.process !== this.props.process) {
       if (this.stdoutReader) {
         this.stdoutReader.end()
         this.stdoutReader.destroy()

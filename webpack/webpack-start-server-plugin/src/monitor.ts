@@ -9,7 +9,7 @@ const monitorFn = () => {
     const log = (type, msg) => {
       console.log(
         JSON.stringify({
-          severity: type.toUpperCase(),
+          severityText: type.toUpperCase(),
           name: 'start-server:monitor',
           body: msg,
         })

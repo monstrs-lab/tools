@@ -195,7 +195,7 @@ export class StartServerPlugin {
       this.options.stdout.write(
         Buffer.from(
           JSON.stringify({
-            severity: 'INFO',
+            severityText: 'INFO',
             name: 'start-server',
             body,
           })
@@ -209,7 +209,7 @@ export class StartServerPlugin {
       this.options.stderr.write(
         Buffer.from(
           JSON.stringify({
-            severity: 'ERROR',
+            severityText: 'ERROR',
             name: 'start-server',
             body,
           })

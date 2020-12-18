@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/mctl-dashboard",
-  "version": "0.2.65",
+  "version": "0.2.66",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
