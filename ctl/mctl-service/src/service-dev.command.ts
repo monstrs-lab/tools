@@ -1,7 +1,10 @@
-import { Command }           from 'clipanion'
+import { Command }                  from 'clipanion'
 
-import { watch }             from '@monstrs/code-service'
-import { StartServerPlugin } from '@monstrs/webpack-start-server-plugin'
+import { watch }                    from '@monstrs/code-service'
+import { StartServerPlugin }        from '@monstrs/webpack-start-server-plugin'
+import { StartServerPluginOptions } from '@monstrs/webpack-start-server-plugin'
+
+import { dashboard }                from './dashboard'
 
 const waitSignals = (watcher): Promise<void> =>
   new Promise((resolve) => {
@@ -15,13 +18,28 @@ const waitSignals = (watcher): Promise<void> =>
   })
 
 class ServiceDevCommand extends Command {
+  @Command.Boolean(`-d,--dashboard`)
+  dashboard: boolean = false
+
   @Command.Path(`service`, `dev`)
   async execute() {
+    const startServerPluginArgs: Partial<StartServerPluginOptions> = {}
+
+    if (this.dashboard) {
+      const processWatcher = dashboard()
+
+      startServerPluginArgs.onWorkerStart = processWatcher.change
+      startServerPluginArgs.onWorkerExit = processWatcher.change
+    } else {
+      startServerPluginArgs.stdout = this.context.stdout
+      startServerPluginArgs.stderr = this.context.stderr
+    }
+
     const plugins = [
       {
         name: 'start-server',
         use: StartServerPlugin,
-        args: [{ stdout: this.context.stdout, stderr: this.context.stderr }],
+        args: [startServerPluginArgs],
       },
     ]
 

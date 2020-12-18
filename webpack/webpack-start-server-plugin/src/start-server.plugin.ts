@@ -9,6 +9,8 @@ export interface StartServerPluginOptions {
   entryName: string
   stdout?: Writable
   stderr?: Writable
+  onWorkerStart?: (workeer: ChildProcess) => void
+  onWorkerExit?: () => void
 }
 
 export class StartServerPlugin {
@@ -72,6 +74,10 @@ export class StartServerPlugin {
 
     this.worker = null
 
+    if (this.options.onWorkerExit) {
+      this.options.onWorkerExit()
+    }
+
     if (!this.workerLoaded) {
       this.error('Script did not load, or HMR failed; not restarting')
 
@@ -89,6 +95,10 @@ export class StartServerPlugin {
     this.error(err)
 
     this.worker = null
+
+    if (this.options.onWorkerExit) {
+      this.options.onWorkerExit()
+    }
   }
 
   handleWorkerMessage = (message) => {
@@ -125,6 +135,10 @@ export class StartServerPlugin {
     }
 
     this.worker = worker
+
+    if (this.options.onWorkerStart) {
+      this.options.onWorkerStart(worker)
+    }
 
     if (callback) callback()
   }
