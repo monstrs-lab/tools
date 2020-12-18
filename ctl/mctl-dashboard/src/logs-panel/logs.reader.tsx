@@ -8,7 +8,15 @@ import { Transform } from 'stream'
 const parseJson = (row) => {
   try {
     if (row) {
-      return JSON.parse(row)
+      const data = JSON.parse(row)
+
+      if (data && !data.body) {
+        return {
+          body: data,
+        }
+      }
+
+      return data
     }
   } catch (error) {
     return {

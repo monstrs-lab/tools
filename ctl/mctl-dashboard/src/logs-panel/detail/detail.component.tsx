@@ -3,7 +3,10 @@
 import React         from 'react'
 import { Component } from 'react'
 
+import { Tabs }      from './tabs.component'
+
 export interface DetailProps {
+  mode: string
   top: number | string
   height: number | string
   data: any
@@ -19,29 +22,28 @@ export class Detail extends Component<DetailProps> {
   renderDetail(data) {
     const content = JSON.stringify(data.body || '', null, 2)
 
-    return <blessed-text scrollable ref='detail' content={content} />
+    return <blessed-text scrollable ref='detail' content={content} height='100%' />
   }
 
   render() {
-    const { top, height, data, onKeypress } = this.props
+    const { mode, top, height, data, onKeypress } = this.props
 
     return (
       <blessed-box top={top} height={height} left='0' width='100%'>
         <blessed-text
           keys
+          mouse
           focused
           scrollable
-          top={0}
+          top={1}
           left={0}
-          mouse={false}
           height='100%'
           width='100%'
-          border={{ type: 'line' }}
-          style={{ fg: 'white', border: { fg: 'white' } }}
           onKeypress={onKeypress}
         >
           {this.renderDetail(data)}
         </blessed-text>
+        <Tabs mode={mode} />
       </blessed-box>
     )
   }
