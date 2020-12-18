@@ -23,11 +23,11 @@ const monitorFn = () => {
 
       if (unacceptedModules.length > 0) {
         log(
-          'warning',
+          'warn',
           "[HMR] The following modules couldn't be hot updated: (They would need a full reload!)"
         )
         unacceptedModules.forEach(function (moduleId) {
-          log('warning', '[HMR]  - ' + moduleId)
+          log('warn', '[HMR]  - ' + moduleId)
         })
       }
 
@@ -54,13 +54,13 @@ const monitorFn = () => {
     }
 
     // TODO don't show this when sending signal instead of message
-    log('log', 'Handling Hot Module Reloading')
+    log('info', 'Handling Hot Module Reloading')
     var checkForUpdate = function checkForUpdate(fromUpdate) {
       module.hot
         .check()
         .then(function (updatedModules) {
           if (!updatedModules) {
-            if (fromUpdate) log('log', 'Update applied.')
+            if (fromUpdate) log('info', 'Update applied.')
             else log('warn', 'Cannot find update.')
             return
           }
