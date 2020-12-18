@@ -14,10 +14,12 @@ export type KeyMapHandler = (...args: any[]) => void
 export interface KeyMap {
   down: KeyMapHandler
   up: KeyMapHandler
-  g: KeyMapHandler
   space: KeyMapHandler
   enter: KeyMapHandler
   escape: KeyMapHandler
+  g: KeyMapHandler
+  d: KeyMapHandler
+  r: KeyMapHandler
 }
 
 export class Logs extends Component<any, any> {
@@ -32,7 +34,7 @@ export class Logs extends Component<any, any> {
       rows: [],
       selectedIndex: 0,
       showDetail: false,
-      detailMode: 'breakdown',
+      detailMode: 'formatted',
       currentRangeStart: 0,
       maxRow: initialRow,
       halfRow: initialRow,
@@ -44,10 +46,12 @@ export class Logs extends Component<any, any> {
     this.keyMap = {
       down: this.moveIndex.bind(this, 1),
       up: this.moveIndex.bind(this, -1),
-      g: this.moveToEdge.bind(this),
       space: this.movePage.bind(this),
       enter: this.showDetail.bind(this, true),
       escape: this.showDetail.bind(this, false),
+      g: this.moveToEdge.bind(this),
+      d: this.changeMode.bind(this, 'formatted'),
+      r: this.changeMode.bind(this, 'raw'),
     }
   }
 
@@ -99,12 +103,10 @@ export class Logs extends Component<any, any> {
   }
 
   onKeypress = (char, key) => {
-    if (!(this.state.showDetail && !char)) {
-      const handler = this.keyMap[key.name]
+    const handler = this.keyMap[key.name]
 
-      if (handler) {
-        handler(key)
-      }
+    if (handler) {
+      handler(key)
     }
   }
 
@@ -125,6 +127,11 @@ export class Logs extends Component<any, any> {
     const rows = this.props.rows.slice(nextRangeStart, nextRangeStart + currentRow)
 
     this.setState({ rows, currentRow, currentRangeStart: nextRangeStart, subviewScroll: null })
+  }
+
+  changeMode(mode) {
+    this.setState({ showDetail: true, detailMode: mode })
+    this.setDisplayRange()
   }
 
   showDetail(enable) {
@@ -165,6 +172,7 @@ export class Logs extends Component<any, any> {
 
   scrollSubview(amount) {
     let actualAmount
+
     if (this.state.subviewScroll === amount) {
       actualAmount = amount
     } else {

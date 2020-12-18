@@ -8,9 +8,7 @@ import { Line }      from './line.component'
 const containerOptions = {
   ref: 'table',
   mouse: false,
-  border: { type: 'line' },
   width: '100%',
-  style: { border: { fg: 'white' } },
 }
 
 export interface ListProps {
@@ -34,7 +32,7 @@ export class List extends Component<ListProps> {
         focused={!locked}
         {...containerOptions}
       >
-        <blessed-box height='100%-4' width='100%-4'>
+        <blessed-box height='100%-4' width='100%'>
           {data.map((record, index) => (
             <Line
               key={`styled-request-${index}`}
