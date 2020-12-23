@@ -24,6 +24,7 @@
   "dependencies": {
     "@monstrs/code-service": "workspace:0.0.69",
     "@monstrs/mctl-dashboard": "workspace:0.2.67",
+    "@monstrs/mctl-ui": "workspace:0.2.67",
     "@monstrs/webpack-start-server-plugin": "workspace:0.2.3",
     "blessed": "^0.1.81",
     "clipanion": "^2.6.2",
