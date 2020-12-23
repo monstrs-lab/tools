@@ -1,10 +1,12 @@
 import { Command }                  from 'clipanion'
+import { PassThrough }              from 'stream'
 
 import { watch }                    from '@monstrs/code-service'
 import { StartServerPlugin }        from '@monstrs/webpack-start-server-plugin'
 import { StartServerPluginOptions } from '@monstrs/webpack-start-server-plugin'
 
 import { dashboard }                from './dashboard'
+import { FormatLogs }               from './pretty-logs'
 
 const waitSignals = (watcher): Promise<void> =>
   new Promise((resolve) => {
@@ -21,6 +23,9 @@ class ServiceDevCommand extends Command {
   @Command.Boolean(`-d,--dashboard`)
   dashboard: boolean = false
 
+  @Command.Boolean(`-p,--pretty-logs`)
+  prettyLogs: boolean = false
+
   @Command.Path(`service`, `dev`)
   async execute() {
     const startServerPluginArgs: Partial<StartServerPluginOptions> = {}
@@ -30,6 +35,13 @@ class ServiceDevCommand extends Command {
 
       startServerPluginArgs.onWorkerStart = processWatcher.change
       startServerPluginArgs.onWorkerExit = processWatcher.change
+    } else if (this.prettyLogs) {
+      const formatter = new PassThrough()
+
+      startServerPluginArgs.stdout = formatter
+      startServerPluginArgs.stderr = formatter
+
+      formatter.pipe(new FormatLogs()).pipe(process.stdout)
     } else {
       startServerPluginArgs.stdout = this.context.stdout
       startServerPluginArgs.stderr = this.context.stderr
