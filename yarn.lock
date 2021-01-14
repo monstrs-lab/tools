@@ -1810,7 +1810,7 @@ __metadata:
     "@babel/runtime": ^7.12.5
     "@babel/types": ^7.12.11
     "@monstrs/buildpack-core": "workspace:0.0.1"
-    "@monstrs/mctl-cli": "workspace:0.2.83"
+    "@monstrs/mctl-cli": "workspace:0.2.84"
     execa: ^5.0.0
   languageName: unknown
   linkType: soft
@@ -1830,7 +1830,7 @@ __metadata:
     "@babel/runtime": ^7.12.5
     "@babel/types": ^7.12.11
     "@monstrs/buildpack-core": "workspace:0.0.1"
-    "@monstrs/mctl-cli": "workspace:0.2.83"
+    "@monstrs/mctl-cli": "workspace:0.2.84"
     execa: ^5.0.0
   languageName: unknown
   linkType: soft
@@ -1850,17 +1850,17 @@ __metadata:
     "@babel/runtime": ^7.12.5
     "@babel/types": ^7.12.11
     "@monstrs/buildpack-core": "workspace:0.0.1"
-    "@monstrs/mctl-cli": "workspace:0.2.83"
+    "@monstrs/mctl-cli": "workspace:0.2.84"
     execa: ^5.0.0
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-changes@workspace:0.0.69, @monstrs/code-changes@workspace:code/code-changes":
+"@monstrs/code-changes@workspace:0.0.70, @monstrs/code-changes@workspace:code/code-changes":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-changes@workspace:code/code-changes"
   dependencies:
     "@babel/types": ^7.12.11
-    "@monstrs/code-github": "workspace:0.0.69"
+    "@monstrs/code-github": "workspace:0.0.70"
     "@monstrs/tsconfig": ^0.2.0
     "@types/execa": 2.0.0
     "@types/node": ^14.14.12
@@ -1870,7 +1870,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-commitlint@workspace:0.0.74, @monstrs/code-commitlint@workspace:code/code-commitlint":
+"@monstrs/code-commitlint@workspace:0.0.75, @monstrs/code-commitlint@workspace:code/code-commitlint":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-commitlint@workspace:code/code-commitlint"
   dependencies:
@@ -1887,13 +1887,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-format@workspace:0.0.69, @monstrs/code-format@workspace:code/code-format":
+"@monstrs/code-format@workspace:0.0.70, @monstrs/code-format@workspace:code/code-format":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-format@workspace:code/code-format"
   dependencies:
     "@babel/types": ^7.12.11
-    "@monstrs/prettier-plugin-import-align": "workspace:0.2.22"
-    "@monstrs/prettier-plugin-import-sort": "workspace:0.2.22"
+    "@monstrs/prettier-plugin-import-align": "workspace:0.2.23"
+    "@monstrs/prettier-plugin-import-sort": "workspace:0.2.23"
     "@monstrs/tsconfig": ^0.2.0
     "@types/globby": 9.1.0
     "@types/node": ^14.14.12
@@ -1906,7 +1906,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-github@workspace:0.0.69, @monstrs/code-github@workspace:code/code-github":
+"@monstrs/code-github@workspace:0.0.70, @monstrs/code-github@workspace:code/code-github":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-github@workspace:code/code-github"
   dependencies:
@@ -1920,11 +1920,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-lint@workspace:0.0.81, @monstrs/code-lint@workspace:code/code-lint":
+"@monstrs/code-lint@workspace:0.0.82, @monstrs/code-lint@workspace:code/code-lint":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-lint@workspace:code/code-lint"
   dependencies:
-    "@monstrs/code-format": "workspace:0.0.69"
+    "@monstrs/code-format": "workspace:0.0.70"
     "@monstrs/tsconfig": ^0.2.0
     "@types/eslint": 7.2.6
     "@types/globby": 9.1.0
@@ -1955,11 +1955,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-project@workspace:0.0.69, @monstrs/code-project@workspace:code/code-project":
+"@monstrs/code-project@workspace:0.0.70, @monstrs/code-project@workspace:code/code-project":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-project@workspace:code/code-project"
   dependencies:
-    "@monstrs/code-changes": "workspace:0.0.69"
+    "@monstrs/code-changes": "workspace:0.0.70"
     "@monstrs/tsconfig": ^0.2.0
     "@types/node": ^14.14.12
     "@yarnpkg/cli": ^2.4.0
@@ -1971,13 +1971,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-service@workspace:0.0.69, @monstrs/code-service@workspace:code/code-service":
+"@monstrs/code-service@workspace:0.0.70, @monstrs/code-service@workspace:code/code-service":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-service@workspace:code/code-service"
   dependencies:
     "@creditkarma/thrift-parser": ^1.2.0
-    "@monstrs/code-project": "workspace:0.0.69"
-    "@monstrs/code-typescript": "workspace:0.0.81"
+    "@monstrs/code-project": "workspace:0.0.70"
+    "@monstrs/code-typescript": "workspace:0.0.82"
     "@monstrs/tsconfig": ^0.2.0
     "@types/file-loader": 4.2.0
     "@types/node": ^14.14.12
@@ -1997,7 +1997,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-test@workspace:0.0.74, @monstrs/code-test@workspace:code/code-test":
+"@monstrs/code-test@workspace:0.0.75, @monstrs/code-test@workspace:code/code-test":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-test@workspace:code/code-test"
   dependencies:
@@ -2005,8 +2005,8 @@ __metadata:
     "@jest/core": ^26.6.3
     "@jest/test-result": ^26.6.2
     "@jest/types": ^26.6.2
-    "@monstrs/code-typescript": "workspace:0.0.81"
-    "@monstrs/prettier-plugin-import-sort": ^0.2.22
+    "@monstrs/code-typescript": "workspace:0.0.82"
+    "@monstrs/prettier-plugin-import-sort": ^0.2.23
     "@monstrs/tsconfig": ^0.2.0
     "@types/globby": 9.1.0
     "@types/jest": ^26.0.18
@@ -2022,7 +2022,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-typescript@workspace:0.0.81, @monstrs/code-typescript@workspace:code/code-typescript":
+"@monstrs/code-typescript@workspace:0.0.82, @monstrs/code-typescript@workspace:code/code-typescript":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-typescript@workspace:code/code-typescript"
   dependencies:
@@ -2048,16 +2048,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@monstrs/mctl-checks@workspace:0.2.74, @monstrs/mctl-checks@workspace:ctl/mctl-checks":
+"@monstrs/mctl-checks@workspace:0.2.75, @monstrs/mctl-checks@workspace:ctl/mctl-checks":
   version: 0.0.0-use.local
   resolution: "@monstrs/mctl-checks@workspace:ctl/mctl-checks"
   dependencies:
     "@actions/github": ^4.0.0
-    "@monstrs/code-github": "workspace:0.0.69"
-    "@monstrs/code-lint": "workspace:0.0.81"
-    "@monstrs/code-project": "workspace:0.0.69"
-    "@monstrs/code-test": "workspace:0.0.74"
-    "@monstrs/code-typescript": "workspace:0.0.81"
+    "@monstrs/code-github": "workspace:0.0.70"
+    "@monstrs/code-lint": "workspace:0.0.82"
+    "@monstrs/code-project": "workspace:0.0.70"
+    "@monstrs/code-test": "workspace:0.0.75"
+    "@monstrs/code-typescript": "workspace:0.0.82"
     "@monstrs/tsconfig": ^0.2.0
     "@types/node": ^14.14.12
     "@yarnpkg/pnpify": ^2.4.0
@@ -2068,7 +2068,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-cli@workspace:0.2.83, @monstrs/mctl-cli@workspace:ctl/mctl-cli":
+"@monstrs/mctl-cli@workspace:0.2.84, @monstrs/mctl-cli@workspace:ctl/mctl-cli":
   version: 0.0.0-use.local
   resolution: "@monstrs/mctl-cli@workspace:ctl/mctl-cli"
   dependencies:
@@ -2084,19 +2084,19 @@ __metadata:
     "@babel/register": ^7.12.10
     "@babel/runtime": ^7.12.5
     "@babel/types": ^7.12.11
-    "@monstrs/mctl-checks": "workspace:0.2.74"
-    "@monstrs/mctl-commit": "workspace:0.2.73"
-    "@monstrs/mctl-commitmsg": "workspace:0.2.72"
-    "@monstrs/mctl-format": "workspace:0.2.72"
-    "@monstrs/mctl-github": "workspace:0.2.67"
-    "@monstrs/mctl-library": "workspace:0.2.67"
-    "@monstrs/mctl-lint": "workspace:0.2.74"
-    "@monstrs/mctl-pack": "workspace:0.2.67"
-    "@monstrs/mctl-precommit": "workspace:0.2.73"
-    "@monstrs/mctl-renderer": "workspace:0.2.67"
-    "@monstrs/mctl-service": "workspace:0.2.67"
-    "@monstrs/mctl-test": "workspace:0.2.73"
-    "@monstrs/mctl-typecheck": "workspace:0.2.72"
+    "@monstrs/mctl-checks": "workspace:0.2.75"
+    "@monstrs/mctl-commit": "workspace:0.2.74"
+    "@monstrs/mctl-commitmsg": "workspace:0.2.73"
+    "@monstrs/mctl-format": "workspace:0.2.73"
+    "@monstrs/mctl-github": "workspace:0.2.68"
+    "@monstrs/mctl-library": "workspace:0.2.68"
+    "@monstrs/mctl-lint": "workspace:0.2.75"
+    "@monstrs/mctl-pack": "workspace:0.2.68"
+    "@monstrs/mctl-precommit": "workspace:0.2.74"
+    "@monstrs/mctl-renderer": "workspace:0.2.68"
+    "@monstrs/mctl-service": "workspace:0.2.68"
+    "@monstrs/mctl-test": "workspace:0.2.74"
+    "@monstrs/mctl-typecheck": "workspace:0.2.73"
     "@monstrs/tsconfig": ^0.2.0
     "@types/babel__core": 7.1.12
     "@types/node": ^14.14.12
@@ -2114,7 +2114,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-commit@workspace:0.2.73, @monstrs/mctl-commit@workspace:ctl/mctl-commit":
+"@monstrs/mctl-commit@workspace:0.2.74, @monstrs/mctl-commit@workspace:ctl/mctl-commit":
   version: 0.0.0-use.local
   resolution: "@monstrs/mctl-commit@workspace:ctl/mctl-commit"
   dependencies:
@@ -2140,11 +2140,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-commitmsg@workspace:0.2.72, @monstrs/mctl-commitmsg@workspace:ctl/mctl-commitmsg":
+"@monstrs/mctl-commitmsg@workspace:0.2.73, @monstrs/mctl-commitmsg@workspace:ctl/mctl-commitmsg":
   version: 0.0.0-use.local
   resolution: "@monstrs/mctl-commitmsg@workspace:ctl/mctl-commitmsg"
   dependencies:
-    "@monstrs/code-commitlint": "workspace:0.0.74"
+    "@monstrs/code-commitlint": "workspace:0.0.75"
     "@monstrs/tsconfig": ^0.2.0
     "@types/node": ^14.14.12
     "@yarnpkg/pnpify": ^2.4.0
@@ -2153,7 +2153,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-dashboard@workspace:0.2.67, @monstrs/mctl-dashboard@workspace:ctl/mctl-dashboard":
+"@monstrs/mctl-dashboard@workspace:0.2.68, @monstrs/mctl-dashboard@workspace:ctl/mctl-dashboard":
   version: 0.0.0-use.local
   resolution: "@monstrs/mctl-dashboard@workspace:ctl/mctl-dashboard"
   dependencies:
@@ -2171,11 +2171,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-format@workspace:0.2.72, @monstrs/mctl-format@workspace:ctl/mctl-format":
+"@monstrs/mctl-format@workspace:0.2.73, @monstrs/mctl-format@workspace:ctl/mctl-format":
   version: 0.0.0-use.local
   resolution: "@monstrs/mctl-format@workspace:ctl/mctl-format"
   dependencies:
-    "@monstrs/code-format": "workspace:0.0.69"
+    "@monstrs/code-format": "workspace:0.0.70"
     "@monstrs/tsconfig": ^0.2.0
     "@types/node": ^14.14.12
     "@yarnpkg/pnpify": ^2.4.0
@@ -2184,11 +2184,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-github@workspace:0.2.67, @monstrs/mctl-github@workspace:ctl/mctl-github":
+"@monstrs/mctl-github@workspace:0.2.68, @monstrs/mctl-github@workspace:ctl/mctl-github":
   version: 0.0.0-use.local
   resolution: "@monstrs/mctl-github@workspace:ctl/mctl-github"
   dependencies:
-    "@monstrs/code-github": "workspace:0.0.69"
+    "@monstrs/code-github": "workspace:0.0.70"
     "@monstrs/tsconfig": ^0.2.0
     "@types/node": ^14.14.12
     "@yarnpkg/pnpify": ^2.4.0
@@ -2198,11 +2198,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-library@workspace:0.2.67, @monstrs/mctl-library@workspace:ctl/mctl-library":
+"@monstrs/mctl-library@workspace:0.2.68, @monstrs/mctl-library@workspace:ctl/mctl-library":
   version: 0.0.0-use.local
   resolution: "@monstrs/mctl-library@workspace:ctl/mctl-library"
   dependencies:
-    "@monstrs/code-typescript": "workspace:0.0.81"
+    "@monstrs/code-typescript": "workspace:0.0.82"
     "@monstrs/tsconfig": ^0.2.0
     "@types/node": ^14.14.12
     "@types/rimraf": ^3.0.0
@@ -2213,11 +2213,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-lint@workspace:0.2.74, @monstrs/mctl-lint@workspace:ctl/mctl-lint":
+"@monstrs/mctl-lint@workspace:0.2.75, @monstrs/mctl-lint@workspace:ctl/mctl-lint":
   version: 0.0.0-use.local
   resolution: "@monstrs/mctl-lint@workspace:ctl/mctl-lint"
   dependencies:
-    "@monstrs/code-lint": "workspace:0.0.81"
+    "@monstrs/code-lint": "workspace:0.0.82"
     "@monstrs/tsconfig": ^0.2.0
     "@types/node": ^14.14.12
     "@yarnpkg/pnpify": ^2.4.0
@@ -2231,13 +2231,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-pack@workspace:0.2.67, @monstrs/mctl-pack@workspace:ctl/mctl-pack":
+"@monstrs/mctl-pack@workspace:0.2.68, @monstrs/mctl-pack@workspace:ctl/mctl-pack":
   version: 0.0.0-use.local
   resolution: "@monstrs/mctl-pack@workspace:ctl/mctl-pack"
   dependencies:
     "@iarna/toml": ^2.2.5
-    "@monstrs/code-changes": "workspace:0.0.69"
-    "@monstrs/code-project": "workspace:0.0.69"
+    "@monstrs/code-changes": "workspace:0.0.70"
+    "@monstrs/code-project": "workspace:0.0.70"
     "@monstrs/tsconfig": ^0.2.0
     "@types/node": ^14.14.12
     "@yarnpkg/pnpify": ^2.4.0
@@ -2248,14 +2248,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-precommit@workspace:0.2.73, @monstrs/mctl-precommit@workspace:ctl/mctl-precommit":
+"@monstrs/mctl-precommit@workspace:0.2.74, @monstrs/mctl-precommit@workspace:ctl/mctl-precommit":
   version: 0.0.0-use.local
   resolution: "@monstrs/mctl-precommit@workspace:ctl/mctl-precommit"
   dependencies:
-    "@monstrs/code-format": "workspace:0.0.69"
-    "@monstrs/code-lint": "workspace:0.0.81"
-    "@monstrs/code-test": "workspace:0.0.74"
-    "@monstrs/code-typescript": "workspace:0.0.81"
+    "@monstrs/code-format": "workspace:0.0.70"
+    "@monstrs/code-lint": "workspace:0.0.82"
+    "@monstrs/code-test": "workspace:0.0.75"
+    "@monstrs/code-typescript": "workspace:0.0.82"
     "@monstrs/tsconfig": ^0.2.0
     "@types/node": ^14.14.12
     "@yarnpkg/pnpify": ^2.4.0
@@ -2273,13 +2273,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-renderer@workspace:0.2.67, @monstrs/mctl-renderer@workspace:ctl/mctl-renderer":
+"@monstrs/mctl-renderer@workspace:0.2.68, @monstrs/mctl-renderer@workspace:ctl/mctl-renderer":
   version: 0.0.0-use.local
   resolution: "@monstrs/mctl-renderer@workspace:ctl/mctl-renderer"
   dependencies:
-    "@monstrs/code-service": "workspace:0.0.69"
+    "@monstrs/code-service": "workspace:0.0.70"
     "@monstrs/tsconfig": ^0.2.0
-    "@monstrs/webpack-start-server-plugin": "workspace:0.2.3"
+    "@monstrs/webpack-start-server-plugin": "workspace:0.2.4"
     "@types/execa": ^2.0.0
     "@types/node": ^14.14.12
     "@yarnpkg/pnpify": ^2.4.0
@@ -2290,15 +2290,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-service@workspace:0.2.67, @monstrs/mctl-service@workspace:ctl/mctl-service":
+"@monstrs/mctl-service@workspace:0.2.68, @monstrs/mctl-service@workspace:ctl/mctl-service":
   version: 0.0.0-use.local
   resolution: "@monstrs/mctl-service@workspace:ctl/mctl-service"
   dependencies:
-    "@monstrs/code-service": "workspace:0.0.69"
-    "@monstrs/mctl-dashboard": "workspace:0.2.67"
-    "@monstrs/mctl-ui": "workspace:0.2.67"
+    "@monstrs/code-service": "workspace:0.0.70"
+    "@monstrs/mctl-dashboard": "workspace:0.2.68"
+    "@monstrs/mctl-ui": "workspace:0.2.68"
     "@monstrs/tsconfig": ^0.2.0
-    "@monstrs/webpack-start-server-plugin": "workspace:0.2.3"
+    "@monstrs/webpack-start-server-plugin": "workspace:0.2.4"
     "@types/blessed": ^0.1.17
     "@types/node": ^14.14.12
     "@types/react": ^17
@@ -2312,11 +2312,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-test@workspace:0.2.73, @monstrs/mctl-test@workspace:ctl/mctl-test":
+"@monstrs/mctl-test@workspace:0.2.74, @monstrs/mctl-test@workspace:ctl/mctl-test":
   version: 0.0.0-use.local
   resolution: "@monstrs/mctl-test@workspace:ctl/mctl-test"
   dependencies:
-    "@monstrs/code-test": "workspace:0.0.74"
+    "@monstrs/code-test": "workspace:0.0.75"
     "@monstrs/tsconfig": ^0.2.0
     "@types/node": ^14.14.12
     "@yarnpkg/pnpify": ^2.4.0
@@ -2325,12 +2325,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-typecheck@workspace:0.2.72, @monstrs/mctl-typecheck@workspace:ctl/mctl-typecheck":
+"@monstrs/mctl-typecheck@workspace:0.2.73, @monstrs/mctl-typecheck@workspace:ctl/mctl-typecheck":
   version: 0.0.0-use.local
   resolution: "@monstrs/mctl-typecheck@workspace:ctl/mctl-typecheck"
   dependencies:
-    "@monstrs/code-project": "workspace:0.0.69"
-    "@monstrs/code-typescript": "workspace:0.0.81"
+    "@monstrs/code-project": "workspace:0.0.70"
+    "@monstrs/code-typescript": "workspace:0.0.82"
     "@monstrs/tsconfig": ^0.2.0
     "@types/execa": 2.0.0
     "@types/node": ^14.14.12
@@ -2340,12 +2340,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-ui@workspace:0.2.67, @monstrs/mctl-ui@workspace:ctl/mctl-ui":
+"@monstrs/mctl-ui@workspace:0.2.68, @monstrs/mctl-ui@workspace:ctl/mctl-ui":
   version: 0.0.0-use.local
   resolution: "@monstrs/mctl-ui@workspace:ctl/mctl-ui"
   dependencies:
+    "@babel/code-frame": ^7.12.11
     "@monstrs/logger": ^0.0.4
+    "@monstrs/stack-trace": ^0.0.4
     "@monstrs/tsconfig": ^0.2.0
+    "@types/babel__code-frame": 7.0.2
     "@types/jest": ^26.0.16
     "@types/node": ^14.14.12
     "@types/react": ^17
@@ -2354,11 +2357,13 @@ __metadata:
     react: ^17.0.1
     split2: ^3.2.2
     string-to-color: ^2.2.2
+    strip-ansi: ^6.0.0
+    supports-color: ^8.1.0
     typescript: ^4.1.2
   languageName: unknown
   linkType: soft
 
-"@monstrs/prettier-plugin-import-align@workspace:0.2.22, @monstrs/prettier-plugin-import-align@workspace:prettier/prettier-plugin-import-align":
+"@monstrs/prettier-plugin-import-align@workspace:0.2.23, @monstrs/prettier-plugin-import-align@workspace:prettier/prettier-plugin-import-align":
   version: 0.0.0-use.local
   resolution: "@monstrs/prettier-plugin-import-align@workspace:prettier/prettier-plugin-import-align"
   dependencies:
@@ -2372,7 +2377,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/prettier-plugin-import-sort@^0.2.22, @monstrs/prettier-plugin-import-sort@workspace:0.2.22, @monstrs/prettier-plugin-import-sort@workspace:prettier/prettier-plugin-import-sort":
+"@monstrs/prettier-plugin-import-sort@^0.2.23, @monstrs/prettier-plugin-import-sort@workspace:0.2.23, @monstrs/prettier-plugin-import-sort@workspace:prettier/prettier-plugin-import-sort":
   version: 0.0.0-use.local
   resolution: "@monstrs/prettier-plugin-import-sort@workspace:prettier/prettier-plugin-import-sort"
   dependencies:
@@ -2391,6 +2396,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@monstrs/stack-trace@npm:^0.0.4":
+  version: 0.0.4
+  resolution: "@monstrs/stack-trace@npm:0.0.4"
+  dependencies:
+    "@monstrs/webpack-source-map": 0.0.4
+    stack-utils: ^2.0.3
+  checksum: 96f9b5b236d7dfc6ee01ffcf8a80601fa39c40e29b965d0a8d3d7aea0d46d42af6a9e4b9a163612304c5093c7113356a22783553a6f06fc6bfef0f46b27578c7
+  languageName: node
+  linkType: hard
+
 "@monstrs/tsconfig@npm:^0.2.0":
   version: 0.2.0
   resolution: "@monstrs/tsconfig@npm:0.2.0"
@@ -2398,7 +2413,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@monstrs/webpack-start-server-plugin@workspace:0.2.3, @monstrs/webpack-start-server-plugin@workspace:webpack/webpack-start-server-plugin":
+"@monstrs/webpack-source-map@npm:0.0.4":
+  version: 0.0.4
+  resolution: "@monstrs/webpack-source-map@npm:0.0.4"
+  checksum: dfd321c35be874999692aef88ed405510caf7676b1b89204010884c2c24b64d276fa36444aaa26c39e427de164bb53d8251d159826d0e1311699ffd3ea51e8e3
+  languageName: node
+  linkType: hard
+
+"@monstrs/webpack-start-server-plugin@workspace:0.2.4, @monstrs/webpack-start-server-plugin@workspace:webpack/webpack-start-server-plugin":
   version: 0.0.0-use.local
   resolution: "@monstrs/webpack-start-server-plugin@workspace:webpack/webpack-start-server-plugin"
   dependencies:
@@ -13328,6 +13350,15 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"stack-utils@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "stack-utils@npm:2.0.3"
+  dependencies:
+    escape-string-regexp: ^2.0.0
+  checksum: 65fe92891beee90473708c119e8d55473996aa11ff073cc59c3f6a0b199b44c1cc7c51425b64a8d0761d1c7c3d9ab8350a6bebff4d32720492cdfb00ee3096f8
+  languageName: node
+  linkType: hard
+
 "static-extend@npm:^0.1.1":
   version: 0.1.2
   resolution: "static-extend@npm:0.1.2"
@@ -13719,6 +13750,15 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"supports-color@npm:^8.1.0":
+  version: 8.1.0
+  resolution: "supports-color@npm:8.1.0"
+  dependencies:
+    has-flag: ^4.0.0
+  checksum: 6213162d55e33b23562b1b8ec8c93f610fb1a1d2b88bf9b0bbeaed2d5652d5850faa293177890f914c5b5af722387e1b75a818e4496367134aeb9b3c5516eb2f
+  languageName: node
+  linkType: hard
+
 "supports-hyperlinks@npm:^2.0.0":
   version: 2.1.0
   resolution: "supports-hyperlinks@npm:2.1.0"
@@ -14052,7 +14092,7 @@ fsevents@~2.1.2:
   version: 0.0.0-use.local
   resolution: "tools@workspace:."
   dependencies:
-    "@monstrs/mctl-cli": "workspace:0.2.83"
+    "@monstrs/mctl-cli": "workspace:0.2.84"
     "@monstrs/tsconfig": ^0.2.0
     "@types/node": ^14.14.10
     "@yarnpkg/pnpify": ^2.4.0
