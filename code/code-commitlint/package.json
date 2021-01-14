@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-commitlint",
-  "version": "0.0.74",
+  "version": "0.0.75",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [

@@ -7,6 +7,7 @@ import { SeverityName } from '@monstrs/logger'
 import { LogSeverity }  from './log-severity.component'
 import { LogNamespace } from './log-namespace.component'
 import { LogMessage }   from './log-message.component'
+import { LogBody }      from './log-body.component'
 
 export interface LogRecordProps extends Partial<Record> {}
 
@@ -27,5 +28,6 @@ export const LogRecord: FC<LogRecordProps> = ({
         </Box>
       </Box>
     </Box>
+    <LogBody>{body}</LogBody>
   </Box>
 )

@@ -15,7 +15,7 @@
     "checkcommit": "mctl precommit"
   },
   "devDependencies": {
-    "@monstrs/mctl-cli": "workspace:0.2.83",
+    "@monstrs/mctl-cli": "workspace:0.2.84",
     "@monstrs/tsconfig": "^0.2.0",
     "@types/node": "^14.14.10",
     "@yarnpkg/pnpify": "^2.4.0",

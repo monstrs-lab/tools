@@ -3059,8 +3059,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./ctl/mctl-ui/",
           "packageDependencies": [
             ["@monstrs/mctl-ui", "workspace:ctl/mctl-ui"],
+            ["@babel/code-frame", "npm:7.12.11"],
             ["@monstrs/logger", "npm:0.0.4"],
+            ["@monstrs/stack-trace", "npm:0.0.4"],
             ["@monstrs/tsconfig", "npm:0.2.0"],
+            ["@types/babel__code-frame", "npm:7.0.2"],
             ["@types/jest", "npm:26.0.19"],
             ["@types/node", "npm:14.14.12"],
             ["@types/react", "npm:17.0.0"],
@@ -3069,6 +3072,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:17.0.1"],
             ["split2", "npm:3.2.2"],
             ["string-to-color", "npm:2.2.2"],
+            ["strip-ansi", "npm:6.0.0"],
+            ["supports-color", "npm:8.1.0"],
             ["typescript", "patch:typescript@npm%3A4.1.2#builtin<compat/typescript>::version=4.1.2&hash=cc6730"]
           ],
           "linkType": "SOFT",
@@ -3147,11 +3152,31 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT",
         }]
       ]],
+      ["@monstrs/stack-trace", [
+        ["npm:0.0.4", {
+          "packageLocation": "./.yarn/cache/@monstrs-stack-trace-npm-0.0.4-ddea7f29ab-96f9b5b236.zip/node_modules/@monstrs/stack-trace/",
+          "packageDependencies": [
+            ["@monstrs/stack-trace", "npm:0.0.4"],
+            ["@monstrs/webpack-source-map", "npm:0.0.4"],
+            ["stack-utils", "npm:2.0.3"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["@monstrs/tsconfig", [
         ["npm:0.2.0", {
           "packageLocation": "./.yarn/cache/@monstrs-tsconfig-npm-0.2.0-09ac6dba3a-ac2e277a3e.zip/node_modules/@monstrs/tsconfig/",
           "packageDependencies": [
             ["@monstrs/tsconfig", "npm:0.2.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@monstrs/webpack-source-map", [
+        ["npm:0.0.4", {
+          "packageLocation": "./.yarn/cache/@monstrs-webpack-source-map-npm-0.0.4-669faae23c-dfd321c35b.zip/node_modules/@monstrs/webpack-source-map/",
+          "packageDependencies": [
+            ["@monstrs/webpack-source-map", "npm:0.0.4"]
           ],
           "linkType": "HARD",
         }]
@@ -15380,6 +15405,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["escape-string-regexp", "npm:2.0.0"]
           ],
           "linkType": "HARD",
+        }],
+        ["npm:2.0.3", {
+          "packageLocation": "./.yarn/cache/stack-utils-npm-2.0.3-e255395afd-65fe92891b.zip/node_modules/stack-utils/",
+          "packageDependencies": [
+            ["stack-utils", "npm:2.0.3"],
+            ["escape-string-regexp", "npm:2.0.0"]
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["static-extend", [
@@ -15803,6 +15836,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/supports-color-npm-7.1.0-df2ba1e338-6130f36b2a.zip/node_modules/supports-color/",
           "packageDependencies": [
             ["supports-color", "npm:7.1.0"],
+            ["has-flag", "npm:4.0.0"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:8.1.0", {
+          "packageLocation": "./.yarn/cache/supports-color-npm-8.1.0-f1688888e2-6213162d55.zip/node_modules/supports-color/",
+          "packageDependencies": [
+            ["supports-color", "npm:8.1.0"],
             ["has-flag", "npm:4.0.0"]
           ],
           "linkType": "HARD",
