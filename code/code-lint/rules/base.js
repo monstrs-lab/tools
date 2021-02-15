@@ -52,5 +52,7 @@ module.exports = {
     '@typescript-eslint/no-empty-function': 'error',
 
     '@typescript-eslint/indent': 0,
+
+    'no-shadow': ['error', { allow: ['ClientFactory', 'ServerBuilder'] }],
   },
 }
