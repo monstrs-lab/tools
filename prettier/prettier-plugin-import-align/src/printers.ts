@@ -24,11 +24,10 @@ const print = (...args) => {
 }
 
 const preprocess = (ast, options) => {
-  const imports = ast.body.filter((node) => {
-    return (
+  const imports = ast.body.filter(
+    (node) =>
       node.type === 'ImportDeclaration' && node.loc && node.loc.end.line === node.loc.start.line
-    )
-  })
+  )
 
   const maxAlignLength =
     imports.length > 0 ? Math.max(...imports.map((node) => nodeImportSize(node))) : 0

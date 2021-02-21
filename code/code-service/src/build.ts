@@ -28,7 +28,7 @@ export const build = async ({ cwd }: BuildOptions, plugins?: any): Promise<Build
           })
         }
       } else if (stats) {
-        const { errors, warnings } = stats.toJson()
+        const { errors = [], warnings = [] } = stats.toJson()
 
         resolve({
           // eslint-disable-next-line

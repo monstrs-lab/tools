@@ -17,9 +17,7 @@ export const dashboard = () => {
     title: 'Service Dashboard',
   })
 
-  screen.key(['C-c'], (ch, key) => {
-    return process.exit(0)
-  })
+  screen.key(['C-c'], (ch, key) => process.exit(0))
 
   render(
     <ProcessProvider value={processWatcher}>

@@ -17,10 +17,10 @@
   "devDependencies": {
     "@monstrs/mctl-cli": "workspace:0.2.86",
     "@monstrs/tsconfig": "^0.2.0",
-    "@types/node": "^14.14.21",
+    "@types/node": "^14.14.28",
     "@yarnpkg/pnpify": "^2.4.0",
     "husky": "4.3.8",
-    "typescript": "^4.1.2"
+    "typescript": "^4.1.5"
   },
   "workspaces": [
     "buildpack/*",
@@ -37,6 +37,7 @@
   },
   "resolutions": {
     "@types/estree": "0.0.45",
-    "@types/eslint": "7.2.3"
+    "@types/eslint": "7.2.3",
+    "@types/react": "17.0.2"
   }
 }

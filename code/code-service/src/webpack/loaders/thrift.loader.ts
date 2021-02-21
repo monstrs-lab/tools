@@ -3,9 +3,7 @@ import { SyntaxType } from '@creditkarma/thrift-parser'
 import fileLoader     from 'file-loader'
 import path           from 'path'
 
-export const getThriftFileName = (resourcePath) => {
-  return `./${path.basename(resourcePath)}`
-}
+export const getThriftFileName = (resourcePath) => `./${path.basename(resourcePath)}`
 
 // eslint-disable-next-line func-names
 export default function (source) {
