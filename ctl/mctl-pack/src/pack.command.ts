@@ -17,8 +17,8 @@ class PackCommand extends Command {
   @Command.String(`-r,--registry`)
   registry: string = ''
 
-  @Command.String(`-t,--tag-prefix`)
-  tagPrefix: string = ''
+  @Command.String(`-t,--tag-policy`)
+  tagPolicy: string = 'revision'
 
   @Command.Boolean(`-a,--all`)
   all: boolean = false
@@ -34,8 +34,7 @@ class PackCommand extends Command {
 
   @Command.Path(`pack`)
   async execute() {
-    const revision = await getVersion()
-    const version = this.tagPrefix ? `${this.tagPrefix}-${revision}` : revision
+    const version = await this.getVersion()
 
     let workspaces: Array<Workspace> = []
 
@@ -156,6 +155,17 @@ class PackCommand extends Command {
     if (this.tagsOutputFile) {
       fs.writeFileSync(this.tagsOutputFile, JSON.stringify(pushTags))
     }
+  }
+
+  async getVersion() {
+    const revision = await getVersion()
+    const hash = revision.substr(0, 7)
+
+    if (this.tagPolicy === 'hash-timestamp') {
+      return `${hash}-${Date.now()}`
+    }
+
+    return revision
   }
 }
 
