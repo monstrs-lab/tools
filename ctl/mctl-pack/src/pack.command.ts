@@ -73,6 +73,7 @@ class PackCommand extends Command {
         buildCommand &&
         (buildCommand.includes('mctl service build') ||
           buildCommand.includes('mctl renderer build') ||
+          buildCommand.includes('build-storybook') ||
           buildCommand.includes('next build'))
 
       if (name && canBundle) {
