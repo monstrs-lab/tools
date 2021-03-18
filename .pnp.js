@@ -143,6 +143,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:ctl/mctl-ui"
       },
       {
+        "name": "@monstrs/mctl-version",
+        "reference": "workspace:ctl/mctl-version"
+      },
+      {
         "name": "@monstrs/prettier-plugin-import-align",
         "reference": "workspace:prettier/prettier-plugin-import-align"
       },
@@ -188,6 +192,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@monstrs/mctl-test", ["workspace:ctl/mctl-test"]],
       ["@monstrs/mctl-typecheck", ["workspace:ctl/mctl-typecheck"]],
       ["@monstrs/mctl-ui", ["workspace:ctl/mctl-ui"]],
+      ["@monstrs/mctl-version", ["workspace:ctl/mctl-version"]],
       ["@monstrs/prettier-plugin-import-align", ["virtual:3d93344fb94fee6b88a0f1f341c37079f1935d6fa77e765259fb2a836eaf6b539aa3f43c87daa1ff51fd7a0e7062665901cd442c32a52647ddb8df4fcafafb4c#workspace:prettier/prettier-plugin-import-align", "workspace:prettier/prettier-plugin-import-align"]],
       ["@monstrs/prettier-plugin-import-sort", ["virtual:d8b38287bd890bf0ad21f6e800842fd8ea95c0aa0dfd5964a9cd867bb44d41908f59e214b06bb2717ded8a5e6b1cd2b2516c2bcfbdb7684fd25e8eacd49bdee8#workspace:prettier/prettier-plugin-import-sort", "workspace:prettier/prettier-plugin-import-sort"]],
       ["@monstrs/webpack-start-server-plugin", ["workspace:webpack/webpack-start-server-plugin"]],
@@ -2609,6 +2614,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@monstrs/mctl-service", "workspace:ctl/mctl-service"],
             ["@monstrs/mctl-test", "workspace:ctl/mctl-test"],
             ["@monstrs/mctl-typecheck", "workspace:ctl/mctl-typecheck"],
+            ["@monstrs/mctl-version", "workspace:ctl/mctl-version"],
             ["@monstrs/tsconfig", "npm:0.2.0"],
             ["@types/babel__core", "npm:7.1.12"],
             ["@types/node", "npm:14.14.28"],
@@ -2653,6 +2659,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@monstrs/mctl-service", "workspace:ctl/mctl-service"],
             ["@monstrs/mctl-test", "workspace:ctl/mctl-test"],
             ["@monstrs/mctl-typecheck", "workspace:ctl/mctl-typecheck"],
+            ["@monstrs/mctl-version", "workspace:ctl/mctl-version"],
             ["@monstrs/tsconfig", "npm:0.2.0"],
             ["@types/babel__core", "npm:7.1.12"],
             ["@types/node", "npm:14.14.28"],
@@ -2969,6 +2976,23 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["string-to-color", "npm:2.2.2"],
             ["strip-ansi", "npm:6.0.0"],
             ["supports-color", "npm:8.1.1"],
+            ["typescript", "patch:typescript@npm%3A4.1.5#builtin<compat/typescript>::version=4.1.5&hash=cc6730"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
+      ["@monstrs/mctl-version", [
+        ["workspace:ctl/mctl-version", {
+          "packageLocation": "./ctl/mctl-version/",
+          "packageDependencies": [
+            ["@monstrs/mctl-version", "workspace:ctl/mctl-version"],
+            ["@monstrs/code-changes", "workspace:code/code-changes"],
+            ["@monstrs/code-project", "workspace:code/code-project"],
+            ["@monstrs/tsconfig", "npm:0.2.0"],
+            ["@types/node", "npm:14.14.28"],
+            ["@yarnpkg/pnpify", "virtual:93762f395d50e2410536eefd1c9656e618c9e599e2d023ef5341f0dd44b7c10b9c8541440da9da71a8fae8443bde146c84aabb5f6bc6020be89f6fe1913af10c#npm:2.4.0"],
+            ["clipanion", "npm:2.6.2"],
+            ["execa", "npm:5.0.0"],
             ["typescript", "patch:typescript@npm%3A4.1.5#builtin<compat/typescript>::version=4.1.5&hash=cc6730"]
           ],
           "linkType": "SOFT",

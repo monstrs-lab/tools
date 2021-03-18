@@ -22,7 +22,7 @@
     "@babel/preset-typescript": "^7.12.16",
     "@babel/runtime": "^7.12.13",
     "@babel/types": "^7.12.13",
-    "@monstrs/mctl-cli": "workspace:0.2.90"
+    "@monstrs/mctl-cli": "workspace:0.2.91"
   },
   "scripts": {
     "clean": "rm -r -f dist",
