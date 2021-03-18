@@ -23,6 +23,7 @@ import { RendererDevCommand }                        from '@monstrs/mctl-rendere
 import { TestIntegrationCommand }                    from '@monstrs/mctl-test'
 import { TestUnitCommand }                           from '@monstrs/mctl-test'
 import { TypeCheckCommand }                          from '@monstrs/mctl-typecheck'
+import { VersionPublishCommand }                     from '@monstrs/mctl-version'
 import { VersionGithubCommand }                      from '@monstrs/mctl-version'
 
 import { binaryVersion }                             from './constants'
@@ -69,6 +70,7 @@ const run = () => {
 
   cli.register(LibraryBuildCommand)
 
+  cli.register(VersionPublishCommand)
   cli.register(VersionGithubCommand)
 
   cli
