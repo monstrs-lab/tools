@@ -28,6 +28,7 @@
     "prettier/*",
     "code/**/*",
     "webpack/*",
+    "yarn/**/*",
     "ctl/**/*"
   ],
   "resolutions": {

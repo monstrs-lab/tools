@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@monstrs/code-changes": "workspace:0.0.78",
-    "@yarnpkg/cli": "^2.4.0",
+    "@yarnpkg/cli": "^2.4.1",
     "@yarnpkg/core": "^2.4.0",
     "fast-glob": "^3.2.5"
   }
