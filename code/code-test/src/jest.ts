@@ -7,7 +7,7 @@ import { unitConfig }        from './jest.config'
 
 const unit = async (
   project: string,
-  options?: any,
+  options?: Partial<Config.Argv>,
   files?: string[]
 ): Promise<{
   results: AggregatedResult
@@ -35,7 +35,7 @@ const unit = async (
 
 const integration = async (
   project: string,
-  options?: any,
+  options?: Partial<Config.Argv>,
   files?: string[]
 ): Promise<{
   results: AggregatedResult

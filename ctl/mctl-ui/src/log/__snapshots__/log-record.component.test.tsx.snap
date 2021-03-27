@@ -7,7 +7,7 @@ exports[`log record component render body error stack 1`] = `
 
   Location
        8 |   const cwd = process.cwd()
-       9 | 
+       9 |
     > 10 |   return \`Error: test
          |            ^
       11 |     at Object.<anonymous> (\${cwd}/ctl/mctl-ui/src/log/log-record.component.test.tsx:10:12)

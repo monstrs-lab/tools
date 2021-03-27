@@ -4,7 +4,7 @@ exports[`stack trace component render 1`] = `
 "
   Location
        8 |   const cwd = process.cwd()
-       9 | 
+       9 |
     > 10 |   return \`Error: test
          |            ^
       11 |     at Object.<anonymous> (\${cwd}/ctl/mctl-ui/src/stack-trace/stack-trace.component.test.tsx:10:12)
