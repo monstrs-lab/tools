@@ -1,9 +1,6 @@
 {
   "name": "tools",
   "private": true,
-  "scripts": {
-    "postinstall": "husky install .config/husky"
-  },
   "devDependencies": {
     "@monstrs/mctl-cli": "workspace:0.2.92",
     "@types/jest": "^26.0.22",
