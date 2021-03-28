@@ -8,11 +8,9 @@
     "config.js"
   ],
   "scripts": {
-    "exec": "yarn run build && yarn node run.js",
-    "clean": "rm -r -f dist",
-    "prebuild": "yarn clean",
-    "prepublishOnly": "yarn run build",
-    "build": "yarn pnpify tsc -p tsconfig.json"
+    "build": "builder build library",
+    "postpack": "rm -rf dist",
+    "prepack": "run build"
   },
   "devDependencies": {
     "@types/globby": "9.1.0",
@@ -29,7 +27,7 @@
     "@jest/types": "^26.6.2",
     "@monstrs/code-typescript": "workspace:0.0.90",
     "@monstrs/prettier-plugin-import-sort": "^0.2.31",
-    "@monstrs/tsconfig": "^0.2.0",
+    "@monstrs/tools-builder": "workspace:0.0.0",
     "globby": "^11.0.2",
     "ignore": "^5.1.8",
     "jest-static-stubs": "^0.0.1",

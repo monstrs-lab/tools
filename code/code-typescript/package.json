@@ -7,14 +7,12 @@
     "dist"
   ],
   "scripts": {
-    "exec": "yarn run build && yarn node test.js",
-    "clean": "rm -r -f dist",
-    "prebuild": "yarn clean",
-    "prepublishOnly": "yarn run build",
-    "build": "yarn pnpify tsc -p tsconfig.json"
+    "build": "builder build library",
+    "postpack": "rm -rf dist",
+    "prepack": "run build"
   },
   "devDependencies": {
-    "@monstrs/tsconfig": "^0.2.0",
+    "@monstrs/tools-builder": "workspace:0.0.0",
     "@types/babel__code-frame": "7.0.2",
     "@types/chalk": "2.2.0",
     "@types/deepmerge": "2.2.0",

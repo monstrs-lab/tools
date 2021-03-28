@@ -7,19 +7,15 @@
     "dist"
   ],
   "scripts": {
-    "exec": "yarn run build && yarn node test.js",
-    "clean": "rm -r -f dist",
-    "prebuild": "yarn clean",
-    "prepublishOnly": "yarn run build",
-    "build": "yarn pnpify tsc -p tsconfig.json"
+    "build": "builder build library",
+    "postpack": "rm -rf dist",
+    "prepack": "run build"
   },
   "devDependencies": {
     "@babel/types": "^7.12.13",
-    "@monstrs/tsconfig": "^0.2.0",
+    "@monstrs/tools-builder": "workspace:0.0.0",
     "@types/execa": "2.0.0",
-    "@types/node": "^14.14.28",
-    "@yarnpkg/pnpify": "^2.4.0",
-    "typescript": "^4.1.5"
+    "@types/node": "^14.14.28"
   },
   "publishConfig": {
     "main": "dist/index.js",

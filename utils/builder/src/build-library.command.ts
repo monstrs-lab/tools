@@ -8,7 +8,7 @@ class BuildLibraryCommand extends Command {
   @Command.String(`-t,--target`)
   target: string = './dist'
 
-  @Command.Path(`library`, `build`)
+  @Command.Path(`build`, `library`)
   async execute() {
     await this.cleanTarget()
 

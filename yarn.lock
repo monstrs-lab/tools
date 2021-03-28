@@ -1935,12 +1935,10 @@ __metadata:
   dependencies:
     "@babel/types": ^7.12.13
     "@iarna/toml": ^2.2.5
-    "@monstrs/tsconfig": ^0.2.0
+    "@monstrs/tools-builder": "workspace:0.0.0"
     "@types/execa": 2.0.0
     "@types/node": ^14.14.28
-    "@yarnpkg/pnpify": ^2.4.0
     execa: ^5.0.0
-    typescript: ^4.1.5
   languageName: unknown
   linkType: soft
 
@@ -2010,12 +2008,10 @@ __metadata:
   dependencies:
     "@babel/types": ^7.12.13
     "@monstrs/code-github": "workspace:0.0.78"
-    "@monstrs/tsconfig": ^0.2.0
+    "@monstrs/tools-builder": "workspace:0.0.0"
     "@types/execa": 2.0.0
     "@types/node": ^14.14.28
-    "@yarnpkg/pnpify": ^2.4.0
     execa: ^5.0.0
-    typescript: ^4.1.5
   languageName: unknown
   linkType: soft
 
@@ -2028,11 +2024,9 @@ __metadata:
     "@commitlint/lint": ^11.0.0
     "@commitlint/load": ^11.0.0
     "@commitlint/read": ^11.0.0
-    "@monstrs/tsconfig": ^0.2.0
+    "@monstrs/tools-builder": "workspace:0.0.0"
     "@types/globby": 9.1.0
     "@types/node": ^14.14.28
-    "@yarnpkg/pnpify": ^2.4.0
-    typescript: ^4.1.5
   languageName: unknown
   linkType: soft
 
@@ -2043,15 +2037,13 @@ __metadata:
     "@babel/types": ^7.12.13
     "@monstrs/prettier-plugin-import-align": "workspace:0.2.31"
     "@monstrs/prettier-plugin-import-sort": "workspace:0.2.31"
-    "@monstrs/tsconfig": ^0.2.0
+    "@monstrs/tools-builder": "workspace:0.0.0"
     "@types/globby": 9.1.0
     "@types/node": ^14.14.28
-    "@yarnpkg/pnpify": ^2.4.0
     globby: ^11.0.2
     ignore: ^5.1.8
     prettier: ^2.2.1
     prettier-plugin-toml: ^0.3.1
-    typescript: ^4.1.5
   languageName: unknown
   linkType: soft
 
@@ -2062,10 +2054,8 @@ __metadata:
     "@actions/core": ^1.2.6
     "@actions/github": ^4.0.0
     "@babel/types": ^7.12.13
-    "@monstrs/tsconfig": ^0.2.0
+    "@monstrs/tools-builder": "workspace:0.0.0"
     "@types/node": ^14.14.28
-    "@yarnpkg/pnpify": ^2.4.0
-    typescript: ^4.1.5
   languageName: unknown
   linkType: soft
 
@@ -2074,13 +2064,12 @@ __metadata:
   resolution: "@monstrs/code-lint@workspace:code/code-lint"
   dependencies:
     "@monstrs/code-format": "workspace:0.0.78"
-    "@monstrs/tsconfig": ^0.2.0
+    "@monstrs/tools-builder": "workspace:0.0.0"
     "@types/eslint": 7.2.6
     "@types/globby": 9.1.0
     "@types/node": ^14.14.28
     "@typescript-eslint/eslint-plugin": ^4.15.0
     "@typescript-eslint/parser": ^4.15.0
-    "@yarnpkg/pnpify": ^2.4.0
     eslint: ^7.20.0
     eslint-config-airbnb: ^18.2.1
     eslint-config-airbnb-base: ^14.2.1
@@ -2095,7 +2084,7 @@ __metadata:
     ignore: ^5.1.8
     prettier: ^2.2.1
     react: "*"
-    typescript: ^4.1.5
+    typescript: "*"
   peerDependencies:
     typescript: "*"
   peerDependenciesMeta:
@@ -2109,14 +2098,12 @@ __metadata:
   resolution: "@monstrs/code-project@workspace:code/code-project"
   dependencies:
     "@monstrs/code-changes": "workspace:0.0.78"
-    "@monstrs/tsconfig": ^0.2.0
+    "@monstrs/tools-builder": "workspace:0.0.0"
     "@types/node": ^14.14.28
     "@yarnpkg/cli": ^2.4.1
     "@yarnpkg/core": ^2.4.0
     "@yarnpkg/fslib": ^2.4.0
-    "@yarnpkg/pnpify": ^2.4.0
     fast-glob: ^3.2.5
-    typescript: ^4.1.5
   languageName: unknown
   linkType: soft
 
@@ -2127,14 +2114,14 @@ __metadata:
     "@creditkarma/thrift-parser": ^1.2.0
     "@monstrs/code-project": "workspace:0.0.78"
     "@monstrs/code-typescript": "workspace:0.0.90"
-    "@monstrs/tsconfig": ^0.2.0
+    "@monstrs/tools-builder": "workspace:0.0.0"
     "@types/file-loader": 4.2.0
+    "@types/jest": ^26.0.22
     "@types/node": ^14.14.28
     "@types/protocol-buffers-schema": 3.4.0
     "@types/wait-for-localhost": 3.1.0
     "@types/webpack": 4.41.26
     "@yarnpkg/fslib": ^2.4.0
-    "@yarnpkg/pnpify": ^2.4.0
     file-loader: ^6.2.0
     protocol-buffers-schema: ^3.4.0
     string-replace-loader: ^3.0.1
@@ -2156,7 +2143,7 @@ __metadata:
     "@jest/types": ^26.6.2
     "@monstrs/code-typescript": "workspace:0.0.90"
     "@monstrs/prettier-plugin-import-sort": ^0.2.31
-    "@monstrs/tsconfig": ^0.2.0
+    "@monstrs/tools-builder": "workspace:0.0.0"
     "@types/globby": 9.1.0
     "@types/jest": ^26.0.20
     "@types/node": ^14.14.28
@@ -2176,7 +2163,7 @@ __metadata:
   resolution: "@monstrs/code-typescript@workspace:code/code-typescript"
   dependencies:
     "@babel/code-frame": ^7.12.13
-    "@monstrs/tsconfig": ^0.2.0
+    "@monstrs/tools-builder": "workspace:0.0.0"
     "@types/babel__code-frame": 7.0.2
     "@types/chalk": 2.2.0
     "@types/deepmerge": 2.2.0
@@ -2207,7 +2194,7 @@ __metadata:
     "@monstrs/code-project": "workspace:0.0.78"
     "@monstrs/code-test": "workspace:0.0.83"
     "@monstrs/code-typescript": "workspace:0.0.90"
-    "@monstrs/tsconfig": ^0.2.0
+    "@monstrs/tools-builder": "workspace:0.0.0"
     "@types/node": ^14.14.28
     "@yarnpkg/pnpify": ^2.4.0
     clipanion: ^2.6.2
@@ -2235,13 +2222,11 @@ __metadata:
     "@monstrs/mctl-test": "workspace:0.2.82"
     "@monstrs/mctl-typecheck": "workspace:0.2.81"
     "@monstrs/mctl-version": "workspace:0.2.82"
+    "@monstrs/tools-builder": "workspace:0.0.0"
     "@monstrs/tools-setup-ts-execution": "workspace:0.0.0"
-    "@monstrs/tsconfig": ^0.2.0
     "@types/node": ^14.14.28
     "@yarnpkg/pnpify": ^2.4.0
     clipanion: ^2.6.2
-    ts-node: ^9.1.1
-    typescript: ^4.1.5
   peerDependencies:
     typescript: "*"
   peerDependenciesMeta:
@@ -2257,13 +2242,12 @@ __metadata:
   resolution: "@monstrs/mctl-commit@workspace:ctl/mctl-commit"
   dependencies:
     "@lerna/project": ^3.21.0
-    "@monstrs/tsconfig": ^0.2.0
+    "@monstrs/tools-builder": "workspace:0.0.0"
     "@semantic-release/commit-analyzer": ^8.0.1
     "@types/ansi-escapes": 4.0.0
     "@types/figures": 3.0.1
     "@types/inquirer": 7.3.1
     "@types/node": ^14.14.28
-    "@yarnpkg/pnpify": ^2.4.0
     ansi-escapes: ^4.3.1
     chalk: ^4.1.0
     clipanion: ^2.6.2
@@ -2274,7 +2258,6 @@ __metadata:
     run-async: ^2.4.1
     rxjs: ^6.6.3
     shelljs: 0.8.4
-    typescript: ^4.1.5
   languageName: unknown
   linkType: soft
 
@@ -2283,11 +2266,9 @@ __metadata:
   resolution: "@monstrs/mctl-commitmsg@workspace:ctl/mctl-commitmsg"
   dependencies:
     "@monstrs/code-commitlint": "workspace:0.0.85"
-    "@monstrs/tsconfig": ^0.2.0
+    "@monstrs/tools-builder": "workspace:0.0.0"
     "@types/node": ^14.14.28
-    "@yarnpkg/pnpify": ^2.4.0
     clipanion: ^2.6.2
-    typescript: ^4.1.5
   languageName: unknown
   linkType: soft
 
@@ -2295,17 +2276,15 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/mctl-dashboard@workspace:ctl/mctl-dashboard"
   dependencies:
-    "@monstrs/tsconfig": ^0.2.0
+    "@monstrs/tools-builder": "workspace:0.0.0"
     "@types/blessed": ^0.1.17
     "@types/node": ^14.14.28
     "@types/react": ^17.0.2
     "@types/react-blessed": ^0.3.2
-    "@yarnpkg/pnpify": ^2.4.0
     blessed: ^0.1.81
     react: ^17.0.1
     react-blessed: ^0.6.2
     split2: ^3.2.2
-    typescript: ^4.1.5
   languageName: unknown
   linkType: soft
 
@@ -2314,11 +2293,9 @@ __metadata:
   resolution: "@monstrs/mctl-format@workspace:ctl/mctl-format"
   dependencies:
     "@monstrs/code-format": "workspace:0.0.78"
-    "@monstrs/tsconfig": ^0.2.0
+    "@monstrs/tools-builder": "workspace:0.0.0"
     "@types/node": ^14.14.28
-    "@yarnpkg/pnpify": ^2.4.0
     clipanion: ^2.6.2
-    typescript: ^4.1.5
   languageName: unknown
   linkType: soft
 
@@ -2327,12 +2304,10 @@ __metadata:
   resolution: "@monstrs/mctl-github@workspace:ctl/mctl-github"
   dependencies:
     "@monstrs/code-github": "workspace:0.0.78"
-    "@monstrs/tsconfig": ^0.2.0
+    "@monstrs/tools-builder": "workspace:0.0.0"
     "@types/node": ^14.14.28
-    "@yarnpkg/pnpify": ^2.4.0
     clipanion: ^2.6.2
     execa: ^5.0.0
-    typescript: ^4.1.5
   languageName: unknown
   linkType: soft
 
@@ -2341,13 +2316,11 @@ __metadata:
   resolution: "@monstrs/mctl-library@workspace:ctl/mctl-library"
   dependencies:
     "@monstrs/code-typescript": "workspace:0.0.90"
-    "@monstrs/tsconfig": ^0.2.0
+    "@monstrs/tools-builder": "workspace:0.0.0"
     "@types/node": ^14.14.28
     "@types/rimraf": ^3.0.0
-    "@yarnpkg/pnpify": ^2.4.0
     clipanion: ^2.6.2
     rimraf: ^3.0.2
-    typescript: ^4.1.5
   languageName: unknown
   linkType: soft
 
@@ -2356,11 +2329,10 @@ __metadata:
   resolution: "@monstrs/mctl-lint@workspace:ctl/mctl-lint"
   dependencies:
     "@monstrs/code-lint": "workspace:0.0.90"
-    "@monstrs/tsconfig": ^0.2.0
+    "@monstrs/tools-builder": "workspace:0.0.0"
     "@types/node": ^14.14.28
-    "@yarnpkg/pnpify": ^2.4.0
     clipanion: ^2.6.2
-    typescript: ^4.1.5
+    typescript: "*"
   peerDependencies:
     typescript: "*"
   peerDependenciesMeta:
@@ -2376,13 +2348,11 @@ __metadata:
     "@iarna/toml": ^2.2.5
     "@monstrs/code-changes": "workspace:0.0.78"
     "@monstrs/code-project": "workspace:0.0.78"
-    "@monstrs/tsconfig": ^0.2.0
+    "@monstrs/tools-builder": "workspace:0.0.0"
     "@types/node": ^14.14.28
-    "@yarnpkg/pnpify": ^2.4.0
     clipanion: ^2.6.2
     execa: ^5.0.0
     tempy: 1.0.0
-    typescript: ^4.1.5
   languageName: unknown
   linkType: soft
 
@@ -2394,15 +2364,13 @@ __metadata:
     "@monstrs/code-lint": "workspace:0.0.90"
     "@monstrs/code-test": "workspace:0.0.83"
     "@monstrs/code-typescript": "workspace:0.0.90"
-    "@monstrs/tsconfig": ^0.2.0
+    "@monstrs/tools-builder": "workspace:0.0.0"
     "@types/node": ^14.14.28
-    "@yarnpkg/pnpify": ^2.4.0
     any-observable: 0.5.1
     clipanion: ^2.6.2
     execa: ^5.0.0
     lint-staged: ^10.5.4
     rxjs: ^6.6.3
-    typescript: ^4.1.5
   peerDependencies:
     typescript: "*"
   peerDependenciesMeta:
@@ -2416,15 +2384,13 @@ __metadata:
   resolution: "@monstrs/mctl-renderer@workspace:ctl/mctl-renderer"
   dependencies:
     "@monstrs/code-service": "workspace:0.0.78"
-    "@monstrs/tsconfig": ^0.2.0
+    "@monstrs/tools-builder": "workspace:0.0.0"
     "@monstrs/webpack-start-server-plugin": "workspace:0.2.12"
     "@types/execa": ^2.0.0
     "@types/node": ^14.14.28
-    "@yarnpkg/pnpify": ^2.4.0
     clipanion: ^2.6.2
     execa: ^5.0.0
     fs-extra: ^9.1.0
-    typescript: ^4.1.5
   languageName: unknown
   linkType: soft
 
@@ -2435,18 +2401,16 @@ __metadata:
     "@monstrs/code-service": "workspace:0.0.78"
     "@monstrs/mctl-dashboard": "workspace:0.2.76"
     "@monstrs/mctl-ui": "workspace:0.2.76"
-    "@monstrs/tsconfig": ^0.2.0
+    "@monstrs/tools-builder": "workspace:0.0.0"
     "@monstrs/webpack-start-server-plugin": "workspace:0.2.12"
     "@types/blessed": ^0.1.17
     "@types/node": ^14.14.28
     "@types/react": ^17.0.2
     "@types/react-blessed": ^0.3.2
-    "@yarnpkg/pnpify": ^2.4.0
     blessed: ^0.1.81
     clipanion: ^2.6.2
     react: ^17.0.1
     react-blessed: ^0.6.2
-    typescript: ^4.1.5
   languageName: unknown
   linkType: soft
 
@@ -2455,11 +2419,9 @@ __metadata:
   resolution: "@monstrs/mctl-test@workspace:ctl/mctl-test"
   dependencies:
     "@monstrs/code-test": "workspace:0.0.83"
-    "@monstrs/tsconfig": ^0.2.0
+    "@monstrs/tools-builder": "workspace:0.0.0"
     "@types/node": ^14.14.28
-    "@yarnpkg/pnpify": ^2.4.0
     clipanion: ^2.6.2
-    typescript: ^4.1.5
   languageName: unknown
   linkType: soft
 
@@ -2469,12 +2431,10 @@ __metadata:
   dependencies:
     "@monstrs/code-project": "workspace:0.0.78"
     "@monstrs/code-typescript": "workspace:0.0.90"
-    "@monstrs/tsconfig": ^0.2.0
+    "@monstrs/tools-builder": "workspace:0.0.0"
     "@types/execa": 2.0.0
     "@types/node": ^14.14.28
-    "@yarnpkg/pnpify": ^2.4.0
     clipanion: ^2.6.2
-    typescript: ^4.1.5
   languageName: unknown
   linkType: soft
 
@@ -2485,7 +2445,7 @@ __metadata:
     "@babel/code-frame": ^7.12.13
     "@monstrs/logger": ^0.0.4
     "@monstrs/stack-trace": ^0.0.4
-    "@monstrs/tsconfig": ^0.2.0
+    "@monstrs/tools-builder": "workspace:0.0.0"
     "@types/babel__code-frame": 7.0.2
     "@types/jest": ^26.0.20
     "@types/node": ^14.14.28
@@ -2507,12 +2467,10 @@ __metadata:
   dependencies:
     "@monstrs/code-changes": "workspace:0.0.78"
     "@monstrs/code-project": "workspace:0.0.78"
-    "@monstrs/tsconfig": ^0.2.0
+    "@monstrs/tools-builder": "workspace:0.0.0"
     "@types/node": ^14.14.28
-    "@yarnpkg/pnpify": ^2.4.0
     clipanion: ^2.6.2
     execa: ^5.0.0
-    typescript: ^4.1.5
   languageName: unknown
   linkType: soft
 
@@ -2520,11 +2478,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/prettier-plugin-import-align@workspace:prettier/prettier-plugin-import-align"
   dependencies:
-    "@monstrs/tsconfig": ^0.2.0
+    "@monstrs/tools-builder": "workspace:0.0.0"
     "@types/node": ^14.14.28
-    "@yarnpkg/pnpify": ^2.4.0
     prettier: ^2.2.1
-    typescript: ^4.1.5
   peerDependencies:
     prettier: "*"
   languageName: unknown
@@ -2534,15 +2490,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/prettier-plugin-import-sort@workspace:prettier/prettier-plugin-import-sort"
   dependencies:
-    "@monstrs/tsconfig": ^0.2.0
+    "@monstrs/tools-builder": "workspace:0.0.0"
     "@types/node": ^14.14.28
-    "@yarnpkg/pnpify": ^2.4.0
     globby: ^11.0.2
     import-sort: ^6.0.0
     import-sort-parser-typescript: ^6.0.0
     import-sort-style: ^6.0.0
     prettier: ^2.2.1
-    typescript: ^4.1.5
   peerDependencies:
     globby: "*"
     prettier: "*"
@@ -2616,10 +2570,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/webpack-start-server-plugin@workspace:webpack/webpack-start-server-plugin"
   dependencies:
-    "@monstrs/tsconfig": ^0.2.0
+    "@monstrs/tools-builder": "workspace:0.0.0"
     "@types/node": ^14.14.28
-    "@yarnpkg/pnpify": ^2.4.0
-    typescript: ^4.1.5
     webpack: 5.22.0
   languageName: unknown
   linkType: soft
@@ -3218,6 +3170,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/jest@npm:^26.0.22":
+  version: 26.0.22
+  resolution: "@types/jest@npm:26.0.22"
+  dependencies:
+    jest-diff: ^26.0.0
+    pretty-format: ^26.0.0
+  checksum: 4c98ed058522f6cc74bcb47b8b7b104b77b2d4e42e087171f3d2d3ae5338c21f43ec26f2a186bc229c1bd72c3f776ad07faba837f0ec27f22cf94e154516c0b3
+  languageName: node
+  linkType: hard
+
 "@types/json-schema@npm:*, @types/json-schema@npm:^7.0.3":
   version: 7.0.4
   resolution: "@types/json-schema@npm:7.0.4"
@@ -3482,6 +3444,13 @@ __metadata:
   dependencies:
     "@types/yargs-parser": "*"
   checksum: 2133c8cb5878d13959844f98e546e69dacdf44cd9baf87d84c828a1a093febfc97c8f4df19cffd34a4a4f726a3cdb1851da4391176accf56534c5f8a1c271f46
+  languageName: node
+  linkType: hard
+
+"@types/yoga-layout@npm:*":
+  version: 1.9.3
+  resolution: "@types/yoga-layout@npm:1.9.3"
+  checksum: ab06733ecbde6095f6ffd20aed8eaf6b110983c89b4c42dbafb3d35a1f1b048317b38f15ffc1cc78a560c1099901a7a1ccd0c2457da8e64e2a552ef92db9cf79
   languageName: node
   linkType: hard
 
@@ -4807,13 +4776,6 @@ __metadata:
     delegates: ^1.0.0
     readable-stream: ^2.0.6
   checksum: 2d6fdb0ddde9b8cb120b6851b42c75f6b6db78b540b579a00d144ad38cb9e1bdf1248e5454049fcf5b47ef61d1a6f2ea433a8e38984158afd441bc1e0db7a625
-  languageName: node
-  linkType: hard
-
-"arg@npm:^4.1.0":
-  version: 4.1.3
-  resolution: "arg@npm:4.1.3"
-  checksum: 81b3b40b1529c4fbf75b12f7c3e6fb2dcce9e78072063babc169de9b4f40777788f3d2b04380f659ef676a756e03ccfbfe78adf4477353bda906295fa69dab89
   languageName: node
   linkType: hard
 
@@ -6478,13 +6440,6 @@ __metadata:
     safe-buffer: ^5.0.1
     sha.js: ^2.4.8
   checksum: 98957676a93081678a2a915ae14898d65aac9b5651ffa55b8888484dd9d79c06d3cb3f85b137cd833ab536d87adee17394bb2b0efc591ea0e34110266d5bcd75
-  languageName: node
-  linkType: hard
-
-"create-require@npm:^1.1.0":
-  version: 1.1.1
-  resolution: "create-require@npm:1.1.1"
-  checksum: babd307893abfb26d77ae11cb9d6b6cfa6d18c9cee435cf70b5a3fb44aa8d90c9ec26ea89cbb16e0a94b8d34f5fcaee164b90ed526cdd3158955673ab9652d01
   languageName: node
   linkType: hard
 
@@ -11055,7 +11010,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"make-error@npm:1.x, make-error@npm:^1.1.1":
+"make-error@npm:1.x":
   version: 1.3.6
   resolution: "make-error@npm:1.3.6"
   checksum: 2c780bab8409b865e8ee86697c599a2bf2765ec64d21eb67ccda27050e039f983feacad05a0d43aba3c966ea03d305d2612e94fec45474bcbc61181f57c5bb88
@@ -13862,7 +13817,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"source-map-support@npm:^0.5.16, source-map-support@npm:^0.5.17, source-map-support@npm:^0.5.6, source-map-support@npm:~0.5.12, source-map-support@npm:~0.5.19":
+"source-map-support@npm:^0.5.16, source-map-support@npm:^0.5.6, source-map-support@npm:~0.5.12, source-map-support@npm:~0.5.19":
   version: 0.5.19
   resolution: "source-map-support@npm:0.5.19"
   dependencies:
@@ -14784,6 +14739,7 @@ fsevents@~2.1.2:
   dependencies:
     "@monstrs/mctl-cli": "workspace:0.2.92"
     "@monstrs/tsconfig": ^0.2.0
+    "@types/jest": ^26.0.22
     "@types/node": ^14.14.28
     "@yarnpkg/pnpify": ^2.4.0
     husky: 5.2.0
@@ -14901,27 +14857,6 @@ fsevents@~2.1.2:
     typescript: "*"
     webpack: "*"
   checksum: e09b71875034ec5daf0f6eac2acefea31c78df1a0aa2d6f76f66954326acf93bafa9092a5a7f5872276bba39ba4dfebbcb7c21ef88d4334ff95bb4d216b9dfe0
-  languageName: node
-  linkType: hard
-
-"ts-node@npm:^9.1.1":
-  version: 9.1.1
-  resolution: "ts-node@npm:9.1.1"
-  dependencies:
-    arg: ^4.1.0
-    create-require: ^1.1.0
-    diff: ^4.0.1
-    make-error: ^1.1.1
-    source-map-support: ^0.5.17
-    yn: 3.1.1
-  peerDependencies:
-    typescript: ">=2.7"
-  bin:
-    ts-node: dist/bin.js
-    ts-node-script: dist/bin-script.js
-    ts-node-transpile-only: dist/bin-transpile.js
-    ts-script: dist/bin-script-deprecated.js
-  checksum: a90db4a342872cd0e7a80babdfcb15d2f7c06e700d735003098f7cc79db575c3380580c58a19ae0d0eaab553af083651d4237060c92170e6f8ac4e64693113ea
   languageName: node
   linkType: hard
 
@@ -15085,6 +15020,16 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+typescript@*:
+  version: 4.2.3
+  resolution: "typescript@npm:4.2.3"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 06e8470f317db6f5e2fce809b20eb84a67a7d8179057abff36e5427bd1b891bd08e54581ff81f0fa36aef9b6d1eb0f54eaf6e2643c6dbd4e37a0adcc41eed256
+  languageName: node
+  linkType: hard
+
 typescript@^3.2.4:
   version: 3.9.7
   resolution: "typescript@npm:3.9.7"
@@ -15102,6 +15047,16 @@ typescript@^4.1.5:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 29157c84426ac94ce97aac836264f303a26bd9fb30865650229e3406a36ca2e89735ef4b8878075ba1b95fa4d3ff9810057b64888700c28e20b4034a6db4da83
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@*#builtin<compat/typescript>":
+  version: 4.2.3
+  resolution: "typescript@patch:typescript@npm%3A4.2.3#builtin<compat/typescript>::version=4.2.3&hash=a45b0e"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: a8956044aabf730699bcc3c2475efdd3f35e509329325cf60b4989761d4c2188e2c474183e2cf92b8c201fcf976814a5a16f144508b2a832643c4f972d0ab803
   languageName: node
   linkType: hard
 
@@ -15921,13 +15876,6 @@ typescript@^4.1.5:
     y18n: ^4.0.0
     yargs-parser: ^18.1.2
   checksum: dbf687d6b938f01bbf11e158dde6df906282b70cd9295af0217ee8cefbd83ad09d49fa9458d0d5325b0e66f03df954a38986db96f91e5b46ccdbbaf9a0157b23
-  languageName: node
-  linkType: hard
-
-"yn@npm:3.1.1":
-  version: 3.1.1
-  resolution: "yn@npm:3.1.1"
-  checksum: bff63b80568d80c711670935427494dde47cdf97e8b04196b140ce0af519c81c5ee857eddad0caa8b422dd65aea0157bbfaacbb1546bebba623f0f383d5d9ae5
   languageName: node
   linkType: hard
 
