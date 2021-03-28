@@ -173,6 +173,22 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       {
         "name": "@monstrs/yarn-plugin-essentials",
         "reference": "workspace:yarn/plugin-essentials"
+      },
+      {
+        "name": "@monstrs/yarn-plugin-format",
+        "reference": "workspace:yarn/plugin-format"
+      },
+      {
+        "name": "@monstrs/yarn-plugin-lint",
+        "reference": "workspace:yarn/plugin-lint"
+      },
+      {
+        "name": "@monstrs/yarn-plugin-test",
+        "reference": "workspace:yarn/plugin-test"
+      },
+      {
+        "name": "@monstrs/yarn-plugin-typescript",
+        "reference": "workspace:yarn/plugin-typescript"
       }
     ],
     "enableTopLevelFallback": true,
@@ -216,6 +232,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@monstrs/webpack-start-server-plugin", ["workspace:webpack/webpack-start-server-plugin"]],
       ["@monstrs/yarn-plugin-commit", ["workspace:yarn/plugin-commit"]],
       ["@monstrs/yarn-plugin-essentials", ["workspace:yarn/plugin-essentials"]],
+      ["@monstrs/yarn-plugin-format", ["workspace:yarn/plugin-format"]],
+      ["@monstrs/yarn-plugin-lint", ["workspace:yarn/plugin-lint"]],
+      ["@monstrs/yarn-plugin-test", ["workspace:yarn/plugin-test"]],
+      ["@monstrs/yarn-plugin-typescript", ["workspace:yarn/plugin-typescript"]],
       ["tools", ["workspace:."]]
     ],
     "fallbackPool": [
@@ -3659,7 +3679,63 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@monstrs/yarn-plugin-essentials", "workspace:yarn/plugin-essentials"],
             ["@monstrs/tools-builder", "workspace:utils/builder"],
             ["@monstrs/yarn-plugin-commit", "workspace:yarn/plugin-commit"],
+            ["@monstrs/yarn-plugin-format", "workspace:yarn/plugin-format"],
+            ["@monstrs/yarn-plugin-lint", "workspace:yarn/plugin-lint"],
+            ["@monstrs/yarn-plugin-test", "workspace:yarn/plugin-test"],
+            ["@monstrs/yarn-plugin-typescript", "workspace:yarn/plugin-typescript"],
             ["@yarnpkg/core", "npm:2.4.0"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
+      ["@monstrs/yarn-plugin-format", [
+        ["workspace:yarn/plugin-format", {
+          "packageLocation": "./yarn/plugin-format/",
+          "packageDependencies": [
+            ["@monstrs/yarn-plugin-format", "workspace:yarn/plugin-format"],
+            ["@monstrs/tools-builder", "workspace:utils/builder"],
+            ["@yarnpkg/cli", "virtual:93762f395d50e2410536eefd1c9656e618c9e599e2d023ef5341f0dd44b7c10b9c8541440da9da71a8fae8443bde146c84aabb5f6bc6020be89f6fe1913af10c#npm:2.4.1"],
+            ["@yarnpkg/core", "npm:2.4.0"],
+            ["clipanion", "npm:2.6.2"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
+      ["@monstrs/yarn-plugin-lint", [
+        ["workspace:yarn/plugin-lint", {
+          "packageLocation": "./yarn/plugin-lint/",
+          "packageDependencies": [
+            ["@monstrs/yarn-plugin-lint", "workspace:yarn/plugin-lint"],
+            ["@monstrs/tools-builder", "workspace:utils/builder"],
+            ["@yarnpkg/cli", "virtual:93762f395d50e2410536eefd1c9656e618c9e599e2d023ef5341f0dd44b7c10b9c8541440da9da71a8fae8443bde146c84aabb5f6bc6020be89f6fe1913af10c#npm:2.4.1"],
+            ["@yarnpkg/core", "npm:2.4.0"],
+            ["clipanion", "npm:2.6.2"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
+      ["@monstrs/yarn-plugin-test", [
+        ["workspace:yarn/plugin-test", {
+          "packageLocation": "./yarn/plugin-test/",
+          "packageDependencies": [
+            ["@monstrs/yarn-plugin-test", "workspace:yarn/plugin-test"],
+            ["@monstrs/tools-builder", "workspace:utils/builder"],
+            ["@yarnpkg/cli", "virtual:93762f395d50e2410536eefd1c9656e618c9e599e2d023ef5341f0dd44b7c10b9c8541440da9da71a8fae8443bde146c84aabb5f6bc6020be89f6fe1913af10c#npm:2.4.1"],
+            ["@yarnpkg/core", "npm:2.4.0"],
+            ["clipanion", "npm:2.6.2"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
+      ["@monstrs/yarn-plugin-typescript", [
+        ["workspace:yarn/plugin-typescript", {
+          "packageLocation": "./yarn/plugin-typescript/",
+          "packageDependencies": [
+            ["@monstrs/yarn-plugin-typescript", "workspace:yarn/plugin-typescript"],
+            ["@monstrs/tools-builder", "workspace:utils/builder"],
+            ["@yarnpkg/cli", "virtual:93762f395d50e2410536eefd1c9656e618c9e599e2d023ef5341f0dd44b7c10b9c8541440da9da71a8fae8443bde146c84aabb5f6bc6020be89f6fe1913af10c#npm:2.4.1"],
+            ["@yarnpkg/core", "npm:2.4.0"],
+            ["clipanion", "npm:2.6.2"]
           ],
           "linkType": "SOFT",
         }]

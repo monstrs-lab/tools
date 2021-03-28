@@ -2,17 +2,7 @@
   "name": "tools",
   "private": true,
   "scripts": {
-    "postinstall": "husky install .config/husky",
-    "version:patch": "yarn workspaces foreach --topological --no-private version patch",
-    "release:publish": "yarn workspaces foreach --topological --no-private npm publish --tolerate-republish --tag next",
-    "release:build": "yarn workspaces foreach --topological --no-private run build",
-    "release": "yarn release:build && yarn release:publish",
-    "lint": "mctl lint",
-    "test:unit": "mctl test:unit",
-    "test:integration": "mctl test:integration",
-    "format": "mctl format",
-    "typecheck": "mctl typecheck",
-    "checkcommit": "mctl precommit"
+    "postinstall": "husky install .config/husky"
   },
   "devDependencies": {
     "@monstrs/mctl-cli": "workspace:0.2.92",
