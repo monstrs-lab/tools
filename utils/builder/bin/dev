@@ -1,0 +1,6 @@
+#!/usr/bin/env node
+
+require('@monstrs/tools-setup-ts-execution')
+
+require('../src/cli')
+

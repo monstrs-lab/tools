@@ -10,7 +10,7 @@
     "lint": "mctl lint",
     "test:unit": "mctl test:unit",
     "test:integration": "mctl test:integration",
-    "commit": "mctl commit",
+    "commits": "mctl commit",
     "format": "mctl format",
     "typecheck": "mctl typecheck",
     "checkcommit": "mctl precommit"
@@ -29,7 +29,8 @@
     "code/**/*",
     "webpack/*",
     "yarn/**/*",
-    "ctl/**/*"
+    "ctl/**/*",
+    "utils/*"
   ],
   "resolutions": {
     "@types/estree": "0.0.45",
