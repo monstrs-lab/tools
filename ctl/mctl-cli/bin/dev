@@ -2,26 +2,7 @@
 
 require(`@yarnpkg/pnpify`).patchFs()
 
-require(`@babel/register`)({
-   root: require('path').dirname(__dirname),
-   extensions: [`.tsx`, `.ts`],
-   only: [
-     // TODO: read from package.json workspaces
-     p => p.includes('code/') || p.includes('ctl/') || p.includes('prettier/') || p.includes('webpack/'),
-   ],
-   plugins: [
-    require.resolve(`@babel/plugin-transform-modules-commonjs`),
-    require.resolve(`@babel/plugin-proposal-optional-chaining`),
-    require.resolve(`@babel/plugin-proposal-nullish-coalescing-operator`),
-    [require.resolve(`@babel/plugin-proposal-decorators`), { legacy: true }],
-    [require.resolve(`@babel/plugin-proposal-class-properties`), { loose: true }],
-    require.resolve(`@babel/plugin-proposal-async-generator-functions`),
-  ],
-   presets: [
-    require.resolve(`@babel/preset-typescript`),
-    require.resolve(`@babel/preset-react`)
-  ],
- })
+require('@monstrs/tools-setup-ts-execution')
 
 require('../src/cli').run()
 

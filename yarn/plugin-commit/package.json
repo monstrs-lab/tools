@@ -1,5 +1,6 @@
 {
   "name": "@monstrs/yarn-plugin-commit",
+  "private": true,
   "version": "0.0.0",
   "license": "MIT",
   "main": "src/index.ts",
@@ -7,15 +8,12 @@
     "dist"
   ],
   "scripts": {
-    "build:compile": "builder build plugin",
-    "build:move": "mkdir -p dist/@monstrs && mv bundles/@yarnpkg/* dist/@monstrs",
-    "build:patch": "sed -i -- 's|@yarnpkg/plugin-|@monstrs/plugin-|g' ./dist/@monstrs/*.js",
-    "build": "run build:compile && run build:move && run build:patch",
+    "build": "builder build plugin",
     "postpack": "rm -rf dist",
     "prepack": "run build"
   },
   "devDependencies": {
-    "@yarnpkg/builder": "^2.1.3",
+    "@monstrs/tools-builder": "workspace:0.0.0",
     "@yarnpkg/cli": "^2.4.1",
     "@yarnpkg/core": "^2.4.0",
     "clipanion": "^2.6.2"

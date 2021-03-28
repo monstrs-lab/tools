@@ -2221,18 +2221,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/mctl-cli@workspace:ctl/mctl-cli"
   dependencies:
-    "@babel/core": ^7.12.16
-    "@babel/plugin-proposal-async-generator-functions": ^7.12.13
-    "@babel/plugin-proposal-class-properties": ^7.12.13
-    "@babel/plugin-proposal-decorators": ^7.12.13
-    "@babel/plugin-proposal-nullish-coalescing-operator": ^7.12.13
-    "@babel/plugin-proposal-optional-chaining": ^7.12.16
-    "@babel/plugin-transform-modules-commonjs": ^7.12.13
-    "@babel/preset-react": ^7.12.13
-    "@babel/preset-typescript": ^7.12.16
-    "@babel/register": ^7.12.13
-    "@babel/runtime": ^7.12.13
-    "@babel/types": ^7.12.13
     "@monstrs/mctl-checks": "workspace:0.2.83"
     "@monstrs/mctl-commit": "workspace:0.2.82"
     "@monstrs/mctl-commitmsg": "workspace:0.2.81"
@@ -2247,8 +2235,8 @@ __metadata:
     "@monstrs/mctl-test": "workspace:0.2.82"
     "@monstrs/mctl-typecheck": "workspace:0.2.81"
     "@monstrs/mctl-version": "workspace:0.2.82"
+    "@monstrs/tools-setup-ts-execution": "workspace:0.0.0"
     "@monstrs/tsconfig": ^0.2.0
-    "@types/babel__core": 7.1.12
     "@types/node": ^14.14.28
     "@yarnpkg/pnpify": ^2.4.0
     clipanion: ^2.6.2
@@ -2571,6 +2559,45 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@monstrs/tools-builder@workspace:0.0.0, @monstrs/tools-builder@workspace:utils/builder":
+  version: 0.0.0-use.local
+  resolution: "@monstrs/tools-builder@workspace:utils/builder"
+  dependencies:
+    "@monstrs/code-typescript": "workspace:0.0.90"
+    "@monstrs/tools-setup-ts-execution": "workspace:0.0.0"
+    "@yarnpkg/builder": ^2.1.3
+    "@yarnpkg/core": ^2.4.0
+    "@yarnpkg/fslib": ^2.4.0
+    clipanion: ^2.6.2
+    rimraf: ^3.0.2
+    terser-webpack-plugin: ^3.0.4
+    webpack: ^5.1.1
+  bin:
+    builder: bin/dev
+  languageName: unknown
+  linkType: soft
+
+"@monstrs/tools-setup-ts-execution@workspace:0.0.0, @monstrs/tools-setup-ts-execution@workspace:utils/setup-ts-execution":
+  version: 0.0.0-use.local
+  resolution: "@monstrs/tools-setup-ts-execution@workspace:utils/setup-ts-execution"
+  dependencies:
+    "@babel/core": ^7.12.16
+    "@babel/plugin-proposal-async-generator-functions": ^7.12.13
+    "@babel/plugin-proposal-class-properties": ^7.12.13
+    "@babel/plugin-proposal-decorators": ^7.12.13
+    "@babel/plugin-proposal-nullish-coalescing-operator": ^7.12.13
+    "@babel/plugin-proposal-optional-chaining": ^7.12.16
+    "@babel/plugin-transform-modules-commonjs": ^7.12.13
+    "@babel/preset-react": ^7.12.13
+    "@babel/preset-typescript": ^7.12.16
+    "@babel/register": ^7.12.13
+    "@babel/runtime": ^7.12.13
+    "@babel/types": ^7.12.13
+    "@types/babel__core": 7.1.12
+    "@types/node": ^14.14.28
+  languageName: unknown
+  linkType: soft
+
 "@monstrs/tsconfig@npm:^0.2.0":
   version: 0.2.0
   resolution: "@monstrs/tsconfig@npm:0.2.0"
@@ -2601,7 +2628,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-commit@workspace:yarn/plugin-commit"
   dependencies:
-    "@yarnpkg/builder": ^2.1.3
+    "@monstrs/tools-builder": "workspace:0.0.0"
     "@yarnpkg/cli": ^2.4.1
     "@yarnpkg/core": ^2.4.0
     clipanion: ^2.6.2
@@ -2612,8 +2639,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-essentials@workspace:yarn/plugin-essentials"
   dependencies:
+    "@monstrs/tools-builder": "workspace:0.0.0"
     "@monstrs/yarn-plugin-commit": "workspace:0.0.0"
-    "@yarnpkg/builder": ^2.1.3
     "@yarnpkg/core": ^2.4.0
   languageName: unknown
   linkType: soft
@@ -15080,21 +15107,21 @@ typescript@^4.1.5:
 
 "typescript@patch:typescript@^3.2.4#builtin<compat/typescript>":
   version: 3.9.7
-  resolution: "typescript@patch:typescript@npm%3A3.9.7#builtin<compat/typescript>::version=3.9.7&hash=cc6730"
+  resolution: "typescript@patch:typescript@npm%3A3.9.7#builtin<compat/typescript>::version=3.9.7&hash=a45b0e"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: f0d3d9c987860c7c458229ab6dd7e3d322405db36b70abccba610b5efd9f9451e4e67a3fc7983c0d3741033c1f1a8d7aa859a1510caa8f20fad762fc39648bfa
+  checksum: ee9b64dafd9997a7f659c402dc4500792e05724a39a9071a0b79fd513466d6f4497e7d4963e092804a387b77e9cb9d4bfe365433fcbf2ca9eea44476ba3df14d
   languageName: node
   linkType: hard
 
 "typescript@patch:typescript@^4.1.5#builtin<compat/typescript>":
   version: 4.1.5
-  resolution: "typescript@patch:typescript@npm%3A4.1.5#builtin<compat/typescript>::version=4.1.5&hash=cc6730"
+  resolution: "typescript@patch:typescript@npm%3A4.1.5#builtin<compat/typescript>::version=4.1.5&hash=a45b0e"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 58cc7786be0f8485c124944883b1384287532e4867ec37f1fb5cb2811dbc10f7a9decccad89097f924043285f3515bfd8223c61dbb4f88af00b2d8dc2ef73207
+  checksum: 9c57e19536e978f130694888fbda2f8fe60f92c388c6b2945881dd7c912078bf52663dcb3278100cf9f4689805fbaec86b3de42ef600fb9672545b24fc1b7b15
   languageName: node
   linkType: hard
 
