@@ -7,13 +7,12 @@
     "dist"
   ],
   "scripts": {
-    "clean": "rm -r -f dist",
-    "prepublishOnly": "yarn run build",
-    "prebuild": "yarn clean",
-    "build": "yarn pnpify tsc -p tsconfig.json"
+    "build": "builder build library",
+    "postpack": "rm -rf dist",
+    "prepack": "run build"
   },
   "devDependencies": {
-    "@monstrs/tsconfig": "^0.2.0",
+    "@monstrs/tools-builder": "workspace:0.0.0",
     "@types/node": "^14.14.28",
     "@yarnpkg/pnpify": "^2.4.0",
     "eslint": "^7.20.0",
