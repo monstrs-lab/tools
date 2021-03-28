@@ -12,15 +12,15 @@
     "prepack": "run build"
   },
   "devDependencies": {
-    "@babel/types": "^7.12.13",
+    "@babel/types": "^7.13.13",
     "@monstrs/tools-builder": "workspace:0.0.0",
     "@types/globby": "9.1.0",
-    "@types/node": "^14.14.28"
+    "@types/node": "^14.14.37"
   },
   "dependencies": {
     "@monstrs/prettier-plugin-import-align": "workspace:0.2.31",
     "@monstrs/prettier-plugin-import-sort": "workspace:0.2.31",
-    "globby": "^11.0.2",
+    "globby": "^11.0.3",
     "ignore": "^5.1.8",
     "prettier": "^2.2.1",
     "prettier-plugin-toml": "^0.3.1"

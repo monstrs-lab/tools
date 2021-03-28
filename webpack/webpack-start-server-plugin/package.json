@@ -13,10 +13,10 @@
   },
   "devDependencies": {
     "@monstrs/tools-builder": "workspace:0.0.0",
-    "@types/node": "^14.14.28"
+    "@types/node": "^14.14.37"
   },
   "dependencies": {
-    "webpack": "5.22.0"
+    "webpack": "5.28.0"
   },
   "publishConfig": {
     "access": "public",

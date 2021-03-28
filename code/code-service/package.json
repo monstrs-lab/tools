@@ -14,12 +14,12 @@
   },
   "devDependencies": {
     "@monstrs/tools-builder": "workspace:0.0.0",
-    "@types/file-loader": "4.2.0",
+    "@types/file-loader": "4.2.1",
     "@types/jest": "^26.0.22",
-    "@types/node": "^14.14.28",
+    "@types/node": "^14.14.37",
     "@types/protocol-buffers-schema": "3.4.0",
     "@types/wait-for-localhost": "3.1.0",
-    "@types/webpack": "4.41.26",
+    "@types/webpack": "^4.41.27",
     "@yarnpkg/fslib": "^2.4.0",
     "wait-for-localhost": "^3.3.0"
   },
@@ -32,11 +32,11 @@
     "@monstrs/code-project": "workspace:0.0.78",
     "@monstrs/code-typescript": "workspace:0.0.90",
     "file-loader": "^6.2.0",
-    "protocol-buffers-schema": "^3.4.0",
+    "protocol-buffers-schema": "^3.5.1",
     "string-replace-loader": "^3.0.1",
-    "ts-loader": "^8.0.17",
-    "typescript": "^4.1.5",
-    "webpack": "5.22.0",
+    "ts-loader": "^8.1.0",
+    "typescript": "^4.2.3",
+    "webpack": "5.28.0",
     "webpack-chain": "^6.5.1"
   }
 }
