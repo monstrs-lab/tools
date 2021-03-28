@@ -1,5 +1,5 @@
 {
-  "name": "@monstrs/yarn-plugin-essentials",
+  "name": "@monstrs/yarn-plugin-lint",
   "private": true,
   "version": "0.0.0",
   "license": "MIT",
@@ -12,16 +12,11 @@
     "postpack": "rm -rf dist",
     "prepack": "run build"
   },
-  "dependencies": {
-    "@monstrs/yarn-plugin-commit": "workspace:0.0.0",
-    "@monstrs/yarn-plugin-format": "workspace:0.0.0",
-    "@monstrs/yarn-plugin-lint": "workspace:0.0.0",
-    "@monstrs/yarn-plugin-test": "workspace:0.0.0",
-    "@monstrs/yarn-plugin-typescript": "workspace:0.0.0"
-  },
   "devDependencies": {
     "@monstrs/tools-builder": "workspace:0.0.0",
-    "@yarnpkg/core": "^2.4.0"
+    "@yarnpkg/cli": "^2.4.1",
+    "@yarnpkg/core": "^2.4.0",
+    "clipanion": "^2.6.2"
   },
   "publishConfig": {
     "access": "public",
