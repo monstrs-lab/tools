@@ -1,21 +1,21 @@
-import { Plugin }                 from '@yarnpkg/core'
+import { Plugin }       from '@yarnpkg/core'
 
-import { TypeCheckCommand }       from '@monstrs/yarn-plugin-typescript'
-import { TestIntegrationCommand } from '@monstrs/yarn-plugin-test'
-import { TestUnitCommand }        from '@monstrs/yarn-plugin-test'
-import { CommitCommand }          from '@monstrs/yarn-plugin-commit'
-import { FormatCommand }          from '@monstrs/yarn-plugin-format'
-import { LintCommand }            from '@monstrs/yarn-plugin-lint'
+import TypeScriptPlugin from '@monstrs/yarn-plugin-typescript'
+import FormatPlugin     from '@monstrs/yarn-plugin-format'
+import CommitPlugin     from '@monstrs/yarn-plugin-commit'
+import LintPlugin       from '@monstrs/yarn-plugin-lint'
+import TestPlugin       from '@monstrs/yarn-plugin-test'
+import HuskyPlugin      from '@monstrs/yarn-plugin-husky'
 
-const plugin: Plugin = {
-  commands: [
-    CommitCommand,
-    TypeCheckCommand,
-    FormatCommand,
-    LintCommand,
-    TestIntegrationCommand,
-    TestUnitCommand,
-  ],
-}
+import { mergePlugins } from './merge-plugins.util'
+
+const plugin: Plugin = mergePlugins([
+  TypeScriptPlugin,
+  FormatPlugin,
+  CommitPlugin,
+  LintPlugin,
+  TestPlugin,
+  HuskyPlugin,
+])
 
 export default plugin
