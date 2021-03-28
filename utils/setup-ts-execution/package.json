@@ -5,19 +5,19 @@
   "license": "MIT",
   "main": "src/index.js",
   "devDependencies": {
-    "@babel/core": "^7.12.16",
-    "@babel/plugin-proposal-async-generator-functions": "^7.12.13",
-    "@babel/plugin-proposal-class-properties": "^7.12.13",
-    "@babel/plugin-proposal-decorators": "^7.12.13",
-    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.12.13",
-    "@babel/plugin-proposal-optional-chaining": "^7.12.16",
-    "@babel/plugin-transform-modules-commonjs": "^7.12.13",
-    "@babel/preset-react": "^7.12.13",
-    "@babel/preset-typescript": "^7.12.16",
-    "@babel/register": "^7.12.13",
-    "@babel/runtime": "^7.12.13",
-    "@babel/types": "^7.12.13",
-    "@types/babel__core": "7.1.12",
-    "@types/node": "^14.14.28"
+    "@babel/core": "^7.13.13",
+    "@babel/plugin-proposal-async-generator-functions": "^7.13.8",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/plugin-proposal-decorators": "^7.13.5",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.13.8",
+    "@babel/plugin-proposal-optional-chaining": "^7.13.12",
+    "@babel/plugin-transform-modules-commonjs": "^7.13.8",
+    "@babel/preset-react": "^7.13.13",
+    "@babel/preset-typescript": "^7.13.0",
+    "@babel/register": "^7.13.8",
+    "@babel/runtime": "^7.13.10",
+    "@babel/types": "^7.13.13",
+    "@types/babel__core": "7.1.14",
+    "@types/node": "^14.14.37"
   }
 }

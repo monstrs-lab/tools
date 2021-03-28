@@ -12,9 +12,9 @@
     "prepack": "run build"
   },
   "devDependencies": {
-    "@babel/types": "^7.12.13",
+    "@babel/types": "^7.13.13",
     "@monstrs/tools-builder": "workspace:0.0.0",
-    "@types/node": "^14.14.28"
+    "@types/node": "^14.14.37"
   },
   "publishConfig": {
     "main": "dist/index.js",

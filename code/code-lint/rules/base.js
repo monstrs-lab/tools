@@ -14,8 +14,6 @@ module.exports = {
     'eslint-config-airbnb/rules/react-a11y',
     'eslint-config-airbnb/rules/react-hooks',
     './typescript',
-    'eslint-config-prettier/@typescript-eslint',
-    'eslint-config-prettier/react',
     'eslint-config-prettier',
   ].map(require.resolve),
   plugins: ['prettier'],

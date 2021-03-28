@@ -34,9 +34,6 @@ function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj }
 }
 
-var _require = require('@lerna/project'),
-  getPackages = _require.getPackages
-
 var commitAnalyzer = function commitAnalyzer(props, commits, then) {
   return (0, _commitAnalyzer.analyzeCommits)(props, commits)
     .then(function (result) {
@@ -46,7 +43,8 @@ var commitAnalyzer = function commitAnalyzer(props, commits, then) {
 }
 
 function getAllPackages() {
-  return getPackages()
+  // TODO: replace to pnpapi
+  return Promise.resolve([])
 }
 
 function getChangedPackages(allPackages) {

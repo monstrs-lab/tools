@@ -1,9 +1,19 @@
+/**
+ * @jest-environment node
+ */
+
 import path      from 'path'
 
 import { watch } from '../src'
 
 const closeWatcher = (watcher): Promise<void> =>
-  new Promise((resolve) => watcher.close(() => resolve()))
+  new Promise((resolve) =>
+    watcher.close(() => {
+      setTimeout(() => {
+        resolve()
+      }, 1000)
+    })
+  )
 
 describe('service', () => {
   describe('watch', () => {

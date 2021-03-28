@@ -17,12 +17,11 @@
     "@types/ansi-escapes": "4.0.0",
     "@types/figures": "3.0.1",
     "@types/inquirer": "7.3.1",
-    "@types/node": "^14.14.28"
+    "@types/node": "^14.14.37"
   },
   "dependencies": {
-    "@lerna/project": "^3.21.0",
     "@semantic-release/commit-analyzer": "^8.0.1",
-    "ansi-escapes": "^4.3.1",
+    "ansi-escapes": "^4.3.2",
     "chalk": "^4.1.0",
     "clipanion": "^2.6.2",
     "commitizen": "4.2.3",
@@ -30,7 +29,7 @@
     "figures": "^3.2.0",
     "inquirer": "^7.3.3",
     "run-async": "^2.4.1",
-    "rxjs": "^6.6.3",
+    "rxjs": "^6.6.6",
     "shelljs": "0.8.4"
   },
   "publishConfig": {
