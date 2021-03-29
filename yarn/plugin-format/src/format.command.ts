@@ -5,7 +5,7 @@ class FormatCommand extends BaseCommand {
   @Command.Rest({ required: 0 })
   args: Array<string> = []
 
-  @Command.Path(`format`)
+  @Command.Path('format')
   async execute() {
     await this.cli.run(['mctl', 'format', ...this.args])
   }
