@@ -2417,7 +2417,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/yarn-plugin-changed@workspace:0.0.0, @monstrs/yarn-plugin-changed@workspace:yarn/plugin-changed":
+"@monstrs/yarn-plugin-changed@workspace:yarn/plugin-changed":
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-changed@workspace:yarn/plugin-changed"
   dependencies:
@@ -2445,7 +2445,6 @@ __metadata:
   resolution: "@monstrs/yarn-plugin-essentials@workspace:yarn/plugin-essentials"
   dependencies:
     "@monstrs/tools-builder": "workspace:0.0.0"
-    "@monstrs/yarn-plugin-changed": "workspace:0.0.0"
     "@monstrs/yarn-plugin-commit": "workspace:0.0.0"
     "@monstrs/yarn-plugin-files": "workspace:0.0.0"
     "@monstrs/yarn-plugin-format": "workspace:0.0.0"
@@ -2453,6 +2452,7 @@ __metadata:
     "@monstrs/yarn-plugin-lint": "workspace:0.0.0"
     "@monstrs/yarn-plugin-test": "workspace:0.0.0"
     "@monstrs/yarn-plugin-typescript": "workspace:0.0.0"
+    "@monstrs/yarn-plugin-workspaces": "workspace:0.0.0"
     "@yarnpkg/core": ^2.4.0
   languageName: unknown
   linkType: soft
@@ -2519,6 +2519,19 @@ __metadata:
   resolution: "@monstrs/yarn-plugin-typescript@workspace:yarn/plugin-typescript"
   dependencies:
     "@monstrs/tools-builder": "workspace:0.0.0"
+    "@yarnpkg/cli": ^2.4.1
+    "@yarnpkg/core": ^2.4.0
+    clipanion: ^2.6.2
+  languageName: unknown
+  linkType: soft
+
+"@monstrs/yarn-plugin-workspaces@workspace:0.0.0, @monstrs/yarn-plugin-workspaces@workspace:yarn/plugin-workspaces":
+  version: 0.0.0-use.local
+  resolution: "@monstrs/yarn-plugin-workspaces@workspace:yarn/plugin-workspaces"
+  dependencies:
+    "@monstrs/tools-builder": "workspace:0.0.0"
+    "@monstrs/yarn-plugin-files": "workspace:0.0.0"
+    "@monstrs/yarn-workspace-utils": "workspace:0.0.0"
     "@yarnpkg/cli": ^2.4.1
     "@yarnpkg/core": ^2.4.0
     clipanion: ^2.6.2
