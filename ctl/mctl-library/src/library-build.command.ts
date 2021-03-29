@@ -8,11 +8,14 @@ class LibraryBuildCommand extends Command {
   @Command.String(`-t,--target`)
   target: string = './dist'
 
+  @Command.String(`-s,--source`)
+  source?: string
+
   @Command.Path(`library`, `build`)
   async execute() {
     await this.cleanTarget()
 
-    const ts = new TypeScript()
+    const ts = new TypeScript(this.source)
 
     const result = ts.build(['./src'], {
       module: 'commonjs' as any,

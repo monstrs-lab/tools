@@ -8,6 +8,7 @@ import TestPlugin       from '@monstrs/yarn-plugin-test'
 import HuskyPlugin      from '@monstrs/yarn-plugin-husky'
 import WorkspacesPlugin from '@monstrs/yarn-plugin-workspaces'
 import FilesPlugin      from '@monstrs/yarn-plugin-files'
+import AppPlugin        from '@monstrs/yarn-plugin-app'
 
 import { mergePlugins } from './merge-plugins.util'
 
@@ -20,6 +21,7 @@ const plugin: Plugin = mergePlugins([
   FilesPlugin,
   LintPlugin,
   TestPlugin,
+  AppPlugin,
 ])
 
 export default plugin

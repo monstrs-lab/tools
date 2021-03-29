@@ -15,6 +15,9 @@ const waitSignals = (watcher): Promise<void> =>
   })
 
 class RendererDevCommand extends Command {
+  @Command.String(`-s,--source`)
+  source?: string
+
   @Command.Path(`renderer`, `dev`)
   async execute() {
     const plugins = [
@@ -25,13 +28,17 @@ class RendererDevCommand extends Command {
       },
     ]
 
-    const watcher = await watch({ cwd: process.cwd() }, plugins, (error): undefined => {
-      if (error) {
-        this.context.stdout.write(error)
-      }
+    const watcher = await watch(
+      { cwd: this.source || process.cwd() },
+      plugins,
+      (error): undefined => {
+        if (error) {
+          this.context.stdout.write(error)
+        }
 
-      return undefined
-    })
+        return undefined
+      }
+    )
 
     await waitSignals(watcher)
   }
