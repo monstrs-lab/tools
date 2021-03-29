@@ -25,6 +25,15 @@ class WorkspacesChangedForeachCommand extends BaseCommand {
   @Command.Boolean('-i,--interlaced')
   interlaced = false
 
+  @Command.Boolean('--no-private')
+  publicOnly: boolean = false
+
+  @Command.Boolean(`-t,--topological`)
+  topological: boolean = false
+
+  @Command.Boolean(`--topological-dev`)
+  topologicalDev: boolean = false
+
   @Command.String('-j,--jobs')
   jobs?: number
 
@@ -73,6 +82,18 @@ class WorkspacesChangedForeachCommand extends BaseCommand {
 
     if (this.interlaced) {
       input.push('--interlaced')
+    }
+
+    if (this.publicOnly) {
+      input.push('--no-private')
+    }
+
+    if (this.topological) {
+      input.push('--topological')
+    }
+
+    if (this.topologicalDev) {
+      input.push('--topological-dev')
     }
 
     if (this.jobs) {
