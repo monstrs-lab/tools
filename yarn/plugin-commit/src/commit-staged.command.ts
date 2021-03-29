@@ -3,14 +3,14 @@ import { Command }     from 'clipanion'
 import lintStaged      from 'lint-staged'
 
 const config = {
-  '*.{yml,yaml,json,graphql,md}': 'yarn mctl staged format',
-  '*.{js,jsx,ts,tsx}': ['yarn mctl staged format', 'yarn mctl staged lint'],
-  '*.{ts,tsx}': ['yarn mctl staged typecheck'],
-  '*.{tsx,ts}': ['yarn mctl staged test'],
+  '*.{yml,yaml,json,graphql,md}': 'yarn mctl format',
+  '*.{js,jsx,ts,tsx}': ['yarn mctl format', 'yarn mctl lint'],
+  '*.{ts,tsx}': ['yarn mctl typecheck'],
+  '*.{tsx,ts}': ['yarn mctl test:unit --bail --find-related-tests'],
 }
 
-export class CommitStagedLintCommand extends BaseCommand {
-  @Command.Path('commit', 'staged', 'lint')
+export class CommitStagedCommand extends BaseCommand {
+  @Command.Path('commit', 'staged')
   async execute() {
     try {
       const passed = await lintStaged({
