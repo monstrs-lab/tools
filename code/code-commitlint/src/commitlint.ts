@@ -1,8 +1,9 @@
-import commitlint from '@commitlint/lint'
+import commitlint      from '@commitlint/lint'
+import { LintOutcome } from '@commitlint/types'
 
-import { load }   from './config'
+import { load }        from './config'
 
-const lint = async (message: string) => {
+const lint = async (message: string): Promise<LintOutcome> => {
   const { rules } = await load()
 
   return commitlint(message, rules)
