@@ -18,6 +18,11 @@ jobs:
       - name: Install
         run: yarn install
 
+      - name: Changes
+        run: yarn files changed list
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+
       - name: Lint
         run: yarn mctl check lint
         env:
