@@ -2016,16 +2016,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/github-actions-utils@workspace:github/actions-utils":
-  version: 0.0.0-use.local
-  resolution: "@monstrs/github-actions-utils@workspace:github/actions-utils"
-  dependencies:
-    "@actions/core": ^1.2.6
-    "@actions/github": ^4.0.0
-    "@monstrs/tools-builder": "workspace:0.0.0"
-  languageName: unknown
-  linkType: soft
-
 "@monstrs/logger@npm:^0.0.4":
   version: 0.0.4
   resolution: "@monstrs/logger@npm:0.0.4"
