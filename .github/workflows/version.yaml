@@ -24,6 +24,11 @@ jobs:
 
       - name: Install
         run: yarn install
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+
+      - name: Changes
+        run: yarn files changed list
 
       - name: Version
         run: yarn mctl version:github --no-private --verbose

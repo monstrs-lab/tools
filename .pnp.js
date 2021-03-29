@@ -147,6 +147,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:ctl/mctl-version"
       },
       {
+        "name": "@monstrs/github-actions-utils",
+        "reference": "workspace:github/actions-utils"
+      },
+      {
         "name": "@monstrs/prettier-plugin-import-align",
         "reference": "workspace:prettier/prettier-plugin-import-align"
       },
@@ -177,6 +181,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       {
         "name": "@monstrs/yarn-plugin-essentials",
         "reference": "workspace:yarn/plugin-essentials"
+      },
+      {
+        "name": "@monstrs/yarn-plugin-files",
+        "reference": "workspace:yarn/plugin-files"
       },
       {
         "name": "@monstrs/yarn-plugin-format",
@@ -220,6 +228,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@monstrs/code-service", ["workspace:code/code-service"]],
       ["@monstrs/code-test", ["workspace:code/code-test"]],
       ["@monstrs/code-typescript", ["workspace:code/code-typescript"]],
+      ["@monstrs/github-actions-utils", ["workspace:github/actions-utils"]],
       ["@monstrs/mctl-checks", ["workspace:ctl/mctl-checks"]],
       ["@monstrs/mctl-cli", ["virtual:6edcd2783bcb80396c2bec03a284cb737a14969f400f14e7f54a93ca1c438dc5e2305a99d1d6cf16443cb0d19286f5c1763a238acf93b30ee499827dd2be5613#workspace:ctl/mctl-cli", "virtual:93762f395d50e2410536eefd1c9656e618c9e599e2d023ef5341f0dd44b7c10b9c8541440da9da71a8fae8443bde146c84aabb5f6bc6020be89f6fe1913af10c#workspace:ctl/mctl-cli", "workspace:ctl/mctl-cli"]],
       ["@monstrs/mctl-commit", ["workspace:ctl/mctl-commit"]],
@@ -245,6 +254,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@monstrs/yarn-plugin-changed", ["workspace:yarn/plugin-changed"]],
       ["@monstrs/yarn-plugin-commit", ["workspace:yarn/plugin-commit"]],
       ["@monstrs/yarn-plugin-essentials", ["workspace:yarn/plugin-essentials"]],
+      ["@monstrs/yarn-plugin-files", ["workspace:yarn/plugin-files"]],
       ["@monstrs/yarn-plugin-format", ["workspace:yarn/plugin-format"]],
       ["@monstrs/yarn-plugin-husky", ["workspace:yarn/plugin-husky"]],
       ["@monstrs/yarn-plugin-lint", ["workspace:yarn/plugin-lint"]],
@@ -2869,6 +2879,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT",
         }]
       ]],
+      ["@monstrs/github-actions-utils", [
+        ["workspace:github/actions-utils", {
+          "packageLocation": "./github/actions-utils/",
+          "packageDependencies": [
+            ["@monstrs/github-actions-utils", "workspace:github/actions-utils"],
+            ["@actions/core", "npm:1.2.6"],
+            ["@actions/github", "npm:4.0.0"],
+            ["@monstrs/tools-builder", "workspace:utils/builder"],
+            ["@octokit/types", "npm:6.13.0"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
       ["@monstrs/logger", [
         ["npm:0.0.4", {
           "packageLocation": "./.yarn/cache/@monstrs-logger-npm-0.0.4-2eac5b59a4-0b96a78d37.zip/node_modules/@monstrs/logger/",
@@ -3499,12 +3522,27 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@monstrs/tools-builder", "workspace:utils/builder"],
             ["@monstrs/yarn-plugin-changed", "workspace:yarn/plugin-changed"],
             ["@monstrs/yarn-plugin-commit", "workspace:yarn/plugin-commit"],
+            ["@monstrs/yarn-plugin-files", "workspace:yarn/plugin-files"],
             ["@monstrs/yarn-plugin-format", "workspace:yarn/plugin-format"],
             ["@monstrs/yarn-plugin-husky", "workspace:yarn/plugin-husky"],
             ["@monstrs/yarn-plugin-lint", "workspace:yarn/plugin-lint"],
             ["@monstrs/yarn-plugin-test", "workspace:yarn/plugin-test"],
             ["@monstrs/yarn-plugin-typescript", "workspace:yarn/plugin-typescript"],
             ["@yarnpkg/core", "npm:2.4.0"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
+      ["@monstrs/yarn-plugin-files", [
+        ["workspace:yarn/plugin-files", {
+          "packageLocation": "./yarn/plugin-files/",
+          "packageDependencies": [
+            ["@monstrs/yarn-plugin-files", "workspace:yarn/plugin-files"],
+            ["@monstrs/github-actions-utils", "workspace:github/actions-utils"],
+            ["@monstrs/tools-builder", "workspace:utils/builder"],
+            ["@yarnpkg/cli", "virtual:93762f395d50e2410536eefd1c9656e618c9e599e2d023ef5341f0dd44b7c10b9c8541440da9da71a8fae8443bde146c84aabb5f6bc6020be89f6fe1913af10c#npm:2.4.1"],
+            ["@yarnpkg/core", "npm:2.4.0"],
+            ["clipanion", "npm:2.6.2"]
           ],
           "linkType": "SOFT",
         }]
@@ -3676,6 +3714,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["@octokit/openapi-types", [
+        ["npm:6.0.0", {
+          "packageLocation": "./.yarn/cache/@octokit-openapi-types-npm-6.0.0-4fe173b5c1-a748ee2665.zip/node_modules/@octokit/openapi-types/",
+          "packageDependencies": [
+            ["@octokit/openapi-types", "npm:6.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["@octokit/plugin-paginate-rest", [
         ["npm:2.2.3", {
           "packageLocation": "./.yarn/cache/@octokit-plugin-paginate-rest-npm-2.2.3-f55a239935-31f1418c03.zip/node_modules/@octokit/plugin-paginate-rest/",
@@ -3764,6 +3811,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@octokit/types", "npm:5.1.0"],
             ["@types/node", "npm:14.0.5"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:6.13.0", {
+          "packageLocation": "./.yarn/cache/@octokit-types-npm-6.13.0-df1213cae5-20e7f159be.zip/node_modules/@octokit/types/",
+          "packageDependencies": [
+            ["@octokit/types", "npm:6.13.0"],
+            ["@octokit/openapi-types", "npm:6.0.0"]
           ],
           "linkType": "HARD",
         }]

@@ -16,6 +16,7 @@
     "code/**/*",
     "webpack/*",
     "yarn/**/*",
+    "github/*",
     "ctl/**/*",
     "utils/*"
   ],
