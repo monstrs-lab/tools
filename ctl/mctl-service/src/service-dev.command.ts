@@ -26,6 +26,9 @@ class ServiceDevCommand extends Command {
   @Command.Boolean(`-p,--pretty-logs`)
   prettyLogs: boolean = false
 
+  @Command.String(`-s,--source`)
+  source?: string
+
   @Command.Path(`service`, `dev`)
   async execute() {
     const startServerPluginArgs: Partial<StartServerPluginOptions> = {}
@@ -55,13 +58,17 @@ class ServiceDevCommand extends Command {
       },
     ]
 
-    const watcher = await watch({ cwd: process.cwd() }, plugins, (error): undefined => {
-      if (error) {
-        this.context.stdout.write(error)
-      }
+    const watcher = await watch(
+      { cwd: this.source || process.cwd() },
+      plugins,
+      (error): undefined => {
+        if (error) {
+          this.context.stdout.write(error)
+        }
 
-      return undefined
-    })
+        return undefined
+      }
+    )
 
     await waitSignals(watcher)
   }

@@ -171,6 +171,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:webpack/webpack-start-server-plugin"
       },
       {
+        "name": "@monstrs/yarn-plugin-app",
+        "reference": "workspace:yarn/plugin-app"
+      },
+      {
         "name": "@monstrs/yarn-plugin-changed",
         "reference": "workspace:yarn/plugin-changed"
       },
@@ -255,6 +259,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@monstrs/tools-builder", ["workspace:utils/builder"]],
       ["@monstrs/tools-setup-ts-execution", ["workspace:utils/setup-ts-execution"]],
       ["@monstrs/webpack-start-server-plugin", ["workspace:webpack/webpack-start-server-plugin"]],
+      ["@monstrs/yarn-plugin-app", ["workspace:yarn/plugin-app"]],
       ["@monstrs/yarn-plugin-changed", ["workspace:yarn/plugin-changed"]],
       ["@monstrs/yarn-plugin-commit", ["workspace:yarn/plugin-commit"]],
       ["@monstrs/yarn-plugin-essentials", ["workspace:yarn/plugin-essentials"]],
@@ -3493,6 +3498,23 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT",
         }]
       ]],
+      ["@monstrs/yarn-plugin-app", [
+        ["workspace:yarn/plugin-app", {
+          "packageLocation": "./yarn/plugin-app/",
+          "packageDependencies": [
+            ["@monstrs/yarn-plugin-app", "workspace:yarn/plugin-app"],
+            ["@monstrs/code-commitlint", "workspace:code/code-commitlint"],
+            ["@monstrs/code-typescript", "workspace:code/code-typescript"],
+            ["@monstrs/tools-builder", "workspace:utils/builder"],
+            ["@yarnpkg/cli", "virtual:93762f395d50e2410536eefd1c9656e618c9e599e2d023ef5341f0dd44b7c10b9c8541440da9da71a8fae8443bde146c84aabb5f6bc6020be89f6fe1913af10c#npm:2.4.1"],
+            ["@yarnpkg/core", "npm:2.4.0"],
+            ["@yarnpkg/fslib", "npm:2.4.0"],
+            ["clipanion", "npm:2.6.2"],
+            ["lint-staged", "npm:10.5.4"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
       ["@monstrs/yarn-plugin-changed", [
         ["workspace:yarn/plugin-changed", {
           "packageLocation": "./yarn/plugin-changed/",
@@ -3528,6 +3550,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@monstrs/yarn-plugin-essentials", "workspace:yarn/plugin-essentials"],
             ["@monstrs/tools-builder", "workspace:utils/builder"],
+            ["@monstrs/yarn-plugin-app", "workspace:yarn/plugin-app"],
             ["@monstrs/yarn-plugin-commit", "workspace:yarn/plugin-commit"],
             ["@monstrs/yarn-plugin-files", "workspace:yarn/plugin-files"],
             ["@monstrs/yarn-plugin-format", "workspace:yarn/plugin-format"],
