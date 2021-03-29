@@ -13,6 +13,7 @@
     "prepack": "run build"
   },
   "dependencies": {
+    "@monstrs/yarn-plugin-changed": "workspace:0.0.0",
     "@monstrs/yarn-plugin-commit": "workspace:0.0.0",
     "@monstrs/yarn-plugin-format": "workspace:0.0.0",
     "@monstrs/yarn-plugin-husky": "workspace:0.0.0",

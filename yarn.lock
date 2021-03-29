@@ -2016,6 +2016,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@monstrs/github-actions-utils@workspace:github/actions-utils":
+  version: 0.0.0-use.local
+  resolution: "@monstrs/github-actions-utils@workspace:github/actions-utils"
+  dependencies:
+    "@actions/core": ^1.2.6
+    "@actions/github": ^4.0.0
+    "@monstrs/tools-builder": "workspace:0.0.0"
+  languageName: unknown
+  linkType: soft
+
 "@monstrs/logger@npm:^0.0.4":
   version: 0.0.4
   resolution: "@monstrs/logger@npm:0.0.4"
@@ -2406,6 +2416,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@monstrs/yarn-plugin-changed@workspace:0.0.0, @monstrs/yarn-plugin-changed@workspace:yarn/plugin-changed":
+  version: 0.0.0-use.local
+  resolution: "@monstrs/yarn-plugin-changed@workspace:yarn/plugin-changed"
+  dependencies:
+    "@monstrs/tools-builder": "workspace:0.0.0"
+    "@monstrs/yarn-workspace-utils": "workspace:0.0.0"
+    "@yarnpkg/cli": ^2.4.1
+    "@yarnpkg/core": ^2.4.0
+    clipanion: ^2.6.2
+  languageName: unknown
+  linkType: soft
+
 "@monstrs/yarn-plugin-commit@workspace:0.0.0, @monstrs/yarn-plugin-commit@workspace:yarn/plugin-commit":
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-commit@workspace:yarn/plugin-commit"
@@ -2422,6 +2444,7 @@ __metadata:
   resolution: "@monstrs/yarn-plugin-essentials@workspace:yarn/plugin-essentials"
   dependencies:
     "@monstrs/tools-builder": "workspace:0.0.0"
+    "@monstrs/yarn-plugin-changed": "workspace:0.0.0"
     "@monstrs/yarn-plugin-commit": "workspace:0.0.0"
     "@monstrs/yarn-plugin-format": "workspace:0.0.0"
     "@monstrs/yarn-plugin-husky": "workspace:0.0.0"
@@ -2485,6 +2508,14 @@ __metadata:
     "@yarnpkg/cli": ^2.4.1
     "@yarnpkg/core": ^2.4.0
     clipanion: ^2.6.2
+  languageName: unknown
+  linkType: soft
+
+"@monstrs/yarn-workspace-utils@workspace:0.0.0, @monstrs/yarn-workspace-utils@workspace:yarn/workspace-utils":
+  version: 0.0.0-use.local
+  resolution: "@monstrs/yarn-workspace-utils@workspace:yarn/workspace-utils"
+  dependencies:
+    "@yarnpkg/core": ^2.4.0
   languageName: unknown
   linkType: soft
 

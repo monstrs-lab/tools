@@ -1,0 +1,18 @@
+{
+  "name": "@monstrs/yarn-workspace-utils",
+  "private": true,
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@yarnpkg/core": "^2.4.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
+  }
+}
