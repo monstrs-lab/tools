@@ -6,7 +6,7 @@ import CommitPlugin     from '@monstrs/yarn-plugin-commit'
 import LintPlugin       from '@monstrs/yarn-plugin-lint'
 import TestPlugin       from '@monstrs/yarn-plugin-test'
 import HuskyPlugin      from '@monstrs/yarn-plugin-husky'
-import ChangedPlugin    from '@monstrs/yarn-plugin-changed'
+import WorkspacesPlugin from '@monstrs/yarn-plugin-workspaces'
 import FilesPlugin      from '@monstrs/yarn-plugin-files'
 
 import { mergePlugins } from './merge-plugins.util'
@@ -18,7 +18,7 @@ const plugin: Plugin = mergePlugins([
   LintPlugin,
   TestPlugin,
   HuskyPlugin,
-  ChangedPlugin,
+  WorkspacesPlugin,
   FilesPlugin,
 ])
 
