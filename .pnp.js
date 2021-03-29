@@ -179,10 +179,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:yarn/plugin-commit"
       },
       {
-        "name": "@monstrs/yarn-plugin-commit-message",
-        "reference": "workspace:yarn/plugin-commit-message"
-      },
-      {
         "name": "@monstrs/yarn-plugin-essentials",
         "reference": "workspace:yarn/plugin-essentials"
       },
@@ -201,10 +197,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       {
         "name": "@monstrs/yarn-plugin-lint",
         "reference": "workspace:yarn/plugin-lint"
-      },
-      {
-        "name": "@monstrs/yarn-plugin-staged",
-        "reference": "workspace:yarn/plugin-staged"
       },
       {
         "name": "@monstrs/yarn-plugin-test",
@@ -265,13 +257,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@monstrs/webpack-start-server-plugin", ["workspace:webpack/webpack-start-server-plugin"]],
       ["@monstrs/yarn-plugin-changed", ["workspace:yarn/plugin-changed"]],
       ["@monstrs/yarn-plugin-commit", ["workspace:yarn/plugin-commit"]],
-      ["@monstrs/yarn-plugin-commit-message", ["workspace:yarn/plugin-commit-message"]],
       ["@monstrs/yarn-plugin-essentials", ["workspace:yarn/plugin-essentials"]],
       ["@monstrs/yarn-plugin-files", ["workspace:yarn/plugin-files"]],
       ["@monstrs/yarn-plugin-format", ["workspace:yarn/plugin-format"]],
       ["@monstrs/yarn-plugin-husky", ["workspace:yarn/plugin-husky"]],
       ["@monstrs/yarn-plugin-lint", ["workspace:yarn/plugin-lint"]],
-      ["@monstrs/yarn-plugin-staged", ["workspace:yarn/plugin-staged"]],
       ["@monstrs/yarn-plugin-test", ["workspace:yarn/plugin-test"]],
       ["@monstrs/yarn-plugin-typescript", ["workspace:yarn/plugin-typescript"]],
       ["@monstrs/yarn-plugin-workspaces", ["workspace:yarn/plugin-workspaces"]],
@@ -3522,24 +3512,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./yarn/plugin-commit/",
           "packageDependencies": [
             ["@monstrs/yarn-plugin-commit", "workspace:yarn/plugin-commit"],
-            ["@monstrs/tools-builder", "workspace:utils/builder"],
-            ["@yarnpkg/cli", "virtual:93762f395d50e2410536eefd1c9656e618c9e599e2d023ef5341f0dd44b7c10b9c8541440da9da71a8fae8443bde146c84aabb5f6bc6020be89f6fe1913af10c#npm:2.4.1"],
-            ["@yarnpkg/core", "npm:2.4.0"],
-            ["clipanion", "npm:2.6.2"]
-          ],
-          "linkType": "SOFT",
-        }]
-      ]],
-      ["@monstrs/yarn-plugin-commit-message", [
-        ["workspace:yarn/plugin-commit-message", {
-          "packageLocation": "./yarn/plugin-commit-message/",
-          "packageDependencies": [
-            ["@monstrs/yarn-plugin-commit-message", "workspace:yarn/plugin-commit-message"],
             ["@monstrs/code-commitlint", "workspace:code/code-commitlint"],
             ["@monstrs/tools-builder", "workspace:utils/builder"],
             ["@yarnpkg/cli", "virtual:93762f395d50e2410536eefd1c9656e618c9e599e2d023ef5341f0dd44b7c10b9c8541440da9da71a8fae8443bde146c84aabb5f6bc6020be89f6fe1913af10c#npm:2.4.1"],
             ["@yarnpkg/core", "npm:2.4.0"],
-            ["clipanion", "npm:2.6.2"]
+            ["clipanion", "npm:2.6.2"],
+            ["lint-staged", "npm:10.5.4"]
           ],
           "linkType": "SOFT",
         }]
@@ -3551,12 +3529,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@monstrs/yarn-plugin-essentials", "workspace:yarn/plugin-essentials"],
             ["@monstrs/tools-builder", "workspace:utils/builder"],
             ["@monstrs/yarn-plugin-commit", "workspace:yarn/plugin-commit"],
-            ["@monstrs/yarn-plugin-commit-message", "workspace:yarn/plugin-commit-message"],
             ["@monstrs/yarn-plugin-files", "workspace:yarn/plugin-files"],
             ["@monstrs/yarn-plugin-format", "workspace:yarn/plugin-format"],
             ["@monstrs/yarn-plugin-husky", "workspace:yarn/plugin-husky"],
             ["@monstrs/yarn-plugin-lint", "workspace:yarn/plugin-lint"],
-            ["@monstrs/yarn-plugin-staged", "workspace:yarn/plugin-staged"],
             ["@monstrs/yarn-plugin-test", "workspace:yarn/plugin-test"],
             ["@monstrs/yarn-plugin-typescript", "workspace:yarn/plugin-typescript"],
             ["@monstrs/yarn-plugin-workspaces", "workspace:yarn/plugin-workspaces"],
@@ -3615,20 +3591,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@yarnpkg/cli", "virtual:93762f395d50e2410536eefd1c9656e618c9e599e2d023ef5341f0dd44b7c10b9c8541440da9da71a8fae8443bde146c84aabb5f6bc6020be89f6fe1913af10c#npm:2.4.1"],
             ["@yarnpkg/core", "npm:2.4.0"],
             ["clipanion", "npm:2.6.2"]
-          ],
-          "linkType": "SOFT",
-        }]
-      ]],
-      ["@monstrs/yarn-plugin-staged", [
-        ["workspace:yarn/plugin-staged", {
-          "packageLocation": "./yarn/plugin-staged/",
-          "packageDependencies": [
-            ["@monstrs/yarn-plugin-staged", "workspace:yarn/plugin-staged"],
-            ["@monstrs/tools-builder", "workspace:utils/builder"],
-            ["@yarnpkg/cli", "virtual:93762f395d50e2410536eefd1c9656e618c9e599e2d023ef5341f0dd44b7c10b9c8541440da9da71a8fae8443bde146c84aabb5f6bc6020be89f6fe1913af10c#npm:2.4.1"],
-            ["@yarnpkg/core", "npm:2.4.0"],
-            ["clipanion", "npm:2.6.2"],
-            ["lint-staged", "npm:10.5.4"]
           ],
           "linkType": "SOFT",
         }]

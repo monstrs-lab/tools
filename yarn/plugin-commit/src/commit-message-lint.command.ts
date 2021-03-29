@@ -11,12 +11,7 @@ class CommitMessageLintCommand extends BaseCommand {
     const messages = await read({ edit: true })
     const results = await Promise.all(messages.map(lint))
 
-    const output = format(
-      { results },
-      {
-        helpUrl: 'https://github.com/conventional-changelog/commitlint/#what-is-commitlint',
-      }
-    )
+    const output = format({ results })
 
     if (output !== '') {
       this.context.stdout.write(output)

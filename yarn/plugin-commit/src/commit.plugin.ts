@@ -1,7 +1,9 @@
-import { Plugin }        from '@yarnpkg/core'
+import { Plugin }                   from '@yarnpkg/core'
 
-import { CommitCommand } from './commit.command'
+import { CommitMessageLintCommand } from './commit-message-lint.command'
+import { CommitStagedLintCommand }  from './commit-staged-lint.command'
+import { CommitCommand }            from './commit.command'
 
 export const plugin: Plugin = {
-  commands: [CommitCommand],
+  commands: [CommitMessageLintCommand, CommitStagedLintCommand, CommitCommand],
 }

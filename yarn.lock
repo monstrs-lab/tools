@@ -2430,26 +2430,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/yarn-plugin-commit-message@workspace:0.0.1, @monstrs/yarn-plugin-commit-message@workspace:yarn/plugin-commit-message":
+"@monstrs/yarn-plugin-commit@workspace:0.0.1, @monstrs/yarn-plugin-commit@workspace:yarn/plugin-commit":
   version: 0.0.0-use.local
-  resolution: "@monstrs/yarn-plugin-commit-message@workspace:yarn/plugin-commit-message"
+  resolution: "@monstrs/yarn-plugin-commit@workspace:yarn/plugin-commit"
   dependencies:
     "@monstrs/code-commitlint": "workspace:0.0.85"
     "@monstrs/tools-builder": "workspace:0.0.1"
     "@yarnpkg/cli": ^2.4.1
     "@yarnpkg/core": ^2.4.0
     clipanion: ^2.6.2
-  languageName: unknown
-  linkType: soft
-
-"@monstrs/yarn-plugin-commit@workspace:0.0.1, @monstrs/yarn-plugin-commit@workspace:yarn/plugin-commit":
-  version: 0.0.0-use.local
-  resolution: "@monstrs/yarn-plugin-commit@workspace:yarn/plugin-commit"
-  dependencies:
-    "@monstrs/tools-builder": "workspace:0.0.1"
-    "@yarnpkg/cli": ^2.4.1
-    "@yarnpkg/core": ^2.4.0
-    clipanion: ^2.6.2
+    lint-staged: ^10.5.4
   languageName: unknown
   linkType: soft
 
@@ -2459,12 +2449,10 @@ __metadata:
   dependencies:
     "@monstrs/tools-builder": "workspace:0.0.1"
     "@monstrs/yarn-plugin-commit": "workspace:0.0.1"
-    "@monstrs/yarn-plugin-commit-message": "workspace:0.0.1"
     "@monstrs/yarn-plugin-files": "workspace:0.0.1"
     "@monstrs/yarn-plugin-format": "workspace:0.0.1"
     "@monstrs/yarn-plugin-husky": "workspace:0.0.1"
     "@monstrs/yarn-plugin-lint": "workspace:0.0.1"
-    "@monstrs/yarn-plugin-staged": "workspace:0.0.1"
     "@monstrs/yarn-plugin-test": "workspace:0.0.1"
     "@monstrs/yarn-plugin-typescript": "workspace:0.0.1"
     "@monstrs/yarn-plugin-workspaces": "workspace:0.0.1"
@@ -2515,18 +2503,6 @@ __metadata:
     "@yarnpkg/cli": ^2.4.1
     "@yarnpkg/core": ^2.4.0
     clipanion: ^2.6.2
-  languageName: unknown
-  linkType: soft
-
-"@monstrs/yarn-plugin-staged@workspace:0.0.1, @monstrs/yarn-plugin-staged@workspace:yarn/plugin-staged":
-  version: 0.0.0-use.local
-  resolution: "@monstrs/yarn-plugin-staged@workspace:yarn/plugin-staged"
-  dependencies:
-    "@monstrs/tools-builder": "workspace:0.0.1"
-    "@yarnpkg/cli": ^2.4.1
-    "@yarnpkg/core": ^2.4.0
-    clipanion: ^2.6.2
-    lint-staged: ^10.5.4
   languageName: unknown
   linkType: soft
 
