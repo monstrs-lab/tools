@@ -26,7 +26,7 @@
     "@jest/types": "^26.6.2",
     "@monstrs/code-typescript": "workspace:0.0.90",
     "@monstrs/prettier-plugin-import-sort": "^0.2.31",
-    "@monstrs/tools-builder": "workspace:0.0.0",
+    "@monstrs/tools-builder": "workspace:0.0.1",
     "globby": "^11.0.3",
     "ignore": "^5.1.8",
     "jest-static-stubs": "^0.0.1",

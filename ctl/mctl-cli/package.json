@@ -16,8 +16,8 @@
     "prepack": "run build"
   },
   "devDependencies": {
-    "@monstrs/tools-builder": "workspace:0.0.0",
-    "@monstrs/tools-setup-ts-execution": "workspace:0.0.0",
+    "@monstrs/tools-builder": "workspace:0.0.1",
+    "@monstrs/tools-setup-ts-execution": "workspace:0.0.1",
     "@types/node": "^14.14.37"
   },
   "publishConfig": {

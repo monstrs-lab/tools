@@ -1,7 +1,7 @@
 {
   "name": "@monstrs/yarn-plugin-changed",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -13,10 +13,10 @@
     "prepack": "run build"
   },
   "dependencies": {
-    "@monstrs/yarn-workspace-utils": "workspace:0.0.0"
+    "@monstrs/yarn-workspace-utils": "workspace:0.0.1"
   },
   "devDependencies": {
-    "@monstrs/tools-builder": "workspace:0.0.0",
+    "@monstrs/tools-builder": "workspace:0.0.1",
     "@yarnpkg/cli": "^2.4.1",
     "@yarnpkg/core": "^2.4.0",
     "clipanion": "^2.6.2"
