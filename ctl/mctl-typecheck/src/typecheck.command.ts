@@ -4,6 +4,9 @@ import { TypeScript }       from '@monstrs/code-typescript'
 import { getRootWorkspace } from '@monstrs/code-project'
 
 class TypeCheckCommand extends Command {
+  @Command.Rest({ required: 0 })
+  files: Array<string> = []
+
   @Command.Path(`typecheck`)
   async execute() {
     const ts = new TypeScript()
@@ -14,7 +17,7 @@ class TypeCheckCommand extends Command {
       (definition) => definition.pattern
     )
 
-    const result = ts.check(workspaces)
+    const result = this.files.length > 0 ? ts.check(this.files) : ts.check(workspaces)
 
     Object.values(result)
       .flat()

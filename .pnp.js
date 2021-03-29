@@ -195,6 +195,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:yarn/plugin-format"
       },
       {
+        "name": "@monstrs/yarn-plugin-github",
+        "reference": "workspace:yarn/plugin-github"
+      },
+      {
         "name": "@monstrs/yarn-plugin-husky",
         "reference": "workspace:yarn/plugin-husky"
       },
@@ -265,6 +269,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@monstrs/yarn-plugin-essentials", ["workspace:yarn/plugin-essentials"]],
       ["@monstrs/yarn-plugin-files", ["workspace:yarn/plugin-files"]],
       ["@monstrs/yarn-plugin-format", ["workspace:yarn/plugin-format"]],
+      ["@monstrs/yarn-plugin-github", ["workspace:yarn/plugin-github"]],
       ["@monstrs/yarn-plugin-husky", ["workspace:yarn/plugin-husky"]],
       ["@monstrs/yarn-plugin-lint", ["workspace:yarn/plugin-lint"]],
       ["@monstrs/yarn-plugin-test", ["workspace:yarn/plugin-test"]],
@@ -3554,6 +3559,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@monstrs/yarn-plugin-commit", "workspace:yarn/plugin-commit"],
             ["@monstrs/yarn-plugin-files", "workspace:yarn/plugin-files"],
             ["@monstrs/yarn-plugin-format", "workspace:yarn/plugin-format"],
+            ["@monstrs/yarn-plugin-github", "workspace:yarn/plugin-github"],
             ["@monstrs/yarn-plugin-husky", "workspace:yarn/plugin-husky"],
             ["@monstrs/yarn-plugin-lint", "workspace:yarn/plugin-lint"],
             ["@monstrs/yarn-plugin-test", "workspace:yarn/plugin-test"],
@@ -3583,6 +3589,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./yarn/plugin-format/",
           "packageDependencies": [
             ["@monstrs/yarn-plugin-format", "workspace:yarn/plugin-format"],
+            ["@monstrs/tools-builder", "workspace:utils/builder"],
+            ["@yarnpkg/cli", "virtual:93762f395d50e2410536eefd1c9656e618c9e599e2d023ef5341f0dd44b7c10b9c8541440da9da71a8fae8443bde146c84aabb5f6bc6020be89f6fe1913af10c#npm:2.4.1"],
+            ["@yarnpkg/core", "npm:2.4.0"],
+            ["clipanion", "npm:2.6.2"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
+      ["@monstrs/yarn-plugin-github", [
+        ["workspace:yarn/plugin-github", {
+          "packageLocation": "./yarn/plugin-github/",
+          "packageDependencies": [
+            ["@monstrs/yarn-plugin-github", "workspace:yarn/plugin-github"],
             ["@monstrs/tools-builder", "workspace:utils/builder"],
             ["@yarnpkg/cli", "virtual:93762f395d50e2410536eefd1c9656e618c9e599e2d023ef5341f0dd44b7c10b9c8541440da9da71a8fae8443bde146c84aabb5f6bc6020be89f6fe1913af10c#npm:2.4.1"],
             ["@yarnpkg/core", "npm:2.4.0"],
