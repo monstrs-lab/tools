@@ -18,6 +18,7 @@
     "@monstrs/yarn-plugin-format": "workspace:0.0.1",
     "@monstrs/yarn-plugin-husky": "workspace:0.0.1",
     "@monstrs/yarn-plugin-lint": "workspace:0.0.1",
+    "@monstrs/yarn-plugin-staged": "workspace:0.0.1",
     "@monstrs/yarn-plugin-test": "workspace:0.0.1",
     "@monstrs/yarn-plugin-typescript": "workspace:0.0.1",
     "@monstrs/yarn-plugin-workspaces": "workspace:0.0.1"
