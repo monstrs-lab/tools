@@ -2037,9 +2037,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@monstrs/mctl-checks@workspace:0.2.83, @monstrs/mctl-checks@workspace:ctl/mctl-checks":
+"@monstrs/mctl-checks@workspace:0.2.83, @monstrs/mctl-checks@workspace:mctl/mctl-checks":
   version: 0.0.0-use.local
-  resolution: "@monstrs/mctl-checks@workspace:ctl/mctl-checks"
+  resolution: "@monstrs/mctl-checks@workspace:mctl/mctl-checks"
   dependencies:
     "@actions/github": ^4.0.0
     "@monstrs/code-github": "workspace:0.0.78"
@@ -2056,24 +2056,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-cli@workspace:0.2.92, @monstrs/mctl-cli@workspace:ctl/mctl-cli":
+"@monstrs/mctl-cli@workspace:0.2.92, @monstrs/mctl-cli@workspace:mctl/mctl-cli":
   version: 0.0.0-use.local
-  resolution: "@monstrs/mctl-cli@workspace:ctl/mctl-cli"
+  resolution: "@monstrs/mctl-cli@workspace:mctl/mctl-cli"
   dependencies:
     "@monstrs/mctl-checks": "workspace:0.2.83"
     "@monstrs/mctl-commit": "workspace:0.2.82"
-    "@monstrs/mctl-commitmsg": "workspace:0.2.81"
     "@monstrs/mctl-format": "workspace:0.2.81"
     "@monstrs/mctl-github": "workspace:0.2.76"
     "@monstrs/mctl-library": "workspace:0.2.76"
     "@monstrs/mctl-lint": "workspace:0.2.83"
     "@monstrs/mctl-pack": "workspace:0.2.76"
-    "@monstrs/mctl-precommit": "workspace:0.2.82"
     "@monstrs/mctl-renderer": "workspace:0.2.76"
     "@monstrs/mctl-service": "workspace:0.2.76"
     "@monstrs/mctl-test": "workspace:0.2.82"
     "@monstrs/mctl-typecheck": "workspace:0.2.81"
-    "@monstrs/mctl-version": "workspace:0.2.82"
     "@monstrs/tools-builder": "workspace:0.0.1"
     "@monstrs/tools-setup-ts-execution": "workspace:0.0.1"
     "@types/node": ^14.14.37
@@ -2088,9 +2085,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-commit@workspace:0.2.82, @monstrs/mctl-commit@workspace:ctl/mctl-commit":
+"@monstrs/mctl-commit@workspace:0.2.82, @monstrs/mctl-commit@workspace:mctl/mctl-commit":
   version: 0.0.0-use.local
-  resolution: "@monstrs/mctl-commit@workspace:ctl/mctl-commit"
+  resolution: "@monstrs/mctl-commit@workspace:mctl/mctl-commit"
   dependencies:
     "@monstrs/tools-builder": "workspace:0.0.1"
     "@semantic-release/commit-analyzer": ^8.0.1
@@ -2111,36 +2108,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-commitmsg@workspace:0.2.81, @monstrs/mctl-commitmsg@workspace:ctl/mctl-commitmsg":
+"@monstrs/mctl-format@workspace:0.2.81, @monstrs/mctl-format@workspace:mctl/mctl-format":
   version: 0.0.0-use.local
-  resolution: "@monstrs/mctl-commitmsg@workspace:ctl/mctl-commitmsg"
-  dependencies:
-    "@monstrs/code-commitlint": "workspace:0.0.85"
-    "@monstrs/tools-builder": "workspace:0.0.1"
-    "@types/node": ^14.14.37
-    clipanion: ^2.6.2
-  languageName: unknown
-  linkType: soft
-
-"@monstrs/mctl-dashboard@workspace:0.2.76, @monstrs/mctl-dashboard@workspace:ctl/mctl-dashboard":
-  version: 0.0.0-use.local
-  resolution: "@monstrs/mctl-dashboard@workspace:ctl/mctl-dashboard"
-  dependencies:
-    "@monstrs/tools-builder": "workspace:0.0.1"
-    "@types/blessed": ^0.1.17
-    "@types/node": ^14.14.37
-    "@types/react": ^17.0.3
-    "@types/react-blessed": ^0.3.2
-    blessed: ^0.1.81
-    react: ^17.0.2
-    react-blessed: ^0.6.2
-    split2: ^3.2.2
-  languageName: unknown
-  linkType: soft
-
-"@monstrs/mctl-format@workspace:0.2.81, @monstrs/mctl-format@workspace:ctl/mctl-format":
-  version: 0.0.0-use.local
-  resolution: "@monstrs/mctl-format@workspace:ctl/mctl-format"
+  resolution: "@monstrs/mctl-format@workspace:mctl/mctl-format"
   dependencies:
     "@monstrs/code-format": "workspace:0.0.78"
     "@monstrs/tools-builder": "workspace:0.0.1"
@@ -2149,9 +2119,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-github@workspace:0.2.76, @monstrs/mctl-github@workspace:ctl/mctl-github":
+"@monstrs/mctl-github@workspace:0.2.76, @monstrs/mctl-github@workspace:mctl/mctl-github":
   version: 0.0.0-use.local
-  resolution: "@monstrs/mctl-github@workspace:ctl/mctl-github"
+  resolution: "@monstrs/mctl-github@workspace:mctl/mctl-github"
   dependencies:
     "@monstrs/code-github": "workspace:0.0.78"
     "@monstrs/tools-builder": "workspace:0.0.1"
@@ -2161,9 +2131,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-library@workspace:0.2.76, @monstrs/mctl-library@workspace:ctl/mctl-library":
+"@monstrs/mctl-library@workspace:0.2.76, @monstrs/mctl-library@workspace:mctl/mctl-library":
   version: 0.0.0-use.local
-  resolution: "@monstrs/mctl-library@workspace:ctl/mctl-library"
+  resolution: "@monstrs/mctl-library@workspace:mctl/mctl-library"
   dependencies:
     "@monstrs/code-typescript": "workspace:0.0.90"
     "@monstrs/tools-builder": "workspace:0.0.1"
@@ -2174,9 +2144,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-lint@workspace:0.2.83, @monstrs/mctl-lint@workspace:ctl/mctl-lint":
+"@monstrs/mctl-lint@workspace:0.2.83, @monstrs/mctl-lint@workspace:mctl/mctl-lint":
   version: 0.0.0-use.local
-  resolution: "@monstrs/mctl-lint@workspace:ctl/mctl-lint"
+  resolution: "@monstrs/mctl-lint@workspace:mctl/mctl-lint"
   dependencies:
     "@monstrs/code-lint": "workspace:0.0.90"
     "@monstrs/tools-builder": "workspace:0.0.1"
@@ -2191,9 +2161,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-pack@workspace:0.2.76, @monstrs/mctl-pack@workspace:ctl/mctl-pack":
+"@monstrs/mctl-pack@workspace:0.2.76, @monstrs/mctl-pack@workspace:mctl/mctl-pack":
   version: 0.0.0-use.local
-  resolution: "@monstrs/mctl-pack@workspace:ctl/mctl-pack"
+  resolution: "@monstrs/mctl-pack@workspace:mctl/mctl-pack"
   dependencies:
     "@iarna/toml": ^2.2.5
     "@monstrs/code-changes": "workspace:0.0.78"
@@ -2206,32 +2176,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-precommit@workspace:0.2.82, @monstrs/mctl-precommit@workspace:ctl/mctl-precommit":
+"@monstrs/mctl-renderer@workspace:0.2.76, @monstrs/mctl-renderer@workspace:mctl/mctl-renderer":
   version: 0.0.0-use.local
-  resolution: "@monstrs/mctl-precommit@workspace:ctl/mctl-precommit"
-  dependencies:
-    "@monstrs/code-format": "workspace:0.0.78"
-    "@monstrs/code-lint": "workspace:0.0.90"
-    "@monstrs/code-test": "workspace:0.0.83"
-    "@monstrs/code-typescript": "workspace:0.0.90"
-    "@monstrs/tools-builder": "workspace:0.0.1"
-    "@types/node": ^14.14.37
-    any-observable: 0.5.1
-    clipanion: ^2.6.2
-    execa: ^5.0.0
-    lint-staged: ^10.5.4
-    rxjs: ^6.6.6
-  peerDependencies:
-    typescript: "*"
-  peerDependenciesMeta:
-    typescript:
-      optional: true
-  languageName: unknown
-  linkType: soft
-
-"@monstrs/mctl-renderer@workspace:0.2.76, @monstrs/mctl-renderer@workspace:ctl/mctl-renderer":
-  version: 0.0.0-use.local
-  resolution: "@monstrs/mctl-renderer@workspace:ctl/mctl-renderer"
+  resolution: "@monstrs/mctl-renderer@workspace:mctl/mctl-renderer"
   dependencies:
     "@monstrs/code-service": "workspace:0.0.78"
     "@monstrs/tools-builder": "workspace:0.0.1"
@@ -2244,12 +2191,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-service@workspace:0.2.76, @monstrs/mctl-service@workspace:ctl/mctl-service":
+"@monstrs/mctl-service@workspace:0.2.76, @monstrs/mctl-service@workspace:mctl/mctl-service":
   version: 0.0.0-use.local
-  resolution: "@monstrs/mctl-service@workspace:ctl/mctl-service"
+  resolution: "@monstrs/mctl-service@workspace:mctl/mctl-service"
   dependencies:
     "@monstrs/code-service": "workspace:0.0.78"
-    "@monstrs/mctl-dashboard": "workspace:0.2.76"
     "@monstrs/mctl-ui": "workspace:0.2.76"
     "@monstrs/tools-builder": "workspace:0.0.1"
     "@monstrs/webpack-start-server-plugin": "workspace:0.2.12"
@@ -2264,9 +2210,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-test@workspace:0.2.82, @monstrs/mctl-test@workspace:ctl/mctl-test":
+"@monstrs/mctl-test@workspace:0.2.82, @monstrs/mctl-test@workspace:mctl/mctl-test":
   version: 0.0.0-use.local
-  resolution: "@monstrs/mctl-test@workspace:ctl/mctl-test"
+  resolution: "@monstrs/mctl-test@workspace:mctl/mctl-test"
   dependencies:
     "@monstrs/code-test": "workspace:0.0.83"
     "@monstrs/tools-builder": "workspace:0.0.1"
@@ -2275,9 +2221,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-typecheck@workspace:0.2.81, @monstrs/mctl-typecheck@workspace:ctl/mctl-typecheck":
+"@monstrs/mctl-typecheck@workspace:0.2.81, @monstrs/mctl-typecheck@workspace:mctl/mctl-typecheck":
   version: 0.0.0-use.local
-  resolution: "@monstrs/mctl-typecheck@workspace:ctl/mctl-typecheck"
+  resolution: "@monstrs/mctl-typecheck@workspace:mctl/mctl-typecheck"
   dependencies:
     "@monstrs/code-project": "workspace:0.0.78"
     "@monstrs/code-typescript": "workspace:0.0.90"
@@ -2288,9 +2234,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/mctl-ui@workspace:0.2.76, @monstrs/mctl-ui@workspace:ctl/mctl-ui":
+"@monstrs/mctl-ui@workspace:0.2.76, @monstrs/mctl-ui@workspace:mctl/mctl-ui":
   version: 0.0.0-use.local
-  resolution: "@monstrs/mctl-ui@workspace:ctl/mctl-ui"
+  resolution: "@monstrs/mctl-ui@workspace:mctl/mctl-ui"
   dependencies:
     "@babel/code-frame": ^7.12.13
     "@monstrs/logger": ^0.0.4
@@ -2307,19 +2253,6 @@ __metadata:
     strip-ansi: ^6.0.0
     supports-color: ^8.1.1
     typescript: ^4.2.3
-  languageName: unknown
-  linkType: soft
-
-"@monstrs/mctl-version@workspace:0.2.82, @monstrs/mctl-version@workspace:ctl/mctl-version":
-  version: 0.0.0-use.local
-  resolution: "@monstrs/mctl-version@workspace:ctl/mctl-version"
-  dependencies:
-    "@monstrs/code-changes": "workspace:0.0.78"
-    "@monstrs/code-project": "workspace:0.0.78"
-    "@monstrs/tools-builder": "workspace:0.0.1"
-    "@types/node": ^14.14.37
-    clipanion: ^2.6.2
-    execa: ^5.0.0
   languageName: unknown
   linkType: soft
 
@@ -4653,21 +4586,6 @@ __metadata:
     "@types/color-name": ^1.1.1
     color-convert: ^2.0.1
   checksum: c8c007d5dab7b4fea064c9ea318114e1f6fc714bb382d061ac09e66bc83c8f3ce12bb6354be01598722c14a5d710af280b7614d269354f80d2535946aefa82f4
-  languageName: node
-  linkType: hard
-
-"any-observable@npm:0.5.1":
-  version: 0.5.1
-  resolution: "any-observable@npm:0.5.1"
-  peerDependencies:
-    rxjs: "*"
-    zen-observable: "*"
-  peerDependenciesMeta:
-    rxjs:
-      optional: true
-    zen-observable:
-      optional: true
-  checksum: 3cfaf3ef3d56fa68b993f26b1ef0fb6c614bdbef2cc0c86f9e68c1d0457b7e29fce6741dad6ce340849eec2cb23c2f9fe78d69734d76d8c14596a8badec4bf1d
   languageName: node
   linkType: hard
 
