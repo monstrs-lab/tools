@@ -1930,8 +1930,11 @@ __metadata:
     react: "*"
     typescript: "*"
   peerDependencies:
+    react: "*"
     typescript: "*"
   peerDependenciesMeta:
+    react:
+      optional: true
     typescript:
       optional: true
   languageName: unknown
@@ -2028,6 +2031,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@monstrs/github-checks-utils@workspace:0.0.1, @monstrs/github-checks-utils@workspace:github/checks-utils":
+  version: 0.0.0-use.local
+  resolution: "@monstrs/github-checks-utils@workspace:github/checks-utils"
+  dependencies:
+    "@actions/core": ^1.2.6
+    "@actions/github": ^4.0.0
+    "@jest/test-result": ^26.6.2
+    "@monstrs/tools-builder": "workspace:0.0.1"
+    "@octokit/types": ^6.13.0
+    eslint: ^7.23.0
+  languageName: unknown
+  linkType: soft
+
 "@monstrs/logger@npm:^0.0.4":
   version: 0.0.4
   resolution: "@monstrs/logger@npm:0.0.4"
@@ -2041,17 +2057,17 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/mctl-checks@workspace:mctl/mctl-checks"
   dependencies:
-    "@actions/github": ^4.0.0
-    "@monstrs/code-github": "workspace:0.0.78"
     "@monstrs/code-lint": "workspace:0.0.90"
     "@monstrs/code-project": "workspace:0.0.78"
     "@monstrs/code-test": "workspace:0.0.83"
     "@monstrs/code-typescript": "workspace:0.0.90"
+    "@monstrs/github-checks-utils": "workspace:0.0.1"
     "@monstrs/tools-builder": "workspace:0.0.1"
     "@types/node": ^14.14.37
     clipanion: ^2.6.2
     eslint: ^7.23.0
     execa: ^5.0.0
+    strip-ansi: ^6.0.0
     typescript: ^4.2.3
   languageName: unknown
   linkType: soft
@@ -3105,21 +3121,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:>= 8":
-  version: 14.0.5
-  resolution: "@types/node@npm:14.0.5"
-  checksum: 38a9f9b66c2657b4ba520e40073369d4a33438dd45f9c001d98a7cda40e88a5ea28485c320fa00fc706b5473b549cacc9a8b9796e4d69681c032619e12f73f7d
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^13.7.0":
-  version: 13.13.9
-  resolution: "@types/node@npm:13.13.9"
-  checksum: fd13f4106913baa04bf6cf0b4606a5313ec2755cf9ea182cdfc253179ae0d1d27f30127c97ba6e878f5e570af31e45dc1719f3bbc40f651a71ac64cc11420f06
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^14.14.37":
+"@types/node@npm:14.14.37":
   version: 14.14.37
   resolution: "@types/node@npm:14.14.37"
   checksum: 5e2d9baf7594ebacaf016716515f30de0765169412787f981481c2fb8b468923149bb9e2e3219ee672399811672ceddc339a7372a61cf15bc656836a5494d991

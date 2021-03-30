@@ -15,6 +15,8 @@ export interface Annotation {
   message: string
 }
 
+export type CheckStatus = 'completed'
+
 export enum Conclusion {
   Success = 'success',
   Failure = 'failure',

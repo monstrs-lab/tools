@@ -1,7 +1,8 @@
 import execa                       from 'execa'
 import { Command }                 from 'clipanion'
+import stripAnsi                   from 'strip-ansi'
 
-import { Conclusion, createCheck } from './github'
+import { Conclusion, createCheck } from '@monstrs/github-checks-utils'
 
 class ReleaseCheckCommand extends Command {
   @Command.Boolean(`-v,--verbose`)
@@ -46,6 +47,7 @@ class ReleaseCheckCommand extends Command {
       .trim()
       .split('\n')
       .filter((line) => line)
+      .map((line) => stripAnsi(line))
 
     const success = lines.length === 0
 
