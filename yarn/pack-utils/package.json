@@ -1,0 +1,19 @@
+{
+  "name": "@monstrs/yarn-pack-utils",
+  "private": true,
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@yarnpkg/core": "^2.4.0",
+    "@yarnpkg/fslib": "^2.4.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
+  }
+}
