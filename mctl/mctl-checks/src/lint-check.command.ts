@@ -1,17 +1,10 @@
-import { Command }                                              from 'clipanion'
-import { Linter as EslintLinter }                               from 'eslint'
+import { Command }             from 'clipanion'
 
-import { Linter }                                               from '@monstrs/code-lint'
+import { Linter }              from '@monstrs/code-lint'
 
-import { Annotation, AnnotationLevel, Conclusion, createCheck } from './github'
-
-const getAnnotationLevel = (severity: EslintLinter.Severity): AnnotationLevel => {
-  if (severity === 1) {
-    return AnnotationLevel.Warning
-  }
-
-  return AnnotationLevel.Failure
-}
+import { eslintResultsFormat } from '@monstrs/github-checks-utils'
+import { createCheck }         from '@monstrs/github-checks-utils'
+import { Conclusion }          from '@monstrs/github-checks-utils'
 
 class LintCheckCommand extends Command {
   @Command.Path(`check`, `lint`)
@@ -22,27 +15,7 @@ class LintCheckCommand extends Command {
 
     const { results } = linter.lint()
 
-    const annotations: Annotation[] = []
-
-    results.forEach(({ filePath, messages = [] }: EslintLinter.LintMessage) => {
-      if (messages.length === 0) {
-        return
-      }
-
-      messages.forEach((message: any) => {
-        const line = (message.line || 0) + 1
-
-        annotations.push({
-          path: filePath.substring(cwd.length + 1),
-          start_line: line,
-          end_line: line,
-          annotation_level: getAnnotationLevel(message.severity),
-          raw_details: `(${message.ruleId}): ${message.message}`,
-          title: message.ruleId || 'unknown/rule',
-          message: message.message,
-        })
-      })
-    })
+    const annotations = eslintResultsFormat(results, process.env.GITHUB_WORKSPACE || process.cwd())
 
     const warnings: number = annotations.filter(
       (annotation) => annotation.annotation_level === 'warning'

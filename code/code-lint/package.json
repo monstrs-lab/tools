@@ -43,11 +43,15 @@
     "typescript": "*"
   },
   "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
     "typescript": {
       "optional": true
     }
   },
   "peerDependencies": {
+    "react": "*",
     "typescript": "*"
   }
 }
