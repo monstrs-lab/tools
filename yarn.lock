@@ -2079,7 +2079,6 @@ __metadata:
     "@monstrs/mctl-checks": "workspace:0.2.83"
     "@monstrs/mctl-commit": "workspace:0.2.82"
     "@monstrs/mctl-format": "workspace:0.2.81"
-    "@monstrs/mctl-github": "workspace:0.2.76"
     "@monstrs/mctl-library": "workspace:0.2.76"
     "@monstrs/mctl-lint": "workspace:0.2.83"
     "@monstrs/mctl-pack": "workspace:0.2.76"
@@ -2132,18 +2131,6 @@ __metadata:
     "@monstrs/tools-builder": "workspace:0.0.1"
     "@types/node": ^14.14.37
     clipanion: ^2.6.2
-  languageName: unknown
-  linkType: soft
-
-"@monstrs/mctl-github@workspace:0.2.76, @monstrs/mctl-github@workspace:mctl/mctl-github":
-  version: 0.0.0-use.local
-  resolution: "@monstrs/mctl-github@workspace:mctl/mctl-github"
-  dependencies:
-    "@monstrs/code-github": "workspace:0.0.78"
-    "@monstrs/tools-builder": "workspace:0.0.1"
-    "@types/node": ^14.14.37
-    clipanion: ^2.6.2
-    execa: ^5.0.0
   languageName: unknown
   linkType: soft
 

@@ -7,7 +7,6 @@ import { TestUnitCheckCommand }                 from '@monstrs/mctl-checks'
 import { ReleaseCheckCommand }                  from '@monstrs/mctl-checks'
 import { CommitCommand }                        from '@monstrs/mctl-commit'
 import { FormatCommand }                        from '@monstrs/mctl-format'
-import { GithubCreateDeploymentCommand }        from '@monstrs/mctl-github'
 import { LibraryBuildCommand }                  from '@monstrs/mctl-library'
 import { LintCommand }                          from '@monstrs/mctl-lint'
 import { PackCommand }                          from '@monstrs/mctl-pack'
@@ -45,8 +44,6 @@ const run = () => {
   cli.register(ReleaseCheckCommand)
 
   cli.register(PackCommand)
-
-  cli.register(GithubCreateDeploymentCommand)
 
   cli.register(ServiceBuildCommand)
   cli.register(ServiceStartCommand)
