@@ -1,0 +1,53 @@
+{
+  "name": "@monstrs/mctl-cli",
+  "version": "0.2.92",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "bin": {
+    "mctl": "bin/dev"
+  },
+  "files": [
+    "dist",
+    "bin/run"
+  ],
+  "scripts": {
+    "build": "builder build library",
+    "postpack": "rm -rf dist",
+    "prepack": "run build"
+  },
+  "devDependencies": {
+    "@monstrs/tools-builder": "workspace:0.0.1",
+    "@monstrs/tools-setup-ts-execution": "workspace:0.0.1",
+    "@types/node": "^14.14.37"
+  },
+  "publishConfig": {
+    "access": "public",
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts",
+    "bin": {
+      "mctl": "./bin/run"
+    }
+  },
+  "dependencies": {
+    "@monstrs/mctl-checks": "workspace:0.2.83",
+    "@monstrs/mctl-commit": "workspace:0.2.82",
+    "@monstrs/mctl-format": "workspace:0.2.81",
+    "@monstrs/mctl-github": "workspace:0.2.76",
+    "@monstrs/mctl-library": "workspace:0.2.76",
+    "@monstrs/mctl-lint": "workspace:0.2.83",
+    "@monstrs/mctl-pack": "workspace:0.2.76",
+    "@monstrs/mctl-renderer": "workspace:0.2.76",
+    "@monstrs/mctl-service": "workspace:0.2.76",
+    "@monstrs/mctl-test": "workspace:0.2.82",
+    "@monstrs/mctl-typecheck": "workspace:0.2.81",
+    "clipanion": "^2.6.2"
+  },
+  "peerDependencies": {
+    "typescript": "*"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
+  }
+}

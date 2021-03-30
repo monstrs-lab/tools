@@ -16,8 +16,8 @@
     "code/**/*",
     "webpack/*",
     "yarn/**/*",
+    "mctl/**/*",
     "github/*",
-    "ctl/**/*",
     "utils/*"
   ],
   "resolutions": {
