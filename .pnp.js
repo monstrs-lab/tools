@@ -103,10 +103,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:mctl/mctl-format"
       },
       {
-        "name": "@monstrs/mctl-github",
-        "reference": "workspace:mctl/mctl-github"
-      },
-      {
         "name": "@monstrs/mctl-library",
         "reference": "workspace:mctl/mctl-library"
       },
@@ -234,7 +230,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@monstrs/mctl-cli", ["virtual:6edcd2783bcb80396c2bec03a284cb737a14969f400f14e7f54a93ca1c438dc5e2305a99d1d6cf16443cb0d19286f5c1763a238acf93b30ee499827dd2be5613#workspace:mctl/mctl-cli", "virtual:93762f395d50e2410536eefd1c9656e618c9e599e2d023ef5341f0dd44b7c10b9c8541440da9da71a8fae8443bde146c84aabb5f6bc6020be89f6fe1913af10c#workspace:mctl/mctl-cli", "workspace:mctl/mctl-cli"]],
       ["@monstrs/mctl-commit", ["workspace:mctl/mctl-commit"]],
       ["@monstrs/mctl-format", ["workspace:mctl/mctl-format"]],
-      ["@monstrs/mctl-github", ["workspace:mctl/mctl-github"]],
       ["@monstrs/mctl-library", ["workspace:mctl/mctl-library"]],
       ["@monstrs/mctl-lint", ["virtual:45248796ae173d215d63c7457ad8ca3afb76213243eb6568b1aeb1203fce03a9a01e0db71a112826345139bdbccb504d81fa5e3de84b5fddfa056570ffd69201#workspace:mctl/mctl-lint", "virtual:544506e1f87308e47c5b311c11d98fc8fa7b89c136d7012c403e805b1eae6fd57c46c4259b4edb89c06038c16fa8b11dedf055d82dc2979689af11635a18a025#workspace:mctl/mctl-lint", "workspace:mctl/mctl-lint"]],
       ["@monstrs/mctl-pack", ["workspace:mctl/mctl-pack"]],
@@ -2951,7 +2946,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@monstrs/mctl-checks", "workspace:mctl/mctl-checks"],
             ["@monstrs/mctl-commit", "workspace:mctl/mctl-commit"],
             ["@monstrs/mctl-format", "workspace:mctl/mctl-format"],
-            ["@monstrs/mctl-github", "workspace:mctl/mctl-github"],
             ["@monstrs/mctl-library", "workspace:mctl/mctl-library"],
             ["@monstrs/mctl-lint", "virtual:544506e1f87308e47c5b311c11d98fc8fa7b89c136d7012c403e805b1eae6fd57c46c4259b4edb89c06038c16fa8b11dedf055d82dc2979689af11635a18a025#workspace:mctl/mctl-lint"],
             ["@monstrs/mctl-pack", "workspace:mctl/mctl-pack"],
@@ -2979,7 +2973,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@monstrs/mctl-checks", "workspace:mctl/mctl-checks"],
             ["@monstrs/mctl-commit", "workspace:mctl/mctl-commit"],
             ["@monstrs/mctl-format", "workspace:mctl/mctl-format"],
-            ["@monstrs/mctl-github", "workspace:mctl/mctl-github"],
             ["@monstrs/mctl-library", "workspace:mctl/mctl-library"],
             ["@monstrs/mctl-lint", "virtual:45248796ae173d215d63c7457ad8ca3afb76213243eb6568b1aeb1203fce03a9a01e0db71a112826345139bdbccb504d81fa5e3de84b5fddfa056570ffd69201#workspace:mctl/mctl-lint"],
             ["@monstrs/mctl-pack", "workspace:mctl/mctl-pack"],
@@ -3007,7 +3000,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@monstrs/mctl-checks", "workspace:mctl/mctl-checks"],
             ["@monstrs/mctl-commit", "workspace:mctl/mctl-commit"],
             ["@monstrs/mctl-format", "workspace:mctl/mctl-format"],
-            ["@monstrs/mctl-github", "workspace:mctl/mctl-github"],
             ["@monstrs/mctl-library", "workspace:mctl/mctl-library"],
             ["@monstrs/mctl-lint", "virtual:45248796ae173d215d63c7457ad8ca3afb76213243eb6568b1aeb1203fce03a9a01e0db71a112826345139bdbccb504d81fa5e3de84b5fddfa056570ffd69201#workspace:mctl/mctl-lint"],
             ["@monstrs/mctl-pack", "workspace:mctl/mctl-pack"],
@@ -3057,20 +3049,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@monstrs/tools-builder", "workspace:utils/builder"],
             ["@types/node", "npm:14.14.37"],
             ["clipanion", "npm:2.6.2"]
-          ],
-          "linkType": "SOFT",
-        }]
-      ]],
-      ["@monstrs/mctl-github", [
-        ["workspace:mctl/mctl-github", {
-          "packageLocation": "./mctl/mctl-github/",
-          "packageDependencies": [
-            ["@monstrs/mctl-github", "workspace:mctl/mctl-github"],
-            ["@monstrs/code-github", "workspace:code/code-github"],
-            ["@monstrs/tools-builder", "workspace:utils/builder"],
-            ["@types/node", "npm:14.14.37"],
-            ["clipanion", "npm:2.6.2"],
-            ["execa", "npm:5.0.0"]
           ],
           "linkType": "SOFT",
         }]
