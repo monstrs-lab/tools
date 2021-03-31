@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-project",
-  "version": "0.0.78",
+  "version": "0.0.79",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -9,7 +9,7 @@
   "scripts": {
     "build": "builder build library",
     "postpack": "rm -rf dist",
-    "prepack": "run build"
+    "prepack": "yarn run build"
   },
   "devDependencies": {
     "@monstrs/tools-builder": "workspace:0.0.1",
@@ -21,7 +21,7 @@
     "typings": "dist/index.d.ts"
   },
   "dependencies": {
-    "@monstrs/code-changes": "workspace:0.0.78",
+    "@monstrs/code-changes": "workspace:0.0.79",
     "@yarnpkg/cli": "^2.4.1",
     "@yarnpkg/core": "^2.4.0",
     "fast-glob": "^3.2.5"

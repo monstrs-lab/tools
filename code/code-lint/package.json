@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-lint",
-  "version": "0.0.90",
+  "version": "0.0.91",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -10,7 +10,7 @@
   "scripts": {
     "build": "builder build library",
     "postpack": "rm -rf dist",
-    "prepack": "run build"
+    "prepack": "yarn run build"
   },
   "devDependencies": {
     "@monstrs/tools-builder": "workspace:0.0.1",
@@ -23,7 +23,7 @@
     "typings": "dist/index.d.ts"
   },
   "dependencies": {
-    "@monstrs/code-format": "workspace:0.0.78",
+    "@monstrs/code-format": "workspace:0.0.79",
     "@typescript-eslint/eslint-plugin": "^4.19.0",
     "@typescript-eslint/parser": "^4.19.0",
     "eslint": "^7.23.0",

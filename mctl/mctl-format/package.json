@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/mctl-format",
-  "version": "0.2.81",
+  "version": "0.2.82",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -9,14 +9,14 @@
   "scripts": {
     "build": "builder build library",
     "postpack": "rm -rf dist",
-    "prepack": "run build"
+    "prepack": "yarn run build"
   },
   "devDependencies": {
     "@monstrs/tools-builder": "workspace:0.0.1",
     "@types/node": "^14.14.37"
   },
   "dependencies": {
-    "@monstrs/code-format": "workspace:0.0.78",
+    "@monstrs/code-format": "workspace:0.0.79",
     "clipanion": "^2.6.2"
   },
   "publishConfig": {

@@ -10,7 +10,7 @@
   "scripts": {
     "build": "builder build plugin",
     "postpack": "rm -rf dist",
-    "prepack": "run build"
+    "prepack": "yarn run build"
   },
   "devDependencies": {
     "@monstrs/tools-builder": "workspace:0.0.1",

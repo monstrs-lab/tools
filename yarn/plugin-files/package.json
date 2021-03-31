@@ -10,10 +10,10 @@
   "scripts": {
     "build": "builder build plugin",
     "postpack": "rm -rf dist",
-    "prepack": "run build"
+    "prepack": "yarn run build"
   },
   "devDependencies": {
-    "@monstrs/github-actions-utils": "workspace:0.0.1",
+    "@monstrs/github-actions-utils": "workspace:0.0.2",
     "@monstrs/tools-builder": "workspace:0.0.1",
     "@yarnpkg/cli": "^2.4.1",
     "@yarnpkg/core": "^2.4.0",

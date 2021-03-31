@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-format",
-  "version": "0.0.78",
+  "version": "0.0.79",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -9,7 +9,7 @@
   "scripts": {
     "build": "builder build library",
     "postpack": "rm -rf dist",
-    "prepack": "run build"
+    "prepack": "yarn run build"
   },
   "devDependencies": {
     "@babel/types": "^7.13.13",
@@ -18,8 +18,8 @@
     "@types/node": "^14.14.37"
   },
   "dependencies": {
-    "@monstrs/prettier-plugin-import-align": "workspace:0.2.31",
-    "@monstrs/prettier-plugin-import-sort": "workspace:0.2.31",
+    "@monstrs/prettier-plugin-import-align": "workspace:0.2.32",
+    "@monstrs/prettier-plugin-import-sort": "workspace:0.2.32",
     "globby": "^11.0.3",
     "ignore": "^5.1.8",
     "prettier": "^2.2.1",

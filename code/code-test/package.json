@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-test",
-  "version": "0.0.83",
+  "version": "0.0.84",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -10,7 +10,7 @@
   "scripts": {
     "build": "builder build library",
     "postpack": "rm -rf dist",
-    "prepack": "run build"
+    "prepack": "yarn run build"
   },
   "devDependencies": {
     "@types/globby": "9.1.0",
@@ -24,8 +24,8 @@
     "@jest/core": "^26.6.3",
     "@jest/test-result": "^26.6.2",
     "@jest/types": "^26.6.2",
-    "@monstrs/code-typescript": "workspace:0.0.90",
-    "@monstrs/prettier-plugin-import-sort": "^0.2.31",
+    "@monstrs/code-typescript": "workspace:0.0.91",
+    "@monstrs/prettier-plugin-import-sort": "^0.2.32",
     "@monstrs/tools-builder": "workspace:0.0.1",
     "globby": "^11.0.3",
     "ignore": "^5.1.8",

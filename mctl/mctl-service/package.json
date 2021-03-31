@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/mctl-service",
-  "version": "0.2.76",
+  "version": "0.2.77",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -9,7 +9,7 @@
   "scripts": {
     "build": "builder build library",
     "postpack": "rm -rf dist",
-    "prepack": "run build"
+    "prepack": "yarn run build"
   },
   "devDependencies": {
     "@monstrs/tools-builder": "workspace:0.0.1",
@@ -19,9 +19,9 @@
     "@types/react-blessed": "^0.3.2"
   },
   "dependencies": {
-    "@monstrs/code-service": "workspace:0.0.78",
-    "@monstrs/mctl-ui": "workspace:0.2.76",
-    "@monstrs/webpack-start-server-plugin": "workspace:0.2.12",
+    "@monstrs/code-service": "workspace:0.0.79",
+    "@monstrs/mctl-ui": "workspace:0.2.77",
+    "@monstrs/webpack-start-server-plugin": "workspace:0.2.13",
     "blessed": "^0.1.81",
     "clipanion": "^2.6.2",
     "react": "^17.0.2",

@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/mctl-library",
-  "version": "0.2.76",
+  "version": "0.2.77",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -9,7 +9,7 @@
   "scripts": {
     "build": "builder build library",
     "postpack": "rm -rf dist",
-    "prepack": "run build"
+    "prepack": "yarn run build"
   },
   "devDependencies": {
     "@monstrs/tools-builder": "workspace:0.0.1",
@@ -17,7 +17,7 @@
     "@types/rimraf": "^3.0.0"
   },
   "dependencies": {
-    "@monstrs/code-typescript": "workspace:0.0.90",
+    "@monstrs/code-typescript": "workspace:0.0.91",
     "clipanion": "^2.6.2",
     "rimraf": "^3.0.2"
   },
