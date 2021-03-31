@@ -1517,9 +1517,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fixtures/service-simple@workspace:code/code-service/test/fixtures/simple":
+"@fixtures/service-simple@workspace:code/code-service/integration/fixtures/simple":
   version: 0.0.0-use.local
-  resolution: "@fixtures/service-simple@workspace:code/code-service/test/fixtures/simple"
+  resolution: "@fixtures/service-simple@workspace:code/code-service/integration/fixtures/simple"
   dependencies:
     express: "*"
   languageName: unknown

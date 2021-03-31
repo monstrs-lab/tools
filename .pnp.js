@@ -72,7 +72,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       },
       {
         "name": "@fixtures/service-simple",
-        "reference": "workspace:code/code-service/test/fixtures/simple"
+        "reference": "workspace:code/code-service/integration/fixtures/simple"
       },
       {
         "name": "@monstrs/code-test",
@@ -218,7 +218,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     "enableTopLevelFallback": true,
     "ignorePatternData": "(^(?:\\.yarn\\/sdks(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)|$))$)",
     "fallbackExclusionList": [
-      ["@fixtures/service-simple", ["workspace:code/code-service/test/fixtures/simple"]],
+      ["@fixtures/service-simple", ["workspace:code/code-service/integration/fixtures/simple"]],
       ["@monstrs/buildpack-core", ["workspace:buildpack/buildpack-core"]],
       ["@monstrs/buildpack-node-start", ["workspace:buildpack/buildpack-node-start"]],
       ["@monstrs/buildpack-yarn-workspace-build", ["workspace:buildpack/buildpack-yarn-workspace-build"]],
@@ -2284,10 +2284,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@fixtures/service-simple", [
-        ["workspace:code/code-service/test/fixtures/simple", {
-          "packageLocation": "./code/code-service/test/fixtures/simple/",
+        ["workspace:code/code-service/integration/fixtures/simple", {
+          "packageLocation": "./code/code-service/integration/fixtures/simple/",
           "packageDependencies": [
-            ["@fixtures/service-simple", "workspace:code/code-service/test/fixtures/simple"],
+            ["@fixtures/service-simple", "workspace:code/code-service/integration/fixtures/simple"],
             ["express", "npm:4.17.1"]
           ],
           "linkType": "SOFT",
