@@ -5,6 +5,8 @@ import { AppRendererBuildCommand } from './app-renderer-build.command'
 import { AppRendererDevCommand }   from './app-renderer-dev.command'
 import { AppServiceBuildCommand }  from './app-service-build.command'
 import { AppServiceDevCommand }    from './app-service-dev.command'
+import { AppPackSourceCommand }    from './app-pack-source.command'
+import { AppPackCommand }          from './app-pack.command'
 
 export const plugin: Plugin = {
   commands: [
@@ -13,5 +15,7 @@ export const plugin: Plugin = {
     AppRendererDevCommand,
     AppServiceBuildCommand,
     AppServiceDevCommand,
+    AppPackSourceCommand,
+    AppPackCommand,
   ],
 }

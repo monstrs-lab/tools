@@ -15,10 +15,10 @@
     "prettier/*",
     "code/**/*",
     "webpack/*",
-    "yarn/**/*",
     "mctl/**/*",
     "github/*",
-    "utils/*"
+    "utils/*",
+    "yarn/*"
   ],
   "resolutions": {
     "@types/estree": "0.0.45",
