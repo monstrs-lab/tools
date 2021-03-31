@@ -2627,8 +2627,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/types", "npm:7.13.13"],
             ["@monstrs/buildpack-core", "workspace:buildpack/buildpack-core"],
             ["@monstrs/mctl-cli", "virtual:6edcd2783bcb80396c2bec03a284cb737a14969f400f14e7f54a93ca1c438dc5e2305a99d1d6cf16443cb0d19286f5c1763a238acf93b30ee499827dd2be5613#workspace:mctl/mctl-cli"],
+            ["@yarnpkg/core", "npm:2.4.0"],
+            ["@yarnpkg/fslib", "npm:2.4.0"],
             ["execa", "npm:5.0.0"],
-            ["tempy", "npm:1.0.1"]
+            ["tempy", "npm:1.0.1"],
+            ["yaml", "npm:1.10.2"]
           ],
           "linkType": "SOFT",
         }]
@@ -3400,7 +3403,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@monstrs/yarn-pack-utils", "workspace:yarn/pack-utils"],
             ["@yarnpkg/core", "npm:2.4.0"],
-            ["@yarnpkg/fslib", "npm:2.4.0"]
+            ["@yarnpkg/fslib", "npm:2.4.0"],
+            ["@yarnpkg/plugin-pack", "virtual:e2522c33b88c45c069d18549d10583615b6e44ffe5e41d63620cdc41e638b0afbc8ba641931a6087d1f5f7918df83835b9e14e35a5ed7e8189eb5c542490893c#npm:2.2.3"]
           ],
           "linkType": "SOFT",
         }]
@@ -5908,6 +5912,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/yarnpkg__cli", null],
             ["@types/yarnpkg__core", null],
             ["@yarnpkg/cli", "virtual:8e81048435857b7262c910955a7cdb2a3f49732a8f2985a5cecf0a65c6914f815c19e654601ac5488a30e6a4a2df12b497485e5c0a70245e620b636e61e1d558#npm:2.4.0"],
+            ["@yarnpkg/core", "npm:2.4.0"],
+            ["@yarnpkg/fslib", "npm:2.4.0"],
+            ["clipanion", "npm:2.6.2"],
+            ["micromatch", "npm:4.0.2"],
+            ["tar-stream", "npm:2.1.3"],
+            ["tslib", "npm:1.13.0"]
+          ],
+          "packagePeers": [
+            "@types/yarnpkg__cli",
+            "@types/yarnpkg__core",
+            "@yarnpkg/cli",
+            "@yarnpkg/core"
+          ],
+          "linkType": "HARD",
+        }],
+        ["virtual:e2522c33b88c45c069d18549d10583615b6e44ffe5e41d63620cdc41e638b0afbc8ba641931a6087d1f5f7918df83835b9e14e35a5ed7e8189eb5c542490893c#npm:2.2.3", {
+          "packageLocation": "./.yarn/$$virtual/@yarnpkg-plugin-pack-virtual-d8ed93a9a0/0/cache/@yarnpkg-plugin-pack-npm-2.2.3-191b975889-93240e522e.zip/node_modules/@yarnpkg/plugin-pack/",
+          "packageDependencies": [
+            ["@yarnpkg/plugin-pack", "virtual:e2522c33b88c45c069d18549d10583615b6e44ffe5e41d63620cdc41e638b0afbc8ba641931a6087d1f5f7918df83835b9e14e35a5ed7e8189eb5c542490893c#npm:2.2.3"],
+            ["@types/yarnpkg__cli", null],
+            ["@types/yarnpkg__core", null],
+            ["@yarnpkg/cli", null],
             ["@yarnpkg/core", "npm:2.4.0"],
             ["@yarnpkg/fslib", "npm:2.4.0"],
             ["clipanion", "npm:2.6.2"],

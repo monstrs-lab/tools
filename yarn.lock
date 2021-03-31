@@ -1841,8 +1841,11 @@ __metadata:
     "@babel/types": ^7.13.13
     "@monstrs/buildpack-core": "workspace:0.0.1"
     "@monstrs/mctl-cli": "workspace:0.2.95"
+    "@yarnpkg/core": ^2.4.0
+    "@yarnpkg/fslib": ^2.4.0
     execa: ^5.0.0
     tempy: ^1.0.1
+    yaml: ^1.10.2
   languageName: unknown
   linkType: soft
 
@@ -2381,6 +2384,7 @@ __metadata:
   dependencies:
     "@yarnpkg/core": ^2.4.0
     "@yarnpkg/fslib": ^2.4.0
+    "@yarnpkg/plugin-pack": ^2.2.3
   languageName: unknown
   linkType: soft
 
@@ -15659,7 +15663,7 @@ typescript@^3.2.4:
   languageName: node
   linkType: hard
 
-"yaml@npm:^1.7.2":
+"yaml@npm:^1.10.2, yaml@npm:^1.7.2":
   version: 1.10.2
   resolution: "yaml@npm:1.10.2"
   checksum: 8d72062ea3dbfd8fae3d6ddd5b741c2aeb5835a31b0719bf14fac71dd84adde0829763d6fbac46387309da00af1440194c796da5efc349b0baf9de39d82ae69e

@@ -9,7 +9,8 @@
   ],
   "devDependencies": {
     "@yarnpkg/core": "^2.4.0",
-    "@yarnpkg/fslib": "^2.4.0"
+    "@yarnpkg/fslib": "^2.4.0",
+    "@yarnpkg/plugin-pack": "^2.2.3"
   },
   "publishConfig": {
     "access": "public",
