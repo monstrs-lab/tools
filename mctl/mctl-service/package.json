@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/mctl-service",
-  "version": "0.2.77",
+  "version": "0.2.78",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -19,7 +19,7 @@
     "@types/react-blessed": "^0.3.2"
   },
   "dependencies": {
-    "@monstrs/code-service": "workspace:0.0.79",
+    "@monstrs/code-service": "workspace:0.0.80",
     "@monstrs/mctl-ui": "workspace:0.2.77",
     "@monstrs/webpack-start-server-plugin": "workspace:0.2.13",
     "blessed": "^0.1.81",
