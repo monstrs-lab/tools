@@ -1,5 +1,0 @@
-releases:
-  "@monstrs/code-test": patch
-  "@monstrs/mctl-checks": patch
-  "@monstrs/mctl-cli": patch
-  "@monstrs/mctl-test": patch
