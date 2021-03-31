@@ -4,7 +4,7 @@ import { Project }       from '@yarnpkg/core'
 import { Command }       from 'clipanion'
 
 class AppRendererDevCommand extends BaseCommand {
-  @Command.Path('app', 'service', 'dev')
+  @Command.Path('app', 'renderer', 'dev')
   async execute() {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
 
