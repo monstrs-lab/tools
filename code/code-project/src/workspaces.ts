@@ -4,8 +4,6 @@ import { Configuration, Project, Workspace } from '@yarnpkg/core'
 import { PortablePath }                      from '@yarnpkg/fslib'
 import { getPluginConfiguration }            from '@yarnpkg/cli'
 
-import { getChangedFiles }                   from '@monstrs/code-changes'
-
 const getWorkspaceChildrenRecursive = (
   rootWorkspace: Workspace,
   project: Project
@@ -109,15 +107,6 @@ export const getWorkspaces = async (
   })
 
   return Array.from(resultWithDependentsWorkspaces)
-}
-
-export const getChangedWorkspaces = async () => {
-  const workspaces: Array<Workspace> = await getWorkspaces()
-  const changedFiles: Array<string> = await getChangedFiles()
-
-  return workspaces.filter((workspace) =>
-    changedFiles.some((changedFile) => changedFile.startsWith(workspace.cwd))
-  )
 }
 
 export const getRootWorkspace = async (): Promise<Workspace> => {

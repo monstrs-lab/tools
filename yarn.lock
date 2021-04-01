@@ -1869,19 +1869,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-changes@workspace:0.0.79, @monstrs/code-changes@workspace:code/code-changes":
-  version: 0.0.0-use.local
-  resolution: "@monstrs/code-changes@workspace:code/code-changes"
-  dependencies:
-    "@babel/types": ^7.13.13
-    "@monstrs/code-github": "workspace:0.0.79"
-    "@monstrs/tools-builder": "workspace:0.0.1"
-    "@types/execa": 2.0.0
-    "@types/node": ^14.14.37
-    execa: ^5.0.0
-  languageName: unknown
-  linkType: soft
-
 "@monstrs/code-commitlint@workspace:0.0.86, @monstrs/code-commitlint@workspace:code/code-commitlint":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-commitlint@workspace:code/code-commitlint"
@@ -1912,18 +1899,6 @@ __metadata:
     ignore: ^5.1.8
     prettier: ^2.2.1
     prettier-plugin-toml: ^0.3.1
-  languageName: unknown
-  linkType: soft
-
-"@monstrs/code-github@workspace:0.0.79, @monstrs/code-github@workspace:code/code-github":
-  version: 0.0.0-use.local
-  resolution: "@monstrs/code-github@workspace:code/code-github"
-  dependencies:
-    "@actions/core": ^1.2.6
-    "@actions/github": ^4.0.0
-    "@babel/types": ^7.13.13
-    "@monstrs/tools-builder": "workspace:0.0.1"
-    "@types/node": ^14.14.37
   languageName: unknown
   linkType: soft
 
@@ -1968,7 +1943,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/code-project@workspace:code/code-project"
   dependencies:
-    "@monstrs/code-changes": "workspace:0.0.79"
     "@monstrs/tools-builder": "workspace:0.0.1"
     "@types/node": ^14.14.37
     "@yarnpkg/cli": ^2.4.1
@@ -2105,7 +2079,6 @@ __metadata:
     "@monstrs/mctl-format": "workspace:0.2.82"
     "@monstrs/mctl-library": "workspace:0.2.77"
     "@monstrs/mctl-lint": "workspace:0.2.84"
-    "@monstrs/mctl-pack": "workspace:0.2.77"
     "@monstrs/mctl-renderer": "workspace:0.2.80"
     "@monstrs/mctl-service": "workspace:0.2.78"
     "@monstrs/mctl-test": "workspace:0.2.84"
@@ -2185,21 +2158,6 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  languageName: unknown
-  linkType: soft
-
-"@monstrs/mctl-pack@workspace:0.2.77, @monstrs/mctl-pack@workspace:mctl/mctl-pack":
-  version: 0.0.0-use.local
-  resolution: "@monstrs/mctl-pack@workspace:mctl/mctl-pack"
-  dependencies:
-    "@iarna/toml": ^2.2.5
-    "@monstrs/code-changes": "workspace:0.0.79"
-    "@monstrs/code-project": "workspace:0.0.79"
-    "@monstrs/tools-builder": "workspace:0.0.1"
-    "@types/node": ^14.14.37
-    clipanion: ^2.6.2
-    execa: ^5.0.0
-    tempy: 1.0.1
   languageName: unknown
   linkType: soft
 
@@ -2393,9 +2351,9 @@ __metadata:
   resolution: "@monstrs/yarn-plugin-app@workspace:yarn/plugin-app"
   dependencies:
     "@iarna/toml": ^2.2.5
-    "@monstrs/code-changes": "workspace:0.0.79"
     "@monstrs/code-commitlint": "workspace:0.0.86"
     "@monstrs/code-typescript": "workspace:0.0.91"
+    "@monstrs/github-actions-utils": "workspace:0.0.2"
     "@monstrs/tools-builder": "workspace:0.0.1"
     "@monstrs/yarn-pack-utils": "workspace:0.0.1"
     "@yarnpkg/cli": ^2.4.1
@@ -14396,7 +14354,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"tempy@npm:1.0.1, tempy@npm:^1.0.1":
+"tempy@npm:^1.0.1":
   version: 1.0.1
   resolution: "tempy@npm:1.0.1"
   dependencies:
