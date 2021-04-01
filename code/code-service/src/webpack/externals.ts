@@ -28,6 +28,9 @@ export const unusedExternals = [
   'mssql',
   'sql.js',
 
+  // pnp
+  'pnpapi',
+
   // nextjs
   'next',
 ]

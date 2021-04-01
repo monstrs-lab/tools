@@ -2366,18 +2366,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/yarn-plugin-changed@workspace:yarn/plugin-changed":
-  version: 0.0.0-use.local
-  resolution: "@monstrs/yarn-plugin-changed@workspace:yarn/plugin-changed"
-  dependencies:
-    "@monstrs/tools-builder": "workspace:0.0.1"
-    "@monstrs/yarn-workspace-utils": "workspace:0.0.1"
-    "@yarnpkg/cli": ^2.4.1
-    "@yarnpkg/core": ^2.4.0
-    clipanion: ^2.6.2
-  languageName: unknown
-  linkType: soft
-
 "@monstrs/yarn-plugin-commit@workspace:0.0.1, @monstrs/yarn-plugin-commit@workspace:yarn/plugin-commit":
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-commit@workspace:yarn/plugin-commit"
@@ -2452,6 +2440,7 @@ __metadata:
     "@yarnpkg/cli": ^2.4.1
     "@yarnpkg/core": ^2.4.0
     "@yarnpkg/fslib": ^2.4.0
+    ci-info: ^3.1.1
     clipanion: ^2.6.2
   languageName: unknown
   linkType: soft
@@ -5684,6 +5673,13 @@ __metadata:
   version: 2.0.0
   resolution: "ci-info@npm:2.0.0"
   checksum: 553fe83c085fce5e19e20f85b993f24a463e6f805803837a8868607bb68b1300567868694a5dff1beca6c54926a4c0be1cc9ef0c35f810653d590bf64183f6a0
+  languageName: node
+  linkType: hard
+
+"ci-info@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "ci-info@npm:3.1.1"
+  checksum: 417d2bf17c320d477bc32997d3831bcc1b174d6b48616c2f0463765f042f073bfbfb15e06abdeea55b05ca9c8e054057eb9e0672e4e6031457e87216b2faddda
   languageName: node
   linkType: hard
 
