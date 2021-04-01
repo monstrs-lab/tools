@@ -5,11 +5,8 @@ import { BuildResult }  from '@monstrs/buildpack-core'
 export class YarnWorkspaceStartBuilder implements Builder {
   async build(ctx: BuildContext): Promise<BuildResult> {
     const entry = ctx.plan.getEntry('yarn-workspace-start')
+    const entrypoint = entry?.metadata?.entrypoint || 'dist/index.js'
 
-    if (entry) {
-      const { workspace } = entry.metadata
-
-      ctx.addWebProcess(['yarn', 'workspace', workspace, 'start'])
-    }
+    ctx.addWebProcess(['node', '-r', './.pnp.js', entrypoint])
   }
 }

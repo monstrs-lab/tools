@@ -52,7 +52,10 @@ class AppPackCommand extends BaseCommand {
       // eslint-disable-next-line no-shadow
       async (report) => {
         if (!(name && canBundle)) {
-          report.reportInfo(null, 'Workspace not allowed for package.')
+          report.reportInfo(
+            null,
+            `Workspace ${workspace.manifest.raw.name} not allowed for package.`
+          )
         } else {
           const repo = [name.name, name.scope].filter(Boolean).join('-')
           const registry = `${this.registry}${repo}`
@@ -106,6 +109,7 @@ class AppPackCommand extends BaseCommand {
             stdin: this.context.stdin,
             stdout: this.context.stdout,
             stderr: this.context.stderr,
+            end: execUtils.EndStrategy.ErrorCode,
           })
         }
       }
