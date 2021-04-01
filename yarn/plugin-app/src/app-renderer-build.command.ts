@@ -10,7 +10,7 @@ class AppRendererBuildCommand extends BaseCommand {
 
     const { project } = await Project.find(configuration, this.context.cwd)
 
-    await this.cli.run(['mctl', 'service', 'build', '--source', this.context.cwd], {
+    await this.cli.run(['mctl', 'renderer', 'build', '--source', this.context.cwd], {
       cwd: project.cwd,
     })
   }

@@ -26,6 +26,7 @@ class RendererBuildCommand extends Command {
     }
 
     await execa('yarn', ['next', 'build', 'src'], {
+      cwd: this.source || process.cwd(),
       stdio: 'inherit',
     })
 

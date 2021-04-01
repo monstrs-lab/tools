@@ -1,5 +1,3 @@
-import { join }  from 'path'
-
 import { Layer } from './layer'
 
 export class Layers {
@@ -17,9 +15,7 @@ export class Layers {
       return this.layers.get(name)!
     }
 
-    const layer = new Layer(name, join(this.path, name), build, cache, launch)
-
-    layer.load(this.path)
+    const layer = Layer.create(name, this.path, build, cache, launch)
 
     this.layers.set(name, layer)
 
@@ -29,7 +25,7 @@ export class Layers {
   save() {
     // eslint-disable-next-line no-restricted-syntax
     for (const layer of this.layers.values()) {
-      layer.save(this.path)
+      layer.save()
     }
   }
 }

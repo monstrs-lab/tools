@@ -1,3 +1,0 @@
-plugins:
-  - .yarn/plugins/@monstrs/plugin-app.js
-#yarnPath: .yarn/releases/yarn-2.4.1.cjs
