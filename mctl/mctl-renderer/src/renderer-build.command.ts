@@ -31,8 +31,8 @@ class RendererBuildCommand extends Command {
     })
 
     await fs.copy(
-      path.join(process.cwd(), 'src', '.next'),
-      path.join(process.cwd(), 'dist', '.next')
+      path.join(this.source || process.cwd(), 'src', '.next'),
+      path.join(this.source || process.cwd(), 'dist', '.next')
     )
   }
 }
