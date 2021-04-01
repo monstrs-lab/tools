@@ -1,15 +1,16 @@
-import { BaseCommand }   from '@yarnpkg/cli'
-import { Configuration } from '@yarnpkg/core'
-import { Project }       from '@yarnpkg/core'
-import { StreamReport }  from '@yarnpkg/core'
-import { execUtils }     from '@yarnpkg/core'
-import tempy             from 'tempy'
-import { stringify }     from '@iarna/toml'
-import { PortablePath }  from '@yarnpkg/fslib'
-import { xfs }           from '@yarnpkg/fslib'
-import { Command }       from 'clipanion'
+import { BaseCommand }        from '@yarnpkg/cli'
+import { Configuration }      from '@yarnpkg/core'
+import { Project }            from '@yarnpkg/core'
+import { StreamReport }       from '@yarnpkg/core'
+import { execUtils }          from '@yarnpkg/core'
+import tempy                  from 'tempy'
+import { stringify }          from '@iarna/toml'
+import { PortablePath }       from '@yarnpkg/fslib'
+import { xfs }                from '@yarnpkg/fslib'
+import { Command }            from 'clipanion'
 
-import { getVersion }    from '@monstrs/code-changes'
+import { isGithubActionsEnv } from '@monstrs/github-actions-utils'
+import { getPullRequestSha }  from '@monstrs/github-actions-utils'
 
 class AppPackCommand extends BaseCommand {
   @Command.String(`-r,--registry`)
@@ -60,7 +61,7 @@ class AppPackCommand extends BaseCommand {
           const repo = [name.name, name.scope].filter(Boolean).join('-')
           const registry = `${this.registry}${repo}`
 
-          const version = await this.getVersion()
+          const version = await this.getVersion(project)
 
           const currentVersion = `${registry}:${version}`
           const latestVersion = `${registry}:latest`
@@ -118,8 +119,8 @@ class AppPackCommand extends BaseCommand {
     return report.exitCode()
   }
 
-  async getVersion() {
-    const revision = await getVersion()
+  async getVersion(project: Project) {
+    const revision = await this.getRevision(project)
     const hash = revision.substr(0, 7)
 
     if (this.tagPolicy === 'hash-timestamp') {
@@ -127,6 +128,19 @@ class AppPackCommand extends BaseCommand {
     }
 
     return revision
+  }
+
+  async getRevision(project: Project) {
+    if (isGithubActionsEnv()) {
+      return getPullRequestSha()
+    }
+
+    const { stdout } = await execUtils.execvp('git', ['log', '-1', '--format="%H"'], {
+      cwd: project.cwd,
+      strict: true,
+    })
+
+    return stdout
   }
 }
 

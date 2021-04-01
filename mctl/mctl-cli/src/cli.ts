@@ -9,7 +9,6 @@ import { CommitCommand }                        from '@monstrs/mctl-commit'
 import { FormatCommand }                        from '@monstrs/mctl-format'
 import { LibraryBuildCommand }                  from '@monstrs/mctl-library'
 import { LintCommand }                          from '@monstrs/mctl-lint'
-import { PackCommand }                          from '@monstrs/mctl-pack'
 import { ServiceBuildCommand }                  from '@monstrs/mctl-service'
 import { ServiceStartCommand }                  from '@monstrs/mctl-service'
 import { ServiceDevCommand }                    from '@monstrs/mctl-service'
@@ -42,8 +41,6 @@ const run = () => {
   cli.register(TestIntegrationCheckCommand)
   cli.register(TestUnitCheckCommand)
   cli.register(ReleaseCheckCommand)
-
-  cli.register(PackCommand)
 
   cli.register(ServiceBuildCommand)
   cli.register(ServiceStartCommand)

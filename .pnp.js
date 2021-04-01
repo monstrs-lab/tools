@@ -43,20 +43,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:buildpack/buildpack-yarn-workspace-start"
       },
       {
-        "name": "@monstrs/code-changes",
-        "reference": "workspace:code/code-changes"
-      },
-      {
         "name": "@monstrs/code-commitlint",
         "reference": "workspace:code/code-commitlint"
       },
       {
         "name": "@monstrs/code-format",
         "reference": "workspace:code/code-format"
-      },
-      {
-        "name": "@monstrs/code-github",
-        "reference": "workspace:code/code-github"
       },
       {
         "name": "@monstrs/code-lint",
@@ -113,10 +105,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       {
         "name": "@monstrs/mctl-lint",
         "reference": "workspace:mctl/mctl-lint"
-      },
-      {
-        "name": "@monstrs/mctl-pack",
-        "reference": "workspace:mctl/mctl-pack"
       },
       {
         "name": "@monstrs/mctl-renderer",
@@ -224,10 +212,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@monstrs/buildpack-yarn-workspace-build", ["workspace:buildpack/buildpack-yarn-workspace-build"]],
       ["@monstrs/buildpack-yarn-workspace-pack", ["workspace:buildpack/buildpack-yarn-workspace-pack"]],
       ["@monstrs/buildpack-yarn-workspace-start", ["workspace:buildpack/buildpack-yarn-workspace-start"]],
-      ["@monstrs/code-changes", ["workspace:code/code-changes"]],
       ["@monstrs/code-commitlint", ["workspace:code/code-commitlint"]],
       ["@monstrs/code-format", ["workspace:code/code-format"]],
-      ["@monstrs/code-github", ["workspace:code/code-github"]],
       ["@monstrs/code-lint", ["virtual:2d1002d2fe1012823a1a8f4f14e2d8578d813f476c91a6f3f82dd393eb5331c1e63fdb993a25971aa372fc0be6c9272644e3e7f2524cda5f666a0982df9a130f#workspace:code/code-lint", "virtual:a967cf68bc62f76235f64b8783460f86e070a056cef37354d999d8b29df009ec2f539880edd00e3a3ec951f364f1b280acbd148d7293a5eee5d25291b73c6697#workspace:code/code-lint", "workspace:code/code-lint"]],
       ["@monstrs/code-project", ["workspace:code/code-project"]],
       ["@monstrs/code-service", ["workspace:code/code-service"]],
@@ -241,7 +227,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@monstrs/mctl-format", ["workspace:mctl/mctl-format"]],
       ["@monstrs/mctl-library", ["workspace:mctl/mctl-library"]],
       ["@monstrs/mctl-lint", ["virtual:45248796ae173d215d63c7457ad8ca3afb76213243eb6568b1aeb1203fce03a9a01e0db71a112826345139bdbccb504d81fa5e3de84b5fddfa056570ffd69201#workspace:mctl/mctl-lint", "virtual:544506e1f87308e47c5b311c11d98fc8fa7b89c136d7012c403e805b1eae6fd57c46c4259b4edb89c06038c16fa8b11dedf055d82dc2979689af11635a18a025#workspace:mctl/mctl-lint", "workspace:mctl/mctl-lint"]],
-      ["@monstrs/mctl-pack", ["workspace:mctl/mctl-pack"]],
       ["@monstrs/mctl-renderer", ["workspace:mctl/mctl-renderer"]],
       ["@monstrs/mctl-service", ["workspace:mctl/mctl-service"]],
       ["@monstrs/mctl-test", ["workspace:mctl/mctl-test"]],
@@ -2658,21 +2643,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT",
         }]
       ]],
-      ["@monstrs/code-changes", [
-        ["workspace:code/code-changes", {
-          "packageLocation": "./code/code-changes/",
-          "packageDependencies": [
-            ["@monstrs/code-changes", "workspace:code/code-changes"],
-            ["@babel/types", "npm:7.13.13"],
-            ["@monstrs/code-github", "workspace:code/code-github"],
-            ["@monstrs/tools-builder", "workspace:utils/builder"],
-            ["@types/execa", "npm:2.0.0"],
-            ["@types/node", "npm:14.14.37"],
-            ["execa", "npm:5.0.0"]
-          ],
-          "linkType": "SOFT",
-        }]
-      ]],
       ["@monstrs/code-commitlint", [
         ["workspace:code/code-commitlint", {
           "packageLocation": "./code/code-commitlint/",
@@ -2706,20 +2676,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["ignore", "npm:5.1.8"],
             ["prettier", "npm:2.2.1"],
             ["prettier-plugin-toml", "npm:0.3.1"]
-          ],
-          "linkType": "SOFT",
-        }]
-      ]],
-      ["@monstrs/code-github", [
-        ["workspace:code/code-github", {
-          "packageLocation": "./code/code-github/",
-          "packageDependencies": [
-            ["@monstrs/code-github", "workspace:code/code-github"],
-            ["@actions/core", "npm:1.2.6"],
-            ["@actions/github", "npm:4.0.0"],
-            ["@babel/types", "npm:7.13.13"],
-            ["@monstrs/tools-builder", "workspace:utils/builder"],
-            ["@types/node", "npm:14.14.37"]
           ],
           "linkType": "SOFT",
         }]
@@ -2832,7 +2788,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./code/code-project/",
           "packageDependencies": [
             ["@monstrs/code-project", "workspace:code/code-project"],
-            ["@monstrs/code-changes", "workspace:code/code-changes"],
             ["@monstrs/tools-builder", "workspace:utils/builder"],
             ["@types/node", "npm:14.14.37"],
             ["@yarnpkg/cli", "virtual:93762f395d50e2410536eefd1c9656e618c9e599e2d023ef5341f0dd44b7c10b9c8541440da9da71a8fae8443bde146c84aabb5f6bc6020be89f6fe1913af10c#npm:2.4.1"],
@@ -2984,7 +2939,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@monstrs/mctl-format", "workspace:mctl/mctl-format"],
             ["@monstrs/mctl-library", "workspace:mctl/mctl-library"],
             ["@monstrs/mctl-lint", "virtual:544506e1f87308e47c5b311c11d98fc8fa7b89c136d7012c403e805b1eae6fd57c46c4259b4edb89c06038c16fa8b11dedf055d82dc2979689af11635a18a025#workspace:mctl/mctl-lint"],
-            ["@monstrs/mctl-pack", "workspace:mctl/mctl-pack"],
             ["@monstrs/mctl-renderer", "workspace:mctl/mctl-renderer"],
             ["@monstrs/mctl-service", "workspace:mctl/mctl-service"],
             ["@monstrs/mctl-test", "workspace:mctl/mctl-test"],
@@ -3011,7 +2965,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@monstrs/mctl-format", "workspace:mctl/mctl-format"],
             ["@monstrs/mctl-library", "workspace:mctl/mctl-library"],
             ["@monstrs/mctl-lint", "virtual:45248796ae173d215d63c7457ad8ca3afb76213243eb6568b1aeb1203fce03a9a01e0db71a112826345139bdbccb504d81fa5e3de84b5fddfa056570ffd69201#workspace:mctl/mctl-lint"],
-            ["@monstrs/mctl-pack", "workspace:mctl/mctl-pack"],
             ["@monstrs/mctl-renderer", "workspace:mctl/mctl-renderer"],
             ["@monstrs/mctl-service", "workspace:mctl/mctl-service"],
             ["@monstrs/mctl-test", "workspace:mctl/mctl-test"],
@@ -3038,7 +2991,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@monstrs/mctl-format", "workspace:mctl/mctl-format"],
             ["@monstrs/mctl-library", "workspace:mctl/mctl-library"],
             ["@monstrs/mctl-lint", "virtual:45248796ae173d215d63c7457ad8ca3afb76213243eb6568b1aeb1203fce03a9a01e0db71a112826345139bdbccb504d81fa5e3de84b5fddfa056570ffd69201#workspace:mctl/mctl-lint"],
-            ["@monstrs/mctl-pack", "workspace:mctl/mctl-pack"],
             ["@monstrs/mctl-renderer", "workspace:mctl/mctl-renderer"],
             ["@monstrs/mctl-service", "workspace:mctl/mctl-service"],
             ["@monstrs/mctl-test", "workspace:mctl/mctl-test"],
@@ -3148,23 +3100,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:14.14.37"],
             ["clipanion", "npm:2.6.2"],
             ["typescript", "patch:typescript@npm%3A4.2.3#builtin<compat/typescript>::version=4.2.3&hash=a45b0e"]
-          ],
-          "linkType": "SOFT",
-        }]
-      ]],
-      ["@monstrs/mctl-pack", [
-        ["workspace:mctl/mctl-pack", {
-          "packageLocation": "./mctl/mctl-pack/",
-          "packageDependencies": [
-            ["@monstrs/mctl-pack", "workspace:mctl/mctl-pack"],
-            ["@iarna/toml", "npm:2.2.5"],
-            ["@monstrs/code-changes", "workspace:code/code-changes"],
-            ["@monstrs/code-project", "workspace:code/code-project"],
-            ["@monstrs/tools-builder", "workspace:utils/builder"],
-            ["@types/node", "npm:14.14.37"],
-            ["clipanion", "npm:2.6.2"],
-            ["execa", "npm:5.0.0"],
-            ["tempy", "npm:1.0.1"]
           ],
           "linkType": "SOFT",
         }]
@@ -3415,9 +3350,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@monstrs/yarn-plugin-app", "workspace:yarn/plugin-app"],
             ["@iarna/toml", "npm:2.2.5"],
-            ["@monstrs/code-changes", "workspace:code/code-changes"],
             ["@monstrs/code-commitlint", "workspace:code/code-commitlint"],
             ["@monstrs/code-typescript", "workspace:code/code-typescript"],
+            ["@monstrs/github-actions-utils", "workspace:github/actions-utils"],
             ["@monstrs/tools-builder", "workspace:utils/builder"],
             ["@monstrs/yarn-pack-utils", "workspace:yarn/pack-utils"],
             ["@yarnpkg/cli", "virtual:93762f395d50e2410536eefd1c9656e618c9e599e2d023ef5341f0dd44b7c10b9c8541440da9da71a8fae8443bde146c84aabb5f6bc6020be89f6fe1913af10c#npm:2.4.1"],

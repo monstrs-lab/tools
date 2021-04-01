@@ -34,7 +34,6 @@
     "@monstrs/mctl-format": "workspace:0.2.82",
     "@monstrs/mctl-library": "workspace:0.2.77",
     "@monstrs/mctl-lint": "workspace:0.2.84",
-    "@monstrs/mctl-pack": "workspace:0.2.77",
     "@monstrs/mctl-renderer": "workspace:0.2.80",
     "@monstrs/mctl-service": "workspace:0.2.78",
     "@monstrs/mctl-test": "workspace:0.2.84",
