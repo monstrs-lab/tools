@@ -20,7 +20,7 @@ const unit = async (
     detectOpenHandles: false,
     errorOnDeprecated: false,
     listTests: false,
-    passWithNoTests: false,
+    passWithNoTests: true,
     runTestsByPath: false,
     testLocationInResults: true,
     config: JSON.stringify(unitConfig),
