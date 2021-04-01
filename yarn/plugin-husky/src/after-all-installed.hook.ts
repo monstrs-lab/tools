@@ -5,6 +5,7 @@ import { Report }       from '@yarnpkg/core'
 import { ppath }        from '@yarnpkg/fslib'
 import { npath }        from '@yarnpkg/fslib'
 import { xfs }          from '@yarnpkg/fslib'
+import { isCI }         from 'ci-info'
 import { EOL }          from 'os'
 
 export const afterAllInstalled = async (project, { report }: { report: StreamReport }) => {
@@ -12,7 +13,7 @@ export const afterAllInstalled = async (project, { report }: { report: StreamRep
 
   const deps = [...Object.keys(dependencies || {}), ...Object.keys(devDependencies || {})]
 
-  if (deps.includes('husky')) {
+  if (deps.includes('husky') && !isCI) {
     const installed = await xfs.existsPromise(
       ppath.join(project.cwd, npath.toPortablePath('.config/husky/_/husky.sh'))
     )
