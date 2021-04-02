@@ -3,7 +3,7 @@ import { FC }         from 'react'
 import { Box }        from 'ink'
 import { Body }       from '@monstrs/logger'
 
-import { StackTrace } from '../stack-trace'
+import { StackTrace } from '@monstrs/cli-ui-stack-trace-component'
 
 export interface BodyProps {
   children: Body

@@ -1,8 +1,7 @@
-import { Command }          from 'clipanion'
-import { writeFileSync }    from 'fs'
+import { Command }       from 'clipanion'
+import { writeFileSync } from 'fs'
 
-import { TypeScript }       from '@monstrs/code-typescript'
-import { getRootWorkspace } from '@monstrs/code-project'
+import { TypeScript }    from '@monstrs/code-typescript'
 
 class TypeCheckCommand extends Command {
   @Command.String('-r,--report')
@@ -15,13 +14,7 @@ class TypeCheckCommand extends Command {
   async execute() {
     const ts = new TypeScript()
 
-    const { manifest } = await getRootWorkspace()
-
-    const workspaces: Array<string> = manifest.workspaceDefinitions.map(
-      (definition) => definition.pattern
-    )
-
-    const result = this.files.length > 0 ? ts.check(this.files) : ts.check(workspaces)
+    const result = ts.check(this.files)
 
     if (this.report) {
       const report = Object.keys(result)

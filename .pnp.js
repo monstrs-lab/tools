@@ -43,6 +43,26 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:buildpack/buildpack-yarn-workspace-start"
       },
       {
+        "name": "@monstrs/cli-ui-log-record-component",
+        "reference": "workspace:cli/cli-ui-log-record-component"
+      },
+      {
+        "name": "@monstrs/cli-ui-pretty-logs",
+        "reference": "workspace:cli/cli-ui-pretty-logs"
+      },
+      {
+        "name": "@monstrs/cli-ui-renderer",
+        "reference": "workspace:cli/cli-ui-renderer"
+      },
+      {
+        "name": "@monstrs/cli-ui-source-component",
+        "reference": "workspace:cli/cli-ui-source-component"
+      },
+      {
+        "name": "@monstrs/cli-ui-stack-trace-component",
+        "reference": "workspace:cli/cli-ui-stack-trace-component"
+      },
+      {
         "name": "@monstrs/code-commitlint",
         "reference": "workspace:code/code-commitlint"
       },
@@ -117,10 +137,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       {
         "name": "@monstrs/mctl-typecheck",
         "reference": "workspace:mctl/mctl-typecheck"
-      },
-      {
-        "name": "@monstrs/mctl-ui",
-        "reference": "workspace:mctl/mctl-ui"
       },
       {
         "name": "@monstrs/prettier-plugin-import-align",
@@ -212,6 +228,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@monstrs/buildpack-yarn-workspace-build", ["workspace:buildpack/buildpack-yarn-workspace-build"]],
       ["@monstrs/buildpack-yarn-workspace-pack", ["workspace:buildpack/buildpack-yarn-workspace-pack"]],
       ["@monstrs/buildpack-yarn-workspace-start", ["workspace:buildpack/buildpack-yarn-workspace-start"]],
+      ["@monstrs/cli-ui-log-record-component", ["workspace:cli/cli-ui-log-record-component"]],
+      ["@monstrs/cli-ui-pretty-logs", ["workspace:cli/cli-ui-pretty-logs"]],
+      ["@monstrs/cli-ui-renderer", ["workspace:cli/cli-ui-renderer"]],
+      ["@monstrs/cli-ui-source-component", ["workspace:cli/cli-ui-source-component"]],
+      ["@monstrs/cli-ui-stack-trace-component", ["workspace:cli/cli-ui-stack-trace-component"]],
       ["@monstrs/code-commitlint", ["workspace:code/code-commitlint"]],
       ["@monstrs/code-format", ["workspace:code/code-format"]],
       ["@monstrs/code-lint", ["virtual:a967cf68bc62f76235f64b8783460f86e070a056cef37354d999d8b29df009ec2f539880edd00e3a3ec951f364f1b280acbd148d7293a5eee5d25291b73c6697#workspace:code/code-lint", "virtual:e42c4e90371244c75d2aca604de5e3cd78697d0631cc570c317c00cd00329874a56f3c78f8cf3532e894572331a44286a6cdb7f16e02a558a5b06cd883661fa2#workspace:code/code-lint", "workspace:code/code-lint"]],
@@ -230,7 +251,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@monstrs/mctl-service", ["workspace:mctl/mctl-service"]],
       ["@monstrs/mctl-test", ["workspace:mctl/mctl-test"]],
       ["@monstrs/mctl-typecheck", ["workspace:mctl/mctl-typecheck"]],
-      ["@monstrs/mctl-ui", ["workspace:mctl/mctl-ui"]],
       ["@monstrs/prettier-plugin-import-align", ["virtual:3d93344fb94fee6b88a0f1f341c37079f1935d6fa77e765259fb2a836eaf6b539aa3f43c87daa1ff51fd7a0e7062665901cd442c32a52647ddb8df4fcafafb4c#workspace:prettier/prettier-plugin-import-align", "workspace:prettier/prettier-plugin-import-align"]],
       ["@monstrs/prettier-plugin-import-sort", ["virtual:3d93344fb94fee6b88a0f1f341c37079f1935d6fa77e765259fb2a836eaf6b539aa3f43c87daa1ff51fd7a0e7062665901cd442c32a52647ddb8df4fcafafb4c#workspace:prettier/prettier-plugin-import-sort", "workspace:prettier/prettier-plugin-import-sort"]],
       ["@monstrs/tools-builder", ["workspace:utils/builder"]],
@@ -2643,6 +2663,90 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT",
         }]
       ]],
+      ["@monstrs/cli-ui-log-record-component", [
+        ["workspace:cli/cli-ui-log-record-component", {
+          "packageLocation": "./cli/cli-ui-log-record-component/",
+          "packageDependencies": [
+            ["@monstrs/cli-ui-log-record-component", "workspace:cli/cli-ui-log-record-component"],
+            ["@monstrs/cli-ui-renderer", "workspace:cli/cli-ui-renderer"],
+            ["@monstrs/cli-ui-stack-trace-component", "workspace:cli/cli-ui-stack-trace-component"],
+            ["@monstrs/logger", "npm:0.0.4"],
+            ["@monstrs/tools-builder", "workspace:utils/builder"],
+            ["@types/jest", "npm:26.0.22"],
+            ["@types/node", "npm:14.14.37"],
+            ["@types/react", "npm:17.0.2"],
+            ["ink", "virtual:29db4d26ce3791154d4afc1e42f2ee77f189e5651873a352febcac9f1849f6287f23ba5967b903808e70ca1f91b1fe00ad75fe6f81766b90e06b95be86b6baf9#npm:3.0.8"],
+            ["react", "npm:17.0.2"],
+            ["string-to-color", "npm:2.2.2"],
+            ["strip-ansi", "npm:6.0.0"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
+      ["@monstrs/cli-ui-pretty-logs", [
+        ["workspace:cli/cli-ui-pretty-logs", {
+          "packageLocation": "./cli/cli-ui-pretty-logs/",
+          "packageDependencies": [
+            ["@monstrs/cli-ui-pretty-logs", "workspace:cli/cli-ui-pretty-logs"],
+            ["@monstrs/cli-ui-log-record-component", "workspace:cli/cli-ui-log-record-component"],
+            ["@monstrs/cli-ui-renderer", "workspace:cli/cli-ui-renderer"],
+            ["@monstrs/tools-builder", "workspace:utils/builder"],
+            ["@types/node", "npm:14.14.37"],
+            ["@types/react", "npm:17.0.2"],
+            ["react", "npm:17.0.2"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
+      ["@monstrs/cli-ui-renderer", [
+        ["workspace:cli/cli-ui-renderer", {
+          "packageLocation": "./cli/cli-ui-renderer/",
+          "packageDependencies": [
+            ["@monstrs/cli-ui-renderer", "workspace:cli/cli-ui-renderer"],
+            ["@monstrs/tools-builder", "workspace:utils/builder"],
+            ["@types/node", "npm:14.14.37"],
+            ["@types/react", "npm:17.0.2"],
+            ["ink", "virtual:29db4d26ce3791154d4afc1e42f2ee77f189e5651873a352febcac9f1849f6287f23ba5967b903808e70ca1f91b1fe00ad75fe6f81766b90e06b95be86b6baf9#npm:3.0.8"],
+            ["react", "npm:17.0.2"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
+      ["@monstrs/cli-ui-source-component", [
+        ["workspace:cli/cli-ui-source-component", {
+          "packageLocation": "./cli/cli-ui-source-component/",
+          "packageDependencies": [
+            ["@monstrs/cli-ui-source-component", "workspace:cli/cli-ui-source-component"],
+            ["@babel/code-frame", "npm:7.12.13"],
+            ["@monstrs/tools-builder", "workspace:utils/builder"],
+            ["@types/babel__code-frame", "npm:7.0.2"],
+            ["@types/node", "npm:14.14.37"],
+            ["@types/react", "npm:17.0.2"],
+            ["ink", "virtual:29db4d26ce3791154d4afc1e42f2ee77f189e5651873a352febcac9f1849f6287f23ba5967b903808e70ca1f91b1fe00ad75fe6f81766b90e06b95be86b6baf9#npm:3.0.8"],
+            ["react", "npm:17.0.2"],
+            ["supports-color", "npm:8.1.1"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
+      ["@monstrs/cli-ui-stack-trace-component", [
+        ["workspace:cli/cli-ui-stack-trace-component", {
+          "packageLocation": "./cli/cli-ui-stack-trace-component/",
+          "packageDependencies": [
+            ["@monstrs/cli-ui-stack-trace-component", "workspace:cli/cli-ui-stack-trace-component"],
+            ["@monstrs/cli-ui-renderer", "workspace:cli/cli-ui-renderer"],
+            ["@monstrs/cli-ui-source-component", "workspace:cli/cli-ui-source-component"],
+            ["@monstrs/stack-trace", "npm:0.0.4"],
+            ["@monstrs/tools-builder", "workspace:utils/builder"],
+            ["@types/jest", "npm:26.0.22"],
+            ["@types/react", "npm:17.0.2"],
+            ["ink", "virtual:29db4d26ce3791154d4afc1e42f2ee77f189e5651873a352febcac9f1849f6287f23ba5967b903808e70ca1f91b1fe00ad75fe6f81766b90e06b95be86b6baf9#npm:3.0.8"],
+            ["react", "npm:17.0.2"],
+            ["strip-ansi", "npm:6.0.0"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
       ["@monstrs/code-commitlint", [
         ["workspace:code/code-commitlint", {
           "packageLocation": "./code/code-commitlint/",
@@ -3086,6 +3190,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./mctl/mctl-renderer/",
           "packageDependencies": [
             ["@monstrs/mctl-renderer", "workspace:mctl/mctl-renderer"],
+            ["@monstrs/cli-ui-pretty-logs", "workspace:cli/cli-ui-pretty-logs"],
             ["@monstrs/code-service", "workspace:code/code-service"],
             ["@monstrs/tools-builder", "workspace:utils/builder"],
             ["@monstrs/webpack-start-server-plugin", "workspace:webpack/webpack-start-server-plugin"],
@@ -3103,8 +3208,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./mctl/mctl-service/",
           "packageDependencies": [
             ["@monstrs/mctl-service", "workspace:mctl/mctl-service"],
+            ["@monstrs/cli-ui-pretty-logs", "workspace:cli/cli-ui-pretty-logs"],
             ["@monstrs/code-service", "workspace:code/code-service"],
-            ["@monstrs/mctl-ui", "workspace:mctl/mctl-ui"],
             ["@monstrs/tools-builder", "workspace:utils/builder"],
             ["@monstrs/webpack-start-server-plugin", "workspace:webpack/webpack-start-server-plugin"],
             ["@types/blessed", "npm:0.1.17"],
@@ -3137,36 +3242,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./mctl/mctl-typecheck/",
           "packageDependencies": [
             ["@monstrs/mctl-typecheck", "workspace:mctl/mctl-typecheck"],
-            ["@monstrs/code-project", "workspace:code/code-project"],
             ["@monstrs/code-typescript", "workspace:code/code-typescript"],
             ["@monstrs/tools-builder", "workspace:utils/builder"],
             ["@types/execa", "npm:2.0.0"],
             ["@types/node", "npm:14.14.37"],
             ["clipanion", "npm:2.6.2"]
-          ],
-          "linkType": "SOFT",
-        }]
-      ]],
-      ["@monstrs/mctl-ui", [
-        ["workspace:mctl/mctl-ui", {
-          "packageLocation": "./mctl/mctl-ui/",
-          "packageDependencies": [
-            ["@monstrs/mctl-ui", "workspace:mctl/mctl-ui"],
-            ["@babel/code-frame", "npm:7.12.13"],
-            ["@monstrs/logger", "npm:0.0.4"],
-            ["@monstrs/stack-trace", "npm:0.0.4"],
-            ["@monstrs/tools-builder", "workspace:utils/builder"],
-            ["@types/babel__code-frame", "npm:7.0.2"],
-            ["@types/jest", "npm:26.0.22"],
-            ["@types/node", "npm:14.14.37"],
-            ["@types/react", "npm:17.0.2"],
-            ["ink", "virtual:751cfd8c81fd6b69f2e35d1f3a04aa70a74afcb75b3c1185ecd2a248fe43cdb692311ec90bf532752351603bef2c81c49278d74bcce84bd84ac441ca8149f89c#npm:3.0.8"],
-            ["react", "npm:17.0.2"],
-            ["split2", "npm:3.2.2"],
-            ["string-to-color", "npm:2.2.2"],
-            ["strip-ansi", "npm:6.0.0"],
-            ["supports-color", "npm:8.1.1"],
-            ["typescript", "patch:typescript@npm%3A4.2.3#builtin<compat/typescript>::version=4.2.3&hash=a45b0e"]
           ],
           "linkType": "SOFT",
         }]
@@ -11602,10 +11682,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:751cfd8c81fd6b69f2e35d1f3a04aa70a74afcb75b3c1185ecd2a248fe43cdb692311ec90bf532752351603bef2c81c49278d74bcce84bd84ac441ca8149f89c#npm:3.0.8", {
-          "packageLocation": "./.yarn/$$virtual/ink-virtual-a1e2e0ba8e/0/cache/ink-npm-3.0.8-3a8005f59f-e30fb5f012.zip/node_modules/ink/",
+        ["virtual:29db4d26ce3791154d4afc1e42f2ee77f189e5651873a352febcac9f1849f6287f23ba5967b903808e70ca1f91b1fe00ad75fe6f81766b90e06b95be86b6baf9#npm:3.0.8", {
+          "packageLocation": "./.yarn/$$virtual/ink-virtual-4f5bcf04eb/0/cache/ink-npm-3.0.8-3a8005f59f-e30fb5f012.zip/node_modules/ink/",
           "packageDependencies": [
-            ["ink", "virtual:751cfd8c81fd6b69f2e35d1f3a04aa70a74afcb75b3c1185ecd2a248fe43cdb692311ec90bf532752351603bef2c81c49278d74bcce84bd84ac441ca8149f89c#npm:3.0.8"],
+            ["ink", "virtual:29db4d26ce3791154d4afc1e42f2ee77f189e5651873a352febcac9f1849f6287f23ba5967b903808e70ca1f91b1fe00ad75fe6f81766b90e06b95be86b6baf9#npm:3.0.8"],
             ["@types/react", "npm:17.0.2"],
             ["@types/types__react", null],
             ["@types/yoga-layout", "npm:1.9.3"],
@@ -11622,7 +11702,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["patch-console", "npm:1.0.0"],
             ["react", "npm:17.0.2"],
             ["react-devtools-core", "npm:4.10.1"],
-            ["react-reconciler", "virtual:a1e2e0ba8e1b8bc8d11986202b69a852c39494fd25c3bdfae9494177de92067739f4f30c6a41ae736887b0537c2fdf24c26b62cb98a5619e377aedd8d8ae0244#npm:0.24.0"],
+            ["react-reconciler", "virtual:4f5bcf04eb76a1c879b53875a5e3739202e02c8e7dbe5f3560df74be55d27fd9d515b441328b19ed77e2f1988c9e97fa680ce52f72892d87ba47e7c6fc8212ce#npm:0.24.0"],
             ["scheduler", "npm:0.18.0"],
             ["signal-exit", "npm:3.0.3"],
             ["slice-ansi", "npm:3.0.0"],
@@ -15677,10 +15757,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:a1e2e0ba8e1b8bc8d11986202b69a852c39494fd25c3bdfae9494177de92067739f4f30c6a41ae736887b0537c2fdf24c26b62cb98a5619e377aedd8d8ae0244#npm:0.24.0", {
-          "packageLocation": "./.yarn/$$virtual/react-reconciler-virtual-4d362078d9/0/cache/react-reconciler-npm-0.24.0-eaeed763d0-4c6528771b.zip/node_modules/react-reconciler/",
+        ["virtual:4f5bcf04eb76a1c879b53875a5e3739202e02c8e7dbe5f3560df74be55d27fd9d515b441328b19ed77e2f1988c9e97fa680ce52f72892d87ba47e7c6fc8212ce#npm:0.24.0", {
+          "packageLocation": "./.yarn/$$virtual/react-reconciler-virtual-b409e7c0e7/0/cache/react-reconciler-npm-0.24.0-eaeed763d0-4c6528771b.zip/node_modules/react-reconciler/",
           "packageDependencies": [
-            ["react-reconciler", "virtual:a1e2e0ba8e1b8bc8d11986202b69a852c39494fd25c3bdfae9494177de92067739f4f30c6a41ae736887b0537c2fdf24c26b62cb98a5619e377aedd8d8ae0244#npm:0.24.0"],
+            ["react-reconciler", "virtual:4f5bcf04eb76a1c879b53875a5e3739202e02c8e7dbe5f3560df74be55d27fd9d515b441328b19ed77e2f1988c9e97fa680ce52f72892d87ba47e7c6fc8212ce#npm:0.24.0"],
             ["@types/react", "npm:17.0.2"],
             ["loose-envify", "npm:1.4.0"],
             ["object-assign", "npm:4.1.1"],
@@ -16815,14 +16895,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["split2", "npm:2.2.0"],
             ["through2", "npm:2.0.5"]
-          ],
-          "linkType": "HARD",
-        }],
-        ["npm:3.2.2", {
-          "packageLocation": "./.yarn/cache/split2-npm-3.2.2-4ccd21b4f7-04bf20af25.zip/node_modules/split2/",
-          "packageDependencies": [
-            ["split2", "npm:3.2.2"],
-            ["readable-stream", "npm:3.6.0"]
           ],
           "linkType": "HARD",
         }]

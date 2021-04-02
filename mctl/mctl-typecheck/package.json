@@ -17,7 +17,6 @@
     "@types/node": "^14.14.37"
   },
   "dependencies": {
-    "@monstrs/code-project": "workspace:0.0.80",
     "@monstrs/code-typescript": "workspace:0.0.91",
     "clipanion": "^2.6.2"
   },

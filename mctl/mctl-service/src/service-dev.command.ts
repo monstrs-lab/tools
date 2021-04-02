@@ -5,7 +5,7 @@ import { watch }                    from '@monstrs/code-service'
 import { StartServerPlugin }        from '@monstrs/webpack-start-server-plugin'
 import { StartServerPluginOptions } from '@monstrs/webpack-start-server-plugin'
 
-import { FormatLogs }               from './pretty-logs'
+import { PrettyLogsTransform }      from '@monstrs/cli-ui-pretty-logs'
 
 const waitSignals = (watcher): Promise<void> =>
   new Promise((resolve) => {
@@ -35,7 +35,7 @@ class ServiceDevCommand extends Command {
       startServerPluginArgs.stdout = formatter
       startServerPluginArgs.stderr = formatter
 
-      formatter.pipe(new FormatLogs()).pipe(process.stdout)
+      formatter.pipe(new PrettyLogsTransform()).pipe(process.stdout)
     } else {
       startServerPluginArgs.stdout = this.context.stdout
       startServerPluginArgs.stderr = this.context.stderr

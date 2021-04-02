@@ -1,7 +1,11 @@
-import { Command }           from 'clipanion'
+import { Command }                  from 'clipanion'
+import { PassThrough }              from 'stream'
 
-import { watch }             from '@monstrs/code-service'
-import { StartServerPlugin } from '@monstrs/webpack-start-server-plugin'
+import { watch }                    from '@monstrs/code-service'
+import { StartServerPlugin }        from '@monstrs/webpack-start-server-plugin'
+import { StartServerPluginOptions } from '@monstrs/webpack-start-server-plugin'
+
+import { PrettyLogsTransform }      from '@monstrs/cli-ui-pretty-logs'
 
 const waitSignals = (watcher): Promise<void> =>
   new Promise((resolve) => {
@@ -15,16 +19,33 @@ const waitSignals = (watcher): Promise<void> =>
   })
 
 class RendererDevCommand extends Command {
+  @Command.Boolean(`-p,--pretty-logs`)
+  prettyLogs: boolean = false
+
   @Command.String(`-s,--source`)
   source?: string
 
   @Command.Path(`renderer`, `dev`)
   async execute() {
+    const startServerPluginArgs: Partial<StartServerPluginOptions> = {}
+
+    if (this.prettyLogs) {
+      const formatter = new PassThrough()
+
+      startServerPluginArgs.stdout = formatter
+      startServerPluginArgs.stderr = formatter
+
+      formatter.pipe(new PrettyLogsTransform()).pipe(process.stdout)
+    } else {
+      startServerPluginArgs.stdout = this.context.stdout
+      startServerPluginArgs.stderr = this.context.stderr
+    }
+
     const plugins = [
       {
         name: 'start-server',
         use: StartServerPlugin,
-        args: [{ stdout: this.context.stdout, stderr: this.context.stderr }],
+        args: [startServerPluginArgs],
       },
     ]
 

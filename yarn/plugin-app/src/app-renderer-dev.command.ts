@@ -10,8 +10,7 @@ class AppRendererDevCommand extends BaseCommand {
 
     const { project } = await Project.find(configuration, this.context.cwd)
 
-    // TODO; add '--pretty-logs' option
-    await this.cli.run(['mctl', 'renderer', 'dev', '--source', this.context.cwd], {
+    await this.cli.run(['mctl', 'renderer', 'dev', '--pretty-logs', '--source', this.context.cwd], {
       cwd: project.cwd,
     })
   }

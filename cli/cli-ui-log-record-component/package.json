@@ -1,6 +1,6 @@
 {
-  "name": "@monstrs/mctl-service",
-  "version": "0.2.79",
+  "name": "@monstrs/cli-ui-log-record-component",
+  "version": "0.0.1",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -12,20 +12,20 @@
     "prepack": "yarn run build"
   },
   "devDependencies": {
+    "@monstrs/logger": "^0.0.4",
     "@monstrs/tools-builder": "workspace:0.0.1",
-    "@types/blessed": "^0.1.17",
+    "@types/jest": "^26.0.22",
     "@types/node": "^14.14.37",
     "@types/react": "^17.0.3",
-    "@types/react-blessed": "^0.3.2"
+    "strip-ansi": "^6.0.0"
   },
   "dependencies": {
-    "@monstrs/cli-ui-pretty-logs": "workspace:0.0.1",
-    "@monstrs/code-service": "workspace:0.0.81",
-    "@monstrs/webpack-start-server-plugin": "workspace:0.2.13",
-    "blessed": "^0.1.81",
-    "clipanion": "^2.6.2",
+    "@monstrs/cli-ui-renderer": "workspace:0.0.1",
+    "@monstrs/cli-ui-stack-trace-component": "workspace:0.0.1",
+    "@monstrs/logger": "^0.0.4",
+    "ink": "^3.0.8",
     "react": "^17.0.2",
-    "react-blessed": "^0.6.2"
+    "string-to-color": "^2.2.2"
   },
   "publishConfig": {
     "access": "public",

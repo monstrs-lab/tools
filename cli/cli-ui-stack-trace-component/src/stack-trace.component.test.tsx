@@ -1,14 +1,14 @@
 import React            from 'react'
 import stripAnsi        from 'strip-ansi'
 
-import { renderStatic } from '../renderer'
-import { LogRecord }    from './log-record.component'
+import { renderStatic } from '@monstrs/cli-ui-renderer'
+import { StackTrace }   from './stack-trace.component'
 
 const createStack = () => {
   const cwd = process.cwd()
 
   return `Error: test
-    at Object.<anonymous> (${cwd}/mctl/mctl-ui/src/log/log-record.component.test.tsx:10:12)
+    at Object.<anonymous> (${cwd}/mctl/mctl-ui/src/stack-trace/stack-trace.component.test.tsx:10:12)
     at Object.asyncJestTest (${cwd}/.yarn/cache/jest-jasmine2-npm-26.6.3-aba0c11c28-18b15901f8.zip/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:106:37)
     at ${cwd}/.yarn/cache/jest-jasmine2-npm-26.6.3-aba0c11c28-18b15901f8.zip/node_modules/jest-jasmine2/build/queueRunner.js:45:12
     at new Promise (<anonymous>)
@@ -17,15 +17,9 @@ const createStack = () => {
     at processTicksAndRejections (internal/process/task_queues.js:93:5)`
 }
 
-describe('log record component', () => {
+describe('stack trace component', () => {
   it('render', () => {
-    const output = renderStatic(<LogRecord name='test' body='message' />, 160)
-
-    expect(stripAnsi(output)).toMatchSnapshot()
-  })
-
-  it('render body error stack', () => {
-    const output = renderStatic(<LogRecord name='test' body={{ stack: createStack() }} />, 160)
+    const output = renderStatic(<StackTrace>{createStack()}</StackTrace>, 160)
 
     expect(stripAnsi(output)).toMatchSnapshot()
   })

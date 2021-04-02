@@ -1,22 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`log record component render 1`] = `"● [test] message"`;
-
-exports[`log record component render body error stack 1`] = `
-"● [test]
-
-  Location
-       8 |   const cwd = process.cwd()
-       9 |
-    > 10 |   return \`Error: test
-         |            ^
-      11 |     at Object.<anonymous> (\${cwd}/mctl/mctl-ui/src/log/log-record.component.test.tsx:10:12)
-      12 |     at Object.asyncJestTest 
-    (\${cwd}/.yarn/cache/jest-jasmine2-npm-26.6.3-aba0c11c28-18b15901f8.zip/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:106:37)
-      13 |     at \${cwd}/.yarn/cache/jest-jasmine2-npm-26.6.3-aba0c11c28-18b15901f8.zip/node_modules/jest-jasmine2/build/queueRunner.js:45:12
-
+exports[`stack trace component render 1`] = `
+"
   Stack
-    Object.<anonymous>                                                                                  mctl/mctl-ui/src/log/log-record.component.test.tsx:10:12
+    Object.<anonymous>                                                                         mctl/mctl-ui/src/stack-trace/stack-trace.component.test.tsx:10:12
     Object.asyncJestTest           .yarn/cache/jest-jasmine2-npm-26.6.3-aba0c11c28-18b15901f8.zip/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:106:37
                                             .yarn/cache/jest-jasmine2-npm-26.6.3-aba0c11c28-18b15901f8.zip/node_modules/jest-jasmine2/build/queueRunner.js:45:12
     mapper                                  .yarn/cache/jest-jasmine2-npm-26.6.3-aba0c11c28-18b15901f8.zip/node_modules/jest-jasmine2/build/queueRunner.js:28:19
