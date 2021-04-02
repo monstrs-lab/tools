@@ -75,6 +75,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:code/code-lint"
       },
       {
+        "name": "@monstrs/code-pack",
+        "reference": "workspace:code/code-pack"
+      },
+      {
         "name": "@monstrs/code-service",
         "reference": "workspace:code/code-service"
       },
@@ -232,6 +236,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@monstrs/code-commitlint", ["workspace:code/code-commitlint"]],
       ["@monstrs/code-format", ["workspace:code/code-format"]],
       ["@monstrs/code-lint", ["virtual:a967cf68bc62f76235f64b8783460f86e070a056cef37354d999d8b29df009ec2f539880edd00e3a3ec951f364f1b280acbd148d7293a5eee5d25291b73c6697#workspace:code/code-lint", "virtual:e42c4e90371244c75d2aca604de5e3cd78697d0631cc570c317c00cd00329874a56f3c78f8cf3532e894572331a44286a6cdb7f16e02a558a5b06cd883661fa2#workspace:code/code-lint", "workspace:code/code-lint"]],
+      ["@monstrs/code-pack", ["workspace:code/code-pack"]],
       ["@monstrs/code-service", ["workspace:code/code-service"]],
       ["@monstrs/code-test", ["workspace:code/code-test"]],
       ["@monstrs/code-typescript", ["workspace:code/code-typescript"]],
@@ -2882,6 +2887,22 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT",
         }]
       ]],
+      ["@monstrs/code-pack", [
+        ["workspace:code/code-pack", {
+          "packageLocation": "./code/code-pack/",
+          "packageDependencies": [
+            ["@monstrs/code-pack", "workspace:code/code-pack"],
+            ["@iarna/toml", "npm:2.2.5"],
+            ["@monstrs/github-actions-utils", "workspace:github/actions-utils"],
+            ["@monstrs/tools-builder", "workspace:utils/builder"],
+            ["@types/globby", "npm:9.1.0"],
+            ["@types/node", "npm:14.14.37"],
+            ["@yarnpkg/core", "npm:2.4.0"],
+            ["@yarnpkg/fslib", "npm:2.4.0"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
       ["@monstrs/code-service", [
         ["workspace:code/code-service", {
           "packageLocation": "./code/code-service/",
@@ -3388,19 +3409,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./yarn/plugin-app/",
           "packageDependencies": [
             ["@monstrs/yarn-plugin-app", "workspace:yarn/plugin-app"],
-            ["@iarna/toml", "npm:2.2.5"],
             ["@monstrs/code-commitlint", "workspace:code/code-commitlint"],
+            ["@monstrs/code-pack", "workspace:code/code-pack"],
             ["@monstrs/code-typescript", "workspace:code/code-typescript"],
-            ["@monstrs/github-actions-utils", "workspace:github/actions-utils"],
             ["@monstrs/tools-builder", "workspace:utils/builder"],
             ["@monstrs/yarn-pack-utils", "workspace:yarn/pack-utils"],
             ["@yarnpkg/cli", "virtual:93762f395d50e2410536eefd1c9656e618c9e599e2d023ef5341f0dd44b7c10b9c8541440da9da71a8fae8443bde146c84aabb5f6bc6020be89f6fe1913af10c#npm:2.4.1"],
             ["@yarnpkg/core", "npm:2.4.0"],
             ["@yarnpkg/fslib", "npm:2.4.0"],
             ["@yarnpkg/plugin-patch", "virtual:1a3c3e23862886e9097ce19869c0e7579fcaf2a13ac61e2db69eb820d60eab05a6451a869f00327653a532992ac8cbd663e095383ba4785278a9e364376de93d#npm:2.1.2"],
-            ["clipanion", "npm:2.6.2"],
-            ["lint-staged", "npm:10.5.4"],
-            ["tempy", "npm:1.0.1"]
+            ["clipanion", "npm:2.6.2"]
           ],
           "linkType": "SOFT",
         }]
