@@ -2013,25 +2013,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-project@workspace:0.0.80, @monstrs/code-project@workspace:code/code-project":
-  version: 0.0.0-use.local
-  resolution: "@monstrs/code-project@workspace:code/code-project"
-  dependencies:
-    "@monstrs/tools-builder": "workspace:0.0.1"
-    "@types/node": ^14.14.37
-    "@yarnpkg/cli": ^2.4.1
-    "@yarnpkg/core": ^2.4.0
-    "@yarnpkg/fslib": ^2.4.0
-    fast-glob: ^3.2.5
-  languageName: unknown
-  linkType: soft
-
 "@monstrs/code-service@workspace:0.0.81, @monstrs/code-service@workspace:code/code-service":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-service@workspace:code/code-service"
   dependencies:
     "@creditkarma/thrift-parser": ^1.2.0
-    "@monstrs/code-project": "workspace:0.0.80"
     "@monstrs/code-typescript": "workspace:0.0.91"
     "@monstrs/tools-builder": "workspace:0.0.1"
     "@types/file-loader": 4.2.1
@@ -2040,7 +2026,10 @@ __metadata:
     "@types/protocol-buffers-schema": 3.4.0
     "@types/wait-for-localhost": 3.1.0
     "@types/webpack": ^4.41.27
+    "@yarnpkg/cli": ^2.4.1
+    "@yarnpkg/core": ^2.4.0
     "@yarnpkg/fslib": ^2.4.0
+    fast-glob: ^3.2.5
     file-loader: ^6.2.0
     protocol-buffers-schema: ^3.5.1
     string-replace-loader: ^3.0.1

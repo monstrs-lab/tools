@@ -75,10 +75,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:code/code-lint"
       },
       {
-        "name": "@monstrs/code-project",
-        "reference": "workspace:code/code-project"
-      },
-      {
         "name": "@monstrs/code-service",
         "reference": "workspace:code/code-service"
       },
@@ -236,7 +232,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@monstrs/code-commitlint", ["workspace:code/code-commitlint"]],
       ["@monstrs/code-format", ["workspace:code/code-format"]],
       ["@monstrs/code-lint", ["virtual:a967cf68bc62f76235f64b8783460f86e070a056cef37354d999d8b29df009ec2f539880edd00e3a3ec951f364f1b280acbd148d7293a5eee5d25291b73c6697#workspace:code/code-lint", "virtual:e42c4e90371244c75d2aca604de5e3cd78697d0631cc570c317c00cd00329874a56f3c78f8cf3532e894572331a44286a6cdb7f16e02a558a5b06cd883661fa2#workspace:code/code-lint", "workspace:code/code-lint"]],
-      ["@monstrs/code-project", ["workspace:code/code-project"]],
       ["@monstrs/code-service", ["workspace:code/code-service"]],
       ["@monstrs/code-test", ["workspace:code/code-test"]],
       ["@monstrs/code-typescript", ["workspace:code/code-typescript"]],
@@ -2887,28 +2882,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT",
         }]
       ]],
-      ["@monstrs/code-project", [
-        ["workspace:code/code-project", {
-          "packageLocation": "./code/code-project/",
-          "packageDependencies": [
-            ["@monstrs/code-project", "workspace:code/code-project"],
-            ["@monstrs/tools-builder", "workspace:utils/builder"],
-            ["@types/node", "npm:14.14.37"],
-            ["@yarnpkg/cli", "virtual:93762f395d50e2410536eefd1c9656e618c9e599e2d023ef5341f0dd44b7c10b9c8541440da9da71a8fae8443bde146c84aabb5f6bc6020be89f6fe1913af10c#npm:2.4.1"],
-            ["@yarnpkg/core", "npm:2.4.0"],
-            ["@yarnpkg/fslib", "npm:2.4.0"],
-            ["fast-glob", "npm:3.2.5"]
-          ],
-          "linkType": "SOFT",
-        }]
-      ]],
       ["@monstrs/code-service", [
         ["workspace:code/code-service", {
           "packageLocation": "./code/code-service/",
           "packageDependencies": [
             ["@monstrs/code-service", "workspace:code/code-service"],
             ["@creditkarma/thrift-parser", "npm:1.2.0"],
-            ["@monstrs/code-project", "workspace:code/code-project"],
             ["@monstrs/code-typescript", "workspace:code/code-typescript"],
             ["@monstrs/tools-builder", "workspace:utils/builder"],
             ["@types/file-loader", "npm:4.2.1"],
@@ -2917,7 +2896,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/protocol-buffers-schema", "npm:3.4.0"],
             ["@types/wait-for-localhost", "npm:3.1.0"],
             ["@types/webpack", "npm:4.41.27"],
+            ["@yarnpkg/cli", "virtual:93762f395d50e2410536eefd1c9656e618c9e599e2d023ef5341f0dd44b7c10b9c8541440da9da71a8fae8443bde146c84aabb5f6bc6020be89f6fe1913af10c#npm:2.4.1"],
+            ["@yarnpkg/core", "npm:2.4.0"],
             ["@yarnpkg/fslib", "npm:2.4.0"],
+            ["fast-glob", "npm:3.2.5"],
             ["file-loader", "virtual:5ae41ee3cd3458f3cf40ce517387f15a09242f6f1330942b6a2e07d7e31df094e8debca5d9583d5aee61c7f6b6500e26684e57f8a8bbcb4f2def07322b63d5b8#npm:6.2.0"],
             ["protocol-buffers-schema", "npm:3.5.1"],
             ["string-replace-loader", "virtual:5ae41ee3cd3458f3cf40ce517387f15a09242f6f1330942b6a2e07d7e31df094e8debca5d9583d5aee61c7f6b6500e26684e57f8a8bbcb4f2def07322b63d5b8#npm:3.0.1"],

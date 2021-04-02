@@ -29,8 +29,10 @@
   },
   "dependencies": {
     "@creditkarma/thrift-parser": "^1.2.0",
-    "@monstrs/code-project": "workspace:0.0.80",
     "@monstrs/code-typescript": "workspace:0.0.91",
+    "@yarnpkg/cli": "^2.4.1",
+    "@yarnpkg/core": "^2.4.0",
+    "fast-glob": "^3.2.5",
     "file-loader": "^6.2.0",
     "protocol-buffers-schema": "^3.5.1",
     "string-replace-loader": "^3.0.1",

@@ -1,5 +1,49 @@
-import { getProjectUnpluggedDependencies } from '@monstrs/code-project'
-import { getWorkspace }                    from '@monstrs/code-project'
+import { Configuration }          from '@yarnpkg/core'
+import { Project }                from '@yarnpkg/core'
+import { PortablePath }           from '@yarnpkg/fslib'
+import { getPluginConfiguration } from '@yarnpkg/cli'
+import fg                         from 'fast-glob'
+import path                       from 'path'
+import { promises as fs }         from 'fs'
+
+const FORCE_UNPLUGGED_PACKAGES = new Set([
+  'nan',
+  'node-gyp',
+  'node-pre-gyp',
+  'node-addon-api',
+  'fsevents',
+  'core-js',
+  'core-js-pure',
+])
+
+export const getUnpluggedDependencies = async (): Promise<Set<String>> => {
+  const configuration = await Configuration.find(
+    process.cwd() as PortablePath,
+    getPluginConfiguration()
+  )
+
+  const entries = await fg('*/node_modules/*/package.json', {
+    cwd: configuration.get(`pnpUnpluggedFolder`),
+  })
+
+  const dependenciesNames = new Set<string>()
+
+  await Promise.all(
+    entries
+      .map((entry) => path.join(configuration.get(`pnpUnpluggedFolder`), entry))
+      .map(async (entry) => {
+        try {
+          const { name } = JSON.parse((await fs.readFile(entry)).toString())
+
+          if (name && !FORCE_UNPLUGGED_PACKAGES.has(name)) {
+            dependenciesNames.add(name)
+          }
+        } catch {} // eslint-disable-line
+      })
+  )
+
+  return dependenciesNames
+}
 
 export const unusedExternals = [
   // nestjs
@@ -36,13 +80,20 @@ export const unusedExternals = [
 ]
 
 export const getExternals = async (cwd: string) => {
-  const workspace = await getWorkspace(cwd)
+  const configuration = await Configuration.find(
+    process.cwd() as PortablePath,
+    getPluginConfiguration()
+  )
+
+  const { project } = await Project.find(configuration, process.cwd() as PortablePath)
+
+  const workspace = project.getWorkspaceByFilePath(cwd as PortablePath)
 
   const workspaceExternals: Array<String> = Object.keys(
     workspace?.manifest?.raw?.externalDependencies || {}
   )
 
-  const unpluggedExternals: Array<String> = Array.from(await getProjectUnpluggedDependencies())
+  const unpluggedExternals: Array<String> = Array.from(await getUnpluggedDependencies())
 
   return Array.from(new Set([...workspaceExternals, ...unpluggedExternals, ...unusedExternals]))
 }
