@@ -1,0 +1,7 @@
+releases:
+  "@monstrs/github-checks-utils": patch
+  "@monstrs/mctl-checks": patch
+  "@monstrs/mctl-cli": patch
+  "@monstrs/mctl-lint": patch
+  "@monstrs/mctl-test": patch
+  "@monstrs/mctl-typecheck": patch
