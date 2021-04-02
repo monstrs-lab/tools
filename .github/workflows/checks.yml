@@ -24,26 +24,26 @@ jobs:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
 
       - name: Lint
-        run: yarn mctl check lint
+        run: yarn checks lint
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
 
       - name: TypeCheck
-        run: yarn mctl check typecheck
+        run: yarn checks typecheck
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
 
       - name: TestUnit
-        run: yarn mctl check test:unit
+        run: yarn checks test unit
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
 
       - name: TestIntegration
-        run: yarn mctl check test:integration
+        run: yarn checks test integration
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
 
       - name: Release
-        run: yarn mctl check release
+        run: yarn checks release
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'

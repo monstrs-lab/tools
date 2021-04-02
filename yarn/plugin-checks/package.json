@@ -1,5 +1,5 @@
 {
-  "name": "@monstrs/yarn-plugin-workspaces",
+  "name": "@monstrs/yarn-plugin-checks",
   "private": true,
   "version": "0.0.1",
   "license": "MIT",
@@ -13,11 +13,14 @@
     "prepack": "yarn run build"
   },
   "devDependencies": {
+    "@monstrs/github-checks-utils": "workspace:0.0.2",
     "@monstrs/tools-builder": "workspace:0.0.1",
     "@monstrs/yarn-plugin-files": "workspace:0.0.1",
+    "@monstrs/yarn-run-utils": "workspace:0.0.1",
     "@monstrs/yarn-workspace-utils": "workspace:0.0.1",
     "@yarnpkg/cli": "^2.4.1",
     "@yarnpkg/core": "^2.4.0",
+    "@yarnpkg/fslib": "^2.4.0",
     "clipanion": "^2.6.2"
   },
   "publishConfig": {
