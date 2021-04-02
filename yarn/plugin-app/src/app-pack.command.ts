@@ -1,23 +1,19 @@
-import { BaseCommand }        from '@yarnpkg/cli'
-import { Configuration }      from '@yarnpkg/core'
-import { Project }            from '@yarnpkg/core'
-import { StreamReport }       from '@yarnpkg/core'
-import { execUtils }          from '@yarnpkg/core'
-import tempy                  from 'tempy'
-import { stringify }          from '@iarna/toml'
-import { PortablePath }       from '@yarnpkg/fslib'
-import { xfs }                from '@yarnpkg/fslib'
-import { Command }            from 'clipanion'
+import { BaseCommand }   from '@yarnpkg/cli'
+import { Configuration } from '@yarnpkg/core'
+import { Project }       from '@yarnpkg/core'
+import { StreamReport }  from '@yarnpkg/core'
+import { execUtils }     from '@yarnpkg/core'
+import { Command }       from 'clipanion'
 
-import { isGithubActionsEnv } from '@monstrs/github-actions-utils'
-import { getPullRequestSha }  from '@monstrs/github-actions-utils'
+import { pack }          from '@monstrs/code-pack'
+import { TagPolicy }     from '@monstrs/code-pack'
 
 class AppPackCommand extends BaseCommand {
   @Command.String(`-r,--registry`)
   registry: string = ''
 
   @Command.String(`-t,--tag-policy`)
-  tagPolicy: string = 'revision'
+  tagPolicy: TagPolicy = 'revision'
 
   @Command.Boolean(`-p,--publish`)
   publish: boolean = false
@@ -58,89 +54,27 @@ class AppPackCommand extends BaseCommand {
             `Workspace ${workspace.manifest.raw.name} not allowed for package.`
           )
         } else {
-          const repo = [name.name, name.scope].filter(Boolean).join('-')
-          const registry = `${this.registry}${repo}`
-
-          const version = await this.getVersion(project)
-
-          const currentVersion = `${registry}:${version}`
-          const latestVersion = `${registry}:latest`
-
-          const descriptor = {
-            project: {
-              id: workspace.manifest.raw.name,
-              name: workspace.manifest.raw.name,
-              version: '0.0.1',
+          await pack(
+            {
+              workspace: workspace.manifest.raw.name,
+              registry: this.registry,
+              publish: this.publish,
+              tagPolicy: this.tagPolicy,
             },
-            build: {
-              exclude: ['.git', '.yarn/unplugged'],
-              env: [
-                {
-                  name: 'WORKSPACE',
-                  value: workspace.manifest.raw.name,
-                },
-              ],
-            },
-          }
-
-          const descriptorPath = tempy.file({ extension: 'toml' })
-
-          await xfs.writeFilePromise(descriptorPath as PortablePath, stringify(descriptor))
-
-          const args = [
-            'build',
-            currentVersion,
-            '--descriptor',
-            descriptorPath,
-            '--buildpack',
-            'monstrs/buildpack-yarn-workspace:0.0.2',
-            '--builder',
-            'monstrs/builder-base:buster',
-            '--tag',
-            latestVersion,
-          ]
-
-          if (this.publish) {
-            args.push('--publish')
-          }
-
-          await execUtils.pipevp('pack', args, {
-            env: process.env,
-            cwd: project.cwd,
-            stdin: this.context.stdin,
-            stdout: this.context.stdout,
-            stderr: this.context.stderr,
-            end: execUtils.EndStrategy.ErrorCode,
-          })
+            {
+              env: process.env,
+              cwd: project.cwd,
+              stdin: this.context.stdin,
+              stdout: this.context.stdout,
+              stderr: this.context.stderr,
+              end: execUtils.EndStrategy.ErrorCode,
+            }
+          )
         }
       }
     )
 
     return report.exitCode()
-  }
-
-  async getVersion(project: Project) {
-    const revision = await this.getRevision(project)
-    const hash = revision.substr(0, 7)
-
-    if (this.tagPolicy === 'hash-timestamp') {
-      return `${hash}-${Date.now()}`
-    }
-
-    return revision
-  }
-
-  async getRevision(project: Project) {
-    if (isGithubActionsEnv()) {
-      return getPullRequestSha()
-    }
-
-    const { stdout } = await execUtils.execvp('git', ['log', '-1', '--format="%H"'], {
-      cwd: project.cwd,
-      strict: true,
-    })
-
-    return stdout
   }
 }
 

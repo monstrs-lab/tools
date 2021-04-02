@@ -2013,6 +2013,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@monstrs/code-pack@workspace:0.0.79, @monstrs/code-pack@workspace:code/code-pack":
+  version: 0.0.0-use.local
+  resolution: "@monstrs/code-pack@workspace:code/code-pack"
+  dependencies:
+    "@iarna/toml": ^2.2.5
+    "@monstrs/github-actions-utils": "workspace:0.0.3"
+    "@monstrs/tools-builder": "workspace:0.0.1"
+    "@types/globby": 9.1.0
+    "@types/node": ^14.14.37
+    "@yarnpkg/core": ^2.4.0
+    "@yarnpkg/fslib": ^2.4.0
+  languageName: unknown
+  linkType: soft
+
 "@monstrs/code-service@workspace:0.0.81, @monstrs/code-service@workspace:code/code-service":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-service@workspace:code/code-service"
@@ -2372,10 +2386,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-app@workspace:yarn/plugin-app"
   dependencies:
-    "@iarna/toml": ^2.2.5
     "@monstrs/code-commitlint": "workspace:0.0.86"
+    "@monstrs/code-pack": "workspace:0.0.79"
     "@monstrs/code-typescript": "workspace:0.0.91"
-    "@monstrs/github-actions-utils": "workspace:0.0.3"
     "@monstrs/tools-builder": "workspace:0.0.1"
     "@monstrs/yarn-pack-utils": "workspace:0.0.1"
     "@yarnpkg/cli": ^2.4.1
@@ -2383,8 +2396,6 @@ __metadata:
     "@yarnpkg/fslib": ^2.4.0
     "@yarnpkg/plugin-patch": ^2.1.2
     clipanion: ^2.6.2
-    lint-staged: ^10.5.4
-    tempy: ^1.0.1
   languageName: unknown
   linkType: soft
 
