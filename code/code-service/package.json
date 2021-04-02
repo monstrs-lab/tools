@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-service",
-  "version": "0.0.80",
+  "version": "0.0.81",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@creditkarma/thrift-parser": "^1.2.0",
-    "@monstrs/code-project": "workspace:0.0.79",
+    "@monstrs/code-project": "workspace:0.0.80",
     "@monstrs/code-typescript": "workspace:0.0.91",
     "file-loader": "^6.2.0",
     "protocol-buffers-schema": "^3.5.1",
