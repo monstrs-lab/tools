@@ -31,7 +31,7 @@ export const eslintResultsFormat = (
           raw_details: codeFrameColumns(
             readFileSync(filePath).toString(),
             {
-              start: { line, column: (message.column || 0) + 1 },
+              start: { line: message.line || 0, column: message.column || 0 },
             },
             { highlightCode: false }
           ),
