@@ -1,15 +1,14 @@
-import { BaseCommand }        from '@yarnpkg/cli'
-import { Configuration }      from '@yarnpkg/core'
-import { Project }            from '@yarnpkg/core'
-import { Command }            from 'clipanion'
-import { xfs }                from '@yarnpkg/fslib'
-import { ppath }              from '@yarnpkg/fslib'
-import { toFilename }         from '@yarnpkg/fslib'
+import { BaseCommand }     from '@yarnpkg/cli'
+import { Configuration }   from '@yarnpkg/core'
+import { Project }         from '@yarnpkg/core'
+import { Command }         from 'clipanion'
+import { xfs }             from '@yarnpkg/fslib'
+import { ppath }           from '@yarnpkg/fslib'
+import { toFilename }      from '@yarnpkg/fslib'
 
-import { AnnotationLevel }    from '@monstrs/github-checks-utils'
-import { Conclusion }         from '@monstrs/github-checks-utils'
-import { createCheck }        from '@monstrs/github-checks-utils'
-import { DiagnosticCategory } from '@monstrs/code-typescript'
+import { AnnotationLevel } from '@monstrs/github-checks-utils'
+import { Conclusion }      from '@monstrs/github-checks-utils'
+import { createCheck }     from '@monstrs/github-checks-utils'
 
 class ChecksTypeCheckCommand extends BaseCommand {
   @Command.Path('checks', 'typecheck')
@@ -36,10 +35,7 @@ class ChecksTypeCheckCommand extends BaseCommand {
       start_line: diagnostic.file.position.line + 1,
       end_line: diagnostic.file.position.line + 1,
       raw_details: diagnostic.messageText,
-      annotation_level:
-        diagnostic.category === DiagnosticCategory.Warning
-          ? AnnotationLevel.Warning
-          : AnnotationLevel.Failure,
+      annotation_level: AnnotationLevel.Failure,
     }))
 
     const conclusion = annotations.length > 0 ? Conclusion.Failure : Conclusion.Success
