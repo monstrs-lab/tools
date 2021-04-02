@@ -4,10 +4,10 @@ import React            from 'react'
 import { Transform }    from 'stream'
 import { EOL }          from 'os'
 
-import { renderStatic } from '@monstrs/mctl-ui'
-import { LogRecord }    from '@monstrs/mctl-ui'
+import { renderStatic } from '@monstrs/cli-ui-renderer'
+import { LogRecord }    from '@monstrs/cli-ui-log-record-component'
 
-export class FormatLogs extends Transform {
+export class PrettyLogsTransform extends Transform {
   parse(row) {
     try {
       if (row) {

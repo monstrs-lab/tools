@@ -18,7 +18,8 @@
     "mctl/**/*",
     "github/*",
     "utils/*",
-    "yarn/*"
+    "yarn/*",
+    "cli/*"
   ],
   "resolutions": {
     "@types/estree": "0.0.45",

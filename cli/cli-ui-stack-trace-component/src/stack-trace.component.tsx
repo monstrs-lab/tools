@@ -6,7 +6,8 @@ import { Text }           from 'ink'
 import { Box }            from 'ink'
 import { Spacer }         from 'ink'
 
-import { SourcePreview }  from '../source'
+import { SourcePreview }  from '@monstrs/cli-ui-source-component'
+
 import { getFrameSource } from './utils'
 
 export interface StackTraceProps {
