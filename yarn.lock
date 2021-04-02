@@ -2035,6 +2035,7 @@ __metadata:
   dependencies:
     "@actions/core": ^1.2.6
     "@actions/github": ^4.0.0
+    "@babel/code-frame": ^7.12.13
     "@jest/test-result": ^26.6.2
     "@monstrs/tools-builder": "workspace:0.0.1"
     "@octokit/types": ^6.13.0
@@ -2370,6 +2371,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-checks@workspace:yarn/plugin-checks"
   dependencies:
+    "@babel/code-frame": ^7.12.13
     "@monstrs/github-checks-utils": "workspace:0.0.2"
     "@monstrs/tools-builder": "workspace:0.0.1"
     "@monstrs/yarn-plugin-files": "workspace:0.0.1"
@@ -2379,6 +2381,7 @@ __metadata:
     "@yarnpkg/core": ^2.4.0
     "@yarnpkg/fslib": ^2.4.0
     clipanion: ^2.6.2
+    strip-ansi: ^6.0.0
   languageName: unknown
   linkType: soft
 

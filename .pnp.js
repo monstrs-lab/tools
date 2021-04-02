@@ -2895,6 +2895,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@monstrs/github-checks-utils", "workspace:github/checks-utils"],
             ["@actions/core", "npm:1.2.6"],
             ["@actions/github", "npm:4.0.0"],
+            ["@babel/code-frame", "npm:7.12.13"],
             ["@jest/test-result", "npm:26.6.2"],
             ["@monstrs/tools-builder", "workspace:utils/builder"],
             ["@octokit/types", "npm:6.13.0"],
@@ -3376,6 +3377,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./yarn/plugin-checks/",
           "packageDependencies": [
             ["@monstrs/yarn-plugin-checks", "workspace:yarn/plugin-checks"],
+            ["@babel/code-frame", "npm:7.12.13"],
             ["@monstrs/github-checks-utils", "workspace:github/checks-utils"],
             ["@monstrs/tools-builder", "workspace:utils/builder"],
             ["@monstrs/yarn-plugin-files", "workspace:yarn/plugin-files"],
@@ -3384,7 +3386,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@yarnpkg/cli", "virtual:93762f395d50e2410536eefd1c9656e618c9e599e2d023ef5341f0dd44b7c10b9c8541440da9da71a8fae8443bde146c84aabb5f6bc6020be89f6fe1913af10c#npm:2.4.1"],
             ["@yarnpkg/core", "npm:2.4.0"],
             ["@yarnpkg/fslib", "npm:2.4.0"],
-            ["clipanion", "npm:2.6.2"]
+            ["clipanion", "npm:2.6.2"],
+            ["strip-ansi", "npm:6.0.0"]
           ],
           "linkType": "SOFT",
         }]

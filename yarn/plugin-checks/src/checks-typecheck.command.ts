@@ -1,14 +1,15 @@
-import { BaseCommand }     from '@yarnpkg/cli'
-import { Configuration }   from '@yarnpkg/core'
-import { Project }         from '@yarnpkg/core'
-import { Command }         from 'clipanion'
-import { xfs }             from '@yarnpkg/fslib'
-import { ppath }           from '@yarnpkg/fslib'
-import { toFilename }      from '@yarnpkg/fslib'
+import { BaseCommand }      from '@yarnpkg/cli'
+import { Configuration }    from '@yarnpkg/core'
+import { Project }          from '@yarnpkg/core'
+import { Command }          from 'clipanion'
+import { xfs }              from '@yarnpkg/fslib'
+import { ppath }            from '@yarnpkg/fslib'
+import { toFilename }       from '@yarnpkg/fslib'
+import { codeFrameColumns } from '@babel/code-frame'
 
-import { AnnotationLevel } from '@monstrs/github-checks-utils'
-import { Conclusion }      from '@monstrs/github-checks-utils'
-import { createCheck }     from '@monstrs/github-checks-utils'
+import { AnnotationLevel }  from '@monstrs/github-checks-utils'
+import { Conclusion }       from '@monstrs/github-checks-utils'
+import { createCheck }      from '@monstrs/github-checks-utils'
 
 class ChecksTypeCheckCommand extends BaseCommand {
   @Command.Path('checks', 'typecheck')
@@ -34,7 +35,16 @@ class ChecksTypeCheckCommand extends BaseCommand {
       message: diagnostic.messageText,
       start_line: diagnostic.file.position.line + 1,
       end_line: diagnostic.file.position.line + 1,
-      raw_details: diagnostic.messageText,
+      raw_details: codeFrameColumns(
+        xfs.readFileSync(diagnostic.file.fileName).toString(),
+        {
+          start: {
+            line: diagnostic.file.position.line + 1,
+            column: diagnostic.file.position.character + 1,
+          },
+        },
+        { highlightCode: false }
+      ),
       annotation_level: AnnotationLevel.Failure,
     }))
 

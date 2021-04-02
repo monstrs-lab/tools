@@ -4,6 +4,7 @@ import { Project }                     from '@yarnpkg/core'
 import { Command }                     from 'clipanion'
 import { ppath }                       from '@yarnpkg/fslib'
 import { toFilename }                  from '@yarnpkg/fslib'
+import stripAnsi                       from 'strip-ansi'
 
 import { Annotation, AnnotationLevel } from '@monstrs/github-checks-utils'
 import { Conclusion }                  from '@monstrs/github-checks-utils'
@@ -40,7 +41,7 @@ class ChecksReleaseCommand extends BaseCommand {
             annotation_level: AnnotationLevel.Failure,
             title: `Error release workspace ${workspace.manifest.raw.name}`,
             message: `Exit code ${code}`,
-            raw_details: context.output,
+            raw_details: stripAnsi(context.output),
             path: ppath.join(workspace.relativeCwd, toFilename('package.json')),
             start_line: 1,
             end_line: 1,

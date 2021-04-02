@@ -1,4 +1,6 @@
 import { Linter as EslintLinter } from 'eslint'
+import { codeFrameColumns }       from '@babel/code-frame'
+import { readFileSync }           from 'fs'
 
 import { AnnotationLevel }        from './checks.interfaces'
 import { Annotation }             from './checks.interfaces'
@@ -26,8 +28,14 @@ export const eslintResultsFormat = (
           start_line: line,
           end_line: line,
           annotation_level: getAnnotationLevel(message.severity),
-          raw_details: `(${message.ruleId}): ${message.message}`,
-          title: message.ruleId || 'unknown/rule',
+          raw_details: codeFrameColumns(
+            readFileSync(filePath).toString(),
+            {
+              start: { line, column: (message.column || 0) + 1 },
+            },
+            { highlightCode: false }
+          ),
+          title: `(${message.ruleId}): ${message.message}`,
           message: message.message,
         }
       })
