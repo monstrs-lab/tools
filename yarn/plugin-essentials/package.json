@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@monstrs/yarn-plugin-app": "workspace:0.0.1",
+    "@monstrs/yarn-plugin-checks": "workspace:0.0.1",
     "@monstrs/yarn-plugin-commit": "workspace:0.0.1",
     "@monstrs/yarn-plugin-files": "workspace:0.0.1",
     "@monstrs/yarn-plugin-format": "workspace:0.0.1",

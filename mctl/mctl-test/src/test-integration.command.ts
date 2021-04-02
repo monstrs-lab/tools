@@ -1,6 +1,7 @@
-import { Command }     from 'clipanion'
+import { Command }       from 'clipanion'
+import { writeFileSync } from 'fs'
 
-import { integration } from '@monstrs/code-test'
+import { integration }   from '@monstrs/code-test'
 
 class TestIntegrationCommand extends Command {
   @Command.Boolean(`-u,--update-shapshot`)
@@ -14,6 +15,9 @@ class TestIntegrationCommand extends Command {
 
   @Command.Boolean(`--json`)
   json: boolean = false
+
+  @Command.String('-r,--report')
+  report: string
 
   @Command.Rest({ required: 0 })
   files: Array<string> = []
@@ -30,6 +34,10 @@ class TestIntegrationCommand extends Command {
       },
       this.files
     )
+
+    if (this.report) {
+      writeFileSync(this.report, JSON.stringify(results, null, 2))
+    }
 
     if (this.json) {
       this.context.stdout.write(JSON.stringify(results))

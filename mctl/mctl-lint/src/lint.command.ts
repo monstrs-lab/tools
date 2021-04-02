@@ -1,8 +1,12 @@
-import { Command } from 'clipanion'
+import { Command }       from 'clipanion'
+import { writeFileSync } from 'fs'
 
-import { Linter }  from '@monstrs/code-lint'
+import { Linter }        from '@monstrs/code-lint'
 
 class LintCommand extends Command {
+  @Command.String('-r,--report')
+  report: string
+
   @Command.Rest({ required: 0 })
   files: Array<string> = []
 
@@ -14,6 +18,10 @@ class LintCommand extends Command {
       this.files.length > 0 ? linter.lintFiles(this.files) : linter.lint()
 
     const output = linter.format(results)
+
+    if (this.report) {
+      writeFileSync(this.report, JSON.stringify(results, null, 2))
+    }
 
     if (output) {
       this.context.stdout.write(output)

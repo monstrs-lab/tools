@@ -16,7 +16,7 @@ export const eslintResultsFormat = (
   cwd?: string
 ): Annotation[] => {
   const annotations: Annotation[] = results
-    .filter((result) => result.message?.length > 0)
+    .filter((result) => result.messages?.length > 0)
     .map(({ filePath, messages = [] }) =>
       messages.map((message) => {
         const line = (message.line || 0) + 1
