@@ -139,6 +139,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:utils/builder"
       },
       {
+        "name": "@monstrs/tools-checks-test",
+        "reference": "workspace:utils/checks-test"
+      },
+      {
         "name": "@monstrs/tools-setup-ts-execution",
         "reference": "workspace:utils/setup-ts-execution"
       },
@@ -239,6 +243,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@monstrs/prettier-plugin-import-align", ["virtual:3d93344fb94fee6b88a0f1f341c37079f1935d6fa77e765259fb2a836eaf6b539aa3f43c87daa1ff51fd7a0e7062665901cd442c32a52647ddb8df4fcafafb4c#workspace:prettier/prettier-plugin-import-align", "workspace:prettier/prettier-plugin-import-align"]],
       ["@monstrs/prettier-plugin-import-sort", ["virtual:d8b38287bd890bf0ad21f6e800842fd8ea95c0aa0dfd5964a9cd867bb44d41908f59e214b06bb2717ded8a5e6b1cd2b2516c2bcfbdb7684fd25e8eacd49bdee8#workspace:prettier/prettier-plugin-import-sort", "workspace:prettier/prettier-plugin-import-sort"]],
       ["@monstrs/tools-builder", ["workspace:utils/builder"]],
+      ["@monstrs/tools-checks-test", ["workspace:utils/checks-test"]],
       ["@monstrs/tools-setup-ts-execution", ["workspace:utils/setup-ts-execution"]],
       ["@monstrs/webpack-start-server-plugin", ["workspace:webpack/webpack-start-server-plugin"]],
       ["@monstrs/yarn-pack-utils", ["workspace:yarn/pack-utils"]],
@@ -3290,6 +3295,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["rimraf", "npm:3.0.2"],
             ["terser-webpack-plugin", "virtual:a90ef5b57ac1effbbb5d5a3abf9296fb1db8c929d2b1d0d8ac7c0c409ad00b9e44580b5565ea3974d3cfbf05c2d543928ae857469427c5eee0eb07d5bf30104f#npm:3.1.0"],
             ["webpack", "virtual:a90ef5b57ac1effbbb5d5a3abf9296fb1db8c929d2b1d0d8ac7c0c409ad00b9e44580b5565ea3974d3cfbf05c2d543928ae857469427c5eee0eb07d5bf30104f#npm:5.28.0"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
+      ["@monstrs/tools-checks-test", [
+        ["workspace:utils/checks-test", {
+          "packageLocation": "./utils/checks-test/",
+          "packageDependencies": [
+            ["@monstrs/tools-checks-test", "workspace:utils/checks-test"],
+            ["@monstrs/tools-builder", "workspace:utils/builder"]
           ],
           "linkType": "SOFT",
         }]

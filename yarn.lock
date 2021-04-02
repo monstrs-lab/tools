@@ -2299,6 +2299,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@monstrs/tools-checks-test@workspace:utils/checks-test":
+  version: 0.0.0-use.local
+  resolution: "@monstrs/tools-checks-test@workspace:utils/checks-test"
+  dependencies:
+    "@monstrs/tools-builder": "workspace:0.0.1"
+  languageName: unknown
+  linkType: soft
+
 "@monstrs/tools-setup-ts-execution@workspace:0.0.1, @monstrs/tools-setup-ts-execution@workspace:utils/setup-ts-execution":
   version: 0.0.0-use.local
   resolution: "@monstrs/tools-setup-ts-execution@workspace:utils/setup-ts-execution"
