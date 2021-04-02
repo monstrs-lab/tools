@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/mctl-typecheck",
-  "version": "0.2.83",
+  "version": "0.2.84",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
