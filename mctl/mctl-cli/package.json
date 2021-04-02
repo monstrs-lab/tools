@@ -29,7 +29,6 @@
     }
   },
   "dependencies": {
-    "@monstrs/mctl-checks": "workspace:0.2.86",
     "@monstrs/mctl-commit": "workspace:0.2.83",
     "@monstrs/mctl-format": "workspace:0.2.82",
     "@monstrs/mctl-library": "workspace:0.2.77",
