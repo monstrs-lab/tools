@@ -1,24 +1,19 @@
-import { Cli }                                  from 'clipanion'
+import { Cli }                    from 'clipanion'
 
-import { TypeCheckCommand as CheckTypeCommand } from '@monstrs/mctl-checks'
-import { LintCheckCommand }                     from '@monstrs/mctl-checks'
-import { TestIntegrationCheckCommand }          from '@monstrs/mctl-checks'
-import { TestUnitCheckCommand }                 from '@monstrs/mctl-checks'
-import { ReleaseCheckCommand }                  from '@monstrs/mctl-checks'
-import { CommitCommand }                        from '@monstrs/mctl-commit'
-import { FormatCommand }                        from '@monstrs/mctl-format'
-import { LibraryBuildCommand }                  from '@monstrs/mctl-library'
-import { LintCommand }                          from '@monstrs/mctl-lint'
-import { ServiceBuildCommand }                  from '@monstrs/mctl-service'
-import { ServiceStartCommand }                  from '@monstrs/mctl-service'
-import { ServiceDevCommand }                    from '@monstrs/mctl-service'
-import { RendererBuildCommand }                 from '@monstrs/mctl-renderer'
-import { RendererDevCommand }                   from '@monstrs/mctl-renderer'
-import { TestIntegrationCommand }               from '@monstrs/mctl-test'
-import { TestUnitCommand }                      from '@monstrs/mctl-test'
-import { TypeCheckCommand }                     from '@monstrs/mctl-typecheck'
+import { CommitCommand }          from '@monstrs/mctl-commit'
+import { FormatCommand }          from '@monstrs/mctl-format'
+import { LibraryBuildCommand }    from '@monstrs/mctl-library'
+import { LintCommand }            from '@monstrs/mctl-lint'
+import { ServiceBuildCommand }    from '@monstrs/mctl-service'
+import { ServiceStartCommand }    from '@monstrs/mctl-service'
+import { ServiceDevCommand }      from '@monstrs/mctl-service'
+import { RendererBuildCommand }   from '@monstrs/mctl-renderer'
+import { RendererDevCommand }     from '@monstrs/mctl-renderer'
+import { TestIntegrationCommand } from '@monstrs/mctl-test'
+import { TestUnitCommand }        from '@monstrs/mctl-test'
+import { TypeCheckCommand }       from '@monstrs/mctl-typecheck'
 
-import { binaryVersion }                        from './constants'
+import { binaryVersion }          from './constants'
 
 const run = () => {
   const cli = new Cli({
@@ -35,12 +30,6 @@ const run = () => {
   cli.register(TestUnitCommand)
 
   cli.register(CommitCommand)
-
-  cli.register(CheckTypeCommand)
-  cli.register(LintCheckCommand)
-  cli.register(TestIntegrationCheckCommand)
-  cli.register(TestUnitCheckCommand)
-  cli.register(ReleaseCheckCommand)
 
   cli.register(ServiceBuildCommand)
   cli.register(ServiceStartCommand)

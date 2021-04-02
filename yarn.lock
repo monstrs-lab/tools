@@ -2052,30 +2052,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@monstrs/mctl-checks@workspace:0.2.86, @monstrs/mctl-checks@workspace:mctl/mctl-checks":
-  version: 0.0.0-use.local
-  resolution: "@monstrs/mctl-checks@workspace:mctl/mctl-checks"
-  dependencies:
-    "@monstrs/code-lint": "workspace:0.0.91"
-    "@monstrs/code-project": "workspace:0.0.80"
-    "@monstrs/code-test": "workspace:0.0.86"
-    "@monstrs/code-typescript": "workspace:0.0.91"
-    "@monstrs/github-checks-utils": "workspace:0.0.2"
-    "@monstrs/tools-builder": "workspace:0.0.1"
-    "@types/node": ^14.14.37
-    clipanion: ^2.6.2
-    eslint: ^7.23.0
-    execa: ^5.0.0
-    strip-ansi: ^6.0.0
-    typescript: ^4.2.3
-  languageName: unknown
-  linkType: soft
-
 "@monstrs/mctl-cli@workspace:0.2.98, @monstrs/mctl-cli@workspace:mctl/mctl-cli":
   version: 0.0.0-use.local
   resolution: "@monstrs/mctl-cli@workspace:mctl/mctl-cli"
   dependencies:
-    "@monstrs/mctl-checks": "workspace:0.2.86"
     "@monstrs/mctl-commit": "workspace:0.2.83"
     "@monstrs/mctl-format": "workspace:0.2.82"
     "@monstrs/mctl-library": "workspace:0.2.77"
