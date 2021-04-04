@@ -5,9 +5,13 @@ import { stringify }   from '@iarna/toml'
 import { execUtils }   from '@yarnpkg/core'
 
 import { PackOptions } from './pack.interfaces'
+import { PackOutputs } from './pack.interfaces'
 import { getTag }      from './tag.utils'
 
-export const pack = async ({ workspace, registry, publish, tagPolicy }: PackOptions, context) => {
+export const pack = async (
+  { workspace, registry, publish, tagPolicy }: PackOptions,
+  context
+): Promise<PackOutputs> => {
   const repo = workspace.replace('@', '').replace(new RegExp('/', 'g'), '-')
   const image = `${registry}${repo}`
 
@@ -54,4 +58,10 @@ export const pack = async ({ workspace, registry, publish, tagPolicy }: PackOpti
   // TODO: check and install pack
 
   await execUtils.pipevp('pack', args, context)
+
+  return {
+    images: [`${image}:${tag}`, `${image}:latest`],
+    tags: [tag, 'latest'],
+    workspace,
+  }
 }
