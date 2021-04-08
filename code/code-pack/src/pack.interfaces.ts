@@ -5,7 +5,7 @@ export interface PackOptions {
   tagPolicy: TagPolicy
 }
 
-export type TagPolicy = 'hash-timestamp' | 'revision'
+export type TagPolicy = 'ctx-hash-timestamp' | 'hash-timestamp' | 'revision'
 
 export interface PackOutputs {
   images: Array<string>

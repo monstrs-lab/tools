@@ -10,3 +10,9 @@ export const getPullRequestSha = (): string => {
     process.env.GITHUB_SHA
   )
 }
+
+export const getPullRequestId = (): string => {
+  const event = context.payload
+
+  return event.pull_request?.id
+}

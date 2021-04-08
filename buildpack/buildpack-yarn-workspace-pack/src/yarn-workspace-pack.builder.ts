@@ -38,23 +38,37 @@ export class YarnWorkspacePackBuilder implements Builder {
 
       const yarnCachePath = ppath.join(destination, '.yarn/cache' as PortablePath)
 
-      const cacheLayer = ctx.layers.get('yarn-cache', true, true, true)
+      if (xfs.existsSync(yarnCachePath)) {
+        const cacheLayer = ctx.layers.get('yarn-cache', true, true, true)
 
-      if (yarnLockCheckSum !== cacheLayer.getMetadata('locksum')) {
-        // eslint-disable-next-line no-restricted-syntax
-        for (const file of await xfs.readdirPromise(yarnCachePath)) {
-          // eslint-disable-next-line no-await-in-loop
-          await xfs.copyPromise(
-            ppath.join(cacheLayer.path as PortablePath, file),
-            ppath.join(yarnCachePath, file)
-          )
+        if (yarnLockCheckSum !== cacheLayer.getMetadata('locksum')) {
+          // eslint-disable-next-line no-restricted-syntax
+          for (const file of await xfs.readdirPromise(yarnCachePath)) {
+            // eslint-disable-next-line no-await-in-loop
+            await xfs.copyPromise(
+              ppath.join(cacheLayer.path as PortablePath, file),
+              ppath.join(yarnCachePath, file)
+            )
+          }
+
+          cacheLayer.setMetadata('locksum', yarnLockCheckSum.toString())
+          cacheLayer.save()
         }
 
-        cacheLayer.setMetadata('locksum', yarnLockCheckSum.toString())
-        cacheLayer.save()
-      }
+        await xfs.rmdirPromise(yarnCachePath, { recursive: true })
 
-      await xfs.rmdirPromise(yarnCachePath, { recursive: true })
+        const yarnrc = await xfs.readFilePromise(ppath.join(cwd, '.yarnrc.yml' as PortablePath))
+
+        const yarnrcContent = YAML.parse(yarnrc.toString())
+
+        await xfs.writeFilePromise(
+          ppath.join(cwd, '.yarnrc.yml' as PortablePath),
+          YAML.stringify({
+            ...yarnrcContent,
+            cacheFolder: ppath.relative(cwd, cacheLayer.path as PortablePath),
+          })
+        )
+      }
 
       // eslint-disable-next-line no-restricted-syntax
       for (const file of await xfs.readdirPromise(cwd)) {
@@ -69,18 +83,6 @@ export class YarnWorkspacePackBuilder implements Builder {
       }
 
       await xfs.rmdirPromise(destination, { recursive: true })
-
-      const yarnrc = await xfs.readFilePromise(ppath.join(cwd, '.yarnrc.yml' as PortablePath))
-
-      const yarnrcContent = YAML.parse(yarnrc.toString())
-
-      await xfs.writeFilePromise(
-        ppath.join(cwd, '.yarnrc.yml' as PortablePath),
-        YAML.stringify({
-          ...yarnrcContent,
-          cacheFolder: ppath.relative(cwd, cacheLayer.path as PortablePath),
-        })
-      )
 
       await execUtils.pipevp('yarn', ['install', '--immutable'], {
         cwd,
