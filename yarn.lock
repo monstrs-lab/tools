@@ -1805,6 +1805,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@monstrs/buildpack-yarn-install@workspace:buildpack/buildpack-yarn-install":
+  version: 0.0.0-use.local
+  resolution: "@monstrs/buildpack-yarn-install@workspace:buildpack/buildpack-yarn-install"
+  dependencies:
+    "@monstrs/buildpack-core": "workspace:0.0.1"
+    "@monstrs/mctl-cli": "workspace:0.2.101"
+    execa: ^5.0.0
+  languageName: unknown
+  linkType: soft
+
 "@monstrs/buildpack-yarn-workspace-build@workspace:buildpack/buildpack-yarn-workspace-build":
   version: 0.0.0-use.local
   resolution: "@monstrs/buildpack-yarn-workspace-build@workspace:buildpack/buildpack-yarn-workspace-build"

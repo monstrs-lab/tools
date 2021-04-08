@@ -31,6 +31,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:buildpack/buildpack-node-start"
       },
       {
+        "name": "@monstrs/buildpack-yarn-install",
+        "reference": "workspace:buildpack/buildpack-yarn-install"
+      },
+      {
         "name": "@monstrs/buildpack-yarn-workspace-build",
         "reference": "workspace:buildpack/buildpack-yarn-workspace-build"
       },
@@ -225,6 +229,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@fixtures/service-simple", ["workspace:code/code-service/integration/fixtures/simple"]],
       ["@monstrs/buildpack-core", ["workspace:buildpack/buildpack-core"]],
       ["@monstrs/buildpack-node-start", ["workspace:buildpack/buildpack-node-start"]],
+      ["@monstrs/buildpack-yarn-install", ["workspace:buildpack/buildpack-yarn-install"]],
       ["@monstrs/buildpack-yarn-workspace-build", ["workspace:buildpack/buildpack-yarn-workspace-build"]],
       ["@monstrs/buildpack-yarn-workspace-pack", ["workspace:buildpack/buildpack-yarn-workspace-pack"]],
       ["@monstrs/buildpack-yarn-workspace-start", ["workspace:buildpack/buildpack-yarn-workspace-start"]],
@@ -2586,6 +2591,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/preset-typescript", "virtual:6edcd2783bcb80396c2bec03a284cb737a14969f400f14e7f54a93ca1c438dc5e2305a99d1d6cf16443cb0d19286f5c1763a238acf93b30ee499827dd2be5613#npm:7.13.0"],
             ["@babel/runtime", "npm:7.13.10"],
             ["@babel/types", "npm:7.13.13"],
+            ["@monstrs/buildpack-core", "workspace:buildpack/buildpack-core"],
+            ["@monstrs/mctl-cli", "virtual:6edcd2783bcb80396c2bec03a284cb737a14969f400f14e7f54a93ca1c438dc5e2305a99d1d6cf16443cb0d19286f5c1763a238acf93b30ee499827dd2be5613#workspace:mctl/mctl-cli"],
+            ["execa", "npm:5.0.0"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
+      ["@monstrs/buildpack-yarn-install", [
+        ["workspace:buildpack/buildpack-yarn-install", {
+          "packageLocation": "./buildpack/buildpack-yarn-install/",
+          "packageDependencies": [
+            ["@monstrs/buildpack-yarn-install", "workspace:buildpack/buildpack-yarn-install"],
             ["@monstrs/buildpack-core", "workspace:buildpack/buildpack-core"],
             ["@monstrs/mctl-cli", "virtual:6edcd2783bcb80396c2bec03a284cb737a14969f400f14e7f54a93ca1c438dc5e2305a99d1d6cf16443cb0d19286f5c1763a238acf93b30ee499827dd2be5613#workspace:mctl/mctl-cli"],
             ["execa", "npm:5.0.0"]

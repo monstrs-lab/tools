@@ -2,7 +2,7 @@
 uri = "."
 
 [[dependencies]]
-image = "monstrs/buildpack-yarn-install:0.0.1"
+image = "monstrs/buildpack-yarn-install:0.0.2"
 
 [[dependencies]]
 image = "monstrs/buildpack-yarn-workspace-build:0.0.2"
