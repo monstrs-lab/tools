@@ -18,6 +18,9 @@ class AppPackCommand extends BaseCommand {
   @Command.Boolean(`-p,--publish`)
   publish: boolean = false
 
+  @Command.String(`-b,--builder`)
+  builder: string = ''
+
   @Command.Path('app', 'pack')
   async execute() {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
@@ -37,7 +40,6 @@ class AppPackCommand extends BaseCommand {
       'next build',
       'builder build library',
       'app service build',
-      'app library build',
       'app renderer build',
     ].some((command) => buildCommand?.includes(command))
 
@@ -60,6 +62,7 @@ class AppPackCommand extends BaseCommand {
               registry: this.registry,
               publish: this.publish,
               tagPolicy: this.tagPolicy,
+              builder: this.builder,
             },
             {
               env: process.env,

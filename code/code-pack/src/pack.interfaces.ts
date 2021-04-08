@@ -2,6 +2,7 @@ export interface PackOptions {
   workspace: string
   registry: string
   publish: boolean
+  builder?: string
   tagPolicy: TagPolicy
 }
 
