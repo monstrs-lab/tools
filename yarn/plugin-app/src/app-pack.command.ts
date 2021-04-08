@@ -3,9 +3,6 @@ import { Configuration } from '@yarnpkg/core'
 import { Project }       from '@yarnpkg/core'
 import { StreamReport }  from '@yarnpkg/core'
 import { execUtils }     from '@yarnpkg/core'
-import { xfs }           from '@yarnpkg/fslib'
-import { ppath }         from '@yarnpkg/fslib'
-import { PortablePath }  from '@yarnpkg/fslib'
 import { Command }       from 'clipanion'
 
 import { pack }          from '@monstrs/code-pack'
@@ -20,9 +17,6 @@ class AppPackCommand extends BaseCommand {
 
   @Command.Boolean(`-p,--publish`)
   publish: boolean = false
-
-  @Command.String(`--report-dir`)
-  reportDir: string = ''
 
   @Command.Path('app', 'pack')
   async execute() {
@@ -60,7 +54,7 @@ class AppPackCommand extends BaseCommand {
             `Workspace ${workspace.manifest.raw.name} not allowed for package.`
           )
         } else {
-          const output = await pack(
+          await pack(
             {
               workspace: workspace.manifest.raw.name,
               registry: this.registry,
@@ -76,17 +70,6 @@ class AppPackCommand extends BaseCommand {
               end: execUtils.EndStrategy.ErrorCode,
             }
           )
-
-          if (output && this.reportDir) {
-            await xfs.mkdirpPromise(this.reportDir as PortablePath)
-            await xfs.writeJsonPromise(
-              ppath.join(
-                this.reportDir as PortablePath,
-                `build-workspace-image-${workspace.manifest.name?.scope}-${workspace.manifest.name?.name}.json` as PortablePath
-              ),
-              output
-            )
-          }
         }
       }
     )
