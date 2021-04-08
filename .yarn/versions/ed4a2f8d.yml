@@ -1,0 +1,3 @@
+releases:
+  "@monstrs/code-pack": patch
+  "@monstrs/github-actions-utils": patch
