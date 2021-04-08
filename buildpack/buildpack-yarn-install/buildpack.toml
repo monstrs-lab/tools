@@ -1,9 +1,9 @@
 api = "0.2"
 
 [buildpack]
-id = "tech.monstrs.buildpacks.yarn-workspace-build"
+id = "tech.monstrs.buildpacks.yarn-install"
 version = "0.0.2"
-name = "Yarn Workspace Build Buildpack"
+name = "Yarn Install Buildpack"
 
 [metadata]
 include_files = ["dist", "bin/build", "bin/detect", "buildpack.toml"]

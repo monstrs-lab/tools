@@ -7,7 +7,7 @@ DEFAULT_PREFIX=monstrs/stack
 
 REPO_PREFIX=${DEFAULT_PREFIX}
 
-STACK_DIR="node"
+STACK_DIR="${1:-node}"
 DIR=$(cd $(dirname $0) && pwd)
 IMAGE_DIR="${DIR}/${STACK_DIR}"
 TAG=$(basename "${IMAGE_DIR}")

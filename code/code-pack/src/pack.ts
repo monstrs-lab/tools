@@ -9,7 +9,7 @@ import { PackOutputs } from './pack.interfaces'
 import { getTag }      from './tag.utils'
 
 export const pack = async (
-  { workspace, registry, publish, tagPolicy }: PackOptions,
+  { workspace, registry, publish, tagPolicy, builder }: PackOptions,
   context
 ): Promise<PackOutputs> => {
   const repo = workspace.replace('@', '').replace(new RegExp('/', 'g'), '-')
@@ -46,7 +46,7 @@ export const pack = async (
     '--buildpack',
     'monstrs/buildpack-yarn-workspace:0.0.2',
     '--builder',
-    'monstrs/builder-base:buster',
+    builder || 'monstrs/builder-base:buster',
     '--tag',
     `${image}:latest`,
   ]

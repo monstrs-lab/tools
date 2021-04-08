@@ -39,7 +39,7 @@ export const getTag = async (tagPolicy: TagPolicy) => {
   }
 
   if (tagPolicy === 'ctx-hash-timestamp') {
-    const ctxid = getContextId()
+    const ctxid = await getContextId()
 
     return `${ctxid}-${hash}-${Date.now()}`
   }
