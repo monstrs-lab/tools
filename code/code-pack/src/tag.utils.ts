@@ -1,11 +1,11 @@
-import { execUtils }          from '@yarnpkg/core'
-import { PortablePath }       from '@yarnpkg/fslib'
+import { execUtils }            from '@yarnpkg/core'
+import { PortablePath }         from '@yarnpkg/fslib'
 
-import { isGithubActionsEnv } from '@monstrs/github-actions-utils'
-import { getPullRequestSha }  from '@monstrs/github-actions-utils'
-import { getPullRequestId }   from '@monstrs/github-actions-utils'
+import { isGithubActionsEnv }   from '@monstrs/github-actions-utils'
+import { getPullRequestSha }    from '@monstrs/github-actions-utils'
+import { getPullRequestNumber } from '@monstrs/github-actions-utils'
 
-import { TagPolicy }          from './pack.interfaces'
+import { TagPolicy }            from './pack.interfaces'
 
 export const getRevision = async () => {
   if (isGithubActionsEnv()) {
@@ -22,9 +22,9 @@ export const getRevision = async () => {
   return revision.replace(/"/g, '')
 }
 
-export const getContextId = async () => {
+export const getContext = async () => {
   if (isGithubActionsEnv()) {
-    return getPullRequestId()
+    return getPullRequestNumber()
   }
 
   return 'local'
@@ -39,9 +39,9 @@ export const getTag = async (tagPolicy: TagPolicy) => {
   }
 
   if (tagPolicy === 'ctx-hash-timestamp') {
-    const ctxid = await getContextId()
+    const ctx = await getContext()
 
-    return `${ctxid}-${hash}-${Date.now()}`
+    return `${ctx}-${hash}-${Date.now()}`
   }
 
   return revision

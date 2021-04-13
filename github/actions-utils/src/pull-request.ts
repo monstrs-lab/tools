@@ -16,3 +16,9 @@ export const getPullRequestId = (): string => {
 
   return event.pull_request?.id
 }
+
+export const getPullRequestNumber = (): string => {
+  const event = context.payload
+
+  return String(event.pull_request?.number)
+}
