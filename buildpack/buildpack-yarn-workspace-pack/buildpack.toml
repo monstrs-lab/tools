@@ -13,4 +13,7 @@ pre_package = "yarn build"
 id = "tech.monstrs.stacks.node"
 
 [[stacks]]
+id = "tech.monstrs.stacks.node-static"
+
+[[stacks]]
 id = "tech.monstrs.stacks.operator"

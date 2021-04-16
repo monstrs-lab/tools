@@ -3,6 +3,7 @@ export interface PackOptions {
   registry: string
   publish: boolean
   builder?: string
+  buildpack?: string
   tagPolicy: TagPolicy
 }
 
