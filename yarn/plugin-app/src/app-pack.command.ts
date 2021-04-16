@@ -18,8 +18,11 @@ class AppPackCommand extends BaseCommand {
   @Command.Boolean(`-p,--publish`)
   publish: boolean = false
 
-  @Command.String(`-b,--builder`)
+  @Command.String(`--builder`)
   builder: string = ''
+
+  @Command.String(`--buildpack`)
+  buildpack: string = ''
 
   @Command.Path('app', 'pack')
   async execute() {
@@ -62,6 +65,7 @@ class AppPackCommand extends BaseCommand {
               registry: this.registry,
               publish: this.publish,
               tagPolicy: this.tagPolicy,
+              buildpack: this.buildpack,
               builder: this.builder,
             },
             {

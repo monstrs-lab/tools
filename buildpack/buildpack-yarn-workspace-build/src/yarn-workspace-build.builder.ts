@@ -11,7 +11,9 @@ export class YarnWorkspaceBuildBuilder implements Builder {
     if (entry) {
       const { workspace } = entry.metadata
 
-      await execa('yarn', ['workspace', workspace, 'build'])
+      await execa('yarn', ['workspace', workspace, 'build'], {
+        stdio: 'inherit',
+      })
     }
   }
 }

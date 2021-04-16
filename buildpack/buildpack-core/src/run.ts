@@ -12,13 +12,19 @@ export const run = async (detector: Detector, builder?: Builder) => {
 
   const phase = path.basename(config.arguments[0])
 
-  if (phase === 'detect') {
-    await detect(detector, config)
-  } else if (phase === 'build') {
-    if (builder) {
-      await build(builder, config)
-    }
-  } else {
+  if (!['detect', 'build'].includes(phase)) {
     ExitHandler.error(new Error(`Unsupported phase ${phase}`))
+  }
+
+  try {
+    if (phase === 'detect') {
+      await detect(detector, config)
+    } else if (phase === 'build') {
+      if (builder) {
+        await build(builder, config)
+      }
+    }
+  } catch (error) {
+    ExitHandler.error(error)
   }
 }

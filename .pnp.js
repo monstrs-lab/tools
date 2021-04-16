@@ -43,6 +43,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:buildpack/buildpack-yarn-workspace-pack"
       },
       {
+        "name": "@monstrs/buildpack-yarn-workspace-serve",
+        "reference": "workspace:buildpack/buildpack-yarn-workspace-serve"
+      },
+      {
         "name": "@monstrs/buildpack-yarn-workspace-start",
         "reference": "workspace:buildpack/buildpack-yarn-workspace-start"
       },
@@ -232,6 +236,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@monstrs/buildpack-yarn-install", ["workspace:buildpack/buildpack-yarn-install"]],
       ["@monstrs/buildpack-yarn-workspace-build", ["workspace:buildpack/buildpack-yarn-workspace-build"]],
       ["@monstrs/buildpack-yarn-workspace-pack", ["workspace:buildpack/buildpack-yarn-workspace-pack"]],
+      ["@monstrs/buildpack-yarn-workspace-serve", ["workspace:buildpack/buildpack-yarn-workspace-serve"]],
       ["@monstrs/buildpack-yarn-workspace-start", ["workspace:buildpack/buildpack-yarn-workspace-start"]],
       ["@monstrs/cli-ui-log-record-component", ["workspace:cli/cli-ui-log-record-component"]],
       ["@monstrs/cli-ui-pretty-logs", ["workspace:cli/cli-ui-pretty-logs"]],
@@ -2654,6 +2659,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["execa", "npm:5.0.0"],
             ["tempy", "npm:1.0.1"],
             ["yaml", "npm:1.10.2"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
+      ["@monstrs/buildpack-yarn-workspace-serve", [
+        ["workspace:buildpack/buildpack-yarn-workspace-serve", {
+          "packageLocation": "./buildpack/buildpack-yarn-workspace-serve/",
+          "packageDependencies": [
+            ["@monstrs/buildpack-yarn-workspace-serve", "workspace:buildpack/buildpack-yarn-workspace-serve"],
+            ["@monstrs/buildpack-core", "workspace:buildpack/buildpack-core"],
+            ["@monstrs/mctl-cli", "virtual:6edcd2783bcb80396c2bec03a284cb737a14969f400f14e7f54a93ca1c438dc5e2305a99d1d6cf16443cb0d19286f5c1763a238acf93b30ee499827dd2be5613#workspace:mctl/mctl-cli"],
+            ["@yarnpkg/core", "npm:2.4.0"],
+            ["@yarnpkg/fslib", "npm:2.4.0"]
           ],
           "linkType": "SOFT",
         }]

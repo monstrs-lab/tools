@@ -1859,6 +1859,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@monstrs/buildpack-yarn-workspace-serve@workspace:buildpack/buildpack-yarn-workspace-serve":
+  version: 0.0.0-use.local
+  resolution: "@monstrs/buildpack-yarn-workspace-serve@workspace:buildpack/buildpack-yarn-workspace-serve"
+  dependencies:
+    "@monstrs/buildpack-core": "workspace:0.0.1"
+    "@monstrs/mctl-cli": "workspace:0.2.101"
+    "@yarnpkg/core": ^2.4.0
+    "@yarnpkg/fslib": ^2.4.0
+  languageName: unknown
+  linkType: soft
+
 "@monstrs/buildpack-yarn-workspace-start@workspace:buildpack/buildpack-yarn-workspace-start":
   version: 0.0.0-use.local
   resolution: "@monstrs/buildpack-yarn-workspace-start@workspace:buildpack/buildpack-yarn-workspace-start"

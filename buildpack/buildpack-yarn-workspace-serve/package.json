@@ -1,0 +1,23 @@
+{
+  "name": "@monstrs/buildpack-yarn-workspace-serve",
+  "private": true,
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@monstrs/buildpack-core": "workspace:0.0.1",
+    "@yarnpkg/core": "^2.4.0",
+    "@yarnpkg/fslib": "^2.4.0"
+  },
+  "devDependencies": {
+    "@monstrs/mctl-cli": "workspace:0.2.101"
+  },
+  "scripts": {
+    "clean": "rm -r -f dist",
+    "prebuild": "yarn clean",
+    "build": "mctl service build"
+  }
+}
