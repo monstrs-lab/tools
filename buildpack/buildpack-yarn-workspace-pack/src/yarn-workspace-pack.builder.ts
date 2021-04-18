@@ -17,13 +17,19 @@ export class YarnWorkspacePackBuilder implements Builder {
       const { workspace } = entry.metadata
 
       const cwd = process.cwd() as PortablePath
-      const destination = await xfs.mktempPromise()
+      const project = await xfs.mktempPromise()
+
+      // eslint-disable-next-line no-restricted-syntax
+      for (const file of await xfs.readdirPromise(cwd)) {
+        // eslint-disable-next-line no-await-in-loop
+        await xfs.movePromise(ppath.join(cwd, file), ppath.join(project, file))
+      }
 
       await execUtils.pipevp(
         'yarn',
-        ['workspace', workspace, 'app', 'pack', 'source', '--destination', destination],
+        ['workspace', workspace, 'app', 'pack', 'source', '--destination', cwd],
         {
-          cwd,
+          cwd: project,
           env: process.env,
           stdin: process.stdin,
           stdout: process.stdout,
@@ -31,12 +37,10 @@ export class YarnWorkspacePackBuilder implements Builder {
         }
       )
 
-      const yarnLock = await xfs.readFilePromise(
-        ppath.join(destination, 'yarn.lock' as PortablePath)
-      )
+      const yarnLock = await xfs.readFilePromise(ppath.join(cwd, 'yarn.lock' as PortablePath))
       const yarnLockCheckSum = createHash('md5').update(yarnLock).digest('hex')
 
-      const yarnCachePath = ppath.join(destination, '.yarn/cache' as PortablePath)
+      const yarnCachePath = ppath.join(cwd, '.yarn/cache' as PortablePath)
 
       if (xfs.existsSync(yarnCachePath)) {
         const cacheLayer = ctx.layers.get('yarn-cache', true, true, true)
@@ -70,19 +74,7 @@ export class YarnWorkspacePackBuilder implements Builder {
         )
       }
 
-      // eslint-disable-next-line no-restricted-syntax
-      for (const file of await xfs.readdirPromise(cwd)) {
-        // eslint-disable-next-line no-await-in-loop
-        await xfs.removePromise(ppath.join(cwd, file))
-      }
-
-      // eslint-disable-next-line no-restricted-syntax
-      for (const file of await xfs.readdirPromise(destination)) {
-        // eslint-disable-next-line no-await-in-loop
-        await xfs.copyPromise(ppath.join(cwd, file), ppath.join(destination, file))
-      }
-
-      await xfs.rmdirPromise(destination, { recursive: true })
+      await xfs.rmdirPromise(project, { recursive: true })
 
       await execUtils.pipevp('yarn', ['install', '--immutable'], {
         cwd,
