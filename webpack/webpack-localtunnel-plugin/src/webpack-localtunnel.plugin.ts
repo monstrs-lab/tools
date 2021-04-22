@@ -22,17 +22,15 @@ export class WebpackLocalTunnelPlugin {
   }
 
   apply(compiler) {
-    if (compiler.options.devServer) {
-      this.connect(
-        this.options.port || compiler.options.devServer.port,
-        {
-          local_host: compiler.options.devServer.host,
-          ...this.options,
-        },
-        this.options.reconnect,
-        this.options.reconnectInterval
-      )
-    }
+    this.connect(
+      this.options.port || 3000,
+      {
+        local_host: '127.0.0.1',
+        ...this.options,
+      },
+      this.options.reconnect,
+      this.options.reconnectInterval
+    )
   }
 
   connect(port: number, options: TunnelConfig, reconnect: boolean, reconnectInterval: number) {
