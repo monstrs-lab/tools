@@ -1,0 +1,25 @@
+{
+  "name": "@monstrs/code-configuration",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "builder build library",
+    "postpack": "rm -rf dist",
+    "prepack": "yarn run build"
+  },
+  "devDependencies": {
+    "@monstrs/tools-builder": "workspace:0.0.1"
+  },
+  "dependencies": {
+    "@yarnpkg/fslib": "^2.4.0"
+  },
+  "publishConfig": {
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts",
+    "access": "public"
+  }
+}

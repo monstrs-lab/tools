@@ -20,7 +20,7 @@
   "devDependencies": {
     "@monstrs/tools-builder": "workspace:0.0.1",
     "@types/globby": "9.1.0",
-    "@types/node": "^14.14.37"
+    "@types/node": "^14.14.41"
   },
   "publishConfig": {
     "main": "dist/index.js",

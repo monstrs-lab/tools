@@ -12,10 +12,10 @@
     "prepack": "yarn run build"
   },
   "devDependencies": {
-    "@babel/types": "^7.13.13",
+    "@babel/types": "^7.13.17",
     "@monstrs/tools-builder": "workspace:0.0.1",
     "@types/globby": "9.1.0",
-    "@types/node": "^14.14.37"
+    "@types/node": "^14.14.41"
   },
   "dependencies": {
     "@monstrs/prettier-plugin-import-align": "workspace:0.2.32",
