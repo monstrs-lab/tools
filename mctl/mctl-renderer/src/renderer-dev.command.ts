@@ -4,6 +4,7 @@ import { PassThrough }              from 'stream'
 import { watch }                    from '@monstrs/code-service'
 import { StartServerPlugin }        from '@monstrs/webpack-start-server-plugin'
 import { StartServerPluginOptions } from '@monstrs/webpack-start-server-plugin'
+import { WebpackLocalTunnelPlugin } from '@monstrs/webpack-localtunnel-plugin'
 
 import { PrettyLogsTransform }      from '@monstrs/cli-ui-pretty-logs'
 
@@ -25,6 +26,9 @@ class RendererDevCommand extends Command {
   @Command.String(`-s,--source`)
   source?: string
 
+  @Command.String(`-t,--tunnel`)
+  tunnel?: string
+
   @Command.Path(`renderer`, `dev`)
   async execute() {
     const startServerPluginArgs: Partial<StartServerPluginOptions> = {}
@@ -41,13 +45,27 @@ class RendererDevCommand extends Command {
       startServerPluginArgs.stderr = this.context.stderr
     }
 
-    const plugins = [
+    const plugins: any[] = [
       {
         name: 'start-server',
         use: StartServerPlugin,
         args: [startServerPluginArgs],
       },
     ]
+
+    if (this.tunnel) {
+      plugins.push({
+        name: 'localtunnel',
+        use: WebpackLocalTunnelPlugin,
+        args: [
+          {
+            host: this.tunnel,
+            stderr: startServerPluginArgs.stderr,
+            stdout: startServerPluginArgs.stdout,
+          },
+        ],
+      })
+    }
 
     const watcher = await watch(
       { cwd: this.source || process.cwd() },

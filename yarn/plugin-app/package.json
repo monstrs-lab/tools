@@ -14,6 +14,7 @@
   },
   "devDependencies": {
     "@monstrs/code-commitlint": "workspace:0.0.86",
+    "@monstrs/code-configuration": "workspace:0.0.1",
     "@monstrs/code-pack": "workspace:0.0.80",
     "@monstrs/code-typescript": "workspace:0.0.91",
     "@monstrs/tools-builder": "workspace:0.0.1",

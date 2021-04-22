@@ -14,11 +14,12 @@
   "devDependencies": {
     "@monstrs/tools-builder": "workspace:0.0.1",
     "@types/execa": "^2.0.0",
-    "@types/node": "^14.14.37"
+    "@types/node": "^14.14.41"
   },
   "dependencies": {
     "@monstrs/cli-ui-pretty-logs": "workspace:0.0.2",
     "@monstrs/code-service": "workspace:0.0.82",
+    "@monstrs/webpack-localtunnel-plugin": "workspace:0.0.1",
     "@monstrs/webpack-start-server-plugin": "workspace:0.2.13",
     "clipanion": "^2.6.2",
     "execa": "^5.0.0",
