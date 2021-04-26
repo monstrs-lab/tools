@@ -1,0 +1,3 @@
+releases:
+  "@monstrs/mctl-cli": patch
+  "@monstrs/mctl-renderer": patch
