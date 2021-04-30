@@ -1570,15 +1570,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@creditkarma/thrift-parser@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "@creditkarma/thrift-parser@npm:1.2.0"
-  bin:
-    thrift-parser: ./dist/main/bin/index.js
-  checksum: e5d3aaaecfe340c7cf29187ae212199e5e8b3ac392171022d3295be8d1cb27e8ac10b80335648afad505935b805619191029728fedeb969731a61c94d5617728
-  languageName: node
-  linkType: hard
-
 "@emotion/css-prettifier@npm:^1.0.0":
   version: 1.0.0
   resolution: "@emotion/css-prettifier@npm:1.0.0"
@@ -2178,9 +2169,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/code-service@workspace:code/code-service"
   dependencies:
-    "@creditkarma/thrift-parser": ^1.2.0
     "@monstrs/code-typescript": "workspace:0.0.92"
     "@monstrs/tools-builder": "workspace:0.0.1"
+    "@monstrs/webpack-proto-imports-loader": "workspace:0.0.1"
     "@types/file-loader": 4.2.1
     "@types/jest": ^26.0.22
     "@types/node": ^14.14.41
@@ -2191,8 +2182,6 @@ __metadata:
     "@yarnpkg/core": ^2.4.0
     "@yarnpkg/fslib": ^2.4.0
     fast-glob: ^3.2.5
-    file-loader: ^6.2.0
-    protocol-buffers-schema: ^3.5.1
     string-replace-loader: ^3.0.1
     ts-loader: ^8.1.0
     typescript: ^4.2.4
@@ -2503,6 +2492,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@monstrs/types-import-proto@npm:0.0.1":
+  version: 0.0.1
+  resolution: "@monstrs/types-import-proto@npm:0.0.1"
+  checksum: d8aa36d448f28bb178a4490e69e07e92cf707f6e7207936ff3238bc1006aeebde663c5f81cadb826e5f7a8b5bfb7ddd441837f2662d0c2cc0daec50a968f6c08
+  languageName: node
+  linkType: hard
+
 "@monstrs/webpack-localtunnel-plugin@workspace:0.0.3, @monstrs/webpack-localtunnel-plugin@workspace:webpack/webpack-localtunnel-plugin":
   version: 0.0.0-use.local
   resolution: "@monstrs/webpack-localtunnel-plugin@workspace:webpack/webpack-localtunnel-plugin"
@@ -2513,6 +2509,23 @@ __metadata:
     localtunnel: ^2.0.1
   peerDependencies:
     webpack: ^5
+  languageName: unknown
+  linkType: soft
+
+"@monstrs/webpack-proto-imports-loader@workspace:0.0.1, @monstrs/webpack-proto-imports-loader@workspace:webpack/webpack-proto-imports-loader":
+  version: 0.0.0-use.local
+  resolution: "@monstrs/webpack-proto-imports-loader@workspace:webpack/webpack-proto-imports-loader"
+  dependencies:
+    "@monstrs/code-typescript": "workspace:0.0.92"
+    "@monstrs/tools-builder": "workspace:0.0.1"
+    "@monstrs/types-import-proto": 0.0.1
+    "@types/node": ^14.14.41
+    file-loader: ^6.2.0
+    memfs: ^3.2.2
+    protocol-buffers-schema: ^3.5.1
+    ts-loader: ^8.1.0
+    webpack: ^5.35.0
+    webpack-chain: ^6.5.1
   languageName: unknown
   linkType: soft
 
@@ -8465,6 +8478,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fs-monkey@npm:1.0.3":
+  version: 1.0.3
+  resolution: "fs-monkey@npm:1.0.3"
+  checksum: 0b5e16f147d3e1b28e2fc7ae8f4a6bf061587a03dbee817ee869fadbb1f5f9e038062bf9646161c7576918ac084bbd0b38bd819aa7856d4fd850a440b201f83e
+  languageName: node
+  linkType: hard
+
 "fs-write-stream-atomic@npm:^1.0.8":
   version: 1.0.10
   resolution: "fs-write-stream-atomic@npm:1.0.10"
@@ -11264,6 +11284,15 @@ fsevents@~2.3.1:
   dependencies:
     fs-monkey: 1.0.1
   checksum: 48bf758246937c6ceadaecc31e81050d4745dac5e031e3080961c28311bcc4b29e99f9cc4110103a0cb9f004c30c59926eaf15d10f4ac9a00b773b256a918ae2
+  languageName: node
+  linkType: hard
+
+"memfs@npm:^3.2.2":
+  version: 3.2.2
+  resolution: "memfs@npm:3.2.2"
+  dependencies:
+    fs-monkey: 1.0.3
+  checksum: 3d58b59fd574723d072f25f541c5d1080212129d49669a41f5f6b6da814cda040d7f47ddd8c623550d49c01c24853c7e07f798a00db6510236b724ed476a9025
   languageName: node
   linkType: hard
 
