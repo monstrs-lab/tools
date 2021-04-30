@@ -65,36 +65,10 @@ export const createWebpackConfig = async (
     })
 
   config.module
-    .rule('jaeger-client-thrift')
-    .test(/thrift\.js$/)
-    .use('jaeger-client-thrift')
-    .loader(require.resolve('string-replace-loader'))
-    .options({
-      search: `_path2.default.join(__dirname, './jaeger-idl/thrift/jaeger.thrift')`,
-      replace: `require('./jaeger-idl/thrift/jaeger.thrift').default`,
-    })
-
-  config.module
-    .rule('jaeger-uds-sender-thrift')
-    .test(/udp_sender\.js$/)
-    .use('jaeger-uds-sender-thrift')
-    .loader(require.resolve('string-replace-loader'))
-    .options({
-      search: `_path2.default.join(__dirname, '../thriftrw-idl/agent.thrift')`,
-      replace: `require('../thriftrw-idl/agent.thrift').default`,
-    })
-
-  config.module
     .rule('protos')
     .test(/\.proto$/)
     .use('proto')
-    .loader(require.resolve('./loaders/proto-dependencies.loader'))
-
-  config.module
-    .rule('thrift')
-    .test(/\.thrift$/)
-    .use('thrift')
-    .loader(require.resolve('./loaders/thrift.loader'))
+    .loader(require.resolve('@monstrs/webpack-proto-imports-loader'))
 
   config.devtool(
     environment === 'production' ? 'source-map' : ('eval-cheap-module-source-map' as any)

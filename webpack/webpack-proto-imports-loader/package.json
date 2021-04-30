@@ -1,0 +1,33 @@
+{
+  "name": "@monstrs/webpack-proto-imports-loader",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "builder build library",
+    "postpack": "rm -rf dist",
+    "prepack": "yarn run build"
+  },
+  "devDependencies": {
+    "@monstrs/code-typescript": "workspace:0.0.92",
+    "@monstrs/tools-builder": "workspace:0.0.1",
+    "@monstrs/types-import-proto": "0.0.1",
+    "@types/node": "^14.14.41",
+    "memfs": "^3.2.2",
+    "ts-loader": "^8.1.0",
+    "webpack": "^5.35.0",
+    "webpack-chain": "^6.5.1"
+  },
+  "dependencies": {
+    "file-loader": "^6.2.0",
+    "protocol-buffers-schema": "^3.5.1"
+  },
+  "publishConfig": {
+    "access": "public",
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
+  }
+}
