@@ -1,0 +1,6 @@
+releases:
+  "@monstrs/code-service": patch
+  "@monstrs/mctl-cli": patch
+  "@monstrs/mctl-renderer": patch
+  "@monstrs/mctl-service": patch
+  "@monstrs/webpack-proto-imports-loader": patch
