@@ -15,7 +15,7 @@
     "@jest/test-result": "^26.6.2",
     "@monstrs/tools-builder": "workspace:0.0.1",
     "@octokit/types": "^6.13.0",
-    "eslint": "^7.23.0"
+    "eslint": "^7.26.0"
   },
   "publishConfig": {
     "main": "dist/index.js",
