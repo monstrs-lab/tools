@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/cli-ui-pretty-logs",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -17,7 +17,7 @@
     "@types/react": "^17.0.5"
   },
   "dependencies": {
-    "@monstrs/cli-ui-log-record-component": "workspace:0.0.4",
+    "@monstrs/cli-ui-log-record-component": "workspace:0.0.5",
     "@monstrs/cli-ui-renderer": "workspace:0.0.4",
     "react": "^17.0.2"
   },
