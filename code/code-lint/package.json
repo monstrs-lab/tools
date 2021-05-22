@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-lint",
-  "version": "0.0.93",
+  "version": "0.0.94",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -23,7 +23,7 @@
     "typings": "dist/index.d.ts"
   },
   "dependencies": {
-    "@monstrs/code-format": "workspace:0.0.81",
+    "@monstrs/code-format": "workspace:0.0.82",
     "@typescript-eslint/eslint-plugin": "^4.24.0",
     "@typescript-eslint/parser": "^4.24.0",
     "eslint": "^7.27.0",

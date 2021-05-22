@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/mctl-renderer",
-  "version": "0.2.89",
+  "version": "0.2.90",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -17,10 +17,10 @@
     "@types/node": "^14.17.0"
   },
   "dependencies": {
-    "@monstrs/cli-ui-pretty-logs": "workspace:0.0.5",
-    "@monstrs/code-service": "workspace:0.0.85",
-    "@monstrs/webpack-localtunnel-plugin": "workspace:0.0.4",
-    "@monstrs/webpack-start-server-plugin": "workspace:0.2.15",
+    "@monstrs/cli-ui-pretty-logs": "workspace:0.0.6",
+    "@monstrs/code-service": "workspace:0.0.86",
+    "@monstrs/webpack-localtunnel-plugin": "workspace:0.0.5",
+    "@monstrs/webpack-start-server-plugin": "workspace:0.2.16",
     "clipanion": "^2.6.2",
     "execa": "^5.0.0",
     "fs-extra": "^10.0.0"

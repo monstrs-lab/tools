@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/mctl-library",
-  "version": "0.2.79",
+  "version": "0.2.80",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -17,7 +17,7 @@
     "@types/rimraf": "^3.0.0"
   },
   "dependencies": {
-    "@monstrs/code-typescript": "workspace:0.0.93",
+    "@monstrs/code-typescript": "workspace:0.0.94",
     "clipanion": "^2.6.2",
     "rimraf": "^3.0.2"
   },

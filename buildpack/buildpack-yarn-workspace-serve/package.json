@@ -13,7 +13,7 @@
     "@yarnpkg/fslib": "^2.4.0"
   },
   "devDependencies": {
-    "@monstrs/mctl-cli": "workspace:0.2.107"
+    "@monstrs/mctl-cli": "workspace:0.2.108"
   },
   "scripts": {
     "clean": "rm -r -f dist",

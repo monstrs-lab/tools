@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-service",
-  "version": "0.0.85",
+  "version": "0.0.86",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -28,8 +28,8 @@
     "typings": "dist/index.d.ts"
   },
   "dependencies": {
-    "@monstrs/code-typescript": "workspace:0.0.93",
-    "@monstrs/webpack-proto-imports-loader": "workspace:0.0.3",
+    "@monstrs/code-typescript": "workspace:0.0.94",
+    "@monstrs/webpack-proto-imports-loader": "workspace:0.0.4",
     "@yarnpkg/cli": "^2.4.1",
     "@yarnpkg/core": "^2.4.0",
     "fast-glob": "^3.2.5",
