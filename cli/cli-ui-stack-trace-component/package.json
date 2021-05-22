@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/cli-ui-stack-trace-component",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -19,7 +19,7 @@
     "strip-ansi": "^6.0.0"
   },
   "dependencies": {
-    "@monstrs/cli-ui-renderer": "workspace:0.0.5",
+    "@monstrs/cli-ui-renderer": "workspace:0.0.6",
     "@monstrs/cli-ui-source-component": "workspace:0.0.5",
     "@monstrs/stack-trace": "^0.0.4"
   },

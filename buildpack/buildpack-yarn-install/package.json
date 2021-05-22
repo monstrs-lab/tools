@@ -12,7 +12,7 @@
     "execa": "^5.0.0"
   },
   "devDependencies": {
-    "@monstrs/mctl-cli": "workspace:0.2.108"
+    "@monstrs/mctl-cli": "workspace:0.2.109"
   },
   "scripts": {
     "clean": "rm -r -f dist",
