@@ -14,7 +14,7 @@
   "devDependencies": {
     "@monstrs/tools-builder": "workspace:0.0.1",
     "@types/execa": "^2.0.0",
-    "@types/node": "^14.14.44"
+    "@types/node": "^14.17.0"
   },
   "dependencies": {
     "@monstrs/cli-ui-pretty-logs": "workspace:0.0.4",
@@ -23,7 +23,7 @@
     "@monstrs/webpack-start-server-plugin": "workspace:0.2.15",
     "clipanion": "^2.6.2",
     "execa": "^5.0.0",
-    "fs-extra": "^9.1.0"
+    "fs-extra": "^10.0.0"
   },
   "publishConfig": {
     "access": "public",

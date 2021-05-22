@@ -13,12 +13,12 @@
   },
   "devDependencies": {
     "@monstrs/tools-builder": "workspace:0.0.1",
-    "@types/node": "^14.14.44",
-    "@types/react": "^17.0.5"
+    "@types/node": "^14.17.0",
+    "@types/react": "^17.0.6",
+    "react": "*"
   },
   "dependencies": {
-    "ink": "^3.0.8",
-    "react": "^17.0.2"
+    "ink": "^3.0.8"
   },
   "publishConfig": {
     "access": "public",
