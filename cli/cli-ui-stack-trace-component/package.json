@@ -14,15 +14,18 @@
   "devDependencies": {
     "@monstrs/tools-builder": "workspace:0.0.1",
     "@types/jest": "^26.0.23",
-    "@types/react": "^17.0.5",
+    "@types/react": "^17.0.6",
+    "ink": "^3.0.8",
     "strip-ansi": "^6.0.0"
   },
   "dependencies": {
     "@monstrs/cli-ui-renderer": "workspace:0.0.4",
     "@monstrs/cli-ui-source-component": "workspace:0.0.4",
-    "@monstrs/stack-trace": "^0.0.4",
+    "@monstrs/stack-trace": "^0.0.4"
+  },
+  "peerDependencies": {
     "ink": "^3.0.8",
-    "react": "^17.0.2"
+    "react": "*"
   },
   "publishConfig": {
     "access": "public",
