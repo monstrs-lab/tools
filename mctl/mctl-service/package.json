@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/mctl-service",
-  "version": "0.2.87",
+  "version": "0.2.88",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@monstrs/cli-ui-pretty-logs": "workspace:0.0.7",
-    "@monstrs/code-service": "workspace:0.0.86",
+    "@monstrs/code-service": "workspace:0.0.87",
     "@monstrs/webpack-start-server-plugin": "workspace:0.2.16",
     "clipanion": "^2.6.2",
     "react": "^17.0.2"
