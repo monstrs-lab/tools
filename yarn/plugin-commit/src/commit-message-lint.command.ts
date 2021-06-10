@@ -1,12 +1,12 @@
 import { BaseCommand } from '@yarnpkg/cli'
-import { Command }     from 'clipanion'
 
 import { format }      from '@monstrs/code-commitlint'
 import { lint }        from '@monstrs/code-commitlint'
 import { read }        from '@monstrs/code-commitlint'
 
 class CommitMessageLintCommand extends BaseCommand {
-  @Command.Path('commit', 'message', 'lint')
+  static paths = [['commit', 'message', 'lint']]
+
   async execute() {
     const messages = await read({ edit: true })
     const results = await Promise.all(messages.map(lint))

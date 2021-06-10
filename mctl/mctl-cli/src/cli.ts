@@ -5,7 +5,6 @@ import { FormatCommand }          from '@monstrs/mctl-format'
 import { LibraryBuildCommand }    from '@monstrs/mctl-library'
 import { LintCommand }            from '@monstrs/mctl-lint'
 import { ServiceBuildCommand }    from '@monstrs/mctl-service'
-import { ServiceStartCommand }    from '@monstrs/mctl-service'
 import { ServiceDevCommand }      from '@monstrs/mctl-service'
 import { RendererBuildCommand }   from '@monstrs/mctl-renderer'
 import { RendererDevCommand }     from '@monstrs/mctl-renderer'
@@ -32,7 +31,6 @@ const run = () => {
   cli.register(CommitCommand)
 
   cli.register(ServiceBuildCommand)
-  cli.register(ServiceStartCommand)
   cli.register(ServiceDevCommand)
 
   cli.register(RendererBuildCommand)

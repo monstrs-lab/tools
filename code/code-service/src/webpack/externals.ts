@@ -23,15 +23,16 @@ export const getUnpluggedDependencies = async (): Promise<Set<String>> => {
     getPluginConfiguration()
   )
 
-  const entries = await fg('*/node_modules/*/package.json', {
-    cwd: configuration.get(`pnpUnpluggedFolder`),
-  })
-
+  const pnpUnpluggedFolder = configuration.get('pnpUnpluggedFolder') as string
   const dependenciesNames = new Set<string>()
+
+  const entries = await fg('*/node_modules/*/package.json', {
+    cwd: pnpUnpluggedFolder,
+  })
 
   await Promise.all(
     entries
-      .map((entry) => path.join(configuration.get(`pnpUnpluggedFolder`), entry))
+      .map((entry) => path.join(pnpUnpluggedFolder, entry))
       .map(async (entry) => {
         try {
           const { name } = JSON.parse((await fs.readFile(entry)).toString())
