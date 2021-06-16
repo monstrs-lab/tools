@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@babel/code-frame": "^7.12.13",
-    "@monstrs/github-checks-utils": "workspace:0.0.6",
+    "@monstrs/github-checks-utils": "workspace:0.0.7",
     "@monstrs/tools-builder": "workspace:0.0.1",
     "@monstrs/yarn-plugin-files": "workspace:0.0.1",
     "@monstrs/yarn-run-utils": "workspace:0.0.1",

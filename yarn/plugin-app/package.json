@@ -13,10 +13,10 @@
     "prepack": "yarn run build"
   },
   "devDependencies": {
-    "@monstrs/code-commitlint": "workspace:0.0.89",
-    "@monstrs/code-configuration": "workspace:0.0.4",
-    "@monstrs/code-pack": "workspace:0.0.83",
-    "@monstrs/code-typescript": "workspace:0.0.94",
+    "@monstrs/code-commitlint": "workspace:0.0.90",
+    "@monstrs/code-configuration": "workspace:0.0.5",
+    "@monstrs/code-pack": "workspace:0.0.84",
+    "@monstrs/code-typescript": "workspace:0.0.95",
     "@monstrs/tools-builder": "workspace:0.0.1",
     "@monstrs/yarn-pack-utils": "workspace:0.0.1",
     "@yarnpkg/cli": "^3.0.0-rc.5",

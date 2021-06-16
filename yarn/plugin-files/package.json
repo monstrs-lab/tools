@@ -13,7 +13,7 @@
     "prepack": "yarn run build"
   },
   "devDependencies": {
-    "@monstrs/github-actions-utils": "workspace:0.0.7",
+    "@monstrs/github-actions-utils": "workspace:0.0.8",
     "@monstrs/tools-builder": "workspace:0.0.1",
     "@yarnpkg/cli": "^3.0.0-rc.5",
     "@yarnpkg/core": "^3.0.0-rc.5",
