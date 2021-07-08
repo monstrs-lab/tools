@@ -34,20 +34,16 @@ class Linter {
   }
 
   lint() {
-    const ignorer = ignore().add(ignoreConfig)
-
     const patterns = createPatterns(this.cwd)
 
-    const files = globby
-      .sync(patterns, { dot: true, nodir: true } as any)
-      .filter((file) => ignorer.filter([path.relative(this.cwd, file)]).length !== 0)
+    const files = globby.sync(patterns, { dot: true, nodir: true } as any)
 
+    // @ts-ignore
     return this.lintFiles(files)
   }
 
   format(results: any, format = 'stylish') {
-    const { engine } = this
-    const formatter: any = engine.getFormatter(format)
+    const formatter: any = this.engine.getFormatter(format)
 
     let rulesMeta
 

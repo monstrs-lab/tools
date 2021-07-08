@@ -18,9 +18,9 @@
   },
   "devDependencies": {
     "@monstrs/tools-builder": "workspace:0.0.1",
-    "@types/node": "^14.17.0",
-    "globby": "^11.0.3",
-    "prettier": "^2.3.0"
+    "@types/node": "^16.0.1",
+    "globby": "^11.0.4",
+    "prettier": "^2.3.2"
   },
   "peerDependencies": {
     "globby": "*",
