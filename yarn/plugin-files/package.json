@@ -17,7 +17,7 @@
     "@monstrs/tools-builder": "workspace:0.0.1",
     "@yarnpkg/cli": "^3.0.0-rc.9",
     "@yarnpkg/core": "^3.0.0-rc.9",
-    "clipanion": "^3.0.0-rc.12"
+    "clipanion": "^3.0.0"
   },
   "publishConfig": {
     "access": "public",
