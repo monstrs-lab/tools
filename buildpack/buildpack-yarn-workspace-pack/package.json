@@ -9,8 +9,8 @@
   ],
   "dependencies": {
     "@monstrs/buildpack-core": "workspace:0.0.1",
-    "@yarnpkg/core": "^3.0.0-rc.5",
-    "@yarnpkg/fslib": "^2.5.0-rc.5",
+    "@yarnpkg/core": "^3.0.0-rc.9",
+    "@yarnpkg/fslib": "^2.5.0-rc.9",
     "execa": "^5.0.0",
     "tempy": "^1.0.1",
     "yaml": "^1.10.2"
