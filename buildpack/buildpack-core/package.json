@@ -14,7 +14,7 @@
     "prepack": "yarn run build"
   },
   "devDependencies": {
-    "@babel/types": "^7.14.2",
+    "@babel/types": "^7.14.5",
     "@monstrs/tools-builder": "workspace:0.0.1",
     "@types/execa": "2.0.0",
     "@types/node": "^14.17.0"

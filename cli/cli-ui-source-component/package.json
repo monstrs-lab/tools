@@ -19,7 +19,7 @@
     "ink": "^3.0.8"
   },
   "dependencies": {
-    "@babel/code-frame": "^7.12.13",
+    "@babel/code-frame": "^7.14.5",
     "supports-color": "^8.1.1"
   },
   "peerDependencies": {
