@@ -1568,9 +1568,9 @@ __metadata:
     "@monstrs/cli-ui-stack-trace-component": "workspace:0.0.7"
     "@monstrs/logger": ^0.0.4
     "@monstrs/tools-builder": "workspace:0.0.1"
-    "@types/jest": ^26.0.23
+    "@types/jest": ^26.0.24
     "@types/node": ^14.17.0
-    "@types/react": ^17.0.6
+    "@types/react": ^17.0.14
     ink: ^3.0.8
     string-to-color: ^2.2.2
     strip-ansi: ^6.0.0
@@ -1588,7 +1588,7 @@ __metadata:
     "@monstrs/cli-ui-renderer": "workspace:0.0.7"
     "@monstrs/tools-builder": "workspace:0.0.1"
     "@types/node": ^14.17.0
-    "@types/react": ^17.0.6
+    "@types/react": ^17.0.14
     ink: ^3.0.8
     react: "*"
   languageName: unknown
@@ -1600,7 +1600,7 @@ __metadata:
   dependencies:
     "@monstrs/tools-builder": "workspace:0.0.1"
     "@types/node": ^14.17.0
-    "@types/react": ^17.0.6
+    "@types/react": ^17.0.14
     ink: ^3.0.8
     react: "*"
   languageName: unknown
@@ -1612,9 +1612,9 @@ __metadata:
   dependencies:
     "@babel/code-frame": ^7.14.5
     "@monstrs/tools-builder": "workspace:0.0.1"
-    "@types/babel__code-frame": 7.0.2
+    "@types/babel__code-frame": 7.0.3
     "@types/node": ^14.17.0
-    "@types/react": ^17.0.6
+    "@types/react": ^17.0.14
     ink: ^3.0.8
     supports-color: ^8.1.1
   peerDependencies:
@@ -1631,8 +1631,8 @@ __metadata:
     "@monstrs/cli-ui-source-component": "workspace:0.0.6"
     "@monstrs/stack-trace": ^0.0.4
     "@monstrs/tools-builder": "workspace:0.0.1"
-    "@types/jest": ^26.0.23
-    "@types/react": ^17.0.6
+    "@types/jest": ^26.0.24
+    "@types/react": ^17.0.14
     ink: ^3.0.8
     strip-ansi: ^6.0.0
   peerDependencies:
@@ -1689,7 +1689,7 @@ __metadata:
   dependencies:
     "@monstrs/code-format": "workspace:0.0.83"
     "@monstrs/tools-builder": "workspace:0.0.1"
-    "@types/eslint": 7.2.11
+    "@types/eslint": 7.2.14
     "@types/globby": 9.1.0
     "@types/node": ^14.17.0
     "@typescript-eslint/eslint-plugin": ^4.26.0
@@ -1741,10 +1741,10 @@ __metadata:
     "@monstrs/code-typescript": "workspace:0.0.95"
     "@monstrs/tools-builder": "workspace:0.0.1"
     "@monstrs/webpack-proto-imports-loader": "workspace:0.0.5"
-    "@types/file-loader": 5.0.0
-    "@types/jest": ^26.0.23
+    "@types/file-loader": 5.0.1
+    "@types/jest": ^26.0.24
     "@types/node": ^14.17.0
-    "@types/protocol-buffers-schema": 3.4.0
+    "@types/protocol-buffers-schema": 3.4.1
     "@types/wait-for-localhost": 3.1.0
     "@types/webpack": ^5.28.0
     "@yarnpkg/cli": ^3.0.0-rc.5
@@ -1770,7 +1770,7 @@ __metadata:
     "@jest/types": ^26.6.2
     "@monstrs/code-typescript": "workspace:0.0.95"
     "@monstrs/tools-builder": "workspace:0.0.1"
-    "@types/jest": ^26.0.23
+    "@types/jest": ^26.0.24
     "@types/node": ^14.17.0
     jest-haste-map: ^26.6.2
     jest-static-stubs: ^0.0.1
@@ -1788,7 +1788,7 @@ __metadata:
   dependencies:
     "@babel/code-frame": ^7.14.5
     "@monstrs/tools-builder": "workspace:0.0.1"
-    "@types/babel__code-frame": 7.0.2
+    "@types/babel__code-frame": 7.0.3
     "@types/chalk": 2.2.0
     "@types/deepmerge": 2.2.0
     "@types/node": ^14.17.0
@@ -1866,7 +1866,7 @@ __metadata:
     "@semantic-release/commit-analyzer": ^8.0.1
     "@types/ansi-escapes": 4.0.0
     "@types/figures": 3.0.1
-    "@types/inquirer": 7.3.1
+    "@types/inquirer": 7.3.3
     "@types/node": ^14.17.0
     ansi-escapes: ^4.3.2
     chalk: ^4.1.1
@@ -1902,7 +1902,7 @@ __metadata:
     "@monstrs/code-typescript": "workspace:0.0.95"
     "@monstrs/tools-builder": "workspace:0.0.1"
     "@types/node": ^14.17.0
-    "@types/rimraf": ^3.0.0
+    "@types/rimraf": ^3.0.1
     clipanion: ^3.0.0-rc.12
     rimraf: ^3.0.2
   languageName: unknown
@@ -1951,7 +1951,7 @@ __metadata:
     "@monstrs/tools-builder": "workspace:0.0.1"
     "@monstrs/webpack-start-server-plugin": "workspace:0.2.17"
     "@types/node": ^14.17.0
-    "@types/react": ^17.0.6
+    "@types/react": ^17.0.14
     clipanion: ^3.0.0-rc.12
     react: ^17.0.2
   languageName: unknown
@@ -2054,7 +2054,7 @@ __metadata:
     "@babel/register": ^7.14.5
     "@babel/runtime": ^7.14.6
     "@babel/types": ^7.14.5
-    "@types/babel__core": 7.1.14
+    "@types/babel__core": 7.1.15
     "@types/node": ^14.17.0
   languageName: unknown
   linkType: soft
@@ -2071,7 +2071,7 @@ __metadata:
   resolution: "@monstrs/webpack-localtunnel-plugin@workspace:webpack/webpack-localtunnel-plugin"
   dependencies:
     "@monstrs/tools-builder": "workspace:0.0.1"
-    "@types/localtunnel": 2.0.0
+    "@types/localtunnel": 2.0.1
     "@types/node": ^14.17.0
     localtunnel: ^2.0.1
   languageName: unknown
@@ -2556,14 +2556,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/babel__code-frame@npm:7.0.2":
-  version: 7.0.2
-  resolution: "@types/babel__code-frame@npm:7.0.2"
-  checksum: 0bd6a231bb1aec85312e3080e098ae7560ddae60a1d309d66f98d45247ad36ea4b34f0acec56571bedb06cfa02c609748b54911a6ebf89c59f9d56c9ed344a4c
+"@types/babel__code-frame@npm:7.0.3":
+  version: 7.0.3
+  resolution: "@types/babel__code-frame@npm:7.0.3"
+  checksum: 543bd933e5ffdfbf75dfee0a36461c8a9d9283d5a95ceae0e021b2aef7fe774f1f251ea56f507faedf9d3574894b4774636f2b125f5cc5f6759503e1e56feb93
   languageName: node
   linkType: hard
 
-"@types/babel__core@npm:7.1.14, @types/babel__core@npm:^7.0.0, @types/babel__core@npm:^7.1.7":
+"@types/babel__core@npm:7.1.15":
+  version: 7.1.15
+  resolution: "@types/babel__core@npm:7.1.15"
+  dependencies:
+    "@babel/parser": ^7.1.0
+    "@babel/types": ^7.0.0
+    "@types/babel__generator": "*"
+    "@types/babel__template": "*"
+    "@types/babel__traverse": "*"
+  checksum: 3ea016369666a013564f8d3119ae987b3a3f1bdf31cc90e0d58714eea10d6b89a9fb1f6146290ee239ecc285800b246f18be930625c1d83e79d074842e43ab7d
+  languageName: node
+  linkType: hard
+
+"@types/babel__core@npm:^7.0.0, @types/babel__core@npm:^7.1.7":
   version: 7.1.14
   resolution: "@types/babel__core@npm:7.1.14"
   dependencies:
@@ -2693,12 +2706,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/file-loader@npm:5.0.0":
-  version: 5.0.0
-  resolution: "@types/file-loader@npm:5.0.0"
+"@types/file-loader@npm:5.0.1":
+  version: 5.0.1
+  resolution: "@types/file-loader@npm:5.0.1"
   dependencies:
     "@types/webpack": ^4
-  checksum: 6de7b3a6c07460fdbc31953610cf1ad11bda1c65cbd4ac943a95f773bb67fa26c834b56d6f7cbd2e490be3f42b59a9ba762fdf311b6004cdee39a39c602e4095
+  checksum: dfde296d4421b4e6f37655e44bec3827592625fffae41c54138af33da8753d338713761325161c59859d2ad810ef9284948f435bf058672869f3b6f876ccff56
   languageName: node
   linkType: hard
 
@@ -2737,13 +2750,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/inquirer@npm:7.3.1":
-  version: 7.3.1
-  resolution: "@types/inquirer@npm:7.3.1"
+"@types/inquirer@npm:7.3.3":
+  version: 7.3.3
+  resolution: "@types/inquirer@npm:7.3.3"
   dependencies:
     "@types/through": "*"
     rxjs: ^6.4.0
-  checksum: 93b06308b0caae00889bf982a198871013d30a847cf3aacc06d9ccce75a9d778e401d3e5228c12d02ebbec803980b620c4f6570d29016c40f69a154b712576dc
+  checksum: 49b21d883ab533dbb84b400fa1aeab2638c37b87978d16f15636316c8d9f70d93a185479cf32081d9013fe2b362db05a83bdc3725771cc93d8bdab9182a96ab9
   languageName: node
   linkType: hard
 
@@ -2772,13 +2785,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:^26.0.23":
-  version: 26.0.23
-  resolution: "@types/jest@npm:26.0.23"
+"@types/jest@npm:^26.0.24":
+  version: 26.0.24
+  resolution: "@types/jest@npm:26.0.24"
   dependencies:
     jest-diff: ^26.0.0
     pretty-format: ^26.0.0
-  checksum: 69db26061e6be34de2a440c8a470b651c53ba6ee0057614a278c4f756ff00281f46cc075b24e5bd761f399f175f49d0a5758b50dd921342a8592461548dea29a
+  checksum: ae39675412f08d884926254e9b12bfd2b5a4e4d204c94d3148cb942174a474930d0c60540133c968f22241d4712b7940c96cbc883096eb326a4d5b206fb78bd0
   languageName: node
   linkType: hard
 
@@ -2805,12 +2818,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/localtunnel@npm:2.0.0":
-  version: 2.0.0
-  resolution: "@types/localtunnel@npm:2.0.0"
+"@types/localtunnel@npm:2.0.1":
+  version: 2.0.1
+  resolution: "@types/localtunnel@npm:2.0.1"
   dependencies:
     "@types/node": "*"
-  checksum: 552a9869768473b3ff5dbcc4d9fa0b38239cc809d70a525dd4fcfeb6d46b7d69dc7a412304ecee850d31bfa46765f5c91bcda596fd2e0b96420a8626972545b0
+  checksum: 96de263eab50ce50721f8520f2c5f97302200ecf086ca97097b31f6d80c9b571b71b768ae6cc0ec353571eeb41c7fa265306f82232558433bcbe099039955a97
   languageName: node
   linkType: hard
 
@@ -2870,12 +2883,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/protocol-buffers-schema@npm:3.4.0":
-  version: 3.4.0
-  resolution: "@types/protocol-buffers-schema@npm:3.4.0"
+"@types/protocol-buffers-schema@npm:3.4.1":
+  version: 3.4.1
+  resolution: "@types/protocol-buffers-schema@npm:3.4.1"
   dependencies:
     "@types/node": "*"
-  checksum: 118dcf7a5240781da712060e45ce0ce4e33e5209e118f9b16f207b21974f05d3b4f37a8fbe703de1e1ee4aaaa2f9effb8b2835f5a6e9375b129a71428a02a56d
+  checksum: fbcad7bc886351309d20942a098f7aeb83b0f2e7c1c008c14a0e7c8b7a118aaac35fc4265939c997f988d8170a8d6be3c40d691eac6b0af64f92108612e7ad59
   languageName: node
   linkType: hard
 
@@ -2898,13 +2911,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/rimraf@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "@types/rimraf@npm:3.0.0"
+"@types/rimraf@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "@types/rimraf@npm:3.0.1"
   dependencies:
     "@types/glob": "*"
     "@types/node": "*"
-  checksum: a2a9a3f5a88546e11bfe15031a3a8442974c1df5e3f9a6b5cb22680bc3721fb9f0b5880a99ec99f6bb12e274fa4cb43e41cc7152d8400360c4060fc609f4ff8a
+  checksum: 7c921220715d969c365b4fa37de9d0578aaf0ff78d445d4d13035cfc5edee76f392b9356291af5176cded5f0482370ef40608e55d502054059bf16425c39e868
   languageName: node
   linkType: hard
 
@@ -13600,7 +13613,7 @@ resolve@^2.0.0-next.3:
   resolution: "tools@workspace:."
   dependencies:
     "@monstrs/mctl-cli": "workspace:0.2.112"
-    "@types/jest": ^26.0.23
+    "@types/jest": ^26.0.24
     "@types/node": ^14.17.0
     "@yarnpkg/cli": ^3.0.0-rc.5
     "@yarnpkg/pnpify": ^3.0.0-rc.6

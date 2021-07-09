@@ -14,7 +14,7 @@
   "devDependencies": {
     "@monstrs/tools-builder": "workspace:0.0.1",
     "@types/node": "^14.17.0",
-    "@types/react": "^17.0.6"
+    "@types/react": "^17.0.14"
   },
   "dependencies": {
     "@monstrs/cli-ui-pretty-logs": "workspace:0.0.8",
