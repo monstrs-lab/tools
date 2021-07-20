@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@monstrs/code-lint": "workspace:0.0.95",
-    "clipanion": "^3.0.0",
+    "clipanion": "^3.0.1",
     "typescript": "*"
   },
   "peerDependencies": {
