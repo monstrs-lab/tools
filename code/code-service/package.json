@@ -20,7 +20,7 @@
     "@types/protocol-buffers-schema": "3.4.1",
     "@types/wait-for-localhost": "3.1.0",
     "@types/webpack": "^5.28.0",
-    "@yarnpkg/fslib": "^2.5.0-rc.9",
+    "@yarnpkg/fslib": "^2.5.0-rc.12",
     "wait-for-localhost": "^3.3.0"
   },
   "publishConfig": {
@@ -30,8 +30,8 @@
   "dependencies": {
     "@monstrs/code-typescript": "workspace:0.0.95",
     "@monstrs/webpack-proto-imports-loader": "workspace:0.0.5",
-    "@yarnpkg/cli": "^3.0.0-rc.9",
-    "@yarnpkg/core": "^3.0.0-rc.9",
+    "@yarnpkg/cli": "^3.0.0-rc.12",
+    "@yarnpkg/core": "^3.0.0-rc.12",
     "fast-glob": "^3.2.5",
     "string-replace-loader": "^3.0.1",
     "ts-loader": "^9.2.3",
