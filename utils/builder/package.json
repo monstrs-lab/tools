@@ -8,7 +8,7 @@
     "builder": "bin/dev"
   },
   "devDependencies": {
-    "@monstrs/code-typescript": "workspace:0.0.95",
+    "@monstrs/code-typescript": "workspace:0.0.96",
     "@monstrs/tools-setup-ts-execution": "workspace:0.0.1",
     "@yarnpkg/builder": "^3.0.0-rc.12",
     "@yarnpkg/core": "^3.0.0-rc.12",
