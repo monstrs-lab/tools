@@ -14,8 +14,8 @@
   "dependencies": {
     "@iarna/toml": "^2.2.5",
     "@monstrs/github-actions-utils": "workspace:0.0.9",
-    "@yarnpkg/core": "^3.0.0-rc.12",
-    "@yarnpkg/fslib": "^2.5.0-rc.12"
+    "@yarnpkg/core": "^3.0.0",
+    "@yarnpkg/fslib": "^2.5.0"
   },
   "devDependencies": {
     "@monstrs/tools-builder": "workspace:0.0.1",
