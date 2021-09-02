@@ -9,8 +9,8 @@
   ],
   "dependencies": {
     "@monstrs/buildpack-core": "workspace:0.0.1",
-    "@yarnpkg/core": "^3.0.0-rc.12",
-    "@yarnpkg/fslib": "^2.5.0-rc.12"
+    "@yarnpkg/core": "^3.1.0-rc.3",
+    "@yarnpkg/fslib": "^2.6.0-rc.2"
   },
   "devDependencies": {
     "@monstrs/mctl-cli": "workspace:0.2.113"
