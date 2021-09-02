@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-test",
-  "version": "0.0.94",
+  "version": "0.0.95",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -25,7 +25,7 @@
     "@jest/core": "^27.1.0",
     "@jest/test-result": "^27.1.0",
     "@jest/types": "^27.1.0",
-    "@monstrs/code-typescript": "workspace:0.0.98",
+    "@monstrs/code-typescript": "workspace:0.0.99",
     "jest-static-stubs": "^0.0.1",
     "ts-jest": "^27.0.5"
   },
