@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@monstrs/tools-builder": "workspace:0.0.1",
-    "@types/node": "^14.17.14"
+    "@types/node": "^16.7.10"
   },
   "dependencies": {
     "@monstrs/code-test": "workspace:0.0.92",

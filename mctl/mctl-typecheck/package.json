@@ -14,7 +14,7 @@
   "devDependencies": {
     "@monstrs/tools-builder": "workspace:0.0.1",
     "@types/execa": "2.0.0",
-    "@types/node": "^14.17.14"
+    "@types/node": "^16.7.10"
   },
   "dependencies": {
     "@monstrs/code-typescript": "workspace:0.0.96",
