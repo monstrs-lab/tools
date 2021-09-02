@@ -15,8 +15,8 @@
   "devDependencies": {
     "@monstrs/tools-builder": "workspace:0.0.1",
     "@types/file-loader": "5.0.1",
-    "@types/jest": "^26.0.24",
-    "@types/node": "^14.17.0",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^14.17.14",
     "@types/protocol-buffers-schema": "3.4.1",
     "@types/wait-for-localhost": "3.1.0",
     "@types/webpack": "^5.28.0",

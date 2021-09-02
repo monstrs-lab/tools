@@ -13,8 +13,8 @@
   },
   "devDependencies": {
     "@monstrs/tools-builder": "workspace:0.0.1",
-    "@types/jest": "^26.0.24",
-    "@types/react": "^17.0.14",
+    "@types/jest": "^27.0.1",
+    "@types/react": "^17.0.19",
     "ink": "^3.0.8",
     "react": "*",
     "strip-ansi": "^6.0.0"
