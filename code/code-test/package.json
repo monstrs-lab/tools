@@ -22,12 +22,12 @@
   },
   "dependencies": {
     "@emotion/jest": "^11.3.0",
-    "@jest/core": "^27.0.6",
-    "@jest/test-result": "^27.0.6",
-    "@jest/types": "^27.0.6",
+    "@jest/core": "^27.1.0",
+    "@jest/test-result": "^27.1.0",
+    "@jest/types": "^27.1.0",
     "@monstrs/code-typescript": "workspace:0.0.96",
     "jest-static-stubs": "^0.0.1",
-    "ts-jest": "^27.0.3"
+    "ts-jest": "^27.0.5"
   },
   "peerDependenciesMeta": {
     "jest": {
