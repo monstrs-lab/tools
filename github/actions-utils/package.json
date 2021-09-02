@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/github-actions-utils",
-  "version": "0.0.9",
+  "version": "0.0.11",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -13,7 +13,8 @@
   },
   "devDependencies": {
     "@monstrs/tools-builder": "workspace:0.0.1",
-    "@octokit/types": "^6.26.0"
+    "@octokit/types": "^6.26.0",
+    "@types/node": "^16.7.10"
   },
   "publishConfig": {
     "main": "dist/index.js",

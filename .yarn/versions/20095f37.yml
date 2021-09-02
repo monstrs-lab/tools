@@ -28,3 +28,16 @@ releases:
   "@monstrs/webpack-localtunnel-plugin": patch
   "@monstrs/webpack-proto-imports-loader": patch
   "@monstrs/webpack-start-server-plugin": patch
+
+undecided:
+  - "@monstrs/buildpack-node-start"
+  - "@monstrs/buildpack-yarn-install"
+  - "@monstrs/buildpack-yarn-workspace-build"
+  - "@monstrs/buildpack-yarn-workspace-pack"
+  - "@monstrs/buildpack-yarn-workspace-serve"
+  - "@monstrs/buildpack-yarn-workspace-start"
+  - "@monstrs/tools-builder"
+  - "@monstrs/yarn-plugin-app"
+  - "@monstrs/yarn-plugin-checks"
+  - "@monstrs/yarn-plugin-commit"
+  - "@monstrs/yarn-plugin-files"

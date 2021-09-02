@@ -2843,7 +2843,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@actions/core", "npm:1.5.0"],
             ["@actions/github", "npm:4.0.0"],
             ["@monstrs/tools-builder", "workspace:utils/builder"],
-            ["@octokit/types", "npm:6.26.0"]
+            ["@octokit/types", "npm:6.26.0"],
+            ["@types/node", "npm:16.7.10"]
           ],
           "linkType": "SOFT",
         }]
@@ -2859,6 +2860,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@jest/test-result", "npm:27.1.0"],
             ["@monstrs/tools-builder", "workspace:utils/builder"],
             ["@octokit/types", "npm:6.26.0"],
+            ["@types/node", "npm:16.7.10"],
             ["eslint", "npm:7.32.0"]
           ],
           "linkType": "SOFT",

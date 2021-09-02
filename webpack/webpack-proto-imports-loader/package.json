@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/webpack-proto-imports-loader",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -12,7 +12,7 @@
     "prepack": "yarn run build"
   },
   "devDependencies": {
-    "@monstrs/code-typescript": "workspace:0.0.96",
+    "@monstrs/code-typescript": "workspace:0.0.98",
     "@monstrs/tools-builder": "workspace:0.0.1",
     "@monstrs/types-import-proto": "0.0.1",
     "@types/node": "^16.7.10",
