@@ -15,7 +15,6 @@
   "devDependencies": {
     "@monstrs/tools-builder": "workspace:0.0.1",
     "@types/eslint": "7.28.0",
-    "@types/globby": "9.1.0",
     "@types/node": "^16.7.10"
   },
   "publishConfig": {
