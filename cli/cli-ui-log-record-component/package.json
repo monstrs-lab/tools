@@ -12,19 +12,19 @@
     "prepack": "yarn run build"
   },
   "devDependencies": {
-    "@monstrs/logger": "^0.0.4",
+    "@monstrs/logger": "^0.0.6",
     "@monstrs/tools-builder": "workspace:0.0.1",
-    "@types/jest": "^26.0.24",
-    "@types/node": "^14.17.0",
-    "@types/react": "^17.0.14",
-    "ink": "^3.0.8",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.7.10",
+    "@types/react": "^17.0.19",
+    "ink": "^3.0.9",
     "react": "*",
     "strip-ansi": "^6.0.0"
   },
   "dependencies": {
     "@monstrs/cli-ui-renderer": "workspace:0.0.8",
     "@monstrs/cli-ui-stack-trace-component": "workspace:0.0.8",
-    "@monstrs/logger": "^0.0.4",
+    "@monstrs/logger": "^0.0.6",
     "string-to-color": "^2.2.2"
   },
   "peerDependencies": {
