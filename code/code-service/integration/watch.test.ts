@@ -6,6 +6,8 @@ import path      from 'path'
 
 import { watch } from '../src'
 
+jest.setTimeout(10000)
+
 const closeWatcher = (watcher): Promise<void> =>
   new Promise((resolve) =>
     watcher.close(() => {
