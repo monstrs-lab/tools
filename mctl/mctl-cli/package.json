@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/mctl-cli",
-  "version": "0.2.116",
+  "version": "0.2.117",
   "license": "MIT",
   "main": "src/index.ts",
   "bin": {
@@ -33,9 +33,9 @@
     "@monstrs/mctl-format": "workspace:0.2.90",
     "@monstrs/mctl-library": "workspace:0.2.85",
     "@monstrs/mctl-lint": "workspace:0.2.93",
-    "@monstrs/mctl-renderer": "workspace:0.2.98",
-    "@monstrs/mctl-service": "workspace:0.2.94",
-    "@monstrs/mctl-test": "workspace:0.2.95",
+    "@monstrs/mctl-renderer": "workspace:0.2.99",
+    "@monstrs/mctl-service": "workspace:0.2.95",
+    "@monstrs/mctl-test": "workspace:0.2.96",
     "@monstrs/mctl-typecheck": "workspace:0.2.93",
     "clipanion": "^3.0.1"
   },
