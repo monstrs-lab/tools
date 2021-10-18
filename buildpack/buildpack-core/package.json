@@ -14,10 +14,10 @@
     "prepack": "yarn run build"
   },
   "devDependencies": {
-    "@babel/types": "^7.15.0",
+    "@babel/types": "^7.15.6",
     "@monstrs/tools-builder": "workspace:0.0.1",
     "@types/execa": "2.0.0",
-    "@types/node": "^16.7.10"
+    "@types/node": "^16.11.1"
   },
   "publishConfig": {
     "main": "dist/index.js",
