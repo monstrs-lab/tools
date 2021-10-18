@@ -23,7 +23,7 @@
     "@semantic-release/commit-analyzer": "^8.0.1",
     "ansi-escapes": "^4.3.2",
     "chalk": "^4.1.2",
-    "clipanion": "^3.1.0",
+    "clipanion": "^3.2.0-rc.3",
     "commitizen": "4.2.4",
     "cz-customizable": "^6.3.0",
     "figures": "^4.0.0",

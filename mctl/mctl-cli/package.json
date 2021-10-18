@@ -37,7 +37,7 @@
     "@monstrs/mctl-service": "workspace:0.2.96",
     "@monstrs/mctl-test": "workspace:0.2.97",
     "@monstrs/mctl-typecheck": "workspace:0.2.94",
-    "clipanion": "^3.1.0"
+    "clipanion": "^3.2.0-rc.3"
   },
   "peerDependencies": {
     "typescript": "*"
