@@ -13,8 +13,8 @@
   },
   "devDependencies": {
     "@monstrs/tools-builder": "workspace:0.0.1",
-    "@types/node": "^16.7.10",
-    "@types/react": "^17.0.19"
+    "@types/node": "^16.11.1",
+    "@types/react": "^17.0.30"
   },
   "dependencies": {
     "ink": "^3.0.9",

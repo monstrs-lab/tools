@@ -15,8 +15,8 @@
   },
   "devDependencies": {
     "@monstrs/tools-builder": "workspace:0.0.1",
-    "@types/jest": "^27.0.1",
-    "@types/node": "^16.7.10",
+    "@types/jest": "^27.0.2",
+    "@types/node": "^16.11.1",
     "jest-haste-map": "^27.1.0",
     "typescript": "^4.4.2"
   },

@@ -13,14 +13,14 @@
   },
   "devDependencies": {
     "@monstrs/tools-builder": "workspace:0.0.1",
-    "@types/node": "^16.7.10",
-    "@types/react": "^17.0.19"
+    "@types/node": "^16.11.1",
+    "@types/react": "^17.0.30"
   },
   "dependencies": {
     "@monstrs/cli-ui-pretty-logs": "workspace:0.0.13",
     "@monstrs/code-service": "workspace:0.0.95",
     "@monstrs/webpack-start-server-plugin": "workspace:0.2.22",
-    "clipanion": "^3.0.1",
+    "clipanion": "^3.1.0",
     "react": "^17.0.2"
   },
   "publishConfig": {

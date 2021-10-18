@@ -2,7 +2,7 @@
 import globby                                     from 'globby'
 import ignore                                     from 'ignore'
 import path                                       from 'path'
-import { ESLint }                              from 'eslint'
+import { ESLint }                                 from 'eslint'
 
 import { createPatterns, ignore as ignoreConfig } from './config'
 

@@ -15,7 +15,7 @@
     "@monstrs/code-typescript": "workspace:0.0.100",
     "@monstrs/tools-builder": "workspace:0.0.1",
     "@monstrs/types-import-proto": "0.0.1",
-    "@types/node": "^16.7.10",
+    "@types/node": "^16.11.1",
     "memfs": "^3.2.3",
     "ts-loader": "^9.2.5",
     "typescript": "^4.4.2",

@@ -14,8 +14,8 @@
   },
   "devDependencies": {
     "@monstrs/tools-builder": "workspace:0.0.1",
-    "@types/eslint": "7.28.0",
-    "@types/node": "^16.7.10"
+    "@types/eslint": "7.28.1",
+    "@types/node": "^16.11.1"
   },
   "publishConfig": {
     "main": "dist/index.js",
