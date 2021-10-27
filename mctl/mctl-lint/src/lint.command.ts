@@ -14,9 +14,10 @@ class LintCommand extends Command {
   async execute() {
     const linter = new Linter()
 
-    const results = this.files.length > 0 ? await linter.lintFiles(this.files) : await linter.lint()
+    const { results, errorCount } =
+      this.files.length > 0 ? linter.lintFiles(this.files) : linter.lint()
 
-    const output = await linter.format(results)
+    const output = linter.format(results)
 
     if (this.report) {
       writeFileSync(this.report, JSON.stringify(results, null, 2))
@@ -26,7 +27,7 @@ class LintCommand extends Command {
       this.context.stdout.write(output)
     }
 
-    process.exit(results.some((result) => result.errorCount > 0) ? 1 : 0)
+    process.exit(errorCount ? 1 : 0)
   }
 }
 
