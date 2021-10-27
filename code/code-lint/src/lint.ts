@@ -2,19 +2,19 @@
 import globby                                     from 'globby'
 import ignore                                     from 'ignore'
 import path                                       from 'path'
-import { ESLint }                                 from 'eslint'
+import { CLIEngine }                              from 'eslint'
 
 import { createPatterns, ignore as ignoreConfig } from './config'
 
 class Linter {
-  engine: ESLint
+  engine: CLIEngine
 
   cwd: string
 
   constructor(projectCwd?: string) {
     this.cwd = projectCwd || process.cwd()
 
-    this.engine = new ESLint({
+    this.engine = new CLIEngine({
       baseConfig: {
         extends: [require.resolve('../rules/base')],
       },
@@ -28,7 +28,7 @@ class Linter {
   lintFiles(files: string[] = []) {
     const ignorer = ignore().add(ignoreConfig)
 
-    return this.engine.lintFiles(
+    return this.engine.executeOnFiles(
       files.filter((file) => ignorer.filter([path.relative(this.cwd, file)]).length !== 0)
     )
   }
@@ -45,11 +45,25 @@ class Linter {
     return this.lintFiles(files)
   }
 
-  async format(results: any, format = 'stylish') {
+  format(results: any, format = 'stylish') {
     const { engine } = this
-    const formatter = await engine.loadFormatter(format)
+    const formatter: any = engine.getFormatter(format)
 
-    return formatter.format(results)
+    let rulesMeta
+
+    return formatter(results, {
+      get rulesMeta() {
+        if (!rulesMeta) {
+          rulesMeta = {}
+
+          // @ts-ignore
+          for (const [ruleId, rule] of engine.getRules()) {
+            rulesMeta[ruleId] = rule.meta
+          }
+        }
+        return rulesMeta
+      },
+    })
   }
 }
 
