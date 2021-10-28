@@ -22450,21 +22450,6 @@ var external_fs_ = __webpack_require__(747);
 var external_fs_default = /*#__PURE__*/__webpack_require__.n(external_fs_);
 ;// CONCATENATED MODULE: external "os"
 const external_os_namespaceObject = require("os");;
-;// CONCATENATED MODULE: ../yarnpkg-fslib/sources/constants.ts
-const constants_S_IFMT = 0o170000;
-const constants_S_IFDIR = 0o040000;
-const constants_S_IFREG = 0o100000;
-const constants_S_IFLNK = 0o120000;
-/**
- * Unix timestamp for `1984-06-22T21:50:00.000Z`
- *
- * It needs to be after 1980-01-01 because that's what Zip supports, and it
- * needs to have a slight offset to account for different timezones (because
- * zip assumes that all times are local to whoever writes the file, which is
- * really silly).
- */
-
-const SAFE_TIME = 456789000;
 // EXTERNAL MODULE: external "path"
 var external_path_ = __webpack_require__(622);
 var external_path_default = /*#__PURE__*/__webpack_require__.n(external_path_);
@@ -22559,9 +22544,9 @@ function toFilename(filename) {
 }
 ;// CONCATENATED MODULE: ../yarnpkg-fslib/sources/algorithms/copyPromise.ts
 
+ // 1980-01-01, like Fedora
 
-
-const defaultTime = new Date(SAFE_TIME * 1000);
+const defaultTime = new Date(315532800 * 1000);
 var LinkStrategy;
 
 (function (LinkStrategy) {
@@ -22574,12 +22559,8 @@ async function copyPromise(destinationFs, destination, sourceFs, source, opts) {
   const normalizedSource = sourceFs.pathUtils.normalize(source);
   const prelayout = [];
   const postlayout = [];
-  const referenceTime = opts.stableTime ? {
-    mtime: defaultTime,
-    atime: defaultTime
-  } : await sourceFs.lstatPromise(normalizedSource);
-  await destinationFs.mkdirpPromise(destinationFs.pathUtils.dirname(destination), {
-    utimes: [referenceTime.atime, referenceTime.mtime]
+  await destinationFs.mkdirPromise(destinationFs.pathUtils.dirname(destination), {
+    recursive: true
   });
   const updateTime = typeof destinationFs.lutimesPromise === `function` ? destinationFs.lutimesPromise.bind(destinationFs) : destinationFs.utimesPromise.bind(destinationFs);
   await copyImpl(prelayout, postlayout, updateTime, destinationFs, normalizedDestination, sourceFs, normalizedSource, opts);
@@ -22990,15 +22971,13 @@ class FakeFS {
 
   async changeFilePromise(p, content, opts = {}) {
     if (Buffer.isBuffer(content)) {
-      return this.changeFileBufferPromise(p, content, opts);
+      return this.changeFileBufferPromise(p, content);
     } else {
       return this.changeFileTextPromise(p, content, opts);
     }
   }
 
-  async changeFileBufferPromise(p, content, {
-    mode
-  } = {}) {
+  async changeFileBufferPromise(p, content) {
     let current = Buffer.alloc(0);
 
     try {
@@ -23007,14 +22986,11 @@ class FakeFS {
     }
 
     if (Buffer.compare(current, content) === 0) return;
-    await this.writeFilePromise(p, content, {
-      mode
-    });
+    await this.writeFilePromise(p, content);
   }
 
   async changeFileTextPromise(p, content, {
-    automaticNewlines,
-    mode
+    automaticNewlines
   } = {}) {
     let current = ``;
 
@@ -23025,22 +23001,18 @@ class FakeFS {
 
     const normalizedContent = automaticNewlines ? normalizeLineEndings(current, content) : content;
     if (current === normalizedContent) return;
-    await this.writeFilePromise(p, normalizedContent, {
-      mode
-    });
+    await this.writeFilePromise(p, normalizedContent);
   }
 
   changeFileSync(p, content, opts = {}) {
     if (Buffer.isBuffer(content)) {
-      return this.changeFileBufferSync(p, content, opts);
+      return this.changeFileBufferSync(p, content);
     } else {
       return this.changeFileTextSync(p, content, opts);
     }
   }
 
-  changeFileBufferSync(p, content, {
-    mode
-  } = {}) {
+  changeFileBufferSync(p, content) {
     let current = Buffer.alloc(0);
 
     try {
@@ -23049,14 +23021,11 @@ class FakeFS {
     }
 
     if (Buffer.compare(current, content) === 0) return;
-    this.writeFileSync(p, content, {
-      mode
-    });
+    this.writeFileSync(p, content);
   }
 
   changeFileTextSync(p, content, {
-    automaticNewlines = false,
-    mode
+    automaticNewlines = false
   } = {}) {
     let current = ``;
 
@@ -23067,9 +23036,7 @@ class FakeFS {
 
     const normalizedContent = automaticNewlines ? normalizeLineEndings(current, content) : content;
     if (current === normalizedContent) return;
-    this.writeFileSync(p, normalizedContent, {
-      mode
-    });
+    this.writeFileSync(p, normalizedContent);
   }
 
   async movePromise(fromP, toP) {
@@ -23224,6 +23191,7 @@ class FakeFS {
   }
 
 }
+FakeFS.DEFAULT_TIME = 315532800;
 class BasePortableFakeFS extends FakeFS {
   constructor() {
     super(ppath);
@@ -24118,7 +24086,7 @@ class VirtualFS extends ProxiedFS {
     if (this.pathUtils.isAbsolute(p)) return VirtualFS.resolveVirtual(p);
     const resolvedRoot = VirtualFS.resolveVirtual(this.baseFs.resolve(PortablePath.dot));
     const resolvedP = VirtualFS.resolveVirtual(this.baseFs.resolve(p));
-    return ppath.relative(resolvedRoot, resolvedP) || PortablePath.dot;
+    return ppath.relative(resolvedRoot, resolvedP);
   }
 
   mapFromBase(p) {
@@ -24200,10 +24168,14 @@ function opendir(fakeFs, path, entries, opts) {
 }
 ;// CONCATENATED MODULE: external "events"
 const external_events_namespaceObject = require("events");;
+;// CONCATENATED MODULE: ../yarnpkg-fslib/sources/constants.ts
+const constants_S_IFMT = 0o170000;
+const constants_S_IFDIR = 0o040000;
+const constants_S_IFREG = 0o100000;
+const constants_S_IFLNK = 0o120000;
 ;// CONCATENATED MODULE: ../yarnpkg-fslib/sources/statUtils.ts
 
 
-const DEFAULT_MODE = constants_S_IFREG | 0o644;
 class DirEntry {
   constructor() {
     this.name = ``;
@@ -24255,7 +24227,7 @@ class StatEntry {
     this.birthtime = new Date(0);
     this.dev = 0;
     this.ino = 0;
-    this.mode = DEFAULT_MODE;
+    this.mode = constants_S_IFREG | 0o644;
     this.nlink = 1;
     this.rdev = 0;
     this.blocks = 1;
@@ -24310,7 +24282,7 @@ class BigIntStatsEntry {
     this.birthtime = new Date(0);
     this.dev = BigInt(0);
     this.ino = BigInt(0);
-    this.mode = BigInt(DEFAULT_MODE);
+    this.mode = BigInt(constants_S_IFREG | 0o644);
     this.nlink = BigInt(1);
     this.rdev = BigInt(0);
     this.blocks = BigInt(1);
@@ -24686,9 +24658,6 @@ function toUnixTimestamp(time) {
   throw new Error(`Invalid time`);
 }
 
-function makeEmptyArchive() {
-  return Buffer.from([0x50, 0x4B, 0x05, 0x06, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]);
-}
 class ZipFS extends BasePortableFakeFS {
   constructor(source, opts) {
     super();
@@ -24709,7 +24678,10 @@ class ZipFS extends BasePortableFakeFS {
     this.libzip = opts.libzip;
     const pathOptions = opts;
     this.level = typeof pathOptions.level !== `undefined` ? pathOptions.level : DEFAULT_COMPRESSION_LEVEL;
-    source !== null && source !== void 0 ? source : source = makeEmptyArchive();
+
+    if (source === null) {
+      source = Buffer.from([0x50, 0x4B, 0x05, 0x06, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]);
+    }
 
     if (typeof source === `string`) {
       const {
@@ -24874,22 +24846,15 @@ class ZipFS extends BasePortableFakeFS {
       return;
     }
 
-    const newMode = this.baseFs.existsSync(this.path) || this.stats.mode === DEFAULT_MODE ? undefined : this.stats.mode; // zip_close doesn't persist empty archives
+    const previousMod = this.baseFs.existsSync(this.path) ? this.baseFs.statSync(this.path).mode & 0o777 : null;
+    const rc = this.libzip.close(this.zip);
+    if (rc === -1) throw this.makeLibzipError(this.libzip.getError(this.zip)); // this.libzip overrides the chmod when writing the archive, which is a weird
+    // behavior I don't totally understand (plus the umask seems bogus in some
+    // weird cases - maybe related to emscripten?)
+    //
+    // See also https://github.com/nih-at/libzip/issues/77
 
-    if (this.entries.size === 0) {
-      this.discardAndClose();
-      this.baseFs.writeFileSync(this.path, makeEmptyArchive(), {
-        mode: newMode
-      });
-    } else {
-      const rc = this.libzip.close(this.zip);
-      if (rc === -1) throw this.makeLibzipError(this.libzip.getError(this.zip));
-
-      if (typeof newMode !== `undefined`) {
-        this.baseFs.chmodSync(this.path, newMode);
-      }
-    }
-
+    if (previousMod === null) this.baseFs.chmodSync(this.path, this.stats.mode);else if (previousMod !== (this.baseFs.statSync(this.path).mode & 0o777)) this.baseFs.chmodSync(this.path, previousMod);
     this.ready = false;
   }
 
@@ -25552,18 +25517,9 @@ class ZipFS extends BasePortableFakeFS {
     return this.writeFileSync(p, content, opts);
   }
 
-  fdToPath(fd, reason) {
-    var _a;
-
-    const path = (_a = this.fds.get(fd)) === null || _a === void 0 ? void 0 : _a.p;
-    if (typeof path === `undefined`) throw EBADF(reason);
-    return path;
-  }
-
   async writeFilePromise(p, content, opts) {
     const {
       encoding,
-      mode,
       index,
       resolvedP
     } = this.prepareWriteFile(p, opts);
@@ -25572,51 +25528,37 @@ class ZipFS extends BasePortableFakeFS {
     }), Buffer.from(content)]);
     if (encoding !== null) content = content.toString(encoding);
     const newIndex = this.setFileSource(resolvedP, content);
-    if (newIndex !== index) this.registerEntry(resolvedP, newIndex);
 
-    if (mode !== null) {
-      await this.chmodPromise(resolvedP, mode);
+    if (newIndex !== index) {
+      this.registerEntry(resolvedP, newIndex);
     }
   }
 
   writeFileSync(p, content, opts) {
     const {
       encoding,
-      mode,
       index,
       resolvedP
     } = this.prepareWriteFile(p, opts);
     if (index !== undefined && typeof opts === `object` && opts.flag && opts.flag.includes(`a`)) content = Buffer.concat([this.getFileSource(index), Buffer.from(content)]);
     if (encoding !== null) content = content.toString(encoding);
     const newIndex = this.setFileSource(resolvedP, content);
-    if (newIndex !== index) this.registerEntry(resolvedP, newIndex);
 
-    if (mode !== null) {
-      this.chmodSync(resolvedP, mode);
+    if (newIndex !== index) {
+      this.registerEntry(resolvedP, newIndex);
     }
   }
 
   prepareWriteFile(p, opts) {
-    if (typeof p === `number`) p = this.fdToPath(p, `read`);
+    if (typeof p !== `string`) throw EBADF(`read`);
     if (this.readOnly) throw EROFS(`open '${p}'`);
     const resolvedP = this.resolveFilename(`open '${p}'`, p);
     if (this.listings.has(resolvedP)) throw EISDIR(`open '${p}'`);
-    let encoding = null,
-        mode = null;
-
-    if (typeof opts === `string`) {
-      encoding = opts;
-    } else if (typeof opts === `object`) {
-      ({
-        encoding = null,
-        mode = null
-      } = opts);
-    }
-
+    let encoding = null;
+    if (typeof opts === `string`) encoding = opts;else if (typeof opts === `object` && opts.encoding) encoding = opts.encoding;
     const index = this.entries.get(resolvedP);
     return {
       encoding,
-      mode,
       resolvedP,
       index
     };
@@ -25766,7 +25708,6 @@ class ZipFS extends BasePortableFakeFS {
   readFileBuffer(p, opts = {
     asyncDecompress: false
   }) {
-    if (typeof p === `number`) p = this.fdToPath(p, `read`);
     const resolvedP = this.resolveFilename(`open '${p}'`, p);
     if (!this.entries.has(resolvedP) && !this.listings.has(resolvedP)) throw ENOENT(`open '${p}'`); // Ensures that the last component is a directory, if the user said so (even if it is we'll throw right after with EISDIR anyway)
 
@@ -25895,23 +25836,24 @@ class ZipFS extends BasePortableFakeFS {
 
 
 const ZIP_FD = 0x80000000;
+const DOT_ZIP = `.zip`;
 /**
- * Extracts the archive part (ending in the first instance of `extension`) from a path.
+ * Extracts the archive part (ending in the first `.zip`) from a path.
  *
  * The indexOf-based implementation is ~3.7x faster than a RegExp-based implementation.
  */
 
-const getArchivePart = (path, extension) => {
-  let idx = path.indexOf(extension);
+const getArchivePart = path => {
+  let idx = path.indexOf(DOT_ZIP);
   if (idx <= 0) return null;
   let nextCharIdx = idx;
 
   while (idx >= 0) {
-    nextCharIdx = idx + extension.length;
+    nextCharIdx = idx + DOT_ZIP.length;
     if (path[nextCharIdx] === ppath.sep) break; // Disallow files named ".zip"
 
     if (path[idx - 1] === ppath.sep) return null;
-    idx = path.indexOf(extension, nextCharIdx);
+    idx = path.indexOf(DOT_ZIP, nextCharIdx);
   } // The path either has to end in ".zip" or contain an archive subpath (".zip/...")
 
 
@@ -25926,8 +25868,7 @@ class ZipOpenFS extends BasePortableFakeFS {
     maxOpenFiles = Infinity,
     readOnlyArchives = false,
     useCache = true,
-    maxAge = 5000,
-    fileExtensions = null
+    maxAge = 5000
   }) {
     super();
     this.fdMap = new Map();
@@ -25943,7 +25884,6 @@ class ZipOpenFS extends BasePortableFakeFS {
     this.maxOpenFiles = maxOpenFiles;
     this.readOnlyArchives = readOnlyArchives;
     this.maxAge = maxAge;
-    this.fileExtensions = fileExtensions;
   }
 
   static async openPromise(fn, opts) {
@@ -26783,21 +26723,7 @@ class ZipOpenFS extends BasePortableFakeFS {
     let filePath = ``;
 
     while (true) {
-      const pathPartWithArchive = p.substr(filePath.length);
-      let archivePart;
-
-      if (!this.fileExtensions) {
-        archivePart = getArchivePart(pathPartWithArchive, `.zip`);
-      } else {
-        for (const ext of this.fileExtensions) {
-          archivePart = getArchivePart(pathPartWithArchive, ext);
-
-          if (archivePart) {
-            break;
-          }
-        }
-      }
-
+      const archivePart = getArchivePart(p.substr(filePath.length));
       if (!archivePart) return null;
       filePath = this.pathUtils.join(filePath, archivePart);
 
@@ -27152,7 +27078,7 @@ class URLFS extends ProxiedFS {
 ;// CONCATENATED MODULE: ../yarnpkg-fslib/sources/patchFs.ts
 
 
-const SYNC_IMPLEMENTATIONS = new Set([`accessSync`, `appendFileSync`, `createReadStream`, `createWriteStream`, `chmodSync`, `chownSync`, `closeSync`, `copyFileSync`, `linkSync`, `lstatSync`, `fstatSync`, `lutimesSync`, `mkdirSync`, `openSync`, `opendirSync`, `readSync`, `readlinkSync`, `readFileSync`, `readdirSync`, `readlinkSync`, `realpathSync`, `renameSync`, `rmdirSync`, `statSync`, `symlinkSync`, `truncateSync`, `unlinkSync`, `unwatchFile`, `utimesSync`, `watch`, `watchFile`, `writeFileSync`, `writeSync`]);
+const SYNC_IMPLEMENTATIONS = new Set([`accessSync`, `appendFileSync`, `createReadStream`, `chmodSync`, `chownSync`, `closeSync`, `copyFileSync`, `linkSync`, `lstatSync`, `fstatSync`, `lutimesSync`, `mkdirSync`, `openSync`, `opendirSync`, `readSync`, `readlinkSync`, `readFileSync`, `readdirSync`, `readlinkSync`, `realpathSync`, `renameSync`, `rmdirSync`, `statSync`, `symlinkSync`, `truncateSync`, `unlinkSync`, `unwatchFile`, `utimesSync`, `watch`, `watchFile`, `writeFileSync`, `writeSync`]);
 const ASYNC_IMPLEMENTATIONS = new Set([`accessPromise`, `appendFilePromise`, `chmodPromise`, `chownPromise`, `closePromise`, `copyFilePromise`, `linkPromise`, `fstatPromise`, `lstatPromise`, `lutimesPromise`, `mkdirPromise`, `openPromise`, `opendirPromise`, `readdirPromise`, `realpathPromise`, `readFilePromise`, `readdirPromise`, `readlinkPromise`, `renamePromise`, `rmdirPromise`, `statPromise`, `symlinkPromise`, `truncatePromise`, `unlinkPromise`, `utimesPromise`, `writeFilePromise`, `writeSync`]);
 const FILEHANDLE_IMPLEMENTATIONS = new Set([`appendFilePromise`, `chmodPromise`, `chownPromise`, `closePromise`, `readPromise`, `readFilePromise`, `statPromise`, `truncatePromise`, `utimesPromise`, `writePromise`, `writeFilePromise`]);
 function patchFs(patchedFs, fakeFs) {
