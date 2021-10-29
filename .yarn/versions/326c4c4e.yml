@@ -1,0 +1,4 @@
+releases:
+  "@monstrs/code-lint": patch
+  "@monstrs/mctl-cli": patch
+  "@monstrs/mctl-lint": patch
