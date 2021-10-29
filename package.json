@@ -2,7 +2,7 @@
   "name": "tools",
   "private": true,
   "devDependencies": {
-    "@monstrs/mctl-cli": "workspace:0.2.119",
+    "@monstrs/mctl-cli": "workspace:0.2.120",
     "@types/jest": "^27.0.2",
     "@types/node": "^16.7.10",
     "@yarnpkg/cli": "^3.1.0-rc.2",

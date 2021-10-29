@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/mctl-lint",
-  "version": "0.2.95",
+  "version": "0.2.96",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -16,7 +16,7 @@
     "@types/node": "^16.7.10"
   },
   "dependencies": {
-    "@monstrs/code-lint": "workspace:0.0.101",
+    "@monstrs/code-lint": "workspace:0.0.102",
     "clipanion": "^3.0.1",
     "typescript": "*"
   },
