@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@monstrs/tools-builder": "workspace:0.0.1",
-    "@yarnpkg/core": "^3.1.0-rc.3"
+    "@yarnpkg/core": "^3.1.0"
   },
   "publishConfig": {
     "access": "public",

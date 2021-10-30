@@ -3,10 +3,28 @@
   "private": true,
   "devDependencies": {
     "@monstrs/mctl-cli": "workspace:0.2.120",
+    "@monstrs/yarn-runtime": "workspace:0.0.1",
     "@types/jest": "^27.0.2",
     "@types/node": "^16.7.10",
-    "@yarnpkg/cli": "^3.1.0-rc.2",
-    "@yarnpkg/pnpify": "^3.0.1",
+    "@yarnpkg/cli": "^3.1.0",
+    "@yarnpkg/core": "^3.1.0",
+    "@yarnpkg/plugin-compat": "^3.1.1",
+    "@yarnpkg/plugin-dlx": "^3.1.1",
+    "@yarnpkg/plugin-essentials": "^3.1.0",
+    "@yarnpkg/plugin-file": "^2.3.0",
+    "@yarnpkg/plugin-git": "^2.6.0-rc.1",
+    "@yarnpkg/plugin-github": "^2.3.0",
+    "@yarnpkg/plugin-http": "^2.2.0",
+    "@yarnpkg/plugin-init": "^3.1.1",
+    "@yarnpkg/plugin-link": "^2.2.0",
+    "@yarnpkg/plugin-nm": "^3.1.1-rc.1",
+    "@yarnpkg/plugin-npm": "^2.6.0",
+    "@yarnpkg/plugin-npm-cli": "^3.1.0",
+    "@yarnpkg/plugin-pack": "^3.1.0",
+    "@yarnpkg/plugin-patch": "^3.1.0",
+    "@yarnpkg/plugin-pnp": "^3.1.2-rc.1",
+    "@yarnpkg/plugin-pnpm": "^1.0.1",
+    "@yarnpkg/pnpify": "^3.1.1-rc.1",
     "husky": "7.0.2",
     "typescript": "^4.4.2"
   },
@@ -23,5 +41,10 @@
   ],
   "resolutions": {
     "globby": "11.0.3"
+  },
+  "dependenciesMeta": {
+    "@yarnpkg/builder@3.1.0": {
+      "unplugged": true
+    }
   }
 }

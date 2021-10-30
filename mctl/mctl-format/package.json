@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@monstrs/code-format": "workspace:0.0.89",
-    "clipanion": "^3.0.1"
+    "clipanion": "^3.2.0-rc.3"
   },
   "publishConfig": {
     "access": "public",
