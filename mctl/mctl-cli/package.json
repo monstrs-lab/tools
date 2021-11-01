@@ -29,14 +29,9 @@
     }
   },
   "dependencies": {
-    "@monstrs/mctl-commit": "workspace:0.2.93",
-    "@monstrs/mctl-format": "workspace:0.2.92",
     "@monstrs/mctl-library": "workspace:0.2.87",
-    "@monstrs/mctl-lint": "workspace:0.2.96",
     "@monstrs/mctl-renderer": "workspace:0.2.101",
     "@monstrs/mctl-service": "workspace:0.2.97",
-    "@monstrs/mctl-test": "workspace:0.2.98",
-    "@monstrs/mctl-typecheck": "workspace:0.2.95",
     "clipanion": "^3.0.1"
   },
   "peerDependencies": {

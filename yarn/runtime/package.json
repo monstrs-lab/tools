@@ -1,0 +1,24 @@
+{
+  "name": "@monstrs/yarn-runtime",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "builder build library",
+    "postpack": "rm -rf dist",
+    "prepack": "yarn run build"
+  },
+  "dependencies": {
+    "@monstrs/code-format": "workspace:0.0.89",
+    "@monstrs/code-lint": "workspace:0.0.102",
+    "@monstrs/code-test": "workspace:0.0.98",
+    "@monstrs/code-typescript": "workspace:0.0.101"
+  },
+  "publishConfig": {
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
+  }
+}

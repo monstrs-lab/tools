@@ -2,9 +2,9 @@ import { BaseCommand } from '@yarnpkg/cli'
 import lintStaged      from 'lint-staged'
 
 const config = {
-  '*.{yml,yaml,json,graphql,md}': 'yarn mctl format',
-  '*.{js,jsx,ts,tsx}': ['yarn mctl format', 'yarn mctl lint'],
-  '*.{ts,tsx}': ['yarn mctl typecheck'],
+  '*.{yml,yaml,json,graphql,md}': 'yarn format',
+  '*.{js,jsx,ts,tsx}': ['yarn format', 'yarn lint'],
+  '*.{ts,tsx}': ['yarn typecheck'],
   '*.{tsx,ts}': ['yarn mctl test:unit --bail --find-related-tests'],
 }
 
