@@ -27,7 +27,7 @@
     "@monstrs/yarn-plugin-workspaces": "workspace:0.0.1"
   },
   "devDependencies": {
-    "@monstrs/tools-builder": "workspace:0.0.1",
+    "@yarnpkg/builder": "3.1.0",
     "@yarnpkg/core": "^3.2.0-rc.2"
   },
   "publishConfig": {

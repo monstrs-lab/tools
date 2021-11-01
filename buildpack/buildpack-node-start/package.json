@@ -21,8 +21,7 @@
     "@babel/plugin-transform-modules-commonjs": "^7.15.0",
     "@babel/preset-typescript": "^7.15.0",
     "@babel/runtime": "^7.15.3",
-    "@babel/types": "^7.15.0",
-    "@monstrs/mctl-cli": "workspace:0.2.120"
+    "@babel/types": "^7.15.0"
   },
   "scripts": {
     "clean": "rm -r -f dist",

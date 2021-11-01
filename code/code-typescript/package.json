@@ -7,12 +7,11 @@
     "dist"
   ],
   "scripts": {
-    "build": "builder build library",
+    "build": "yarn app library build",
     "postpack": "rm -rf dist",
     "prepack": "yarn run build"
   },
   "devDependencies": {
-    "@monstrs/tools-builder": "workspace:0.0.1",
     "@types/babel__code-frame": "7.0.3",
     "@types/chalk": "2.2.0",
     "@types/deepmerge": "2.2.0",

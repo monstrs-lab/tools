@@ -9,13 +9,12 @@
   ],
   "scripts": {
     "exec": "yarn run build && yarn node test.js",
-    "build": "builder build library",
+    "build": "yarn app library build",
     "postpack": "rm -rf dist",
     "prepack": "yarn run build"
   },
   "devDependencies": {
     "@babel/types": "^7.15.0",
-    "@monstrs/tools-builder": "workspace:0.0.1",
     "@types/execa": "2.0.0",
     "@types/node": "^16.7.10"
   },

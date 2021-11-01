@@ -1,5 +1,17 @@
 // eslint-disable-next-line
+const babel = require(`@babel/core`)
 const { dirname } = require('path')
+const { join } = require('path')
+const { tmpdir } = require('os')
+
+const weeksSinceUNIXEpoch = Math.floor(Date.now() / 604800000)
+
+if (!process.env.BABEL_CACHE_PATH)
+  process.env.BABEL_CACHE_PATH = join(
+    tmpdir(),
+    `babel`,
+    `.babel.${babel.version}.${babel.getEnv()}.${weeksSinceUNIXEpoch}.json`
+  )
 
 // eslint-disable-next-line
 require(`@babel/register`)({

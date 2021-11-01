@@ -7,13 +7,12 @@
     "dist"
   ],
   "scripts": {
-    "build": "builder build library",
+    "build": "yarn app library build",
     "postpack": "rm -rf dist",
     "prepack": "yarn run build"
   },
   "devDependencies": {
     "@monstrs/code-typescript": "workspace:0.0.101",
-    "@monstrs/tools-builder": "workspace:0.0.1",
     "@monstrs/types-import-proto": "0.0.1",
     "@types/node": "^16.7.10",
     "memfs": "^3.2.3",

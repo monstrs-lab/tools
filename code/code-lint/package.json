@@ -8,12 +8,11 @@
     "dist"
   ],
   "scripts": {
-    "build": "builder build library",
+    "build": "yarn app library build",
     "postpack": "rm -rf dist",
     "prepack": "yarn run build"
   },
   "devDependencies": {
-    "@monstrs/tools-builder": "workspace:0.0.1",
     "@types/eslint": "7.28.0",
     "@types/node": "^16.7.10"
   },

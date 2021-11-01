@@ -12,9 +12,6 @@
     "@yarnpkg/core": "^3.2.0-rc.2",
     "@yarnpkg/fslib": "^2.6.0"
   },
-  "devDependencies": {
-    "@monstrs/mctl-cli": "workspace:0.2.120"
-  },
   "scripts": {
     "clean": "rm -r -f dist",
     "prebuild": "yarn clean",

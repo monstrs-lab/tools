@@ -11,9 +11,6 @@
     "@monstrs/buildpack-core": "workspace:0.0.1",
     "execa": "^5.1.1"
   },
-  "devDependencies": {
-    "@monstrs/mctl-cli": "workspace:0.2.120"
-  },
   "scripts": {
     "clean": "rm -r -f dist",
     "prebuild": "yarn clean",

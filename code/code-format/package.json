@@ -7,13 +7,12 @@
     "dist"
   ],
   "scripts": {
-    "build": "builder build library",
+    "build": "yarn app library build",
     "postpack": "rm -rf dist",
     "prepack": "yarn run build"
   },
   "devDependencies": {
     "@babel/types": "^7.15.0",
-    "@monstrs/tools-builder": "workspace:0.0.1",
     "@types/node": "^16.7.10"
   },
   "dependencies": {

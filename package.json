@@ -13,7 +13,6 @@
     "prettier/*",
     "code/**/*",
     "webpack/*",
-    "mctl/**/*",
     "github/*",
     "utils/*",
     "yarn/*",
