@@ -1,21 +1,20 @@
-import { EOL }                               from 'node:os'
+import { EOL }              from 'node:os'
 
-import { BaseCommand }                       from '@yarnpkg/cli'
-import { Configuration }                     from '@yarnpkg/core'
-import { Project }                           from '@yarnpkg/core'
-import { StreamReport }                      from '@yarnpkg/core'
-import { MessageName }                       from '@yarnpkg/core'
-import { PortablePath }                      from '@yarnpkg/fslib'
-import { xfs }                               from '@yarnpkg/fslib'
-import { ppath }                             from '@yarnpkg/fslib'
-import { codeFrameColumns }                  from '@babel/code-frame'
+import { BaseCommand }      from '@yarnpkg/cli'
+import { Configuration }    from '@yarnpkg/core'
+import { Project }          from '@yarnpkg/core'
+import { StreamReport }     from '@yarnpkg/core'
+import { MessageName }      from '@yarnpkg/core'
+import { PortablePath }     from '@yarnpkg/fslib'
+import { xfs }              from '@yarnpkg/fslib'
+import { ppath }            from '@yarnpkg/fslib'
+import { codeFrameColumns } from '@babel/code-frame'
 
-import { AnnotationLevel }                   from '@monstrs/github-checks-utils'
-import { Annotation }                        from '@monstrs/github-checks-utils'
-import { Conclusion }                        from '@monstrs/github-checks-utils'
-import { createCheck }                       from '@monstrs/github-checks-utils'
-import type { TypeScript }                   from '@monstrs/yarn-runtime'
-import type { flattenDiagnosticMessageText } from '@monstrs/yarn-runtime'
+import { AnnotationLevel }  from '@monstrs/github-checks-utils'
+import { Annotation }       from '@monstrs/github-checks-utils'
+import { Conclusion }       from '@monstrs/github-checks-utils'
+import { createCheck }      from '@monstrs/github-checks-utils'
+import type * as Runtime    from '@monstrs/yarn-runtime'
 
 class ChecksTypeCheckCommand extends BaseCommand {
   static paths = [['checks', 'typecheck']]
@@ -24,9 +23,11 @@ class ChecksTypeCheckCommand extends BaseCommand {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
     const { project } = await Project.find(configuration, this.context.cwd)
 
-    const ts: TypeScript = new (require('@monstrs/yarn-runtime').TypeScript)(project.cwd)
-    const flattenDiagnosticMessage: typeof flattenDiagnosticMessageText =
-      require('@monstrs/yarn-runtime').flattenDiagnosticMessageText
+    const {
+      TypeScript,
+      flattenDiagnosticMessageText,
+    }: typeof Runtime = require('@monstrs/yarn-runtime')
+    const ts = new TypeScript(project.cwd)
 
     const commandReport = await StreamReport.start(
       {
@@ -60,10 +61,10 @@ class ChecksTypeCheckCommand extends BaseCommand {
                   path: ppath.normalize(
                     ppath.relative(project.cwd, diagnostic.file.fileName as PortablePath)
                   ),
-                  title: flattenDiagnosticMessage(diagnostic.messageText, EOL)
+                  title: flattenDiagnosticMessageText(diagnostic.messageText, EOL)
                     .split(EOL)
                     .at(0) as string,
-                  message: flattenDiagnosticMessage(diagnostic.messageText, EOL),
+                  message: flattenDiagnosticMessageText(diagnostic.messageText, EOL),
                   start_line: position.line + 1,
                   end_line: position.line + 1,
                   raw_details: codeFrameColumns(

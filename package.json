@@ -2,12 +2,9 @@
   "name": "tools",
   "private": true,
   "devDependencies": {
-    "@monstrs/mctl-cli": "workspace:0.2.120",
     "@monstrs/yarn-runtime": "workspace:0.0.1",
     "@types/jest": "^27.0.2",
     "@types/node": "^16.7.10",
-    "@yarnpkg/cli": "^3.1.0-rc.2",
-    "@yarnpkg/pnpify": "^3.0.1",
     "husky": "7.0.2",
     "typescript": "^4.4.2"
   },
