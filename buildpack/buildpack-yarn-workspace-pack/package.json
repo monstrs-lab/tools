@@ -30,6 +30,6 @@
   "scripts": {
     "clean": "rm -r -f dist",
     "prebuild": "yarn clean",
-    "build": "mctl service build"
+    "build": "yarn app service build"
   }
 }

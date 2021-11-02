@@ -19,7 +19,6 @@ class AppLibraryBuildCommand extends BaseCommand {
 
   async execute() {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
-    const { project } = await Project.find(configuration, this.context.cwd)
 
     const { TypeScript }: typeof Runtime = require('@monstrs/yarn-runtime')
     const ts = new TypeScript(this.source || this.context.cwd)
@@ -32,7 +31,7 @@ class AppLibraryBuildCommand extends BaseCommand {
       async (report) => {
         await this.cleanTarget()
 
-        await report.startTimerPromise('Library build', async () => {
+        await report.startTimerPromise('Library Build', async () => {
           const diagnostics = ts.build(['./src'], {
             module: 'commonjs' as any,
             outDir: this.target,
@@ -49,15 +48,6 @@ class AppLibraryBuildCommand extends BaseCommand {
     )
 
     return commandReport.exitCode()
-    /*
-    const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
-
-    const { project } = await Project.find(configuration, this.context.cwd)
-
-    await this.cli.run(['mctl', 'library', 'build', '--source', this.context.cwd], {
-      cwd: project.cwd,
-    })
-    */
   }
 
   protected async cleanTarget() {

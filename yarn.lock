@@ -1468,7 +1468,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/cli-ui-pretty-logs@workspace:cli/cli-ui-pretty-logs":
+"@monstrs/cli-ui-pretty-logs@workspace:0.0.14, @monstrs/cli-ui-pretty-logs@workspace:cli/cli-ui-pretty-logs":
   version: 0.0.0-use.local
   resolution: "@monstrs/cli-ui-pretty-logs@workspace:cli/cli-ui-pretty-logs"
   dependencies:
@@ -1610,7 +1610,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-service@workspace:code/code-service":
+"@monstrs/code-service@workspace:0.0.96, @monstrs/code-service@workspace:code/code-service":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-service@workspace:code/code-service"
   dependencies:
@@ -1801,7 +1801,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@monstrs/webpack-start-server-plugin@workspace:webpack/webpack-start-server-plugin":
+"@monstrs/webpack-start-server-plugin@workspace:0.2.23, @monstrs/webpack-start-server-plugin@workspace:webpack/webpack-start-server-plugin":
   version: 0.0.0-use.local
   resolution: "@monstrs/webpack-start-server-plugin@workspace:webpack/webpack-start-server-plugin"
   dependencies:
@@ -1865,10 +1865,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-app@workspace:yarn/plugin-app"
   dependencies:
+    "@monstrs/cli-ui-pretty-logs": "workspace:0.0.14"
     "@monstrs/code-commitlint": "workspace:0.0.96"
     "@monstrs/code-configuration": "workspace:0.0.11"
     "@monstrs/code-pack": "workspace:0.0.90"
     "@monstrs/code-typescript": "workspace:0.0.101"
+    "@monstrs/webpack-start-server-plugin": "workspace:0.2.23"
     "@monstrs/yarn-pack-utils": "workspace:0.0.1"
     "@monstrs/yarn-runtime": "workspace:0.0.1"
     "@yarnpkg/builder": 3.1.0
@@ -2058,6 +2060,7 @@ __metadata:
   dependencies:
     "@monstrs/code-format": "workspace:0.0.89"
     "@monstrs/code-lint": "workspace:0.0.102"
+    "@monstrs/code-service": "workspace:0.0.96"
     "@monstrs/code-test": "workspace:0.0.98"
     "@monstrs/code-typescript": "workspace:0.0.101"
   languageName: unknown

@@ -14,6 +14,7 @@
   "dependencies": {
     "@monstrs/code-format": "workspace:0.0.89",
     "@monstrs/code-lint": "workspace:0.0.102",
+    "@monstrs/code-service": "workspace:0.0.96",
     "@monstrs/code-test": "workspace:0.0.98",
     "@monstrs/code-typescript": "workspace:0.0.101"
   },
