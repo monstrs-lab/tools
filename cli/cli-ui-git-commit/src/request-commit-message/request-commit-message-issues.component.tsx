@@ -2,7 +2,7 @@ import React                     from 'react'
 import { UncontrolledTextInput } from 'ink-text-input'
 import { Text }                  from 'ink'
 import { Box }                   from 'ink'
-import figures from 'figures'
+import figures                   from 'figures'
 
 export const RequestCommitMessageIssues = ({ onSubmit }) => (
   <Box flexDirection='column'>

@@ -12,8 +12,8 @@
     "prepack": "yarn run build"
   },
   "devDependencies": {
-    "@types/node": "^16.7.10",
-    "prettier": "^2.3.2"
+    "@types/node": "^16.11.6",
+    "prettier": "^2.4.1"
   },
   "peerDependencies": {
     "prettier": "*"

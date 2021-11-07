@@ -13,7 +13,7 @@
     "prepack": "yarn run build"
   },
   "devDependencies": {
-    "@babel/code-frame": "^7.14.5",
+    "@babel/code-frame": "^7.16.0",
     "@jest/test-result": "^27.3.1",
     "@monstrs/github-checks-utils": "workspace:0.0.13",
     "@monstrs/yarn-plugin-files": "workspace:0.0.1",
@@ -25,7 +25,7 @@
     "@yarnpkg/core": "^3.2.0-rc.2",
     "@yarnpkg/fslib": "^2.6.0",
     "clipanion": "^3.1.0",
-    "strip-ansi": "^6.0.0"
+    "strip-ansi": "^6.0.1"
   },
   "publishConfig": {
     "access": "public",

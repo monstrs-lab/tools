@@ -13,10 +13,10 @@
   },
   "devDependencies": {
     "@types/localtunnel": "2.0.1",
-    "@types/node": "^16.7.10"
+    "@types/node": "^16.11.6"
   },
   "dependencies": {
-    "localtunnel": "^2.0.1"
+    "localtunnel": "^2.0.2"
   },
   "publishConfig": {
     "access": "public",

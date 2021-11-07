@@ -12,15 +12,15 @@
     "prepack": "yarn run build"
   },
   "devDependencies": {
-    "@types/node": "^16.7.10"
+    "@types/node": "^16.11.6"
   },
   "dependencies": {
-    "@commitlint/config-conventional": "^13.1.0",
-    "@commitlint/format": "^13.1.0",
-    "@commitlint/lint": "^13.1.0",
-    "@commitlint/load": "^13.1.0",
-    "@commitlint/read": "^13.1.0",
-    "@commitlint/types": "^13.1.0"
+    "@commitlint/config-conventional": "^14.1.0",
+    "@commitlint/format": "^14.1.0",
+    "@commitlint/lint": "^14.1.0",
+    "@commitlint/load": "^14.1.0",
+    "@commitlint/read": "^14.0.0",
+    "@commitlint/types": "^14.0.0"
   },
   "publishConfig": {
     "main": "dist/index.js",

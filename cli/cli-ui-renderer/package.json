@@ -12,11 +12,11 @@
     "prepack": "yarn run build"
   },
   "devDependencies": {
-    "@types/node": "^16.7.10",
-    "@types/react": "^17.0.19"
+    "@types/node": "^16.11.6",
+    "@types/react": "^17.0.34"
   },
   "dependencies": {
-    "ink": "^3.0.9",
+    "ink": "^3.2.0",
     "react": "*"
   },
   "publishConfig": {

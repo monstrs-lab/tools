@@ -12,10 +12,10 @@
     "prepack": "yarn run build"
   },
   "devDependencies": {
-    "@types/node": "^16.7.10"
+    "@types/node": "^16.11.6"
   },
   "dependencies": {
-    "webpack": "^5.51.1"
+    "webpack": "^5.62.1"
   },
   "publishConfig": {
     "access": "public",

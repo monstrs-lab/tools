@@ -12,15 +12,15 @@
     "prepack": "yarn run build"
   },
   "devDependencies": {
-    "@babel/types": "^7.15.0",
-    "@types/node": "^16.7.10"
+    "@babel/types": "^7.16.0",
+    "@types/node": "^16.11.6"
   },
   "dependencies": {
     "@monstrs/prettier-plugin-import-align": "workspace:0.2.42",
     "@monstrs/prettier-plugin-import-sort": "workspace:0.2.42",
-    "globby": "^11.0.3",
-    "ignore": "^5.1.8",
-    "prettier": "^2.3.2",
+    "globby": "^11.0.4",
+    "ignore": "^5.1.9",
+    "prettier": "^2.4.1",
     "prettier-plugin-toml": "^0.3.1"
   },
   "publishConfig": {

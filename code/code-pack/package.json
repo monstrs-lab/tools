@@ -18,7 +18,7 @@
     "@yarnpkg/fslib": "^2.6.0"
   },
   "devDependencies": {
-    "@types/node": "^16.7.10"
+    "@types/node": "^16.11.6"
   },
   "publishConfig": {
     "main": "dist/index.js",

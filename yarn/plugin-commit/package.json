@@ -24,8 +24,8 @@
     "clipanion": "^3.1.0",
     "commitizen": "^4.2.4",
     "force-stdin-tty": "^0.0.1",
-    "ink": "^3.0.8",
-    "lint-staged": "^11.1.2",
+    "ink": "^3.2.0",
+    "lint-staged": "^11.2.6",
     "react": "*",
     "word-wrap": "^1.2.3"
   },
