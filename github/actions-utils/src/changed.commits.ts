@@ -23,7 +23,7 @@ export const getEventCommmits = async () => {
 }
 
 export const getCommitData = async (ref: string): Promise<GetCommitResponseData> => {
-  const commit = await getOctokit().repos.getCommit({
+  const commit = await getOctokit().rest.repos.getCommit({
     ...context.repo,
     ref,
   })

@@ -21,7 +21,7 @@ export const createCheck = async (name: string, conclusion: Conclusion, output) 
   }
 
   try {
-    await octokit.checks.create(params)
+    await octokit.rest.checks.create(params)
   } catch (error) {
     // eslint-disable-next-line
     console.log(error)
