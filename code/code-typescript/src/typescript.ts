@@ -4,7 +4,6 @@ import { Diagnostic }       from 'typescript'
 import { CompilerOptions }  from 'typescript'
 
 import { base }             from './config'
-import { groupDiagnostics } from './diagnostics'
 import { formatDiagnostic } from './diagnostics'
 
 class TypeScript {

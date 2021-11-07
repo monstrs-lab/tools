@@ -1,0 +1,29 @@
+{
+  "name": "@monstrs/code-commit",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn app library build",
+    "postpack": "rm -rf dist",
+    "prepack": "yarn run build"
+  },
+  "devDependencies": {
+    "@types/node": "^16.7.10"
+  },
+  "dependencies": {
+    "@commitlint/config-conventional": "^13.1.0",
+    "@commitlint/format": "^13.1.0",
+    "@commitlint/lint": "^13.1.0",
+    "@commitlint/load": "^13.1.0",
+    "@commitlint/read": "^13.1.0",
+    "@commitlint/types": "^13.1.0"
+  },
+  "publishConfig": {
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
+  }
+}

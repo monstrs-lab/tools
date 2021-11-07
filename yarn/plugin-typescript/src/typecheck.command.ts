@@ -3,11 +3,14 @@ import { Configuration } from '@yarnpkg/core'
 import { Project }       from '@yarnpkg/core'
 import { StreamReport }  from '@yarnpkg/core'
 import { MessageName }   from '@yarnpkg/core'
+import { Option }        from 'clipanion'
 
 import type * as Runtime from '@monstrs/yarn-runtime'
 
 class TypeCheckCommand extends BaseCommand {
   static paths = [['typecheck']]
+
+  args: Array<string> = Option.Rest({ required: 0 })
 
   async execute() {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
@@ -24,9 +27,11 @@ class TypeCheckCommand extends BaseCommand {
       async (report) => {
         await report.startTimerPromise('Typecheck', async () => {
           const diagnostics = ts.check(
-            project.topLevelWorkspace.manifest.workspaceDefinitions.map(
-              (definition) => definition.pattern
-            )
+            this.args.length > 0
+              ? this.args
+              : project.topLevelWorkspace.manifest.workspaceDefinitions.map(
+                  (definition) => definition.pattern
+                )
           )
 
           diagnostics.forEach((diagnostic) => {

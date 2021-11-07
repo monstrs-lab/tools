@@ -14,7 +14,6 @@
   },
   "devDependencies": {
     "@monstrs/cli-ui-pretty-logs": "workspace:0.0.14",
-    "@monstrs/code-commitlint": "workspace:0.0.96",
     "@monstrs/code-configuration": "workspace:0.0.11",
     "@monstrs/code-pack": "workspace:0.0.90",
     "@monstrs/code-typescript": "workspace:0.0.101",
