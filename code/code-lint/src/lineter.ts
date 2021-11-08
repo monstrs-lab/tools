@@ -9,9 +9,6 @@ import { ESLint }                 from 'eslint'
 import { ignore as ignoreConfig } from './config'
 import { createPatterns }         from './config'
 
-import { LintProgressReport }     from './lint.progress-report'
-import { NullLintProgressReport } from './lint.progress-report'
-
 export class Linter {
   engine: ESLint
 
@@ -32,42 +29,24 @@ export class Linter {
     })
   }
 
-  async lint(files?: Array<string>, progress: LintProgressReport = new NullLintProgressReport()) {
+  async lint(files?: Array<string>) {
     if (files && files.length > 0) {
-      return this.lintFiles(files, progress)
+      return this.lintFiles(files)
     } else {
-      return this.lintProject(progress)
+      return this.lintProject()
     }
   }
 
-  async lintProject(progress: LintProgressReport = new NullLintProgressReport()) {
+  async lintProject() {
     return await this.lintFiles(
-      await globby(createPatterns(this.cwd), { dot: true, nodir: true } as any),
-      progress
+      await globby(createPatterns(this.cwd), { dot: true, nodir: true } as any)
     )
   }
 
-  async lintFiles(
-    files: Array<string> = [],
-    progress: LintProgressReport = new NullLintProgressReport()
-  ) {
-    const finalFiles = files.filter(
-      (file) => this.ignorer.filter([relative(this.cwd, file)]).length !== 0
+  async lintFiles(files: Array<string> = []) {
+    const results = await this.engine.lintFiles(
+      files.filter((file) => this.ignorer.filter([relative(this.cwd, file)]).length !== 0)
     )
-
-    progress.start(finalFiles)
-
-    const results: Array<any> = []
-
-    for await (const file of finalFiles) {
-      const result = await this.engine.lintFiles(file)
-
-      results.push(result)
-
-      progress.lint(file, result)
-    }
-
-    progress.end()
 
     return results.flat()
   }

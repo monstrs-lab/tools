@@ -7,6 +7,9 @@
   "files": [
     "dist"
   ],
+  "dependencies": {
+    "@yarnpkg/core": "^3.2.0-rc.2"
+  },
   "publishConfig": {
     "access": "public",
     "main": "dist/index.js",

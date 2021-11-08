@@ -1,12 +1,14 @@
-import { BaseCommand }    from '@yarnpkg/cli'
-import { StreamReport }   from '@yarnpkg/core'
-import { Configuration }  from '@yarnpkg/core'
-import { Project }        from '@yarnpkg/core'
-import { Option }         from 'clipanion'
+import { BaseCommand }     from '@yarnpkg/cli'
+import { StreamReport }    from '@yarnpkg/core'
+import { MessageName }     from '@yarnpkg/core'
+import { Configuration }   from '@yarnpkg/core'
+import { Project }         from '@yarnpkg/core'
+import { Option }          from 'clipanion'
 
-import type * as Runtime  from '@monstrs/yarn-runtime'
+import type * as Runtime   from '@monstrs/yarn-runtime'
+import { SpinnerProgress } from '@monstrs/yarn-run-utils'
 
-import { ProgressReport } from './progress.report'
+import { format }          from './format.worker'
 
 class FormatCommand extends BaseCommand {
   static paths = [['format']]
@@ -17,9 +19,6 @@ class FormatCommand extends BaseCommand {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
     const { project } = await Project.find(configuration, this.context.cwd)
 
-    const { Formatter }: typeof Runtime = require('@monstrs/yarn-runtime') as typeof Runtime
-    const formatter = new Formatter(project.cwd)
-
     const commandReport = await StreamReport.start(
       {
         stdout: this.context.stdout,
@@ -27,7 +26,18 @@ class FormatCommand extends BaseCommand {
       },
       async (report) => {
         await report.startTimerPromise('Format', async () => {
-          await formatter.format(this.files, new ProgressReport(report))
+          const progress = new SpinnerProgress(this.context.stdout, configuration)
+
+          progress.start()
+
+          try {
+            await format(project.cwd, this.files)
+
+            progress.end()
+          } catch (error) {
+            report.reportError(MessageName.UNNAMED, (error as any).message)
+            progress.end()
+          }
         })
       }
     )

@@ -1,11 +1,14 @@
-import { BaseCommand }   from '@yarnpkg/cli'
-import { Configuration } from '@yarnpkg/core'
-import { Project }       from '@yarnpkg/core'
-import { StreamReport }  from '@yarnpkg/core'
-import { MessageName }   from '@yarnpkg/core'
-import { Option }        from 'clipanion'
+import { BaseCommand }     from '@yarnpkg/cli'
+import { Configuration }   from '@yarnpkg/core'
+import { Project }         from '@yarnpkg/core'
+import { StreamReport }    from '@yarnpkg/core'
+import { MessageName }     from '@yarnpkg/core'
+import { Option }          from 'clipanion'
 
-import type * as Runtime from '@monstrs/yarn-runtime'
+import type * as Runtime   from '@monstrs/yarn-runtime'
+import { SpinnerProgress } from '@monstrs/yarn-run-utils'
+
+import { typecheck }       from './typecheck.worker'
 
 class TypeCheckCommand extends BaseCommand {
   static paths = [['typecheck']]
@@ -26,19 +29,28 @@ class TypeCheckCommand extends BaseCommand {
       },
       async (report) => {
         await report.startTimerPromise('Typecheck', async () => {
-          const diagnostics = ts.check(
-            this.args.length > 0
-              ? this.args
-              : project.topLevelWorkspace.manifest.workspaceDefinitions.map(
-                  (definition) => definition.pattern
-                )
-          )
+          const progress = new SpinnerProgress(this.context.stdout, configuration)
 
-          diagnostics.forEach((diagnostic) => {
-            ts.formatDiagnostic(diagnostic)
-              .split('\n')
-              .map((line) => report.reportError(MessageName.UNNAMED, line))
-          })
+          progress.start()
+
+          try {
+            const outputs = await typecheck(
+              project.cwd,
+              this.args.length > 0
+                ? this.args
+                : project.topLevelWorkspace.manifest.workspaceDefinitions.map(
+                    (definition) => definition.pattern
+                  )
+            )
+
+            progress.end()
+
+            outputs.map((line) => report.reportError(MessageName.UNNAMED, line))
+          } catch (error) {
+            progress.end()
+
+            report.reportError(MessageName.UNNAMED, (error as any).message)
+          }
         })
       }
     )

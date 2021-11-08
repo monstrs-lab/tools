@@ -1,13 +1,14 @@
-import { StreamReport }   from '@yarnpkg/core'
-import { Configuration }  from '@yarnpkg/core'
-import { MessageName }    from '@yarnpkg/core'
-import { Project }        from '@yarnpkg/core'
-import { BaseCommand }    from '@yarnpkg/cli'
-import { Option }         from 'clipanion'
+import { StreamReport }    from '@yarnpkg/core'
+import { Configuration }   from '@yarnpkg/core'
+import { MessageName }     from '@yarnpkg/core'
+import { Project }         from '@yarnpkg/core'
+import { BaseCommand }     from '@yarnpkg/cli'
+import { Option }          from 'clipanion'
 
-import type * as Runtime  from '@monstrs/yarn-runtime'
+import type * as Runtime   from '@monstrs/yarn-runtime'
+import { SpinnerProgress } from '@monstrs/yarn-run-utils'
 
-import { ProgressReport } from './progress.report'
+import { lint }            from './lint.worker'
 
 class LintCommand extends BaseCommand {
   static paths = [['lint']]
@@ -29,17 +30,23 @@ class LintCommand extends BaseCommand {
         configuration,
       },
       async (report) => {
-        const results = await report.startTimerPromise('Lint', async () =>
-          linter.lint(this.files, new ProgressReport(report))
-        )
+        await report.startTimerPromise('Lint', async () => {
+          const progress = new SpinnerProgress(this.context.stdout, configuration)
 
-        const output = formatter.format(results)
+          progress.start()
 
-        if (output) {
-          await report.startTimerPromise('Lint Output', async () => {
-            output.split('\n').map((line) => report.reportError(MessageName.UNNAMED, line))
-          })
-        }
+          try {
+            const outputs = await lint(project.cwd, this.files)
+
+            progress.end()
+
+            outputs.map((line) => report.reportError(MessageName.UNNAMED, line))
+          } catch (error) {
+            progress.end()
+
+            report.reportError(MessageName.UNNAMED, (error as any).message)
+          }
+        })
       }
     )
 

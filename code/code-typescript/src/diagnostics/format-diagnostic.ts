@@ -37,7 +37,7 @@ export const formatDiagnostic = (
   message += reason + '\n'
 
   if (diagnostic.file) {
-    const pos = diagnostic.file.getLineAndCharacterOfPosition(diagnostic.start!)
+    const pos = ts.getLineAndCharacterOfPosition(diagnostic.file, diagnostic.start!)
     const line = pos.line + 1
     const character = pos.character + 1
 
@@ -60,7 +60,7 @@ export const formatDiagnostic = (
     message +=
       '\n' +
       codeFrameColumns(
-        diagnostic.file.getFullText(diagnostic.file.getSourceFile()),
+        diagnostic.file.text,
         {
           start: { line, column: character },
         },

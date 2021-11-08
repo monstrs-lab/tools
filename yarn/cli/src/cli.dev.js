@@ -8,4 +8,6 @@ process.env.NODE_OPTIONS = process.env.NODE_OPTIONS
 
 global.YARN_VERSION = `${require(`@yarnpkg/cli/package.json`).version}.dev`
 
+process.env.TOOLS_DEV_MODE = '1'
+
 module.exports = require(`./cli`)
