@@ -31,6 +31,7 @@ export class GitHubChecks {
       ...context.repo,
       name: this.name,
       head_sha: payload.after || payload.pull_request?.head.sha || (process.env.GITHUB_SHA as any),
+      started_at: new Date().toISOString(),
       status: 'in_progress',
     })
   }
