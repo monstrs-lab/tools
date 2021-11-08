@@ -10,13 +10,11 @@ import { xfs }              from '@yarnpkg/fslib'
 import { ppath }            from '@yarnpkg/fslib'
 import { codeFrameColumns } from '@babel/code-frame'
 
-import { AnnotationLevel }  from '@monstrs/github-checks-utils'
-import { Annotation }       from '@monstrs/github-checks-utils'
-import { Conclusion }       from '@monstrs/github-checks-utils'
-import { completeCheck }      from '@monstrs/github-checks-utils'
-import { startCheck }      from '@monstrs/github-checks-utils'
-import { createCheck }      from '@monstrs/github-checks-utils'
 import type * as Runtime    from '@monstrs/yarn-runtime'
+
+import { GitHubChecks }     from './github.checks'
+import { AnnotationLevel }  from './github.checks'
+import { Annotation }       from './github.checks'
 
 class ChecksTypeCheckCommand extends BaseCommand {
   static paths = [['checks', 'typecheck']]
@@ -38,9 +36,11 @@ class ChecksTypeCheckCommand extends BaseCommand {
       },
       async (report) => {
         await report.startTimerPromise('Typecheck', async () => {
-          try {
-            const checkId = await startCheck('TypeCheck')
+          const checks = new GitHubChecks('TypeCheck')
 
+          const { id: checkId } = await checks.start()
+
+          try {
             const diagnostics = ts.check(
               project.topLevelWorkspace.manifest.workspaceDefinitions.map(
                 (definition) => definition.pattern
@@ -86,19 +86,17 @@ class ChecksTypeCheckCommand extends BaseCommand {
               }
             })
 
-            const conclusion = diagnostics.length > 0 ? Conclusion.Failure : Conclusion.Success
-
-            await completeCheck(checkId, 'TypeCheck', conclusion, {
+            await checks.complete(checkId, {
               title:
-                conclusion === Conclusion.Failure ? `Errors ${annotations.length}` : 'Successful',
+              diagnostics.length > 0 ? `Errors ${annotations.length}` : 'Successful',
               summary:
-                conclusion === Conclusion.Failure
+              diagnostics.length > 0
                   ? `Found ${annotations.length} errors`
                   : 'All checks passed',
               annotations,
             })
           } catch (error) {
-            await createCheck('TypeCheck', Conclusion.Failure, {
+            await checks.failure({
               title: 'TypeCheck run failed',
               summary: (error as any).message,
             })

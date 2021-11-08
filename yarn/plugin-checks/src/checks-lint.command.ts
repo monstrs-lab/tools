@@ -10,13 +10,11 @@ import { codeFrameColumns } from '@babel/code-frame'
 import type { LintResult }  from '@monstrs/yarn-runtime'
 import type { Severity }    from '@monstrs/yarn-runtime'
 
-import { AnnotationLevel }  from '@monstrs/github-checks-utils'
-import { Annotation }       from '@monstrs/github-checks-utils'
-import { Conclusion }       from '@monstrs/github-checks-utils'
-import { completeCheck }      from '@monstrs/github-checks-utils'
-import { startCheck }      from '@monstrs/github-checks-utils'
-import { createCheck }      from '@monstrs/github-checks-utils'
 import type * as Runtime    from '@monstrs/yarn-runtime'
+
+import { GitHubChecks }     from './github.checks'
+import { AnnotationLevel }  from './github.checks'
+import { Annotation }       from './github.checks'
 
 class ChecksLintCommand extends BaseCommand {
   static paths = [['checks', 'lint']]
@@ -36,13 +34,15 @@ class ChecksLintCommand extends BaseCommand {
         configuration,
       },
       async (report) => {
-        const checkId = await startCheck('Lint')
+        const checks = new GitHubChecks('Lint')
+
+        const { id: checkId } = await checks.start()
 
         const results = await report.startTimerPromise('Lint', async () => {
           try {
             return await linter.lint()
           } catch (error) {
-            await createCheck('Lint', Conclusion.Failure, {
+            await checks.failure({
               title: 'Lint run failed',
               summary: (error as any).message,
             })
@@ -66,20 +66,14 @@ class ChecksLintCommand extends BaseCommand {
             (annotation) => annotation.annotation_level === 'failure'
           ).length
 
-          await completeCheck(
-            checkId,
-            'Lint',
-            annotations.length > 0 ? Conclusion.Failure : Conclusion.Success,
-            {
-              title:
-                annotations.length > 0 ? `Errors ${errors}, Warnings ${warnings}` : 'Successful',
-              summary:
-                annotations.length > 0
-                  ? `Found ${errors} errors and ${warnings} warnings`
-                  : 'All checks passed',
-              annotations,
-            }
-          )
+          await checks.complete(checkId, {
+            title: annotations.length > 0 ? `Errors ${errors}, Warnings ${warnings}` : 'Successful',
+            summary:
+              annotations.length > 0
+                ? `Found ${errors} errors and ${warnings} warnings`
+                : 'All checks passed',
+            annotations,
+          })
         }
       }
     )

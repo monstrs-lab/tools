@@ -2,13 +2,10 @@ import { StreamReport }              from '@yarnpkg/core'
 import { Configuration }             from '@yarnpkg/core'
 import { Project }                   from '@yarnpkg/core'
 
-import { Conclusion }                from '@monstrs/github-checks-utils'
-import { completeCheck }      from '@monstrs/github-checks-utils'
-import { startCheck }      from '@monstrs/github-checks-utils'
-import { createCheck }      from '@monstrs/github-checks-utils'
 import type * as Runtime             from '@monstrs/yarn-runtime'
 
 import { AbstractChecksTestCommand } from './abstract-checks-test.command'
+import { GitHubChecks }              from './github.checks'
 
 class ChecksTestIntegrationCommand extends AbstractChecksTestCommand {
   static paths = [['checks', 'test', 'integration']]
@@ -26,26 +23,23 @@ class ChecksTestIntegrationCommand extends AbstractChecksTestCommand {
         configuration,
       },
       async () => {
-        try {
-          const checkId = await startCheck('Test:Integration')
+        const checks = new GitHubChecks('Test:Integration')
 
+        const { id: checkId } = await checks.start()
+
+        try {
           const results = await tester.integration()
 
           const annotations = this.formatResults(results, project.cwd)
 
-          await completeCheck(
-            checkId,
-            'Test:Integration',
-            annotations.length > 0 ? Conclusion.Failure : Conclusion.Success,
-            {
-              title: annotations.length > 0 ? `Errors ${annotations.length}` : 'Successful',
-              summary:
-                annotations.length > 0 ? `Found ${annotations.length} errors` : 'All checks passed',
-              annotations,
-            }
-          )
+          await checks.complete(checkId, {
+            title: annotations.length > 0 ? `Errors ${annotations.length}` : 'Successful',
+            summary:
+              annotations.length > 0 ? `Found ${annotations.length} errors` : 'All checks passed',
+            annotations,
+          })
         } catch (error) {
-          await createCheck('Test:Integration', Conclusion.Failure, {
+          await checks.failure({
             title: 'Test:Integration run failed',
             summary: (error as any).message,
           })

@@ -1786,17 +1786,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/github-checks-utils@workspace:0.0.13, @monstrs/github-checks-utils@workspace:github/checks-utils":
-  version: 0.0.0-use.local
-  resolution: "@monstrs/github-checks-utils@workspace:github/checks-utils"
-  dependencies:
-    "@actions/core": ^1.6.0
-    "@actions/github": ^5.0.0
-    "@octokit/types": ^6.34.0
-    "@types/node": ^16.11.6
-  languageName: unknown
-  linkType: soft
-
 "@monstrs/logger@npm:^0.0.6":
   version: 0.0.6
   resolution: "@monstrs/logger@npm:0.0.6"
@@ -2012,13 +2001,16 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-checks@workspace:yarn/plugin-checks"
   dependencies:
+    "@actions/core": ^1.6.0
+    "@actions/github": ^5.0.0
     "@babel/code-frame": ^7.16.0
     "@jest/test-result": ^27.3.1
-    "@monstrs/github-checks-utils": "workspace:0.0.13"
     "@monstrs/yarn-plugin-files": "workspace:0.0.1"
     "@monstrs/yarn-run-utils": "workspace:0.0.1"
     "@monstrs/yarn-runtime": "workspace:0.0.1"
     "@monstrs/yarn-workspace-utils": "workspace:0.0.1"
+    "@octokit/types": ^6.34.0
+    "@types/node": ^16.11.6
     "@yarnpkg/builder": 3.1.0
     "@yarnpkg/cli": ^3.2.0-rc.2
     "@yarnpkg/core": ^3.2.0-rc.2

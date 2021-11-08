@@ -115,10 +115,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:github/actions-utils"
       },
       {
-        "name": "@monstrs/github-checks-utils",
-        "reference": "workspace:github/checks-utils"
-      },
-      {
         "name": "@monstrs/prettier-plugin-import-align",
         "reference": "workspace:prettier/prettier-plugin-import-align"
       },
@@ -237,7 +233,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@monstrs/code-test", ["virtual:db0c45e6e8756b5423dfd302bb112c97ca39eb0aaab168693fbc5d41de4b16d713370810ff8deaad3d52b56ca436371a4dad52d21a5027438021fe77c363bb04#workspace:code/code-test", "workspace:code/code-test"]],
       ["@monstrs/code-typescript", ["workspace:code/code-typescript"]],
       ["@monstrs/github-actions-utils", ["workspace:github/actions-utils"]],
-      ["@monstrs/github-checks-utils", ["workspace:github/checks-utils"]],
       ["@monstrs/prettier-plugin-import-align", ["virtual:3d93344fb94fee6b88a0f1f341c37079f1935d6fa77e765259fb2a836eaf6b539aa3f43c87daa1ff51fd7a0e7062665901cd442c32a52647ddb8df4fcafafb4c#workspace:prettier/prettier-plugin-import-align", "workspace:prettier/prettier-plugin-import-align"]],
       ["@monstrs/prettier-plugin-import-sort", ["virtual:3d93344fb94fee6b88a0f1f341c37079f1935d6fa77e765259fb2a836eaf6b539aa3f43c87daa1ff51fd7a0e7062665901cd442c32a52647ddb8df4fcafafb4c#workspace:prettier/prettier-plugin-import-sort", "workspace:prettier/prettier-plugin-import-sort"]],
       ["@monstrs/tools-setup-ts-execution", ["workspace:utils/setup-ts-execution"]],
@@ -3079,19 +3074,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT",
         }]
       ]],
-      ["@monstrs/github-checks-utils", [
-        ["workspace:github/checks-utils", {
-          "packageLocation": "./github/checks-utils/",
-          "packageDependencies": [
-            ["@monstrs/github-checks-utils", "workspace:github/checks-utils"],
-            ["@actions/core", "npm:1.6.0"],
-            ["@actions/github", "npm:5.0.0"],
-            ["@octokit/types", "npm:6.34.0"],
-            ["@types/node", "npm:16.11.6"]
-          ],
-          "linkType": "SOFT",
-        }]
-      ]],
       ["@monstrs/logger", [
         ["npm:0.0.6", {
           "packageLocation": "./.yarn/cache/@monstrs-logger-npm-0.0.6-25dbed9509-1e1e45105f.zip/node_modules/@monstrs/logger/",
@@ -3364,13 +3346,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./yarn/plugin-checks/",
           "packageDependencies": [
             ["@monstrs/yarn-plugin-checks", "workspace:yarn/plugin-checks"],
+            ["@actions/core", "npm:1.6.0"],
+            ["@actions/github", "npm:5.0.0"],
             ["@babel/code-frame", "npm:7.16.0"],
             ["@jest/test-result", "npm:27.3.1"],
-            ["@monstrs/github-checks-utils", "workspace:github/checks-utils"],
             ["@monstrs/yarn-plugin-files", "workspace:yarn/plugin-files"],
             ["@monstrs/yarn-run-utils", "workspace:yarn/run-utils"],
             ["@monstrs/yarn-runtime", "workspace:yarn/runtime"],
             ["@monstrs/yarn-workspace-utils", "workspace:yarn/workspace-utils"],
+            ["@octokit/types", "npm:6.34.0"],
+            ["@types/node", "npm:16.11.6"],
             ["@yarnpkg/builder", "virtual:d35af82f20c7940b0c75619a2a73d13fba547916c2526ba19b49a3db4df2fc201865145d2556a85457ee0f5b1fd3e7e4f5519b0b9e4e831f5cf4d2aa107f3244#npm:3.1.0"],
             ["@yarnpkg/cli", "virtual:5ae41ee3cd3458f3cf40ce517387f15a09242f6f1330942b6a2e07d7e31df094e8debca5d9583d5aee61c7f6b6500e26684e57f8a8bbcb4f2def07322b63d5b8#npm:3.2.0-rc.2"],
             ["@yarnpkg/core", "npm:3.2.0-rc.2"],
