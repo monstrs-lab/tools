@@ -1,7 +1,7 @@
-import React    from 'react'
-import { FC }   from 'react'
-import { Text } from 'ink'
-import { Body } from '@monstrs/logger'
+import React         from 'react'
+import { FC }        from 'react'
+import { Text }      from 'ink'
+import type { Body } from '@monstrs/logger'
 
 const getMessage = (body: Body) => {
   if (typeof body === 'string') {

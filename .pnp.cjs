@@ -167,10 +167,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:yarn/plugin-commit"
       },
       {
-        "name": "@monstrs/yarn-plugin-essentials",
-        "reference": "workspace:yarn/plugin-essentials"
-      },
-      {
         "name": "@monstrs/yarn-plugin-files",
         "reference": "workspace:yarn/plugin-files"
       },
@@ -254,7 +250,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@monstrs/yarn-plugin-check", ["workspace:yarn/plugin-check"]],
       ["@monstrs/yarn-plugin-checks", ["workspace:yarn/plugin-checks"]],
       ["@monstrs/yarn-plugin-commit", ["workspace:yarn/plugin-commit"]],
-      ["@monstrs/yarn-plugin-essentials", ["workspace:yarn/plugin-essentials"]],
       ["@monstrs/yarn-plugin-files", ["workspace:yarn/plugin-files"]],
       ["@monstrs/yarn-plugin-format", ["workspace:yarn/plugin-format"]],
       ["@monstrs/yarn-plugin-github", ["workspace:yarn/plugin-github"]],
@@ -3267,8 +3262,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@monstrs/yarn-cli", "workspace:yarn/cli"],
             ["@monstrs/tools-setup-ts-execution", "workspace:utils/setup-ts-execution"],
-            ["@monstrs/yarn-plugin-essentials", "workspace:yarn/plugin-essentials"],
-            ["@yarnpkg/builder", "virtual:d35af82f20c7940b0c75619a2a73d13fba547916c2526ba19b49a3db4df2fc201865145d2556a85457ee0f5b1fd3e7e4f5519b0b9e4e831f5cf4d2aa107f3244#npm:3.1.0"],
+            ["@monstrs/yarn-plugin-app", "workspace:yarn/plugin-app"],
+            ["@monstrs/yarn-plugin-check", "workspace:yarn/plugin-check"],
+            ["@monstrs/yarn-plugin-checks", "workspace:yarn/plugin-checks"],
+            ["@monstrs/yarn-plugin-commit", "workspace:yarn/plugin-commit"],
+            ["@monstrs/yarn-plugin-files", "workspace:yarn/plugin-files"],
+            ["@monstrs/yarn-plugin-format", "workspace:yarn/plugin-format"],
+            ["@monstrs/yarn-plugin-github", "workspace:yarn/plugin-github"],
+            ["@monstrs/yarn-plugin-husky", "workspace:yarn/plugin-husky"],
+            ["@monstrs/yarn-plugin-lint", "workspace:yarn/plugin-lint"],
+            ["@monstrs/yarn-plugin-test", "workspace:yarn/plugin-test"],
+            ["@monstrs/yarn-plugin-typescript", "workspace:yarn/plugin-typescript"],
+            ["@monstrs/yarn-plugin-workspaces", "workspace:yarn/plugin-workspaces"],
+            ["@yarnpkg/builder", "virtual:4cd4b29477ce3e090504f317d3fb69a25611d82b0c52194aea725de22b605a7b52c88badc518852ac4071a82ea02d551abd043aeaa9d9be74acc4fdd8f032f41#patch:@yarnpkg/builder@npm%3A3.1.0#patches/@yarnpkg/builder/lib/commands/build/bundle.patch::version=3.1.0&hash=acbd88&locator=%40monstrs%2Fyarn-cli%40workspace%3Ayarn%2Fcli"],
             ["@yarnpkg/cli", "virtual:5ae41ee3cd3458f3cf40ce517387f15a09242f6f1330942b6a2e07d7e31df094e8debca5d9583d5aee61c7f6b6500e26684e57f8a8bbcb4f2def07322b63d5b8#npm:3.2.0-rc.2"],
             ["@yarnpkg/core", "npm:3.2.0-rc.2"],
             ["@yarnpkg/fslib", "npm:2.6.0"],
@@ -3394,29 +3400,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lint-staged", "npm:11.2.6"],
             ["react", "npm:17.0.2"],
             ["word-wrap", "npm:1.2.3"]
-          ],
-          "linkType": "SOFT",
-        }]
-      ]],
-      ["@monstrs/yarn-plugin-essentials", [
-        ["workspace:yarn/plugin-essentials", {
-          "packageLocation": "./yarn/plugin-essentials/",
-          "packageDependencies": [
-            ["@monstrs/yarn-plugin-essentials", "workspace:yarn/plugin-essentials"],
-            ["@monstrs/yarn-plugin-app", "workspace:yarn/plugin-app"],
-            ["@monstrs/yarn-plugin-check", "workspace:yarn/plugin-check"],
-            ["@monstrs/yarn-plugin-checks", "workspace:yarn/plugin-checks"],
-            ["@monstrs/yarn-plugin-commit", "workspace:yarn/plugin-commit"],
-            ["@monstrs/yarn-plugin-files", "workspace:yarn/plugin-files"],
-            ["@monstrs/yarn-plugin-format", "workspace:yarn/plugin-format"],
-            ["@monstrs/yarn-plugin-github", "workspace:yarn/plugin-github"],
-            ["@monstrs/yarn-plugin-husky", "workspace:yarn/plugin-husky"],
-            ["@monstrs/yarn-plugin-lint", "workspace:yarn/plugin-lint"],
-            ["@monstrs/yarn-plugin-test", "workspace:yarn/plugin-test"],
-            ["@monstrs/yarn-plugin-typescript", "workspace:yarn/plugin-typescript"],
-            ["@monstrs/yarn-plugin-workspaces", "workspace:yarn/plugin-workspaces"],
-            ["@yarnpkg/builder", "virtual:d35af82f20c7940b0c75619a2a73d13fba547916c2526ba19b49a3db4df2fc201865145d2556a85457ee0f5b1fd3e7e4f5519b0b9e4e831f5cf4d2aa107f3244#npm:3.1.0"],
-            ["@yarnpkg/core", "npm:3.2.0-rc.2"]
           ],
           "linkType": "SOFT",
         }]
@@ -3617,7 +3600,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@octokit-auth-token-npm-2.4.5-91cd7149bb-4962011994.zip/node_modules/@octokit/auth-token/",
           "packageDependencies": [
             ["@octokit/auth-token", "npm:2.4.5"],
-            ["@octokit/types", "npm:6.26.0"]
+            ["@octokit/types", "npm:6.34.0"]
           ],
           "linkType": "HARD",
         }]
@@ -3631,7 +3614,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@octokit/graphql", "npm:4.8.0"],
             ["@octokit/request", "npm:5.6.1"],
             ["@octokit/request-error", "npm:2.1.0"],
-            ["@octokit/types", "npm:6.26.0"],
+            ["@octokit/types", "npm:6.34.0"],
             ["before-after-hook", "npm:2.2.2"],
             ["universal-user-agent", "npm:6.0.0"]
           ],
@@ -3656,20 +3639,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@octokit/graphql", "npm:4.8.0"],
             ["@octokit/request", "npm:5.6.1"],
-            ["@octokit/types", "npm:6.26.0"],
+            ["@octokit/types", "npm:6.34.0"],
             ["universal-user-agent", "npm:6.0.0"]
           ],
           "linkType": "HARD",
         }]
       ]],
       ["@octokit/openapi-types", [
-        ["npm:10.0.0", {
-          "packageLocation": "./.yarn/cache/@octokit-openapi-types-npm-10.0.0-394b0fd08a-da6070f190.zip/node_modules/@octokit/openapi-types/",
-          "packageDependencies": [
-            ["@octokit/openapi-types", "npm:10.0.0"]
-          ],
-          "linkType": "HARD",
-        }],
         ["npm:11.2.0", {
           "packageLocation": "./.yarn/cache/@octokit-openapi-types-npm-11.2.0-10b7a5c509-eb373ea496.zip/node_modules/@octokit/openapi-types/",
           "packageDependencies": [
@@ -3732,7 +3708,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@octokit/request", "npm:5.6.1"],
             ["@octokit/endpoint", "npm:6.0.1"],
             ["@octokit/request-error", "npm:2.1.0"],
-            ["@octokit/types", "npm:6.26.0"],
+            ["@octokit/types", "npm:6.34.0"],
             ["is-plain-object", "npm:5.0.0"],
             ["node-fetch", "npm:2.6.1"],
             ["universal-user-agent", "npm:6.0.0"]
@@ -3745,7 +3721,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@octokit-request-error-npm-2.1.0-51ac624306-baec2b5700.zip/node_modules/@octokit/request-error/",
           "packageDependencies": [
             ["@octokit/request-error", "npm:2.1.0"],
-            ["@octokit/types", "npm:6.26.0"],
+            ["@octokit/types", "npm:6.34.0"],
             ["deprecation", "npm:2.3.1"],
             ["once", "npm:1.4.0"]
           ],
@@ -3758,14 +3734,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@octokit/types", "npm:2.16.2"],
             ["@types/node", "npm:16.11.6"]
-          ],
-          "linkType": "HARD",
-        }],
-        ["npm:6.26.0", {
-          "packageLocation": "./.yarn/cache/@octokit-types-npm-6.26.0-69df35ceb3-9a8988022d.zip/node_modules/@octokit/types/",
-          "packageDependencies": [
-            ["@octokit/types", "npm:6.26.0"],
-            ["@octokit/openapi-types", "npm:10.0.0"]
           ],
           "linkType": "HARD",
         }],
@@ -4914,6 +4882,48 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@yarnpkg/builder", "npm:3.1.0"]
           ],
           "linkType": "SOFT",
+        }],
+        ["patch:@yarnpkg/builder@npm%3A3.1.0#patches/@yarnpkg/builder/lib/commands/build/bundle.patch::version=3.1.0&hash=acbd88&locator=%40monstrs%2Fyarn-cli%40workspace%3Ayarn%2Fcli", {
+          "packageLocation": "./.yarn/cache/@yarnpkg-builder-patch-f030f914bd-599d3881a4.zip/node_modules/@yarnpkg/builder/",
+          "packageDependencies": [
+            ["@yarnpkg/builder", "patch:@yarnpkg/builder@npm%3A3.1.0#patches/@yarnpkg/builder/lib/commands/build/bundle.patch::version=3.1.0&hash=acbd88&locator=%40monstrs%2Fyarn-cli%40workspace%3Ayarn%2Fcli"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:4cd4b29477ce3e090504f317d3fb69a25611d82b0c52194aea725de22b605a7b52c88badc518852ac4071a82ea02d551abd043aeaa9d9be74acc4fdd8f032f41#patch:@yarnpkg/builder@npm%3A3.1.0#patches/@yarnpkg/builder/lib/commands/build/bundle.patch::version=3.1.0&hash=acbd88&locator=%40monstrs%2Fyarn-cli%40workspace%3Ayarn%2Fcli", {
+          "packageLocation": "./.yarn/__virtual__/@yarnpkg-builder-virtual-ead545537a/0/cache/@yarnpkg-builder-patch-f030f914bd-599d3881a4.zip/node_modules/@yarnpkg/builder/",
+          "packageDependencies": [
+            ["@yarnpkg/builder", "virtual:4cd4b29477ce3e090504f317d3fb69a25611d82b0c52194aea725de22b605a7b52c88badc518852ac4071a82ea02d551abd043aeaa9d9be74acc4fdd8f032f41#patch:@yarnpkg/builder@npm%3A3.1.0#patches/@yarnpkg/builder/lib/commands/build/bundle.patch::version=3.1.0&hash=acbd88&locator=%40monstrs%2Fyarn-cli%40workspace%3Ayarn%2Fcli"],
+            ["@babel/core", "npm:7.16.0"],
+            ["@types/typescript", null],
+            ["@yarnpkg/cli", "virtual:94e37e29996f9254936e6e71718cb3e4e85388dee6e544c02af21012aaaa010d025b56a7ddda80da0da915e2eba194095f82c68e8c92601cf51934a8eb69ea7b#npm:3.1.0"],
+            ["@yarnpkg/core", "npm:3.1.0"],
+            ["@yarnpkg/esbuild-plugin-pnp", "virtual:94e37e29996f9254936e6e71718cb3e4e85388dee6e544c02af21012aaaa010d025b56a7ddda80da0da915e2eba194095f82c68e8c92601cf51934a8eb69ea7b#npm:2.0.0"],
+            ["@yarnpkg/fslib", "npm:2.6.0"],
+            ["@yarnpkg/pnpify", "npm:3.1.0"],
+            ["babel-loader", "virtual:94e37e29996f9254936e6e71718cb3e4e85388dee6e544c02af21012aaaa010d025b56a7ddda80da0da915e2eba194095f82c68e8c92601cf51934a8eb69ea7b#npm:8.2.2"],
+            ["chalk", "npm:3.0.0"],
+            ["clipanion", "virtual:11e49090eef2ab4a7d256d57407eff59125c10a45a2c4a95d4b4eed662e01c6bb0b545ee238f4cce0100c8d2885c1a88c24bcf184f4baba2c58b80f525a4f6ab#npm:3.1.0"],
+            ["esbuild", [
+              "esbuild-wasm",
+              "npm:0.11.23"
+            ]],
+            ["filesize", "npm:4.2.1"],
+            ["fork-ts-checker-webpack-plugin", "virtual:94e37e29996f9254936e6e71718cb3e4e85388dee6e544c02af21012aaaa010d025b56a7ddda80da0da915e2eba194095f82c68e8c92601cf51934a8eb69ea7b#npm:5.2.1"],
+            ["semver", "npm:7.3.5"],
+            ["terser-webpack-plugin", "virtual:94e37e29996f9254936e6e71718cb3e4e85388dee6e544c02af21012aaaa010d025b56a7ddda80da0da915e2eba194095f82c68e8c92601cf51934a8eb69ea7b#npm:3.1.0"],
+            ["ts-loader", "virtual:94e37e29996f9254936e6e71718cb3e4e85388dee6e544c02af21012aaaa010d025b56a7ddda80da0da915e2eba194095f82c68e8c92601cf51934a8eb69ea7b#npm:7.0.5"],
+            ["tslib", "npm:1.13.0"],
+            ["typescript", null],
+            ["val-loader", "virtual:94e37e29996f9254936e6e71718cb3e4e85388dee6e544c02af21012aaaa010d025b56a7ddda80da0da915e2eba194095f82c68e8c92601cf51934a8eb69ea7b#npm:2.1.2"],
+            ["webpack", "virtual:5b317a0762bb975e46b81bd5d9a94fd60eec2369998796da2dac01f8c34e896dddfec702a94f0f0213ae4e387fdc026842fa327cc7197ed6e6d5af4a7386012f#npm:5.62.1"],
+            ["webpack-merge", "npm:4.2.2"]
+          ],
+          "packagePeers": [
+            "@types/typescript",
+            "typescript"
+          ],
+          "linkType": "HARD",
         }],
         ["virtual:d35af82f20c7940b0c75619a2a73d13fba547916c2526ba19b49a3db4df2fc201865145d2556a85457ee0f5b1fd3e7e4f5519b0b9e4e831f5cf4d2aa107f3244#npm:3.1.0", {
           "packageLocation": "./.yarn/__virtual__/@yarnpkg-builder-virtual-94e37e2999/0/cache/@yarnpkg-builder-npm-3.1.0-b2d93b39bf-fe0da261f5.zip/node_modules/@yarnpkg/builder/",

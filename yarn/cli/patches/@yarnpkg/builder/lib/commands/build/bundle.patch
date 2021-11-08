@@ -1,0 +1,49 @@
+diff --git a/lib/commands/build/bundle.js b/lib/commands/build/bundle.js
+index d5d918580c08bf5a71aef5e3c913626d93e03ba9..3bd9f25590d20d8bcc42210884b8abc67e9263f7 100644
+--- a/lib/commands/build/bundle.js
++++ b/lib/commands/build/bundle.js
+@@ -83,6 +83,35 @@ class BuildBundleCommand extends clipanion_1.Command {
+                         }));
+                     },
+                 };
++                const runtimeLoader = {
++                    name: 'runtime-loader',
++                    setup(build) {
++                        build.onResolve({ filter: /^@monstrs\/yarn-runtime$/ }, args => ({
++                            path: args.path,
++                            namespace: 'yarn-runtime'
++                        }))
++
++                        build.onResolve({ filter: /^@monstrs\/yarn-runtime\/dist$/ }, args => ({
++                            path: args.path,
++                            external: true
++                        }))
++
++                        build.onLoad({ filter: /.*/, namespace: 'yarn-runtime' }, async (args) => ({
++                            contents: `const runtime = () => {
++                                try {
++                                    return require('@monstrs/yarn-runtime/dist')
++                                } catch {
++                                    require(process.cwd() + '/.pnp.cjs').setup()
++
++                                    return require('@monstrs/yarn-runtime/dist')
++                                }
++                            }
++
++                            module.exports = runtime()`,
++                            loader: `js`,
++                        }))
++                    }
++                }
+                 const res = await (0, esbuild_1.build)({
+                     banner: {
+                         js: `#!/usr/bin/env node\n/* eslint-disable */\n//prettier-ignore`,
+@@ -94,7 +123,7 @@ class BuildBundleCommand extends clipanion_1.Command {
+                     logLevel: `silent`,
+                     format: `iife`,
+                     platform: `node`,
+-                    plugins: [valLoader, (0, esbuild_plugin_pnp_1.pnpPlugin)()],
++                    plugins: [valLoader, runtimeLoader, (0, esbuild_plugin_pnp_1.pnpPlugin)()],
+                     minify: !this.noMinify,
+                     sourcemap: this.sourceMap ? `inline` : false,
+                     target: `node12`,

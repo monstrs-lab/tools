@@ -1919,8 +1919,19 @@ __metadata:
   resolution: "@monstrs/yarn-cli@workspace:yarn/cli"
   dependencies:
     "@monstrs/tools-setup-ts-execution": "workspace:0.0.1"
-    "@monstrs/yarn-plugin-essentials": "workspace:0.0.1"
-    "@yarnpkg/builder": ^3.1.0
+    "@monstrs/yarn-plugin-app": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-check": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-checks": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-commit": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-files": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-format": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-github": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-husky": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-lint": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-test": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-typescript": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-workspaces": "workspace:0.0.1"
+    "@yarnpkg/builder": "patch:@yarnpkg/builder@^3.1.0#patches/@yarnpkg/builder/lib/commands/build/bundle.patch"
     "@yarnpkg/cli": ^3.2.0-rc.2
     "@yarnpkg/core": ^3.2.0-rc.2
     "@yarnpkg/fslib": ^2.6.0
@@ -2036,27 +2047,6 @@ __metadata:
     lint-staged: ^11.2.6
     react: "*"
     word-wrap: ^1.2.3
-  languageName: unknown
-  linkType: soft
-
-"@monstrs/yarn-plugin-essentials@workspace:0.0.1, @monstrs/yarn-plugin-essentials@workspace:yarn/plugin-essentials":
-  version: 0.0.0-use.local
-  resolution: "@monstrs/yarn-plugin-essentials@workspace:yarn/plugin-essentials"
-  dependencies:
-    "@monstrs/yarn-plugin-app": "workspace:0.0.1"
-    "@monstrs/yarn-plugin-check": "workspace:0.0.1"
-    "@monstrs/yarn-plugin-checks": "workspace:0.0.1"
-    "@monstrs/yarn-plugin-commit": "workspace:0.0.1"
-    "@monstrs/yarn-plugin-files": "workspace:0.0.1"
-    "@monstrs/yarn-plugin-format": "workspace:0.0.1"
-    "@monstrs/yarn-plugin-github": "workspace:0.0.1"
-    "@monstrs/yarn-plugin-husky": "workspace:0.0.1"
-    "@monstrs/yarn-plugin-lint": "workspace:0.0.1"
-    "@monstrs/yarn-plugin-test": "workspace:0.0.1"
-    "@monstrs/yarn-plugin-typescript": "workspace:0.0.1"
-    "@monstrs/yarn-plugin-workspaces": "workspace:0.0.1"
-    "@yarnpkg/builder": 3.1.0
-    "@yarnpkg/core": ^3.2.0-rc.2
   languageName: unknown
   linkType: soft
 
@@ -2269,13 +2259,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@octokit/openapi-types@npm:^10.0.0":
-  version: 10.0.0
-  resolution: "@octokit/openapi-types@npm:10.0.0"
-  checksum: da6070f190d552322277be82b71c190de5270321378e4b40d04d46c63e8f9b5853adf23600745c610d8b6b6fca92483fb300fd78835e58f7ad81caf1ccd5d095
-  languageName: node
-  linkType: hard
-
 "@octokit/openapi-types@npm:^11.2.0":
   version: 11.2.0
   resolution: "@octokit/openapi-types@npm:11.2.0"
@@ -2340,16 +2323,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@octokit/types@npm:^6.0.3, @octokit/types@npm:^6.16.1":
-  version: 6.26.0
-  resolution: "@octokit/types@npm:6.26.0"
-  dependencies:
-    "@octokit/openapi-types": ^10.0.0
-  checksum: 9a8988022dd21d21413e699491e3b672e3e436d0166220acf1c83ad62bfec519d37f4e2b155b660865ed5655fa94f626cc01f6bbd8149ba1807e5dc788ed8731
-  languageName: node
-  linkType: hard
-
-"@octokit/types@npm:^6.34.0":
+"@octokit/types@npm:^6.0.3, @octokit/types@npm:^6.16.1, @octokit/types@npm:^6.34.0":
   version: 6.34.0
   resolution: "@octokit/types@npm:6.34.0"
   dependencies:
@@ -3339,6 +3313,37 @@ __metadata:
   bin:
     builder: ./lib/cli.js
   checksum: fe0da261f505a307c41c88d72ed27693607901338bbdc94295244367d40f5bc4a4cad7202263d9acbcb2e4d842df69e7d0596b2106543a68d53b262ba267caa8
+  languageName: node
+  linkType: hard
+
+"@yarnpkg/builder@patch:@yarnpkg/builder@^3.1.0#patches/@yarnpkg/builder/lib/commands/build/bundle.patch::locator=%40monstrs%2Fyarn-cli%40workspace%3Ayarn%2Fcli":
+  version: 3.1.0
+  resolution: "@yarnpkg/builder@patch:@yarnpkg/builder@npm%3A3.1.0#patches/@yarnpkg/builder/lib/commands/build/bundle.patch::version=3.1.0&hash=acbd88&locator=%40monstrs%2Fyarn-cli%40workspace%3Ayarn%2Fcli"
+  dependencies:
+    "@babel/core": ^7.10.2
+    "@yarnpkg/cli": ^3.1.0
+    "@yarnpkg/core": ^3.1.0
+    "@yarnpkg/esbuild-plugin-pnp": ^2.0.0
+    "@yarnpkg/fslib": ^2.6.0
+    "@yarnpkg/pnpify": ^3.1.0
+    babel-loader: ^8.1.0
+    chalk: ^3.0.0
+    clipanion: ^3.0.1
+    esbuild: "npm:esbuild-wasm@^0.11.20"
+    filesize: ^4.1.2
+    fork-ts-checker-webpack-plugin: ^5.0.0
+    semver: ^7.1.2
+    terser-webpack-plugin: ^3.0.4
+    ts-loader: ^7.0.5
+    tslib: ^1.13.0
+    val-loader: ^2.1.1
+    webpack: ^5.1.1
+    webpack-merge: ^4.2.2
+  peerDependencies:
+    typescript: "*"
+  bin:
+    builder: ./lib/cli.js
+  checksum: 599d3881a409a16378b603c4831afae312ff0bceed293e1151f8a19e21e264fa991041c8f6dabdc9e97facdc51d8bdb868304f557ed5b5605a48f48606817c88
   languageName: node
   linkType: hard
 
