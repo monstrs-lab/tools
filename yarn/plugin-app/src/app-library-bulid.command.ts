@@ -1,13 +1,14 @@
-import { access }        from 'node:fs/promises'
+import { access }          from 'node:fs/promises'
 
-import { BaseCommand }   from '@yarnpkg/cli'
-import { Configuration } from '@yarnpkg/core'
-import { StreamReport }  from '@yarnpkg/core'
-import { MessageName }   from '@yarnpkg/core'
-import { Option }        from 'clipanion'
-import rimraf            from 'rimraf'
+import { BaseCommand }     from '@yarnpkg/cli'
+import { Configuration }   from '@yarnpkg/core'
+import { StreamReport }    from '@yarnpkg/core'
+import { MessageName }     from '@yarnpkg/core'
+import { Option }          from 'clipanion'
+import rimraf              from 'rimraf'
 
-import type * as Runtime from '@monstrs/yarn-runtime'
+import { SpinnerProgress } from '@monstrs/yarn-run-utils'
+import type * as Runtime   from '@monstrs/yarn-runtime'
 
 class AppLibraryBuildCommand extends BaseCommand {
   static paths = [['app', 'library', 'build']]
@@ -33,17 +34,29 @@ class AppLibraryBuildCommand extends BaseCommand {
         await this.cleanTarget()
 
         await report.startTimerPromise('Library Build', async () => {
-          const diagnostics = ts.build(['./src'], {
-            module: 'commonjs' as any,
-            outDir: this.target,
-            declaration: true,
-          })
+          const progress = new SpinnerProgress(this.context.stdout, configuration)
 
-          diagnostics.forEach((diagnostic) => {
-            ts.formatDiagnostic(diagnostic)
-              .split('\n')
-              .map((line) => report.reportError(MessageName.UNNAMED, line))
-          })
+          progress.start()
+
+          try {
+            const diagnostics = ts.build(['./src'], {
+              module: 'commonjs' as any,
+              outDir: this.target,
+              declaration: true,
+            })
+
+            progress.end()
+
+            diagnostics.forEach((diagnostic) => {
+              ts.formatDiagnostic(diagnostic)
+                .split('\n')
+                .map((line) => report.reportError(MessageName.UNNAMED, line))
+            })
+          } catch (error) {
+            progress.end()
+
+            report.reportError(MessageName.UNNAMED, (error as any).message)
+          }
         })
       }
     )

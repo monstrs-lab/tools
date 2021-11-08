@@ -1,9 +1,10 @@
-import { BaseCommand }   from '@yarnpkg/cli'
-import { Configuration } from '@yarnpkg/core'
-import { StreamReport }  from '@yarnpkg/core'
-import { MessageName }   from '@yarnpkg/core'
+import { BaseCommand }     from '@yarnpkg/cli'
+import { Configuration }   from '@yarnpkg/core'
+import { StreamReport }    from '@yarnpkg/core'
+import { MessageName }     from '@yarnpkg/core'
 
-import type * as Runtime from '@monstrs/yarn-runtime'
+import { SpinnerProgress } from '@monstrs/yarn-run-utils'
+import type * as Runtime   from '@monstrs/yarn-runtime'
 
 class AppServiceBuildCommand extends BaseCommand {
   static paths = [['app', 'service', 'build']]
@@ -24,18 +25,38 @@ class AppServiceBuildCommand extends BaseCommand {
       async (report) => {
         const { errors, warnings }: Runtime.ServiceBuildResult = await report.startTimerPromise(
           'Service build',
-          async () => service.build()
+          async () => {
+            const progress = new SpinnerProgress(this.context.stdout, configuration)
+
+            try {
+              progress.start()
+
+              const result = await service.build()
+
+              progress.end()
+
+              return result
+            } catch (error) {
+              progress.end()
+
+              report.reportError(MessageName.UNNAMED, (error as any).message)
+
+              return { errors: [], warnings: [] }
+            }
+          }
         )
 
         if (warnings.length > 0) {
           await report.startTimerPromise('Service Build Warnings:', async () => {
-            warnings.forEach((warning) => report.reportError(MessageName.UNNAMED, warning.message))
+            warnings.forEach((warning) =>
+              report.reportWarning(MessageName.UNNAMED, warning.message)
+            )
           })
         }
 
         if (errors.length > 0) {
           await report.startTimerPromise('Service Build Errors:', async () => {
-            errors.forEach((error) => report.reportError(MessageName.UNNAMED, error.message))
+            errors.forEach((error) => report.reportWarning(MessageName.UNNAMED, error.message))
           })
         }
       }

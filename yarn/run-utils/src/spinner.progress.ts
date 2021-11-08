@@ -14,14 +14,18 @@ export class SpinnerProgress {
   constructor(private readonly stdout, private readonly configuration: Configuration) {}
 
   start() {
-    this.running = true
-    this.write()
-    this.tick()
+    if (this.stdout.isTTY) {
+      this.running = true
+      this.write()
+      this.tick()
+    }
   }
 
   end() {
-    this.running = false
-    this.clear(true)
+    if (this.stdout.isTTY) {
+      this.running = false
+      this.clear(true)
+    }
   }
 
   private tick() {

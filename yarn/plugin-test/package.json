@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@monstrs/yarn-runtime": "workspace:0.0.1",
-    "@yarnpkg/builder": "3.1.0",
+    "@yarnpkg/builder": "patch:@yarnpkg/builder@^3.1.0#../cli/patches/@yarnpkg/builder/lib/commands/build/plugin.patch",
     "@yarnpkg/cli": "^3.2.0-rc.2",
     "@yarnpkg/core": "^3.2.0-rc.2",
     "@yarnpkg/fslib": "^2.6.0",

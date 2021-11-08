@@ -1975,8 +1975,9 @@ __metadata:
     "@monstrs/code-typescript": "workspace:0.0.101"
     "@monstrs/webpack-start-server-plugin": "workspace:0.2.23"
     "@monstrs/yarn-pack-utils": "workspace:0.0.1"
+    "@monstrs/yarn-run-utils": "workspace:0.0.1"
     "@monstrs/yarn-runtime": "workspace:0.0.1"
-    "@yarnpkg/builder": 3.1.0
+    "@yarnpkg/builder": "patch:@yarnpkg/builder@^3.1.0#../cli/patches/@yarnpkg/builder/lib/commands/build/plugin.patch"
     "@yarnpkg/cli": ^3.2.0-rc.2
     "@yarnpkg/core": ^3.2.0-rc.2
     "@yarnpkg/fslib": ^2.6.0
@@ -2011,7 +2012,7 @@ __metadata:
     "@monstrs/yarn-workspace-utils": "workspace:0.0.1"
     "@octokit/types": ^6.34.0
     "@types/node": ^16.11.6
-    "@yarnpkg/builder": 3.1.0
+    "@yarnpkg/builder": "patch:@yarnpkg/builder@^3.1.0#../cli/patches/@yarnpkg/builder/lib/commands/build/plugin.patch"
     "@yarnpkg/cli": ^3.2.0-rc.2
     "@yarnpkg/core": ^3.2.0-rc.2
     "@yarnpkg/fslib": ^2.6.0
@@ -2027,7 +2028,7 @@ __metadata:
     "@cenk1cenk2/cz-cc": ^1.4.10
     "@monstrs/cli-ui-git-commit-component": "workspace:0.0.1"
     "@monstrs/yarn-runtime": "workspace:0.0.1"
-    "@yarnpkg/builder": 3.1.0
+    "@yarnpkg/builder": "patch:@yarnpkg/builder@^3.1.0#../cli/patches/@yarnpkg/builder/lib/commands/build/plugin.patch"
     "@yarnpkg/cli": ^3.2.0-rc.2
     "@yarnpkg/core": ^3.2.0-rc.2
     "@yarnpkg/fslib": ^2.6.0
@@ -2111,7 +2112,7 @@ __metadata:
   resolution: "@monstrs/yarn-plugin-test@workspace:yarn/plugin-test"
   dependencies:
     "@monstrs/yarn-runtime": "workspace:0.0.1"
-    "@yarnpkg/builder": 3.1.0
+    "@yarnpkg/builder": "patch:@yarnpkg/builder@^3.1.0#../cli/patches/@yarnpkg/builder/lib/commands/build/plugin.patch"
     "@yarnpkg/cli": ^3.2.0-rc.2
     "@yarnpkg/core": ^3.2.0-rc.2
     "@yarnpkg/fslib": ^2.6.0
@@ -3311,6 +3312,130 @@ __metadata:
   bin:
     builder: ./lib/cli.js
   checksum: fe0da261f505a307c41c88d72ed27693607901338bbdc94295244367d40f5bc4a4cad7202263d9acbcb2e4d842df69e7d0596b2106543a68d53b262ba267caa8
+  languageName: node
+  linkType: hard
+
+"@yarnpkg/builder@patch:@yarnpkg/builder@^3.1.0#../cli/patches/@yarnpkg/builder/lib/commands/build/plugin.patch::locator=%40monstrs%2Fyarn-plugin-app%40workspace%3Ayarn%2Fplugin-app":
+  version: 3.1.0
+  resolution: "@yarnpkg/builder@patch:@yarnpkg/builder@npm%3A3.1.0#../cli/patches/@yarnpkg/builder/lib/commands/build/plugin.patch::version=3.1.0&hash=aec936&locator=%40monstrs%2Fyarn-plugin-app%40workspace%3Ayarn%2Fplugin-app"
+  dependencies:
+    "@babel/core": ^7.10.2
+    "@yarnpkg/cli": ^3.1.0
+    "@yarnpkg/core": ^3.1.0
+    "@yarnpkg/esbuild-plugin-pnp": ^2.0.0
+    "@yarnpkg/fslib": ^2.6.0
+    "@yarnpkg/pnpify": ^3.1.0
+    babel-loader: ^8.1.0
+    chalk: ^3.0.0
+    clipanion: ^3.0.1
+    esbuild: "npm:esbuild-wasm@^0.11.20"
+    filesize: ^4.1.2
+    fork-ts-checker-webpack-plugin: ^5.0.0
+    semver: ^7.1.2
+    terser-webpack-plugin: ^3.0.4
+    ts-loader: ^7.0.5
+    tslib: ^1.13.0
+    val-loader: ^2.1.1
+    webpack: ^5.1.1
+    webpack-merge: ^4.2.2
+  peerDependencies:
+    typescript: "*"
+  bin:
+    builder: ./lib/cli.js
+  checksum: 13d5e1eb349dd5e98c8d2172fe3f7e9fac2131ff2a3144c8282d6b166a8c21b7621d42b9a3e7a0d1d4e0b0c4cee0223f8a76c8ad1eefa15df457b94ecea303b4
+  languageName: node
+  linkType: hard
+
+"@yarnpkg/builder@patch:@yarnpkg/builder@^3.1.0#../cli/patches/@yarnpkg/builder/lib/commands/build/plugin.patch::locator=%40monstrs%2Fyarn-plugin-checks%40workspace%3Ayarn%2Fplugin-checks":
+  version: 3.1.0
+  resolution: "@yarnpkg/builder@patch:@yarnpkg/builder@npm%3A3.1.0#../cli/patches/@yarnpkg/builder/lib/commands/build/plugin.patch::version=3.1.0&hash=aec936&locator=%40monstrs%2Fyarn-plugin-checks%40workspace%3Ayarn%2Fplugin-checks"
+  dependencies:
+    "@babel/core": ^7.10.2
+    "@yarnpkg/cli": ^3.1.0
+    "@yarnpkg/core": ^3.1.0
+    "@yarnpkg/esbuild-plugin-pnp": ^2.0.0
+    "@yarnpkg/fslib": ^2.6.0
+    "@yarnpkg/pnpify": ^3.1.0
+    babel-loader: ^8.1.0
+    chalk: ^3.0.0
+    clipanion: ^3.0.1
+    esbuild: "npm:esbuild-wasm@^0.11.20"
+    filesize: ^4.1.2
+    fork-ts-checker-webpack-plugin: ^5.0.0
+    semver: ^7.1.2
+    terser-webpack-plugin: ^3.0.4
+    ts-loader: ^7.0.5
+    tslib: ^1.13.0
+    val-loader: ^2.1.1
+    webpack: ^5.1.1
+    webpack-merge: ^4.2.2
+  peerDependencies:
+    typescript: "*"
+  bin:
+    builder: ./lib/cli.js
+  checksum: 13d5e1eb349dd5e98c8d2172fe3f7e9fac2131ff2a3144c8282d6b166a8c21b7621d42b9a3e7a0d1d4e0b0c4cee0223f8a76c8ad1eefa15df457b94ecea303b4
+  languageName: node
+  linkType: hard
+
+"@yarnpkg/builder@patch:@yarnpkg/builder@^3.1.0#../cli/patches/@yarnpkg/builder/lib/commands/build/plugin.patch::locator=%40monstrs%2Fyarn-plugin-commit%40workspace%3Ayarn%2Fplugin-commit":
+  version: 3.1.0
+  resolution: "@yarnpkg/builder@patch:@yarnpkg/builder@npm%3A3.1.0#../cli/patches/@yarnpkg/builder/lib/commands/build/plugin.patch::version=3.1.0&hash=aec936&locator=%40monstrs%2Fyarn-plugin-commit%40workspace%3Ayarn%2Fplugin-commit"
+  dependencies:
+    "@babel/core": ^7.10.2
+    "@yarnpkg/cli": ^3.1.0
+    "@yarnpkg/core": ^3.1.0
+    "@yarnpkg/esbuild-plugin-pnp": ^2.0.0
+    "@yarnpkg/fslib": ^2.6.0
+    "@yarnpkg/pnpify": ^3.1.0
+    babel-loader: ^8.1.0
+    chalk: ^3.0.0
+    clipanion: ^3.0.1
+    esbuild: "npm:esbuild-wasm@^0.11.20"
+    filesize: ^4.1.2
+    fork-ts-checker-webpack-plugin: ^5.0.0
+    semver: ^7.1.2
+    terser-webpack-plugin: ^3.0.4
+    ts-loader: ^7.0.5
+    tslib: ^1.13.0
+    val-loader: ^2.1.1
+    webpack: ^5.1.1
+    webpack-merge: ^4.2.2
+  peerDependencies:
+    typescript: "*"
+  bin:
+    builder: ./lib/cli.js
+  checksum: 13d5e1eb349dd5e98c8d2172fe3f7e9fac2131ff2a3144c8282d6b166a8c21b7621d42b9a3e7a0d1d4e0b0c4cee0223f8a76c8ad1eefa15df457b94ecea303b4
+  languageName: node
+  linkType: hard
+
+"@yarnpkg/builder@patch:@yarnpkg/builder@^3.1.0#../cli/patches/@yarnpkg/builder/lib/commands/build/plugin.patch::locator=%40monstrs%2Fyarn-plugin-test%40workspace%3Ayarn%2Fplugin-test":
+  version: 3.1.0
+  resolution: "@yarnpkg/builder@patch:@yarnpkg/builder@npm%3A3.1.0#../cli/patches/@yarnpkg/builder/lib/commands/build/plugin.patch::version=3.1.0&hash=aec936&locator=%40monstrs%2Fyarn-plugin-test%40workspace%3Ayarn%2Fplugin-test"
+  dependencies:
+    "@babel/core": ^7.10.2
+    "@yarnpkg/cli": ^3.1.0
+    "@yarnpkg/core": ^3.1.0
+    "@yarnpkg/esbuild-plugin-pnp": ^2.0.0
+    "@yarnpkg/fslib": ^2.6.0
+    "@yarnpkg/pnpify": ^3.1.0
+    babel-loader: ^8.1.0
+    chalk: ^3.0.0
+    clipanion: ^3.0.1
+    esbuild: "npm:esbuild-wasm@^0.11.20"
+    filesize: ^4.1.2
+    fork-ts-checker-webpack-plugin: ^5.0.0
+    semver: ^7.1.2
+    terser-webpack-plugin: ^3.0.4
+    ts-loader: ^7.0.5
+    tslib: ^1.13.0
+    val-loader: ^2.1.1
+    webpack: ^5.1.1
+    webpack-merge: ^4.2.2
+  peerDependencies:
+    typescript: "*"
+  bin:
+    builder: ./lib/cli.js
+  checksum: 13d5e1eb349dd5e98c8d2172fe3f7e9fac2131ff2a3144c8282d6b166a8c21b7621d42b9a3e7a0d1d4e0b0c4cee0223f8a76c8ad1eefa15df457b94ecea303b4
   languageName: node
   linkType: hard
 
