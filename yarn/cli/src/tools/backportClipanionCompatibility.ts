@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 export function backportClipanionCompatibility(clipanion: any) {
   clipanion.Command.Path =
     (...p: Array<any>) =>

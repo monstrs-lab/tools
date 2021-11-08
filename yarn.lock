@@ -2026,7 +2026,7 @@ __metadata:
   dependencies:
     "@cenk1cenk2/cz-cc": ^1.4.10
     "@monstrs/cli-ui-git-commit-component": "workspace:0.0.1"
-    "@monstrs/code-commit": "workspace:0.0.1"
+    "@monstrs/yarn-runtime": "workspace:0.0.1"
     "@yarnpkg/builder": 3.1.0
     "@yarnpkg/cli": ^3.2.0-rc.2
     "@yarnpkg/core": ^3.2.0-rc.2
@@ -2157,6 +2157,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-runtime@workspace:yarn/runtime"
   dependencies:
+    "@monstrs/code-commit": "workspace:0.0.1"
     "@monstrs/code-format": "workspace:0.0.89"
     "@monstrs/code-lint": "workspace:0.0.102"
     "@monstrs/code-service": "workspace:0.0.96"

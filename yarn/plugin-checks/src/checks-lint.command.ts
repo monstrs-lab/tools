@@ -23,7 +23,9 @@ class ChecksLintCommand extends BaseCommand {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
     const { project } = await Project.find(configuration, this.context.cwd)
 
+    // eslint-disable-next-line global-require
     const { Linter }: typeof Runtime = require('@monstrs/yarn-runtime') as typeof Runtime
+
     const linter = new Linter(project.cwd)
 
     const formatter = await linter.loadFormatter()
@@ -38,6 +40,7 @@ class ChecksLintCommand extends BaseCommand {
 
         const { id: checkId } = await checks.start()
 
+        // eslint-disable-next-line consistent-return
         const results = await report.startTimerPromise('Lint', async () => {
           try {
             return await linter.lint()

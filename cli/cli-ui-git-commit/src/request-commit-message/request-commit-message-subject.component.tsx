@@ -1,11 +1,7 @@
 import React                     from 'react'
-import { useState }              from 'react'
-import { useMemo }               from 'react'
-import Select                    from 'ink-select-input'
 import { UncontrolledTextInput } from 'ink-text-input'
 import { Text }                  from 'ink'
 import { Box }                   from 'ink'
-import { Spacer }                from 'ink'
 
 export const RequestCommitMessageSubject = ({ onSubmit }) => (
   <Box flexDirection='column'>

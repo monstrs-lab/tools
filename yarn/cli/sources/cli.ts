@@ -1,1 +1,1 @@
-export * from '../src/cli'
+import '../src/cli'

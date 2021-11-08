@@ -1,12 +1,7 @@
-import { isMainThread } from 'node:worker_threads'
-import { parentPort }   from 'node:worker_threads'
-import { workerData }   from 'node:worker_threads'
-import { Worker }       from 'node:worker_threads'
-import { SHARE_ENV }    from 'node:worker_threads'
-import { EOL }          from 'node:os'
+import { Worker } from 'node:worker_threads'
 
-export const lint = (cwd: string, files: Array<string>): Promise<Array<string>> => {
-  return new Promise((resolve, reject) => {
+export const lint = (cwd: string, files: Array<string>): Promise<Array<string>> =>
+  new Promise((resolve, reject) => {
     const worker = new Worker(
       `
         const { parentPort } = require('node:worker_threads')
@@ -22,7 +17,7 @@ export const lint = (cwd: string, files: Array<string>): Promise<Array<string>> 
         linter.lint(workerData.files)
             .then(results => {
                 linter.loadFormatter().then(formatter => {
-                    parentPort.postMessage(formatter.format(results).split('\\n'))
+                    parentPort.postMessage(formatter.format(results).split('\\n').filter(Boolean))
                 })
             })
         `,
@@ -40,4 +35,3 @@ export const lint = (cwd: string, files: Array<string>): Promise<Array<string>> 
       if (code !== 0) reject(new Error(`Worker stopped with exit code ${code}`))
     })
   })
-}

@@ -14,7 +14,9 @@ class ChecksTestIntegrationCommand extends AbstractChecksTestCommand {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
     const { project } = await Project.find(configuration, this.context.cwd)
 
+    // eslint-disable-next-line global-require
     const { Tester }: typeof Runtime = require('@monstrs/yarn-runtime') as typeof Runtime
+
     const tester = new Tester(project.cwd)
 
     const commandReport = await StreamReport.start(

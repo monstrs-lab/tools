@@ -2,7 +2,6 @@ import { access }        from 'node:fs/promises'
 
 import { BaseCommand }   from '@yarnpkg/cli'
 import { Configuration } from '@yarnpkg/core'
-import { Project }       from '@yarnpkg/core'
 import { StreamReport }  from '@yarnpkg/core'
 import { MessageName }   from '@yarnpkg/core'
 import { Option }        from 'clipanion'
@@ -20,7 +19,9 @@ class AppLibraryBuildCommand extends BaseCommand {
   async execute() {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
 
+    // eslint-disable-next-line global-require
     const { TypeScript }: typeof Runtime = require('@monstrs/yarn-runtime')
+
     const ts = new TypeScript(this.source || this.context.cwd)
 
     const commandReport = await StreamReport.start(
@@ -55,6 +56,7 @@ class AppLibraryBuildCommand extends BaseCommand {
       await access(this.target)
 
       rimraf.sync(this.target)
+      // eslint-disable-next-line no-empty
     } catch {}
   }
 }

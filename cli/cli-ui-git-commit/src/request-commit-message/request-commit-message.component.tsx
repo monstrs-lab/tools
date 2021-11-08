@@ -68,7 +68,7 @@ export const RequestCommitMessage: FC<RequestCommitMessageProps> = ({ onSubmit }
   }
 
   if (additional?.breaking && !breaking) {
-    return <RequestCommitMessageBreaking onSubmit={breaking} />
+    return <RequestCommitMessageBreaking onSubmit={setBreaking} />
   }
 
   return (

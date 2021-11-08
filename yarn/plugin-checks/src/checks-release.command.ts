@@ -1,17 +1,17 @@
-import { BaseCommand }                 from '@yarnpkg/cli'
-import { Configuration }               from '@yarnpkg/core'
-import { Project }                     from '@yarnpkg/core'
-import { ppath }                       from '@yarnpkg/fslib'
-import { toFilename }                  from '@yarnpkg/fslib'
-import stripAnsi                       from 'strip-ansi'
+import { BaseCommand }           from '@yarnpkg/cli'
+import { Configuration }         from '@yarnpkg/core'
+import { Project }               from '@yarnpkg/core'
+import { ppath }                 from '@yarnpkg/fslib'
+import { toFilename }            from '@yarnpkg/fslib'
+import stripAnsi                 from 'strip-ansi'
 
-import { getChangedWorkspaces }        from '@monstrs/yarn-workspace-utils'
-import { getChangedFiles }             from '@monstrs/yarn-plugin-files'
-import { PassThroughRunContext }       from '@monstrs/yarn-run-utils'
+import { getChangedWorkspaces }  from '@monstrs/yarn-workspace-utils'
+import { getChangedFiles }       from '@monstrs/yarn-plugin-files'
+import { PassThroughRunContext } from '@monstrs/yarn-run-utils'
 
-import { GitHubChecks }     from './github.checks'
-import { AnnotationLevel }  from './github.checks'
-import { Annotation }       from './github.checks'
+import { GitHubChecks }          from './github.checks'
+import { AnnotationLevel }       from './github.checks'
+import { Annotation }            from './github.checks'
 
 class ChecksReleaseCommand extends BaseCommand {
   static paths = [['checks', 'release']]

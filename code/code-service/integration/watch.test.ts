@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 
-import path      from 'path'
+import path        from 'path'
 
 import { Service } from '../src'
 

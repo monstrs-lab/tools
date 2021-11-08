@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-curly-brace-presence */
+
 import React                     from 'react'
 import { UncontrolledTextInput } from 'ink-text-input'
 import { Text }                  from 'ink'
@@ -8,7 +10,7 @@ export const RequestCommitMessageIssues = ({ onSubmit }) => (
   <Box flexDirection='column'>
     <Box>
       <Text bold color='cyanBright'>
-        Add issue references (e.g. "fix #123, re #124".):
+        {`Add issue references (e.g. "fix #123, re #124".):`}
       </Text>
     </Box>
     <Box>

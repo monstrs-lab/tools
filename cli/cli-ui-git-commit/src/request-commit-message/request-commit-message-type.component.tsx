@@ -41,7 +41,7 @@ export const RequestCommitMessageType = ({ onSubmit }) => {
       {hasSuggestion && (
         <Select
           items={matches}
-          onSelect={({ value }) => onSubmit(value)}
+          onSelect={(v) => onSubmit(v.value)}
           indicatorComponent={IndicatorComponent}
           itemComponent={ItemComponent}
         />

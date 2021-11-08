@@ -13,6 +13,7 @@
     "prepack": "yarn run build"
   },
   "dependencies": {
+    "@monstrs/code-commit": "workspace:0.0.1",
     "@monstrs/code-format": "workspace:0.0.89",
     "@monstrs/code-lint": "workspace:0.0.102",
     "@monstrs/code-service": "workspace:0.0.96",

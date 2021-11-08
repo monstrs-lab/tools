@@ -33,11 +33,11 @@ export const RequestCommitMessageScope = ({ onSubmit }) => {
   const hasSuggestion: boolean = useMemo(() => matches.length > 0, [matches])
 
   const onSubmitValue = useCallback(
-    ({ value }) => {
-      if (value === 'custom') {
+    (v) => {
+      if (v.value === 'custom') {
         setCustom(true)
       } else {
-        onSubmit(value)
+        onSubmit(v.value)
       }
     },
     [setCustom, onSubmit]

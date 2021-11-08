@@ -19,18 +19,16 @@ class TestUnitCommand extends BaseCommand {
 
   async execute() {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
-    const { project } = await Project.find(configuration, this.context.cwd)
+    const { project, workspace } = await Project.find(configuration, this.context.cwd)
 
+    // eslint-disable-next-line global-require
     const { Tester }: typeof Runtime = require('@monstrs/yarn-runtime') as typeof Runtime
     const tester = new Tester(project.cwd)
 
-    const cwd = project.cwd
-    const isWorkspace = this.context.cwd !== cwd
-
     const args: Array<string> = []
 
-    if (isWorkspace) {
-      const scope = this.context.cwd.replace(cwd, '')
+    if (workspace) {
+      const scope = this.context.cwd.replace(project.cwd, '')
 
       args.push(scope.startsWith('/') ? scope.substr(1) : scope)
     }

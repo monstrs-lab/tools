@@ -5,7 +5,6 @@ import { Configuration }   from '@yarnpkg/core'
 import { Project }         from '@yarnpkg/core'
 import { Option }          from 'clipanion'
 
-import type * as Runtime   from '@monstrs/yarn-runtime'
 import { SpinnerProgress } from '@monstrs/yarn-run-utils'
 
 import { format }          from './format.worker'

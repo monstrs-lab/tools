@@ -76,19 +76,17 @@ export class CommitMessageCommand extends BaseCommand {
       width: 100,
     }
 
-    const scope = commit.scope ? `(${commit.scope})` : ''
-
-    let head = commit.type + scope + ': ' + commit.subject
+    let head = `${commit.type}${commit.scope ? `(${commit.scope})` : ''}: ${commit.subject}`
 
     if (commit.skipci) {
-      head = head + ' [skip ci]'
+      head += ' [skip ci]'
     }
 
     const body = commit.body ? wrap(commit.body, wrapOptions) : false
 
     const breaking = commit.breaking
       ? wrap(
-          'BREAKING CHANGE: ' + commit.breaking.trim().replace(/^BREAKING CHANGE: /, ''),
+          `BREAKING CHANGE: ${commit.breaking.trim().replace(/^BREAKING CHANGE: /, '')}`,
           wrapOptions
         )
       : false

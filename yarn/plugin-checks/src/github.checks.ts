@@ -1,20 +1,21 @@
 import { getOctokit } from '@actions/github'
 import { context }    from '@actions/github'
 
+// eslint-disable-next-line no-shadow
 export enum AnnotationLevel {
-    Warning = 'warning',
-    Failure = 'failure',
-  }
-  
-  export interface Annotation {
-    path: string
-    start_line: number
-    end_line: number
-    annotation_level: AnnotationLevel
-    raw_details: string
-    title: string
-    message: string
-  }
+  Warning = 'warning',
+  Failure = 'failure',
+}
+
+export interface Annotation {
+  path: string
+  start_line: number
+  end_line: number
+  annotation_level: AnnotationLevel
+  raw_details: string
+  title: string
+  message: string
+}
 
 export class GitHubChecks {
   private octokit

@@ -23,10 +23,11 @@ class ChecksTypeCheckCommand extends BaseCommand {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
     const { project } = await Project.find(configuration, this.context.cwd)
 
-    const {
-      TypeScript,
-      flattenDiagnosticMessageText,
-    }: typeof Runtime = require('@monstrs/yarn-runtime')
+    // eslint-disable-next-line global-require
+    const { TypeScript }: typeof Runtime = require('@monstrs/yarn-runtime')
+    // eslint-disable-next-line global-require
+    const { flattenDiagnosticMessageText }: typeof Runtime = require('@monstrs/yarn-runtime')
+
     const ts = new TypeScript(project.cwd)
 
     const commandReport = await StreamReport.start(
@@ -87,12 +88,9 @@ class ChecksTypeCheckCommand extends BaseCommand {
             })
 
             await checks.complete(checkId, {
-              title:
-              diagnostics.length > 0 ? `Errors ${annotations.length}` : 'Successful',
+              title: diagnostics.length > 0 ? `Errors ${annotations.length}` : 'Successful',
               summary:
-              diagnostics.length > 0
-                  ? `Found ${annotations.length} errors`
-                  : 'All checks passed',
+                diagnostics.length > 0 ? `Found ${annotations.length} errors` : 'All checks passed',
               annotations,
             })
           } catch (error) {

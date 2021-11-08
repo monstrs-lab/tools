@@ -32,15 +32,13 @@ export class Linter {
   async lint(files?: Array<string>) {
     if (files && files.length > 0) {
       return this.lintFiles(files)
-    } else {
-      return this.lintProject()
     }
+
+    return this.lintProject()
   }
 
   async lintProject() {
-    return await this.lintFiles(
-      await globby(createPatterns(this.cwd), { dot: true, nodir: true } as any)
-    )
+    return this.lintFiles(await globby(createPatterns(this.cwd), { dot: true, nodir: true } as any))
   }
 
   async lintFiles(files: Array<string> = []) {

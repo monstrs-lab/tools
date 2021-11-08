@@ -5,7 +5,6 @@ import { Project }         from '@yarnpkg/core'
 import { BaseCommand }     from '@yarnpkg/cli'
 import { Option }          from 'clipanion'
 
-import type * as Runtime   from '@monstrs/yarn-runtime'
 import { SpinnerProgress } from '@monstrs/yarn-run-utils'
 
 import { lint }            from './lint.worker'
@@ -18,11 +17,6 @@ class LintCommand extends BaseCommand {
   async execute() {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
     const { project } = await Project.find(configuration, this.context.cwd)
-
-    const { Linter }: typeof Runtime = require('@monstrs/yarn-runtime') as typeof Runtime
-    const linter = new Linter(project.cwd)
-
-    const formatter = await linter.loadFormatter()
 
     const commandReport = await StreamReport.start(
       {
