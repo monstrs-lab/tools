@@ -13,6 +13,8 @@ import { codeFrameColumns } from '@babel/code-frame'
 import { AnnotationLevel }  from '@monstrs/github-checks-utils'
 import { Annotation }       from '@monstrs/github-checks-utils'
 import { Conclusion }       from '@monstrs/github-checks-utils'
+import { completeCheck }      from '@monstrs/github-checks-utils'
+import { startCheck }      from '@monstrs/github-checks-utils'
 import { createCheck }      from '@monstrs/github-checks-utils'
 import type * as Runtime    from '@monstrs/yarn-runtime'
 
@@ -37,6 +39,8 @@ class ChecksTypeCheckCommand extends BaseCommand {
       async (report) => {
         await report.startTimerPromise('Typecheck', async () => {
           try {
+            const checkId = await startCheck('TypeCheck')
+
             const diagnostics = ts.check(
               project.topLevelWorkspace.manifest.workspaceDefinitions.map(
                 (definition) => definition.pattern
@@ -84,7 +88,7 @@ class ChecksTypeCheckCommand extends BaseCommand {
 
             const conclusion = diagnostics.length > 0 ? Conclusion.Failure : Conclusion.Success
 
-            await createCheck('TypeCheck', conclusion, {
+            await completeCheck(checkId, 'TypeCheck', conclusion, {
               title:
                 conclusion === Conclusion.Failure ? `Errors ${annotations.length}` : 'Successful',
               summary:

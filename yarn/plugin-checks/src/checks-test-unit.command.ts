@@ -3,7 +3,9 @@ import { Configuration }             from '@yarnpkg/core'
 import { Project }                   from '@yarnpkg/core'
 
 import { Conclusion }                from '@monstrs/github-checks-utils'
-import { createCheck }               from '@monstrs/github-checks-utils'
+import { completeCheck }      from '@monstrs/github-checks-utils'
+import { startCheck }      from '@monstrs/github-checks-utils'
+import { createCheck }      from '@monstrs/github-checks-utils'
 import type * as Runtime             from '@monstrs/yarn-runtime'
 
 import { AbstractChecksTestCommand } from './abstract-checks-test.command'
@@ -25,11 +27,14 @@ class ChecksTestUnitCommand extends AbstractChecksTestCommand {
       },
       async () => {
         try {
+          const checkId = await startCheck('Test:Unit')
+
           const results = await tester.unit()
 
           const annotations = this.formatResults(results, project.cwd)
 
-          await createCheck(
+          await completeCheck(
+            checkId,
             'Test:Unit',
             annotations.length > 0 ? Conclusion.Failure : Conclusion.Success,
             {

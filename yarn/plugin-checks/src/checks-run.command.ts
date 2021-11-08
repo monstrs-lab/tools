@@ -25,7 +25,7 @@ class ChecksRunCommand extends BaseCommand {
         ])
 
         await this.runCheck(project.cwd, ['test', 'integration'], report)
-        //await this.runCheck(project.cwd, ['release'], report)
+        await this.runCheck(project.cwd, ['release'], report)
       }
     )
 

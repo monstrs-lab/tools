@@ -15,7 +15,7 @@ export interface Annotation {
   message: string
 }
 
-export type CheckStatus = 'completed'
+export type CheckStatus = 'completed' | 'in_progress'
 
 export enum Conclusion {
   Success = 'success',

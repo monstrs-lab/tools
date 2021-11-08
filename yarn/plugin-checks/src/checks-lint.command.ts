@@ -13,6 +13,8 @@ import type { Severity }    from '@monstrs/yarn-runtime'
 import { AnnotationLevel }  from '@monstrs/github-checks-utils'
 import { Annotation }       from '@monstrs/github-checks-utils'
 import { Conclusion }       from '@monstrs/github-checks-utils'
+import { completeCheck }      from '@monstrs/github-checks-utils'
+import { startCheck }      from '@monstrs/github-checks-utils'
 import { createCheck }      from '@monstrs/github-checks-utils'
 import type * as Runtime    from '@monstrs/yarn-runtime'
 
@@ -34,6 +36,8 @@ class ChecksLintCommand extends BaseCommand {
         configuration,
       },
       async (report) => {
+        const checkId = await startCheck('Lint')
+
         const results = await report.startTimerPromise('Lint', async () => {
           try {
             return await linter.lint()
@@ -62,7 +66,8 @@ class ChecksLintCommand extends BaseCommand {
             (annotation) => annotation.annotation_level === 'failure'
           ).length
 
-          await createCheck(
+          await completeCheck(
+            checkId,
             'Lint',
             annotations.length > 0 ? Conclusion.Failure : Conclusion.Success,
             {

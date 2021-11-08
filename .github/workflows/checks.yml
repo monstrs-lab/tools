@@ -18,11 +18,6 @@ jobs:
       - name: Install
         run: yarn install
 
-      - name: Changes
-        run: yarn files changed list
-        env:
-          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
-
       - name: Run
         run: yarn checks run
         env:
