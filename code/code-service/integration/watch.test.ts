@@ -4,7 +4,7 @@
 
 import path      from 'path'
 
-import { watch } from '../src'
+import { Service } from '../src'
 
 jest.setTimeout(10000)
 
@@ -20,7 +20,7 @@ const closeWatcher = (watcher): Promise<void> =>
 describe('service', () => {
   describe('watch', () => {
     it('simple', async () => {
-      const watcher = await watch({ cwd: path.join(__dirname, 'fixtures/simple') })
+      const watcher = await new Service(path.join(__dirname, 'fixtures/simple')).watch()
 
       await closeWatcher(watcher)
 
