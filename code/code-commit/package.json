@@ -8,11 +8,8 @@
   ],
   "scripts": {
     "build": "yarn app library build",
-    "postpack": "rm -rf dist",
-    "prepack": "yarn run build"
-  },
-  "devDependencies": {
-    "@types/node": "^16.11.6"
+    "prepack": "yarn run build",
+    "postpack": "rm -rf dist"
   },
   "dependencies": {
     "@commitlint/config-conventional": "^14.1.0",
@@ -21,6 +18,9 @@
     "@commitlint/load": "^14.1.0",
     "@commitlint/read": "^14.0.0",
     "@commitlint/types": "^14.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.6"
   },
   "publishConfig": {
     "main": "dist/index.js",

@@ -8,16 +8,16 @@
   ],
   "scripts": {
     "build": "yarn app library build",
-    "postpack": "rm -rf dist",
-    "prepack": "yarn run build"
-  },
-  "devDependencies": {
-    "@types/node": "^16.11.6",
-    "@types/react": "^17.0.34"
+    "prepack": "yarn run build",
+    "postpack": "rm -rf dist"
   },
   "dependencies": {
     "ink": "^3.2.0",
     "react": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.6",
+    "@types/react": "^17.0.34"
   },
   "publishConfig": {
     "access": "public",

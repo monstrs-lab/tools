@@ -6,7 +6,7 @@ const config = {
   tabWidth: 2,
   jsxSingleQuote: true,
   trailingComma: 'es5',
-  plugins: [require.resolve('@monstrs/prettier-plugin')],
+  plugins: [require.resolve('./plugin'), require.resolve('prettier-plugin-packagejson')],
   printWidth: 100,
 }
 

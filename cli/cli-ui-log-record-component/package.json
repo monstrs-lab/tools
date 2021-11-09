@@ -8,8 +8,14 @@
   ],
   "scripts": {
     "build": "yarn app library build",
-    "postpack": "rm -rf dist",
-    "prepack": "yarn run build"
+    "prepack": "yarn run build",
+    "postpack": "rm -rf dist"
+  },
+  "dependencies": {
+    "@monstrs/cli-ui-renderer": "workspace:0.0.13",
+    "@monstrs/cli-ui-stack-trace-component": "workspace:0.0.13",
+    "@monstrs/logger": "^0.0.6",
+    "string-to-color": "^2.2.2"
   },
   "devDependencies": {
     "@monstrs/logger": "^0.0.6",
@@ -19,12 +25,6 @@
     "ink": "^3.2.0",
     "react": "*",
     "strip-ansi": "^6.0.1"
-  },
-  "dependencies": {
-    "@monstrs/cli-ui-renderer": "workspace:0.0.13",
-    "@monstrs/cli-ui-stack-trace-component": "workspace:0.0.13",
-    "@monstrs/logger": "^0.0.6",
-    "string-to-color": "^2.2.2"
   },
   "peerDependencies": {
     "ink": "^3.0.8",

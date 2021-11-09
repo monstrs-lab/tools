@@ -1,7 +1,7 @@
 {
   "name": "@monstrs/yarn-plugin-format",
-  "private": true,
   "version": "0.0.1",
+  "private": true,
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -9,8 +9,8 @@
   ],
   "scripts": {
     "build": "builder build plugin",
-    "postpack": "rm -rf dist",
-    "prepack": "yarn run build"
+    "prepack": "yarn run build",
+    "postpack": "rm -rf dist"
   },
   "devDependencies": {
     "@monstrs/yarn-run-utils": "workspace:0.0.1",

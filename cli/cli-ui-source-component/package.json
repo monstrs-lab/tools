@@ -8,18 +8,18 @@
   ],
   "scripts": {
     "build": "yarn app library build",
-    "postpack": "rm -rf dist",
-    "prepack": "yarn run build"
+    "prepack": "yarn run build",
+    "postpack": "rm -rf dist"
+  },
+  "dependencies": {
+    "@babel/code-frame": "^7.16.0",
+    "supports-color": "^8.1.1"
   },
   "devDependencies": {
     "@types/babel__code-frame": "7.0.3",
     "@types/node": "^16.11.6",
     "@types/react": "^17.0.34",
     "ink": "^3.2.0"
-  },
-  "dependencies": {
-    "@babel/code-frame": "^7.16.0",
-    "supports-color": "^8.1.1"
   },
   "peerDependencies": {
     "ink": "^3.0.8",

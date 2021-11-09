@@ -10,14 +10,8 @@
   ],
   "scripts": {
     "build": "yarn app library build",
-    "postpack": "rm -rf dist",
-    "prepack": "yarn run build"
-  },
-  "devDependencies": {
-    "@types/jest": "^27.0.2",
-    "@types/node": "^16.11.6",
-    "jest-haste-map": "^27.3.1",
-    "typescript": "^4.4.4"
+    "prepack": "yarn run build",
+    "postpack": "rm -rf dist"
   },
   "dependencies": {
     "@emotion/jest": "^11.5.0",
@@ -27,6 +21,12 @@
     "@monstrs/code-typescript": "workspace:0.0.101",
     "jest-static-stubs": "^0.0.1",
     "ts-jest": "^27.0.7"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.2",
+    "@types/node": "^16.11.6",
+    "jest-haste-map": "^27.3.1",
+    "typescript": "^4.4.4"
   },
   "peerDependenciesMeta": {
     "jest": {

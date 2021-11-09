@@ -1,7 +1,7 @@
 {
   "name": "@monstrs/yarn-cli",
-  "private": true,
   "version": "0.0.1",
+  "private": true,
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -9,11 +9,8 @@
   ],
   "scripts": {
     "build": "builder build bundle",
-    "postpack": "rm -rf dist",
-    "prepack": "yarn run build"
-  },
-  "devDependencies": {
-    "@monstrs/tools-setup-ts-execution": "workspace:0.0.1"
+    "prepack": "yarn run build",
+    "postpack": "rm -rf dist"
   },
   "dependencies": {
     "@monstrs/yarn-plugin-app": "workspace:0.0.1",
@@ -59,6 +56,9 @@
     "semver": "^7.3.5",
     "typanion": "^3.3.1",
     "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@monstrs/tools-setup-ts-execution": "workspace:0.0.1"
   },
   "publishConfig": {
     "access": "public",

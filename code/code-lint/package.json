@@ -9,16 +9,8 @@
   ],
   "scripts": {
     "build": "yarn app library build",
-    "postpack": "rm -rf dist",
-    "prepack": "yarn run build"
-  },
-  "devDependencies": {
-    "@types/eslint": "7.28.2",
-    "@types/node": "^16.11.6"
-  },
-  "publishConfig": {
-    "main": "dist/index.js",
-    "typings": "dist/index.d.ts"
+    "prepack": "yarn run build",
+    "postpack": "rm -rf dist"
   },
   "dependencies": {
     "@monstrs/code-format": "workspace:0.0.89",
@@ -40,6 +32,14 @@
     "react": "*",
     "typescript": "*"
   },
+  "devDependencies": {
+    "@types/eslint": "7.28.2",
+    "@types/node": "^16.11.6"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "typescript": "*"
+  },
   "peerDependenciesMeta": {
     "react": {
       "optional": true
@@ -48,8 +48,8 @@
       "optional": true
     }
   },
-  "peerDependencies": {
-    "react": "*",
-    "typescript": "*"
+  "publishConfig": {
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
   }
 }

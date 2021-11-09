@@ -8,8 +8,13 @@
   ],
   "scripts": {
     "build": "yarn app library build",
-    "postpack": "rm -rf dist",
-    "prepack": "yarn run build"
+    "prepack": "yarn run build",
+    "postpack": "rm -rf dist"
+  },
+  "dependencies": {
+    "@monstrs/cli-ui-renderer": "workspace:0.0.13",
+    "@monstrs/cli-ui-source-component": "workspace:0.0.12",
+    "@monstrs/stack-trace": "^0.0.4"
   },
   "devDependencies": {
     "@types/jest": "^27.0.2",
@@ -17,11 +22,6 @@
     "ink": "^3.2.0",
     "react": "*",
     "strip-ansi": "^6.0.1"
-  },
-  "dependencies": {
-    "@monstrs/cli-ui-renderer": "workspace:0.0.13",
-    "@monstrs/cli-ui-source-component": "workspace:0.0.12",
-    "@monstrs/stack-trace": "^0.0.4"
   },
   "peerDependencies": {
     "ink": "^3.0.8",

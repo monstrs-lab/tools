@@ -1657,11 +1657,14 @@ __metadata:
   resolution: "@monstrs/code-format@workspace:code/code-format"
   dependencies:
     "@babel/types": ^7.16.0
-    "@monstrs/prettier-plugin": "workspace:0.0.1"
     "@types/node": ^16.11.6
     globby: ^11.0.4
     ignore: ^5.1.9
+    import-sort: ^6.0.0
+    import-sort-parser-typescript: ^6.0.0
+    import-sort-style: ^6.0.0
     prettier: ^2.4.1
+    prettier-plugin-packagejson: ^2.2.13
     prettier-plugin-toml: ^0.3.1
   languageName: unknown
   linkType: soft
@@ -1793,22 +1796,6 @@ __metadata:
   checksum: 1e1e45105f5bae28bd1d88588f09e65a2e80340b570fc81e739139ae435ffdfbc7b78a0420ce0009b0f961810c6a609930b2d2755b85db9e6015b0b1691b60e2
   languageName: node
   linkType: hard
-
-"@monstrs/prettier-plugin@workspace:0.0.1, @monstrs/prettier-plugin@workspace:prettier/prettier-plugin":
-  version: 0.0.0-use.local
-  resolution: "@monstrs/prettier-plugin@workspace:prettier/prettier-plugin"
-  dependencies:
-    "@types/node": ^16.11.6
-    globby: ^12.0.2
-    import-sort: ^6.0.0
-    import-sort-parser-typescript: ^6.0.0
-    import-sort-style: ^6.0.0
-    prettier: ^2.4.1
-  peerDependencies:
-    globby: "*"
-    prettier: "*"
-  languageName: unknown
-  linkType: soft
 
 "@monstrs/stack-trace@npm:^0.0.4":
   version: 0.0.4
@@ -6418,17 +6405,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"detect-indent@npm:^6.0.0":
+  version: 6.1.0
+  resolution: "detect-indent@npm:6.1.0"
+  checksum: ab953a73c72dbd4e8fc68e4ed4bfd92c97eb6c43734af3900add963fd3a9316f3bc0578b018b24198d4c31a358571eff5f0656e81a1f3b9ad5c547d58b2d093d
+  languageName: node
+  linkType: hard
+
+"detect-newline@npm:3.1.0, detect-newline@npm:^3.0.0":
+  version: 3.1.0
+  resolution: "detect-newline@npm:3.1.0"
+  checksum: ae6cd429c41ad01b164c59ea36f264a2c479598e61cba7c99da24175a7ab80ddf066420f2bec9a1c57a6bead411b4655ff15ad7d281c000a89791f48cbe939e7
+  languageName: node
+  linkType: hard
+
 "detect-newline@npm:^2.1.0":
   version: 2.1.0
   resolution: "detect-newline@npm:2.1.0"
   checksum: c55146fd5b97a9ce914f17f85a01466c9e8679289e2d390588b027a58f2e090dbc38457923072369c603b8904f982f87b78fee17e48d5706f35571642f4599f8
-  languageName: node
-  linkType: hard
-
-"detect-newline@npm:^3.0.0":
-  version: 3.1.0
-  resolution: "detect-newline@npm:3.1.0"
-  checksum: ae6cd429c41ad01b164c59ea36f264a2c479598e61cba7c99da24175a7ab80ddf066420f2bec9a1c57a6bead411b4655ff15ad7d281c000a89791f48cbe939e7
   languageName: node
   linkType: hard
 
@@ -7999,6 +7993,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"git-hooks-list@npm:1.0.3":
+  version: 1.0.3
+  resolution: "git-hooks-list@npm:1.0.3"
+  checksum: a1dd03d39c1d727ba08a35dbdbdcc6e96de8c4170c942dc95bf787ca6e34998d39fb5295a00242b58a3d265de0b69a0686d0cf583baa6b7830f268542c4576b9
+  languageName: node
+  linkType: hard
+
 "git-raw-commits@npm:^2.0.0":
   version: 2.0.7
   resolution: "git-raw-commits@npm:2.0.7"
@@ -9069,6 +9070,13 @@ fsevents@^1.2.7:
   version: 3.0.2
   resolution: "is-path-inside@npm:3.0.2"
   checksum: 108fc2a60c35f5b2b1cf0dba4e2622a900b3a54b424b3d9688b522e75abc962ef0a1dd7c4d909bc49a5ac2951836e6750fd1967ce43b0a03420e6649d7cda08b
+  languageName: node
+  linkType: hard
+
+"is-plain-obj@npm:2.1.0":
+  version: 2.1.0
+  resolution: "is-plain-obj@npm:2.1.0"
+  checksum: cec9100678b0a9fe0248a81743041ed990c2d4c99f893d935545cfbc42876cbe86d207f3b895700c690ad2fa520e568c44afc1605044b535a7820c1d40e38daa
   languageName: node
   linkType: hard
 
@@ -11836,6 +11844,17 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"prettier-plugin-packagejson@npm:^2.2.13":
+  version: 2.2.13
+  resolution: "prettier-plugin-packagejson@npm:2.2.13"
+  dependencies:
+    sort-package-json: 1.52.0
+  peerDependencies:
+    prettier: ">= 1.16.0"
+  checksum: 6462d4a03b6ef56fbd84008689b4ebf000d05a8d135b9ac6df76a7f0c10609eb642f7891148479e0df2b7baf6babbfb9b62b6f20558487a36b4343e94bede7d4
+  languageName: node
+  linkType: hard
+
 "prettier-plugin-toml@npm:^0.3.1":
   version: 0.3.1
   resolution: "prettier-plugin-toml@npm:0.3.1"
@@ -12985,6 +13004,29 @@ resolve@^2.0.0-next.3:
     atomic-sleep: ^1.0.0
     flatstr: ^1.0.12
   checksum: 3eb96d7620e432601c59266f8da2334a712ebc186134935b029031bb9a13c1d322e01c667f9676d87fdbeb1dbe36d230f74d7b134d0d73cfb8b8bb919728db41
+  languageName: node
+  linkType: hard
+
+"sort-object-keys@npm:^1.1.3":
+  version: 1.1.3
+  resolution: "sort-object-keys@npm:1.1.3"
+  checksum: abea944d6722a1710a1aa6e4f9509da085d93d5fc0db23947cb411eedc7731f80022ce8fa68ed83a53dd2ac7441fcf72a3f38c09b3d9bbc4ff80546aa2e151ad
+  languageName: node
+  linkType: hard
+
+"sort-package-json@npm:1.52.0":
+  version: 1.52.0
+  resolution: "sort-package-json@npm:1.52.0"
+  dependencies:
+    detect-indent: ^6.0.0
+    detect-newline: 3.1.0
+    git-hooks-list: 1.0.3
+    globby: 10.0.0
+    is-plain-obj: 2.1.0
+    sort-object-keys: ^1.1.3
+  bin:
+    sort-package-json: cli.js
+  checksum: 0ac65776ec96a451e618e00ed87dabe0d9ef872d1f00083efed889841dcf966778c715fc612c1c042ecdebf5b5cbe88b54a04e0e6ebda8f5b9190c393072e991
   languageName: node
   linkType: hard
 

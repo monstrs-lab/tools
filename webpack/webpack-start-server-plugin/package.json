@@ -8,14 +8,14 @@
   ],
   "scripts": {
     "build": "yarn app library build",
-    "postpack": "rm -rf dist",
-    "prepack": "yarn run build"
-  },
-  "devDependencies": {
-    "@types/node": "^16.11.6"
+    "prepack": "yarn run build",
+    "postpack": "rm -rf dist"
   },
   "dependencies": {
     "webpack": "^5.62.1"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.6"
   },
   "publishConfig": {
     "access": "public",
