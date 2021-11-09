@@ -6,9 +6,9 @@ import { Project }          from '@yarnpkg/core'
 import { StreamReport }     from '@yarnpkg/core'
 import { MessageName }      from '@yarnpkg/core'
 import { PortablePath }     from '@yarnpkg/fslib'
+import { codeFrameColumns } from '@babel/code-frame'
 import { xfs }              from '@yarnpkg/fslib'
 import { ppath }            from '@yarnpkg/fslib'
-import { codeFrameColumns } from '@babel/code-frame'
 
 import type * as Runtime    from '@monstrs/yarn-runtime'
 

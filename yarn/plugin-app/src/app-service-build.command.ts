@@ -3,8 +3,8 @@ import { Configuration }   from '@yarnpkg/core'
 import { StreamReport }    from '@yarnpkg/core'
 import { MessageName }     from '@yarnpkg/core'
 
-import { SpinnerProgress } from '@monstrs/yarn-run-utils'
 import type * as Runtime   from '@monstrs/yarn-runtime'
+import { SpinnerProgress } from '@monstrs/yarn-run-utils'
 
 class AppServiceBuildCommand extends BaseCommand {
   static paths = [['app', 'service', 'build']]
@@ -49,8 +49,7 @@ class AppServiceBuildCommand extends BaseCommand {
         if (warnings.length > 0) {
           await report.startTimerPromise('Service Build Warnings:', async () => {
             warnings.forEach((warning) =>
-              report.reportWarning(MessageName.UNNAMED, warning.message)
-            )
+              report.reportWarning(MessageName.UNNAMED, warning.message))
           })
         }
 

@@ -1,12 +1,13 @@
-import React            from 'react'
-import { FC }           from 'react'
-import { Box }          from 'ink'
 import type { Record }  from '@monstrs/logger'
 
-import { LogSeverity }  from './log-severity.component'
-import { LogNamespace } from './log-namespace.component'
-import { LogMessage }   from './log-message.component'
+import React            from 'react'
+import { Box }          from 'ink'
+import { FC }           from 'react'
+
 import { LogBody }      from './log-body.component'
+import { LogMessage }   from './log-message.component'
+import { LogNamespace } from './log-namespace.component'
+import { LogSeverity }  from './log-severity.component'
 
 export interface LogRecordProps extends Partial<Record> {}
 

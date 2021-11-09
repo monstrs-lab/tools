@@ -1,9 +1,9 @@
-import { execUtils }     from '@yarnpkg/core'
+import { BaseCommand }   from '@yarnpkg/cli'
 import { StreamReport }  from '@yarnpkg/core'
 import { Configuration } from '@yarnpkg/core'
 import { MessageName }   from '@yarnpkg/core'
 import { Project }       from '@yarnpkg/core'
-import { BaseCommand }   from '@yarnpkg/cli'
+import { execUtils }     from '@yarnpkg/core'
 
 class ChecksRunCommand extends BaseCommand {
   static paths = [['checks', 'run']]

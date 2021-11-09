@@ -1,13 +1,14 @@
 import { BaseCommand }            from '@yarnpkg/cli'
+import { WorkspaceRequiredError } from '@yarnpkg/cli'
 import { Configuration }          from '@yarnpkg/core'
 import { Project }                from '@yarnpkg/core'
 import { StreamReport }           from '@yarnpkg/core'
 import { structUtils }            from '@yarnpkg/core'
-import { WorkspaceRequiredError } from '@yarnpkg/cli'
+
 import { Option }                 from 'clipanion'
 
-import { getChangedWorkspaces }   from '@monstrs/yarn-workspace-utils'
 import { getChangedFiles }        from '@monstrs/yarn-plugin-files'
+import { getChangedWorkspaces }   from '@monstrs/yarn-workspace-utils'
 
 class WorkspacesChangedForeachCommand extends BaseCommand {
   static paths = [['workspaces', 'changed', 'foreach']]

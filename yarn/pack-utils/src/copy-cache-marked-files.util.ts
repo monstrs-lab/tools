@@ -1,9 +1,9 @@
-import { PortablePath } from '@yarnpkg/fslib'
-import { xfs }          from '@yarnpkg/fslib'
-import { ppath }        from '@yarnpkg/fslib'
 import { Cache }        from '@yarnpkg/core'
 import { Project }      from '@yarnpkg/core'
 import { Report }       from '@yarnpkg/core'
+import { PortablePath } from '@yarnpkg/fslib'
+import { xfs }          from '@yarnpkg/fslib'
+import { ppath }        from '@yarnpkg/fslib'
 
 export const copyCacheMarkedFiles = async (
   project: Project,

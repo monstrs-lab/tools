@@ -18,8 +18,7 @@ abstract class AbstractChecksTestCommand extends BaseCommand {
             raw_details: testResult.failureMessages.join('\n'),
             title: testResult.ancestorTitles.join(' '),
             message: testResult.title,
-          }))
-      )
+          })))
       .flat()
   }
 }

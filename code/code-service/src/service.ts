@@ -1,8 +1,8 @@
 import webpack                 from 'webpack'
 import { Watching }            from 'webpack'
 
-import { createWebpackConfig } from './webpack'
 import { WebpackConfigPlugin } from './webpack'
+import { createWebpackConfig } from './webpack'
 
 export interface ServiceBuildResultMessage {
   message: string

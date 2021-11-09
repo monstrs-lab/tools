@@ -1,5 +1,5 @@
-import { context }    from '@actions/github'
 import { Endpoints }  from '@octokit/types'
+import { context }    from '@actions/github'
 
 import { getOctokit } from './octokit'
 

@@ -1,7 +1,7 @@
+import { PortablePath } from '@yarnpkg/fslib'
 import { execUtils }    from '@yarnpkg/core'
 import { xfs }          from '@yarnpkg/fslib'
 import { ppath }        from '@yarnpkg/fslib'
-import { PortablePath } from '@yarnpkg/fslib'
 
 import { Builder }      from '@monstrs/buildpack-core'
 import { BuildContext } from '@monstrs/buildpack-core'

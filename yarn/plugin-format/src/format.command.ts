@@ -3,6 +3,7 @@ import { StreamReport }    from '@yarnpkg/core'
 import { MessageName }     from '@yarnpkg/core'
 import { Configuration }   from '@yarnpkg/core'
 import { Project }         from '@yarnpkg/core'
+
 import { Option }          from 'clipanion'
 
 import { SpinnerProgress } from '@monstrs/yarn-run-utils'

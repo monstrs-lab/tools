@@ -3,10 +3,11 @@ import { Configuration }         from '@yarnpkg/core'
 import { Project }               from '@yarnpkg/core'
 import { Cache }                 from '@yarnpkg/core'
 import { StreamReport }          from '@yarnpkg/core'
-import { structUtils }           from '@yarnpkg/core'
 import { PortablePath }          from '@yarnpkg/fslib'
+import { structUtils }           from '@yarnpkg/core'
 import { xfs }                   from '@yarnpkg/fslib'
 import { patchUtils }            from '@yarnpkg/plugin-patch'
+
 import { Option }                from 'clipanion'
 
 import { copyRcFile }            from '@monstrs/yarn-pack-utils'

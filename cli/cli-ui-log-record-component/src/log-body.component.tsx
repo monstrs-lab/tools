@@ -1,7 +1,8 @@
-import React          from 'react'
-import { FC }         from 'react'
-import { Box }        from 'ink'
 import type { Body }  from '@monstrs/logger'
+
+import React          from 'react'
+import { Box }        from 'ink'
+import { FC }         from 'react'
 
 import { StackTrace } from '@monstrs/cli-ui-stack-trace-component'
 

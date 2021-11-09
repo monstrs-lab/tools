@@ -9,8 +9,7 @@ export const getWorkspaceDependents = (workspace: Workspace): readonly Workspace
   // eslint-disable-next-line no-restricted-syntax
   for (const ws of workspace.project.workspaces) {
     const isDependency = getWorkspaceDependencies(ws).some((dependency) =>
-      structUtils.areLocatorsEqual(dependency.locator, workspace.locator)
-    )
+      structUtils.areLocatorsEqual(dependency.locator, workspace.locator))
 
     if (isDependency) {
       dependents.add(ws)

@@ -4,11 +4,12 @@ import { BaseCommand }     from '@yarnpkg/cli'
 import { Configuration }   from '@yarnpkg/core'
 import { StreamReport }    from '@yarnpkg/core'
 import { MessageName }     from '@yarnpkg/core'
-import { Option }          from 'clipanion'
-import rimraf              from 'rimraf'
 
-import { SpinnerProgress } from '@monstrs/yarn-run-utils'
+import rimraf              from 'rimraf'
+import { Option }          from 'clipanion'
+
 import type * as Runtime   from '@monstrs/yarn-runtime'
+import { SpinnerProgress } from '@monstrs/yarn-run-utils'
 
 class AppLibraryBuildCommand extends BaseCommand {
   static paths = [['app', 'library', 'build']]

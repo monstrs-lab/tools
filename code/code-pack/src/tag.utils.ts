@@ -1,5 +1,5 @@
-import { execUtils }            from '@yarnpkg/core'
 import { PortablePath }         from '@yarnpkg/fslib'
+import { execUtils }            from '@yarnpkg/core'
 
 import { isGithubActionsEnv }   from '@monstrs/github-actions-utils'
 import { getPullRequestSha }    from '@monstrs/github-actions-utils'

@@ -37,3 +37,7 @@ const loadWorkspaces = () => {
 const workspaces = loadWorkspaces()
 
 export const isWorkspaceModule = (imported: any) => workspaces.has(imported.moduleName)
+
+export const isNodeModule = (imported: any) => imported.moduleName.startsWith('node:')
+
+export const isOrganizationModule = (imported: any) => imported.moduleName.startsWith('@')

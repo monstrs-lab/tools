@@ -1,12 +1,21 @@
-import { typescriptAstFormat } from './constants'
-import { printer }             from './extract'
-import { nodeImportSize }      from './utils'
+const nodeImportSize = (node) => {
+  if (node.specifiers.length === 0) {
+    return 0
+  }
 
-const print = (...args) => {
-  const [path] = args
+  const specifier = node.specifiers[node.specifiers.length - 1]
+
+  const offset = specifier.imported ? 8 : 6
+
+  return specifier.loc.end.column + offset
+}
+
+export const print = (path, options, prnt) => {
   const node = path.getNode()
 
-  let result = printer.print(...args)
+  const plugin = options.plugins.find((p) => p?.printers?.estree)
+
+  let result = plugin.printers.estree.print(path, options, prnt)
 
   if (node.type === 'ImportDeclaration') {
     result = result.map((part) => {
@@ -23,7 +32,7 @@ const print = (...args) => {
   return result
 }
 
-const preprocess = (ast, options) => {
+export const preprocess = (ast, options) => {
   const imports = ast.body.filter(
     (node) =>
       node.type === 'ImportDeclaration' && node.loc && node.loc.end.line === node.loc.start.line
@@ -48,12 +57,4 @@ const preprocess = (ast, options) => {
   })
 
   return ast
-}
-
-export const printers = {
-  [typescriptAstFormat]: {
-    ...printer,
-    print,
-    preprocess,
-  },
 }

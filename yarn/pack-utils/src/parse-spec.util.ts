@@ -1,8 +1,10 @@
 // Copy from @yarnpkg/plugin-exec
 // https://github.com/yarnpkg/berry/blob/63a77b5/packages/plugin-exec/sources/execUtils.ts
 
-import { Locator, structUtils } from '@yarnpkg/core'
-import { npath, PortablePath }  from '@yarnpkg/fslib'
+import { Locator }      from '@yarnpkg/core'
+import { PortablePath } from '@yarnpkg/fslib'
+import { structUtils }  from '@yarnpkg/core'
+import { npath }        from '@yarnpkg/fslib'
 
 export function parseSpec(
   spec: string

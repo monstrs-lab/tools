@@ -3,12 +3,13 @@ import { PassThrough }              from 'node:stream'
 import { BaseCommand }              from '@yarnpkg/cli'
 import { Configuration }            from '@yarnpkg/core'
 import { StreamReport }             from '@yarnpkg/core'
+
 import { Option }                   from 'clipanion'
 
+import type * as Runtime            from '@monstrs/yarn-runtime'
+import { PrettyLogsTransform }      from '@monstrs/cli-ui-pretty-logs'
 import { StartServerPlugin }        from '@monstrs/webpack-start-server-plugin'
 import { StartServerPluginOptions } from '@monstrs/webpack-start-server-plugin'
-import { PrettyLogsTransform }      from '@monstrs/cli-ui-pretty-logs'
-import type * as Runtime            from '@monstrs/yarn-runtime'
 
 class AppServiceDevCommand extends BaseCommand {
   static paths = [['app', 'service', 'dev']]

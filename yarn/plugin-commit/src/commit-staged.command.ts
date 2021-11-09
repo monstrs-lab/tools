@@ -1,4 +1,5 @@
 import { BaseCommand } from '@yarnpkg/cli'
+
 import lintStaged      from 'lint-staged'
 import { Option }      from 'clipanion'
 

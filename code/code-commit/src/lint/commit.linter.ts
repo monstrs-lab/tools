@@ -1,5 +1,5 @@
-import commitlint      from '@commitlint/lint'
 import commitformat    from '@commitlint/format'
+import commitlint      from '@commitlint/lint'
 import loadConfig      from '@commitlint/load'
 import { LintOutcome } from '@commitlint/types'
 

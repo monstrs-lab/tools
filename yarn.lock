@@ -1657,8 +1657,7 @@ __metadata:
   resolution: "@monstrs/code-format@workspace:code/code-format"
   dependencies:
     "@babel/types": ^7.16.0
-    "@monstrs/prettier-plugin-import-align": "workspace:0.2.42"
-    "@monstrs/prettier-plugin-import-sort": "workspace:0.2.42"
+    "@monstrs/prettier-plugin": "workspace:0.0.1"
     "@types/node": ^16.11.6
     globby: ^11.0.4
     ignore: ^5.1.9
@@ -1795,20 +1794,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@monstrs/prettier-plugin-import-align@workspace:0.2.42, @monstrs/prettier-plugin-import-align@workspace:prettier/prettier-plugin-import-align":
+"@monstrs/prettier-plugin@workspace:0.0.1, @monstrs/prettier-plugin@workspace:prettier/prettier-plugin":
   version: 0.0.0-use.local
-  resolution: "@monstrs/prettier-plugin-import-align@workspace:prettier/prettier-plugin-import-align"
-  dependencies:
-    "@types/node": ^16.11.6
-    prettier: ^2.4.1
-  peerDependencies:
-    prettier: "*"
-  languageName: unknown
-  linkType: soft
-
-"@monstrs/prettier-plugin-import-sort@workspace:0.2.42, @monstrs/prettier-plugin-import-sort@workspace:prettier/prettier-plugin-import-sort":
-  version: 0.0.0-use.local
-  resolution: "@monstrs/prettier-plugin-import-sort@workspace:prettier/prettier-plugin-import-sort"
+  resolution: "@monstrs/prettier-plugin@workspace:prettier/prettier-plugin"
   dependencies:
     "@types/node": ^16.11.6
     globby: ^12.0.2

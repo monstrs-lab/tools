@@ -1,11 +1,12 @@
 /* eslint-disable no-shadow */
 
+import Config                 from 'webpack-chain'
 import path                   from 'path'
 import webpack                from 'webpack'
-import Config                 from 'webpack-chain'
+import { Volume }             from 'memfs'
 import { Stats }              from 'webpack'
 import { createFsFromVolume } from 'memfs'
-import { Volume }             from 'memfs'
+
 import { base }               from '@monstrs/code-typescript'
 
 export const compiler = (fixture): Promise<Stats> => {

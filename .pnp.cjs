@@ -115,12 +115,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:github/actions-utils"
       },
       {
-        "name": "@monstrs/prettier-plugin-import-align",
-        "reference": "workspace:prettier/prettier-plugin-import-align"
-      },
-      {
-        "name": "@monstrs/prettier-plugin-import-sort",
-        "reference": "workspace:prettier/prettier-plugin-import-sort"
+        "name": "@monstrs/prettier-plugin",
+        "reference": "workspace:prettier/prettier-plugin"
       },
       {
         "name": "@monstrs/tools-setup-ts-execution",
@@ -233,8 +229,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@monstrs/code-test", ["virtual:db0c45e6e8756b5423dfd302bb112c97ca39eb0aaab168693fbc5d41de4b16d713370810ff8deaad3d52b56ca436371a4dad52d21a5027438021fe77c363bb04#workspace:code/code-test", "workspace:code/code-test"]],
       ["@monstrs/code-typescript", ["workspace:code/code-typescript"]],
       ["@monstrs/github-actions-utils", ["workspace:github/actions-utils"]],
-      ["@monstrs/prettier-plugin-import-align", ["virtual:3d93344fb94fee6b88a0f1f341c37079f1935d6fa77e765259fb2a836eaf6b539aa3f43c87daa1ff51fd7a0e7062665901cd442c32a52647ddb8df4fcafafb4c#workspace:prettier/prettier-plugin-import-align", "workspace:prettier/prettier-plugin-import-align"]],
-      ["@monstrs/prettier-plugin-import-sort", ["virtual:3d93344fb94fee6b88a0f1f341c37079f1935d6fa77e765259fb2a836eaf6b539aa3f43c87daa1ff51fd7a0e7062665901cd442c32a52647ddb8df4fcafafb4c#workspace:prettier/prettier-plugin-import-sort", "workspace:prettier/prettier-plugin-import-sort"]],
+      ["@monstrs/prettier-plugin", ["virtual:3d93344fb94fee6b88a0f1f341c37079f1935d6fa77e765259fb2a836eaf6b539aa3f43c87daa1ff51fd7a0e7062665901cd442c32a52647ddb8df4fcafafb4c#workspace:prettier/prettier-plugin", "workspace:prettier/prettier-plugin"]],
       ["@monstrs/tools-setup-ts-execution", ["workspace:utils/setup-ts-execution"]],
       ["@monstrs/webpack-localtunnel-plugin", ["workspace:webpack/webpack-localtunnel-plugin"]],
       ["@monstrs/webpack-proto-imports-loader", ["workspace:webpack/webpack-proto-imports-loader"]],
@@ -2888,8 +2883,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@monstrs/code-format", "workspace:code/code-format"],
             ["@babel/types", "npm:7.16.0"],
-            ["@monstrs/prettier-plugin-import-align", "virtual:3d93344fb94fee6b88a0f1f341c37079f1935d6fa77e765259fb2a836eaf6b539aa3f43c87daa1ff51fd7a0e7062665901cd442c32a52647ddb8df4fcafafb4c#workspace:prettier/prettier-plugin-import-align"],
-            ["@monstrs/prettier-plugin-import-sort", "virtual:3d93344fb94fee6b88a0f1f341c37079f1935d6fa77e765259fb2a836eaf6b539aa3f43c87daa1ff51fd7a0e7062665901cd442c32a52647ddb8df4fcafafb4c#workspace:prettier/prettier-plugin-import-sort"],
+            ["@monstrs/prettier-plugin", "virtual:3d93344fb94fee6b88a0f1f341c37079f1935d6fa77e765259fb2a836eaf6b539aa3f43c87daa1ff51fd7a0e7062665901cd442c32a52647ddb8df4fcafafb4c#workspace:prettier/prettier-plugin"],
             ["@types/node", "npm:16.11.6"],
             ["globby", "npm:11.0.3"],
             ["ignore", "npm:5.1.9"],
@@ -3084,36 +3078,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["@monstrs/prettier-plugin-import-align", [
-        ["virtual:3d93344fb94fee6b88a0f1f341c37079f1935d6fa77e765259fb2a836eaf6b539aa3f43c87daa1ff51fd7a0e7062665901cd442c32a52647ddb8df4fcafafb4c#workspace:prettier/prettier-plugin-import-align", {
-          "packageLocation": "./.yarn/__virtual__/@monstrs-prettier-plugin-import-align-virtual-de6973a2db/1/prettier/prettier-plugin-import-align/",
+      ["@monstrs/prettier-plugin", [
+        ["virtual:3d93344fb94fee6b88a0f1f341c37079f1935d6fa77e765259fb2a836eaf6b539aa3f43c87daa1ff51fd7a0e7062665901cd442c32a52647ddb8df4fcafafb4c#workspace:prettier/prettier-plugin", {
+          "packageLocation": "./.yarn/__virtual__/@monstrs-prettier-plugin-virtual-513c1c01d7/1/prettier/prettier-plugin/",
           "packageDependencies": [
-            ["@monstrs/prettier-plugin-import-align", "virtual:3d93344fb94fee6b88a0f1f341c37079f1935d6fa77e765259fb2a836eaf6b539aa3f43c87daa1ff51fd7a0e7062665901cd442c32a52647ddb8df4fcafafb4c#workspace:prettier/prettier-plugin-import-align"],
-            ["@types/node", "npm:16.11.6"],
-            ["@types/prettier", null],
-            ["prettier", "npm:2.4.1"]
-          ],
-          "packagePeers": [
-            "@types/prettier",
-            "prettier"
-          ],
-          "linkType": "SOFT",
-        }],
-        ["workspace:prettier/prettier-plugin-import-align", {
-          "packageLocation": "./prettier/prettier-plugin-import-align/",
-          "packageDependencies": [
-            ["@monstrs/prettier-plugin-import-align", "workspace:prettier/prettier-plugin-import-align"],
-            ["@types/node", "npm:16.11.6"],
-            ["prettier", "npm:2.4.1"]
-          ],
-          "linkType": "SOFT",
-        }]
-      ]],
-      ["@monstrs/prettier-plugin-import-sort", [
-        ["virtual:3d93344fb94fee6b88a0f1f341c37079f1935d6fa77e765259fb2a836eaf6b539aa3f43c87daa1ff51fd7a0e7062665901cd442c32a52647ddb8df4fcafafb4c#workspace:prettier/prettier-plugin-import-sort", {
-          "packageLocation": "./.yarn/__virtual__/@monstrs-prettier-plugin-import-sort-virtual-7ca6d6f3bf/1/prettier/prettier-plugin-import-sort/",
-          "packageDependencies": [
-            ["@monstrs/prettier-plugin-import-sort", "virtual:3d93344fb94fee6b88a0f1f341c37079f1935d6fa77e765259fb2a836eaf6b539aa3f43c87daa1ff51fd7a0e7062665901cd442c32a52647ddb8df4fcafafb4c#workspace:prettier/prettier-plugin-import-sort"],
+            ["@monstrs/prettier-plugin", "virtual:3d93344fb94fee6b88a0f1f341c37079f1935d6fa77e765259fb2a836eaf6b539aa3f43c87daa1ff51fd7a0e7062665901cd442c32a52647ddb8df4fcafafb4c#workspace:prettier/prettier-plugin"],
             ["@types/globby", null],
             ["@types/node", "npm:16.11.6"],
             ["@types/prettier", null],
@@ -3131,10 +3100,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["workspace:prettier/prettier-plugin-import-sort", {
-          "packageLocation": "./prettier/prettier-plugin-import-sort/",
+        ["workspace:prettier/prettier-plugin", {
+          "packageLocation": "./prettier/prettier-plugin/",
           "packageDependencies": [
-            ["@monstrs/prettier-plugin-import-sort", "workspace:prettier/prettier-plugin-import-sort"],
+            ["@monstrs/prettier-plugin", "workspace:prettier/prettier-plugin"],
             ["@types/node", "npm:16.11.6"],
             ["globby", "npm:11.0.3"],
             ["import-sort", "npm:6.0.0"],

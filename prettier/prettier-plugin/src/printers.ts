@@ -1,5 +1,6 @@
-/* eslint-disable import/no-mutable-exports */
-import { format } from 'prettier'
+import { format }           from 'prettier'
+
+import { printer as align } from './import-align'
 
 let printer
 
@@ -13,4 +14,9 @@ format(';', {
   },
 })
 
-export { printer }
+export const printers = {
+  'typescript-monstrs': {
+    ...printer,
+    ...align,
+  },
+}

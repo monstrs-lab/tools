@@ -1,12 +1,13 @@
 import { StreamReport } from '@yarnpkg/core'
 import { MessageName }  from '@yarnpkg/core'
-import { execUtils }    from '@yarnpkg/core'
 import { Report }       from '@yarnpkg/core'
+import { execUtils }    from '@yarnpkg/core'
 import { ppath }        from '@yarnpkg/fslib'
 import { npath }        from '@yarnpkg/fslib'
 import { xfs }          from '@yarnpkg/fslib'
-import { isCI }         from 'ci-info'
+
 import { EOL }          from 'os'
+import { isCI }         from 'ci-info'
 
 export const afterAllInstalled = async (project, { report }: { report: StreamReport }) => {
   const { devDependencies, dependencies } = project.topLevelWorkspace.manifest.raw

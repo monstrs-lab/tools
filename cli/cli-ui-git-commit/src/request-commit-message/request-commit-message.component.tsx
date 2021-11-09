@@ -3,14 +3,14 @@ import { FC }                             from 'react'
 import { useEffect }                      from 'react'
 import { useState }                       from 'react'
 
-import { RequestCommitMessageType }       from './request-commit-message-type.component'
-import { RequestCommitMessageScope }      from './request-commit-message-scope.component'
-import { RequestCommitMessageSubject }    from './request-commit-message-subject.component'
 import { RequestCommitMessageAdditional } from './request-commit-message-additional.component'
 import { AdditionalProperties }           from './request-commit-message-additional.component'
-import { RequestCommitMessageIssues }     from './request-commit-message-issues.component'
 import { RequestCommitMessageBody }       from './request-commit-message-body.component'
 import { RequestCommitMessageBreaking }   from './request-commit-message-breaking.component'
+import { RequestCommitMessageIssues }     from './request-commit-message-issues.component'
+import { RequestCommitMessageScope }      from './request-commit-message-scope.component'
+import { RequestCommitMessageSubject }    from './request-commit-message-subject.component'
+import { RequestCommitMessageType }       from './request-commit-message-type.component'
 
 const Submit = ({ onSubmit, ...props }) => {
   useEffect(() => {

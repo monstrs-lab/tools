@@ -1,10 +1,10 @@
-import React                  from 'react'
-import { useState }           from 'react'
-import { useMemo }            from 'react'
 import Select                 from 'ink-select-input'
 import TextInput              from 'ink-text-input'
+import React                  from 'react'
 import { Text }               from 'ink'
 import { Box }                from 'ink'
+import { useState }           from 'react'
+import { useMemo }            from 'react'
 
 import { COMMIT_TYPE_ENUM }   from '@monstrs/code-commit'
 

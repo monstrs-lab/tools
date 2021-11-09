@@ -1,7 +1,8 @@
-import { getChangedFiles as getGithubChangedFiles } from '@monstrs/github-actions-utils'
-import { isGithubActionsEnv }                       from '@monstrs/github-actions-utils'
 import { Project }                                  from '@yarnpkg/core'
 import { execUtils }                                from '@yarnpkg/core'
+
+import { getChangedFiles as getGithubChangedFiles } from '@monstrs/github-actions-utils'
+import { isGithubActionsEnv }                       from '@monstrs/github-actions-utils'
 
 export const getChangedFiles = async (project: Project, gitRange?: string) => {
   if (isGithubActionsEnv()) {

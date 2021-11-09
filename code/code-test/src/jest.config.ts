@@ -1,6 +1,7 @@
-import { base }       from '@monstrs/code-typescript'
 import { accessSync } from 'fs'
 import { join }       from 'path'
+
+import { base }       from '@monstrs/code-typescript'
 
 const isFileExists = (file: string) => {
   try {

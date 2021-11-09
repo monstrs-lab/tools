@@ -1,7 +1,7 @@
 import React                     from 'react'
-import { UncontrolledTextInput } from 'ink-text-input'
 import { Text }                  from 'ink'
 import { Box }                   from 'ink'
+import { UncontrolledTextInput } from 'ink-text-input'
 
 export const RequestCommitMessageBreaking = ({ onSubmit }) => (
   <Box flexDirection='column'>

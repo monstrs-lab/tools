@@ -3,10 +3,11 @@ import { Configuration } from '@yarnpkg/core'
 import { Project }       from '@yarnpkg/core'
 import { StreamReport }  from '@yarnpkg/core'
 import { execUtils }     from '@yarnpkg/core'
+
 import { Option }        from 'clipanion'
 
-import { pack }          from '@monstrs/code-pack'
 import { TagPolicy }     from '@monstrs/code-pack'
+import { pack }          from '@monstrs/code-pack'
 
 class AppPackCommand extends BaseCommand {
   static paths = [['app', 'pack']]

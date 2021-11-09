@@ -1,16 +1,15 @@
 import { readFileSync }     from 'node:fs'
 
+import { BaseCommand }      from '@yarnpkg/cli'
 import { StreamReport }     from '@yarnpkg/core'
 import { Configuration }    from '@yarnpkg/core'
 import { MessageName }      from '@yarnpkg/core'
 import { Project }          from '@yarnpkg/core'
-import { BaseCommand }      from '@yarnpkg/cli'
 import { codeFrameColumns } from '@babel/code-frame'
 
+import type * as Runtime    from '@monstrs/yarn-runtime'
 import type { LintResult }  from '@monstrs/yarn-runtime'
 import type { Severity }    from '@monstrs/yarn-runtime'
-
-import type * as Runtime    from '@monstrs/yarn-runtime'
 
 import { GitHubChecks }     from './github.checks'
 import { AnnotationLevel }  from './github.checks'
@@ -114,8 +113,7 @@ class ChecksLintCommand extends BaseCommand {
             title: `(${message.ruleId}): ${message.message}`,
             message: message.message,
           }
-        })
-      )
+        }))
       .flat()
   }
 }

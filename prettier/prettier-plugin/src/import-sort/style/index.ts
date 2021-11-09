@@ -1,6 +1,9 @@
-import { IStyleAPI, IStyleItem } from 'import-sort-style'
+import { IStyleAPI }            from 'import-sort-style'
+import { IStyleItem }           from 'import-sort-style'
 
-import { isWorkspaceModule }     from './api'
+import { isWorkspaceModule }    from './api'
+import { isNodeModule }         from './api'
+import { isOrganizationModule } from './api'
 
 // eslint-disable-next-line func-names
 export default function (styleApi: IStyleAPI): IStyleItem[] {
@@ -39,12 +42,201 @@ export default function (styleApi: IStyleAPI): IStyleItem[] {
     { match: and(hasNoMember, isRelativeModule) },
     { separator: true },
 
+    // import 'node:*'
+    { match: isNodeModule, sort: moduleName(naturally) },
+    { separator: true },
+
+    // import * as _ from '@foo/bar';
+    {
+      match: and(
+        hasOnlyNamespaceMember,
+        isAbsoluteModule,
+        isOrganizationModule,
+        not(isWorkspaceModule),
+        not(member(startsWithAlphanumeric))
+      ),
+      sort: moduleName(naturally),
+    },
+    // import * as Foo from '@foo/bar';
+    {
+      match: and(
+        hasOnlyNamespaceMember,
+        isAbsoluteModule,
+        isOrganizationModule,
+        not(isWorkspaceModule),
+        member(startsWithUpperCase)
+      ),
+      sort: moduleName(naturally),
+    },
+    // import * as foo from '@foo/bar';
+    {
+      match: and(
+        hasOnlyNamespaceMember,
+        isAbsoluteModule,
+        isOrganizationModule,
+        not(isWorkspaceModule),
+        member(startsWithLowerCase)
+      ),
+      sort: moduleName(naturally),
+    },
+
+    // import _, * as bar from '@foo/baz';
+    {
+      match: and(
+        hasDefaultMember,
+        hasNamespaceMember,
+        isAbsoluteModule,
+        isOrganizationModule,
+        not(isWorkspaceModule),
+        not(member(startsWithAlphanumeric))
+      ),
+      sort: moduleName(naturally),
+    },
+    // import Foo, * as bar from '@foo/baz';
+    {
+      match: and(
+        hasDefaultMember,
+        hasNamespaceMember,
+        isAbsoluteModule,
+        isOrganizationModule,
+        not(isWorkspaceModule),
+        member(startsWithUpperCase)
+      ),
+      sort: moduleName(naturally),
+    },
+    // import foo, * as bar from '@foo/baz';
+    {
+      match: and(
+        hasDefaultMember,
+        hasNamespaceMember,
+        isAbsoluteModule,
+        isOrganizationModule,
+        not(isWorkspaceModule),
+        member(startsWithUpperCase)
+      ),
+      sort: moduleName(naturally),
+    },
+
+    // import _ from '@foo/bar';
+    {
+      match: and(
+        hasOnlyDefaultMember,
+        isAbsoluteModule,
+        isOrganizationModule,
+        not(isWorkspaceModule),
+        not(member(startsWithAlphanumeric))
+      ),
+      sort: moduleName(naturally),
+    },
+    // import Foo from '@foo/bar';
+    {
+      match: and(
+        hasOnlyDefaultMember,
+        isAbsoluteModule,
+        isOrganizationModule,
+        not(isWorkspaceModule),
+        member(startsWithUpperCase)
+      ),
+      sort: moduleName(naturally),
+    },
+    // import foo from '@foo/bar';
+    {
+      match: and(
+        hasOnlyDefaultMember,
+        isAbsoluteModule,
+        isOrganizationModule,
+        not(isWorkspaceModule),
+        member(startsWithLowerCase)
+      ),
+      sort: moduleName(naturally),
+    },
+
+    // import _, {bar, …} from '@foo/baz';
+    {
+      match: and(
+        hasDefaultMember,
+        hasNamedMembers,
+        isAbsoluteModule,
+        isOrganizationModule,
+        not(isWorkspaceModule),
+        not(member(startsWithAlphanumeric))
+      ),
+      sort: moduleName(naturally),
+      sortNamedMembers: alias(unicode),
+    },
+    // import Foo, {bar, …} from '@foo/baz';
+    {
+      match: and(
+        hasDefaultMember,
+        hasNamedMembers,
+        isAbsoluteModule,
+        isOrganizationModule,
+        not(isWorkspaceModule),
+        member(startsWithUpperCase)
+      ),
+      sort: moduleName(naturally),
+      sortNamedMembers: alias(unicode),
+    },
+    // import foo, {bar, …} from '@foo/baz';
+    {
+      match: and(
+        hasDefaultMember,
+        hasNamedMembers,
+        isAbsoluteModule,
+        isOrganizationModule,
+        not(isWorkspaceModule),
+        member(startsWithLowerCase)
+      ),
+      sort: moduleName(naturally),
+      sortNamedMembers: alias(unicode),
+    },
+
+    // import {_, bar, …} from '@foo/baz';
+    {
+      match: and(
+        hasOnlyNamedMembers,
+        isAbsoluteModule,
+        isOrganizationModule,
+        not(isWorkspaceModule),
+        not(member(startsWithAlphanumeric))
+      ),
+      sort: moduleName(naturally),
+      sortNamedMembers: alias(unicode),
+    },
+    // import {Foo, bar, …} from '@foo/baz';
+    {
+      match: and(
+        hasOnlyNamedMembers,
+        isAbsoluteModule,
+        isOrganizationModule,
+        not(isWorkspaceModule),
+        member(startsWithUpperCase)
+      ),
+      sort: moduleName(naturally),
+      sortNamedMembers: alias(unicode),
+    },
+    // import {foo, bar, …} from '@foo/baz';
+    {
+      match: and(
+        hasOnlyNamedMembers,
+        isAbsoluteModule,
+        isOrganizationModule,
+        not(isWorkspaceModule),
+        member(startsWithLowerCase)
+      ),
+      sort: moduleName(naturally),
+      sortNamedMembers: alias(unicode),
+    },
+
+    { separator: true },
+
     // import * as _ from 'bar';
     {
       match: and(
         hasOnlyNamespaceMember,
         isAbsoluteModule,
         not(isWorkspaceModule),
+        not(isOrganizationModule),
         not(member(startsWithAlphanumeric))
       ),
       sort: moduleName(naturally),
@@ -55,6 +247,7 @@ export default function (styleApi: IStyleAPI): IStyleItem[] {
         hasOnlyNamespaceMember,
         isAbsoluteModule,
         not(isWorkspaceModule),
+        not(isOrganizationModule),
         member(startsWithUpperCase)
       ),
       sort: moduleName(naturally),
@@ -65,6 +258,7 @@ export default function (styleApi: IStyleAPI): IStyleItem[] {
         hasOnlyNamespaceMember,
         isAbsoluteModule,
         not(isWorkspaceModule),
+        not(isOrganizationModule),
         member(startsWithLowerCase)
       ),
       sort: moduleName(naturally),
@@ -77,6 +271,7 @@ export default function (styleApi: IStyleAPI): IStyleItem[] {
         hasNamespaceMember,
         isAbsoluteModule,
         not(isWorkspaceModule),
+        not(isOrganizationModule),
         not(member(startsWithAlphanumeric))
       ),
       sort: moduleName(naturally),
@@ -88,6 +283,7 @@ export default function (styleApi: IStyleAPI): IStyleItem[] {
         hasNamespaceMember,
         isAbsoluteModule,
         not(isWorkspaceModule),
+        not(isOrganizationModule),
         member(startsWithUpperCase)
       ),
       sort: moduleName(naturally),
@@ -99,6 +295,7 @@ export default function (styleApi: IStyleAPI): IStyleItem[] {
         hasNamespaceMember,
         isAbsoluteModule,
         not(isWorkspaceModule),
+        not(isOrganizationModule),
         member(startsWithUpperCase)
       ),
       sort: moduleName(naturally),
@@ -110,6 +307,7 @@ export default function (styleApi: IStyleAPI): IStyleItem[] {
         hasOnlyDefaultMember,
         isAbsoluteModule,
         not(isWorkspaceModule),
+        not(isOrganizationModule),
         not(member(startsWithAlphanumeric))
       ),
       sort: moduleName(naturally),
@@ -120,6 +318,7 @@ export default function (styleApi: IStyleAPI): IStyleItem[] {
         hasOnlyDefaultMember,
         isAbsoluteModule,
         not(isWorkspaceModule),
+        not(isOrganizationModule),
         member(startsWithUpperCase)
       ),
       sort: moduleName(naturally),
@@ -130,6 +329,7 @@ export default function (styleApi: IStyleAPI): IStyleItem[] {
         hasOnlyDefaultMember,
         isAbsoluteModule,
         not(isWorkspaceModule),
+        not(isOrganizationModule),
         member(startsWithLowerCase)
       ),
       sort: moduleName(naturally),
@@ -142,6 +342,7 @@ export default function (styleApi: IStyleAPI): IStyleItem[] {
         hasNamedMembers,
         isAbsoluteModule,
         not(isWorkspaceModule),
+        not(isOrganizationModule),
         not(member(startsWithAlphanumeric))
       ),
       sort: moduleName(naturally),
@@ -154,6 +355,7 @@ export default function (styleApi: IStyleAPI): IStyleItem[] {
         hasNamedMembers,
         isAbsoluteModule,
         not(isWorkspaceModule),
+        not(isOrganizationModule),
         member(startsWithUpperCase)
       ),
       sort: moduleName(naturally),
@@ -166,6 +368,7 @@ export default function (styleApi: IStyleAPI): IStyleItem[] {
         hasNamedMembers,
         isAbsoluteModule,
         not(isWorkspaceModule),
+        not(isOrganizationModule),
         member(startsWithLowerCase)
       ),
       sort: moduleName(naturally),
@@ -178,6 +381,7 @@ export default function (styleApi: IStyleAPI): IStyleItem[] {
         hasOnlyNamedMembers,
         isAbsoluteModule,
         not(isWorkspaceModule),
+        not(isOrganizationModule),
         not(member(startsWithAlphanumeric))
       ),
       sort: moduleName(naturally),
@@ -189,6 +393,7 @@ export default function (styleApi: IStyleAPI): IStyleItem[] {
         hasOnlyNamedMembers,
         isAbsoluteModule,
         not(isWorkspaceModule),
+        not(isOrganizationModule),
         member(startsWithUpperCase)
       ),
       sort: moduleName(naturally),
@@ -200,6 +405,7 @@ export default function (styleApi: IStyleAPI): IStyleItem[] {
         hasOnlyNamedMembers,
         isAbsoluteModule,
         not(isWorkspaceModule),
+        not(isOrganizationModule),
         member(startsWithLowerCase)
       ),
       sort: moduleName(naturally),

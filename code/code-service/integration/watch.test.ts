@@ -14,8 +14,7 @@ const closeWatcher = (watcher): Promise<void> =>
       setTimeout(() => {
         resolve()
       }, 1000)
-    })
-  )
+    }))
 
 describe('service', () => {
   describe('watch', () => {

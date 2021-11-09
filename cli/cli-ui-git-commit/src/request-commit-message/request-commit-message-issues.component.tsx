@@ -1,10 +1,10 @@
 /* eslint-disable react/jsx-curly-brace-presence */
 
 import React                     from 'react'
-import { UncontrolledTextInput } from 'ink-text-input'
+import figures                   from 'figures'
 import { Text }                  from 'ink'
 import { Box }                   from 'ink'
-import figures                   from 'figures'
+import { UncontrolledTextInput } from 'ink-text-input'
 
 export const RequestCommitMessageIssues = ({ onSubmit }) => (
   <Box flexDirection='column'>

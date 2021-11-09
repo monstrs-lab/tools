@@ -16,8 +16,7 @@
     "@types/node": "^16.11.6"
   },
   "dependencies": {
-    "@monstrs/prettier-plugin-import-align": "workspace:0.2.42",
-    "@monstrs/prettier-plugin-import-sort": "workspace:0.2.42",
+    "@monstrs/prettier-plugin": "workspace:0.0.1",
     "globby": "^11.0.4",
     "ignore": "^5.1.9",
     "prettier": "^2.4.1",

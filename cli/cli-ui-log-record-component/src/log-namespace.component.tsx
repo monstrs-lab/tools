@@ -1,7 +1,7 @@
 import React    from 'react'
-import { FC }   from 'react'
-import { Text } from 'ink'
 import toColor  from 'string-to-color'
+import { Text } from 'ink'
+import { FC }   from 'react'
 
 const color = (name) => {
   const parts = name.split(':')

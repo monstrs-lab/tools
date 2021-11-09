@@ -1,10 +1,11 @@
 /* eslint-disable prefer-template */
 
+import { codeFrameColumns }   from '@babel/code-frame'
+
 import chalk                  from 'chalk'
 import path                   from 'path'
 import ts                     from 'typescript'
 import { DiagnosticCategory } from 'typescript'
-import { codeFrameColumns }   from '@babel/code-frame'
 
 export const formatDiagnostic = (
   baseDir: string,

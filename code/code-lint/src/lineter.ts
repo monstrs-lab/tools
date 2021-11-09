@@ -3,8 +3,8 @@ import { join }                   from 'node:path'
 
 import globby                     from 'globby'
 import ignore                     from 'ignore'
-import { Ignore }                 from 'ignore'
 import { ESLint }                 from 'eslint'
+import { Ignore }                 from 'ignore'
 
 import { ignore as ignoreConfig } from './config'
 import { createPatterns }         from './config'
