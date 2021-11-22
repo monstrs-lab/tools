@@ -24,5 +24,13 @@
     "target": "es2019",
     "jsx": "react"
   },
-  "include": ["code/**/*", "ctl/**/*", "buildpack/**/*", "utils/**/*", "yarn/**/*", "github/**/*"]
+  "include": [
+    "code/**/*",
+    "ctl/**/*",
+    "buildpack/**/*",
+    "utils/**/*",
+    "yarn/**/*",
+    "github/**/*",
+    "prettier/**/*"
+  ]
 }

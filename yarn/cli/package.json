@@ -8,7 +8,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "builder build bundle",
+    "build": "builder build bundle --no-minify",
     "prepack": "yarn run build",
     "postpack": "rm -rf dist"
   },
@@ -58,7 +58,8 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
-    "@monstrs/tools-setup-ts-execution": "workspace:0.0.1"
+    "@monstrs/tools-setup-ts-execution": "workspace:0.0.1",
+    "super-resolve": "^1.0.0"
   },
   "publishConfig": {
     "access": "public",

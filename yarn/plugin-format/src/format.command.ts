@@ -6,9 +6,8 @@ import { Project }         from '@yarnpkg/core'
 
 import { Option }          from 'clipanion'
 
+import { Formatter }       from '@monstrs/code-format'
 import { SpinnerProgress } from '@monstrs/yarn-run-utils'
-
-import { format }          from './format.worker'
 
 class FormatCommand extends BaseCommand {
   static paths = [['format']]
@@ -27,17 +26,21 @@ class FormatCommand extends BaseCommand {
       async (report) => {
         await report.startTimerPromise('Format', async () => {
           const progress = new SpinnerProgress(this.context.stdout, configuration)
+          const errors: Array<string> = []
 
           progress.start()
 
           try {
-            await format(project.cwd, this.files)
-
-            progress.end()
-          } catch (error) {
-            report.reportError(MessageName.UNNAMED, (error as any).message)
-            progress.end()
+            await new Formatter(project.cwd).format(this.files)
+          } catch (error: any) {
+            ;(error.message || '').split('\n').forEach((line) => {
+              errors.push(line)
+            })
           }
+
+          progress.end()
+
+          errors.forEach((line) => report.reportError(MessageName.UNNAMED, line))
         })
       }
     )

@@ -13,6 +13,7 @@
     "postpack": "rm -rf dist"
   },
   "devDependencies": {
+    "@monstrs/code-format": "workspace:0.0.89",
     "@monstrs/yarn-run-utils": "workspace:0.0.1",
     "@monstrs/yarn-runtime": "workspace:0.0.1",
     "@yarnpkg/builder": "3.1.0",

@@ -1,13 +1,12 @@
 import commitformat    from '@commitlint/format'
 import commitlint      from '@commitlint/lint'
-import loadConfig      from '@commitlint/load'
 import { LintOutcome } from '@commitlint/types'
 
-import { rules }       from './rules'
+import { rules }       from './commit.rules'
 
 export class CommitLinter {
   async lint(message: string): Promise<LintOutcome> {
-    return commitlint(message, (await loadConfig(rules)).rules)
+    return commitlint(message, rules)
   }
 
   format(

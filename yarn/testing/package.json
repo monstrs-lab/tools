@@ -1,0 +1,29 @@
+{
+  "name": "@monstrs/yarn-testing",
+  "version": "0.0.1",
+  "private": true,
+  "license": "MIT",
+  "main": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "builder build plugin",
+    "prepack": "yarn run build",
+    "postpack": "rm -rf dist"
+  },
+  "dependencies": {
+    "@monstrs/yarn-cli": "workspace:0.0.1",
+    "@yarnpkg/cli": "^3.2.0-rc.2",
+    "@yarnpkg/core": "^3.2.0-rc.2",
+    "@yarnpkg/fslib": "^2.6.0"
+  },
+  "devDependencies": {
+    "@yarnpkg/builder": "patch:@yarnpkg/builder@^3.1.0#../cli/patches/@yarnpkg/builder/lib/commands/build/plugin.patch"
+  },
+  "publishConfig": {
+    "access": "public",
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
+  }
+}

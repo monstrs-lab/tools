@@ -12,7 +12,6 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@commitlint/config-conventional": "^14.1.0",
     "@commitlint/format": "^14.1.0",
     "@commitlint/lint": "^14.1.0",
     "@commitlint/load": "^14.1.0",

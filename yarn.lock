@@ -899,15 +899,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/config-conventional@npm:^14.1.0":
-  version: 14.1.0
-  resolution: "@commitlint/config-conventional@npm:14.1.0"
-  dependencies:
-    conventional-changelog-conventionalcommits: ^4.3.1
-  checksum: ab09dbb11f257fa05ea2637312718b6a1861602a7ef961cb8d3a391b04c7436ad2165447238256cd92f09ed3d3af2c3f7379244ae171f7dc0a51fb7b85f0f1a8
-  languageName: node
-  linkType: hard
-
 "@commitlint/ensure@npm:^14.1.0":
   version: 14.1.0
   resolution: "@commitlint/ensure@npm:14.1.0"
@@ -1634,7 +1625,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/code-commit@workspace:code/code-commit"
   dependencies:
-    "@commitlint/config-conventional": ^14.1.0
     "@commitlint/format": ^14.1.0
     "@commitlint/lint": ^14.1.0
     "@commitlint/load": ^14.1.0
@@ -1657,12 +1647,10 @@ __metadata:
   resolution: "@monstrs/code-format@workspace:code/code-format"
   dependencies:
     "@babel/types": ^7.16.0
+    "@monstrs/prettier-typescript-plugin": "workspace:0.0.1"
     "@types/node": ^16.11.6
     globby: ^11.0.4
     ignore: ^5.1.9
-    import-sort: ^6.0.0
-    import-sort-parser-typescript: ^6.0.0
-    import-sort-style: ^6.0.0
     prettier: ^2.4.1
     prettier-plugin-packagejson: ^2.2.13
     prettier-plugin-toml: ^0.3.1
@@ -1797,6 +1785,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@monstrs/prettier-typescript-plugin@workspace:0.0.1, @monstrs/prettier-typescript-plugin@workspace:prettier/typescript-plugin":
+  version: 0.0.0-use.local
+  resolution: "@monstrs/prettier-typescript-plugin@workspace:prettier/typescript-plugin"
+  dependencies:
+    "@types/node": ^16.11.6
+    globby: ^11.0.4
+    import-sort: ^6.0.0
+    import-sort-parser-typescript: ^6.0.0
+    import-sort-style: ^6.0.0
+    prettier: ^2.4.1
+  languageName: unknown
+  linkType: soft
+
 "@monstrs/stack-trace@npm:^0.0.4":
   version: 0.0.4
   resolution: "@monstrs/stack-trace@npm:0.0.4"
@@ -1878,7 +1879,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/yarn-cli@workspace:yarn/cli":
+"@monstrs/yarn-cli@workspace:0.0.1, @monstrs/yarn-cli@workspace:yarn/cli":
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-cli@workspace:yarn/cli"
   dependencies:
@@ -1924,6 +1925,7 @@ __metadata:
     "@yarnpkg/shell": ^3.1.0
     clipanion: ^3.2.0-rc.3
     semver: ^7.3.5
+    super-resolve: ^1.0.0
     typanion: ^3.3.1
     yup: ^0.32.11
   languageName: unknown
@@ -2034,6 +2036,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-format@workspace:yarn/plugin-format"
   dependencies:
+    "@monstrs/code-format": "workspace:0.0.89"
     "@monstrs/yarn-run-utils": "workspace:0.0.1"
     "@monstrs/yarn-runtime": "workspace:0.0.1"
     "@yarnpkg/builder": 3.1.0
@@ -2139,6 +2142,18 @@ __metadata:
     "@monstrs/code-service": "workspace:0.0.96"
     "@monstrs/code-test": "workspace:0.0.98"
     "@monstrs/code-typescript": "workspace:0.0.101"
+  languageName: unknown
+  linkType: soft
+
+"@monstrs/yarn-testing@workspace:0.0.1, @monstrs/yarn-testing@workspace:yarn/testing":
+  version: 0.0.0-use.local
+  resolution: "@monstrs/yarn-testing@workspace:yarn/testing"
+  dependencies:
+    "@monstrs/yarn-cli": "workspace:0.0.1"
+    "@yarnpkg/builder": "patch:@yarnpkg/builder@^3.1.0#../cli/patches/@yarnpkg/builder/lib/commands/build/plugin.patch"
+    "@yarnpkg/cli": ^3.2.0-rc.2
+    "@yarnpkg/core": ^3.2.0-rc.2
+    "@yarnpkg/fslib": ^2.6.0
   languageName: unknown
   linkType: soft
 
@@ -3414,6 +3429,37 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@yarnpkg/builder@patch:@yarnpkg/builder@^3.1.0#../cli/patches/@yarnpkg/builder/lib/commands/build/plugin.patch::locator=%40monstrs%2Fyarn-testing%40workspace%3Ayarn%2Ftesting":
+  version: 3.1.0
+  resolution: "@yarnpkg/builder@patch:@yarnpkg/builder@npm%3A3.1.0#../cli/patches/@yarnpkg/builder/lib/commands/build/plugin.patch::version=3.1.0&hash=aec936&locator=%40monstrs%2Fyarn-testing%40workspace%3Ayarn%2Ftesting"
+  dependencies:
+    "@babel/core": ^7.10.2
+    "@yarnpkg/cli": ^3.1.0
+    "@yarnpkg/core": ^3.1.0
+    "@yarnpkg/esbuild-plugin-pnp": ^2.0.0
+    "@yarnpkg/fslib": ^2.6.0
+    "@yarnpkg/pnpify": ^3.1.0
+    babel-loader: ^8.1.0
+    chalk: ^3.0.0
+    clipanion: ^3.0.1
+    esbuild: "npm:esbuild-wasm@^0.11.20"
+    filesize: ^4.1.2
+    fork-ts-checker-webpack-plugin: ^5.0.0
+    semver: ^7.1.2
+    terser-webpack-plugin: ^3.0.4
+    ts-loader: ^7.0.5
+    tslib: ^1.13.0
+    val-loader: ^2.1.1
+    webpack: ^5.1.1
+    webpack-merge: ^4.2.2
+  peerDependencies:
+    typescript: "*"
+  bin:
+    builder: ./lib/cli.js
+  checksum: 13d5e1eb349dd5e98c8d2172fe3f7e9fac2131ff2a3144c8282d6b166a8c21b7621d42b9a3e7a0d1d4e0b0c4cee0223f8a76c8ad1eefa15df457b94ecea303b4
+  languageName: node
+  linkType: hard
+
 "@yarnpkg/builder@patch:@yarnpkg/builder@^3.1.0#patches/@yarnpkg/builder/lib/commands/build/bundle.patch::locator=%40monstrs%2Fyarn-cli%40workspace%3Ayarn%2Fcli":
   version: 3.1.0
   resolution: "@yarnpkg/builder@patch:@yarnpkg/builder@npm%3A3.1.0#patches/@yarnpkg/builder/lib/commands/build/bundle.patch::version=3.1.0&hash=acbd88&locator=%40monstrs%2Fyarn-cli%40workspace%3Ayarn%2Fcli"
@@ -4545,6 +4591,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"array-foreach@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "array-foreach@npm:1.0.2"
+  checksum: f5586b97fd5db513f41b369de066bd39b180a6e21d8531d3dd3cea2eb49d648dc005a104a83671fd43e63c09bc1554edb1ce97309426e28a26bf61de50075fc8
+  languageName: node
+  linkType: hard
+
 "array-ify@npm:^1.0.0":
   version: 1.0.0
   resolution: "array-ify@npm:1.0.0"
@@ -4562,6 +4615,13 @@ __metadata:
     get-intrinsic: ^1.1.1
     is-string: ^1.0.7
   checksum: 69967c38c52698f84b50a7aed5554aadc89c6ac6399b6d92ad061a5952f8423b4bba054c51d40963f791dfa294d7247cdd7988b6b1f2c5861477031c6386e1c0
+  languageName: node
+  linkType: hard
+
+"array-map@npm:0.0.0":
+  version: 0.0.0
+  resolution: "array-map@npm:0.0.0"
+  checksum: 30d73fdc99956c8bd70daea40db5a7d78c5c2c75a03c64fc77904885e79adf7d5a0595076534f4e58962d89435f0687182ac929e65634e3d19931698cbac8149
   languageName: node
   linkType: hard
 
@@ -5870,17 +5930,6 @@ __metadata:
     compare-func: ^2.0.0
     q: ^1.5.1
   checksum: 552db8762d210a5172b1ad8cd95312e2e2a0483ba43f8d30b075a56ccf05231fdca1d4d5843028d43bec6bc7f903f480005efc5386587321a15a1fc4d2b73016
-  languageName: node
-  linkType: hard
-
-"conventional-changelog-conventionalcommits@npm:^4.3.1":
-  version: 4.4.0
-  resolution: "conventional-changelog-conventionalcommits@npm:4.4.0"
-  dependencies:
-    compare-func: ^2.0.0
-    lodash: ^4.17.15
-    q: ^1.5.1
-  checksum: 24ba21260eea3617f9fea35b266be0f0b2b9caaa48286ad3ca9050e8c037d1850d4b4dbbac2055517ef5a8ae4cce4e34d662457d7ffa67b295724912c7b7a938
   languageName: node
   linkType: hard
 
@@ -8813,6 +8862,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"is-array@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "is-array@npm:1.0.1"
+  checksum: 137ce72a039a8ac1e5f0080e01a9dc704625d18e2aaf67bb1b13a9e7171d19821e539c95b9423591e500401695380af6dfd8198ec6581d6b1ed81af04f5ceb14
+  languageName: node
+  linkType: hard
+
 "is-arrayish@npm:^0.2.1":
   version: 0.2.1
   resolution: "is-arrayish@npm:0.2.1"
@@ -11197,7 +11253,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"object-keys@npm:^1.0.12, object-keys@npm:^1.1.1":
+"object-keys@npm:^1.0.11, object-keys@npm:^1.0.12, object-keys@npm:^1.1.1":
   version: 1.1.1
   resolution: "object-keys@npm:1.1.1"
   checksum: b363c5e7644b1e1b04aa507e88dcb8e3a2f52b6ffd0ea801e4c7a62d5aa559affe21c55a07fd4b1fd55fc03a33c610d73426664b20032405d7b92a1414c34d6a
@@ -13531,6 +13587,18 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"super-resolve@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "super-resolve@npm:1.0.0"
+  dependencies:
+    array-foreach: ^1.0.2
+    array-map: 0.0.0
+    is-array: ^1.0.1
+    object-keys: ^1.0.11
+  checksum: 41e00034ef42e23cbcfba1f297c220a13131845effec1d15c53028e64ce39e7a2816adc5bb902ce2fcacfae60239d868ef676a38ee219a44a9d0565cfc234130
+  languageName: node
+  linkType: hard
+
 "supports-color@npm:8.1.1, supports-color@npm:^8.0.0, supports-color@npm:^8.1.1":
   version: 8.1.1
   resolution: "supports-color@npm:8.1.1"
@@ -13926,9 +13994,11 @@ resolve@^2.0.0-next.3:
   dependencies:
     "@monstrs/tools-setup-ts-execution": "workspace:0.0.1"
     "@monstrs/yarn-runtime": "workspace:0.0.1"
+    "@monstrs/yarn-testing": "workspace:0.0.1"
     "@types/jest": ^27.0.2
     "@types/node": ^16.11.6
     husky: 7.0.4
+    prettier: ^2.4.1
     typescript: ^4.4.4
   languageName: unknown
   linkType: soft

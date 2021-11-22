@@ -6,7 +6,10 @@ const config = {
   tabWidth: 2,
   jsxSingleQuote: true,
   trailingComma: 'es5',
-  plugins: [require.resolve('./plugin'), require.resolve('prettier-plugin-packagejson')],
+  plugins: [
+    require.resolve('@monstrs/prettier-typescript-plugin'),
+    require.resolve('prettier-plugin-packagejson'),
+  ],
   printWidth: 100,
 }
 
