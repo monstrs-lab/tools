@@ -12,17 +12,17 @@ import * as yup       from 'yup'
 
 export const getDynamicLibs = () =>
   new Map<string, any>([
-    [`@yarnpkg/cli`, cli],
-    [`@yarnpkg/core`, core],
-    [`@yarnpkg/fslib`, fslib],
-    [`@yarnpkg/libzip`, libzip],
-    [`@yarnpkg/parsers`, parsers],
-    [`@yarnpkg/shell`, shell],
+    ['@yarnpkg/cli', cli],
+    ['@yarnpkg/core', core],
+    ['@yarnpkg/fslib', fslib],
+    ['@yarnpkg/libzip', libzip],
+    ['@yarnpkg/parsers', parsers],
+    ['@yarnpkg/shell', shell],
 
     // Those ones are always useful
-    [`clipanion`, clipanion],
-    [`semver`, semver],
-    [`typanion`, typanion],
+    ['clipanion', clipanion],
+    ['semver', semver],
+    ['typanion', typanion],
     // TODO: remove in next major
-    [`yup`, yup],
+    ['yup', yup],
   ])

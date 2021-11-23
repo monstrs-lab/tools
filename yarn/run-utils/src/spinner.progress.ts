@@ -3,7 +3,7 @@ import { MessageName }   from '@yarnpkg/core'
 import { formatUtils }   from '@yarnpkg/core'
 
 export class SpinnerProgress {
-  static PROGRESS_FRAMES = [`⠋`, `⠙`, `⠹`, `⠸`, `⠼`, `⠴`, `⠦`, `⠧`, `⠇`, `⠏`]
+  static PROGRESS_FRAMES = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏']
 
   static PROGRESS_INTERVAL = 120
 
@@ -46,19 +46,21 @@ export class SpinnerProgress {
 
     const name = formatUtils.pretty(
       this.configuration,
-      `YN${MessageName.UNNAMED.toString(10).padStart(4, `0`)}`,
+      `YN${MessageName.UNNAMED.toString(10).padStart(4, '0')}`,
       'gray'
     )
 
     this.stdout.write(
-      `${formatUtils.pretty(this.configuration, `➤`, `blueBright`)} ${name}: │ ${spinner}\n`
+      `${formatUtils.pretty(this.configuration, '➤', 'blueBright')} ${name}: │ ${spinner}\n`
     )
   }
 
   private clear(complete = false) {
+    // eslint-disable-next-line @typescript-eslint/quotes
     this.stdout.write(`\x1b[${0}A`)
 
     if (complete) {
+      // eslint-disable-next-line @typescript-eslint/quotes
       this.stdout.write(`\x1b[0J`)
     }
   }

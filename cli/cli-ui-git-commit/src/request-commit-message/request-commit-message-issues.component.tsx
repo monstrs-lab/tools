@@ -10,7 +10,7 @@ export const RequestCommitMessageIssues = ({ onSubmit }) => (
   <Box flexDirection='column'>
     <Box>
       <Text bold color='cyanBright'>
-        {`Add issue references (e.g. "fix #123, re #124".):`}
+        {'Add issue references (e.g. "fix #123, re #124".):'}
       </Text>
     </Box>
     <Box>

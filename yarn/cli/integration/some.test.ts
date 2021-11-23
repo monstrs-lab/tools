@@ -11,24 +11,32 @@ const {
 const {parseSyml} = require(`@yarnpkg/parsers`);
 */
 
+jest.setTimeout(20000)
+
 describe(`Commands`, () => {
   describe(`add`, () => {
     test(
       `it should add a new regular dependency to the current project (explicit semver)`,
-      makeTemporaryEnv({}, async ({ path, run, source }) => {
-        console.log(process.cwd())
-        //await run(`add`, `portal:${process.cwd()}/yarn/runtime`);
-        await run('install')
-        await run('format')
+      makeTemporaryEnv(
+        {
+          prettier: '*',
+        },
+        async ({ path, run, source }) => {
+          console.log(process.cwd())
+          //await run(`add`, `portal:${process.cwd()}/yarn/runtime`);
+          await run('add', 'prettier')
+          await run('install')
+          await run('format')
 
-        await expect(
-          xfs.readJsonPromise(`${path}/package.json` as PortablePath)
-        ).resolves.toMatchObject({
-          dependencies: {
-            [`no-deps`]: `1.0.0`,
-          },
-        })
-      })
+          await expect(
+            xfs.readJsonPromise(`${path}/package.json` as PortablePath)
+          ).resolves.toMatchObject({
+            dependencies: {
+              [`no-deps`]: `1.0.0`,
+            },
+          })
+        }
+      )
     )
   })
 })

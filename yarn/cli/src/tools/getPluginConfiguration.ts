@@ -9,7 +9,7 @@ import { getDynamicLibs }      from './getDynamicLibs'
 
 export function getPluginConfiguration(): PluginConfiguration {
   const plugins = new Set<string>()
-  for (const dependencyName of packageJson[`@yarnpkg/builder`].bundles.standard)
+  for (const dependencyName of packageJson['@yarnpkg/builder'].bundles.standard)
     plugins.add(dependencyName)
 
   const modules = getDynamicLibs()

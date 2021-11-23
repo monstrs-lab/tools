@@ -1,0 +1,35 @@
+{
+  "name": "@monstrs/cli-ui-typescript-diagnostic-component",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn app library build",
+    "prepack": "yarn run build",
+    "postpack": "rm -rf dist"
+  },
+  "dependencies": {
+    "@monstrs/cli-ui-source-component": "workspace:0.0.12"
+  },
+  "devDependencies": {
+    "@monstrs/cli-ui-renderer": "workspace:0.0.13",
+    "@types/jest": "^27.0.2",
+    "@types/react": "^17.0.34",
+    "ink": "^3.2.0",
+    "react": "*",
+    "strip-ansi": "^6.0.1",
+    "typescript": "*"
+  },
+  "peerDependencies": {
+    "ink": "^3.0.8",
+    "react": "*"
+  },
+  "publishConfig": {
+    "access": "public",
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
+  }
+}

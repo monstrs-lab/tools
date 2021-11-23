@@ -1,7 +1,7 @@
 import { accessSync } from 'fs'
 import { join }       from 'path'
 
-import { base }       from '@monstrs/code-typescript'
+import { tsconfig }   from '@monstrs/code-typescript'
 
 const isFileExists = (file: string) => {
   try {
@@ -23,7 +23,7 @@ export const buildUnitConfig = (root: string) => ({
   },
   globals: {
     'ts-jest': {
-      tsconfig: base.compilerOptions,
+      tsconfig: tsconfig.compilerOptions,
       isolatedModules: true,
       diagnostics: false,
     },
@@ -49,7 +49,7 @@ export const buildIntegrationConfig = (root: string) => ({
   },
   globals: {
     'ts-jest': {
-      tsconfig: base.compilerOptions,
+      tsconfig: tsconfig.compilerOptions,
       isolatedModules: true,
       diagnostics: false,
     },

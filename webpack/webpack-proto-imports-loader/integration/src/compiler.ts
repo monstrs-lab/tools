@@ -7,7 +7,7 @@ import { Volume }             from 'memfs'
 import { Stats }              from 'webpack'
 import { createFsFromVolume } from 'memfs'
 
-import { base }               from '@monstrs/code-typescript'
+import { tsconfig }           from '@monstrs/code-typescript'
 
 export const compiler = (fixture): Promise<Stats> => {
   const config = new Config()
@@ -24,7 +24,7 @@ export const compiler = (fixture): Promise<Stats> => {
     .options({
       transpileOnly: true,
       experimentalWatchApi: true,
-      compilerOptions: base.compilerOptions,
+      compilerOptions: tsconfig.compilerOptions,
       configFile: path.join(__dirname, './tsconfig.json'),
     })
 

@@ -14,6 +14,8 @@
   },
   "devDependencies": {
     "@monstrs/cli-ui-pretty-logs": "workspace:0.0.14",
+    "@monstrs/cli-ui-renderer": "workspace:0.0.13",
+    "@monstrs/cli-ui-typescript-diagnostic-component": "workspace:0.0.1",
     "@monstrs/code-configuration": "workspace:0.0.11",
     "@monstrs/code-pack": "workspace:0.0.90",
     "@monstrs/code-typescript": "workspace:0.0.101",
@@ -27,6 +29,7 @@
     "@yarnpkg/fslib": "^2.6.0",
     "@yarnpkg/plugin-patch": "^3.1.0",
     "clipanion": "^3.1.0",
+    "react": "*",
     "rimraf": "^3.0.2"
   },
   "publishConfig": {

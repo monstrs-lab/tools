@@ -13,13 +13,17 @@
     "postpack": "rm -rf dist"
   },
   "devDependencies": {
+    "@monstrs/cli-ui-eslint-result-component": "workspace:0.0.1",
+    "@monstrs/cli-ui-renderer": "workspace:0.0.13",
+    "@monstrs/code-lint": "workspace:0.0.102",
     "@monstrs/yarn-run-utils": "workspace:0.0.1",
     "@monstrs/yarn-runtime": "workspace:0.0.1",
     "@yarnpkg/builder": "3.1.0",
     "@yarnpkg/cli": "^3.2.0-rc.2",
     "@yarnpkg/core": "^3.2.0-rc.2",
     "@yarnpkg/fslib": "^2.6.0",
-    "clipanion": "^3.1.0"
+    "clipanion": "^3.1.0",
+    "react": "*"
   },
   "publishConfig": {
     "access": "public",

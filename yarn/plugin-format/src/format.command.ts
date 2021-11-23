@@ -26,21 +26,22 @@ class FormatCommand extends BaseCommand {
       async (report) => {
         await report.startTimerPromise('Format', async () => {
           const progress = new SpinnerProgress(this.context.stdout, configuration)
-          const errors: Array<string> = []
 
           progress.start()
 
           try {
             await new Formatter(project.cwd).format(this.files)
+
+            progress.end()
           } catch (error: any) {
-            ;(error.message || '').split('\n').forEach((line) => {
-              errors.push(line)
+            progress.end()
+
+            const lines = (error?.message || '').split('\n').filter(Boolean)
+
+            lines.forEach((line) => {
+              report.reportError(MessageName.UNNAMED, line)
             })
           }
-
-          progress.end()
-
-          errors.forEach((line) => report.reportError(MessageName.UNNAMED, line))
         })
       }
     )

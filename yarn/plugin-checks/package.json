@@ -19,6 +19,9 @@
   "devDependencies": {
     "@babel/code-frame": "^7.16.0",
     "@jest/test-result": "^27.3.1",
+    "@monstrs/cli-ui-eslint-result-component": "workspace:0.0.1",
+    "@monstrs/cli-ui-renderer": "workspace:0.0.13",
+    "@monstrs/cli-ui-typescript-diagnostic-component": "workspace:0.0.1",
     "@monstrs/yarn-plugin-files": "workspace:0.0.1",
     "@monstrs/yarn-run-utils": "workspace:0.0.1",
     "@monstrs/yarn-runtime": "workspace:0.0.1",
@@ -30,6 +33,7 @@
     "@yarnpkg/core": "^3.2.0-rc.2",
     "@yarnpkg/fslib": "^2.6.0",
     "clipanion": "^3.1.0",
+    "react": "*",
     "strip-ansi": "^6.0.1"
   },
   "publishConfig": {

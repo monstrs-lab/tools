@@ -1,5 +1,3 @@
-import { StreamReport }           from '@yarnpkg/core'
-import { MessageName }            from '@yarnpkg/core'
 import { Workspace }              from '@yarnpkg/core'
 import { Configuration }          from '@yarnpkg/core'
 import { Project }                from '@yarnpkg/core'
