@@ -1,7 +1,5 @@
 import { Worker }      from 'node:worker_threads'
 
-import { eslint }      from '@monstrs/code-runtime'
-
 import type { ESLint } from 'eslint'
 
 export class LinterWorker {
@@ -25,6 +23,8 @@ export class LinterWorker {
   }
 
   static create(files: Array<string>, config) {
+    const { eslint } = require('@monstrs/code-runtime')
+
     return new Worker(
       `
         const { parentPort } = require('node:worker_threads')

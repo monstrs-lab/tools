@@ -1,7 +1,5 @@
 import { Worker }          from 'node:worker_threads'
 
-import { typescript }      from '@monstrs/code-runtime'
-
 import type { Diagnostic } from 'typescript'
 
 export class TypeScriptWorker {
@@ -25,6 +23,8 @@ export class TypeScriptWorker {
   }
 
   static create(cwd: string, config, noEmit: boolean) {
+    const { typescript } = require('@monstrs/code-runtime')
+
     return new Worker(
       `
               const { parentPort } = require('node:worker_threads')

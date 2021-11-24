@@ -31,7 +31,7 @@
     "@yarnpkg/fslib": "^2.6.0",
     "@yarnpkg/libzip": "^2.2.2",
     "@yarnpkg/parsers": "^2.4.1",
-    "@yarnpkg/plugin-compat": "^3.1.1",
+    "@yarnpkg/plugin-compat": "^3.1.2-rc.1",
     "@yarnpkg/plugin-dlx": "^3.1.1",
     "@yarnpkg/plugin-essentials": "^3.1.0",
     "@yarnpkg/plugin-file": "^2.3.0",

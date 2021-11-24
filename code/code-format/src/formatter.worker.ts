@@ -1,6 +1,4 @@
-import { Worker }   from 'node:worker_threads'
-
-import { prettier } from '@monstrs/code-runtime'
+import { Worker } from 'node:worker_threads'
 
 export class FormatterWorker {
   static async run(files: Array<string>, config) {
@@ -23,6 +21,8 @@ export class FormatterWorker {
   }
 
   static create(files: Array<string>, config) {
+    const { prettier } = require('@monstrs/code-runtime')
+
     return new Worker(
       `
         const { parentPort } = require('node:worker_threads')

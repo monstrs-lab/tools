@@ -1,7 +1,7 @@
-import { prettierPluginTypescript }  from '@monstrs/code-runtime'
-import { prettierPluginPackageJson } from '@monstrs/code-runtime'
+//import { prettierPluginTypescript }  from '@monstrs/code-runtime'
+//import { prettierPluginPackageJson } from '@monstrs/code-runtime'
 
-import path                          from 'path'
+import path from 'path'
 
 const config = {
   semi: false,
@@ -9,7 +9,7 @@ const config = {
   tabWidth: 2,
   jsxSingleQuote: true,
   trailingComma: 'es5',
-  plugins: [prettierPluginTypescript, prettierPluginPackageJson],
+  //plugins: [prettierPluginTypescript, prettierPluginPackageJson],
   printWidth: 100,
 }
 

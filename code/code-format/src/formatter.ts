@@ -20,11 +20,17 @@ export class Formatter {
   }
 
   async formatFiles(files: Array<string> = []) {
+    const { prettierPluginTypescript } = require('@monstrs/code-runtime')
+    const { prettierPluginPackageJson } = require('@monstrs/code-runtime')
+
     await FormatterWorker.run(
       ignorer()
         .add(ignore)
         .filter(files.map((filepath) => relative(this.cwd, filepath))),
-      config
+      {
+        ...config,
+        plugins: [prettierPluginTypescript, prettierPluginPackageJson],
+      }
     )
   }
 

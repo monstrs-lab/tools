@@ -1,9 +1,10 @@
 import { AggregatedResult }       from '@jest/test-result'
 import { Config }                 from '@jest/types'
-import { jestCore }               from '@monstrs/code-runtime'
 
 import { buildIntegrationConfig } from './jest.config'
 import { buildUnitConfig }        from './jest.config'
+
+//import { jestCore }               from '@monstrs/code-runtime'
 
 export class Tester {
   constructor(private readonly cwd: string) {}
@@ -28,7 +29,9 @@ export class Tester {
       ...options,
     }
 
-    const { results } = await require(jestCore).runCLI(argv, [this.cwd])
+    const { results } = await require(require('@monstrs/code-runtime').jestCore).runCLI(argv, [
+      this.cwd,
+    ])
 
     return results
   }
@@ -53,7 +56,9 @@ export class Tester {
       ...options,
     }
 
-    const { results } = await require(jestCore).runCLI(argv, [this.cwd])
+    const { results } = await require(require('@monstrs/code-runtime').jestCore).runCLI(argv, [
+      this.cwd,
+    ])
 
     return results
   }

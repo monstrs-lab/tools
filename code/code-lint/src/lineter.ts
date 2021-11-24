@@ -32,7 +32,7 @@ export class Linter {
       files.filter((file) => ignored.filter([relative(this.cwd, file)]).length !== 0),
       {
         ignore: false,
-        baseConfig: config,
+        baseConfig: config(),
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
         useEslintrc: false,
         cwd: join(__dirname, '../'),
