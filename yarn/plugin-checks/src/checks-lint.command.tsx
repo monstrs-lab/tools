@@ -8,11 +8,10 @@ import { Project }          from '@yarnpkg/core'
 import { codeFrameColumns } from '@babel/code-frame'
 
 import React                from 'react'
+import type { ESLint }      from 'eslint'
 
-import type * as Runtime    from '@monstrs/yarn-runtime'
 import { ESLintResult }     from '@monstrs/cli-ui-eslint-result-component'
-import type { LintResult }  from '@monstrs/yarn-runtime'
-import type { Severity }    from '@monstrs/yarn-runtime'
+import { Linter }           from '@monstrs/code-lint'
 import { renderStatic }     from '@monstrs/cli-ui-renderer'
 
 import { GitHubChecks }     from './github.checks'
@@ -25,9 +24,6 @@ class ChecksLintCommand extends BaseCommand {
   async execute() {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
     const { project } = await Project.find(configuration, this.context.cwd)
-
-    // eslint-disable-next-line global-require
-    const { Linter }: typeof Runtime = require('@monstrs/yarn-runtime') as typeof Runtime
 
     const linter = new Linter(project.cwd)
 
@@ -87,7 +83,7 @@ class ChecksLintCommand extends BaseCommand {
     return commandReport.exitCode()
   }
 
-  private getAnnotationLevel(severity: Severity): AnnotationLevel {
+  private getAnnotationLevel(severity: ESLint.Severity): AnnotationLevel {
     if (severity === 1) {
       return AnnotationLevel.Warning
     }
@@ -95,7 +91,7 @@ class ChecksLintCommand extends BaseCommand {
     return AnnotationLevel.Failure
   }
 
-  private formatResults(results: Array<LintResult>, cwd?: string): Array<Annotation> {
+  private formatResults(results: Array<ESLint.LintResult>, cwd?: string): Array<Annotation> {
     return results
       .filter((result) => result.messages?.length > 0)
       .map(({ filePath, messages = [] }) =>

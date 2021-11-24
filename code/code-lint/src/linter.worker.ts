@@ -1,5 +1,7 @@
 import { Worker }      from 'node:worker_threads'
 
+import { eslint }      from '@monstrs/code-runtime'
+
 import type { ESLint } from 'eslint'
 
 export class LinterWorker {
@@ -33,7 +35,7 @@ export class LinterWorker {
         require(process.cwd() + '/.pnp.cjs').setup()
         ${process.env.TOOLS_DEV_MODE ? `require('@monstrs/tools-setup-ts-execution')` : ''}
 
-        const { ESLint } = require('eslint')
+        const { ESLint } = require('${eslint}')
 
         const { files, config } = workerData
 

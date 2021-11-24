@@ -12,7 +12,8 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/cli-ui-source-component": "workspace:0.0.12"
+    "@monstrs/cli-ui-source-component": "workspace:0.0.12",
+    "@monstrs/code-typescript": "workspace:0.0.101"
   },
   "devDependencies": {
     "@monstrs/cli-ui-renderer": "workspace:0.0.13",

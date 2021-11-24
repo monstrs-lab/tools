@@ -1,4 +1,6 @@
-import { Worker } from 'node:worker_threads'
+import { Worker }   from 'node:worker_threads'
+
+import { prettier } from '@monstrs/code-runtime'
 
 export class FormatterWorker {
   static async run(files: Array<string>, config) {
@@ -31,7 +33,7 @@ export class FormatterWorker {
         require(process.cwd() + '/.pnp.cjs').setup()
         ${process.env.TOOLS_DEV_MODE ? `require('@monstrs/tools-setup-ts-execution')` : ''}
 
-        const { format } = require('prettier')
+        const { format } = require('${prettier}')
 
         const { files, config } = workerData
 

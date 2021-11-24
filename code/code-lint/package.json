@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@monstrs/code-format": "workspace:0.0.89",
+    "@monstrs/code-runtime": "workspace:0.0.1",
     "@types/eslint": "8.2.0",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",

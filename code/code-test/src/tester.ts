@@ -1,6 +1,6 @@
 import { AggregatedResult }       from '@jest/test-result'
 import { Config }                 from '@jest/types'
-import { runCLI }                 from '@jest/core'
+import { jestCore }               from '@monstrs/code-runtime'
 
 import { buildIntegrationConfig } from './jest.config'
 import { buildUnitConfig }        from './jest.config'
@@ -28,7 +28,7 @@ export class Tester {
       ...options,
     }
 
-    const { results } = await runCLI(argv, [this.cwd])
+    const { results } = await require(jestCore).runCLI(argv, [this.cwd])
 
     return results
   }
@@ -53,7 +53,7 @@ export class Tester {
       ...options,
     }
 
-    const { results } = await runCLI(argv, [this.cwd])
+    const { results } = await require(jestCore).runCLI(argv, [this.cwd])
 
     return results
   }

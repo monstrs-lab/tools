@@ -7,25 +7,37 @@ const { rules: baseImportsRules } = require('eslint-config-airbnb-base/rules/imp
 const { rules: baseStyleRules } = require('eslint-config-airbnb-base/rules/style')
 const { rules: baseVariablesRules } = require('eslint-config-airbnb-base/rules/variables')
 
-const parser = require.resolve('@typescript-eslint/parser')
-const resolver = require.resolve('eslint-import-resolver-node')
+import { eslintConfigErrors }        from '@monstrs/code-runtime'
+import { eslintConfigEs6 }           from '@monstrs/code-runtime'
+import { eslintConfigImports }       from '@monstrs/code-runtime'
+import { eslintConfigNode }          from '@monstrs/code-runtime'
+import { eslintConfigStrict }        from '@monstrs/code-runtime'
+import { eslintConfigStyle }         from '@monstrs/code-runtime'
+import { eslintConfigVariables }     from '@monstrs/code-runtime'
+import { eslintConfigHooks }         from '@monstrs/code-runtime'
+import { eslintConfigReact }         from '@monstrs/code-runtime'
+import { eslintConfigReactA11y }     from '@monstrs/code-runtime'
+import { eslintConfigPrettier }      from '@monstrs/code-runtime'
+import { eslintConfigBestPractices } from '@monstrs/code-runtime'
+import { eslintTypescriptParser }    from '@monstrs/code-runtime'
+import { eslintImportResolverNode }  from '@monstrs/code-runtime'
 
 export const config = {
-  parser,
+  parser: eslintTypescriptParser,
   extends: [
-    'eslint-config-airbnb-base/rules/best-practices',
-    'eslint-config-airbnb-base/rules/errors',
-    'eslint-config-airbnb-base/rules/node',
-    'eslint-config-airbnb-base/rules/style',
-    'eslint-config-airbnb-base/rules/variables',
-    'eslint-config-airbnb-base/rules/es6',
-    'eslint-config-airbnb-base/rules/strict',
-    'eslint-config-airbnb-base/rules/imports',
-    'eslint-config-airbnb/rules/react',
-    'eslint-config-airbnb/rules/react-a11y',
-    'eslint-config-airbnb/hooks',
-    'eslint-config-prettier',
-  ].map((item) => require.resolve(item)),
+    eslintConfigBestPractices,
+    eslintConfigErrors,
+    eslintConfigNode,
+    eslintConfigStyle,
+    eslintConfigVariables,
+    eslintConfigEs6,
+    eslintConfigStrict,
+    eslintConfigImports,
+    eslintConfigReact,
+    eslintConfigReactA11y,
+    eslintConfigHooks,
+    eslintConfigPrettier,
+  ],
   plugins: ['prettier', '@typescript-eslint'],
   env: {
     node: true,
@@ -139,10 +151,10 @@ export const config = {
       version: '17.0.2',
     },
     'import/parsers': {
-      [parser]: ['.ts', '.tsx', '.d.ts'],
+      [eslintTypescriptParser]: ['.ts', '.tsx', '.d.ts'],
     },
     'import/resolver': {
-      [resolver]: {
+      [eslintImportResolverNode]: {
         extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx', '.json'],
       },
     },

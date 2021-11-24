@@ -1,19 +1,17 @@
-import { BaseCommand }     from '@yarnpkg/cli'
-import { Configuration }   from '@yarnpkg/core'
-import { StreamReport }    from '@yarnpkg/core'
-import { MessageName }     from '@yarnpkg/core'
+import { BaseCommand }        from '@yarnpkg/cli'
+import { Configuration }      from '@yarnpkg/core'
+import { StreamReport }       from '@yarnpkg/core'
+import { MessageName }        from '@yarnpkg/core'
 
-import type * as Runtime   from '@monstrs/yarn-runtime'
-import { SpinnerProgress } from '@monstrs/yarn-run-utils'
+import { ServiceBuildResult } from '@monstrs/code-service'
+import { Service }            from '@monstrs/code-service'
+import { SpinnerProgress }    from '@monstrs/yarn-run-utils'
 
 class AppServiceBuildCommand extends BaseCommand {
   static paths = [['app', 'service', 'build']]
 
   async execute() {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
-
-    // eslint-disable-next-line global-require
-    const { Service }: typeof Runtime = require('@monstrs/yarn-runtime')
 
     const service = new Service(this.context.cwd)
 
@@ -23,28 +21,25 @@ class AppServiceBuildCommand extends BaseCommand {
         configuration,
       },
       async (report) => {
-        const { errors, warnings }: Runtime.ServiceBuildResult = await report.startTimerPromise(
-          'Service build',
-          async () => {
-            const progress = new SpinnerProgress(this.context.stdout, configuration)
+        const { errors, warnings } = await report.startTimerPromise('Service build', async () => {
+          const progress = new SpinnerProgress(this.context.stdout, configuration)
 
-            try {
-              progress.start()
+          try {
+            progress.start()
 
-              const result = await service.build()
+            const result = await service.build()
 
-              progress.end()
+            progress.end()
 
-              return result
-            } catch (error) {
-              progress.end()
+            return result
+          } catch (error) {
+            progress.end()
 
-              report.reportError(MessageName.UNNAMED, (error as any).message)
+            report.reportError(MessageName.UNNAMED, (error as any).message)
 
-              return { errors: [], warnings: [] }
-            }
+            return { errors: [], warnings: [] }
           }
-        )
+        })
 
         if (warnings.length > 0) {
           await report.startTimerPromise('Service Build Warnings:', async () => {

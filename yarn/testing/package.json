@@ -16,10 +16,11 @@
     "@monstrs/yarn-cli": "workspace:0.0.1",
     "@yarnpkg/cli": "^3.2.0-rc.2",
     "@yarnpkg/core": "^3.2.0-rc.2",
-    "@yarnpkg/fslib": "^2.6.0"
+    "@yarnpkg/fslib": "^2.6.0",
+    "@yarnpkg/plugin-pack": "^3.1.0"
   },
   "devDependencies": {
-    "@yarnpkg/builder": "patch:@yarnpkg/builder@^3.1.0#../cli/patches/@yarnpkg/builder/lib/commands/build/plugin.patch"
+    "@yarnpkg/builder": "patch:@yarnpkg/builder@^3.1.0#../cli/patches/@yarnpkg/builder/builder.patch"
   },
   "publishConfig": {
     "access": "public",

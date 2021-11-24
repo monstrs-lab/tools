@@ -16,7 +16,6 @@
   },
   "devDependencies": {
     "@monstrs/tools-setup-ts-execution": "workspace:0.0.1",
-    "@monstrs/yarn-runtime": "workspace:0.0.1",
     "@monstrs/yarn-testing": "workspace:0.0.1",
     "@types/eslint": "8.2.0",
     "@types/jest": "^27.0.2",

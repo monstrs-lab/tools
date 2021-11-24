@@ -1,24 +1,25 @@
-import { EOL }                  from 'node:os'
+import { EOL }                          from 'node:os'
 
-import { BaseCommand }          from '@yarnpkg/cli'
-import { Configuration }        from '@yarnpkg/core'
-import { Project }              from '@yarnpkg/core'
-import { StreamReport }         from '@yarnpkg/core'
-import { MessageName }          from '@yarnpkg/core'
-import { PortablePath }         from '@yarnpkg/fslib'
-import { codeFrameColumns }     from '@babel/code-frame'
-import { xfs }                  from '@yarnpkg/fslib'
-import { ppath }                from '@yarnpkg/fslib'
+import { BaseCommand }                  from '@yarnpkg/cli'
+import { Configuration }                from '@yarnpkg/core'
+import { Project }                      from '@yarnpkg/core'
+import { StreamReport }                 from '@yarnpkg/core'
+import { MessageName }                  from '@yarnpkg/core'
+import { PortablePath }                 from '@yarnpkg/fslib'
+import { codeFrameColumns }             from '@babel/code-frame'
+import { xfs }                          from '@yarnpkg/fslib'
+import { ppath }                        from '@yarnpkg/fslib'
 
-import React                    from 'react'
+import React                            from 'react'
 
-import type * as Runtime        from '@monstrs/yarn-runtime'
-import { TypeScriptDiagnostic } from '@monstrs/cli-ui-typescript-diagnostic-component'
-import { renderStatic }         from '@monstrs/cli-ui-renderer'
+import { TypeScriptDiagnostic }         from '@monstrs/cli-ui-typescript-diagnostic-component'
+import { TypeScript }                   from '@monstrs/code-typescript'
+import { renderStatic }                 from '@monstrs/cli-ui-renderer'
+import { flattenDiagnosticMessageText } from '@monstrs/code-typescript'
 
-import { GitHubChecks }         from './github.checks'
-import { AnnotationLevel }      from './github.checks'
-import { Annotation }           from './github.checks'
+import { GitHubChecks }                 from './github.checks'
+import { AnnotationLevel }              from './github.checks'
+import { Annotation }                   from './github.checks'
 
 class ChecksTypeCheckCommand extends BaseCommand {
   static paths = [['checks', 'typecheck']]
@@ -26,11 +27,6 @@ class ChecksTypeCheckCommand extends BaseCommand {
   async execute() {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
     const { project } = await Project.find(configuration, this.context.cwd)
-
-    // eslint-disable-next-line global-require
-    const { TypeScript }: typeof Runtime = require('@monstrs/yarn-runtime')
-    // eslint-disable-next-line global-require
-    const { flattenDiagnosticMessageText }: typeof Runtime = require('@monstrs/yarn-runtime')
 
     const ts = new TypeScript(project.cwd)
 

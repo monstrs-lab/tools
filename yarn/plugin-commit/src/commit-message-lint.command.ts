@@ -1,15 +1,12 @@
-import { BaseCommand }   from '@yarnpkg/cli'
+import { BaseCommand }  from '@yarnpkg/cli'
 
-import type * as Runtime from '@monstrs/yarn-runtime'
+import { CommitLinter } from '@monstrs/code-commit'
+import { read }         from '@monstrs/code-commit'
 
 class CommitMessageLintCommand extends BaseCommand {
   static paths = [['commit', 'message', 'lint']]
 
   async execute() {
-    const { CommitLinter, read }: typeof Runtime =
-      // eslint-disable-next-line global-require
-      require('@monstrs/yarn-runtime') as typeof Runtime
-
     const linter = new CommitLinter()
 
     const messages = await read({ edit: true })

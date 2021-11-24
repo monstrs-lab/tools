@@ -1,0 +1,78 @@
+diff --git a/lib/commands/build/bundle.js b/lib/commands/build/bundle.js
+index d5d918580c08bf5a71aef5e3c913626d93e03ba9..70ca24d68d43b8c8716f4a07d1e4c74a87a7069f 100644
+--- a/lib/commands/build/bundle.js
++++ b/lib/commands/build/bundle.js
+@@ -16,6 +16,7 @@ const semver_1 = (0, tslib_1.__importDefault)(require("semver"));
+ const util_1 = require("util");
+ const findPlugins_1 = require("../../tools/findPlugins");
+ const execFile = (0, util_1.promisify)(child_process_1.default.execFile);
++const runtimeLoader = require('./runtime.loader')
+ const pkgJsonVersion = (basedir) => {
+     return require(`${basedir}/package.json`).version;
+ };
+@@ -94,7 +95,7 @@ class BuildBundleCommand extends clipanion_1.Command {
+                     logLevel: `silent`,
+                     format: `iife`,
+                     platform: `node`,
+-                    plugins: [valLoader, (0, esbuild_plugin_pnp_1.pnpPlugin)()],
++                    plugins: [runtimeLoader, valLoader, (0, esbuild_plugin_pnp_1.pnpPlugin)()],
+                     minify: !this.noMinify,
+                     sourcemap: this.sourceMap ? `inline` : false,
+                     target: `node12`,
+diff --git a/lib/commands/build/plugin.js b/lib/commands/build/plugin.js
+index 3b4fd06aa167df7533f9ef577242a18207fab223..be4957cc46977d3aafd2f47f81e8dc0f15595a3d 100644
+--- a/lib/commands/build/plugin.js
++++ b/lib/commands/build/plugin.js
+@@ -9,6 +9,7 @@ const esbuild_1 = require("esbuild");
+ const fs_1 = (0, tslib_1.__importDefault)(require("fs"));
+ const path_1 = (0, tslib_1.__importDefault)(require("path"));
+ const isDynamicLib_1 = require("../../tools/isDynamicLib");
++const runtimeLoader = require('./runtime.loader')
+ const matchAll = /()/;
+ // Splits a require request into its components, or return null if the request is a file path
+ const pathRegExp = /^(?![a-zA-Z]:[\\/]|\\\\|\.{0,2}(?:\/|$))((?:@[^/]+\/)?[^/]+)\/*(.*|)$/;
+@@ -89,7 +90,7 @@ class BuildPluginCommand extends clipanion_1.Command {
+                     logLevel: `silent`,
+                     format: `iife`,
+                     platform: `node`,
+-                    plugins: [dynamicLibResolver, (0, esbuild_plugin_pnp_1.pnpPlugin)()],
++                    plugins: [runtimeLoader, dynamicLibResolver, (0, esbuild_plugin_pnp_1.pnpPlugin)()],
+                     minify: !this.noMinify,
+                     sourcemap: this.sourceMap ? `inline` : false,
+                     target: `node12`,
+diff --git a/lib/commands/build/runtime.loader.js b/lib/commands/build/runtime.loader.js
+new file mode 100644
+index 0000000000000000000000000000000000000000..c489147f816b329aa62a2f3ee00c5fb2004d0632
+--- /dev/null
++++ b/lib/commands/build/runtime.loader.js
+@@ -0,0 +1,29 @@
++module.exports = {
++    name: 'runtime-loader',
++    setup(build) {
++        build.onResolve({ filter: /^@monstrs\/code-runtime$/ }, args => ({
++            path: args.path,
++            namespace: 'code-runtime'
++        }))
++
++        build.onResolve({ filter: /^@monstrs\/code-runtime\/dist$/ }, args => ({
++            path: args.path,
++            external: true
++        }))
++
++        build.onLoad({ filter: /.*/, namespace: 'code-runtime' }, async (args) => ({
++            contents: `const runtime = () => {
++                try {
++                    return require('@monstrs/code-runtime/dist')
++                } catch {
++                    require(process.cwd() + '/.pnp.cjs').setup()
++
++                    return require('@monstrs/code-runtime/dist')
++                }
++            }
++
++            module.exports = runtime()`,
++            loader: `js`,
++        }))
++    }
++}
+\ No newline at end of file

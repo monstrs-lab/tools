@@ -1,6 +1,8 @@
 import { PortablePath }     from '@yarnpkg/fslib'
 import { xfs }              from '@yarnpkg/fslib'
 
+import { coderuntime } from '@monstrs/yarn-testing'
+
 import { makeTemporaryEnv } from './utils'
 
 /*
@@ -19,14 +21,13 @@ describe(`Commands`, () => {
       `it should add a new regular dependency to the current project (explicit semver)`,
       makeTemporaryEnv(
         {
-          prettier: '*',
+          '@monstrs/code-runtime': coderuntime.path
         },
         async ({ path, run, source }) => {
-          console.log(process.cwd())
           //await run(`add`, `portal:${process.cwd()}/yarn/runtime`);
-          await run('add', 'prettier')
+          //await run('add', 'prettier')
           await run('install')
-          await run('format')
+          //await run('format')
 
           await expect(
             xfs.readJsonPromise(`${path}/package.json` as PortablePath)

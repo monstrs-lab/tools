@@ -4,17 +4,14 @@ import { relative }                      from 'node:path'
 import React                             from 'react'
 import { Text }                          from 'ink'
 import { Box }                           from 'ink'
-import { Spacer }                        from 'ink'
-import { Newline }                       from 'ink'
 import { FC }                            from 'react'
 import type { DiagnosticMessageChain }   from 'typescript'
 import type { SourceFile }               from 'typescript'
 import { useMemo }                       from 'react'
 
 import { SourcePreview }                 from '@monstrs/cli-ui-source-component'
-
-import { getLineAndCharacterOfPosition } from './utils'
-import { flattenDiagnosticMessageText }  from './utils'
+import { getLineAndCharacterOfPosition } from '@monstrs/code-typescript'
+import { flattenDiagnosticMessageText }  from '@monstrs/code-typescript'
 
 export interface TypeScriptDiagnosticProps {
   file?: SourceFile | any
@@ -39,23 +36,17 @@ export const TypeScriptDiagnostic: FC<TypeScriptDiagnosticProps> = ({
     return file.fileName
   }, [file?.fileName])
 
-  if (!(file && start)) {
-    return (
-      <Box flexDirection='column'>
-        <Box marginBottom={1}>
-          <Text color='cyan'>{filepath}</Text>
-        </Box>
-        <Box marginBottom={1} marginLeft={2}>
-          <Text bold color='red'>
-            Error
-          </Text>
-          <Text color='white'>: {flattenDiagnosticMessageText(messageText, '\n')}</Text>
-        </Box>
-      </Box>
-    )
-  }
+  const position = useMemo(() => {
+    if (!file?.lineMap) {
+      return null
+    }
 
-  const position = getLineAndCharacterOfPosition(file, start)
+    if (start) {
+      return null
+    }
+
+    return getLineAndCharacterOfPosition(file, start)
+  }, [file, start])
 
   return (
     <Box flexDirection='column' marginBottom={1}>
@@ -63,9 +54,11 @@ export const TypeScriptDiagnostic: FC<TypeScriptDiagnosticProps> = ({
         <Box marginBottom={1}>
           <Text color='cyan'>
             {filepath}
-            <Text color='yellow'>
-              :{position.line + 1}:{position.character}
-            </Text>
+            {position && (
+              <Text color='yellow'>
+                :{position.line + 1}:{position.character}
+              </Text>
+            )}
           </Text>
         </Box>
       )}
@@ -75,7 +68,7 @@ export const TypeScriptDiagnostic: FC<TypeScriptDiagnosticProps> = ({
         </Text>
         <Text color='white'>: {flattenDiagnosticMessageText(messageText, '\n')}</Text>
       </Box>
-      {file.text && (
+      {file.text && position && (
         <Box marginBottom={1}>
           <SourcePreview line={position.line + 1} column={position.character}>
             {file.text}

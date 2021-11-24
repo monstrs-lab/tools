@@ -1,7 +1,11 @@
-import { accessSync } from 'fs'
-import { join }       from 'path'
+import { emotionJestSerializer } from '@monstrs/code-runtime'
+import { jestStaticStubs }       from '@monstrs/code-runtime'
+import { tsJest }                from '@monstrs/code-runtime'
 
-import { tsconfig }   from '@monstrs/code-typescript'
+import { accessSync }            from 'fs'
+import { join }                  from 'path'
+
+import { tsconfig }              from '@monstrs/code-typescript'
 
 const isFileExists = (file: string) => {
   try {
@@ -17,9 +21,9 @@ export const buildUnitConfig = (root: string) => ({
   transformIgnorePatterns: ['/node_modules/', '\\.pnp\\.[^\\/]+$'],
   testRegex: '\\.test\\.(ts|tsx)$',
   modulePathIgnorePatterns: ['dist', 'integration'],
-  snapshotSerializers: [require.resolve('@emotion/jest/serializer')],
+  snapshotSerializers: [emotionJestSerializer],
   moduleNameMapper: {
-    '^.+\\.(jpg|jpeg|gif|png|mp4|mkv|avi|webm|swf|wav|mid)$': 'jest-static-stubs/$1',
+    '^.+\\.(jpg|jpeg|gif|png|mp4|mkv|avi|webm|swf|wav|mid)$': `${jestStaticStubs}/$1`,
   },
   globals: {
     'ts-jest': {
@@ -29,7 +33,7 @@ export const buildUnitConfig = (root: string) => ({
     },
   },
   transform: {
-    '^.+\\.[tj]sx?$': require.resolve('ts-jest'),
+    '^.+\\.[tj]sx?$': tsJest,
   },
   resolver: join(__dirname, '../resolver.js'),
   globalSetup: isFileExists(join(root, '.config/test/unit/setup.ts'))
@@ -43,9 +47,9 @@ export const buildUnitConfig = (root: string) => ({
 export const buildIntegrationConfig = (root: string) => ({
   testRegex: '/integration/.*\\.test\\.(ts|tsx)$',
   modulePathIgnorePatterns: ['dist'],
-  snapshotSerializers: [require.resolve('@emotion/jest/serializer')],
+  snapshotSerializers: [emotionJestSerializer],
   moduleNameMapper: {
-    '^.+\\.(jpg|jpeg|gif|png|mp4|mkv|avi|webm|swf|wav|mid)$': 'jest-static-stubs/$1',
+    '^.+\\.(jpg|jpeg|gif|png|mp4|mkv|avi|webm|swf|wav|mid)$': `${jestStaticStubs}/$1`,
   },
   globals: {
     'ts-jest': {
@@ -55,7 +59,7 @@ export const buildIntegrationConfig = (root: string) => ({
     },
   },
   transform: {
-    '^.+\\.[tj]sx?$': require.resolve('ts-jest'),
+    '^.+\\.[tj]sx?$': tsJest,
   },
   resolver: join(__dirname, '../resolver.js'),
   globalSetup: isFileExists(join(root, '.config/test/integration/setup.ts'))

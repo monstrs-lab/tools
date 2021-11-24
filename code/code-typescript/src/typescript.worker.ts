@@ -1,5 +1,7 @@
 import { Worker }          from 'node:worker_threads'
 
+import { typescript }      from '@monstrs/code-runtime'
+
 import type { Diagnostic } from 'typescript'
 
 export class TypeScriptWorker {
@@ -30,10 +32,12 @@ export class TypeScriptWorker {
               const { writeFile } = require('node:fs/promises')
               const { readFile } = require('node:fs/promises')
               
-              require(process.cwd() + '/.pnp.cjs').setup()
-              ${process.env.TOOLS_DEV_MODE ? `require('@monstrs/tools-setup-ts-execution')` : ''}
+              try {
+                require(process.cwd() + '/.pnp.cjs').setup()
+                ${process.env.TOOLS_DEV_MODE ? `require('@monstrs/tools-setup-ts-execution')` : ''}
+              } catch {}
       
-              const ts = require('typescript')
+              const ts = require('${typescript}')
       
               const { config, cwd, noEmit } = workerData
       

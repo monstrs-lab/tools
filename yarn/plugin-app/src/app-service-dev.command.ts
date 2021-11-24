@@ -6,8 +6,8 @@ import { StreamReport }             from '@yarnpkg/core'
 
 import { Option }                   from 'clipanion'
 
-import type * as Runtime            from '@monstrs/yarn-runtime'
 import { PrettyLogsTransform }      from '@monstrs/cli-ui-pretty-logs'
+import { Service }                  from '@monstrs/code-service'
 import { StartServerPlugin }        from '@monstrs/webpack-start-server-plugin'
 import { StartServerPluginOptions } from '@monstrs/webpack-start-server-plugin'
 
@@ -18,9 +18,6 @@ class AppServiceDevCommand extends BaseCommand {
 
   async execute() {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
-
-    // eslint-disable-next-line global-require
-    const { Service }: typeof Runtime = require('@monstrs/yarn-runtime')
 
     const service = new Service(this.context.cwd)
 

@@ -17,7 +17,6 @@
     "@monstrs/cli-ui-typescript-diagnostic-component": "workspace:0.0.1",
     "@monstrs/code-typescript": "workspace:0.0.101",
     "@monstrs/yarn-run-utils": "workspace:0.0.1",
-    "@monstrs/yarn-runtime": "workspace:0.0.1",
     "@yarnpkg/builder": "3.1.0",
     "@yarnpkg/cli": "^3.2.0-rc.2",
     "@yarnpkg/core": "^3.2.0-rc.2",

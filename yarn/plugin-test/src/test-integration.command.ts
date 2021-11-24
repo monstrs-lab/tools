@@ -5,7 +5,7 @@ import { Project }       from '@yarnpkg/core'
 
 import { Option }        from 'clipanion'
 
-import type * as Runtime from '@monstrs/yarn-runtime'
+import { Tester }        from '@monstrs/code-test'
 
 class TestIntegrationCommand extends BaseCommand {
   static paths = [['test', 'integration']]
@@ -22,8 +22,6 @@ class TestIntegrationCommand extends BaseCommand {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
     const { project, workspace } = await Project.find(configuration, this.context.cwd)
 
-    // eslint-disable-next-line global-require
-    const { Tester }: typeof Runtime = require('@monstrs/yarn-runtime') as typeof Runtime
     const tester = new Tester(project.cwd)
 
     const args: Array<string> = []

@@ -2,7 +2,7 @@ import { StreamReport }              from '@yarnpkg/core'
 import { Configuration }             from '@yarnpkg/core'
 import { Project }                   from '@yarnpkg/core'
 
-import type * as Runtime             from '@monstrs/yarn-runtime'
+import { Tester }                    from '@monstrs/code-test'
 
 import { AbstractChecksTestCommand } from './abstract-checks-test.command'
 import { GitHubChecks }              from './github.checks'
@@ -13,9 +13,6 @@ class ChecksTestUnitCommand extends AbstractChecksTestCommand {
   async execute() {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
     const { project } = await Project.find(configuration, this.context.cwd)
-
-    // eslint-disable-next-line global-require
-    const { Tester }: typeof Runtime = require('@monstrs/yarn-runtime') as typeof Runtime
 
     const tester = new Tester(project.cwd)
 
