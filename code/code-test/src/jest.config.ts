@@ -16,6 +16,7 @@ const isFileExists = (file: string) => {
 export const buildUnitConfig = (root: string) => {
   const { emotionJestSerializer } = require('@monstrs/code-runtime')
   const { jestStaticStubs } = require('@monstrs/code-runtime')
+  const { jestPnpResolver } = require('@monstrs/code-runtime')
   const { tsJest } = require('@monstrs/code-runtime')
 
   return {
@@ -36,7 +37,7 @@ export const buildUnitConfig = (root: string) => {
     transform: {
       '^.+\\.[tj]sx?$': tsJest,
     },
-    resolver: join(__dirname, '../resolver.js'),
+    resolver: jestPnpResolver,
     globalSetup: isFileExists(join(root, '.config/test/unit/setup.ts'))
       ? join(root, '.config/test/unit/setup.ts')
       : undefined,
@@ -49,6 +50,7 @@ export const buildUnitConfig = (root: string) => {
 export const buildIntegrationConfig = (root: string) => {
   const { emotionJestSerializer } = require('@monstrs/code-runtime')
   const { jestStaticStubs } = require('@monstrs/code-runtime')
+  const { jestPnpResolver } = require('@monstrs/code-runtime')
   const { tsJest } = require('@monstrs/code-runtime')
 
   return {
@@ -68,7 +70,7 @@ export const buildIntegrationConfig = (root: string) => {
     transform: {
       '^.+\\.[tj]sx?$': tsJest,
     },
-    resolver: join(__dirname, '../resolver.js'),
+    resolver: jestPnpResolver,
     globalSetup: isFileExists(join(root, '.config/test/integration/setup.ts'))
       ? join(root, '.config/test/integration/setup.ts')
       : undefined,

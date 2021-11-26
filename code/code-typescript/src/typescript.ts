@@ -24,7 +24,9 @@ class TypeScript {
     override: Partial<CompilerOptions> = {},
     noEmit = true
   ): Promise<Array<Diagnostic>> {
-    const config = deepmerge(tsconfig, { compilerOptions: override }, { include } as any)
+    const config = deepmerge(tsconfig, { compilerOptions: override }, {
+      include,
+    } as any)
 
     return TypeScriptWorker.run(this.cwd, config, noEmit)
   }

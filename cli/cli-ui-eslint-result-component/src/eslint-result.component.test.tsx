@@ -32,7 +32,10 @@ describe('eslint result component', () => {
       source:
         "/* eslint-disable import/no-dynamic-require */\n/* eslint-disable no-restricted-syntax */\n/* eslint-disable global-require */\n\nimport packageJson             from '@monstrs/yarn-cli/package.json'\nimport { PluginConfiguration } from '@yarnpkg/core'\n\nimport { getDynamicLibs }      from './getDynamicLibs'\n\nexport function getPluginConfiguration(): PluginConfiguration {\n  const plugins = new Set<string>()\n  for (const dependencyName of packageJson[`@yarnpkg/builder`].bundles.standard)\n    plugins.add(dependencyName)\n\n  const modules = getDynamicLibs()\n  for (const plugin of plugins) modules.set(plugin, require(plugin).default)\n\n  return { plugins, modules }\n}\n",
       usedDeprecatedRules: [
-        { ruleId: 'lines-around-directive', replacedBy: ['padding-line-between-statements'] },
+        {
+          ruleId: 'lines-around-directive',
+          replacedBy: ['padding-line-between-statements'],
+        },
         { ruleId: 'global-require', replacedBy: [] },
         { ruleId: 'no-buffer-constructor', replacedBy: [] },
         { ruleId: 'no-new-require', replacedBy: [] },

@@ -46,6 +46,7 @@ class LintCommand extends BaseCommand {
 
                 output.split('\n').forEach((line) => report.reportError(MessageName.UNNAMED, line))
               })
+            console.log(results.length, 'asdfasd')
           } catch (error: any) {
             progress.end()
 

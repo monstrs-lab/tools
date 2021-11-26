@@ -5,7 +5,7 @@ import { coderuntime }      from '@monstrs/yarn-testing'
 
 import { makeTemporaryEnv } from './utils'
 
-jest.setTimeout(60000)
+jest.setTimeout(240000)
 
 describe(`Commands`, () => {
   describe(`add`, () => {
@@ -22,12 +22,11 @@ describe(`Commands`, () => {
           },
         },
         async ({ path, run, source }) => {
-          console.log(coderuntime.path)
-          //await run(`add`, `portal:${process.cwd()}/yarn/runtime`);
-          //await run('add', `@monstrs/code-runtime@${coderuntime.path}`)
           await run('install')
           //await run('format')
+
           console.log(await xfs.readJsonPromise(`${path}/package.json` as PortablePath))
+
           await expect(
             xfs.readJsonPromise(`${path}/package.json` as PortablePath)
           ).resolves.toMatchObject({

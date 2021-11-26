@@ -24,6 +24,7 @@ export class LinterWorker {
 
   static create(files: Array<string>, config) {
     const { eslint } = require('@monstrs/code-runtime')
+    const { eslintConfig } = require('@monstrs/code-runtime')
 
     return new Worker(
       `
@@ -36,10 +37,16 @@ export class LinterWorker {
         ${process.env.TOOLS_DEV_MODE ? `require('@monstrs/tools-setup-ts-execution')` : ''}
 
         const { ESLint } = require('${eslint}')
+        const { eslintPlugins } = require('@monstrs/code-runtime')
 
         const { files, config } = workerData
 
-        const eslint = new ESLint(config)
+        const eslint = new ESLint({
+          baseConfig: {
+            extends: ['${eslintConfig}']
+          },
+          plugins: eslintPlugins
+        })
 
         eslint.lintFiles(files)
             .then(results => {

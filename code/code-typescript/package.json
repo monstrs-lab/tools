@@ -12,7 +12,6 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/code-runtime": "workspace:0.0.1",
     "deepmerge": "^4.2.2"
   },
   "devDependencies": {

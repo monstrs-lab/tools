@@ -4,9 +4,8 @@ import globby              from 'globby'
 import ignorer             from 'ignore'
 
 import { FormatterWorker } from './formatter.worker'
-import { ignore }          from './formatter.config'
-import { createPatterns }  from './formatter.config'
-import { config }          from './formatter.config'
+import { ignore }          from './formatter.patterns'
+import { createPatterns }  from './formatter.patterns'
 
 export class Formatter {
   constructor(private readonly cwd: string) {}
@@ -20,22 +19,18 @@ export class Formatter {
   }
 
   async formatFiles(files: Array<string> = []) {
-    const { prettierPluginTypescript } = require('@monstrs/code-runtime')
-    const { prettierPluginPackageJson } = require('@monstrs/code-runtime')
-
     await FormatterWorker.run(
       ignorer()
         .add(ignore)
-        .filter(files.map((filepath) => relative(this.cwd, filepath))),
-      {
-        ...config,
-        plugins: [prettierPluginTypescript, prettierPluginPackageJson],
-      }
+        .filter(files.map((filepath) => relative(this.cwd, filepath)))
     )
   }
 
   async formatProject() {
-    const files = await globby(createPatterns(this.cwd), { dot: true, onlyFiles: true })
+    const files = await globby(createPatterns(this.cwd), {
+      dot: true,
+      onlyFiles: true,
+    })
 
     await this.formatFiles(files)
   }

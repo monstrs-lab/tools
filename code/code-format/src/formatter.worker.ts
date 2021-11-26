@@ -1,9 +1,9 @@
 import { Worker } from 'node:worker_threads'
 
 export class FormatterWorker {
-  static async run(files: Array<string>, config) {
+  static async run(files: Array<string>) {
     return new Promise((resolve, reject) => {
-      const worker = FormatterWorker.create(files, config)
+      const worker = FormatterWorker.create(files)
 
       const exitHandler = (code: number) => {
         if (code !== 0) reject(new Error(`Worker stopped with exit code ${code}`))
@@ -20,9 +20,7 @@ export class FormatterWorker {
     })
   }
 
-  static create(files: Array<string>, config) {
-    const { prettier } = require('@monstrs/code-runtime')
-
+  static create(files: Array<string>) {
     return new Worker(
       `
         const { parentPort } = require('node:worker_threads')
@@ -33,9 +31,13 @@ export class FormatterWorker {
         require(process.cwd() + '/.pnp.cjs').setup()
         ${process.env.TOOLS_DEV_MODE ? `require('@monstrs/tools-setup-ts-execution')` : ''}
 
-        const { format } = require('${prettier}')
+        const { prettierConfig } = require('@monstrs/code-runtime')
+        const { prettier } = require('@monstrs/code-runtime')
 
-        const { files, config } = workerData
+        const { format } = require(prettier)
+        const config = require(prettierConfig)
+
+        const { files } = workerData
 
         Promise.all(files.map(async (filename) => {
         const input = await readFile(filename, 'utf8')
@@ -51,7 +53,6 @@ export class FormatterWorker {
         eval: true,
         workerData: {
           files,
-          config,
         },
       }
     )

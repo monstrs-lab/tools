@@ -1692,7 +1692,6 @@ __metadata:
   resolution: "@monstrs/code-format@workspace:code/code-format"
   dependencies:
     "@babel/types": ^7.16.0
-    "@monstrs/code-runtime": "workspace:0.0.1"
     "@types/node": ^16.11.6
     globby: ^11.0.4
     ignore: ^5.1.9
@@ -1753,7 +1752,9 @@ __metadata:
   dependencies:
     "@emotion/jest": ^11.5.0
     "@jest/core": ^27.3.1
-    "@monstrs/prettier-typescript-plugin": "workspace:0.0.1"
+    "@monstrs/eslint-config": "workspace:0.3.0"
+    "@monstrs/jest-pnp-resolver": 0.0.1
+    "@monstrs/prettier-config": "workspace:0.3.0"
     "@types/node": ^16.11.10
     "@typescript-eslint/eslint-plugin": ^5.4.0
     "@typescript-eslint/parser": ^5.4.0
@@ -1769,8 +1770,6 @@ __metadata:
     eslint-plugin-react-hooks: ^4.3.0
     jest-static-stubs: ^0.0.1
     prettier: ^2.4.1
-    prettier-plugin-packagejson: ^2.2.13
-    prettier-plugin-toml: ^0.3.1
     react: "*"
     ts-jest: ^27.0.7
     typescript: ^4.4.4
@@ -1828,13 +1827,35 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/code-typescript@workspace:code/code-typescript"
   dependencies:
-    "@monstrs/code-runtime": "workspace:0.0.1"
     "@types/babel__code-frame": 7.0.3
     "@types/chalk": 2.2.0
     "@types/deepmerge": 2.2.0
     "@types/node": ^16.11.6
     deepmerge: ^4.2.2
     typescript: ^4.4.4
+  languageName: unknown
+  linkType: soft
+
+"@monstrs/eslint-config@workspace:0.3.0, @monstrs/eslint-config@workspace:eslint/config":
+  version: 0.0.0-use.local
+  resolution: "@monstrs/eslint-config@workspace:eslint/config"
+  dependencies:
+    "@monstrs/prettier-config": "workspace:0.3.0"
+    "@types/eslint": 8.2.0
+    "@typescript-eslint/eslint-plugin": ^5.4.0
+    "@typescript-eslint/parser": ^5.4.0
+    eslint: ^8.3.0
+    eslint-config-airbnb: ^19.0.1
+    eslint-config-airbnb-base: ^15.0.0
+    eslint-config-prettier: ^8.3.0
+    eslint-import-resolver-node: ^0.3.6
+    eslint-plugin-import: ^2.25.3
+    eslint-plugin-jsx-a11y: ^6.5.1
+    eslint-plugin-prettier: ^4.0.0
+    eslint-plugin-react: ^7.27.1
+    eslint-plugin-react-hooks: ^4.3.0
+    prettier: ^2.4.1
+    react: "*"
   languageName: unknown
   linkType: soft
 
@@ -1849,6 +1870,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@monstrs/jest-pnp-resolver@npm:0.0.1":
+  version: 0.0.1
+  resolution: "@monstrs/jest-pnp-resolver@npm:0.0.1"
+  checksum: e71c78f54b3aa22a994208c2feb79bed870ac47cdcebb93cce816be89a07abb9085adfbb65e90dbb087983187f3ba82fad4e3ed3203d63d0efc8f73eebe62de8
+  languageName: node
+  linkType: hard
+
 "@monstrs/logger@npm:^0.0.6":
   version: 0.0.6
   resolution: "@monstrs/logger@npm:0.0.6"
@@ -1857,6 +1885,16 @@ __metadata:
   checksum: 1e1e45105f5bae28bd1d88588f09e65a2e80340b570fc81e739139ae435ffdfbc7b78a0420ce0009b0f961810c6a609930b2d2755b85db9e6015b0b1691b60e2
   languageName: node
   linkType: hard
+
+"@monstrs/prettier-config@workspace:0.3.0, @monstrs/prettier-config@workspace:prettier/config":
+  version: 0.0.0-use.local
+  resolution: "@monstrs/prettier-config@workspace:prettier/config"
+  dependencies:
+    "@monstrs/prettier-typescript-plugin": "workspace:0.0.1"
+    prettier-plugin-packagejson: ^2.2.13
+    prettier-plugin-toml: ^0.3.1
+  languageName: unknown
+  linkType: soft
 
 "@monstrs/prettier-typescript-plugin@workspace:0.0.1, @monstrs/prettier-typescript-plugin@workspace:prettier/typescript-plugin":
   version: 0.0.0-use.local
@@ -14153,6 +14191,7 @@ resolve@^2.0.0-next.3:
   version: 0.0.0-use.local
   resolution: "tools@workspace:."
   dependencies:
+    "@monstrs/code-runtime": "workspace:0.0.1"
     "@monstrs/tools-setup-ts-execution": "workspace:0.0.1"
     "@monstrs/yarn-testing": "workspace:0.0.1"
     "@types/eslint": 8.2.0

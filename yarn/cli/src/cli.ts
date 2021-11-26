@@ -1,3 +1,5 @@
+console.log(process.versions.pnp, 'asdfasdfasd')
+
 import { YarnVersion }            from '@yarnpkg/core'
 import { main }                   from '@yarnpkg/cli'
 

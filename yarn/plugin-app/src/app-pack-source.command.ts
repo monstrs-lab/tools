@@ -25,7 +25,9 @@ import { packWorkspace }         from '@monstrs/yarn-pack-utils'
 class AppPackSourceCommand extends BaseCommand {
   static paths = [['app', 'pack', 'source']]
 
-  destination: PortablePath = Option.String('-d,--destination', { required: true })
+  destination: PortablePath = Option.String('-d,--destination', {
+    required: true,
+  })
 
   async execute() {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
