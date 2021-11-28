@@ -45,7 +45,7 @@ new file mode 100644
 index 0000000000000000000000000000000000000000..c489147f816b329aa62a2f3ee00c5fb2004d0632
 --- /dev/null
 +++ b/lib/commands/build/runtime.loader.js
-@@ -0,0 +1,29 @@
+@@ -0,0 +1,27 @@
 +module.exports = {
 +    name: 'runtime-loader',
 +    setup(build) {
@@ -61,13 +61,11 @@ index 0000000000000000000000000000000000000000..c489147f816b329aa62a2f3ee00c5fb2
 +
 +        build.onLoad({ filter: /.*/, namespace: 'code-runtime' }, async (args) => ({
 +            contents: `const runtime = () => {
-+                try {
-+                    return require('@monstrs/code-runtime/dist')
-+                } catch {
++                if (!require('module').findPnpApi) {
 +                    require(process.cwd() + '/.pnp.cjs').setup()
++                } 
 +
-+                    return require('@monstrs/code-runtime/dist')
-+                }
++                return require('@monstrs/code-runtime/dist')
 +            }
 +
 +            module.exports = runtime()`,

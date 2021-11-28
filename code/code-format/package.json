@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-format",
-  "version": "0.0.89",
+  "version": "0.0.90",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -12,6 +12,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
+    "@monstrs/code-runtime": "workspace:0.0.2",
     "globby": "^11.0.4",
     "ignore": "^5.1.9"
   },
@@ -22,13 +23,5 @@
   "publishConfig": {
     "main": "dist/index.js",
     "typings": "dist/index.d.ts"
-  },
-  "@yarnpkg/builder": {
-    "runtime": {
-      "dependencies": [
-        "@monstrs/prettier-typescript-plugin",
-        "prettier-plugin-packagejson"
-      ]
-    }
   }
 }

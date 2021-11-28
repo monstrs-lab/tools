@@ -13,9 +13,9 @@
     "postpack": "rm -rf dist"
   },
   "devDependencies": {
-    "@monstrs/cli-ui-eslint-result-component": "workspace:0.0.1",
-    "@monstrs/cli-ui-renderer": "workspace:0.0.13",
-    "@monstrs/code-lint": "workspace:0.0.102",
+    "@monstrs/cli-ui-eslint-result-component": "workspace:0.0.2",
+    "@monstrs/cli-ui-renderer": "workspace:0.0.14",
+    "@monstrs/code-lint": "workspace:0.0.103",
     "@monstrs/yarn-run-utils": "workspace:0.0.1",
     "@yarnpkg/builder": "3.1.0",
     "@yarnpkg/cli": "^3.2.0-rc.2",

@@ -1,4 +1,4 @@
-import { join } from 'node:path'
+import { join }                   from 'node:path'
 
 import { AggregatedResult }       from '@jest/test-result'
 import { Config }                 from '@jest/types'

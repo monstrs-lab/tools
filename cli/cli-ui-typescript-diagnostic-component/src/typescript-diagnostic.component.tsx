@@ -45,7 +45,7 @@ export const TypeScriptDiagnostic: FC<TypeScriptDiagnosticProps> = ({
       return null
     }
 
-    return getLineAndCharacterOfPosition(file, start)
+    return getLineAndCharacterOfPosition(file, start!)
   }, [file, start])
 
   return (

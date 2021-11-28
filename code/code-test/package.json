@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-test",
-  "version": "0.0.98",
+  "version": "0.0.99",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -17,8 +17,8 @@
     "@jest/core": "^27.3.1",
     "@jest/test-result": "^27.3.1",
     "@jest/types": "^27.2.5",
-    "@monstrs/code-runtime": "workspace:0.0.1",
-    "@monstrs/code-typescript": "workspace:0.0.101",
+    "@monstrs/code-runtime": "workspace:0.0.2",
+    "@monstrs/code-typescript": "workspace:0.0.102",
     "jest-static-stubs": "^0.0.1",
     "ts-jest": "^27.0.7"
   },
@@ -36,16 +36,5 @@
   "publishConfig": {
     "main": "dist/index.js",
     "typings": "dist/index.d.ts"
-  },
-  "@yarnpkg/builder": {
-    "runtime": {
-      "dependencies": [
-        "@emotion/jest",
-        "@jest/core",
-        "@jest/test-result",
-        "jest-static-stubs",
-        "ts-jest"
-      ]
-    }
   }
 }

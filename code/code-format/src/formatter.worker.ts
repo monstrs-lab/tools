@@ -21,6 +21,9 @@ export class FormatterWorker {
   }
 
   static create(files: Array<string>) {
+    const { prettier } = require('@monstrs/code-runtime')
+    const { prettierConfig } = require('@monstrs/code-runtime')
+
     return new Worker(
       `
         const { parentPort } = require('node:worker_threads')
@@ -31,11 +34,8 @@ export class FormatterWorker {
         require(process.cwd() + '/.pnp.cjs').setup()
         ${process.env.TOOLS_DEV_MODE ? `require('@monstrs/tools-setup-ts-execution')` : ''}
 
-        const { prettierConfig } = require('@monstrs/code-runtime')
-        const { prettier } = require('@monstrs/code-runtime')
-
-        const { format } = require(prettier)
-        const config = require(prettierConfig)
+        const { format } = require('${prettier}')
+        const config = require('${prettierConfig}')
 
         const { files } = workerData
 

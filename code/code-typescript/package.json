@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-typescript",
-  "version": "0.0.101",
+  "version": "0.0.102",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -12,6 +12,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
+    "@monstrs/code-runtime": "workspace:0.0.2",
     "deepmerge": "^4.2.2"
   },
   "devDependencies": {
@@ -24,12 +25,5 @@
   "publishConfig": {
     "main": "dist/index.js",
     "typings": "dist/index.d.ts"
-  },
-  "@yarnpkg/builder": {
-    "runtime": {
-      "dependencies": [
-        "typescript"
-      ]
-    }
   }
 }

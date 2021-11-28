@@ -23,6 +23,8 @@ export class TypeScriptWorker {
   }
 
   static create(cwd: string, config, noEmit: boolean) {
+    const { typescript } = require('@monstrs/code-runtime')
+
     return new Worker(
       `
               const { parentPort } = require('node:worker_threads')
@@ -34,10 +36,8 @@ export class TypeScriptWorker {
                 require(process.cwd() + '/.pnp.cjs').setup()
                 ${process.env.TOOLS_DEV_MODE ? `require('@monstrs/tools-setup-ts-execution')` : ''}
               } catch {}
-      
-              const { typescript } = require('@monstrs/code-runtime')
 
-              const ts = require(typescript)
+              const ts = require('${typescript}')
       
               const { config, cwd, noEmit } = workerData
       
