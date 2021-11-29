@@ -15,8 +15,8 @@
   "dependencies": {
     "@monstrs/code-typescript": "workspace:0.0.105",
     "@monstrs/webpack-proto-imports-loader": "workspace:0.0.15",
-    "@yarnpkg/cli": "^3.2.0-rc.2",
-    "@yarnpkg/core": "^3.2.0-rc.2",
+    "@yarnpkg/cli": "^3.2.0-rc.6",
+    "@yarnpkg/core": "^3.2.0-rc.6",
     "fast-glob": "^3.2.7",
     "string-replace-loader": "^3.0.3",
     "ts-loader": "^9.2.6",
@@ -31,7 +31,7 @@
     "@types/protocol-buffers-schema": "3.4.1",
     "@types/wait-for-localhost": "3.1.0",
     "@types/webpack": "^5.28.0",
-    "@yarnpkg/fslib": "^2.6.0",
+    "@yarnpkg/fslib": "^2.6.1-rc.1",
     "wait-for-localhost": "^3.3.0"
   },
   "publishConfig": {
