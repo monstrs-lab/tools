@@ -16,7 +16,7 @@
     "globby": "11.0.3"
   },
   "devDependencies": {
-    "@monstrs/code-runtime": "workspace:0.0.2",
+    "@monstrs/code-runtime": "workspace:0.0.5",
     "@monstrs/tools-setup-ts-execution": "workspace:0.0.1",
     "@monstrs/yarn-testing": "workspace:0.0.1",
     "@types/eslint": "8.2.0",

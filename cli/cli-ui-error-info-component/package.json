@@ -1,0 +1,33 @@
+{
+  "name": "@monstrs/cli-ui-error-info-component",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn app library build",
+    "prepack": "yarn run build",
+    "postpack": "rm -rf dist"
+  },
+  "dependencies": {
+    "@monstrs/cli-ui-stack-trace-component": "workspace:0.0.17"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.2",
+    "@types/node": "^16.11.6",
+    "@types/react": "^17.0.34",
+    "ink": "^3.2.0",
+    "react": "*"
+  },
+  "peerDependencies": {
+    "ink": "^3.0.8",
+    "react": "*"
+  },
+  "publishConfig": {
+    "access": "public",
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
+  }
+}

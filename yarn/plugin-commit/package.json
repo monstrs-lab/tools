@@ -14,8 +14,8 @@
   },
   "devDependencies": {
     "@cenk1cenk2/cz-cc": "^1.4.10",
-    "@monstrs/cli-ui-git-commit-component": "workspace:0.0.2",
-    "@monstrs/code-commit": "workspace:0.0.2",
+    "@monstrs/cli-ui-git-commit-component": "workspace:0.0.5",
+    "@monstrs/code-commit": "workspace:0.0.5",
     "@yarnpkg/builder": "patch:@yarnpkg/builder@^3.1.0#../cli/patches/@yarnpkg/builder/builder.patch",
     "@yarnpkg/cli": "^3.2.0-rc.2",
     "@yarnpkg/core": "^3.2.0-rc.2",

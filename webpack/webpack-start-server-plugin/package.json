@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/webpack-start-server-plugin",
-  "version": "0.2.24",
+  "version": "0.2.27",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [

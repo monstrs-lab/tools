@@ -7,6 +7,7 @@ import { MessageName }          from '@yarnpkg/core'
 import React                    from 'react'
 import { Option }               from 'clipanion'
 
+import { ErrorInfo }            from '@monstrs/cli-ui-error-info-component'
 import { TypeScriptDiagnostic } from '@monstrs/cli-ui-typescript-diagnostic-component'
 import { TypeScript }           from '@monstrs/code-typescript'
 import { SpinnerProgress }      from '@monstrs/yarn-run-utils'
@@ -50,14 +51,14 @@ class TypeCheckCommand extends BaseCommand {
 
               output.split('\n').forEach((line) => report.reportError(MessageName.UNNAMED, line))
             })
-          } catch (error: any) {
+          } catch (error) {
             progress.end()
 
-            const lines = (error?.message || '').split('\n').filter(Boolean)
-
-            lines.forEach((line) => {
-              report.reportError(MessageName.UNNAMED, line)
-            })
+            renderStatic(<ErrorInfo error={error as Error} />, process.stdout.columns - 12)
+              .split('\n')
+              .forEach((line) => {
+                report.reportError(MessageName.UNNAMED, line)
+              })
           }
         })
       }

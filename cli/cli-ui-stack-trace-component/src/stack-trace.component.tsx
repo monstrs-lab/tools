@@ -26,26 +26,14 @@ export const StackTrace: FC<StackTraceProps> = ({ children }) => {
   return (
     <Box flexDirection='column' flexGrow={1}>
       {source && stack?.topFrame?.line && (
-        <>
-          <Box paddingLeft={2} marginTop={1}>
-            <Text backgroundColor='red' color='white'>
-              Location
-            </Text>
-          </Box>
-          <Box paddingLeft={4}>
-            <SourcePreview line={stack?.topFrame?.line} column={stack?.topFrame?.column}>
-              {source}
-            </SourcePreview>
-          </Box>
-        </>
+        <Box>
+          <SourcePreview line={stack?.topFrame?.line} column={stack?.topFrame?.column}>
+            {source}
+          </SourcePreview>
+        </Box>
       )}
-      <Box paddingLeft={2} marginTop={1}>
-        <Text backgroundColor='red' color='white'>
-          Stack
-        </Text>
-      </Box>
       {stack.frames.map((frame: any) => (
-        <Box key={`${frame.file}-${frame.line}`} justifyContent='flex-end' paddingLeft={4}>
+        <Box key={`${frame.file}-${frame.line}`} justifyContent='flex-end'>
           <Text>{frame.function}</Text>
           <Spacer />
           <Text color='gray'>{frame.file}</Text>

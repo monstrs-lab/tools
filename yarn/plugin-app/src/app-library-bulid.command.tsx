@@ -9,7 +9,7 @@ import React                    from 'react'
 import rimraf                   from 'rimraf'
 import { Option }               from 'clipanion'
 
-import { StackTrace }           from '@monstrs/cli-ui-stack-trace-component'
+import { ErrorInfo }            from '@monstrs/cli-ui-error-info-component'
 import { TypeScriptDiagnostic } from '@monstrs/cli-ui-typescript-diagnostic-component'
 import { TypeScript }           from '@monstrs/code-typescript'
 import { SpinnerProgress }      from '@monstrs/yarn-run-utils'
@@ -54,23 +54,14 @@ class AppLibraryBuildCommand extends BaseCommand {
 
               output.split('\n').forEach((line) => report.reportError(MessageName.UNNAMED, line))
             })
-          } catch (error: any) {
+          } catch (error) {
             progress.end()
 
-            const lines = (error?.message || '').split('\n').filter(Boolean)
-
-            lines.forEach((line) => {
-              report.reportError(MessageName.UNNAMED, line)
-            })
-
-            if (error.stack) {
-              const stack = renderStatic(
-                <StackTrace>{error.stack}</StackTrace>,
-                process.stdout.columns - 12
-              )
-
-              stack.split('\n').forEach((line) => report.reportError(MessageName.UNNAMED, line))
-            }
+            renderStatic(<ErrorInfo error={error as Error} />, process.stdout.columns - 12)
+              .split('\n')
+              .forEach((line) => {
+                report.reportError(MessageName.UNNAMED, line)
+              })
           }
         })
       }

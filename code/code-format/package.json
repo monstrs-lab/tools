@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-format",
-  "version": "0.0.90",
+  "version": "0.0.93",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -12,7 +12,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/code-runtime": "workspace:0.0.2",
+    "@monstrs/code-runtime": "workspace:0.0.5",
     "globby": "^11.0.4",
     "ignore": "^5.1.9"
   },

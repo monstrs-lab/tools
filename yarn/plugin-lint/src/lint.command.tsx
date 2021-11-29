@@ -7,6 +7,7 @@ import { Project }         from '@yarnpkg/core'
 import React               from 'react'
 import { Option }          from 'clipanion'
 
+import { ErrorInfo }       from '@monstrs/cli-ui-error-info-component'
 import { ESLintResult }    from '@monstrs/cli-ui-eslint-result-component'
 import { Linter }          from '@monstrs/code-lint'
 import { SpinnerProgress } from '@monstrs/yarn-run-utils'
@@ -46,15 +47,14 @@ class LintCommand extends BaseCommand {
 
                 output.split('\n').forEach((line) => report.reportError(MessageName.UNNAMED, line))
               })
-            console.log(results.length, 'asdfasd')
-          } catch (error: any) {
+          } catch (error) {
             progress.end()
 
-            const lines = (error?.message || '').split('\n').filter(Boolean)
-
-            lines.forEach((line) => {
-              report.reportError(MessageName.UNNAMED, line)
-            })
+            renderStatic(<ErrorInfo error={error as Error} />, process.stdout.columns - 12)
+              .split('\n')
+              .forEach((line) => {
+                report.reportError(MessageName.UNNAMED, line)
+              })
           }
         })
       }

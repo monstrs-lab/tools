@@ -77,7 +77,7 @@ export class CodeRuntime {
       }
     }
 
-    const target = ppath.resolve(workspace.cwd, `package.tgz` as Filename)
+    const target = ppath.resolve(workspace.cwd, 'package.tgz' as Filename)
 
     await prepareForPack(workspace, { report: new ThrowReport() }, async () => {
       const files = await genPackList(workspace)
@@ -88,7 +88,7 @@ export class CodeRuntime {
       pack.pipe(write)
 
       await new Promise((resolve) => {
-        write.on(`finish`, resolve)
+        write.on('finish', resolve)
       })
     })
   }
