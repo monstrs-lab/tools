@@ -1918,8 +1918,8 @@ __metadata:
   resolution: "@monstrs/prettier-config@workspace:prettier/config"
   dependencies:
     "@monstrs/prettier-typescript-plugin": "workspace:0.0.5"
+    prettier: ^2.4.1
     prettier-plugin-packagejson: ^2.2.13
-    prettier-plugin-toml: ^0.3.1
   languageName: unknown
   linkType: soft
 
@@ -1932,7 +1932,6 @@ __metadata:
     import-sort: ^6.0.0
     import-sort-parser-typescript: ^6.0.0
     import-sort-style: ^6.0.0
-    json-stringify: ^1.0.0
     prettier: ^2.4.1
     sort-package-json: ^1.53.1
   languageName: unknown
@@ -2501,25 +2500,6 @@ __metadata:
   dependencies:
     defer-to-connect: ^2.0.0
   checksum: 27b713859bc7d370f81631eea99879a9d496e1def5d33752fccd6c80dba32cde2094f378c8d07d56f236b08afb4b3621fbf6254faaca52b1a8146ece1eba8428
-  languageName: node
-  linkType: hard
-
-"@toml-tools/lexer@npm:^0.3.1":
-  version: 0.3.1
-  resolution: "@toml-tools/lexer@npm:0.3.1"
-  dependencies:
-    chevrotain: 4.1.1
-  checksum: 3fef79ce28cacb4196c088946c25ceff4527660a7cd75000a06526481b9255d42e5592f6d9120143a34f2bfba16b902c042258aa439c23fb62985f0c8f2a5f70
-  languageName: node
-  linkType: hard
-
-"@toml-tools/parser@npm:^0.3.1":
-  version: 0.3.1
-  resolution: "@toml-tools/parser@npm:0.3.1"
-  dependencies:
-    "@toml-tools/lexer": ^0.3.1
-    chevrotain: 4.1.1
-  checksum: c94918cf9f5205d5f0c6b05370e1c236ac8dc2eb4606e6448e542d85a54be73df509e94132ad6c09c02c4a04b58f4e390446854c13260f5189551dde130af8f8
   languageName: node
   linkType: hard
 
@@ -5701,15 +5681,6 @@ __metadata:
   version: 0.7.0
   resolution: "chardet@npm:0.7.0"
   checksum: 6fd5da1f5d18ff5712c1e0aed41da200d7c51c28f11b36ee3c7b483f3696dabc08927fc6b227735eb8f0e1215c9a8abd8154637f3eff8cada5959df7f58b024d
-  languageName: node
-  linkType: hard
-
-"chevrotain@npm:4.1.1":
-  version: 4.1.1
-  resolution: "chevrotain@npm:4.1.1"
-  dependencies:
-    regexp-to-ast: 0.3.5
-  checksum: 209229115f4e6610238008282afe13b67f57edfd9bc2514371e4e1349c32bd6cf2792088e125e1c19c2d8343611ef89f54747ac97b4f641dba5f2a74f5235a45
   languageName: node
   linkType: hard
 
@@ -10277,19 +10248,10 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"json-stringify-safe@npm:^5.0.1, json-stringify-safe@npm:~5.0.1":
+"json-stringify-safe@npm:~5.0.1":
   version: 5.0.1
   resolution: "json-stringify-safe@npm:5.0.1"
   checksum: 48ec0adad5280b8a96bb93f4563aa1667fd7a36334f79149abd42446d0989f2ddc58274b479f4819f1f00617957e6344c886c55d05a4e15ebb4ab931e4a6a8ee
-  languageName: node
-  linkType: hard
-
-"json-stringify@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "json-stringify@npm:1.0.0"
-  dependencies:
-    json-stringify-safe: ^5.0.1
-  checksum: e66c96d6caee1e09b26ff075c6c628de4f00024ed1abea9444693eb3460ae41c6ac927b4830b619abe4de50b0a6e9532b82efe0230e06161946aa2b2aeafe745
   languageName: node
   linkType: hard
 
@@ -12193,32 +12155,13 @@ fsevents@^1.2.7:
   linkType: hard
 
 "prettier-plugin-packagejson@npm:^2.2.13":
-  version: 2.2.13
-  resolution: "prettier-plugin-packagejson@npm:2.2.13"
+  version: 2.2.15
+  resolution: "prettier-plugin-packagejson@npm:2.2.15"
   dependencies:
-    sort-package-json: 1.52.0
+    sort-package-json: 1.53.1
   peerDependencies:
     prettier: ">= 1.16.0"
-  checksum: 6462d4a03b6ef56fbd84008689b4ebf000d05a8d135b9ac6df76a7f0c10609eb642f7891148479e0df2b7baf6babbfb9b62b6f20558487a36b4343e94bede7d4
-  languageName: node
-  linkType: hard
-
-"prettier-plugin-toml@npm:^0.3.1":
-  version: 0.3.1
-  resolution: "prettier-plugin-toml@npm:0.3.1"
-  dependencies:
-    "@toml-tools/parser": ^0.3.1
-    prettier: ^1.16.0
-  checksum: 9c34cc4a3566f1e23186861a1c141c1a320552dd836fbf3e3742c7d123006ac302fbc1aabb3606f6ee1dfc393c840df1c7d47efb597f6aefebba354a8cdccaca
-  languageName: node
-  linkType: hard
-
-"prettier@npm:^1.16.0":
-  version: 1.19.1
-  resolution: "prettier@npm:1.19.1"
-  bin:
-    prettier: ./bin-prettier.js
-  checksum: bc78219e0f8173a808f4c6c8e0a137dd8ebd4fbe013e63fe1a37a82b48612f17b8ae8e18a992adf802ee2cf7428f14f084e7c2846ca5759cf4013c6e54810e1f
+  checksum: 2cd79e9fbabc2a5701e156ab5f6adc0fad270ad81b02f2b88fed6302ad790987e0fdef64deeee5fc2d0e80cdd4db431645e0904cfbd69f60c5ba01d6c8ef22d0
   languageName: node
   linkType: hard
 
@@ -12682,13 +12625,6 @@ fsevents@^1.2.7:
     extend-shallow: ^3.0.2
     safe-regex: ^1.1.0
   checksum: 3081403de79559387a35ef9d033740e41818a559512668cef3d12da4e8a29ef34ee13c8ed1256b07e27ae392790172e8a15c8a06b72962fd4550476cde3d8f77
-  languageName: node
-  linkType: hard
-
-"regexp-to-ast@npm:0.3.5":
-  version: 0.3.5
-  resolution: "regexp-to-ast@npm:0.3.5"
-  checksum: 8b738a6da564ea0816c61bfd26243e4313346a09d7a1d63ec505002e99a82cce12dde50e7b7a98f179cd0782ee652e99a7b2a9e83b53cf9497b8a5fbb4bf652e
   languageName: node
   linkType: hard
 
@@ -13362,23 +13298,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"sort-package-json@npm:1.52.0":
-  version: 1.52.0
-  resolution: "sort-package-json@npm:1.52.0"
-  dependencies:
-    detect-indent: ^6.0.0
-    detect-newline: 3.1.0
-    git-hooks-list: 1.0.3
-    globby: 10.0.0
-    is-plain-obj: 2.1.0
-    sort-object-keys: ^1.1.3
-  bin:
-    sort-package-json: cli.js
-  checksum: 0ac65776ec96a451e618e00ed87dabe0d9ef872d1f00083efed889841dcf966778c715fc612c1c042ecdebf5b5cbe88b54a04e0e6ebda8f5b9190c393072e991
-  languageName: node
-  linkType: hard
-
-"sort-package-json@npm:^1.53.1":
+"sort-package-json@npm:1.53.1, sort-package-json@npm:^1.53.1":
   version: 1.53.1
   resolution: "sort-package-json@npm:1.53.1"
   dependencies:

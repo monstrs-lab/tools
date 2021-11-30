@@ -3312,8 +3312,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@monstrs/prettier-config", "workspace:prettier/config"],
             ["@monstrs/prettier-typescript-plugin", "workspace:prettier/typescript-plugin"],
-            ["prettier-plugin-packagejson", "virtual:51c2de43ae766ed0181028ead0e0a584a8a7244d60f021217c4ecf5be0b3b84d9f2d1209e199e1b4f1a1b0f5469565a7853f6b69f584856e0effb802c27d9c0b#npm:2.2.13"],
-            ["prettier-plugin-toml", "npm:0.3.1"]
+            ["prettier", "npm:2.4.1"],
+            ["prettier-plugin-packagejson", "virtual:51c2de43ae766ed0181028ead0e0a584a8a7244d60f021217c4ecf5be0b3b84d9f2d1209e199e1b4f1a1b0f5469565a7853f6b69f584856e0effb802c27d9c0b#npm:2.2.15"]
           ],
           "linkType": "SOFT",
         }]
@@ -3328,7 +3328,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["import-sort", "npm:6.0.0"],
             ["import-sort-parser-typescript", "npm:6.0.0"],
             ["import-sort-style", "npm:6.0.0"],
-            ["json-stringify", "npm:1.0.0"],
             ["prettier", "npm:2.4.1"],
             ["sort-package-json", "npm:1.53.1"]
           ],
@@ -3986,27 +3985,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@szmarczak/http-timer", "npm:4.0.5"],
             ["defer-to-connect", "npm:2.0.0"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["@toml-tools/lexer", [
-        ["npm:0.3.1", {
-          "packageLocation": "./.yarn/cache/@toml-tools-lexer-npm-0.3.1-fb17e55dd3-3fef79ce28.zip/node_modules/@toml-tools/lexer/",
-          "packageDependencies": [
-            ["@toml-tools/lexer", "npm:0.3.1"],
-            ["chevrotain", "npm:4.1.1"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["@toml-tools/parser", [
-        ["npm:0.3.1", {
-          "packageLocation": "./.yarn/cache/@toml-tools-parser-npm-0.3.1-92339187a3-c94918cf9f.zip/node_modules/@toml-tools/parser/",
-          "packageDependencies": [
-            ["@toml-tools/parser", "npm:0.3.1"],
-            ["@toml-tools/lexer", "npm:0.3.1"],
-            ["chevrotain", "npm:4.1.1"]
           ],
           "linkType": "HARD",
         }]
@@ -8562,14 +8540,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["chevrotain", [
-        ["npm:4.1.1", {
-          "packageLocation": "./.yarn/cache/chevrotain-npm-4.1.1-efb4d0cd87-209229115f.zip/node_modules/chevrotain/",
-          "packageDependencies": [
-            ["chevrotain", "npm:4.1.1"],
-            ["regexp-to-ast", "npm:0.3.5"]
-          ],
-          "linkType": "HARD",
-        }],
         ["npm:9.1.0", {
           "packageLocation": "./.yarn/cache/chevrotain-npm-9.1.0-9280f9d77f-632d0d7c69.zip/node_modules/chevrotain/",
           "packageDependencies": [
@@ -14243,16 +14213,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["json-stringify", [
-        ["npm:1.0.0", {
-          "packageLocation": "./.yarn/cache/json-stringify-npm-1.0.0-4c6c930c8b-e66c96d6ca.zip/node_modules/json-stringify/",
-          "packageDependencies": [
-            ["json-stringify", "npm:1.0.0"],
-            ["json-stringify-safe", "npm:5.0.1"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["json-stringify-safe", [
         ["npm:5.0.1", {
           "packageLocation": "./.yarn/cache/json-stringify-safe-npm-5.0.1-064ddd6ab4-48ec0adad5.zip/node_modules/json-stringify-safe/",
@@ -16352,13 +16312,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["prettier", [
-        ["npm:1.19.1", {
-          "packageLocation": "./.yarn/cache/prettier-npm-1.19.1-e56d246fd2-bc78219e0f.zip/node_modules/prettier/",
-          "packageDependencies": [
-            ["prettier", "npm:1.19.1"]
-          ],
-          "linkType": "HARD",
-        }],
         ["npm:2.4.1", {
           "packageLocation": "./.yarn/cache/prettier-npm-2.4.1-623aac91ee-cc6830588b.zip/node_modules/prettier/",
           "packageDependencies": [
@@ -16378,35 +16331,24 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["prettier-plugin-packagejson", [
-        ["npm:2.2.13", {
-          "packageLocation": "./.yarn/cache/prettier-plugin-packagejson-npm-2.2.13-bc627d8b97-6462d4a03b.zip/node_modules/prettier-plugin-packagejson/",
+        ["npm:2.2.15", {
+          "packageLocation": "./.yarn/cache/prettier-plugin-packagejson-npm-2.2.15-203c937e75-2cd79e9fba.zip/node_modules/prettier-plugin-packagejson/",
           "packageDependencies": [
-            ["prettier-plugin-packagejson", "npm:2.2.13"]
+            ["prettier-plugin-packagejson", "npm:2.2.15"]
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:51c2de43ae766ed0181028ead0e0a584a8a7244d60f021217c4ecf5be0b3b84d9f2d1209e199e1b4f1a1b0f5469565a7853f6b69f584856e0effb802c27d9c0b#npm:2.2.13", {
-          "packageLocation": "./.yarn/__virtual__/prettier-plugin-packagejson-virtual-7bb2312131/0/cache/prettier-plugin-packagejson-npm-2.2.13-bc627d8b97-6462d4a03b.zip/node_modules/prettier-plugin-packagejson/",
+        ["virtual:51c2de43ae766ed0181028ead0e0a584a8a7244d60f021217c4ecf5be0b3b84d9f2d1209e199e1b4f1a1b0f5469565a7853f6b69f584856e0effb802c27d9c0b#npm:2.2.15", {
+          "packageLocation": "./.yarn/__virtual__/prettier-plugin-packagejson-virtual-6b5f3dca97/0/cache/prettier-plugin-packagejson-npm-2.2.15-203c937e75-2cd79e9fba.zip/node_modules/prettier-plugin-packagejson/",
           "packageDependencies": [
-            ["prettier-plugin-packagejson", "virtual:51c2de43ae766ed0181028ead0e0a584a8a7244d60f021217c4ecf5be0b3b84d9f2d1209e199e1b4f1a1b0f5469565a7853f6b69f584856e0effb802c27d9c0b#npm:2.2.13"],
+            ["prettier-plugin-packagejson", "virtual:51c2de43ae766ed0181028ead0e0a584a8a7244d60f021217c4ecf5be0b3b84d9f2d1209e199e1b4f1a1b0f5469565a7853f6b69f584856e0effb802c27d9c0b#npm:2.2.15"],
             ["@types/prettier", null],
-            ["prettier", null],
-            ["sort-package-json", "npm:1.52.0"]
+            ["prettier", "npm:2.4.1"],
+            ["sort-package-json", "npm:1.53.1"]
           ],
           "packagePeers": [
             "@types/prettier",
             "prettier"
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["prettier-plugin-toml", [
-        ["npm:0.3.1", {
-          "packageLocation": "./.yarn/cache/prettier-plugin-toml-npm-0.3.1-a4a923f5b6-9c34cc4a35.zip/node_modules/prettier-plugin-toml/",
-          "packageDependencies": [
-            ["prettier-plugin-toml", "npm:0.3.1"],
-            ["@toml-tools/parser", "npm:0.3.1"],
-            ["prettier", "npm:1.19.1"]
           ],
           "linkType": "HARD",
         }]
@@ -17009,13 +16951,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["regexp-to-ast", [
-        ["npm:0.3.5", {
-          "packageLocation": "./.yarn/cache/regexp-to-ast-npm-0.3.5-58e437ff63-8b738a6da5.zip/node_modules/regexp-to-ast/",
-          "packageDependencies": [
-            ["regexp-to-ast", "npm:0.3.5"]
-          ],
-          "linkType": "HARD",
-        }],
         ["npm:0.5.0", {
           "packageLocation": "./.yarn/cache/regexp-to-ast-npm-0.5.0-1e96b9f3a0-72e32f2a12.zip/node_modules/regexp-to-ast/",
           "packageDependencies": [
@@ -17725,19 +17660,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["sort-package-json", [
-        ["npm:1.52.0", {
-          "packageLocation": "./.yarn/cache/sort-package-json-npm-1.52.0-372eca7406-0ac65776ec.zip/node_modules/sort-package-json/",
-          "packageDependencies": [
-            ["sort-package-json", "npm:1.52.0"],
-            ["detect-indent", "npm:6.1.0"],
-            ["detect-newline", "npm:3.1.0"],
-            ["git-hooks-list", "npm:1.0.3"],
-            ["globby", "npm:11.0.3"],
-            ["is-plain-obj", "npm:2.1.0"],
-            ["sort-object-keys", "npm:1.1.3"]
-          ],
-          "linkType": "HARD",
-        }],
         ["npm:1.53.1", {
           "packageLocation": "./.yarn/cache/sort-package-json-npm-1.53.1-ec8fc842d5-3bf0b1a625.zip/node_modules/sort-package-json/",
           "packageDependencies": [

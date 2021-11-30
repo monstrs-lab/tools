@@ -42,15 +42,25 @@ export class FormatterWorker {
 
         const { files } = workerData
 
-        Promise.all(files.map(async (filename) => {
-        const input = await readFile(filename, 'utf8')
+        const execution = new Promise(async (resolve, reject) => {
+          try {
+            for (const filename of files) {
+              const input = await readFile(filename, 'utf8')  
+    
+              const output = format(input, { ...config, filepath: filename })
+    
+              if (output !== input && output) {
+                await writeFile(filename, output, 'utf8')
+              }
+            }
+          } catch (error) {
+            reject(error)
+          }
 
-        const output = format(input, { ...config, filepath: filename })
+          resolve()
+        })
 
-        if (output !== input) {
-            await writeFile(filename, output, 'utf8')
-        }
-        })).then(() => parentPort.postMessage(''))
+        execution.then(() => parentPort.postMessage(''))
         `,
       {
         eval: true,

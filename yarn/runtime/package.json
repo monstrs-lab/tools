@@ -4,8 +4,8 @@
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
-    "require.js",
-    "dist"
+    "dist",
+    "require.js"
   ],
   "scripts": {
     "build": "yarn app library build",

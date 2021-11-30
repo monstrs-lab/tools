@@ -4,8 +4,8 @@
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
-    "tsconfig.stub.json",
-    "dist"
+    "dist",
+    "tsconfig.stub.json"
   ],
   "scripts": {
     "build": "yarn app library build",
