@@ -21,25 +21,28 @@ class AppServiceBuildCommand extends BaseCommand {
         configuration,
       },
       async (report) => {
-        const { errors, warnings } = await report.startTimerPromise('Service build', async () => {
-          const progress = new SpinnerProgress(this.context.stdout, configuration)
+        const { errors, warnings }: ServiceBuildResult = await report.startTimerPromise(
+          'Service build',
+          async () => {
+            const progress = new SpinnerProgress(this.context.stdout, configuration)
 
-          try {
-            progress.start()
+            try {
+              progress.start()
 
-            const result = await service.build()
+              const result = await service.build()
 
-            progress.end()
+              progress.end()
 
-            return result
-          } catch (error) {
-            progress.end()
+              return result
+            } catch (error) {
+              progress.end()
 
-            report.reportError(MessageName.UNNAMED, (error as any).message)
+              report.reportError(MessageName.UNNAMED, (error as any).message)
 
-            return { errors: [], warnings: [] }
+              return { errors: [], warnings: [] }
+            }
           }
-        })
+        )
 
         if (warnings.length > 0) {
           await report.startTimerPromise('Service Build Warnings:', async () => {

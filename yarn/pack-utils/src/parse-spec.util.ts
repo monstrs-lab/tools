@@ -14,7 +14,7 @@ export function parseSpec(
   const path = npath.toPortablePath(selector)
 
   const parentLocator =
-    params && typeof params.locator === `string` ? structUtils.parseLocator(params.locator) : null
+    params && typeof params.locator === 'string' ? structUtils.parseLocator(params.locator) : null
 
   return { parentLocator, path }
 }

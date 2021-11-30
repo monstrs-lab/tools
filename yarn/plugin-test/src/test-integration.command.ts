@@ -10,11 +10,11 @@ import { Tester }        from '@monstrs/code-test'
 class TestIntegrationCommand extends BaseCommand {
   static paths = [['test', 'integration']]
 
-  updateSnapshot = Option.Boolean(`-u,--update-shapshot`, false)
+  updateSnapshot = Option.Boolean('-u,--update-shapshot', false)
 
-  bail = Option.Boolean(`-b,--bail`, false)
+  bail = Option.Boolean('-b,--bail', false)
 
-  findRelatedTests = Option.Boolean(`--find-related-tests`, false)
+  findRelatedTests = Option.Boolean('--find-related-tests', false)
 
   files: Array<string> = Option.Rest({ required: 0 })
 

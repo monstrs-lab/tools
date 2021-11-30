@@ -10,6 +10,6 @@ process.env.NODE_OPTIONS = process.env.NODE_OPTIONS
   ? [process.env.NODE_OPTIONS, `--require ${__dirname}/../../../.pnp.cjs`].join(' ')
   : `--require ${__dirname}/../../../.pnp.cjs`
 
-global.YARN_VERSION = `${require(`@yarnpkg/cli/package.json`).version}.dev`
+global.YARN_VERSION = `${require('@yarnpkg/cli/package.json').version}.dev`
 
-module.exports = require(`./cli`)
+module.exports = require('./cli')

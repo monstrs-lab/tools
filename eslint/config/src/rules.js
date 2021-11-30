@@ -1,21 +1,3 @@
-/*
-'prettier/prettier': [
-        'error',
-        {
-          semi: false,
-          singleQuote: true,
-          tabWidth: 2,
-          jsxSingleQuote: true,
-          trailingComma: 'es5',
-          plugins: [
-            '/Users/andreylinko/workspace/lab/tools/prettier/typescript-plugin/src/index.ts',
-            '/Users/andreylinko/workspace/lab/tools/.yarn/__virtual__/prettier-plugin-packagejson-virtual-7bb2312131/0/cache/prettier-plugin-packagejson-npm-2.2.13-bc627d8b97-6462d4a03b.zip/node_modules/prettier-plugin-packagejson/lib/index.js',
-          ],
-          printWidth: 100,
-        },
-      ],
-      */
-
 module.exports = {
   'no-undef': ['off'],
   'brace-style': ['off', '1tbs', { allowSingleLine: true }],
@@ -850,7 +832,7 @@ module.exports = {
   'no-dupe-class-members': ['error'],
   'no-duplicate-imports': ['off'],
   'no-new-symbol': ['error'],
-  'no-restricted-exports': ['error', { restrictedNamedExports: ['default', 'then'] }],
+  'no-restricted-exports': ['error', { restrictedNamedExports: ['then'] }],
   'no-restricted-imports': ['off', { paths: [], patterns: [] }],
   'no-this-before-super': ['error'],
   'no-useless-computed-key': ['error'],

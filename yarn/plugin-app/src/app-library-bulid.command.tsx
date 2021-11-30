@@ -18,9 +18,9 @@ import { renderStatic }         from '@monstrs/cli-ui-renderer'
 class AppLibraryBuildCommand extends BaseCommand {
   static paths = [['app', 'library', 'build']]
 
-  target = Option.String(`-t,--target`, './dist')
+  target = Option.String('-t,--target', './dist')
 
-  source? = Option.String(`-s,--source`)
+  source? = Option.String('-s,--source')
 
   async execute() {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)

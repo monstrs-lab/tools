@@ -183,6 +183,7 @@ export class StartServerPlugin {
           name: this.options.entryName,
         }),
         this.options.entryName,
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
         () => {}
       )
     })

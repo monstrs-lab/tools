@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/quotes */
+/* eslint-disable global-require */
+
 import { Worker }      from 'node:worker_threads'
 
 import type { ESLint } from 'eslint'

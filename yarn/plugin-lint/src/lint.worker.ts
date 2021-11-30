@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/quotes */
+
 import { Worker } from 'node:worker_threads'
 
 export const lint = (cwd: string, files: Array<string>): Promise<Array<string>> =>
@@ -8,7 +10,7 @@ export const lint = (cwd: string, files: Array<string>): Promise<Array<string>> 
         const { workerData } = require('node:worker_threads')
         
         require(process.cwd() + '/.pnp.cjs').setup()
-        ${process.env.TOOLS_DEV_MODE ? `require('@monstrs/tools-setup-ts-execution')` : ''}
+        ${process.env.TOOLS_DEV_MODE ? `"require('@monstrs/tools-setup-ts-execution')"` : ''}
         
         const { Linter } = require('@monstrs/yarn-runtime')
         

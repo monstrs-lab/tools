@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/quotes */
+
 import { Worker }          from 'node:worker_threads'
 
 import type { Diagnostic } from 'typescript'
@@ -23,6 +25,7 @@ export class TypeScriptWorker {
   }
 
   static create(cwd: string, config, noEmit: boolean) {
+    // eslint-disable-next-line global-require
     const { typescript } = require('@monstrs/code-runtime')
 
     return new Worker(

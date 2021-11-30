@@ -59,7 +59,6 @@
   },
   "devDependencies": {
     "@monstrs/tools-setup-ts-execution": "workspace:0.0.1",
-    "@monstrs/yarn-testing": "workspace:0.0.1",
     "super-resolve": "^1.0.0"
   },
   "publishConfig": {

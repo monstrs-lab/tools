@@ -15,11 +15,12 @@
     "globby": "^11.0.4",
     "import-sort": "^6.0.0",
     "import-sort-parser-typescript": "^6.0.0",
-    "import-sort-style": "^6.0.0"
+    "import-sort-style": "^6.0.0",
+    "prettier": "^2.4.1",
+    "sort-package-json": "^1.53.1"
   },
   "devDependencies": {
-    "@types/node": "^16.11.6",
-    "prettier": "^2.4.1"
+    "@types/node": "^16.11.6"
   },
   "publishConfig": {
     "main": "dist/index.js",

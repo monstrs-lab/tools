@@ -1,3 +1,5 @@
+/* eslint-disable global-require */
+
 import { accessSync } from 'fs'
 import { join }       from 'path'
 

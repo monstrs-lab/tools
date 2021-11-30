@@ -48,7 +48,7 @@ export class Service {
     })
   }
 
-  async watch(plugins: Array<WebpackConfigPlugin> = [], callback?): Promise<Watching> {
+  async watch(plugins?: Array<WebpackConfigPlugin>, callback?): Promise<Watching> {
     return webpack(await createWebpackConfig(this.cwd, 'development', plugins)).watch(
       {},
       callback || (() => undefined)

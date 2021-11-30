@@ -14,7 +14,7 @@ import { StartServerPluginOptions } from '@monstrs/webpack-start-server-plugin'
 class AppServiceDevCommand extends BaseCommand {
   static paths = [['app', 'service', 'dev']]
 
-  prettyLogs = Option.Boolean(`-p,--pretty-logs`, true)
+  prettyLogs = Option.Boolean('-p,--pretty-logs', true)
 
   async execute() {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)

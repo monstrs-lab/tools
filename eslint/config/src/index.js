@@ -40,11 +40,11 @@ module.exports = {
       version: '17.0.2',
     },
     'import/parsers': {
-      [parser]: ['.ts', '.tsx', , '.mts', '.mtsx', '.d.ts'],
+      [parser]: ['.ts', '.tsx', '.mts', '.mtsx', '.d.ts'],
     },
     'import/resolver': {
       [resolver]: {
-        extensions: ['.mjs', , '.mts', '.mtsx', '.js', '.jsx', '.ts', '.tsx', '.json'],
+        extensions: ['.mjs', '.mts', '.mtsx', '.js', '.jsx', '.ts', '.tsx', '.json'],
       },
     },
     'import/extensions': ['.js', '.ts', '.mjs', '.jsx', '.tsx', '.mts', '.mtsx'],

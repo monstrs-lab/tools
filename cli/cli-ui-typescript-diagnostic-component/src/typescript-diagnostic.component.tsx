@@ -34,7 +34,7 @@ export const TypeScriptDiagnostic: FC<TypeScriptDiagnosticProps> = ({
     }
 
     return file.fileName
-  }, [file?.fileName])
+  }, [file])
 
   const position = useMemo(() => {
     if (!file?.lineMap) {

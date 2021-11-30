@@ -1,10 +1,7 @@
 import React             from 'react'
 import { Text }          from 'ink'
 import { Box }           from 'ink'
-import { Spacer }        from 'ink'
-import { Newline }       from 'ink'
 import { FC }            from 'react'
-import { useMemo }       from 'react'
 
 import { SourcePreview } from '@monstrs/cli-ui-source-component'
 
@@ -15,11 +12,17 @@ export interface ESLintResultMessageProps {
   column: number
 }
 
-export const ESLintResultMessage: FC<{
+export interface ESLintResultMessageElProp {
   filePath: string
   source?: string
   message: ESLintResultMessageProps
-}> = ({ filePath, message, source }) => (
+}
+
+export const ESLintResultMessage: FC<ESLintResultMessageElProp> = ({
+  filePath,
+  message,
+  source,
+}) => (
   <Box flexDirection='column'>
     <Box marginBottom={1}>
       <Text color='cyan'>

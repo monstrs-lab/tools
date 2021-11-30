@@ -56,12 +56,10 @@ export class SpinnerProgress {
   }
 
   private clear(complete = false) {
-    // eslint-disable-next-line @typescript-eslint/quotes
     this.stdout.write(`\x1b[${0}A`)
 
     if (complete) {
-      // eslint-disable-next-line @typescript-eslint/quotes
-      this.stdout.write(`\x1b[0J`)
+      this.stdout.write('\x1b[0J')
     }
   }
 }

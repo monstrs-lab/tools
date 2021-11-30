@@ -4,6 +4,6 @@ import { main }                   from '@yarnpkg/cli'
 import { getPluginConfiguration } from './tools'
 
 main({
-  binaryVersion: YarnVersion || `<unknown>`,
+  binaryVersion: YarnVersion || '<unknown>',
   pluginConfiguration: getPluginConfiguration(),
 })

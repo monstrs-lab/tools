@@ -25,6 +25,7 @@ export class Linter {
   }
 
   async lintFiles(files: Array<string> = []): Promise<Array<ESLint.LintResult>> {
+    // eslint-disable-next-line global-require
     const { eslintConfig } = require('@monstrs/code-runtime')
 
     const ignored = ignorer().add(ignore)

@@ -9,12 +9,13 @@ import { Service } from '../src'
 jest.setTimeout(10000)
 
 const closeWatcher = (watcher): Promise<void> =>
-  new Promise((resolve) =>
+  new Promise((resolve) => {
     watcher.close(() => {
       setTimeout(() => {
         resolve()
       }, 1000)
-    }))
+    })
+  })
 
 describe('service', () => {
   describe('watch', () => {

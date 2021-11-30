@@ -12,7 +12,7 @@ export const pack = async (
   { workspace, registry, publish, tagPolicy, builder, buildpack }: PackOptions,
   context
 ): Promise<PackOutputs> => {
-  const repo = workspace.replace('@', '').replace(new RegExp('/', 'g'), '-')
+  const repo = workspace.replace('@', '').replace(/\//g, '-')
   const image = `${registry}${repo}`
 
   const tag = await getTag(tagPolicy)

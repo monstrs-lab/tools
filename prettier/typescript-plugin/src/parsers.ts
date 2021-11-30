@@ -2,6 +2,7 @@ import { parsers as typescriptParsers } from 'prettier/parser-typescript'
 
 import { parser as sort }               from './import-sort'
 import { parser as split }              from './import-split-specifiers'
+import { parser as jsonStringify } from './packagejson'
 
 export const parsers = {
   typescript: {
@@ -10,4 +11,5 @@ export const parsers = {
     ...split,
     ...sort,
   },
+  ['json-stringify']: jsonStringify
 }

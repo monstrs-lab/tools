@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/quotes */
+
 import { Worker } from 'node:worker_threads'
 
 export const format = (cwd: string, files: Array<string>): Promise<void> =>
@@ -8,7 +10,7 @@ export const format = (cwd: string, files: Array<string>): Promise<void> =>
         const { workerData } = require('node:worker_threads')
         
         require(process.cwd() + '/.pnp.cjs').setup()
-        ${process.env.TOOLS_DEV_MODE ? `require('@monstrs/tools-setup-ts-execution')` : ''}
+        ${process.env.TOOLS_DEV_MODE ? `"require('@monstrs/tools-setup-ts-execution')"` : ''}
         
         const { Formatter } = require('@monstrs/yarn-runtime')
         

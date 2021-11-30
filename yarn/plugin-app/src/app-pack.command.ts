@@ -12,15 +12,15 @@ import { pack }          from '@monstrs/code-pack'
 class AppPackCommand extends BaseCommand {
   static paths = [['app', 'pack']]
 
-  registry: string = Option.String(`-r,--registry`, { required: true })
+  registry: string = Option.String('-r,--registry', { required: true })
 
-  tagPolicy?: TagPolicy = Option.String(`-t,--tag-policy`)
+  tagPolicy?: TagPolicy = Option.String('-t,--tag-policy')
 
-  publish: boolean = Option.Boolean(`-p,--publish`, false)
+  publish: boolean = Option.Boolean('-p,--publish', false)
 
-  builder?: string = Option.String(`--builder`)
+  builder?: string = Option.String('--builder')
 
-  buildpack?: string = Option.String(`--buildpack`)
+  buildpack?: string = Option.String('--buildpack')
 
   async execute() {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)

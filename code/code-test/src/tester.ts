@@ -1,3 +1,6 @@
+/* eslint-disable import/no-dynamic-require */
+/* eslint-disable global-require */
+
 import { join }                   from 'node:path'
 
 import { AggregatedResult }       from '@jest/test-result'
@@ -5,8 +8,6 @@ import { Config }                 from '@jest/types'
 
 import { buildIntegrationConfig } from './jest.config'
 import { buildUnitConfig }        from './jest.config'
-
-//import { jestCore }               from '@monstrs/code-runtime'
 
 export class Tester {
   constructor(private readonly cwd: string) {
