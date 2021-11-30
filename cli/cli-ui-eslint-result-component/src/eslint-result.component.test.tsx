@@ -8,8 +8,7 @@ import { ESLintResult } from './eslint-result.component'
 describe('eslint result component', () => {
   it('render', () => {
     const value = {
-      filePath:
-        '/Users/andreylinko/workspace/lab/tools/yarn/cli/src/tools/getPluginConfiguration.ts',
+      filePath: `${process.cwd()}/yarn/cli/src/tools/getPluginConfiguration.ts`,
       messages: [
         {
           ruleId: '@typescript-eslint/quotes',

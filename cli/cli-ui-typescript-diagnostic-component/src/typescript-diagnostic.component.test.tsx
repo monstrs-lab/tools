@@ -9,8 +9,7 @@ describe('eslint result component', () => {
   it('render', () => {
     const value = {
       file: {
-        fileName:
-          '/Users/andreylinko/workspace/lab/tools/cli/cli-ui-typescript-diagnostic-component/src/b.ts',
+        fileName: `${process.cwd()}/cli/cli-ui-typescript-diagnostic-component/src/b.ts`,
         text: "const n = (s: number) => s\nn('asdfasdfasd')\n",
         lineMap: [0, 27, 44],
       },
