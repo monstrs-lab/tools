@@ -2,8 +2,9 @@ import deepmerge                from 'deepmerge'
 import type { Diagnostic }      from 'typescript'
 import type { CompilerOptions } from 'typescript'
 
+import tsconfig                 from '@monstrs/config-typescript'
+
 import { TypeScriptWorker }     from './typescript.worker'
-import { tsconfig }             from './typescript.config'
 
 class TypeScript {
   constructor(private readonly cwd: string) {}

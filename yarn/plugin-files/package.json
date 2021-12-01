@@ -13,7 +13,7 @@
     "postpack": "rm -rf dist"
   },
   "devDependencies": {
-    "@monstrs/github-actions-utils": "workspace:0.0.18",
+    "@monstrs/github-actions-utils": "workspace:0.0.20",
     "@yarnpkg/builder": "3.1.0",
     "@yarnpkg/cli": "^3.2.0-rc.6",
     "@yarnpkg/core": "^3.2.0-rc.6",

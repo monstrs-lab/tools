@@ -1,4 +1,4 @@
-export const tsconfig = {
+export default {
   compilerOptions: {
     lib: ['dom', 'dom.iterable', 'esnext'],
 

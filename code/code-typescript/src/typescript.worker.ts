@@ -27,6 +27,8 @@ export class TypeScriptWorker {
   static create(cwd: string, config, noEmit: boolean) {
     // eslint-disable-next-line global-require
     const { typescript } = require('@monstrs/code-runtime')
+    // eslint-disable-next-line global-require
+    const { flatted } = require('@monstrs/code-runtime')
 
     return new Worker(
       `
@@ -41,6 +43,7 @@ export class TypeScriptWorker {
               } catch {}
 
               const ts = require('${typescript}')
+              const { parse, stringify } = require('${flatted}')
       
               const { config, cwd, noEmit } = workerData
       
@@ -55,8 +58,9 @@ export class TypeScriptWorker {
                 })
         
                 const result = program.emit()
-        
-                parentPort.postMessage(ts.getPreEmitDiagnostics(program).concat(result.diagnostics))
+                const diagnostics = ts.getPreEmitDiagnostics(program).concat(result.diagnostics)
+
+                parentPort.postMessage(parse(stringify(diagnostics)))
               }
               `,
       {

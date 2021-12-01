@@ -140,6 +140,7 @@ export function computeLineOfPosition(lineStarts: number[], position: number, lo
 
 export const computeLineAndCharacterOfPosition = (lineStarts: Array<number>, position: number) => {
   const lineNumber = computeLineOfPosition(lineStarts, position)
+
   return {
     line: lineNumber,
     character: position - lineStarts[lineNumber],

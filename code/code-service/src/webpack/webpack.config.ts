@@ -2,7 +2,7 @@ import Config                from 'webpack-chain'
 import path                  from 'path'
 import webpack               from 'webpack'
 
-import { tsconfig }          from '@monstrs/code-typescript'
+import tsconfig              from '@monstrs/config-typescript'
 
 import { getExternals }      from './externals'
 import { getResolveAliases } from './resolve'

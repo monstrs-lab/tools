@@ -1,13 +1,21 @@
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable global-require */
 
-import { join }                   from 'node:path'
+import { accessSync }       from 'node:fs'
+import { join }             from 'node:path'
 
-import { AggregatedResult }       from '@jest/test-result'
-import { Config }                 from '@jest/types'
+import { AggregatedResult } from '@jest/test-result'
+import { Config }           from '@jest/types'
 
-import { buildIntegrationConfig } from './jest.config'
-import { buildUnitConfig }        from './jest.config'
+const isFileExists = (file) => {
+  try {
+    accessSync(file)
+
+    return true
+  } catch {
+    return false
+  }
+}
 
 export class Tester {
   constructor(private readonly cwd: string) {
@@ -31,6 +39,8 @@ export class Tester {
   }
 
   async unit(options?: Partial<Config.Argv>, files?: string[]): Promise<AggregatedResult> {
+    const { unit } = require(require('@monstrs/code-runtime').jestConfig)
+
     const argv: any = {
       rootDir: this.cwd,
       ci: false,
@@ -41,7 +51,7 @@ export class Tester {
       passWithNoTests: true,
       runTestsByPath: false,
       testLocationInResults: true,
-      config: JSON.stringify(buildUnitConfig(this.cwd)),
+      config: JSON.stringify(unit),
       maxConcurrency: 5,
       notifyMode: 'failure-change',
       _: files || [],
@@ -56,7 +66,18 @@ export class Tester {
   }
 
   async integration(options?: Partial<Config.Argv>, files?: string[]): Promise<AggregatedResult> {
+    const { integration } = require(require('@monstrs/code-runtime').jestConfig)
+
     process.env.TS_JEST_DISABLE_VER_CHECKER = 'true'
+
+    const global = {
+      globalSetup: isFileExists(join(this.cwd, '.config/test/integration/setup.ts'))
+        ? join(this.cwd, '.config/test/integration/setup.ts')
+        : undefined,
+      globalTeardown: isFileExists(join(this.cwd, '.config/test/integration/teardown.ts'))
+        ? join(this.cwd, '.config/test/integration/teardown.ts')
+        : undefined,
+    }
 
     const argv: any = {
       rootDir: this.cwd,
@@ -68,7 +89,7 @@ export class Tester {
       passWithNoTests: true,
       runTestsByPath: false,
       testLocationInResults: true,
-      config: JSON.stringify(buildIntegrationConfig(this.cwd)),
+      config: JSON.stringify({ ...integration, ...global }),
       maxConcurrency: 5,
       notifyMode: 'failure-change',
       _: files || [],

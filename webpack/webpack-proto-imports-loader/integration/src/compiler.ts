@@ -7,7 +7,7 @@ import { Volume }             from 'memfs'
 import { Stats }              from 'webpack'
 import { createFsFromVolume } from 'memfs'
 
-import { tsconfig }           from '@monstrs/code-typescript'
+import tsconfig               from '@monstrs/config-typescript'
 
 export const compiler = (fixture): Promise<Stats> => {
   const config = new Config()

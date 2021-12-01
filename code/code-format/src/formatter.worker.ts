@@ -38,7 +38,7 @@ export class FormatterWorker {
         ${process.env.TOOLS_DEV_MODE ? `require('@monstrs/tools-setup-ts-execution')` : ''}
 
         const { format } = require('${prettier}')
-        const config = require('${prettierConfig}')
+        const config = require('${prettierConfig}').default
 
         const { files } = workerData
 

@@ -41,13 +41,12 @@ export class LinterWorker {
 
         const { ESLint } = require('${eslint}')
         const { eslintPlugins } = require('@monstrs/code-runtime')
+        const baseConfig = require('${eslintConfig}').default
 
         const { files, config } = workerData
 
         const eslint = new ESLint({
-          baseConfig: {
-            extends: ['${eslintConfig}']
-          },
+          baseConfig,
           plugins: eslintPlugins
         })
 

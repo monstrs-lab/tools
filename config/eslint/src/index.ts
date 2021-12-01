@@ -1,11 +1,11 @@
-const prettierConfig = require('@monstrs/prettier-config')
+import prettierConfig from '@monstrs/config-prettier'
+
+import rules          from './rules'
 
 const parser = require.resolve('@typescript-eslint/parser')
 const resolver = require.resolve('eslint-import-resolver-node')
 
-const rules = require('./rules')
-
-module.exports = {
+export default {
   parser,
   env: { node: true, browser: true, jest: true, es6: true },
   globals: {},

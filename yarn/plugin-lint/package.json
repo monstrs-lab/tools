@@ -13,10 +13,10 @@
     "postpack": "rm -rf dist"
   },
   "devDependencies": {
-    "@monstrs/cli-ui-error-info-component": "workspace:0.0.1",
-    "@monstrs/cli-ui-eslint-result-component": "workspace:0.0.5",
-    "@monstrs/cli-ui-renderer": "workspace:0.0.17",
-    "@monstrs/code-lint": "workspace:0.0.106",
+    "@monstrs/cli-ui-error-info-component": "workspace:0.0.3",
+    "@monstrs/cli-ui-eslint-result-component": "workspace:0.0.7",
+    "@monstrs/cli-ui-renderer": "workspace:0.0.19",
+    "@monstrs/code-lint": "workspace:0.0.108",
     "@monstrs/yarn-run-utils": "workspace:0.0.1",
     "@yarnpkg/builder": "3.1.0",
     "@yarnpkg/cli": "^3.2.0-rc.6",
