@@ -1,9 +1,10 @@
 import { relative }       from 'node:path'
 import { join }           from 'node:path'
 
+import type { ESLint }    from 'eslint'
+
 import globby             from 'globby'
 import ignorer            from 'ignore'
-import type { ESLint }    from 'eslint'
 
 import { LinterWorker }   from './linter.worker'
 import { ignore }         from './linter.patterns'

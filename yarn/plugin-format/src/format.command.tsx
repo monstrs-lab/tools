@@ -38,7 +38,7 @@ class FormatCommand extends BaseCommand {
             progress.end()
           } catch (error) {
             progress.end()
-
+            console.log(error)
             renderStatic(<ErrorInfo error={error as Error} />, process.stdout.columns - 12)
               .split('\n')
               .forEach((line) => {

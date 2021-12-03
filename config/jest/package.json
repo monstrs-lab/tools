@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/config-jest",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -13,16 +13,16 @@
   },
   "dependencies": {
     "@emotion/jest": "^11.5.0",
-    "@monstrs/config-typescript": "workspace:0.0.3",
+    "@monstrs/config-typescript": "workspace:0.0.4",
     "@monstrs/jest-pnp-resolver": "0.0.1",
     "jest-static-stubs": "^0.0.1",
     "ts-jest": "^27.0.7"
   },
+  "devDependencies": {
+    "@types/node": "^16.11.11"
+  },
   "publishConfig": {
     "main": "dist/index.js",
     "typings": "dist/index.d.ts"
-  },
-  "devDependencies": {
-    "@types/node": "^16.11.11"
   }
 }

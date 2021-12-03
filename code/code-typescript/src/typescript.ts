@@ -1,6 +1,7 @@
-import deepmerge                from 'deepmerge'
 import type { Diagnostic }      from 'typescript'
 import type { CompilerOptions } from 'typescript'
+
+import deepmerge                from 'deepmerge'
 
 import tsconfig                 from '@monstrs/config-typescript'
 

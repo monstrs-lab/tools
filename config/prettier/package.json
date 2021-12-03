@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/config-prettier",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -12,15 +12,14 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/prettier-typescript-plugin": "workspace:0.0.7",
     "prettier": "^2.4.1",
     "prettier-plugin-packagejson": "^2.2.13"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.11"
   },
   "publishConfig": {
     "main": "dist/index.js",
     "typings": "dist/index.d.ts"
-  },
-  "devDependencies": {
-    "@types/node": "^16.11.11"
   }
 }

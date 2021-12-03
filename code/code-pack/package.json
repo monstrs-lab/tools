@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-pack",
-  "version": "0.0.96",
+  "version": "0.0.97",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@iarna/toml": "^2.2.5",
-    "@monstrs/github-actions-utils": "workspace:0.0.20",
+    "@monstrs/github-actions-utils": "workspace:0.0.21",
     "@yarnpkg/core": "^3.2.0-rc.6",
     "@yarnpkg/fslib": "^2.6.1-rc.1"
   },

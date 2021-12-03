@@ -1,12 +1,12 @@
 import { IStyleAPI }            from 'import-sort-style'
 import { IStyleItem }           from 'import-sort-style'
 
-import { isWorkspaceModule }    from './api'
-import { isNodeModule }         from './api'
-import { isOrganizationModule } from './api'
+import { isWorkspaceModule }    from './import-sort.api'
+import { isNodeModule }         from './import-sort.api'
+import { isOrganizationModule } from './import-sort.api'
+import { isImportType }         from './import-sort.api'
 
-// eslint-disable-next-line func-names
-export default function (styleApi: IStyleAPI): IStyleItem[] {
+export const style = (styleApi: IStyleAPI): IStyleItem[] => {
   const {
     and,
     hasDefaultMember,
@@ -44,6 +44,104 @@ export default function (styleApi: IStyleAPI): IStyleItem[] {
 
     // import 'node:*'
     { match: isNodeModule, sort: moduleName(naturally) },
+    { separator: true },
+
+    // import * as _ from 'bar';
+    {
+      match: and(hasOnlyNamespaceMember, isImportType, not(member(startsWithAlphanumeric))),
+      sort: moduleName(naturally),
+    },
+    // import * as Foo from 'bar';
+    {
+      match: and(hasOnlyNamespaceMember, isImportType, member(startsWithUpperCase)),
+      sort: moduleName(naturally),
+    },
+    // import * as foo from 'bar';
+    {
+      match: and(hasOnlyNamespaceMember, isImportType, member(startsWithLowerCase)),
+      sort: moduleName(naturally),
+    },
+
+    // import _, * as bar from 'baz';
+    {
+      match: and(
+        hasDefaultMember,
+        hasNamespaceMember,
+        isImportType,
+        not(member(startsWithAlphanumeric))
+      ),
+      sort: moduleName(naturally),
+    },
+    // import Foo, * as bar from 'baz';
+    {
+      match: and(hasDefaultMember, hasNamespaceMember, isImportType, member(startsWithUpperCase)),
+      sort: moduleName(naturally),
+    },
+    // import foo, * as bar from 'baz';
+    {
+      match: and(hasDefaultMember, hasNamespaceMember, isImportType, member(startsWithUpperCase)),
+      sort: moduleName(naturally),
+    },
+
+    // import _ from 'bar';
+    {
+      match: and(hasOnlyDefaultMember, isImportType, not(member(startsWithAlphanumeric))),
+      sort: moduleName(naturally),
+    },
+    // import Foo from 'bar';
+    {
+      match: and(hasOnlyDefaultMember, isImportType, member(startsWithUpperCase)),
+      sort: moduleName(naturally),
+    },
+    // import foo from 'bar';
+    {
+      match: and(hasOnlyDefaultMember, isImportType, member(startsWithLowerCase)),
+      sort: moduleName(naturally),
+    },
+
+    // import _, {bar, …} from 'baz';
+    {
+      match: and(
+        hasDefaultMember,
+        hasNamedMembers,
+        isImportType,
+        not(member(startsWithAlphanumeric))
+      ),
+      sort: moduleName(naturally),
+      sortNamedMembers: alias(unicode),
+    },
+    // import Foo, {bar, …} from 'baz';
+    {
+      match: and(hasDefaultMember, hasNamedMembers, isImportType, member(startsWithUpperCase)),
+      sort: moduleName(naturally),
+      sortNamedMembers: alias(unicode),
+    },
+    // import foo, {bar, …} from 'baz';
+    {
+      match: and(hasDefaultMember, hasNamedMembers, isImportType, member(startsWithLowerCase)),
+      sort: moduleName(naturally),
+      sortNamedMembers: alias(unicode),
+    },
+
+    // import {_, bar, …} from 'baz';
+    {
+      match: and(hasOnlyNamedMembers, isImportType, not(member(startsWithAlphanumeric))),
+      sort: moduleName(naturally),
+      sortNamedMembers: alias(unicode),
+    },
+    // import {Foo, bar, …} from 'baz';
+    {
+      match: and(hasOnlyNamedMembers, isImportType, member(startsWithUpperCase)),
+      sort: moduleName(naturally),
+      sortNamedMembers: alias(unicode),
+    },
+    // import {foo, bar, …} from 'baz';
+    {
+      match: and(hasOnlyNamedMembers, isImportType, member(startsWithLowerCase)),
+      sort: moduleName(naturally),
+      sortNamedMembers: alias(unicode),
+    },
+
     { separator: true },
 
     // import * as _ from '@foo/bar';

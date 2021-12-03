@@ -1,5 +1,7 @@
 import { readFileSync }     from 'node:fs'
 
+import type { ESLint }      from 'eslint'
+
 import { BaseCommand }      from '@yarnpkg/cli'
 import { StreamReport }     from '@yarnpkg/core'
 import { Configuration }    from '@yarnpkg/core'
@@ -8,7 +10,6 @@ import { Project }          from '@yarnpkg/core'
 import { codeFrameColumns } from '@babel/code-frame'
 
 import React                from 'react'
-import type { ESLint }      from 'eslint'
 
 import { ESLintResult }     from '@monstrs/cli-ui-eslint-result-component'
 import { Linter }           from '@monstrs/code-lint'

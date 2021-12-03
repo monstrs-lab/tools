@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/cli-ui-stack-trace-component",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -12,8 +12,8 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/cli-ui-renderer": "workspace:0.0.19",
-    "@monstrs/cli-ui-source-component": "workspace:0.0.18",
+    "@monstrs/cli-ui-renderer": "workspace:0.0.20",
+    "@monstrs/cli-ui-source-component": "workspace:0.0.19",
     "@monstrs/stack-trace": "^0.0.4"
   },
   "devDependencies": {

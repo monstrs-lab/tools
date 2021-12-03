@@ -1,4 +1,5 @@
 import type { AggregatedResult } from '@jest/test-result'
+
 import { BaseCommand }           from '@yarnpkg/cli'
 
 import { AnnotationLevel }       from './github.checks'

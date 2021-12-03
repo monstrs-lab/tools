@@ -16,7 +16,7 @@
     "globby": "11.0.3"
   },
   "devDependencies": {
-    "@monstrs/code-runtime": "workspace:0.0.7",
+    "@monstrs/code-runtime": "workspace:0.0.8",
     "@monstrs/tools-setup-ts-execution": "workspace:0.0.1",
     "@types/jest": "^27.0.2",
     "@types/node": "^16.11.6",
