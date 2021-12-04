@@ -12,13 +12,14 @@ import { workerData } from 'worker_threads'
 
 import config         from '@monstrs/config-prettier'
 
-//import packagejsonplugin from "prettier-plugin-packagejson"
-
 const { files } = workerData
 
+// eslint-disable-next-line no-async-promise-executor
 const execution = new Promise(async (resolve, reject) => {
   try {
+    // eslint-disable-next-line no-restricted-syntax
     for (const filename of files) {
+      // eslint-disable-next-line no-await-in-loop
       const input = await promises.readFile(filename, 'utf8')
 
       const output = format(input, {
@@ -28,6 +29,7 @@ const execution = new Promise(async (resolve, reject) => {
       })
 
       if (output !== input && output) {
+        // eslint-disable-next-line no-await-in-loop
         await promises.writeFile(filename, output, 'utf8')
       }
     }

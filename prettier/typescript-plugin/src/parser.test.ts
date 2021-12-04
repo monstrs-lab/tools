@@ -13,16 +13,16 @@ import type d from './i5'
 import { e } from './i4'
 import type { c } from './i3'
 import { fs } from 'node:fs'
+// Before1
+// Before2
 import { some } from '@org/repo' // some
 // After
 `
 
-    const res = format(source, {
+    format(source, {
       parser: 'typescript',
       plugins: [babel, typescript, plugin],
     })
-
-    console.log(res)
 
     expect(true).toBe(true)
   })

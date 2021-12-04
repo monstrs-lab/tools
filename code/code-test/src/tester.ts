@@ -1,26 +1,12 @@
-/* eslint-disable import/no-dynamic-require */
 /* eslint-disable global-require */
 
-import { accessSync }       from 'node:fs'
 import { join }             from 'node:path'
 
-import { AggregatedResult } from '@jest/test-result'
-import type { Config }           from '@jest/types'
+import type { Config }      from '@jest/types'
 
-import { integration }      from '@monstrs/config-jest'
-import { unit }             from '@monstrs/config-jest'
+import { AggregatedResult } from '@jest/test-result'
 
 import { TesterWorker }     from './tester.worker'
-
-const isFileExists = (file) => {
-  try {
-    accessSync(file)
-
-    return true
-  } catch {
-    return false
-  }
-}
 
 export class Tester {
   constructor(private readonly cwd: string) {

@@ -1,23 +1,26 @@
-import { ESLint }     from 'eslint'
-import { parentPort } from 'worker_threads'
-import { workerData } from 'worker_threads'
+import typescriptEslint       from '@typescript-eslint/eslint-plugin'
 
-import baseConfig     from '@monstrs/config-eslint'
+import jsxA11y                from 'eslint-plugin-jsx-a11y'
+import react                  from 'eslint-plugin-react'
+import reactHooks             from 'eslint-plugin-react-hooks'
+import eslintPluginReactHooks from 'eslint-plugin-react-hooks'
+import { ESLint }             from 'eslint'
+import { parentPort }         from 'worker_threads'
+import { workerData }         from 'worker_threads'
+
+import baseConfig             from '@monstrs/config-eslint'
 
 const plugins = {
-  //import: require('eslint-plugin-import'),
-  react: require('eslint-plugin-react'),
-  'jsx-a11y': require('eslint-plugin-jsx-a11y'),
-  'react-hooks': require('eslint-plugin-react-hooks'),
-  '@typescript-eslint': require('@typescript-eslint/eslint-plugin'),
-  //prettier: require('eslint-plugin-prettier'),
-  'eslint-plugin-react-hooks': require('eslint-plugin-react-hooks'),
+  react,
+  'jsx-a11y': jsxA11y,
+  'react-hooks': reactHooks,
+  '@typescript-eslint': typescriptEslint,
+  'eslint-plugin-react-hooks': eslintPluginReactHooks,
 }
 
 const { files } = workerData
 
 const eslint = new ESLint({
-  // @ts-ignore
   baseConfig,
   plugins,
 })

@@ -1,4 +1,3 @@
-/* eslint-disable import/no-dynamic-require */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable global-require */
 

@@ -4,13 +4,18 @@
 import { join }                  from 'node:path'
 import { Worker }                from 'node:worker_threads'
 
-import type { Config }           from '@jest/types'
 import type { AggregatedResult } from '@jest/test-result'
+import type { Config }           from '@jest/types'
 
 import { getContent }            from './tester.worker.content'
 
 export class TesterWorker {
-  static async run(cwd: string, type: 'integration' | 'unit', options?: Partial<Config.Argv>, files?: Array<string>): Promise<AggregatedResult> {
+  static async run(
+    cwd: string,
+    type: 'integration' | 'unit',
+    options?: Partial<Config.Argv>,
+    files?: Array<string>
+  ): Promise<AggregatedResult> {
     return new Promise((resolve, reject) => {
       const pnpPath = process.versions.pnp
         ? require('module').findPnpApi(__filename).resolveRequest('pnpapi', null)

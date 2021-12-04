@@ -40,8 +40,30 @@ export class ImportSortParser implements IParser {
         )
 
         if (lineComment) {
+          // eslint-disable-next-line prefer-destructuring
           imp.end = lineComment.range[1]
-          imp.importEnd = lineComment.range[1]
+        }
+
+        const findLeadingComments = (position: number) => {
+          const leadingComment = this.program.comments.find(comment => comment.loc.start.line === position)
+
+          if (!leadingComment) {
+            return []
+          }
+
+          const parents = findLeadingComments(leadingComment.loc.start.line - 1)
+
+
+          return [
+            ...parents,
+            leadingComment
+          ]
+        }
+
+        const leadingComments = findLeadingComments(node.loc.start.line - 1)
+
+        if (leadingComments.length > 0) {
+          imp.start = leadingComments.at(0).range[0]
         }
 
         return imp
@@ -100,6 +122,8 @@ export class ImportSortParser implements IParser {
     prefix: string | undefined,
     eol = '\n'
   ): string {
+    /* eslint-disable prefer-template */
+
     if (useMultipleLines) {
       return (
         '{' +
@@ -139,5 +163,6 @@ export class ImportSortParser implements IParser {
       space +
       '}'
     )
+    /* eslint-enable prefer-template */
   }
 }

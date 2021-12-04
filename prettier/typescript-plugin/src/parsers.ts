@@ -1,4 +1,6 @@
 import sortImports                      from 'import-sort'
+import sortPackageJson                  from 'sort-package-json'
+import { parsers as babelParsers }      from 'prettier/parser-babel'
 import { parsers as typescriptParsers } from 'prettier/parser-typescript'
 
 import { ImportSortParser }             from './import-sort'
@@ -32,9 +34,11 @@ const parse = (source, _, { plugins }) => {
 
         program.body.splice(index, 1)
 
-        node.specifiers.forEach((specifier, specifierIndex) => {
+        // eslint-disable-next-line no-shadow
+        node.specifiers.forEach((_, specifierIndex) => {
           program.body.splice(index + specifierIndex, 0, {
             ...node,
+            // eslint-disable-next-line no-shadow
             specifiers: node.specifiers.filter((_, i) => specifierIndex === i),
           })
         })
@@ -51,5 +55,18 @@ export const parsers = {
     astFormat: 'typescript-custom',
     preprocess,
     parse,
+  },
+  'json-stringify': {
+    ...babelParsers['json-stringify'],
+    preprocess(text, options) {
+      if (babelParsers['json-stringify'].preprocess) {
+        // eslint-disable-next-line no-param-reassign
+        text = babelParsers['json-stringify'].preprocess(text, options)
+      }
+
+      return options.filepath && /(^|\\|\/)package\.json$/.test(options.filepath)
+        ? sortPackageJson(text)
+        : text
+    },
   },
 }

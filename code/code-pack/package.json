@@ -14,11 +14,11 @@
   "dependencies": {
     "@iarna/toml": "^2.2.5",
     "@monstrs/github-actions-utils": "workspace:0.0.21",
-    "@yarnpkg/core": "^3.2.0-rc.6",
-    "@yarnpkg/fslib": "^2.6.1-rc.1"
+    "@yarnpkg/core": "^3.2.0-rc.7",
+    "@yarnpkg/fslib": "^2.6.1-rc.2"
   },
   "devDependencies": {
-    "@types/node": "^16.11.6"
+    "@types/node": "^16.11.11"
   },
   "publishConfig": {
     "main": "dist/index.js",

@@ -15,7 +15,17 @@ export class LinterWorker {
         ? require('module').findPnpApi(__filename).resolveRequest('pnpapi', null)
         : join(process.cwd(), '.pnp.cjs')
 
-      const worker = new Worker([`require('${pnpPath}').setup()`, getContent()].join('\n'), {
+      const content: Array<string> = []
+
+      content.push(`require('${pnpPath}').setup()`)
+
+      if (process.env.TOOLS_DEV_MODE) {
+        content.push(`require('@monstrs/tools-setup-ts-execution')\n`)
+      }
+
+      content.push(getContent())
+
+      const worker = new Worker(content.join('\n'), {
         eval: true,
         workerData: {
           files,

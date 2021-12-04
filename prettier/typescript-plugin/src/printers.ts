@@ -6,12 +6,12 @@ let printer
 
 format('const n = 5;', {
   plugins: [babel, typescript],
-  parser(text, { typescript }, options) {
-    const plugin: any = options.plugins.find((x: any) => x.printers && x.printers.estree)
+  parser(text, { typescript: ts }, options) {
+    const plugin = options.plugins.find((x) => x.printers && x.printers.estree)
 
     printer = plugin.printers.estree
 
-    return typescript(text)
+    return ts(text)
   },
 })
 

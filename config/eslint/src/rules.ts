@@ -1,4 +1,6 @@
-export default {
+import type { Linter } from 'eslint'
+
+const rules: Linter.RulesRecord = {
   'no-undef': ['off'],
   'brace-style': ['off', '1tbs', { allowSingleLine: true }],
   '@typescript-eslint/brace-style': ['error', '1tbs', { allowSingleLine: true }],
@@ -118,19 +120,6 @@ export default {
   quotes: ['off', 'single', { avoidEscape: true }],
   '@typescript-eslint/quotes': ['error', 'single', { avoidEscape: true }],
   semi: ['off', 'always'],
-  /*
-  'import/extensions': [
-    'error',
-    'ignorePackages',
-    {
-      js: 'never',
-      mjs: 'never',
-      jsx: 'never',
-      ts: 'never',
-      tsx: 'never',
-    },
-  ],
-  */
   '@typescript-eslint/naming-convention': [
     'error',
     {
@@ -164,20 +153,6 @@ export default {
       enforceForClassFields: true,
     },
   ],
-  /*
-  'import/no-cycle': [0, { maxDepth: '∞', ignoreExternal: false }],
-  'import/no-duplicates': [0],
-  'import/no-unresolved': [
-    0,
-    {
-      commonjs: true,
-      caseSensitive: true,
-      caseSensitiveStrict: false,
-    },
-  ],
-  'import/prefer-default-export': [0],
-  'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
-  */
   'jsx-a11y/html-has-lang': [0],
   'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
   'react/jsx-props-no-spreading': [
@@ -770,74 +745,6 @@ export default {
   'react/no-arrow-function-lifecycle': ['error'],
   'react/no-invalid-html-attribute': ['error'],
   'react/no-unused-class-component-methods': ['error'],
-  /*
-  'import/named': ['error'],
-  'import/default': ['off'],
-  'import/namespace': ['off'],
-  'import/export': ['error'],
-  'import/no-named-as-default': ['error'],
-  'import/no-named-as-default-member': ['error'],
-  'import/no-deprecated': ['off'],
-  'import/no-mutable-exports': ['error'],
-  'import/no-commonjs': ['off'],
-  'import/no-amd': ['error'],
-  'import/no-nodejs-modules': ['off'],
-  'import/first': ['error'],
-  'import/imports-first': ['off'],
-  'import/no-namespace': ['off'],
-  'import/order': [
-    'error',
-    {
-      groups: [['builtin', 'external', 'internal']],
-      warnOnUnassignedImports: false,
-    },
-  ],
-  'import/newline-after-import': ['error'],
-  'import/no-restricted-paths': ['off'],
-  'import/max-dependencies': ['off', { max: 10 }],
-  'import/no-absolute-path': ['error'],
-  'import/no-dynamic-require': ['error'],
-  'import/no-internal-modules': ['off', { allow: [] }],
-  'import/unambiguous': ['off'],
-  'import/no-webpack-loader-syntax': ['error'],
-  'import/no-unassigned-import': ['off'],
-  'import/no-named-default': ['error'],
-  'import/no-anonymous-default-export': [
-    'off',
-    {
-      allowArray: false,
-      allowArrowFunction: false,
-      allowAnonymousClass: false,
-      allowAnonymousFunction: false,
-      allowLiteral: false,
-      allowObject: false,
-    },
-  ],
-  'import/exports-last': ['off'],
-  'import/group-exports': ['off'],
-  'import/no-default-export': ['off'],
-  'import/no-named-export': ['off'],
-  'import/no-self-import': ['error'],
-  'import/no-useless-path-segments': ['error', { commonjs: true }],
-  'import/dynamic-import-chunkname': [
-    'off',
-    {
-      importFunctions: [],
-      webpackChunknameFormat: '[0-9a-zA-Z-_/.]+',
-    },
-  ],
-  'import/no-relative-parent-imports': ['off'],
-  'import/no-unused-modules': [
-    'off',
-    {
-      ignoreExports: [],
-      missingExports: true,
-      unusedExports: true,
-    },
-  ],
-  'import/no-import-module-exports': ['error', { exceptions: [] }],
-  'import/no-relative-packages': ['error'],
-  */
   strict: ['error', 'never'],
   'arrow-body-style': ['error', 'as-needed', { requireReturnForObjectLiteral: false }],
   'constructor-super': ['error'],
@@ -1282,3 +1189,5 @@ export default {
   'vars-on-top': ['error'],
   yoda: ['error'],
 }
+
+export default rules
