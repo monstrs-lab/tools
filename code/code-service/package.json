@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "@types/file-loader": "5.0.1",
-    "@types/jest": "^27.0.2",
+    "@types/jest": "^27.0.3",
     "@types/node": "^16.11.6",
     "@types/protocol-buffers-schema": "3.4.1",
     "@types/wait-for-localhost": "3.1.0",

@@ -12,7 +12,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@emotion/jest": "^11.5.0",
+    "@emotion/jest": "^11.6.0",
     "@monstrs/config-typescript": "workspace:0.0.4",
     "@monstrs/jest-pnp-resolver": "0.0.1",
     "jest-static-stubs": "^0.0.1",

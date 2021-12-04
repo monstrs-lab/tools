@@ -1,14 +1,27 @@
 /* eslint-disable @typescript-eslint/quotes */
 /* eslint-disable global-require */
 
+import { join }        from 'node:path'
 import { Worker }      from 'node:worker_threads'
 
 import type { ESLint } from 'eslint'
 
+import { getContent }  from './linter.worker.content'
+
 export class LinterWorker {
   static async run(files: Array<string>, config): Promise<Array<ESLint.LintResult>> {
     return new Promise((resolve, reject) => {
-      const worker = LinterWorker.create(files, config)
+      const pnpPath = process.versions.pnp
+        ? require('module').findPnpApi(__filename).resolveRequest('pnpapi', null)
+        : join(process.cwd(), '.pnp.cjs')
+
+      const worker = new Worker([`require('${pnpPath}').setup()`, getContent()].join('\n'), {
+        eval: true,
+        workerData: {
+          files,
+          config,
+        },
+      })
 
       const exitHandler = (code: number) => {
         if (code !== 0) reject(new Error(`Worker stopped with exit code ${code}`))

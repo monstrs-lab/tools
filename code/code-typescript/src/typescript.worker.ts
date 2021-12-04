@@ -1,13 +1,27 @@
 /* eslint-disable @typescript-eslint/quotes */
 
+import { join }            from 'node:path'
 import { Worker }          from 'node:worker_threads'
 
 import type { Diagnostic } from 'typescript'
 
+import { getContent }      from './typescript.worker.content'
+
 export class TypeScriptWorker {
   static async run(cwd: string, config, noEmit: boolean): Promise<Array<Diagnostic>> {
     return new Promise((resolve, reject) => {
-      const worker = TypeScriptWorker.create(cwd, config, noEmit)
+      const pnpPath = process.versions.pnp
+        ? require('module').findPnpApi(__filename).resolveRequest('pnpapi', null)
+        : join(process.cwd(), '.pnp.cjs')
+
+      const worker = new Worker([`require('${pnpPath}').setup()`, getContent()].join('\n'), {
+        eval: true,
+        workerData: {
+          cwd,
+          config,
+          noEmit,
+        },
+      })
 
       const exitHandler = (code: number) => {
         if (code !== 0) reject(new Error(`Worker stopped with exit code ${code}`))
@@ -22,55 +36,5 @@ export class TypeScriptWorker {
       worker.once('error', reject)
       worker.once('exit', exitHandler)
     })
-  }
-
-  static create(cwd: string, config, noEmit: boolean) {
-    // eslint-disable-next-line global-require
-    const { typescript } = require('@monstrs/code-runtime')
-    // eslint-disable-next-line global-require
-    const { flatted } = require('@monstrs/code-runtime')
-
-    return new Worker(
-      `
-              const { parentPort } = require('node:worker_threads')
-              const { workerData } = require('node:worker_threads')
-              const { writeFile } = require('node:fs/promises')
-              const { readFile } = require('node:fs/promises')
-              
-              try {
-                require(process.cwd() + '/.pnp.cjs').setup()
-                ${process.env.TOOLS_DEV_MODE ? `require('@monstrs/tools-setup-ts-execution')` : ''}
-              } catch {}
-
-              const ts = require('${typescript}')
-              const { parse, stringify } = require('${flatted}')
-      
-              const { config, cwd, noEmit } = workerData
-      
-              const { fileNames, options, errors } = ts.parseJsonConfigFileContent(config, ts.sys, cwd)
-      
-              if (errors?.length > 0) {
-                parentPort.postMessage(errors)
-              } else {
-                const program = ts.createProgram(fileNames, {
-                  ...options,
-                  noEmit,
-                })
-        
-                const result = program.emit()
-                const diagnostics = ts.getPreEmitDiagnostics(program).concat(result.diagnostics)
-
-                parentPort.postMessage(parse(stringify(diagnostics)))
-              }
-              `,
-      {
-        eval: true,
-        workerData: {
-          cwd,
-          config,
-          noEmit,
-        },
-      }
-    )
   }
 }

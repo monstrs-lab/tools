@@ -15,7 +15,7 @@
     "@monstrs/cli-ui-stack-trace-component": "workspace:0.0.20"
   },
   "devDependencies": {
-    "@types/jest": "^27.0.2",
+    "@types/jest": "^27.0.3",
     "@types/node": "^16.11.6",
     "@types/react": "^17.0.34",
     "ink": "^3.2.0",

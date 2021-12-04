@@ -32,7 +32,7 @@ export const ESLintResult: FC<ESLintResultProps> = ({ filePath, source, messages
     <Box flexDirection='column'>
       {messages.map((message) => (
         <ESLintResultMessage
-          key={`${message.line}-${message.column}`}
+          key={`${message.ruleId}-${message.line}-${message.column}`}
           filePath={filepath}
           message={message}
           source={source}

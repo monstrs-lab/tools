@@ -5,7 +5,12 @@ import { accessSync }       from 'node:fs'
 import { join }             from 'node:path'
 
 import { AggregatedResult } from '@jest/test-result'
-import { Config }           from '@jest/types'
+import type { Config }           from '@jest/types'
+
+import { integration }      from '@monstrs/config-jest'
+import { unit }             from '@monstrs/config-jest'
+
+import { TesterWorker }     from './tester.worker'
 
 const isFileExists = (file) => {
   try {
@@ -25,81 +30,26 @@ export class Tester {
   private prepareEnv() {
     process.env.TS_JEST_DISABLE_VER_CHECKER = 'true'
 
-    if (process.versions.pnp) {
-      const pnpPath = require('module').findPnpApi(__filename).resolveRequest('pnpapi', null)
+    const pnpPath = this.getPnpApiPath()
 
-      process.env.NODE_OPTIONS = process.env.NODE_OPTIONS
-        ? [process.env.NODE_OPTIONS, `--require ${pnpPath}`].join(' ')
-        : `--require ${pnpPath}`
-    } else {
-      process.env.NODE_OPTIONS = process.env.NODE_OPTIONS
-        ? [process.env.NODE_OPTIONS, `--require ${join(process.cwd(), '.pnp.cjs')}`].join(' ')
-        : `--require ${join(process.cwd(), '.pnp.cjs')}`
+    process.env.NODE_OPTIONS = process.env.NODE_OPTIONS
+      ? [process.env.NODE_OPTIONS, `--require ${pnpPath}`].join(' ')
+      : `--require ${pnpPath}`
+  }
+
+  private getPnpApiPath() {
+    if (process.versions.pnp) {
+      return require('module').findPnpApi(__filename).resolveRequest('pnpapi', null)
     }
+
+    return join(process.cwd(), '.pnp.cjs')
   }
 
   async unit(options?: Partial<Config.Argv>, files?: string[]): Promise<AggregatedResult> {
-    const { unit } = require(require('@monstrs/code-runtime').jestConfig)
-
-    const argv: any = {
-      rootDir: this.cwd,
-      ci: false,
-      detectLeaks: false,
-      detectOpenHandles: false,
-      errorOnDeprecated: false,
-      listTests: false,
-      passWithNoTests: true,
-      runTestsByPath: false,
-      testLocationInResults: true,
-      config: JSON.stringify(unit),
-      maxConcurrency: 5,
-      notifyMode: 'failure-change',
-      _: files || [],
-      ...options,
-    }
-
-    const { results } = await require(require('@monstrs/code-runtime').jestCore).runCLI(argv, [
-      this.cwd,
-    ])
-
-    return results
+    return TesterWorker.run(this.cwd, 'unit', options, files)
   }
 
   async integration(options?: Partial<Config.Argv>, files?: string[]): Promise<AggregatedResult> {
-    const { integration } = require(require('@monstrs/code-runtime').jestConfig)
-
-    process.env.TS_JEST_DISABLE_VER_CHECKER = 'true'
-
-    const global = {
-      globalSetup: isFileExists(join(this.cwd, '.config/test/integration/setup.ts'))
-        ? join(this.cwd, '.config/test/integration/setup.ts')
-        : undefined,
-      globalTeardown: isFileExists(join(this.cwd, '.config/test/integration/teardown.ts'))
-        ? join(this.cwd, '.config/test/integration/teardown.ts')
-        : undefined,
-    }
-
-    const argv: any = {
-      rootDir: this.cwd,
-      ci: false,
-      detectLeaks: false,
-      detectOpenHandles: false,
-      errorOnDeprecated: false,
-      listTests: false,
-      passWithNoTests: true,
-      runTestsByPath: false,
-      testLocationInResults: true,
-      config: JSON.stringify({ ...integration, ...global }),
-      maxConcurrency: 5,
-      notifyMode: 'failure-change',
-      _: files || [],
-      ...options,
-    }
-
-    const { results } = await require(require('@monstrs/code-runtime').jestCore).runCLI(argv, [
-      this.cwd,
-    ])
-
-    return results
+    return TesterWorker.run(this.cwd, 'integration', options, files)
   }
 }

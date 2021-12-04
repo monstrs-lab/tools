@@ -118,6 +118,7 @@ export default {
   quotes: ['off', 'single', { avoidEscape: true }],
   '@typescript-eslint/quotes': ['error', 'single', { avoidEscape: true }],
   semi: ['off', 'always'],
+  /*
   'import/extensions': [
     'error',
     'ignorePackages',
@@ -129,6 +130,7 @@ export default {
       tsx: 'never',
     },
   ],
+  */
   '@typescript-eslint/naming-convention': [
     'error',
     {
@@ -162,6 +164,7 @@ export default {
       enforceForClassFields: true,
     },
   ],
+  /*
   'import/no-cycle': [0, { maxDepth: '∞', ignoreExternal: false }],
   'import/no-duplicates': [0],
   'import/no-unresolved': [
@@ -174,6 +177,7 @@ export default {
   ],
   'import/prefer-default-export': [0],
   'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+  */
   'jsx-a11y/html-has-lang': [0],
   'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
   'react/jsx-props-no-spreading': [
@@ -766,6 +770,7 @@ export default {
   'react/no-arrow-function-lifecycle': ['error'],
   'react/no-invalid-html-attribute': ['error'],
   'react/no-unused-class-component-methods': ['error'],
+  /*
   'import/named': ['error'],
   'import/default': ['off'],
   'import/namespace': ['off'],
@@ -832,6 +837,7 @@ export default {
   ],
   'import/no-import-module-exports': ['error', { exceptions: [] }],
   'import/no-relative-packages': ['error'],
+  */
   strict: ['error', 'never'],
   'arrow-body-style': ['error', 'as-needed', { requireReturnForObjectLiteral: false }],
   'constructor-super': ['error'],
