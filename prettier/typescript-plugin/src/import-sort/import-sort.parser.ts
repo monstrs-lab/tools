@@ -45,7 +45,9 @@ export class ImportSortParser implements IParser {
         }
 
         const findLeadingComments = (position: number) => {
-          const leadingComment = this.program.comments.find(comment => comment.loc.start.line === position)
+          const leadingComment = this.program.comments.find(
+            (comment) => comment.loc.start.line === position
+          )
 
           if (!leadingComment) {
             return []
@@ -53,16 +55,13 @@ export class ImportSortParser implements IParser {
 
           const parents = findLeadingComments(leadingComment.loc.start.line - 1)
 
-
-          return [
-            ...parents,
-            leadingComment
-          ]
+          return [...parents, leadingComment]
         }
 
         const leadingComments = findLeadingComments(node.loc.start.line - 1)
 
         if (leadingComments.length > 0) {
+          // eslint-disable-next-line prefer-destructuring
           imp.start = leadingComments.at(0).range[0]
         }
 

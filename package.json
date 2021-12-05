@@ -2,6 +2,7 @@
   "name": "tools",
   "private": true,
   "workspaces": [
+    "schematics/**/*",
     "prettier/**/*",
     "buildpack/*",
     "code/**/*",
@@ -20,6 +21,7 @@
     "@monstrs/code-runtime": "workspace:0.0.8",
     "@monstrs/config-eslint": "workspace:0.0.4",
     "@monstrs/config-jest": "workspace:0.0.4",
+    "@monstrs/schematics-workspace": "^0.1.45",
     "@monstrs/tools-setup-ts-execution": "workspace:0.0.1",
     "@types/eslint": "^8.2.1",
     "@types/jest": "^27.0.3",

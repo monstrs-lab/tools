@@ -32,6 +32,7 @@
     "yarn/**/*",
     "github/**/*",
     "prettier/**/*",
-    "eslint/**/*"
+    "eslint/**/*",
+    "schematics/**/*"
   ]
 }

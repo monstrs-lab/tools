@@ -1,0 +1,11 @@
+{
+  "name": "@monstrs/schematics",
+  "version": "0.1",
+  "schematics": {
+    "project": {
+      "factory": "./src/project/project.factory#main",
+      "schema": "./src/project/schema.json",
+      "description": "Project schematic"
+    }
+  }
+}

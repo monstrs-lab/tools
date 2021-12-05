@@ -1,10 +1,10 @@
 {
-  "name": "@monstrs/config-jest",
-  "version": "0.0.4",
+  "name": "@monstrs/code-schematics",
+  "version": "0.0.1",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
-    "src"
+    "dist"
   ],
   "scripts": {
     "build": "yarn app library build",
@@ -12,13 +12,11 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@emotion/jest": "^11.6.0",
-    "@monstrs/config-typescript": "workspace:0.0.4",
-    "@monstrs/jest-pnp-resolver": "0.0.1",
-    "jest-static-stubs": "^0.0.1",
-    "ts-jest": "^27.1.0"
+    "@angular-devkit/core": "^13.0.4",
+    "@angular-devkit/schematics": "^13.0.4"
   },
   "devDependencies": {
+    "@monstrs/schematics": "workspace:0.0.1",
     "@types/node": "^16.11.11"
   },
   "publishConfig": {
