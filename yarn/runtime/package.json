@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/yarn-runtime",
-  "version": "0.0.8",
+  "version": "0.0.10",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -13,12 +13,12 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/code-commit": "workspace:0.0.8",
-    "@monstrs/code-format": "workspace:0.0.96",
-    "@monstrs/code-lint": "workspace:0.0.109",
-    "@monstrs/code-service": "workspace:0.0.103",
-    "@monstrs/code-test": "workspace:0.0.105",
-    "@monstrs/code-typescript": "workspace:0.0.108"
+    "@monstrs/code-commit": "workspace:0.0.10",
+    "@monstrs/code-format": "workspace:0.0.98",
+    "@monstrs/code-lint": "workspace:0.0.111",
+    "@monstrs/code-service": "workspace:0.0.105",
+    "@monstrs/code-test": "workspace:0.0.107",
+    "@monstrs/code-typescript": "workspace:0.0.110"
   },
   "publishConfig": {
     "main": "dist/index.js",

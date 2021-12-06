@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-runtime",
-  "version": "0.0.8",
+  "version": "0.0.10",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -13,9 +13,9 @@
   },
   "dependencies": {
     "@jest/core": "^27.4.3",
-    "@monstrs/config-eslint": "workspace:0.0.4",
-    "@monstrs/config-jest": "workspace:0.0.4",
-    "@monstrs/config-prettier": "workspace:0.0.4",
+    "@monstrs/config-eslint": "workspace:0.0.6",
+    "@monstrs/config-jest": "workspace:0.0.6",
+    "@monstrs/config-prettier": "workspace:0.0.6",
     "@typescript-eslint/parser": "^5.5.0",
     "eslint": "^8.4.0",
     "flatted": "^3.2.4",

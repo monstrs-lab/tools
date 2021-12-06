@@ -7,15 +7,13 @@ import { template }  from '@angular-devkit/schematics'
 import { url }       from '@angular-devkit/schematics'
 
 const generate = (options): Source => {
-  const path = './'
-
   return apply(url('./files'), [
     template({
       ...strings,
       ...options,
       dot: '.',
     }),
-    move(path),
+    move('./'),
   ])
 }
 

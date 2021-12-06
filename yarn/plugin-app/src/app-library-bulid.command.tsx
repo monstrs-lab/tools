@@ -1,4 +1,5 @@
 import { access }               from 'node:fs/promises'
+import { join } from 'node:path'
 
 import { BaseCommand }          from '@yarnpkg/cli'
 import { Configuration }        from '@yarnpkg/core'
@@ -20,8 +21,6 @@ class AppLibraryBuildCommand extends BaseCommand {
 
   target = Option.String('-t,--target', './dist')
 
-  source? = Option.String('-s,--source')
-
   async execute() {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
 
@@ -39,11 +38,11 @@ class AppLibraryBuildCommand extends BaseCommand {
           progress.start()
 
           try {
-            const ts = new TypeScript(this.source || this.context.cwd)
+            const ts = new TypeScript(configuration.projectCwd!)
 
-            const diagnostics = await ts.build(['./src'], {
+            const diagnostics = await ts.build([join(this.context.cwd, './src')], {
+              outDir: join(this.context.cwd, this.target),
               module: 'commonjs' as any,
-              outDir: this.target,
               declaration: true,
             })
 

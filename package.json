@@ -14,25 +14,44 @@
     "cli/*"
   ],
   "resolutions": {
-    "globby": "11.0.3"
+    "globby": "11.0.3",
+    "clipanion": "3.1.0",
+    "@yarnpkg/core": "3.1.0",
+    "@yarnpkg/cli": "3.1.0",
+    "@yarnpkg/builder@3.1.0": "patch:@yarnpkg/builder@npm:3.1.0#.yarn/patches/@yarnpkg-builder-npm-3.1.0-b2d93b39bf"
   },
   "devDependencies": {
+    "@angular-devkit/core": "^13.0.4",
+    "@angular-devkit/schematics": "^13.0.4",
     "@jest/core": "^27.4.3",
-    "@monstrs/code-runtime": "workspace:0.0.8",
-    "@monstrs/config-eslint": "workspace:0.0.4",
-    "@monstrs/config-jest": "workspace:0.0.4",
-    "@monstrs/schematics-workspace": "^0.1.45",
+    "@monstrs/code-runtime": "workspace:0.0.10",
+    "@monstrs/config-eslint": "workspace:0.0.6",
+    "@monstrs/config-jest": "workspace:0.0.6",
+    "@monstrs/schematics": "workspace:0.0.3",
     "@monstrs/tools-setup-ts-execution": "workspace:0.0.1",
     "@types/eslint": "^8.2.1",
     "@types/jest": "^27.0.3",
     "@types/node": "^16.11.11",
     "@typescript-eslint/eslint-plugin": "^5.5.0",
     "@typescript-eslint/parser": "^5.5.0",
+    "@yarnpkg/builder": "^3.1.0",
     "eslint": "^8.4.0",
     "eslint-import-resolver-node": "^0.3.6",
     "espree": "^9.2.0",
     "husky": "7.0.4",
+    "readable-stream": "^3.6.0",
     "typescript": "^4.5.2"
   },
-  "packageManager": "yarn@3.1.0"
+  "packageManager": "yarn@3.1.0",
+  "dependenciesMeta": {
+    "@angular-devkit/core@13.0.4": {
+      "unplugged": true
+    },
+    "@angular-devkit/schematics@13.0.4": {
+      "unplugged": true
+    },
+    "ora@5.4.1": {
+      "unplugged": true
+    }
+  }
 }

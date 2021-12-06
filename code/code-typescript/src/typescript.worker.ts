@@ -13,10 +13,18 @@ export class TypeScriptWorker {
           require('module').findPnpApi(__filename).resolveRequest('pnpapi', null)
         : join(process.cwd(), '.pnp.cjs')
 
-      const worker = new Worker([`require('${pnpPath}').setup()`, getContent()].join('\n'), {
+      const content: Array<string> = []
+
+      content.push(`require('${pnpPath}').setup()`)
+      content.push(getContent())
+
+      const originalCwd = process.cwd()
+      process.chdir(cwd)
+
+      const worker = new Worker(content.join('\n'), {
         eval: true,
         workerData: {
-          cwd,
+          cwd: originalCwd,
           config,
           noEmit,
         },
@@ -27,8 +35,11 @@ export class TypeScriptWorker {
       }
 
       worker.once('message', (result) => {
+        process.chdir(originalCwd)
+
         worker.off('error', reject)
         worker.off('exit', exitHandler)
+
         resolve(result)
       })
 
