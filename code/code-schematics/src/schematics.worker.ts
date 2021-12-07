@@ -1,30 +1,36 @@
-import { join }            from 'node:path'
+import { join }       from 'node:path'
 import { Worker }     from 'node:worker_threads'
 
 import { getContent } from './schematics.worker.content'
 
 export interface SchematicsWorkerRunOptions {
-  type: 'generate' | 'migrate',
-  cwd: string,
-  force: boolean,
-  dryRun: boolean,
-  schematicName: string,
-  migrationVersion: string,
+  type: 'generate' | 'migrate'
+  cwd: string
+  force: boolean
+  dryRun: boolean
+  schematicName: string
+  migrationVersion: string
   options: object
 }
 
 export class SchematicsWorker {
   static async run(options: Partial<SchematicsWorkerRunOptions>) {
     return new Promise((resolve, reject) => {
-        const pnpPath = process.versions.pnp
+      const pnpPath = process.versions.pnp
         ? // eslint-disable-next-line global-require
           require('module').findPnpApi(__filename).resolveRequest('pnpapi', null)
         : join(process.cwd(), '.pnp.cjs')
 
-        const content: Array<string> = []
+      const content: Array<string> = []
 
-        content.push(`require('${pnpPath}').setup()`)
-        content.push(getContent())
+      content.push(`require('${pnpPath}').setup()`)
+
+      if (process.env.TOOLS_DEV_MODE) {
+        // eslint-disable-next-line @typescript-eslint/quotes
+        content.push(`require('@monstrs/tools-setup-ts-execution')\n`)
+      }
+
+      content.push(getContent())
 
       const worker = new Worker(content.join('\n'), {
         eval: true,

@@ -1,14 +1,15 @@
-import { dirname }            from 'node:path'
-import { join }               from 'node:path'
+import { dirname }             from 'node:path'
+import { join }                from 'node:path'
 
-import { NodeJsSyncHost }     from '@angular-devkit/core/node'
-import { NodeWorkflow }       from '@angular-devkit/schematics/tools'
-import { normalize }          from '@angular-devkit/core'
-import { virtualFs }          from '@angular-devkit/core'
+import { Path }                from '@angular-devkit/core'
+import { NodeJsSyncHost }      from '@angular-devkit/core/node'
+import { NodeWorkflow }        from '@angular-devkit/schematics/tools'
+import { virtualFs }           from '@angular-devkit/core'
 
 import { MigrationEngineHost } from './migration-engine.host'
-import { expandCollections }  from './utils'
-import { resolveSchematics }  from './utils'
+import { NodePnpEngineHost }   from './node-pnp-engine.host'
+import { expandCollections }   from './utils'
+import { resolveSchematics }   from './utils'
 
 export class SchematicsRunner {
   constructor(
@@ -17,19 +18,28 @@ export class SchematicsRunner {
     private readonly dryRun = false
   ) {}
 
-  init(schematic: string, options = {}) {
-    const workflow = new NodeWorkflow(this.cwd, {
+  async init(schematic: string, options = {}) {
+    const host = new virtualFs.ScopedHost(new NodeJsSyncHost(), this.cwd as Path)
+
+    // @ts-ignore
+    const workflow = new NodeWorkflow(host, {
       force: this.force,
       dryRun: this.dryRun,
       resolvePaths: [this.cwd],
       schemaValidation: true,
+      engineHostCreator: ({ resolvePaths }) => new NodePnpEngineHost(resolvePaths),
     })
 
-    return workflow
+    const collection = resolveSchematics(this.cwd)
+
+    await workflow
       .execute({
-        collection: resolveSchematics(this.cwd),
+        collection,
         schematic,
-        options,
+        options: {
+          ...options,
+          cwd: this.cwd,
+        },
         allowPrivate: false,
         debug: true,
       })
@@ -37,12 +47,13 @@ export class SchematicsRunner {
   }
 
   async migrate(schematicName: string, migrationVersion: string, options = {}) {
-    const host = new virtualFs.ScopedHost(new NodeJsSyncHost(), normalize(this.cwd))
+    const host = new virtualFs.ScopedHost(new NodeJsSyncHost(), this.cwd as Path)
 
+    // @ts-ignore
     const workflow = new NodeWorkflow(host, {
       force: true,
       dryRun: false,
-      engineHostCreator: (options) => new MigrationEngineHost()
+      engineHostCreator: ({ resolvePaths }) => new MigrationEngineHost(resolvePaths),
     })
 
     const collections = expandCollections(this.cwd, resolveSchematics(this.cwd), schematicName)

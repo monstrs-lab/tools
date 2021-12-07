@@ -30,6 +30,8 @@ export default {
 
     sourceMap: false,
 
+    allowJs: true,
+
     module: 'commonjs',
     target: 'es2021',
 

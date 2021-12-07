@@ -1,1 +1,1 @@
-export * from './project.factory'
+export * from './project.interfaces'

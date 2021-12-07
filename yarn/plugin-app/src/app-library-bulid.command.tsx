@@ -1,5 +1,5 @@
 import { access }               from 'node:fs/promises'
-import { join } from 'node:path'
+import { join }                 from 'node:path'
 
 import { BaseCommand }          from '@yarnpkg/cli'
 import { Configuration }        from '@yarnpkg/core'

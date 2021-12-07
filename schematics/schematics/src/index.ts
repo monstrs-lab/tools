@@ -1,1 +1,1 @@
-export const SCHEMATICS = []
+export * from './project'

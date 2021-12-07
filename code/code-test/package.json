@@ -34,7 +34,7 @@
     "builtin-modules": "^3.2.0",
     "esbuild": "^0.14.2",
     "jest-haste-map": "^27.4.2",
-    "rollup": "^2.43.0",
+    "rollup": "^2.60.2",
     "rollup-plugin-analyzer": "^4.0.0",
     "rollup-plugin-esbuild": "^4.7.2",
     "rollup-plugin-node-externals": "^2.2.0",

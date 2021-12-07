@@ -23,8 +23,6 @@ const wrapOutput = () => ({
 
 export default [
   {
-    //external: ['pnpapi', '@angular-devkit/schematics', '@angular-devkit/core', '@angular-devkit/core/node', '@angular-devkit/schematics/tools'],
-    //external: ['pnpapi', 'readable-stream'],
     external: ['pnpapi'],
     input: './src/schematics.worker.source.ts',
     output: {
@@ -44,13 +42,17 @@ export default [
       replace({
         delimiters: ['', ''],
         values: {
-          'require(\'readable-stream/transform\')': 'require(\'stream\').Transform',
+          "require('readable-stream/transform')": "require('stream').Transform",
           'require("readable-stream/transform")': 'require("stream").Transform',
-          'readable-stream': 'stream'
-        }
+          'readable-stream': 'stream',
+        },
       }),
       esbuild({ tsconfig: false, target: 'node12' }),
-      cjs({ transformMixedEsModules: true, extensions: ['.js', '.ts'] }),
+      cjs({
+        transformMixedEsModules: true,
+        extensions: ['.js', '.ts'],
+        ignoreDynamicRequires: true,
+      }),
       json(),
       wrapOutput(),
     ],
