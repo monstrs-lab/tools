@@ -13,7 +13,6 @@
     "postpack": "rm -rf dist"
   },
   "devDependencies": {
-    "@cenk1cenk2/cz-cc": "^1.4.10",
     "@monstrs/cli-ui-git-commit-component": "workspace:0.0.11",
     "@monstrs/code-commit": "workspace:0.0.11",
     "@yarnpkg/builder": "patch:@yarnpkg/builder@^3.1.0#../../.yarn/patches/@yarnpkg-builder-npm-3.1.0-b2d93b39bf",

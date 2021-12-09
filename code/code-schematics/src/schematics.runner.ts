@@ -3,6 +3,7 @@ import { join }                from 'node:path'
 
 import { Path }                from '@angular-devkit/core'
 import { NodeJsSyncHost }      from '@angular-devkit/core/node'
+import { DryRunEvent }         from '@angular-devkit/schematics'
 import { NodeWorkflow }        from '@angular-devkit/schematics/tools'
 import { virtualFs }           from '@angular-devkit/core'
 
@@ -18,6 +19,16 @@ export class SchematicsRunner {
     private readonly dryRun = false
   ) {}
 
+  private createReport(workflow: NodeWorkflow): Array<DryRunEvent> {
+    const events: Array<DryRunEvent> = []
+
+    workflow.reporter.subscribe((event) => {
+      events.push(event)
+    })
+
+    return events
+  }
+
   async init(schematic: string, options = {}) {
     const host = new virtualFs.ScopedHost(new NodeJsSyncHost(), this.cwd as Path)
 
@@ -32,6 +43,12 @@ export class SchematicsRunner {
 
     const collection = resolveSchematics(this.cwd)
 
+    const events: Array<DryRunEvent> = []
+
+    workflow.reporter.subscribe((event) => {
+      events.push(event)
+    })
+
     await workflow
       .execute({
         collection,
@@ -40,10 +57,12 @@ export class SchematicsRunner {
           ...options,
           cwd: this.cwd,
         },
-        allowPrivate: false,
+        allowPrivate: true,
         debug: true,
       })
       .toPromise()
+
+    return events
   }
 
   async migrate(schematicName: string, migrationVersion: string, options = {}) {
@@ -54,6 +73,12 @@ export class SchematicsRunner {
       force: true,
       dryRun: false,
       engineHostCreator: ({ resolvePaths }) => new MigrationEngineHost(resolvePaths),
+    })
+
+    const events: Array<DryRunEvent> = []
+
+    workflow.reporter.subscribe((event) => {
+      events.push(event)
     })
 
     const collections = expandCollections(this.cwd, resolveSchematics(this.cwd), schematicName)
@@ -93,9 +118,14 @@ export class SchematicsRunner {
           collection: migration.collection,
           schematic: migration.schematic,
           debug: false,
-          options,
+          options: {
+            ...options,
+            cwd: this.cwd,
+          },
         })
         .toPromise()
     }
+
+    return events
   }
 }

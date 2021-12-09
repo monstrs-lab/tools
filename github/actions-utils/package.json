@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@octokit/types": "^6.34.0",
-    "@types/node": "^16.11.11"
+    "@types/node": "^16.11.12"
   },
   "publishConfig": {
     "main": "dist/index.js",

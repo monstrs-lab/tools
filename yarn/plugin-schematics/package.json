@@ -13,9 +13,12 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
+    "@monstrs/cli-ui-error-info-component": "workspace:0.0.7",
     "@monstrs/cli-ui-parts": "workspace:0.0.2",
+    "@monstrs/cli-ui-renderer": "workspace:0.0.23",
     "@monstrs/cli-ui-schematics-component": "workspace:0.0.2",
     "@monstrs/code-schematics": "workspace:0.0.4",
+    "@monstrs/yarn-run-utils": "workspace:0.0.1",
     "force-stdin-tty": "^0.0.1"
   },
   "devDependencies": {

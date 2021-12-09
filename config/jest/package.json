@@ -16,10 +16,10 @@
     "@monstrs/config-typescript": "workspace:0.0.7",
     "@monstrs/jest-pnp-resolver": "0.0.1",
     "jest-static-stubs": "^0.0.1",
-    "ts-jest": "^27.1.0"
+    "ts-jest": "^27.1.1"
   },
   "devDependencies": {
-    "@types/node": "^16.11.11"
+    "@types/node": "^16.11.12"
   },
   "publishConfig": {
     "main": "dist/index.js",

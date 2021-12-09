@@ -17,11 +17,11 @@
     "import-sort-parser": "^6.0.0",
     "import-sort-parser-typescript": "^6.0.0",
     "import-sort-style": "^6.0.0",
-    "prettier": "^2.4.1",
+    "prettier": "^2.5.1",
     "sort-package-json": "^1.53.1"
   },
   "devDependencies": {
-    "@types/node": "^16.11.11"
+    "@types/node": "^16.11.12"
   },
   "publishConfig": {
     "main": "dist/index.js",

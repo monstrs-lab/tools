@@ -1,7 +1,9 @@
-import { join }       from 'node:path'
-import { Worker }     from 'node:worker_threads'
+import { join }             from 'node:path'
+import { Worker }           from 'node:worker_threads'
 
-import { getContent } from './schematics.worker.content'
+import type { DryRunEvent } from '@angular-devkit/schematics'
+
+import { getContent }       from './schematics.worker.content'
 
 export interface SchematicsWorkerRunOptions {
   type: 'generate' | 'migrate'
@@ -14,7 +16,7 @@ export interface SchematicsWorkerRunOptions {
 }
 
 export class SchematicsWorker {
-  static async run(options: Partial<SchematicsWorkerRunOptions>) {
+  static async run(options: Partial<SchematicsWorkerRunOptions>): Promise<Array<DryRunEvent>> {
     return new Promise((resolve, reject) => {
       const pnpPath = process.versions.pnp
         ? // eslint-disable-next-line global-require

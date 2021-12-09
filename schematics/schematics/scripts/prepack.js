@@ -1,15 +1,27 @@
-const { sync } = require('globby')
+const copydir = require('copy-dir')
+const globby = require('globby')
 const { join } = require('path')
 const { copyFileSync } = require('fs')
 const { writeFileSync } = require('fs')
 
 const pkg = require('../package.json')
 
-const matches = sync(join(__dirname, '../src/**/*.json'))
+globby
+  .sync('**/*.json', { cwd: join(__dirname, '../src') })
+  .map((file) => copyFileSync(join('src', file), join('dist', file)))
 
-matches.map(file => copyFileSync(file, file.replace('src/', 'dist/')))
+globby
+  .sync('*/files', { onlyFiles: false, cwd: join(__dirname, '../src') })
+  .map((files) => copydir.sync(join('src', files), join('dist', files)))
 
-writeFileSync(join(__dirname, '../package.json'), JSON.stringify({
-    ...pkg,
-    schematics: './dist/collection.json'
-}, null, 2))
+writeFileSync(
+  join(__dirname, '../package.json'),
+  JSON.stringify(
+    {
+      ...pkg,
+      schematics: './dist/collection.json',
+    },
+    null,
+    2
+  )
+)

@@ -21,13 +21,13 @@
     "string-replace-loader": "^3.0.3",
     "ts-loader": "^9.2.6",
     "typescript": "^4.5.2",
-    "webpack": "^5.64.4",
+    "webpack": "^5.65.0",
     "webpack-chain": "^6.5.1"
   },
   "devDependencies": {
     "@types/file-loader": "5.0.1",
     "@types/jest": "^27.0.3",
-    "@types/node": "^16.11.11",
+    "@types/node": "^16.11.12",
     "@types/protocol-buffers-schema": "3.4.1",
     "@types/wait-for-localhost": "3.1.0",
     "@types/webpack": "^5.28.0",

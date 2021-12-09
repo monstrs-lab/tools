@@ -20,7 +20,7 @@
   "devDependencies": {
     "@monstrs/logger": "^0.0.6",
     "@types/jest": "^27.0.3",
-    "@types/node": "^16.11.11",
+    "@types/node": "^16.11.12",
     "@types/react": "^17.0.37",
     "ink": "^3.2.0",
     "react": "*",

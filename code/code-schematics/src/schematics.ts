@@ -1,3 +1,5 @@
+import type { DryRunEvent } from '@angular-devkit/schematics'
+
 import { SchematicsWorker } from './schematics.worker'
 
 export class Schematics {
@@ -7,7 +9,7 @@ export class Schematics {
     private readonly dryRun = false
   ) {}
 
-  init(schematicName: string, options = {}) {
+  init(schematicName: string, options = {}): Promise<Array<DryRunEvent>> {
     return SchematicsWorker.run({
       type: 'generate',
       cwd: this.cwd,
@@ -18,7 +20,11 @@ export class Schematics {
     })
   }
 
-  migrate(schematicName: string, migrationVersion: string, options = {}) {
+  migrate(
+    schematicName: string,
+    migrationVersion: string,
+    options = {}
+  ): Promise<Array<DryRunEvent>> {
     return SchematicsWorker.run({
       type: 'migrate',
       cwd: this.cwd,

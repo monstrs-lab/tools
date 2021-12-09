@@ -10,23 +10,20 @@ import { template }     from '@angular-devkit/schematics'
 import { url }          from '@angular-devkit/schematics'
 import { chain }        from '@angular-devkit/schematics'
 
+// eslint-disable-next-line arrow-body-style
 const generateCommon = (options): Source => {
-  const path = options.cwd || process.cwd()
-
   return apply(url('./files/common'), [
     template({
       ...strings,
       ...options,
       dot: '.',
     }),
-    move(path),
+    move('./'),
   ])
 }
 
 const generateProjectSpecifiec = (options): Source => {
-  const path = options.cwd || process.cwd()
-
-  const { name: projectName } = JSON.parse(readFileSync(join(path, 'package.json'), 'utf-8'))
+  const { name: projectName } = JSON.parse(readFileSync(join(options.cwd, 'package.json'), 'utf-8'))
 
   return apply(url(`./files/${options.type}`), [
     template({
@@ -35,7 +32,7 @@ const generateProjectSpecifiec = (options): Source => {
       projectName,
       dot: '.',
     }),
-    move(path),
+    move('./'),
   ])
 }
 
