@@ -13,9 +13,9 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/cli-ui-parts": "workspace:0.0.1",
-    "@monstrs/cli-ui-schematics-component": "workspace:0.0.1",
-    "@monstrs/code-schematics": "workspace:0.0.3",
+    "@monstrs/cli-ui-parts": "workspace:0.0.2",
+    "@monstrs/cli-ui-schematics-component": "workspace:0.0.2",
+    "@monstrs/code-schematics": "workspace:0.0.4",
     "force-stdin-tty": "^0.0.1"
   },
   "devDependencies": {

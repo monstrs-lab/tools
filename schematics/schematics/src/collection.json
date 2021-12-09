@@ -3,8 +3,8 @@
   "version": "0.1",
   "schematics": {
     "project": {
-      "factory": "./src/project/project.factory#main",
-      "schema": "./src/project/schema.json",
+      "factory": "./project/project.factory#main",
+      "schema": "./project/schema.json",
       "description": "Project schematic"
     }
   }

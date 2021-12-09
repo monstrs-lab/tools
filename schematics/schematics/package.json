@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/schematics",
-  "version": "0.0.3",
+  "version": "0.0.6",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -9,20 +9,20 @@
   ],
   "scripts": {
     "build": "yarn app library build",
-    "prepack": "yarn run build",
-    "postpack": "rm -rf dist"
+    "prepack": "yarn run build && yarn node ./scripts/prepack.js",
+    "postpack": "rm -rf dist && yarn node ./scripts/postpack.js"
   },
   "dependencies": {
     "@angular-devkit/core": "^13.0.4",
     "@angular-devkit/schematics": "^13.0.4"
   },
   "devDependencies": {
-    "@types/node": "^16.11.11"
+    "@types/node": "^16.11.11",
+    "globby": "^11.0.3"
   },
   "publishConfig": {
     "main": "dist/index.js",
-    "schematics": "./collection.json",
     "typings": "dist/index.d.ts"
   },
-  "schematics": "./collection.dev.json"
+  "schematics": "./src/collection.json"
 }

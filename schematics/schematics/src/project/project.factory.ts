@@ -11,7 +11,7 @@ import { url }          from '@angular-devkit/schematics'
 import { chain }        from '@angular-devkit/schematics'
 
 const generateCommon = (options): Source => {
-  const path = join(options.path || '')
+  const path = options.cwd || process.cwd()
 
   return apply(url('./files/common'), [
     template({
@@ -24,7 +24,7 @@ const generateCommon = (options): Source => {
 }
 
 const generateProjectSpecifiec = (options): Source => {
-  const path = join(options.path || '')
+  const path = options.cwd || process.cwd()
 
   const { name: projectName } = JSON.parse(readFileSync(join(path, 'package.json'), 'utf-8'))
 

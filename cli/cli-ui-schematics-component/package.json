@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/cli-ui-schematics-component",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -12,8 +12,8 @@
     "postpack": "rm -rf dist"
   },
   "devDependencies": {
-    "@monstrs/cli-ui-parts": "workspace:0.0.1",
-    "@monstrs/schematics": "workspace:0.0.3",
+    "@monstrs/cli-ui-parts": "workspace:0.0.2",
+    "@monstrs/schematics": "workspace:0.0.6",
     "@types/node": "^16.11.11",
     "@types/react": "^17.0.37",
     "@yarnpkg/libui": "^2.2.0",

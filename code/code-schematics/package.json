@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-schematics",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -17,7 +17,7 @@
     "@angular-devkit/schematics": "^13.0.4"
   },
   "devDependencies": {
-    "@monstrs/schematics": "workspace:0.0.3",
+    "@monstrs/schematics": "workspace:0.0.6",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.0.6",
