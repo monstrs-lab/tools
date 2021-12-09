@@ -13,7 +13,6 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/code-runtime": "workspace:0.0.11",
     "globby": "^11.0.4",
     "ignore": "^5.1.9"
   },

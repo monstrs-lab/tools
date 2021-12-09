@@ -22,7 +22,7 @@ const wrapOutput = () => ({
 
 export default [
   {
-    external: ['pnpapi', 'eslint', 'typescript', '@monstrs/config-eslint'],
+    external: ['pnpapi', 'eslint', 'typescript'],
     input: './src/linter.worker.source.ts',
     output: {
       file: './src/linter.worker.content.js',

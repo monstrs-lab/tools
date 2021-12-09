@@ -6,7 +6,7 @@ index d5d918580c08bf5a71aef5e3c913626d93e03ba9..f596dab3d89a8f5831fdb35c5b7b5084
                      minify: !this.noMinify,
                      sourcemap: this.sourceMap ? `inline` : false,
                      target: `node12`,
-+                    external: ['chokidar', '@angular-devkit/schematics']
++                    external: ['chokidar', 'webpack']
                  });
                  for (const warning of res.warnings) {
                      if (warning.location !== null)

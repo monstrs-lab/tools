@@ -30,7 +30,7 @@
     "@monstrs/yarn-workspace-utils": "workspace:0.0.1",
     "@octokit/types": "^6.34.0",
     "@types/node": "^16.11.12",
-    "@yarnpkg/builder": "patch:@yarnpkg/builder@^3.1.0#../../.yarn/patches/@yarnpkg-builder-npm-3.1.0-b2d93b39bf",
+    "@yarnpkg/builder": "^3.1.0",
     "@yarnpkg/cli": "^3.2.0-rc.7",
     "@yarnpkg/core": "^3.2.0-rc.7",
     "@yarnpkg/fslib": "^2.6.1-rc.2",

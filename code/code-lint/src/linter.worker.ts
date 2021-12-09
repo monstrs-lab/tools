@@ -47,44 +47,4 @@ export class LinterWorker {
       worker.once('exit', exitHandler)
     })
   }
-
-  static create(files: Array<string>, config) {
-    const { eslint } = require('@monstrs/code-runtime')
-    const { eslintConfig } = require('@monstrs/code-runtime')
-
-    return new Worker(
-      `
-        const { parentPort } = require('node:worker_threads')
-        const { workerData } = require('node:worker_threads')
-        const { writeFile } = require('node:fs/promises')
-        const { readFile } = require('node:fs/promises')
-        
-        require(process.cwd() + '/.pnp.cjs').setup()
-        ${process.env.TOOLS_DEV_MODE ? `require('@monstrs/tools-setup-ts-execution')` : ''}
-
-        const { ESLint } = require('${eslint}')
-        const { eslintPlugins } = require('@monstrs/code-runtime')
-        const baseConfig = require('${eslintConfig}').default
-
-        const { files, config } = workerData
-
-        const eslint = new ESLint({
-          baseConfig,
-          plugins: eslintPlugins
-        })
-
-        eslint.lintFiles(files)
-            .then(results => {
-                    parentPort.postMessage(results)
-            })
-        `,
-      {
-        eval: true,
-        workerData: {
-          files,
-          config,
-        },
-      }
-    )
-  }
 }

@@ -18,9 +18,10 @@ const plugins = {
   'eslint-plugin-react-hooks': eslintPluginReactHooks,
 }
 
-const { files } = workerData
+const { files, config } = workerData
 
 const eslint = new ESLint({
+  ...config,
   baseConfig,
   plugins,
 })

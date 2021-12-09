@@ -26,18 +26,12 @@ export class Linter {
   }
 
   async lintFiles(files: Array<string> = []): Promise<Array<ESLint.LintResult>> {
-    // eslint-disable-next-line global-require
-    const { eslintConfig } = require('@monstrs/code-runtime')
-
     const ignored = ignorer().add(ignore)
 
     const results: Array<any> = await LinterWorker.run(
       files.filter((file) => ignored.filter([relative(this.cwd, file)]).length !== 0),
       {
         ignore: false,
-        baseConfig: {
-          extends: [eslintConfig],
-        },
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
         useEslintrc: false,
         cwd: join(__dirname, '../'),
