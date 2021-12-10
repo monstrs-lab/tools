@@ -1,8 +1,12 @@
+import { PassThrough }         from 'node:stream'
+
 import webpack                 from 'webpack'
 import { Watching }            from 'webpack'
 
+import { StartServerPlugin }   from '@monstrs/webpack-start-server-plugin'
+
 import { WebpackConfigPlugin } from './webpack'
-import { createWebpackConfig } from './webpack'
+import { WebpackConfig }       from './webpack.config'
 
 export interface ServiceBuildResultMessage {
   message: string
@@ -17,7 +21,9 @@ export class Service {
   constructor(private readonly cwd: string) {}
 
   async build(plugins: Array<WebpackConfigPlugin> = []): Promise<ServiceBuildResult> {
-    const compiler = webpack(await createWebpackConfig(this.cwd, 'production', plugins))
+    const config = new WebpackConfig(this.cwd)
+
+    const compiler = webpack(await config.build())
 
     return new Promise((resolve, reject) => {
       compiler.run((error, stats) => {
@@ -48,10 +54,59 @@ export class Service {
     })
   }
 
-  async watch(plugins?: Array<WebpackConfigPlugin>, callback?): Promise<Watching> {
-    return webpack(await createWebpackConfig(this.cwd, 'development', plugins)).watch(
-      {},
-      callback || (() => undefined)
-    )
+  async watch(callback?): Promise<Watching> {
+    const config = new WebpackConfig(this.cwd)
+
+    const pass = new PassThrough()
+
+    pass.on('data', (chunk) => {
+      chunk
+        .toString()
+        .split(/\r?\n/)
+        .filter(Boolean)
+        .forEach((row) => {
+          try {
+            callback(JSON.parse(row))
+          } catch {
+            callback({ body: row })
+          }
+        })
+    })
+
+    return webpack(
+      await config.build('development', [
+        {
+          name: 'start-server',
+          use: StartServerPlugin,
+          args: [
+            {
+              stdout: pass,
+              stderr: pass,
+            },
+          ],
+        },
+      ])
+    ).watch({}, (error, stats) => {
+      if (error) {
+        callback({
+          severityText: 'ERROR',
+          body: error.message || error,
+        })
+      } else if (stats) {
+        const { errors = [], warnings = [] } = stats.toJson()
+
+        warnings.forEach((warning) =>
+          callback({
+            severityText: 'WARN',
+            body: warning.message,
+          }))
+
+        errors.forEach((err) =>
+          callback({
+            severityText: 'ERROR',
+            body: err.message,
+          }))
+      }
+    })
   }
 }

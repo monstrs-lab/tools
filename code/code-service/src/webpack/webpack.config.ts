@@ -1,5 +1,7 @@
-//import Config                from 'webpack-chain'
-import path                  from 'path'
+import path                  from 'node:path'
+
+import Config                from 'webpack-chain'
+import webpack               from 'webpack'
 
 import tsconfig              from '@monstrs/config-typescript'
 
@@ -17,9 +19,6 @@ export const createWebpackConfig = async (
   environment,
   plugins: WebpackConfigPlugin[] = []
 ) => {
-  const webpack = require('webpack')
-  const Config = require('webpack-chain')
-
   const externals = (await getExternals(cwd)).reduce(
     (result, dependency) => ({
       ...result,

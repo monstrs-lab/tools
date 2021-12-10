@@ -7,7 +7,6 @@ import { FC }           from 'react'
 import { LogBody }      from './log-body.component'
 import { LogMessage }   from './log-message.component'
 import { LogNamespace } from './log-namespace.component'
-import { LogSeverity }  from './log-severity.component'
 
 export interface LogRecordProps extends Partial<Record> {}
 
@@ -15,9 +14,6 @@ export const LogRecord: FC<LogRecordProps> = ({ severityText = 'TRACE', name, bo
   <Box flexDirection='column'>
     <Box flexDirection='row'>
       <Box flexGrow={1}>
-        <Box paddingRight={1}>
-          <LogSeverity>{severityText}</LogSeverity>
-        </Box>
         <Box paddingRight={1}>{name && <LogNamespace>{name}</LogNamespace>}</Box>
         <Box>
           <LogMessage>{body}</LogMessage>

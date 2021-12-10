@@ -1792,12 +1792,32 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@monstrs/code-service-worker@workspace:0.0.1, @monstrs/code-service-worker@workspace:code/code-service-worker":
+  version: 0.0.0-use.local
+  resolution: "@monstrs/code-service-worker@workspace:code/code-service-worker"
+  dependencies:
+    "@monstrs/code-service": "workspace:0.0.106"
+    "@monstrs/webpack-start-server-plugin": "workspace:0.2.33"
+    "@rollup/plugin-commonjs": ^21.0.1
+    "@rollup/plugin-json": ^4.1.0
+    "@rollup/plugin-node-resolve": ^13.0.6
+    "@rollup/plugin-replace": ^3.0.0
+    "@types/node": ^16.11.11
+    esbuild: ^0.14.2
+    rollup: ^2.61.0
+    rollup-plugin-analyzer: ^4.0.0
+    rollup-plugin-esbuild: ^4.7.2
+    rollup-plugin-terser: ^7.0.2
+  languageName: unknown
+  linkType: soft
+
 "@monstrs/code-service@workspace:0.0.106, @monstrs/code-service@workspace:code/code-service":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-service@workspace:code/code-service"
   dependencies:
     "@monstrs/config-typescript": "workspace:0.0.7"
     "@monstrs/webpack-proto-imports-loader": "workspace:0.0.21"
+    "@monstrs/webpack-start-server-plugin": "workspace:0.2.33"
     "@types/file-loader": 5.0.1
     "@types/jest": ^27.0.3
     "@types/node": ^16.11.12
@@ -2125,12 +2145,14 @@ __metadata:
   resolution: "@monstrs/yarn-plugin-app@workspace:yarn/plugin-app"
   dependencies:
     "@monstrs/cli-ui-error-info-component": "workspace:0.0.7"
+    "@monstrs/cli-ui-log-record-component": "workspace:0.0.24"
     "@monstrs/cli-ui-pretty-logs": "workspace:0.0.24"
     "@monstrs/cli-ui-renderer": "workspace:0.0.23"
     "@monstrs/cli-ui-typescript-diagnostic-component": "workspace:0.0.11"
     "@monstrs/code-configuration": "workspace:0.0.21"
     "@monstrs/code-pack": "workspace:0.0.100"
     "@monstrs/code-service": "workspace:0.0.106"
+    "@monstrs/code-service-worker": "workspace:0.0.1"
     "@monstrs/code-typescript": "workspace:0.0.111"
     "@monstrs/webpack-start-server-plugin": "workspace:0.2.33"
     "@monstrs/yarn-pack-utils": "workspace:0.0.1"
@@ -2897,7 +2919,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:>= 8, @types/node@npm:^16.11.12":
+"@types/node@npm:*, @types/node@npm:>= 8, @types/node@npm:^16.11.11, @types/node@npm:^16.11.12":
   version: 16.11.12
   resolution: "@types/node@npm:16.11.12"
   checksum: a3feb346d61a56f5a137c29bb8c63cfa3cc02e184b9dffdc18ef1528dcce55596e570575215a2e39e6ce69343eeb2a5ba71c271938f1dc8db4cc393902855412
@@ -14386,6 +14408,7 @@ resolve@^2.0.0-next.3:
     "@angular-devkit/core": ^13.0.4
     "@angular-devkit/schematics": ^13.0.4
     "@jest/core": ^27.4.3
+    "@monstrs/code-service": "workspace:0.0.106"
     "@monstrs/config-eslint": "workspace:0.0.7"
     "@monstrs/config-jest": "workspace:0.0.7"
     "@monstrs/schematics": "workspace:0.0.10"
@@ -14402,6 +14425,7 @@ resolve@^2.0.0-next.3:
     husky: 7.0.4
     readable-stream: ^3.6.0
     typescript: ^4.5.2
+    webpack: ^5.65.0
   languageName: unknown
   linkType: soft
 
