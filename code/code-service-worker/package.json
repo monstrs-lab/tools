@@ -1,26 +1,28 @@
 {
   "name": "@monstrs/code-service-worker",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "rollup -c",
+    "build": "run build:worker && run build:source",
+    "build:source": "yarn library build",
+    "build:worker": "rollup -c",
     "prepack": "yarn run build",
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/code-service": "workspace:0.0.106",
-    "@monstrs/webpack-start-server-plugin": "workspace:0.2.33"
+    "@monstrs/code-service": "workspace:0.0.107",
+    "@monstrs/webpack-start-server-plugin": "workspace:0.2.34"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.0.6",
     "@rollup/plugin-replace": "^3.0.0",
-    "@types/node": "^16.11.11",
+    "@types/node": "^16.11.12",
     "esbuild": "^0.14.2",
     "rollup": "^2.61.0",
     "rollup-plugin-analyzer": "^4.0.0",

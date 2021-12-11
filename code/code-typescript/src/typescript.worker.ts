@@ -9,20 +9,16 @@ export class TypeScriptWorker {
   static async run(cwd: string, config, noEmit: boolean): Promise<Array<Diagnostic>> {
     return new Promise((resolve, reject) => {
       const pnpPath = process.versions.pnp
-        ? // eslint-disable-next-line global-require
-          require('module').findPnpApi(__filename).resolveRequest('pnpapi', null)
+        ? require('module').findPnpApi(__filename).resolveRequest('pnpapi', null)
         : join(process.cwd(), '.pnp.cjs')
 
-      const content: Array<string> = []
-
-      content.push(`require('${pnpPath}').setup()`)
-      content.push(getContent())
-
       const originalCwd = process.cwd()
+
       process.chdir(cwd)
 
-      const worker = new Worker(content.join('\n'), {
+      const worker = new Worker(getContent(), {
         eval: true,
+        execArgv: ['--require', pnpPath, ...process.execArgv],
         workerData: {
           cwd: originalCwd,
           config,

@@ -1,18 +1,18 @@
 {
   "name": "@monstrs/cli-ui-git-commit-component",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "yarn app library build",
+    "build": "yarn library build",
     "prepack": "yarn run build",
     "postpack": "rm -rf dist"
   },
   "devDependencies": {
-    "@monstrs/code-commit": "workspace:0.0.11",
+    "@monstrs/code-commit": "workspace:0.0.12",
     "@types/node": "^16.11.12",
     "@types/react": "^17.0.37",
     "@yarnpkg/libui": "^2.2.0",

@@ -9,23 +9,12 @@ export class ServiceWorker {
   static async run(cwd: string): Promise<ServiceBuildResult> {
     return new Promise((resolve, reject) => {
       const pnpPath = process.versions.pnp
-        ? // eslint-disable-next-line global-require
-          require('module').findPnpApi(__filename).resolveRequest('pnpapi', null)
+        ? require('module').findPnpApi(__filename).resolveRequest('pnpapi', null)
         : join(process.cwd(), '.pnp.cjs')
 
-      const content: Array<string> = []
-
-      content.push(`require('${pnpPath}').setup()`)
-
-      if (process.env.TOOLS_DEV_MODE) {
-        // eslint-disable-next-line @typescript-eslint/quotes
-        content.push(`require('@monstrs/tools-setup-ts-execution')\n`)
-      }
-
-      content.push(getContent())
-
-      const worker = new Worker(content.join('\n'), {
+      const worker = new Worker(getContent(), {
         eval: true,
+        execArgv: ['--require', pnpPath, ...process.execArgv],
         workerData: {
           cwd,
           environment: 'production',
@@ -50,23 +39,12 @@ export class ServiceWorker {
   static async watch(cwd: string, callback) {
     return new Promise((resolve, reject) => {
       const pnpPath = process.versions.pnp
-        ? // eslint-disable-next-line global-require
-          require('module').findPnpApi(__filename).resolveRequest('pnpapi', null)
+        ? require('module').findPnpApi(__filename).resolveRequest('pnpapi', null)
         : join(process.cwd(), '.pnp.cjs')
 
-      const content: Array<string> = []
-
-      content.push(`require('${pnpPath}').setup()`)
-
-      if (process.env.TOOLS_DEV_MODE) {
-        // eslint-disable-next-line @typescript-eslint/quotes
-        content.push(`require('@monstrs/tools-setup-ts-execution')\n`)
-      }
-
-      content.push(getContent())
-
-      const worker = new Worker(content.join('\n'), {
+      const worker = new Worker(getContent(), {
         eval: true,
+        execArgv: ['--require', pnpPath, ...process.execArgv],
         workerData: {
           cwd,
           environment: 'development',

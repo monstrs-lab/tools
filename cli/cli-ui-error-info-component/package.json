@@ -1,18 +1,18 @@
 {
   "name": "@monstrs/cli-ui-error-info-component",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "yarn app library build",
+    "build": "yarn library build",
     "prepack": "yarn run build",
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/cli-ui-stack-trace-component": "workspace:0.0.23"
+    "@monstrs/cli-ui-stack-trace-component": "workspace:0.0.24"
   },
   "devDependencies": {
     "@types/jest": "^27.0.3",

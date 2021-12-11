@@ -6,7 +6,7 @@ module.exports.getContent = () => {
     hook = require('zlib')
       .brotliDecompressSync(
         Buffer.from(
-          'Gx8DICwKTDf0rizmy4aYd3r4HIay5pbq8cV70Lf7nKkO2YwqbHGYIAp9BTSVd05HmSRC5f//qdGwRinn5t2fPXQKra4BVpB6QaQL7Qp6CYPqBPXE5LjBJywvaxAU4xgHBO4yLlsYHPAp2V2vRHSwW+bZoOtjr8MNF3ZkeT/fiMSvVcMPERPEEtxnSaElREp+T0QYkzOrRiSUzbvtaD4Ft7y704nZ9ZAAxr+uXEgvtTcrEd+/8b208q3YlMC2vlwNWU1YPd2z+rgnRLxj41uVmAjnmNdD+jrp3cGF0+zj/5ckmNWU5u1JPYgN4wvyg7nRuzJe8lUq8cOomb81zr0l2qUQT56RHkK2VpWk3YKjq1HJPSk0Qt+bhWqEcIhShGju3HkG',
+          'GwMDYCwKTDf0rizmy4aYd3r4HIay5pbq88U70Lf7nKkO2YwqbHGYIAp9BTSVd05HmSRC5fecGg1rlHLjX+bqHM8LMiZ4Qeol6GO6VZ7awHDVdlpy3tyTlYsapIU19sNkuNVY9D0ODlFq2a3w5sJS7dGe9LGX2eYTW0P+Pm9D4teq2W8CJQ0577FknsI90P0chCwER1QNRB7U2GnHSUC2k7uTTvv4W+UyBEzR2c+g17/4Xnj5VtDvcErepYZqwZU1yCw+zHSJb874+XkxTljUSDRbe9ZzsDgfw39JMueLzunlTUorl/Ir8GOGQvipcVHQiJ4E2xpUd/l4zmtBrqADVY4v3RWNDuBMxudpMMKegpVw+3LAWwWwZ2ck9K1OmAE=',
           'base64'
         )
       )

@@ -1,22 +1,22 @@
 {
   "name": "@monstrs/cli-ui-typescript-diagnostic-component",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "yarn app library build",
+    "build": "yarn library build",
     "prepack": "yarn run build",
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/cli-ui-source-component": "workspace:0.0.22",
-    "@monstrs/code-typescript": "workspace:0.0.111"
+    "@monstrs/cli-ui-source-component": "workspace:0.0.23",
+    "@monstrs/code-typescript": "workspace:0.0.112"
   },
   "devDependencies": {
-    "@monstrs/cli-ui-renderer": "workspace:0.0.23",
+    "@monstrs/cli-ui-renderer": "workspace:0.0.24",
     "@types/jest": "^27.0.3",
     "@types/react": "^17.0.37",
     "ink": "^3.2.0",

@@ -1,13 +1,13 @@
 {
   "name": "@monstrs/code-format",
-  "version": "0.0.99",
+  "version": "0.0.100",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "yarn app library build",
+    "build": "yarn library build",
     "build:worker": "rollup -c",
     "prepack": "yarn run build",
     "postpack": "rm -rf dist"
@@ -18,8 +18,8 @@
   },
   "devDependencies": {
     "@babel/types": "^7.16.0",
-    "@monstrs/config-prettier": "workspace:0.0.7",
-    "@monstrs/prettier-plugin": "workspace:0.0.4",
+    "@monstrs/config-prettier": "workspace:0.0.8",
+    "@monstrs/prettier-plugin": "workspace:0.0.5",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.0.6",

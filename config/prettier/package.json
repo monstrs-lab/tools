@@ -1,13 +1,13 @@
 {
   "name": "@monstrs/config-prettier",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "yarn app library build",
+    "build": "yarn library build",
     "prepack": "yarn run build",
     "postpack": "rm -rf dist"
   },

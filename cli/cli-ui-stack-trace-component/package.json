@@ -1,19 +1,19 @@
 {
   "name": "@monstrs/cli-ui-stack-trace-component",
-  "version": "0.0.23",
+  "version": "0.0.24",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "yarn app library build",
+    "build": "yarn library build",
     "prepack": "yarn run build",
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/cli-ui-renderer": "workspace:0.0.23",
-    "@monstrs/cli-ui-source-component": "workspace:0.0.22",
+    "@monstrs/cli-ui-renderer": "workspace:0.0.24",
+    "@monstrs/cli-ui-source-component": "workspace:0.0.23",
     "@monstrs/stack-trace": "^0.0.4"
   },
   "devDependencies": {

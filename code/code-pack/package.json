@@ -1,19 +1,19 @@
 {
   "name": "@monstrs/code-pack",
-  "version": "0.0.100",
+  "version": "0.0.101",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "yarn app library build",
+    "build": "yarn library build",
     "prepack": "yarn run build",
     "postpack": "rm -rf dist"
   },
   "dependencies": {
     "@iarna/toml": "^2.2.5",
-    "@monstrs/github-actions-utils": "workspace:0.0.24",
+    "@monstrs/github-actions-utils": "workspace:0.0.25",
     "@yarnpkg/core": "^3.2.0-rc.7",
     "@yarnpkg/fslib": "^2.6.1-rc.2"
   },

@@ -1,13 +1,13 @@
 {
   "name": "@monstrs/code-commit",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "yarn app library build",
+    "build": "yarn library build",
     "prepack": "yarn run build",
     "postpack": "rm -rf dist"
   },

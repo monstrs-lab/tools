@@ -8,7 +8,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "yarn app library build",
+    "build": "yarn library build",
     "exec": "yarn run build && yarn node test.js",
     "prepack": "yarn run build",
     "postpack": "rm -rf dist"

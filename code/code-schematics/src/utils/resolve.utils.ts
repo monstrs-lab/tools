@@ -22,7 +22,7 @@ export const resolveSchematics = (cwd?: string) => {
   try {
     return join(dirname(dynamicRequire.resolve('@monstrs/schematics')), '..')
   } catch (error) {
-    setupPnp(cwd)
+    setupPnp(cwd) //this
 
     return join(dirname(dynamicRequire.resolve('@monstrs/schematics')), '..')
   }

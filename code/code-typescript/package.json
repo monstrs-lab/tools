@@ -1,19 +1,19 @@
 {
   "name": "@monstrs/code-typescript",
-  "version": "0.0.111",
+  "version": "0.0.112",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "yarn app library build",
+    "build": "yarn library build",
     "build:worker": "rollup -c",
     "prepack": "yarn run build",
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/config-typescript": "workspace:0.0.7",
+    "@monstrs/config-typescript": "workspace:0.0.8",
     "deepmerge": "^4.2.2",
     "flatted": "^3.2.4"
   },
@@ -30,7 +30,7 @@
     "rollup-plugin-analyzer": "^4.0.0",
     "rollup-plugin-esbuild": "^4.7.2",
     "rollup-plugin-terser": "^7.0.2",
-    "typescript": "^4.5.2"
+    "typescript": "^4.5.3"
   },
   "publishConfig": {
     "main": "dist/index.js",

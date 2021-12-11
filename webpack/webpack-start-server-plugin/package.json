@@ -1,13 +1,13 @@
 {
   "name": "@monstrs/webpack-start-server-plugin",
-  "version": "0.2.33",
+  "version": "0.2.34",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "yarn app library build",
+    "build": "yarn library build",
     "prepack": "yarn run build",
     "postpack": "rm -rf dist"
   },

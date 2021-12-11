@@ -1,19 +1,19 @@
 {
   "name": "@monstrs/config-jest",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
     "src"
   ],
   "scripts": {
-    "build": "yarn app library build",
+    "build": "yarn library build",
     "prepack": "yarn run build",
     "postpack": "rm -rf dist"
   },
   "dependencies": {
     "@emotion/jest": "^11.6.0",
-    "@monstrs/config-typescript": "workspace:0.0.7",
+    "@monstrs/config-typescript": "workspace:0.0.8",
     "@monstrs/jest-pnp-resolver": "0.0.1",
     "jest-static-stubs": "^0.0.1",
     "ts-jest": "^27.1.1"

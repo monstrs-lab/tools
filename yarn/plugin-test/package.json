@@ -13,7 +13,7 @@
     "postpack": "rm -rf dist"
   },
   "devDependencies": {
-    "@monstrs/code-test": "workspace:0.0.108",
+    "@monstrs/code-test": "workspace:0.0.109",
     "@yarnpkg/builder": "^3.1.0",
     "@yarnpkg/cli": "^3.2.0-rc.7",
     "@yarnpkg/core": "^3.2.0-rc.7",

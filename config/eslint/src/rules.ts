@@ -994,7 +994,7 @@ const rules: Linter.RulesRecord = {
     },
   ],
   'callback-return': ['off'],
-  'global-require': ['error'],
+  'global-require': ['off'],
   'handle-callback-err': ['off'],
   'no-buffer-constructor': ['error'],
   'no-mixed-requires': ['off', false],
