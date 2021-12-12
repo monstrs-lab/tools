@@ -13,7 +13,7 @@ import { ppath }                        from '@yarnpkg/fslib'
 import React                            from 'react'
 
 import { TypeScriptDiagnostic }         from '@monstrs/cli-ui-typescript-diagnostic-component'
-import { TypeScript }                   from '@monstrs/code-typescript'
+import { TypeScriptWorker }             from '@monstrs/code-typescript-worker'
 import { renderStatic }                 from '@monstrs/cli-ui-renderer'
 import { flattenDiagnosticMessageText } from '@monstrs/code-typescript'
 
@@ -28,8 +28,6 @@ class ChecksTypeCheckCommand extends BaseCommand {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
     const { project } = await Project.find(configuration, this.context.cwd)
 
-    const ts = new TypeScript(project.cwd)
-
     const commandReport = await StreamReport.start(
       {
         stdout: this.context.stdout,
@@ -42,6 +40,8 @@ class ChecksTypeCheckCommand extends BaseCommand {
           const { id: checkId } = await checks.start()
 
           try {
+            const ts = new TypeScriptWorker(project.cwd)
+
             const diagnostics = await ts.check(
               project.topLevelWorkspace.manifest.workspaceDefinitions.map(
                 (definition) => definition.pattern

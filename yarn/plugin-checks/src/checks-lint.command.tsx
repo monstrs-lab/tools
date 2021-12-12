@@ -12,7 +12,7 @@ import { codeFrameColumns } from '@babel/code-frame'
 import React                from 'react'
 
 import { ESLintResult }     from '@monstrs/cli-ui-eslint-result-component'
-import { Linter }           from '@monstrs/code-lint'
+import { LinterWorker }     from '@monstrs/code-lint-worker'
 import { renderStatic }     from '@monstrs/cli-ui-renderer'
 
 import { GitHubChecks }     from './github.checks'
@@ -25,8 +25,6 @@ class ChecksLintCommand extends BaseCommand {
   async execute() {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
     const { project } = await Project.find(configuration, this.context.cwd)
-
-    const linter = new Linter(project.cwd)
 
     const commandReport = await StreamReport.start(
       {
@@ -41,7 +39,7 @@ class ChecksLintCommand extends BaseCommand {
         // eslint-disable-next-line consistent-return
         const results = await report.startTimerPromise('Lint', async () => {
           try {
-            return await linter.lint()
+            return await new LinterWorker(project.cwd).run()
           } catch (error) {
             await checks.failure({
               title: 'Lint run failed',

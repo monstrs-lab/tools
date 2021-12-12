@@ -2,7 +2,7 @@ import { StreamReport }              from '@yarnpkg/core'
 import { Configuration }             from '@yarnpkg/core'
 import { Project }                   from '@yarnpkg/core'
 
-import { Tester }                    from '@monstrs/code-test'
+import { TesterWorker }              from '@monstrs/code-test-worker'
 
 import { AbstractChecksTestCommand } from './abstract-checks-test.command'
 import { GitHubChecks }              from './github.checks'
@@ -13,8 +13,6 @@ class ChecksTestUnitCommand extends AbstractChecksTestCommand {
   async execute() {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
     const { project } = await Project.find(configuration, this.context.cwd)
-
-    const tester = new Tester(project.cwd)
 
     const commandReport = await StreamReport.start(
       {
@@ -27,7 +25,7 @@ class ChecksTestUnitCommand extends AbstractChecksTestCommand {
         const { id: checkId } = await checks.start()
 
         try {
-          const results = await tester.unit()
+          const results = await new TesterWorker(project.cwd).run('unit')
 
           const annotations = this.formatResults(results, project.cwd)
 
