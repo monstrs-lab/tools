@@ -13,6 +13,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
+    "@monstrs/code-worker-utils": "workspace:0.0.1",
     "@monstrs/config-typescript": "workspace:0.0.8",
     "deepmerge": "^4.2.2",
     "flatted": "^3.2.4"

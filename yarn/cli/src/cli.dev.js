@@ -1,5 +1,3 @@
-/* eslint-disable global-require */
-
 require(`${__dirname}/../../../.pnp.cjs`).setup()
 require('@monstrs/tools-setup-ts-execution')
 

@@ -14,7 +14,7 @@ import { ErrorInfo }                      from '@monstrs/cli-ui-error-info-compo
 import { SubmitInjectedComponentFactory } from '@monstrs/cli-ui-parts'
 import { RequestProjectInformation }      from '@monstrs/cli-ui-schematics-component'
 import { ProjectInformationProperties }   from '@monstrs/cli-ui-schematics-component'
-import { Schematics }                     from '@monstrs/code-schematics'
+import { SchematicsWorker }               from '@monstrs/code-schematics-worker'
 import { SpinnerProgress }                from '@monstrs/yarn-run-utils'
 import { renderStatic }                   from '@monstrs/cli-ui-renderer'
 
@@ -40,7 +40,7 @@ class InitProjectCommand extends BaseCommand {
       return 1
     }
 
-    const schematics = new Schematics(project.cwd)
+    const schematics = new SchematicsWorker(project.cwd)
 
     const commandReport = await StreamReport.start(
       {
@@ -54,7 +54,7 @@ class InitProjectCommand extends BaseCommand {
           progress.start()
 
           try {
-            const events = await schematics.init('project', options)
+            const events = await schematics.generate('project', options)
 
             progress.end()
 

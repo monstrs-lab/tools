@@ -5,7 +5,7 @@ import { Project }       from '@yarnpkg/core'
 
 import { Option }        from 'clipanion'
 
-import { Tester }        from '@monstrs/code-test'
+import { TesterWorker }  from '@monstrs/code-test-worker'
 
 class TestIntegrationCommand extends BaseCommand {
   static paths = [['test', 'integration']]
@@ -22,8 +22,6 @@ class TestIntegrationCommand extends BaseCommand {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
     const { project, workspace } = await Project.find(configuration, this.context.cwd)
 
-    const tester = new Tester(project.cwd)
-
     const args: Array<string> = []
 
     if (workspace) {
@@ -38,7 +36,8 @@ class TestIntegrationCommand extends BaseCommand {
         configuration,
       },
       async () => {
-        await tester.integration(
+        await new TesterWorker(project.cwd).run(
+          'integration',
           {
             findRelatedTests: this.findRelatedTests,
             updateSnapshot: this.updateSnapshot,

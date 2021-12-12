@@ -9,7 +9,7 @@ import { Option }          from 'clipanion'
 
 import { ErrorInfo }       from '@monstrs/cli-ui-error-info-component'
 import { ESLintResult }    from '@monstrs/cli-ui-eslint-result-component'
-import { Linter }          from '@monstrs/code-lint'
+import { LinterWorker }    from '@monstrs/code-lint-worker'
 import { SpinnerProgress } from '@monstrs/yarn-run-utils'
 import { renderStatic }    from '@monstrs/cli-ui-renderer'
 
@@ -34,9 +34,7 @@ class LintCommand extends BaseCommand {
           progress.start()
 
           try {
-            const linter = new Linter(project.cwd)
-
-            const results = await linter.lint(this.files)
+            const results = await new LinterWorker(project.cwd).run(this.files)
 
             progress.end()
 

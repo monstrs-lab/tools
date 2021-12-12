@@ -2,10 +2,9 @@ import type { Diagnostic }      from 'typescript'
 import type { CompilerOptions } from 'typescript'
 
 import deepmerge                from 'deepmerge'
+import ts                       from 'typescript'
 
 import tsconfig                 from '@monstrs/config-typescript'
-
-import { TypeScriptWorker }     from './typescript.worker'
 
 class TypeScript {
   constructor(private readonly cwd: string) {}
@@ -21,7 +20,7 @@ class TypeScript {
     return this.run(include, override, false)
   }
 
-  private run(
+  private async run(
     include: Array<string> = [],
     override: Partial<CompilerOptions> = {},
     noEmit = true
@@ -30,7 +29,20 @@ class TypeScript {
       include,
     } as any)
 
-    return TypeScriptWorker.run(this.cwd, config, noEmit)
+    const { fileNames, options, errors } = ts.parseJsonConfigFileContent(config, ts.sys, this.cwd)
+
+    if (errors?.length > 0) {
+      return errors
+    }
+
+    const program = ts.createProgram(fileNames, {
+      ...options,
+      noEmit,
+    })
+
+    const result = program.emit()
+
+    return ts.getPreEmitDiagnostics(program).concat(result.diagnostics)
   }
 }
 

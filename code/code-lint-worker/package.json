@@ -1,0 +1,65 @@
+{
+  "name": "@monstrs/code-lint-worker",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "run build:worker && run build:source",
+    "build:source": "yarn library build",
+    "build:worker": "rollup -c",
+    "prepack": "yarn run build",
+    "postpack": "rm -rf dist"
+  },
+  "dependencies": {
+    "@monstrs/code-format": "workspace:0.0.100",
+    "@monstrs/code-lint": "workspace:0.0.113",
+    "@monstrs/code-worker-utils": "workspace:0.0.1",
+    "@monstrs/config-eslint": "workspace:0.0.8",
+    "@types/eslint": "8.2.1",
+    "@typescript-eslint/eslint-plugin": "^5.6.0",
+    "@typescript-eslint/parser": "^5.6.0",
+    "eslint": "^8.4.1",
+    "eslint-import-resolver-node": "^0.3.6",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.27.1",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "globby": "^11.0.4",
+    "ignore": "^5.1.9",
+    "prettier": "^2.5.1",
+    "react": "*",
+    "typescript": "*"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.0.6",
+    "@types/node": "^16.11.12",
+    "builtin-modules": "^3.2.0",
+    "esbuild": "^0.14.2",
+    "rollup": "^2.61.0",
+    "rollup-plugin-analyzer": "^4.0.0",
+    "rollup-plugin-esbuild": "^4.7.2",
+    "rollup-plugin-terser": "^7.0.2"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "typescript": "*"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "typescript": {
+      "optional": true
+    }
+  },
+  "publishConfig": {
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
+  }
+}

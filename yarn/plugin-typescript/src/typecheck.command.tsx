@@ -9,7 +9,7 @@ import { Option }               from 'clipanion'
 
 import { ErrorInfo }            from '@monstrs/cli-ui-error-info-component'
 import { TypeScriptDiagnostic } from '@monstrs/cli-ui-typescript-diagnostic-component'
-import { TypeScript }           from '@monstrs/code-typescript'
+import { TypeScriptWorker }     from '@monstrs/code-typescript-worker'
 import { SpinnerProgress }      from '@monstrs/yarn-run-utils'
 import { renderStatic }         from '@monstrs/cli-ui-renderer'
 
@@ -34,7 +34,7 @@ class TypeCheckCommand extends BaseCommand {
           progress.start()
 
           try {
-            const ts = new TypeScript(project.cwd)
+            const ts = new TypeScriptWorker(project.cwd)
 
             const diagnostics = await ts.check(
               this.args.length > 0

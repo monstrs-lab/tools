@@ -1,13 +1,13 @@
 /* eslint-disable no-new */
 
-import { parentPort }       from 'node:worker_threads'
-import { workerData }       from 'node:worker_threads'
+import { parentPort } from 'node:worker_threads'
+import { workerData } from 'node:worker_threads'
 
-import { SchematicsRunner } from './schematics.runner'
+import { Schematics } from '@monstrs/code-schematics'
 
 const { type, cwd, force, dryRun, schematicName, migrationVersion, options = {} } = workerData
 
-const runner = new SchematicsRunner(cwd, force, dryRun)
+const runner = new Schematics(cwd, force, dryRun)
 
 // eslint-disable-next-line no-async-promise-executor
 new Promise(async (resolve, reject) => {

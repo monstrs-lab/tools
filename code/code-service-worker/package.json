@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@monstrs/code-service": "workspace:0.0.107",
+    "@monstrs/code-worker-utils": "workspace:0.0.1",
     "@monstrs/webpack-start-server-plugin": "workspace:0.2.34"
   },
   "devDependencies": {

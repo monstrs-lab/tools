@@ -1,14 +1,20 @@
-import { relative }       from 'node:path'
-import { join }           from 'node:path'
+import { relative }           from 'node:path'
+import { join }               from 'node:path'
 
-import type { ESLint }    from 'eslint'
+import typescriptEslint       from '@typescript-eslint/eslint-plugin'
 
-import globby             from 'globby'
-import ignorer            from 'ignore'
+import jsxA11y                from 'eslint-plugin-jsx-a11y'
+import react                  from 'eslint-plugin-react'
+import reactHooks             from 'eslint-plugin-react-hooks'
+import eslintPluginReactHooks from 'eslint-plugin-react-hooks'
+import globby                 from 'globby'
+import ignorer                from 'ignore'
+import { ESLint }             from 'eslint'
 
-import { LinterWorker }   from './linter.worker'
-import { ignore }         from './linter.patterns'
-import { createPatterns } from './linter.patterns'
+import baseConfig             from '@monstrs/config-eslint'
+
+import { ignore }             from './linter.patterns'
+import { createPatterns }     from './linter.patterns'
 
 export class Linter {
   constructor(private readonly cwd: string) {}
@@ -28,15 +34,24 @@ export class Linter {
   async lintFiles(files: Array<string> = []): Promise<Array<ESLint.LintResult>> {
     const ignored = ignorer().add(ignore)
 
-    const results: Array<any> = await LinterWorker.run(
-      files.filter((file) => ignored.filter([relative(this.cwd, file)]).length !== 0),
-      {
-        ignore: false,
-        extensions: ['.js', '.jsx', '.ts', '.tsx'],
-        useEslintrc: false,
-        cwd: join(__dirname, '../'),
-        cacheLocation: join(this.cwd, '.yarn', '.eslintcache'),
-      }
+    const eslint = new ESLint({
+      ignore: false,
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      useEslintrc: false,
+      cwd: this.cwd,
+      cacheLocation: join(this.cwd, '.yarn', '.eslintcache'),
+      baseConfig,
+      plugins: {
+        react,
+        'jsx-a11y': jsxA11y,
+        'react-hooks': reactHooks,
+        '@typescript-eslint': typescriptEslint,
+        'eslint-plugin-react-hooks': eslintPluginReactHooks,
+      },
+    })
+
+    const results = await eslint.lintFiles(
+      files.filter((file) => ignored.filter([relative(this.cwd, file)]).length !== 0)
     )
 
     return results.flat()

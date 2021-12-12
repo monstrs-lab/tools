@@ -28,7 +28,7 @@ class ServiceBuildCommand extends BaseCommand {
           try {
             progress.start()
 
-            const { errors, warnings } = await ServiceWorker.run(this.context.cwd)
+            const { errors, warnings } = await new ServiceWorker(this.context.cwd).run()
 
             progress.end()
 

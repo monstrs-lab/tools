@@ -16,6 +16,7 @@
     "@monstrs/cli-ui-error-info-component": "workspace:0.0.8",
     "@monstrs/cli-ui-renderer": "workspace:0.0.24",
     "@monstrs/code-format": "workspace:0.0.100",
+    "@monstrs/code-format-worker": "workspace:0.0.1",
     "@monstrs/yarn-run-utils": "workspace:0.0.1",
     "@yarnpkg/builder": "3.1.0",
     "@yarnpkg/cli": "^3.2.0-rc.7",

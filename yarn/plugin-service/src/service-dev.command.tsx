@@ -24,7 +24,7 @@ class ServiceDevCommand extends BaseCommand {
       async (report) => {
         await report.startTimerPromise('Service Development', async () => {
           try {
-            await ServiceWorker.watch(this.context.cwd, (logRecord) => {
+            await new ServiceWorker(this.context.cwd).watch((logRecord) => {
               renderStatic(<LogRecord {...logRecord} />, process.stdout.columns - 12)
                 .split('\n')
                 .forEach((line) => {

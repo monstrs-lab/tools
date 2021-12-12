@@ -1,15 +1,15 @@
-import { BaseCommand }     from '@yarnpkg/cli'
-import { Configuration }   from '@yarnpkg/core'
-import { Project }         from '@yarnpkg/core'
-import { MessageName }     from '@yarnpkg/core'
-import { StreamReport }    from '@yarnpkg/core'
+import { BaseCommand }      from '@yarnpkg/cli'
+import { Configuration }    from '@yarnpkg/core'
+import { Project }          from '@yarnpkg/core'
+import { MessageName }      from '@yarnpkg/core'
+import { StreamReport }     from '@yarnpkg/core'
 
-import React               from 'react'
+import React                from 'react'
 
-import { ErrorInfo }       from '@monstrs/cli-ui-error-info-component'
-import { Schematics }      from '@monstrs/code-schematics'
-import { SpinnerProgress } from '@monstrs/yarn-run-utils'
-import { renderStatic }    from '@monstrs/cli-ui-renderer'
+import { ErrorInfo }        from '@monstrs/cli-ui-error-info-component'
+import { SchematicsWorker } from '@monstrs/code-schematics-worker'
+import { SpinnerProgress }  from '@monstrs/yarn-run-utils'
+import { renderStatic }     from '@monstrs/cli-ui-renderer'
 
 class MigrationUpCommand extends BaseCommand {
   static paths = [['migration', 'up']]
@@ -18,7 +18,7 @@ class MigrationUpCommand extends BaseCommand {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
     const { project, workspace } = await Project.find(configuration, this.context.cwd)
 
-    const schematics = new Schematics(project.cwd)
+    const schematics = new SchematicsWorker(project.cwd)
 
     const commandReport = await StreamReport.start(
       {
@@ -26,7 +26,7 @@ class MigrationUpCommand extends BaseCommand {
         configuration,
       },
       async (report) => {
-        await report.startTimerPromise('Init Project', async () => {
+        await report.startTimerPromise('Run Migrations', async () => {
           const progress = new SpinnerProgress(this.context.stdout, configuration)
 
           progress.start()

@@ -5,7 +5,6 @@ const dynamicRequire = eval('require') // eslint-disable-line no-eval
 
 const findPnpApiPath = (cwd?: string) => {
   if (process.versions.pnp) {
-    // eslint-disable-next-line global-require
     return require('module').findPnpApi(__filename).resolveRequest('pnpapi', null)
   }
 
@@ -22,7 +21,7 @@ export const resolveSchematics = (cwd?: string) => {
   try {
     return join(dirname(dynamicRequire.resolve('@monstrs/schematics')), '..')
   } catch (error) {
-    setupPnp(cwd) //this
+    setupPnp(cwd)
 
     return join(dirname(dynamicRequire.resolve('@monstrs/schematics')), '..')
   }

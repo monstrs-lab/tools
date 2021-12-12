@@ -8,7 +8,7 @@ import React               from 'react'
 import { Option }          from 'clipanion'
 
 import { ErrorInfo }       from '@monstrs/cli-ui-error-info-component'
-import { Formatter }       from '@monstrs/code-format'
+import { FormatterWorker } from '@monstrs/code-format-worker'
 import { SpinnerProgress } from '@monstrs/yarn-run-utils'
 import { renderStatic }    from '@monstrs/cli-ui-renderer'
 
@@ -33,7 +33,7 @@ class FormatCommand extends BaseCommand {
           progress.start()
 
           try {
-            await new Formatter(project.cwd).format(this.files)
+            await new FormatterWorker(project.cwd).run(this.files)
 
             progress.end()
           } catch (error) {

@@ -1,5 +1,4 @@
 /* eslint-disable no-restricted-syntax */
-/* eslint-disable global-require */
 
 import packageJson             from '@monstrs/yarn-cli/package.json'
 import { PluginConfiguration } from '@yarnpkg/core'

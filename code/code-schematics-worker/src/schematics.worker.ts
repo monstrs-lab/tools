@@ -16,7 +16,17 @@ export interface SchematicsWorkerRunOptions {
 }
 
 export class SchematicsWorker {
-  static async run(options: Partial<SchematicsWorkerRunOptions>): Promise<Array<DryRunEvent>> {
+  constructor(
+    private readonly cwd: string,
+    private readonly force = false,
+    private readonly dryRun = false
+  ) {}
+
+  async run(
+    type: 'migrate' | 'generate',
+    schematicName: string,
+    options = {}
+  ): Promise<Array<DryRunEvent>> {
     return new Promise((resolve, reject) => {
       const pnpPath = process.versions.pnp
         ? require('module').findPnpApi(__filename).resolveRequest('pnpapi', null)
@@ -24,7 +34,14 @@ export class SchematicsWorker {
 
       const worker = new Worker(getContent(), {
         eval: true,
-        workerData: options,
+        workerData: {
+          type,
+          cwd: this.cwd,
+          force: this.force,
+          dryRun: this.dryRun,
+          schematicName,
+          options,
+        },
         execArgv: ['--require', pnpPath, ...process.execArgv],
       })
 
@@ -41,5 +58,13 @@ export class SchematicsWorker {
       worker.once('error', reject)
       worker.once('exit', exitHandler)
     })
+  }
+
+  generate(schematicName: string, options = {}) {
+    return this.run('generate', schematicName, options)
+  }
+
+  migrate(schematicName: string, options = {}) {
+    return this.run('migrate', schematicName, options)
   }
 }

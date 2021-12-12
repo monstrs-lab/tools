@@ -17,6 +17,7 @@
     "@monstrs/cli-ui-eslint-result-component": "workspace:0.0.12",
     "@monstrs/cli-ui-renderer": "workspace:0.0.24",
     "@monstrs/code-lint": "workspace:0.0.113",
+    "@monstrs/code-lint-worker": "workspace:0.0.1",
     "@monstrs/yarn-run-utils": "workspace:0.0.1",
     "@yarnpkg/builder": "3.1.0",
     "@yarnpkg/cli": "^3.2.0-rc.7",

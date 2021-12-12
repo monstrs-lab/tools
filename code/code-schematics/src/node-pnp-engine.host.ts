@@ -48,7 +48,6 @@ export class NodePnpEngineHost extends FileSystemEngineHostBase {
     try {
       const packageJsonPath = require.resolve(join(name, 'package.json'), resolveOptions)
 
-      // eslint-disable-next-line global-require
       const { schematics } = require(packageJsonPath)
 
       if (!schematics || typeof schematics !== 'string') {
