@@ -35,7 +35,6 @@ class WorkspacesChangedListCommand extends BaseCommand {
         const files = await getChangedFiles(project)
         const workspaces = getChangedWorkspaces(project, files)
 
-        // eslint-disable-next-line no-restricted-syntax
         for (const ws of workspaces) {
           report.reportInfo(null, ws.relativeCwd)
           report.reportJson({

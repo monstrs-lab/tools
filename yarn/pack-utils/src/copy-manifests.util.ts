@@ -10,7 +10,6 @@ export const copyManifests = async (
   destination: PortablePath,
   report: Report
 ): Promise<void> => {
-  // eslint-disable-next-line no-restricted-syntax
   for (const ws of workspaces) {
     const path = ppath.join(ws.relativeCwd, Manifest.fileName)
     const dest = ppath.join(destination, path)

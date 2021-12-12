@@ -20,7 +20,6 @@ export class YarnWorkspacePackBuilder implements Builder {
       const cwd = process.cwd() as PortablePath
       const project = await xfs.mktempPromise()
 
-      // eslint-disable-next-line no-restricted-syntax
       for (const file of await xfs.readdirPromise(cwd)) {
         // eslint-disable-next-line no-await-in-loop
         await xfs.movePromise(ppath.join(cwd, file), ppath.join(project, file))
@@ -47,7 +46,6 @@ export class YarnWorkspacePackBuilder implements Builder {
         const cacheLayer = ctx.layers.get('yarn-cache', true, true, true)
 
         if (yarnLockCheckSum !== cacheLayer.getMetadata('locksum')) {
-          // eslint-disable-next-line no-restricted-syntax
           for (const file of await xfs.readdirPromise(yarnCachePath)) {
             // eslint-disable-next-line no-await-in-loop
             await xfs.copyPromise(

@@ -26,7 +26,6 @@ export class Formatter {
       .add(ignore)
       .filter(files.map((filepath) => relative(this.cwd, filepath)))
 
-    // eslint-disable-next-line no-restricted-syntax
     for (const filename of formatFiles) {
       // eslint-disable-next-line no-await-in-loop
       const input = await readFile(filename, 'utf8')

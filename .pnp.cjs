@@ -277,10 +277,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:yarn/run-utils"
       },
       {
-        "name": "@monstrs/yarn-runtime",
-        "reference": "workspace:yarn/runtime"
-      },
-      {
         "name": "@monstrs/yarn-workspace-utils",
         "reference": "workspace:yarn/workspace-utils"
       }
@@ -352,7 +348,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@monstrs/yarn-plugin-typescript", ["workspace:yarn/plugin-typescript"]],
       ["@monstrs/yarn-plugin-workspaces", ["workspace:yarn/plugin-workspaces"]],
       ["@monstrs/yarn-run-utils", ["workspace:yarn/run-utils"]],
-      ["@monstrs/yarn-runtime", ["workspace:yarn/runtime"]],
       ["@monstrs/yarn-workspace-utils", ["workspace:yarn/workspace-utils"]],
       ["tools", ["workspace:."]]
     ],
@@ -4328,21 +4323,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@monstrs/yarn-run-utils", "workspace:yarn/run-utils"],
             ["@yarnpkg/core", "npm:3.1.0"]
-          ],
-          "linkType": "SOFT",
-        }]
-      ]],
-      ["@monstrs/yarn-runtime", [
-        ["workspace:yarn/runtime", {
-          "packageLocation": "./yarn/runtime/",
-          "packageDependencies": [
-            ["@monstrs/yarn-runtime", "workspace:yarn/runtime"],
-            ["@monstrs/code-commit", "workspace:code/code-commit"],
-            ["@monstrs/code-format", "workspace:code/code-format"],
-            ["@monstrs/code-lint", "virtual:b3aac7d36f7af0c5d7aa9d8dbcefb0289314e005eea77b3e1fe7d623c71b36c1cecef5e0fff43825eab16917825dd662ea07aebed40f9442b06886d489295dd8#workspace:code/code-lint"],
-            ["@monstrs/code-service", "workspace:code/code-service"],
-            ["@monstrs/code-test", "virtual:69d3b9d60f876691646ebf707a456665593a6a98e47675268a0ede4753548a768abde878a11f99259e14e138a1b28bfa7667a1e752f93822817ce6bc97f0adc7#workspace:code/code-test"],
-            ["@monstrs/code-typescript", "workspace:code/code-typescript"]
           ],
           "linkType": "SOFT",
         }]

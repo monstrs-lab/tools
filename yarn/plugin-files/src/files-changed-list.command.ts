@@ -32,7 +32,6 @@ class FilesChangedListCommand extends BaseCommand {
       async (report) => {
         const files = await getChangedFiles(project)
 
-        // eslint-disable-next-line no-restricted-syntax
         for (const file of files) {
           report.reportInfo(null, file)
           report.reportJson({

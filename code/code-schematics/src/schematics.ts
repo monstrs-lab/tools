@@ -99,7 +99,6 @@ export class Schematics {
       })
       .flat()
 
-    // eslint-disable-next-line no-restricted-syntax
     for (const migration of migrations) {
       // eslint-disable-next-line no-await-in-loop
       await workflow

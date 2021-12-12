@@ -20,7 +20,6 @@ export const copyProtocolFiles = async (
 ): Promise<void> => {
   const copiedPaths = new Set<string>()
 
-  // eslint-disable-next-line no-restricted-syntax
   for (const descriptor of project.storedDescriptors.values()) {
     const resolvedDescriptor = structUtils.isVirtualDescriptor(descriptor)
       ? structUtils.devirtualizeDescriptor(descriptor)
@@ -33,7 +32,6 @@ export const copyProtocolFiles = async (
 
     const { parentLocator, paths } = parsed
 
-    // eslint-disable-next-line no-restricted-syntax
     for (const path of paths) {
       // eslint-disable-next-line no-continue
       if (BUILTIN_REGEXP.test(path)) continue

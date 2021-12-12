@@ -1,5 +1,3 @@
-/* eslint-disable no-restricted-syntax */
-
 import packageJson             from '@monstrs/yarn-cli/package.json'
 import { PluginConfiguration } from '@yarnpkg/core'
 

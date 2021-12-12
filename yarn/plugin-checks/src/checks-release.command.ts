@@ -32,7 +32,6 @@ class ChecksReleaseCommand extends BaseCommand {
     try {
       const annotations: Array<Annotation> = []
 
-      // eslint-disable-next-line no-restricted-syntax
       for (const workspace of workspaces) {
         if (workspace.manifest.scripts.get('build')) {
           const context = new PassThroughRunContext()

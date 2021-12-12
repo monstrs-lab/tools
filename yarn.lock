@@ -2605,19 +2605,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/yarn-runtime@workspace:yarn/runtime":
-  version: 0.0.0-use.local
-  resolution: "@monstrs/yarn-runtime@workspace:yarn/runtime"
-  dependencies:
-    "@monstrs/code-commit": "workspace:0.0.12"
-    "@monstrs/code-format": "workspace:0.0.100"
-    "@monstrs/code-lint": "workspace:0.0.113"
-    "@monstrs/code-service": "workspace:0.0.107"
-    "@monstrs/code-test": "workspace:0.0.109"
-    "@monstrs/code-typescript": "workspace:0.0.112"
-  languageName: unknown
-  linkType: soft
-
 "@monstrs/yarn-workspace-utils@workspace:0.0.1, @monstrs/yarn-workspace-utils@workspace:yarn/workspace-utils":
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-workspace-utils@workspace:yarn/workspace-utils"

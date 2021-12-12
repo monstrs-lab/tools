@@ -109,7 +109,6 @@ class PackSourceCommand extends BaseCommand {
 
         await generateLockfile(project, this.destination, report)
 
-        // eslint-disable-next-line no-restricted-syntax
         for (const ws of requiredWorkspaces) {
           const name = ws.manifest.name ? structUtils.stringifyIdent(ws.manifest.name) : ''
 
