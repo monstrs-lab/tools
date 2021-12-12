@@ -1,9 +1,10 @@
+const { join } = require('node:path')
+
 require(`${__dirname}/../../../.pnp.cjs`).setup()
 require('@monstrs/tools-setup-ts-execution')
 
-process.env.NODE_OPTIONS = process.env.NODE_OPTIONS
-  ? [process.env.NODE_OPTIONS, `--require ${__dirname}/../../../.pnp.cjs`].join(' ')
-  : `--require ${__dirname}/../../../.pnp.cjs`
+process.execArgv.push('--require')
+process.execArgv.push(join(process.cwd(), '.pnp.cjs'))
 
 process.execArgv.push('--require')
 process.execArgv.push(require.resolve('@monstrs/tools-setup-ts-execution'))
