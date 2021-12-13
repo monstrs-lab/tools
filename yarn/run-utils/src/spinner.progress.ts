@@ -22,7 +22,7 @@ export class SpinnerProgress {
   }
 
   end() {
-    if (this.stdout.isTTY) {
+    if (this.stdout.isTTY && this.running) {
       this.running = false
       this.clear(true)
     }

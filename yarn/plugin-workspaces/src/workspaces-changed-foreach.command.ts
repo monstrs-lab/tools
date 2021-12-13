@@ -44,18 +44,17 @@ class WorkspacesChangedForeachCommand extends BaseCommand {
     const workspaces = getChangedWorkspaces(project, files)
 
     if (!workspaces.length) {
-      const report = await StreamReport.start(
+      const commandReport = await StreamReport.start(
         {
           configuration,
           stdout: this.context.stdout,
         },
-        // eslint-disable-next-line no-shadow
         async (report) => {
           report.reportInfo(null, 'No workspaces changed')
         }
       )
 
-      return report.exitCode()
+      return commandReport.exitCode()
     }
 
     const input = ['workspaces', 'foreach']

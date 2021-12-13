@@ -14,10 +14,6 @@
     "cli/*"
   ],
   "resolutions": {
-    "@yarnpkg/builder@3.1.0": "patch:@yarnpkg/builder@npm:3.1.0#.yarn/patches/@yarnpkg-builder-npm-3.1.0-b2d93b39bf",
-    "@yarnpkg/cli": "3.1.0",
-    "@yarnpkg/core": "3.1.0",
-    "clipanion": "3.1.0",
     "globby": "11.0.3"
   },
   "devDependencies": {

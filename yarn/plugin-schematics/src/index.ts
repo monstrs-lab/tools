@@ -1,1 +1,1 @@
-export { plugin as default } from './init.plugin'
+export { plugin as default } from './schematics.plugin'

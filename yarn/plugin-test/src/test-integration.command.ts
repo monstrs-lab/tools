@@ -10,9 +10,9 @@ import { TesterWorker }  from '@monstrs/code-test-worker'
 class TestIntegrationCommand extends BaseCommand {
   static paths = [['test', 'integration']]
 
-  updateSnapshot = Option.Boolean('-u,--update-shapshot', false)
-
   bail = Option.Boolean('-b,--bail', false)
+
+  updateSnapshot = Option.Boolean('-u,--update-shapshot', false)
 
   findRelatedTests = Option.Boolean('--find-related-tests', false)
 

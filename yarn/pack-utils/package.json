@@ -8,9 +8,9 @@
     "dist"
   ],
   "devDependencies": {
-    "@yarnpkg/cli": "^3.2.0-rc.7",
-    "@yarnpkg/core": "^3.2.0-rc.7",
-    "@yarnpkg/fslib": "^2.6.1-rc.2",
+    "@yarnpkg/cli": "^3.2.0-rc.8",
+    "@yarnpkg/core": "^3.2.0-rc.8",
+    "@yarnpkg/fslib": "^2.6.1-rc.3",
     "@yarnpkg/plugin-pack": "^3.1.0"
   },
   "publishConfig": {

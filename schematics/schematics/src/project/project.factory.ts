@@ -1,18 +1,25 @@
-import { readFileSync } from 'node:fs'
+import { readFileSync }         from 'node:fs'
 
-import { Source }       from '@angular-devkit/schematics'
-import { join }         from '@angular-devkit/core'
-import { strings }      from '@angular-devkit/core'
-import { apply }        from '@angular-devkit/schematics'
-import { mergeWith }    from '@angular-devkit/schematics'
-import { move }         from '@angular-devkit/schematics'
-import { template }     from '@angular-devkit/schematics'
-import { url }          from '@angular-devkit/schematics'
-import { chain }        from '@angular-devkit/schematics'
+import { Source }               from '@angular-devkit/schematics'
+import { join }                 from '@angular-devkit/core'
+import { strings }              from '@angular-devkit/core'
+import { apply }                from '@angular-devkit/schematics'
+import { mergeWith }            from '@angular-devkit/schematics'
+import { move }                 from '@angular-devkit/schematics'
+import { template }             from '@angular-devkit/schematics'
+import { url }                  from '@angular-devkit/schematics'
+import { chain }                from '@angular-devkit/schematics'
 
-// eslint-disable-next-line arrow-body-style
-const generateCommon = (options): Source => {
-  return apply(url('./files/common'), [
+import tsconfig                 from '@monstrs/config-typescript'
+import { updateTsConfigInTree } from '@monstrs/schematics-utils'
+
+const updateTsConfig = updateTsConfigInTree({
+  ...tsconfig.compilerOptions,
+  module: 'esnext',
+})
+
+const generateCommon = (options): Source =>
+  apply(url('./files/common'), [
     template({
       ...strings,
       ...options,
@@ -20,7 +27,6 @@ const generateCommon = (options): Source => {
     }),
     move('./'),
   ])
-}
 
 const generateProjectSpecifiec = (options): Source => {
   const { name: projectName } = JSON.parse(readFileSync(join(options.cwd, 'package.json'), 'utf-8'))
@@ -37,4 +43,8 @@ const generateProjectSpecifiec = (options): Source => {
 }
 
 export const main = (options) =>
-  chain([mergeWith(generateCommon(options)), mergeWith(generateProjectSpecifiec(options))])
+  chain([
+    mergeWith(generateCommon(options)),
+    mergeWith(generateProjectSpecifiec(options)),
+    updateTsConfig,
+  ])

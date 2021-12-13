@@ -2,7 +2,7 @@ import { StreamReport }              from '@yarnpkg/core'
 import { Configuration }             from '@yarnpkg/core'
 import { Project }                   from '@yarnpkg/core'
 
-import { Tester }                    from '@monstrs/code-test'
+import { TesterWorker }              from '@monstrs/code-test-worker'
 
 import { AbstractChecksTestCommand } from './abstract-checks-test.command'
 import { GitHubChecks }              from './github.checks'
@@ -25,7 +25,7 @@ class ChecksTestIntegrationCommand extends AbstractChecksTestCommand {
         const { id: checkId } = await checks.start()
 
         try {
-          const results = await new Tester(project.cwd).integration()
+          const results = await new TesterWorker(project.cwd).run('integration')
 
           const annotations = this.formatResults(results, project.cwd)
 
