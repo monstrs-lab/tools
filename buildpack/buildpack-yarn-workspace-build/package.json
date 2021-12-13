@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "prebuild": "yarn clean",
-    "build": "yarn app service build",
+    "build": "yarn service build",
     "clean": "rm -r -f dist"
   },
   "dependencies": {
