@@ -5,9 +5,11 @@ import { EvalWorker }              from '@monstrs/code-worker-utils'
 import { getContent }              from './service.worker.content'
 
 export class ServiceWorker {
-  constructor(protected readonly cwd: string) {}
+  constructor(protected readonly cwd: string, protected readonly rootCwd: string) {}
 
   async run(): Promise<ServiceBuildResult> {
+    process.chdir(this.rootCwd)
+
     return EvalWorker.run<ServiceBuildResult>(getContent(), {
       cwd: this.cwd,
       environment: 'production',
@@ -15,6 +17,8 @@ export class ServiceWorker {
   }
 
   async watch(onMessage) {
+    process.chdir(this.rootCwd)
+
     return EvalWorker.watch(
       getContent(),
       {

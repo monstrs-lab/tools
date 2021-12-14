@@ -2,6 +2,7 @@ import { BaseCommand }     from '@yarnpkg/cli'
 import { Configuration }   from '@yarnpkg/core'
 import { StreamReport }    from '@yarnpkg/core'
 import { MessageName }     from '@yarnpkg/core'
+import { Project }         from '@yarnpkg/core'
 
 import React               from 'react'
 
@@ -16,6 +17,7 @@ class ServiceDevCommand extends BaseCommand {
 
   async execute() {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
+    const { project } = await Project.find(configuration, this.context.cwd)
 
     const commandReport = await StreamReport.start(
       {
@@ -29,7 +31,7 @@ class ServiceDevCommand extends BaseCommand {
           progress.start()
 
           try {
-            await new ServiceWorker(this.context.cwd).watch((logRecord) => {
+            await new ServiceWorker(this.context.cwd, project.cwd).watch((logRecord) => {
               progress.end()
 
               renderStatic(<LogRecord {...logRecord} />, process.stdout.columns - 12)
