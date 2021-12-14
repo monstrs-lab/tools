@@ -20,7 +20,8 @@ const closeWatcher = (watcher): Promise<void> =>
 describe('service', () => {
   describe('watch', () => {
     it('simple', async () => {
-      const watcher = await new Service(path.join(__dirname, 'fixtures/simple')).watch()
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      const watcher = await new Service(path.join(__dirname, 'fixtures/simple')).watch(() => {})
 
       await closeWatcher(watcher)
 
