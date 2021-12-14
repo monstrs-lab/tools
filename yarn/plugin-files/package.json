@@ -12,12 +12,19 @@
     "prepack": "yarn run build",
     "postpack": "rm -rf dist"
   },
+  "dependencies": {
+    "@actions/github": "^5.0.0",
+    "@octokit/types": "^6.34.0",
+    "clipanion": "^3.2.0-rc.4"
+  },
   "devDependencies": {
-    "@monstrs/github-actions-utils": "workspace:0.0.25",
     "@yarnpkg/builder": "3.1.0",
     "@yarnpkg/cli": "^3.2.0-rc.8",
-    "@yarnpkg/core": "^3.2.0-rc.8",
-    "clipanion": "^3.2.0-rc.4"
+    "@yarnpkg/core": "^3.2.0-rc.8"
+  },
+  "peerDependencies": {
+    "@yarnpkg/cli": "^3.2.0-rc.8",
+    "@yarnpkg/core": "^3.2.0-rc.8"
   },
   "publishConfig": {
     "access": "public",

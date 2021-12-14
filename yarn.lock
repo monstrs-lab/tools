@@ -1835,8 +1835,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/code-pack@workspace:code/code-pack"
   dependencies:
+    "@actions/github": ^5.0.0
     "@iarna/toml": ^2.2.5
-    "@monstrs/github-actions-utils": "workspace:0.0.25"
     "@types/node": ^16.11.12
     "@yarnpkg/core": ^3.2.0-rc.8
     "@yarnpkg/fslib": ^2.6.1-rc.3
@@ -2128,7 +2128,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/github-actions-utils@workspace:0.0.25, @monstrs/github-actions-utils@workspace:github/actions-utils":
+"@monstrs/github-actions-utils@workspace:github/actions-utils":
   version: 0.0.0-use.local
   resolution: "@monstrs/github-actions-utils@workspace:github/actions-utils"
   dependencies:
@@ -2421,11 +2421,15 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-files@workspace:yarn/plugin-files"
   dependencies:
-    "@monstrs/github-actions-utils": "workspace:0.0.25"
+    "@actions/github": ^5.0.0
+    "@octokit/types": ^6.34.0
     "@yarnpkg/builder": 3.1.0
     "@yarnpkg/cli": ^3.2.0-rc.8
     "@yarnpkg/core": ^3.2.0-rc.8
     clipanion: ^3.2.0-rc.4
+  peerDependencies:
+    "@yarnpkg/cli": ^3.2.0-rc.8
+    "@yarnpkg/core": ^3.2.0-rc.8
   languageName: unknown
   linkType: soft
 
