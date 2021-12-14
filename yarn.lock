@@ -2128,17 +2128,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/github-actions-utils@workspace:github/actions-utils":
-  version: 0.0.0-use.local
-  resolution: "@monstrs/github-actions-utils@workspace:github/actions-utils"
-  dependencies:
-    "@actions/core": ^1.6.0
-    "@actions/github": ^5.0.0
-    "@octokit/types": ^6.34.0
-    "@types/node": ^16.11.12
-  languageName: unknown
-  linkType: soft
-
 "@monstrs/jest-pnp-resolver@npm:0.0.1":
   version: 0.0.1
   resolution: "@monstrs/jest-pnp-resolver@npm:0.0.1"

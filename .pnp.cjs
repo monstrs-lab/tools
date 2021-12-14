@@ -181,10 +181,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:config/typescript"
       },
       {
-        "name": "@monstrs/github-actions-utils",
-        "reference": "workspace:github/actions-utils"
-      },
-      {
         "name": "@monstrs/prettier-plugin",
         "reference": "workspace:prettier/typescript-plugin"
       },
@@ -324,7 +320,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@monstrs/config-jest", ["workspace:config/jest"]],
       ["@monstrs/config-prettier", ["workspace:config/prettier"]],
       ["@monstrs/config-typescript", ["workspace:config/typescript"]],
-      ["@monstrs/github-actions-utils", ["workspace:github/actions-utils"]],
       ["@monstrs/prettier-plugin", ["workspace:prettier/typescript-plugin"]],
       ["@monstrs/schematics", ["workspace:schematics/schematics"]],
       ["@monstrs/schematics-utils", ["workspace:schematics/schematics-utils"]],
@@ -3791,19 +3786,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./config/typescript/",
           "packageDependencies": [
             ["@monstrs/config-typescript", "workspace:config/typescript"]
-          ],
-          "linkType": "SOFT",
-        }]
-      ]],
-      ["@monstrs/github-actions-utils", [
-        ["workspace:github/actions-utils", {
-          "packageLocation": "./github/actions-utils/",
-          "packageDependencies": [
-            ["@monstrs/github-actions-utils", "workspace:github/actions-utils"],
-            ["@actions/core", "npm:1.6.0"],
-            ["@actions/github", "npm:5.0.0"],
-            ["@octokit/types", "npm:6.34.0"],
-            ["@types/node", "npm:16.11.12"]
           ],
           "linkType": "SOFT",
         }]
