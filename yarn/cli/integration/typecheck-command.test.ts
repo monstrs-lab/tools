@@ -3,7 +3,7 @@ import { xfs }              from '@yarnpkg/fslib'
 
 import { makeTemporaryEnv } from './utils'
 
-jest.setTimeout(120000)
+jest.setTimeout(150000)
 
 describe('yarn', () => {
   describe('commands', () => {

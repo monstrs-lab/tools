@@ -1,17 +1,13 @@
+import { readFile }           from 'node:fs/promises'
 import { relative }           from 'node:path'
-import { join }               from 'node:path'
 
-import typescriptEslint       from '@typescript-eslint/eslint-plugin'
+import type { ESLint }        from 'eslint'
 
-import jsxA11y                from 'eslint-plugin-jsx-a11y'
-import react                  from 'eslint-plugin-react'
-import reactHooks             from 'eslint-plugin-react-hooks'
-import eslintPluginReactHooks from 'eslint-plugin-react-hooks'
 import globby                 from 'globby'
 import ignorer                from 'ignore'
-import { ESLint }             from 'eslint'
+import { Linter as ESLinter } from 'eslint'
 
-import baseConfig             from '@monstrs/config-eslint'
+import eslintconfig           from '@monstrs/config-eslint'
 
 import { ignore }             from './linter.patterns'
 import { createPatterns }     from './linter.patterns'
@@ -34,26 +30,32 @@ export class Linter {
   async lintFiles(files: Array<string> = []): Promise<Array<ESLint.LintResult>> {
     const ignored = ignorer().add(ignore)
 
-    const eslint = new ESLint({
-      ignore: false,
-      extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      useEslintrc: false,
-      cwd: this.cwd,
-      cacheLocation: join(this.cwd, '.yarn', '.eslintcache'),
-      baseConfig,
-      plugins: {
-        react,
-        'jsx-a11y': jsxA11y,
-        'react-hooks': reactHooks,
-        '@typescript-eslint': typescriptEslint,
-        'eslint-plugin-react-hooks': eslintPluginReactHooks,
-      },
-    })
+    const linterConfig: any = { configType: 'flat' }
+    const linter = new ESLinter(linterConfig)
 
-    const results = await eslint.lintFiles(
-      files.filter((file) => ignored.filter([relative(this.cwd, file)]).length !== 0)
+    const results: Array<ESLint.LintResult> = await Promise.all(
+      files
+        .filter((file) => ignored.filter([relative(this.cwd, file)]).length !== 0)
+        .map(async (filePath) => {
+          const source = await readFile(filePath, 'utf8')
+
+          // @ts-ignore
+          const messages = linter.verify(source, eslintconfig, { filename: filePath })
+
+          return {
+            filePath,
+            source,
+            messages,
+            errorCount: messages.filter((message) => message.severity === 1).length,
+            fatalErrorCount: messages.filter((message) => message.severity === 0).length,
+            warningCount: messages.filter((message) => message.severity === 2).length,
+            fixableErrorCount: 0,
+            fixableWarningCount: 0,
+            usedDeprecatedRules: [],
+          }
+        })
     )
 
-    return results.flat()
+    return results
   }
 }

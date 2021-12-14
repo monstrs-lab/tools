@@ -21,7 +21,7 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-json": "^4.1.0",
-    "@rollup/plugin-node-resolve": "^13.0.6",
+    "@rollup/plugin-node-resolve": "^13.1.1",
     "@types/babel__code-frame": "7.0.3",
     "@types/chalk": "2.2.0",
     "@types/deepmerge": "2.2.0",
@@ -31,7 +31,7 @@
     "rollup-plugin-analyzer": "^4.0.0",
     "rollup-plugin-esbuild": "^4.7.2",
     "rollup-plugin-terser": "^7.0.2",
-    "typescript": "^4.5.3"
+    "typescript": "^4.5.4"
   },
   "publishConfig": {
     "main": "dist/index.js",

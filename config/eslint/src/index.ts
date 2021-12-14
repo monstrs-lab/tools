@@ -1,37 +1,47 @@
-import type { Linter } from 'eslint'
+import typescriptEslint       from '@typescript-eslint/eslint-plugin'
+import parser                 from '@typescript-eslint/parser'
 
-import rules           from './rules'
+import jsxA11y                from 'eslint-plugin-jsx-a11y'
+import react                  from 'eslint-plugin-react'
+import reactHooks             from 'eslint-plugin-react-hooks'
+import eslintPluginReactHooks from 'eslint-plugin-react-hooks'
 
-const config: Linter.Config<Linter.RulesRecord> = {
-  parser: require.resolve('@typescript-eslint/parser'),
-  env: { node: true, browser: true, jest: true, es6: true },
-  globals: {},
-  noInlineConfig: undefined,
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-      generators: false,
-      objectLiteralDuplicateProperties: false,
+import rules                  from './rules'
+
+export default [
+  {
+    rules,
+    plugins: {
+      react,
+      'jsx-a11y': jsxA11y,
+      'react-hooks': reactHooks,
+      '@typescript-eslint': typescriptEslint,
+      'eslint-plugin-react-hooks': eslintPluginReactHooks,
     },
-    ecmaVersion: 6 as any,
-    sourceType: 'module' as any,
+    linterOptions: {
+      reportUnusedDisableDirectives: true,
+    },
+    settings: {
+      react: {
+        pragma: 'React',
+        version: '17.0.2',
+      },
+      propWrapperFunctions: ['forbidExtraProps', 'exact', 'Object.freeze'],
+    },
+    languageOptions: {
+      ecmaVersion: 2020,
+      sourceType: 'module',
+      globals: {},
+      parser,
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+          generators: false,
+          objectLiteralDuplicateProperties: false,
+        },
+        ecmaVersion: 2020,
+        sourceType: 'module',
+      },
+    },
   },
-  plugins: ['react', 'jsx-a11y', 'react-hooks', '@typescript-eslint'],
-  reportUnusedDisableDirectives: true,
-
-  rules,
-  overrides: [
-    {
-      files: ['*.ts', '*.tsx', '.mts', '.mtsx'],
-    },
-  ],
-  settings: {
-    react: {
-      pragma: 'React',
-      version: '17.0.2',
-    },
-    propWrapperFunctions: ['forbidExtraProps', 'exact', 'Object.freeze'],
-  },
-}
-
-export default config
+]

@@ -20,7 +20,7 @@
     "@monstrs/schematics": "workspace:0.0.11",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-json": "^4.1.0",
-    "@rollup/plugin-node-resolve": "^13.0.6",
+    "@rollup/plugin-node-resolve": "^13.1.1",
     "@rollup/plugin-replace": "^3.0.0",
     "@types/node": "^16.11.12",
     "builtin-modules": "^3.2.0",

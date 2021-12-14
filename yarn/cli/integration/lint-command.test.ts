@@ -3,7 +3,7 @@ import { xfs }              from '@yarnpkg/fslib'
 
 import { makeTemporaryEnv } from './utils'
 
-jest.setTimeout(120000)
+jest.setTimeout(150000)
 
 describe('yarn', () => {
   describe('commands', () => {
@@ -13,7 +13,6 @@ describe('yarn', () => {
         makeTemporaryEnv(
           {
             dependencies: {
-              '@typescript-eslint/parser': '^5.7.0',
               typescript: '^4.5.4',
               eslint: '^8.4.1',
             },
@@ -43,7 +42,6 @@ n(5)
       makeTemporaryEnv(
         {
           dependencies: {
-            '@typescript-eslint/parser': '^5.7.0',
             typescript: '^4.5.4',
             eslint: '^8.4.1',
           },
