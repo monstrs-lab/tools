@@ -12,13 +12,9 @@
     "prepack": "yarn run build",
     "postpack": "rm -rf dist"
   },
-  "devDependencies": {
+  "dependencies": {
     "@monstrs/cli-ui-git-commit-component": "workspace:0.0.12",
     "@monstrs/code-commit": "workspace:0.0.12",
-    "@yarnpkg/builder": "^3.1.0",
-    "@yarnpkg/cli": "^3.2.0-rc.8",
-    "@yarnpkg/core": "^3.2.0-rc.8",
-    "@yarnpkg/fslib": "^2.6.1-rc.3",
     "@yarnpkg/libui": "^2.2.0",
     "clipanion": "^3.2.0-rc.4",
     "commitizen": "^4.2.4",
@@ -27,6 +23,17 @@
     "lint-staged": "^11.2.6",
     "react": "^17.0.2",
     "word-wrap": "^1.2.3"
+  },
+  "devDependencies": {
+    "@yarnpkg/builder": "^3.1.0",
+    "@yarnpkg/cli": "^3.2.0-rc.8",
+    "@yarnpkg/core": "^3.2.0-rc.8",
+    "@yarnpkg/fslib": "^2.6.1-rc.3"
+  },
+  "peerDependencies": {
+    "@yarnpkg/cli": "^3.2.0-rc.8",
+    "@yarnpkg/core": "^3.2.0-rc.8",
+    "@yarnpkg/fslib": "^2.6.1-rc.3"
   },
   "publishConfig": {
     "access": "public",

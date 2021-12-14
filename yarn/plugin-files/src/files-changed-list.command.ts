@@ -22,13 +22,12 @@ class FilesChangedListCommand extends BaseCommand {
       throw new WorkspaceRequiredError(project.cwd, this.context.cwd)
     }
 
-    const report = await StreamReport.start(
+    const commandReport = await StreamReport.start(
       {
         configuration,
         json: this.json,
         stdout: this.context.stdout,
       },
-      // eslint-disable-next-line no-shadow
       async (report) => {
         const files = await getChangedFiles(project)
 
@@ -41,7 +40,7 @@ class FilesChangedListCommand extends BaseCommand {
       }
     )
 
-    return report.exitCode()
+    return commandReport.exitCode()
   }
 }
 
