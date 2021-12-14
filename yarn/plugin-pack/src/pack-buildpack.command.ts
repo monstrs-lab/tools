@@ -45,19 +45,13 @@ class PackBuildPackCommand extends BaseCommand {
       'renderer build',
     ].some((command) => buildCommand?.includes(command))
 
-    const report = await StreamReport.start(
+    const commandReport = await StreamReport.start(
       {
         configuration,
         stdout: this.context.stdout,
       },
-      // eslint-disable-next-line no-shadow
       async (report) => {
-        if (!(name && canBundle)) {
-          report.reportInfo(
-            null,
-            `Workspace ${workspace.manifest.raw.name} not allowed for package.`
-          )
-        } else {
+        if (name && canBundle) {
           await pack(
             {
               workspace: workspace.manifest.raw.name,
@@ -76,11 +70,16 @@ class PackBuildPackCommand extends BaseCommand {
               end: execUtils.EndStrategy.ErrorCode,
             }
           )
+        } else {
+          report.reportInfo(
+            null,
+            `Workspace ${workspace.manifest.raw.name} not allowed for package.`
+          )
         }
       }
     )
 
-    return report.exitCode()
+    return commandReport.exitCode()
   }
 }
 

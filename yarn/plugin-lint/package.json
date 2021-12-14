@@ -12,19 +12,24 @@
     "prepack": "yarn run build",
     "postpack": "rm -rf dist"
   },
-  "devDependencies": {
+  "dependencies": {
     "@monstrs/cli-ui-error-info-component": "workspace:0.0.8",
     "@monstrs/cli-ui-eslint-result-component": "workspace:0.0.12",
     "@monstrs/cli-ui-renderer": "workspace:0.0.24",
-    "@monstrs/code-lint": "workspace:0.0.113",
     "@monstrs/code-lint-worker": "workspace:0.0.1",
     "@monstrs/yarn-run-utils": "workspace:0.0.1",
+    "clipanion": "^3.2.0-rc.4",
+    "react": "^17.0.2"
+  },
+  "devDependencies": {
     "@yarnpkg/builder": "3.1.0",
     "@yarnpkg/cli": "^3.2.0-rc.8",
     "@yarnpkg/core": "^3.2.0-rc.8",
-    "@yarnpkg/fslib": "^2.6.1-rc.3",
-    "clipanion": "^3.2.0-rc.4",
-    "react": "^17.0.2"
+    "typescript": "^4.5.4"
+  },
+  "peerDependencies": {
+    "@yarnpkg/cli": "^3.2.0-rc.8",
+    "@yarnpkg/core": "^3.2.0-rc.8"
   },
   "publishConfig": {
     "access": "public",

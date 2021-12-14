@@ -12,28 +12,23 @@
     "prepack": "yarn run build",
     "postpack": "rm -rf dist"
   },
-  "devDependencies": {
-    "@monstrs/cli-ui-error-info-component": "workspace:0.0.8",
-    "@monstrs/cli-ui-log-record-component": "workspace:0.0.25",
-    "@monstrs/cli-ui-pretty-logs": "workspace:0.0.25",
-    "@monstrs/cli-ui-renderer": "workspace:0.0.24",
-    "@monstrs/cli-ui-typescript-diagnostic-component": "workspace:0.0.12",
-    "@monstrs/code-configuration": "workspace:0.0.22",
+  "dependencies": {
     "@monstrs/code-pack": "workspace:0.0.101",
-    "@monstrs/code-service": "workspace:0.0.107",
-    "@monstrs/code-service-worker": "workspace:0.0.2",
-    "@monstrs/code-typescript": "workspace:0.0.112",
-    "@monstrs/webpack-start-server-plugin": "workspace:0.2.34",
     "@monstrs/yarn-pack-utils": "workspace:0.0.1",
     "@monstrs/yarn-run-utils": "workspace:0.0.1",
+    "@yarnpkg/plugin-patch": "^3.1.1-rc.6",
+    "clipanion": "^3.2.0-rc.4"
+  },
+  "devDependencies": {
     "@yarnpkg/builder": "^3.1.0",
     "@yarnpkg/cli": "^3.2.0-rc.8",
     "@yarnpkg/core": "^3.2.0-rc.8",
-    "@yarnpkg/fslib": "^2.6.1-rc.3",
-    "@yarnpkg/plugin-patch": "^3.1.1-rc.6",
-    "clipanion": "^3.2.0-rc.4",
-    "react": "^17.0.2",
-    "rimraf": "^3.0.2"
+    "@yarnpkg/fslib": "^2.6.1-rc.3"
+  },
+  "peerDependencies": {
+    "@yarnpkg/cli": "^3.2.0-rc.8",
+    "@yarnpkg/core": "^3.2.0-rc.8",
+    "@yarnpkg/fslib": "^2.6.1-rc.3"
   },
   "publishConfig": {
     "access": "public",
