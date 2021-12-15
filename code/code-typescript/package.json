@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-typescript",
-  "version": "0.0.113",
+  "version": "0.0.114",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -13,7 +13,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/config-typescript": "workspace:0.0.9",
+    "@monstrs/config-typescript": "workspace:0.0.10",
     "deepmerge": "^4.2.2"
   },
   "devDependencies": {

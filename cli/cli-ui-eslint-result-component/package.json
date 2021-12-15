@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/cli-ui-eslint-result-component",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -12,10 +12,10 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/cli-ui-source-component": "workspace:0.0.24"
+    "@monstrs/cli-ui-source-component": "workspace:0.0.25"
   },
   "devDependencies": {
-    "@monstrs/cli-ui-renderer": "workspace:0.0.25",
+    "@monstrs/cli-ui-renderer": "workspace:0.0.26",
     "@types/jest": "^27.0.3",
     "@types/react": "^17.0.37",
     "ink": "^3.2.0",

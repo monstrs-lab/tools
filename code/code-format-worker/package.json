@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-format-worker",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -14,8 +14,8 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/code-format": "workspace:0.0.101",
-    "@monstrs/code-worker-utils": "workspace:0.0.2"
+    "@monstrs/code-format": "workspace:0.0.102",
+    "@monstrs/code-worker-utils": "workspace:0.0.3"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.1",
