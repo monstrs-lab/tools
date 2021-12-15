@@ -8,6 +8,7 @@ const ignore = [
   'coverage',
   'bundles',
   'dist',
+  'gen',
   'lib',
   '.yarn',
   '.vscode',
@@ -30,6 +31,7 @@ const ignorePatterns: string[] = [
   '!./.{git,svn,hg}/**',
   '!**/.yarn/**',
   '!./.yarn/**',
+  '!**/gen/**',
 ]
 
 const createPatterns = (cwd: string): string[] => [
