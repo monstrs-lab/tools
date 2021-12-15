@@ -26,7 +26,6 @@
     "webpack-chain": "^6.5.1"
   },
   "devDependencies": {
-    "@types/file-loader": "5.0.1",
     "@types/jest": "^27.0.3",
     "@types/node": "^16.11.12",
     "@types/protocol-buffers-schema": "3.4.1",

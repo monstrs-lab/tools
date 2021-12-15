@@ -1,7 +1,6 @@
-import { join }             from 'node:path'
-import { Worker }           from 'node:worker_threads'
-
 import type { DryRunEvent } from '@angular-devkit/schematics'
+
+import { EvalWorker }       from '@monstrs/code-worker-utils'
 
 import { getContent }       from './schematics.worker.content'
 
@@ -27,36 +26,13 @@ export class SchematicsWorker {
     schematicName: string,
     options = {}
   ): Promise<Array<DryRunEvent>> {
-    return new Promise((resolve, reject) => {
-      const pnpPath = process.versions.pnp
-        ? require('module').findPnpApi(__filename).resolveRequest('pnpapi', null)
-        : join(process.cwd(), '.pnp.cjs')
-
-      const worker = new Worker(getContent(), {
-        eval: true,
-        workerData: {
-          type,
-          cwd: this.cwd,
-          force: this.force,
-          dryRun: this.dryRun,
-          schematicName,
-          options,
-        },
-        execArgv: ['--require', pnpPath, ...process.execArgv],
-      })
-
-      const exitHandler = (code: number) => {
-        if (code !== 0) reject(new Error(`Worker stopped with exit code ${code}`))
-      }
-
-      worker.once('message', (result) => {
-        worker.off('error', reject)
-        worker.off('exit', exitHandler)
-        resolve(result)
-      })
-
-      worker.once('error', reject)
-      worker.once('exit', exitHandler)
+    return EvalWorker.run(getContent(), {
+      type,
+      cwd: this.cwd,
+      force: this.force,
+      dryRun: this.dryRun,
+      schematicName,
+      options,
     })
   }
 
