@@ -81,7 +81,6 @@ export class WebpackConfig {
         transpileOnly: true,
         experimentalWatchApi: true,
         compilerOptions: { ...tsconfig.compilerOptions, sourceMap: true },
-        configFile: join(__dirname, '../tsconfig.stub.json'),
       })
 
     config.module
