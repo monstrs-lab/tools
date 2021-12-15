@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-service",
-  "version": "0.0.109",
+  "version": "0.0.110",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [

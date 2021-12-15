@@ -23,7 +23,7 @@
     "@angular-devkit/core": "^13.1.1",
     "@angular-devkit/schematics": "^13.1.1",
     "@jest/core": "^27.4.5",
-    "@monstrs/code-service": "workspace:0.0.109",
+    "@monstrs/code-service": "workspace:0.0.110",
     "@monstrs/config-eslint": "workspace:0.0.10",
     "@monstrs/config-jest": "workspace:0.0.10",
     "@monstrs/schematics": "workspace:0.0.13",
