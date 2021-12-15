@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-test-worker",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -15,8 +15,8 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/code-test": "workspace:0.0.109",
-    "@monstrs/code-worker-utils": "workspace:0.0.1"
+    "@monstrs/code-test": "workspace:0.0.110",
+    "@monstrs/code-worker-utils": "workspace:0.0.2"
   },
   "devDependencies": {
     "@jest/test-result": "^27.4.2",

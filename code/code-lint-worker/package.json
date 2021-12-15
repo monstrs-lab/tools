@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-lint-worker",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -14,8 +14,8 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/code-lint": "workspace:0.0.113",
-    "@monstrs/code-worker-utils": "workspace:0.0.1"
+    "@monstrs/code-lint": "workspace:0.0.114",
+    "@monstrs/code-worker-utils": "workspace:0.0.2"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.1",
