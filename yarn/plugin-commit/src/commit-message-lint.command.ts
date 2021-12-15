@@ -1,17 +1,18 @@
-import { BaseCommand } from '@yarnpkg/cli'
+import { BaseCommand }  from '@yarnpkg/cli'
 
-import { format }      from '@monstrs/code-commitlint'
-import { lint }        from '@monstrs/code-commitlint'
-import { read }        from '@monstrs/code-commitlint'
+import { CommitLinter } from '@monstrs/code-commit'
+import { read }         from '@monstrs/code-commit'
 
 class CommitMessageLintCommand extends BaseCommand {
   static paths = [['commit', 'message', 'lint']]
 
   async execute() {
-    const messages = await read({ edit: true })
-    const results = await Promise.all(messages.map(lint))
+    const linter = new CommitLinter()
 
-    const output = format({ results })
+    const messages = await read({ edit: true })
+    const results = await Promise.all(messages.map(linter.lint))
+
+    const output = linter.format({ results })
 
     if (output !== '') {
       this.context.stdout.write(output)

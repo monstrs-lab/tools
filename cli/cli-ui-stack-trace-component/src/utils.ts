@@ -1,5 +1,6 @@
-import fs             from 'fs'
 import { StackFrame } from '@monstrs/stack-trace'
+
+import fs             from 'fs'
 
 export const getFrameSource = (frame: StackFrame): string | null => {
   if (frame.sourceMap) {

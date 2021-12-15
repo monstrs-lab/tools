@@ -1,22 +1,21 @@
 {
   "name": "@monstrs/webpack-start-server-plugin",
-  "version": "0.2.23",
+  "version": "0.2.35",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "builder build library",
-    "postpack": "rm -rf dist",
-    "prepack": "yarn run build"
-  },
-  "devDependencies": {
-    "@monstrs/tools-builder": "workspace:0.0.1",
-    "@types/node": "^16.7.10"
+    "build": "yarn library build",
+    "prepack": "yarn run build",
+    "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "webpack": "^5.51.1"
+    "webpack": "^5.65.0"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.12"
   },
   "publishConfig": {
     "access": "public",

@@ -1,7 +1,7 @@
 {
   "name": "@monstrs/yarn-plugin-format",
-  "private": true,
   "version": "0.0.1",
+  "private": true,
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -9,14 +9,25 @@
   ],
   "scripts": {
     "build": "builder build plugin",
-    "postpack": "rm -rf dist",
-    "prepack": "yarn run build"
+    "prepack": "yarn run build",
+    "postpack": "rm -rf dist"
+  },
+  "dependencies": {
+    "@monstrs/cli-ui-error-info-component": "workspace:0.0.9",
+    "@monstrs/cli-ui-renderer": "workspace:0.0.25",
+    "@monstrs/code-format-worker": "workspace:0.0.2",
+    "@monstrs/yarn-run-utils": "workspace:0.0.1",
+    "clipanion": "^3.2.0-rc.4",
+    "react": "^17.0.2"
   },
   "devDependencies": {
-    "@monstrs/tools-builder": "workspace:0.0.1",
-    "@yarnpkg/cli": "^3.1.0-rc.2",
-    "@yarnpkg/core": "^3.1.0-rc.3",
-    "clipanion": "^3.0.1"
+    "@yarnpkg/builder": "3.1.0",
+    "@yarnpkg/cli": "^3.2.0-rc.8",
+    "@yarnpkg/core": "^3.2.0-rc.8"
+  },
+  "peerDependencies": {
+    "@yarnpkg/cli": "^3.2.0-rc.8",
+    "@yarnpkg/core": "^3.2.0-rc.8"
   },
   "publishConfig": {
     "access": "public",

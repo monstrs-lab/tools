@@ -1,26 +1,25 @@
 {
   "name": "@monstrs/cli-ui-pretty-logs",
-  "version": "0.0.14",
+  "version": "0.0.26",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "builder build library",
-    "postpack": "rm -rf dist",
-    "prepack": "yarn run build"
-  },
-  "devDependencies": {
-    "@monstrs/tools-builder": "workspace:0.0.1",
-    "@types/node": "^16.7.10",
-    "@types/react": "^17.0.19"
+    "build": "yarn library build",
+    "prepack": "yarn run build",
+    "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/cli-ui-log-record-component": "workspace:0.0.14",
-    "@monstrs/cli-ui-renderer": "workspace:0.0.13",
-    "ink": "^3.0.9",
-    "react": "*"
+    "@monstrs/cli-ui-log-record-component": "workspace:0.0.26",
+    "@monstrs/cli-ui-renderer": "workspace:0.0.25",
+    "ink": "^3.2.0",
+    "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.12",
+    "@types/react": "^17.0.37"
   },
   "publishConfig": {
     "access": "public",

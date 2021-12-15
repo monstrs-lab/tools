@@ -1,8 +1,9 @@
+import path                  from 'node:path'
+
 import Config                from 'webpack-chain'
-import path                  from 'path'
 import webpack               from 'webpack'
 
-import { base }              from '@monstrs/code-typescript'
+import tsconfig              from '@monstrs/config-typescript'
 
 import { getExternals }      from './externals'
 import { getResolveAliases } from './resolve'
@@ -66,7 +67,7 @@ export const createWebpackConfig = async (
     .options({
       transpileOnly: true,
       experimentalWatchApi: true,
-      compilerOptions: { ...base.compilerOptions, sourceMap: true },
+      compilerOptions: { ...tsconfig.compilerOptions, sourceMap: true },
       configFile: path.join(__dirname, '../../tsconfig.stub.json'),
     })
 

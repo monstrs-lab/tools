@@ -2,6 +2,7 @@ import React            from 'react'
 import stripAnsi        from 'strip-ansi'
 
 import { renderStatic } from '@monstrs/cli-ui-renderer'
+
 import { StackTrace }   from './stack-trace.component'
 
 const createStack = () => {

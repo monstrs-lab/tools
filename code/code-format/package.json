@@ -1,28 +1,26 @@
 {
   "name": "@monstrs/code-format",
-  "version": "0.0.89",
+  "version": "0.0.101",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "builder build library",
-    "postpack": "rm -rf dist",
-    "prepack": "yarn run build"
-  },
-  "devDependencies": {
-    "@babel/types": "^7.15.0",
-    "@monstrs/tools-builder": "workspace:0.0.1",
-    "@types/node": "^16.7.10"
+    "build": "yarn library build",
+    "build:worker": "rollup -c",
+    "prepack": "yarn run build",
+    "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/prettier-plugin-import-align": "workspace:0.2.42",
-    "@monstrs/prettier-plugin-import-sort": "workspace:0.2.42",
-    "globby": "^11.0.3",
-    "ignore": "^5.1.8",
-    "prettier": "^2.3.2",
-    "prettier-plugin-toml": "^0.3.1"
+    "@monstrs/config-prettier": "workspace:0.0.9",
+    "@monstrs/prettier-plugin": "workspace:0.0.6",
+    "globby": "^11.0.4",
+    "ignore": "^5.1.9",
+    "prettier": "^2.5.1"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.12"
   },
   "publishConfig": {
     "main": "dist/index.js",
