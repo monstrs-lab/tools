@@ -1,4 +1,3 @@
-/* eslint-disable */
 let hook
 
 module.exports.getContent = () => {

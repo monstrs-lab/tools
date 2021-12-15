@@ -14,7 +14,7 @@ const wrapOutput = () => ({
 
     const outputBundle = bundle[bundles[0]]
 
-    outputBundle.code = `/* eslint-disable */\nlet hook;\n\nmodule.exports.getContent = () => {\n  if (typeof hook === \`undefined\`)\n    hook = require('zlib').brotliDecompressSync(Buffer.from('${brotliCompressSync(
+    outputBundle.code = `let hook;\n\nmodule.exports.getContent = () => {\n  if (typeof hook === \`undefined\`)\n    hook = require('zlib').brotliDecompressSync(Buffer.from('${brotliCompressSync(
       outputBundle.code.replace(/\r\n/g, '\n')
     ).toString('base64')}', 'base64')).toString();\n\n  return hook;\n};\n`
   },
