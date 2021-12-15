@@ -7,7 +7,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "yarn run build:source && yarn run build:worker",
+    "build": "run build:worker && run build:source",
     "build:source": "yarn library build",
     "build:worker": "rollup -c",
     "prepack": "yarn run build",

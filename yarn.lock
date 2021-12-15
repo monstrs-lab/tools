@@ -1710,19 +1710,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/code-format-worker@workspace:code/code-format-worker"
   dependencies:
-    "@babel/types": ^7.16.0
     "@monstrs/code-format": "workspace:0.0.100"
     "@monstrs/code-worker-utils": "workspace:0.0.1"
-    "@monstrs/config-prettier": "workspace:0.0.8"
-    "@monstrs/prettier-plugin": "workspace:0.0.5"
     "@rollup/plugin-commonjs": ^21.0.1
     "@rollup/plugin-json": ^4.1.0
     "@rollup/plugin-node-resolve": ^13.1.1
     "@types/node": ^16.11.12
     esbuild: ^0.14.3
-    globby: ^11.0.4
-    ignore: ^5.1.9
-    prettier: ^2.5.1
     rollup: ^2.61.1
     rollup-plugin-analyzer: ^4.0.0
     rollup-plugin-esbuild: ^4.7.2
@@ -1734,7 +1728,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/code-format@workspace:code/code-format"
   dependencies:
-    "@babel/types": ^7.16.0
     "@monstrs/config-prettier": "workspace:0.0.8"
     "@monstrs/prettier-plugin": "workspace:0.0.5"
     "@types/node": ^16.11.12
@@ -1748,43 +1741,18 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/code-lint-worker@workspace:code/code-lint-worker"
   dependencies:
-    "@monstrs/code-format": "workspace:0.0.100"
     "@monstrs/code-lint": "workspace:0.0.113"
     "@monstrs/code-worker-utils": "workspace:0.0.1"
-    "@monstrs/config-eslint": "workspace:0.0.8"
     "@rollup/plugin-commonjs": ^21.0.1
     "@rollup/plugin-json": ^4.1.0
     "@rollup/plugin-node-resolve": ^13.1.1
-    "@types/eslint": 8.2.1
     "@types/node": ^16.11.12
-    "@typescript-eslint/eslint-plugin": ^5.7.0
-    "@typescript-eslint/parser": ^5.7.0
-    builtin-modules: ^3.2.0
     esbuild: ^0.14.3
     eslint: ^8.4.1
-    eslint-import-resolver-node: ^0.3.6
-    eslint-plugin-import: ^2.25.3
-    eslint-plugin-jsx-a11y: ^6.5.1
-    eslint-plugin-prettier: ^4.0.0
-    eslint-plugin-react: ^7.27.1
-    eslint-plugin-react-hooks: ^4.3.0
-    globby: ^11.0.4
-    ignore: ^5.1.9
-    prettier: ^2.5.1
-    react: ^17.0.2
     rollup: ^2.61.1
     rollup-plugin-analyzer: ^4.0.0
     rollup-plugin-esbuild: ^4.7.2
     rollup-plugin-terser: ^7.0.2
-    typescript: ^4.5.4
-  peerDependencies:
-    react: "*"
-    typescript: "*"
-  peerDependenciesMeta:
-    react:
-      optional: true
-    typescript:
-      optional: true
   languageName: unknown
   linkType: soft
 
@@ -1792,33 +1760,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/code-lint@workspace:code/code-lint"
   dependencies:
-    "@monstrs/code-format": "workspace:0.0.100"
     "@monstrs/config-eslint": "workspace:0.0.8"
-    "@rollup/plugin-commonjs": ^21.0.1
-    "@rollup/plugin-json": ^4.1.0
-    "@rollup/plugin-node-resolve": ^13.1.1
-    "@types/eslint": 8.2.1
     "@types/node": ^16.11.12
-    "@typescript-eslint/eslint-plugin": ^5.7.0
-    "@typescript-eslint/parser": ^5.7.0
-    builtin-modules: ^3.2.0
-    esbuild: ^0.14.3
     eslint: ^8.4.1
-    eslint-import-resolver-node: ^0.3.6
-    eslint-plugin-import: ^2.25.3
-    eslint-plugin-jsx-a11y: ^6.5.1
-    eslint-plugin-prettier: ^4.0.0
-    eslint-plugin-react: ^7.27.1
-    eslint-plugin-react-hooks: ^4.3.0
     globby: ^11.0.4
     ignore: ^5.1.9
-    prettier: ^2.5.1
-    react: ^17.0.2
-    rollup: ^2.61.1
-    rollup-plugin-analyzer: ^4.0.0
-    rollup-plugin-esbuild: ^4.7.2
-    rollup-plugin-terser: ^7.0.2
-    typescript: ^4.5.4
   peerDependencies:
     react: "*"
     typescript: "*"

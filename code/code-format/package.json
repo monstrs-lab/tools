@@ -13,15 +13,14 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "globby": "^11.0.4",
-    "ignore": "^5.1.9"
-  },
-  "devDependencies": {
-    "@babel/types": "^7.16.0",
     "@monstrs/config-prettier": "workspace:0.0.8",
     "@monstrs/prettier-plugin": "workspace:0.0.5",
-    "@types/node": "^16.11.12",
+    "globby": "^11.0.4",
+    "ignore": "^5.1.9",
     "prettier": "^2.5.1"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.12"
   },
   "publishConfig": {
     "main": "dist/index.js",

@@ -14,21 +14,15 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/code-worker-utils": "workspace:0.0.1",
-    "globby": "^11.0.4",
-    "ignore": "^5.1.9"
+    "@monstrs/code-format": "workspace:0.0.100",
+    "@monstrs/code-worker-utils": "workspace:0.0.1"
   },
   "devDependencies": {
-    "@babel/types": "^7.16.0",
-    "@monstrs/code-format": "workspace:0.0.100",
-    "@monstrs/config-prettier": "workspace:0.0.8",
-    "@monstrs/prettier-plugin": "workspace:0.0.5",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.1.1",
     "@types/node": "^16.11.12",
     "esbuild": "^0.14.3",
-    "prettier": "^2.5.1",
     "rollup": "^2.61.1",
     "rollup-plugin-analyzer": "^4.0.0",
     "rollup-plugin-esbuild": "^4.7.2",
