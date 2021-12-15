@@ -1,0 +1,6 @@
+releases:
+  "@monstrs/code-service": patch
+  "@monstrs/code-service-worker": patch
+
+undecided:
+  - "@monstrs/schematics"
