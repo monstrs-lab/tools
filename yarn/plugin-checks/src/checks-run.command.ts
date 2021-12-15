@@ -22,9 +22,9 @@ class ChecksRunCommand extends BaseCommand {
           this.runCheck(project.cwd, ['lint'], report),
           this.runCheck(project.cwd, ['typecheck'], report),
           this.runCheck(project.cwd, ['test', 'unit'], report),
+          this.runCheck(project.cwd, ['test', 'integration'], report),
         ])
 
-        await this.runCheck(project.cwd, ['test', 'integration'], report)
         await this.runCheck(project.cwd, ['release'], report)
       }
     )
