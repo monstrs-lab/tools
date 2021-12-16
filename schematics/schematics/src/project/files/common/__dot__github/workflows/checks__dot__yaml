@@ -18,7 +18,27 @@ jobs:
       - name: Install
         run: yarn install
 
-      - name: Run
-        run: yarn checks run
+      - name: Lint
+        run: yarn checks lint
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+
+      - name: TypeCheck
+        run: yarn checks typecheck
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+
+      - name: TestUnit
+        run: yarn checks test unit
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+
+      - name: TestIntegration
+        run: yarn checks test integration
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+
+      - name: Release
+        run: yarn checks release
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
