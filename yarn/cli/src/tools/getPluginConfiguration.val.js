@@ -25,7 +25,7 @@ module.exports = ({ modules, plugins }) => {
 
   return {
     code: [
-      `import {backportClipanionCompatibility} from './backportClipanionCompatibility';\n`,
+      `import {backportClipanionCompatibility} from '@yarnpkg/cli/lib/tools/backportClipanionCompatibility';\n`,
       `\n`,
       importSegment,
       `export const getPluginConfiguration = () => ({\n`,

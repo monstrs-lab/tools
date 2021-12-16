@@ -1,7 +1,6 @@
 import packageJson             from '@monstrs/yarn-cli/package.json'
 import { PluginConfiguration } from '@yarnpkg/core'
-
-import { getDynamicLibs }      from './getDynamicLibs'
+import { getDynamicLibs }      from '@yarnpkg/cli'
 
 export function getPluginConfiguration(): PluginConfiguration {
   const plugins = new Set<string>()
