@@ -1,0 +1,4 @@
+releases:
+  "@monstrs/code-service": patch
+  "@monstrs/code-service-worker": patch
+  "@monstrs/webpack-proto-imports-loader": patch
