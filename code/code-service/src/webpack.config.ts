@@ -80,6 +80,7 @@ export class WebpackConfig {
       .options({
         transpileOnly: true,
         experimentalWatchApi: true,
+        onlyCompileBundledFiles: true,
         compilerOptions: { ...tsconfig.compilerOptions, sourceMap: true },
       })
 
