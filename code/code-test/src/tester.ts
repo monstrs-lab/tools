@@ -71,7 +71,7 @@ export class Tester {
       rootDir: this.cwd,
       ci: false,
       detectLeaks: false,
-      detectOpenHandles: true,
+      detectOpenHandles: false,
       errorOnDeprecated: false,
       listTests: false,
       passWithNoTests: true,
