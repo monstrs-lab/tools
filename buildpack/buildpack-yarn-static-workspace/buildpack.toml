@@ -2,7 +2,7 @@ api = "0.2"
 
 [buildpack]
 id = "tech.monstrs.buildpacks.yarn-static-workspace"
-version = "0.0.2"
+version = "0.0.3"
 name = "Yarn Static Workspace Buildpack"
 
 [metadata]
@@ -12,12 +12,12 @@ include_files = ["buildpack.toml"]
 
 [[order.group]]
 id = "tech.monstrs.buildpacks.yarn-install"
-version = "0.0.2"
+version = "0.0.3"
 
 [[order.group]]
 id = "tech.monstrs.buildpacks.yarn-workspace-build"
-version = "0.0.2"
+version = "0.0.3"
 
 [[order.group]]
 id = "tech.monstrs.buildpacks.yarn-workspace-serve"
-version = "0.0.2"
+version = "0.0.3"

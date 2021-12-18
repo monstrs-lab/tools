@@ -10,7 +10,7 @@ import { TagPolicy }     from '@monstrs/code-pack'
 import { pack }          from '@monstrs/code-pack'
 
 class PackBuildPackCommand extends BaseCommand {
-  static paths = [['pack', 'buildpack']]
+  static paths = [['package', 'buildpack']]
 
   registry: string = Option.String('-r,--registry', { required: true })
 

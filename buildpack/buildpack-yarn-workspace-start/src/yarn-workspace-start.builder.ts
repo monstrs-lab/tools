@@ -7,6 +7,6 @@ export class YarnWorkspaceStartBuilder implements Builder {
     const entry = ctx.plan.getEntry('yarn-workspace-start')
     const entrypoint = entry?.metadata?.entrypoint || 'dist/index.js'
 
-    ctx.addWebProcess(['node', '-r', './.pnp.cjs', entrypoint])
+    ctx.addWebProcess(['node', entrypoint])
   }
 }

@@ -49,6 +49,7 @@ export const pack = async (
     builder || 'monstrs/builder-base:buster',
     '--tag',
     `${image}:latest`,
+    '--verbose',
   ]
 
   if (publish) {
