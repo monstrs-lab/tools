@@ -1,4 +1,6 @@
+import { existsSync }    from 'fs'
 import { writeFileSync } from 'fs'
+import { mkdirSync }     from 'fs'
 import { join }          from 'path'
 
 export class EnvironmentWriter {
@@ -11,6 +13,10 @@ export class EnvironmentWriter {
   }
 
   save(layersPath: string) {
+    if (!existsSync(join(layersPath, this.platform))) {
+      mkdirSync(join(layersPath, this.platform))
+    }
+
     this.values.forEach((value, key) => {
       writeFileSync(join(layersPath, this.platform, key), value)
     })

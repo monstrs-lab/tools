@@ -2767,6 +2767,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/runtime", "npm:7.16.5"],
             ["@babel/types", "npm:7.16.0"],
             ["@monstrs/buildpack-core", "workspace:buildpack/buildpack-core"],
+            ["@yarnpkg/core", "npm:3.1.0"],
+            ["@yarnpkg/fslib", "npm:2.6.1-rc.3"],
             ["execa", "npm:5.1.1"]
           ],
           "linkType": "SOFT",
