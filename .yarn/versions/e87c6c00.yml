@@ -1,0 +1,8 @@
+releases:
+  "@monstrs/cli-ui-error-info-component": patch
+  "@monstrs/cli-ui-log-record-component": patch
+  "@monstrs/cli-ui-pretty-logs": patch
+  "@monstrs/cli-ui-stack-trace-component": patch
+  "@monstrs/code-pack": patch
+  "@monstrs/code-service": patch
+  "@monstrs/code-service-worker": patch
