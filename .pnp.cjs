@@ -37,6 +37,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:buildpack/buildpack-yarn-workspace-build"
       },
       {
+        "name": "@monstrs/buildpack-yarn-workspace-node-options",
+        "reference": "workspace:buildpack/buildpack-yarn-workspace-node-options"
+      },
+      {
         "name": "@monstrs/buildpack-yarn-workspace-pack",
         "reference": "workspace:buildpack/buildpack-yarn-workspace-pack"
       },
@@ -281,6 +285,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@monstrs/buildpack-node-start", ["workspace:buildpack/buildpack-node-start"]],
       ["@monstrs/buildpack-yarn-install", ["workspace:buildpack/buildpack-yarn-install"]],
       ["@monstrs/buildpack-yarn-workspace-build", ["workspace:buildpack/buildpack-yarn-workspace-build"]],
+      ["@monstrs/buildpack-yarn-workspace-node-options", ["workspace:buildpack/buildpack-yarn-workspace-node-options"]],
       ["@monstrs/buildpack-yarn-workspace-pack", ["workspace:buildpack/buildpack-yarn-workspace-pack"]],
       ["@monstrs/buildpack-yarn-workspace-serve", ["workspace:buildpack/buildpack-yarn-workspace-serve"]],
       ["@monstrs/buildpack-yarn-workspace-start", ["workspace:buildpack/buildpack-yarn-workspace-start"]],
@@ -2688,6 +2693,27 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT",
         }]
       ]],
+      ["@monstrs/buildpack-yarn-workspace-node-options", [
+        ["workspace:buildpack/buildpack-yarn-workspace-node-options", {
+          "packageLocation": "./buildpack/buildpack-yarn-workspace-node-options/",
+          "packageDependencies": [
+            ["@monstrs/buildpack-yarn-workspace-node-options", "workspace:buildpack/buildpack-yarn-workspace-node-options"],
+            ["@babel/core", "npm:7.16.5"],
+            ["@babel/plugin-proposal-async-generator-functions", "virtual:6edcd2783bcb80396c2bec03a284cb737a14969f400f14e7f54a93ca1c438dc5e2305a99d1d6cf16443cb0d19286f5c1763a238acf93b30ee499827dd2be5613#npm:7.16.5"],
+            ["@babel/plugin-proposal-class-properties", "virtual:6edcd2783bcb80396c2bec03a284cb737a14969f400f14e7f54a93ca1c438dc5e2305a99d1d6cf16443cb0d19286f5c1763a238acf93b30ee499827dd2be5613#npm:7.16.5"],
+            ["@babel/plugin-proposal-decorators", "virtual:6edcd2783bcb80396c2bec03a284cb737a14969f400f14e7f54a93ca1c438dc5e2305a99d1d6cf16443cb0d19286f5c1763a238acf93b30ee499827dd2be5613#npm:7.16.5"],
+            ["@babel/plugin-proposal-nullish-coalescing-operator", "virtual:6edcd2783bcb80396c2bec03a284cb737a14969f400f14e7f54a93ca1c438dc5e2305a99d1d6cf16443cb0d19286f5c1763a238acf93b30ee499827dd2be5613#npm:7.16.5"],
+            ["@babel/plugin-proposal-optional-chaining", "virtual:6edcd2783bcb80396c2bec03a284cb737a14969f400f14e7f54a93ca1c438dc5e2305a99d1d6cf16443cb0d19286f5c1763a238acf93b30ee499827dd2be5613#npm:7.16.5"],
+            ["@babel/plugin-transform-modules-commonjs", "virtual:6edcd2783bcb80396c2bec03a284cb737a14969f400f14e7f54a93ca1c438dc5e2305a99d1d6cf16443cb0d19286f5c1763a238acf93b30ee499827dd2be5613#npm:7.16.5"],
+            ["@babel/preset-typescript", "virtual:6edcd2783bcb80396c2bec03a284cb737a14969f400f14e7f54a93ca1c438dc5e2305a99d1d6cf16443cb0d19286f5c1763a238acf93b30ee499827dd2be5613#npm:7.16.5"],
+            ["@babel/runtime", "npm:7.16.5"],
+            ["@babel/types", "npm:7.16.0"],
+            ["@monstrs/buildpack-core", "workspace:buildpack/buildpack-core"],
+            ["execa", "npm:5.1.1"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
       ["@monstrs/buildpack-yarn-workspace-pack", [
         ["workspace:buildpack/buildpack-yarn-workspace-pack", {
           "packageLocation": "./buildpack/buildpack-yarn-workspace-pack/",
@@ -2741,6 +2767,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/runtime", "npm:7.16.5"],
             ["@babel/types", "npm:7.16.0"],
             ["@monstrs/buildpack-core", "workspace:buildpack/buildpack-core"],
+            ["@yarnpkg/core", "npm:3.1.0"],
+            ["@yarnpkg/fslib", "npm:2.6.1-rc.3"],
             ["execa", "npm:5.1.1"]
           ],
           "linkType": "SOFT",

@@ -2,7 +2,7 @@ api = "0.2"
 
 [buildpack]
 id = "tech.monstrs.buildpacks.yarn-workspace-serve"
-version = "0.0.2"
+version = "0.0.3"
 name = "Yarn Workspace Pack Buildpack"
 
 [metadata]

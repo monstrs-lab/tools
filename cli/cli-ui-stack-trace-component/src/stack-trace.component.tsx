@@ -1,3 +1,5 @@
+/* eslint-disable react/no-array-index-key */
+
 import { parse }          from '@monstrs/stack-trace'
 
 import React              from 'react'
@@ -32,8 +34,8 @@ export const StackTrace: FC<StackTraceProps> = ({ children }) => {
           </SourcePreview>
         </Box>
       )}
-      {stack.frames.map((frame: any) => (
-        <Box key={`${frame.file}-${frame.line}`} justifyContent='flex-end'>
+      {stack.frames.map((frame: any, index) => (
+        <Box key={`${frame.file}-${frame.line}-${frame.column}-${index}`} justifyContent='flex-end'>
           <Text>{frame.function}</Text>
           <Spacer />
           <Text color='gray'>{frame.file}</Text>

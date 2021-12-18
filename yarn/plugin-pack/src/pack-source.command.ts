@@ -23,7 +23,7 @@ import { clearUnusedWorkspaces } from '@monstrs/yarn-pack-utils'
 import { packWorkspace }         from '@monstrs/yarn-pack-utils'
 
 class PackSourceCommand extends BaseCommand {
-  static paths = [['pack', 'source']]
+  static paths = [['package', 'source']]
 
   destination: PortablePath = Option.String('-d,--destination', {
     required: true,

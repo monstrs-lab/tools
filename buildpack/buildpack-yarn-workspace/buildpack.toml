@@ -2,7 +2,7 @@ api = "0.2"
 
 [buildpack]
 id = "tech.monstrs.buildpacks.yarn-workspace"
-version = "0.0.2"
+version = "0.0.3"
 name = "Yarn Workspace Buildpack"
 
 [metadata]
@@ -12,16 +12,20 @@ include_files = ["buildpack.toml"]
 
 [[order.group]]
 id = "tech.monstrs.buildpacks.yarn-install"
-version = "0.0.2"
+version = "0.0.3"
 
 [[order.group]]
 id = "tech.monstrs.buildpacks.yarn-workspace-build"
-version = "0.0.2"
+version = "0.0.3"
 
 [[order.group]]
 id = "tech.monstrs.buildpacks.yarn-workspace-pack"
-version = "0.0.2"
+version = "0.0.3"
+
+[[order.group]]
+id = "tech.monstrs.buildpacks.yarn-workspace-node-options"
+version = "0.0.3"
 
 [[order.group]]
 id = "tech.monstrs.buildpacks.yarn-workspace-start"
-version = "0.0.2"
+version = "0.0.3"
