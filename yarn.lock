@@ -2027,9 +2027,9 @@ __metadata:
     "@monstrs/yarn-plugin-commit": "workspace:0.0.1"
     "@monstrs/yarn-plugin-files": "workspace:0.0.1"
     "@monstrs/yarn-plugin-format": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-image": "workspace:0.0.1"
     "@monstrs/yarn-plugin-library": "workspace:0.0.1"
     "@monstrs/yarn-plugin-lint": "workspace:0.0.1"
-    "@monstrs/yarn-plugin-pack": "workspace:0.0.1"
     "@monstrs/yarn-plugin-schematics": "workspace:0.0.1"
     "@monstrs/yarn-plugin-service": "workspace:0.0.1"
     "@monstrs/yarn-plugin-test": "workspace:0.0.1"
@@ -2189,6 +2189,27 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@monstrs/yarn-plugin-image@workspace:0.0.1, @monstrs/yarn-plugin-image@workspace:yarn/plugin-image":
+  version: 0.0.0-use.local
+  resolution: "@monstrs/yarn-plugin-image@workspace:yarn/plugin-image"
+  dependencies:
+    "@monstrs/code-pack": "workspace:0.0.103"
+    "@monstrs/yarn-pack-utils": "workspace:0.0.1"
+    "@monstrs/yarn-run-utils": "workspace:0.0.1"
+    "@yarnpkg/builder": ^3.1.0
+    "@yarnpkg/cli": ^3.2.0-rc.8
+    "@yarnpkg/core": ^3.2.0-rc.8
+    "@yarnpkg/fslib": ^2.6.1-rc.3
+    "@yarnpkg/plugin-patch": ^3.1.1-rc.6
+    clipanion: ^3.2.0-rc.4
+    typescript: ^4.5.4
+  peerDependencies:
+    "@yarnpkg/cli": ^3.2.0-rc.8
+    "@yarnpkg/core": ^3.2.0-rc.8
+    "@yarnpkg/fslib": ^2.6.1-rc.3
+  languageName: unknown
+  linkType: soft
+
 "@monstrs/yarn-plugin-library@workspace:0.0.1, @monstrs/yarn-plugin-library@workspace:yarn/plugin-library":
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-library@workspace:yarn/plugin-library"
@@ -2230,27 +2251,6 @@ __metadata:
   peerDependencies:
     "@yarnpkg/cli": ^3.2.0-rc.8
     "@yarnpkg/core": ^3.2.0-rc.8
-  languageName: unknown
-  linkType: soft
-
-"@monstrs/yarn-plugin-pack@workspace:0.0.1, @monstrs/yarn-plugin-pack@workspace:yarn/plugin-pack":
-  version: 0.0.0-use.local
-  resolution: "@monstrs/yarn-plugin-pack@workspace:yarn/plugin-pack"
-  dependencies:
-    "@monstrs/code-pack": "workspace:0.0.103"
-    "@monstrs/yarn-pack-utils": "workspace:0.0.1"
-    "@monstrs/yarn-run-utils": "workspace:0.0.1"
-    "@yarnpkg/builder": ^3.1.0
-    "@yarnpkg/cli": ^3.2.0-rc.8
-    "@yarnpkg/core": ^3.2.0-rc.8
-    "@yarnpkg/fslib": ^2.6.1-rc.3
-    "@yarnpkg/plugin-patch": ^3.1.1-rc.6
-    clipanion: ^3.2.0-rc.4
-    typescript: ^4.5.4
-  peerDependencies:
-    "@yarnpkg/cli": ^3.2.0-rc.8
-    "@yarnpkg/core": ^3.2.0-rc.8
-    "@yarnpkg/fslib": ^2.6.1-rc.3
   languageName: unknown
   linkType: soft
 
