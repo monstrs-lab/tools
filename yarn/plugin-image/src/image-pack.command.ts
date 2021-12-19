@@ -10,7 +10,7 @@ import { TagPolicy }     from '@monstrs/code-pack'
 import { pack }          from '@monstrs/code-pack'
 
 class ImagePackCommand extends BaseCommand {
-  static paths = [['pack', 'image']]
+  static paths = [['image', 'pack']]
 
   registry: string = Option.String('-r,--registry', { required: true })
 
