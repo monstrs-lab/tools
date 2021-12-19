@@ -27,7 +27,6 @@
   "include": [
     "code/**/*",
     "ctl/**/*",
-    "buildpack/**/*",
     "utils/**/*",
     "yarn/**/*",
     "github/**/*",
