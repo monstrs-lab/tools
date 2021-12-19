@@ -22,8 +22,8 @@ import { getRequiredWorkspaces } from '@monstrs/yarn-pack-utils'
 import { clearUnusedWorkspaces } from '@monstrs/yarn-pack-utils'
 import { packWorkspace }         from '@monstrs/yarn-pack-utils'
 
-class PackSourceCommand extends BaseCommand {
-  static paths = [['package', 'source']]
+class PackWorkspaceCommand extends BaseCommand {
+  static paths = [['pack', 'workspace']]
 
   destination: PortablePath = Option.String('-d,--destination', {
     required: true,
@@ -124,4 +124,4 @@ class PackSourceCommand extends BaseCommand {
   }
 }
 
-export { PackSourceCommand }
+export { PackWorkspaceCommand }
