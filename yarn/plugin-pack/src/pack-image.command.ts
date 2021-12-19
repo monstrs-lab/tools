@@ -9,8 +9,8 @@ import { Option }        from 'clipanion'
 import { TagPolicy }     from '@monstrs/code-pack'
 import { pack }          from '@monstrs/code-pack'
 
-class PackBuildPackCommand extends BaseCommand {
-  static paths = [['package', 'buildpack']]
+class PackImageCommand extends BaseCommand {
+  static paths = [['pack', 'image']]
 
   registry: string = Option.String('-r,--registry', { required: true })
 
@@ -83,4 +83,4 @@ class PackBuildPackCommand extends BaseCommand {
   }
 }
 
-export { PackBuildPackCommand }
+export { PackImageCommand }
