@@ -205,16 +205,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:yarn/plugin-format"
       },
       {
+        "name": "@monstrs/yarn-plugin-image",
+        "reference": "workspace:yarn/plugin-image"
+      },
+      {
         "name": "@monstrs/yarn-plugin-library",
         "reference": "workspace:yarn/plugin-library"
       },
       {
         "name": "@monstrs/yarn-plugin-lint",
         "reference": "workspace:yarn/plugin-lint"
-      },
-      {
-        "name": "@monstrs/yarn-plugin-pack",
-        "reference": "workspace:yarn/plugin-pack"
       },
       {
         "name": "@monstrs/yarn-plugin-schematics",
@@ -294,9 +294,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@monstrs/yarn-plugin-commit", ["virtual:4cd4b29477ce3e090504f317d3fb69a25611d82b0c52194aea725de22b605a7b52c88badc518852ac4071a82ea02d551abd043aeaa9d9be74acc4fdd8f032f41#workspace:yarn/plugin-commit", "workspace:yarn/plugin-commit"]],
       ["@monstrs/yarn-plugin-files", ["virtual:4cd4b29477ce3e090504f317d3fb69a25611d82b0c52194aea725de22b605a7b52c88badc518852ac4071a82ea02d551abd043aeaa9d9be74acc4fdd8f032f41#workspace:yarn/plugin-files", "workspace:yarn/plugin-files"]],
       ["@monstrs/yarn-plugin-format", ["virtual:4cd4b29477ce3e090504f317d3fb69a25611d82b0c52194aea725de22b605a7b52c88badc518852ac4071a82ea02d551abd043aeaa9d9be74acc4fdd8f032f41#workspace:yarn/plugin-format", "workspace:yarn/plugin-format"]],
+      ["@monstrs/yarn-plugin-image", ["virtual:4cd4b29477ce3e090504f317d3fb69a25611d82b0c52194aea725de22b605a7b52c88badc518852ac4071a82ea02d551abd043aeaa9d9be74acc4fdd8f032f41#workspace:yarn/plugin-image", "workspace:yarn/plugin-image"]],
       ["@monstrs/yarn-plugin-library", ["virtual:4cd4b29477ce3e090504f317d3fb69a25611d82b0c52194aea725de22b605a7b52c88badc518852ac4071a82ea02d551abd043aeaa9d9be74acc4fdd8f032f41#workspace:yarn/plugin-library", "workspace:yarn/plugin-library"]],
       ["@monstrs/yarn-plugin-lint", ["virtual:4cd4b29477ce3e090504f317d3fb69a25611d82b0c52194aea725de22b605a7b52c88badc518852ac4071a82ea02d551abd043aeaa9d9be74acc4fdd8f032f41#workspace:yarn/plugin-lint", "workspace:yarn/plugin-lint"]],
-      ["@monstrs/yarn-plugin-pack", ["virtual:4cd4b29477ce3e090504f317d3fb69a25611d82b0c52194aea725de22b605a7b52c88badc518852ac4071a82ea02d551abd043aeaa9d9be74acc4fdd8f032f41#workspace:yarn/plugin-pack", "workspace:yarn/plugin-pack"]],
       ["@monstrs/yarn-plugin-schematics", ["virtual:4cd4b29477ce3e090504f317d3fb69a25611d82b0c52194aea725de22b605a7b52c88badc518852ac4071a82ea02d551abd043aeaa9d9be74acc4fdd8f032f41#workspace:yarn/plugin-schematics", "workspace:yarn/plugin-schematics"]],
       ["@monstrs/yarn-plugin-service", ["virtual:4cd4b29477ce3e090504f317d3fb69a25611d82b0c52194aea725de22b605a7b52c88badc518852ac4071a82ea02d551abd043aeaa9d9be74acc4fdd8f032f41#workspace:yarn/plugin-service", "workspace:yarn/plugin-service"]],
       ["@monstrs/yarn-plugin-test", ["virtual:4cd4b29477ce3e090504f317d3fb69a25611d82b0c52194aea725de22b605a7b52c88badc518852ac4071a82ea02d551abd043aeaa9d9be74acc4fdd8f032f41#workspace:yarn/plugin-test", "workspace:yarn/plugin-test"]],
@@ -3370,9 +3370,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@monstrs/yarn-plugin-commit", "virtual:4cd4b29477ce3e090504f317d3fb69a25611d82b0c52194aea725de22b605a7b52c88badc518852ac4071a82ea02d551abd043aeaa9d9be74acc4fdd8f032f41#workspace:yarn/plugin-commit"],
             ["@monstrs/yarn-plugin-files", "virtual:4cd4b29477ce3e090504f317d3fb69a25611d82b0c52194aea725de22b605a7b52c88badc518852ac4071a82ea02d551abd043aeaa9d9be74acc4fdd8f032f41#workspace:yarn/plugin-files"],
             ["@monstrs/yarn-plugin-format", "virtual:4cd4b29477ce3e090504f317d3fb69a25611d82b0c52194aea725de22b605a7b52c88badc518852ac4071a82ea02d551abd043aeaa9d9be74acc4fdd8f032f41#workspace:yarn/plugin-format"],
+            ["@monstrs/yarn-plugin-image", "virtual:4cd4b29477ce3e090504f317d3fb69a25611d82b0c52194aea725de22b605a7b52c88badc518852ac4071a82ea02d551abd043aeaa9d9be74acc4fdd8f032f41#workspace:yarn/plugin-image"],
             ["@monstrs/yarn-plugin-library", "virtual:4cd4b29477ce3e090504f317d3fb69a25611d82b0c52194aea725de22b605a7b52c88badc518852ac4071a82ea02d551abd043aeaa9d9be74acc4fdd8f032f41#workspace:yarn/plugin-library"],
             ["@monstrs/yarn-plugin-lint", "virtual:4cd4b29477ce3e090504f317d3fb69a25611d82b0c52194aea725de22b605a7b52c88badc518852ac4071a82ea02d551abd043aeaa9d9be74acc4fdd8f032f41#workspace:yarn/plugin-lint"],
-            ["@monstrs/yarn-plugin-pack", "virtual:4cd4b29477ce3e090504f317d3fb69a25611d82b0c52194aea725de22b605a7b52c88badc518852ac4071a82ea02d551abd043aeaa9d9be74acc4fdd8f032f41#workspace:yarn/plugin-pack"],
             ["@monstrs/yarn-plugin-schematics", "virtual:4cd4b29477ce3e090504f317d3fb69a25611d82b0c52194aea725de22b605a7b52c88badc518852ac4071a82ea02d551abd043aeaa9d9be74acc4fdd8f032f41#workspace:yarn/plugin-schematics"],
             ["@monstrs/yarn-plugin-service", "virtual:4cd4b29477ce3e090504f317d3fb69a25611d82b0c52194aea725de22b605a7b52c88badc518852ac4071a82ea02d551abd043aeaa9d9be74acc4fdd8f032f41#workspace:yarn/plugin-service"],
             ["@monstrs/yarn-plugin-test", "virtual:4cd4b29477ce3e090504f317d3fb69a25611d82b0c52194aea725de22b605a7b52c88badc518852ac4071a82ea02d551abd043aeaa9d9be74acc4fdd8f032f41#workspace:yarn/plugin-test"],
@@ -3665,6 +3665,53 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT",
         }]
       ]],
+      ["@monstrs/yarn-plugin-image", [
+        ["virtual:4cd4b29477ce3e090504f317d3fb69a25611d82b0c52194aea725de22b605a7b52c88badc518852ac4071a82ea02d551abd043aeaa9d9be74acc4fdd8f032f41#workspace:yarn/plugin-image", {
+          "packageLocation": "./.yarn/__virtual__/@monstrs-yarn-plugin-image-virtual-da04e01c1a/1/yarn/plugin-image/",
+          "packageDependencies": [
+            ["@monstrs/yarn-plugin-image", "virtual:4cd4b29477ce3e090504f317d3fb69a25611d82b0c52194aea725de22b605a7b52c88badc518852ac4071a82ea02d551abd043aeaa9d9be74acc4fdd8f032f41#workspace:yarn/plugin-image"],
+            ["@monstrs/code-pack", "workspace:code/code-pack"],
+            ["@monstrs/yarn-pack-utils", "workspace:yarn/pack-utils"],
+            ["@monstrs/yarn-run-utils", "workspace:yarn/run-utils"],
+            ["@types/yarnpkg__cli", null],
+            ["@types/yarnpkg__core", null],
+            ["@types/yarnpkg__fslib", null],
+            ["@yarnpkg/builder", "virtual:93762f395d50e2410536eefd1c9656e618c9e599e2d023ef5341f0dd44b7c10b9c8541440da9da71a8fae8443bde146c84aabb5f6bc6020be89f6fe1913af10c#npm:3.1.0"],
+            ["@yarnpkg/cli", "virtual:5ae41ee3cd3458f3cf40ce517387f15a09242f6f1330942b6a2e07d7e31df094e8debca5d9583d5aee61c7f6b6500e26684e57f8a8bbcb4f2def07322b63d5b8#npm:3.1.0"],
+            ["@yarnpkg/core", "npm:3.1.0"],
+            ["@yarnpkg/fslib", "npm:2.6.1-rc.3"],
+            ["@yarnpkg/plugin-patch", "virtual:4cd4b29477ce3e090504f317d3fb69a25611d82b0c52194aea725de22b605a7b52c88badc518852ac4071a82ea02d551abd043aeaa9d9be74acc4fdd8f032f41#npm:3.1.1-rc.6"],
+            ["clipanion", "virtual:11e49090eef2ab4a7d256d57407eff59125c10a45a2c4a95d4b4eed662e01c6bb0b545ee238f4cce0100c8d2885c1a88c24bcf184f4baba2c58b80f525a4f6ab#npm:3.1.0"],
+            ["typescript", "patch:typescript@npm%3A4.5.4#~builtin<compat/typescript>::version=4.5.4&hash=de8f8a"]
+          ],
+          "packagePeers": [
+            "@types/yarnpkg__cli",
+            "@types/yarnpkg__core",
+            "@types/yarnpkg__fslib",
+            "@yarnpkg/cli",
+            "@yarnpkg/core",
+            "@yarnpkg/fslib"
+          ],
+          "linkType": "SOFT",
+        }],
+        ["workspace:yarn/plugin-image", {
+          "packageLocation": "./yarn/plugin-image/",
+          "packageDependencies": [
+            ["@monstrs/yarn-plugin-image", "workspace:yarn/plugin-image"],
+            ["@monstrs/code-pack", "workspace:code/code-pack"],
+            ["@monstrs/yarn-pack-utils", "workspace:yarn/pack-utils"],
+            ["@monstrs/yarn-run-utils", "workspace:yarn/run-utils"],
+            ["@yarnpkg/builder", "virtual:93762f395d50e2410536eefd1c9656e618c9e599e2d023ef5341f0dd44b7c10b9c8541440da9da71a8fae8443bde146c84aabb5f6bc6020be89f6fe1913af10c#npm:3.1.0"],
+            ["@yarnpkg/cli", "virtual:5ae41ee3cd3458f3cf40ce517387f15a09242f6f1330942b6a2e07d7e31df094e8debca5d9583d5aee61c7f6b6500e26684e57f8a8bbcb4f2def07322b63d5b8#npm:3.1.0"],
+            ["@yarnpkg/core", "npm:3.1.0"],
+            ["@yarnpkg/fslib", "npm:2.6.1-rc.3"],
+            ["@yarnpkg/plugin-patch", "virtual:4cd4b29477ce3e090504f317d3fb69a25611d82b0c52194aea725de22b605a7b52c88badc518852ac4071a82ea02d551abd043aeaa9d9be74acc4fdd8f032f41#npm:3.1.1-rc.6"],
+            ["clipanion", "virtual:11e49090eef2ab4a7d256d57407eff59125c10a45a2c4a95d4b4eed662e01c6bb0b545ee238f4cce0100c8d2885c1a88c24bcf184f4baba2c58b80f525a4f6ab#npm:3.1.0"],
+            ["typescript", "patch:typescript@npm%3A4.5.4#~builtin<compat/typescript>::version=4.5.4&hash=de8f8a"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
       ["@monstrs/yarn-plugin-library", [
         ["virtual:4cd4b29477ce3e090504f317d3fb69a25611d82b0c52194aea725de22b605a7b52c88badc518852ac4071a82ea02d551abd043aeaa9d9be74acc4fdd8f032f41#workspace:yarn/plugin-library", {
           "packageLocation": "./.yarn/__virtual__/@monstrs-yarn-plugin-library-virtual-76a4ad8d1b/1/yarn/plugin-library/",
@@ -3756,53 +3803,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@yarnpkg/core", "npm:3.1.0"],
             ["clipanion", "virtual:11e49090eef2ab4a7d256d57407eff59125c10a45a2c4a95d4b4eed662e01c6bb0b545ee238f4cce0100c8d2885c1a88c24bcf184f4baba2c58b80f525a4f6ab#npm:3.1.0"],
             ["react", "npm:17.0.2"],
-            ["typescript", "patch:typescript@npm%3A4.5.4#~builtin<compat/typescript>::version=4.5.4&hash=de8f8a"]
-          ],
-          "linkType": "SOFT",
-        }]
-      ]],
-      ["@monstrs/yarn-plugin-pack", [
-        ["virtual:4cd4b29477ce3e090504f317d3fb69a25611d82b0c52194aea725de22b605a7b52c88badc518852ac4071a82ea02d551abd043aeaa9d9be74acc4fdd8f032f41#workspace:yarn/plugin-pack", {
-          "packageLocation": "./.yarn/__virtual__/@monstrs-yarn-plugin-pack-virtual-42d015ed25/1/yarn/plugin-pack/",
-          "packageDependencies": [
-            ["@monstrs/yarn-plugin-pack", "virtual:4cd4b29477ce3e090504f317d3fb69a25611d82b0c52194aea725de22b605a7b52c88badc518852ac4071a82ea02d551abd043aeaa9d9be74acc4fdd8f032f41#workspace:yarn/plugin-pack"],
-            ["@monstrs/code-pack", "workspace:code/code-pack"],
-            ["@monstrs/yarn-pack-utils", "workspace:yarn/pack-utils"],
-            ["@monstrs/yarn-run-utils", "workspace:yarn/run-utils"],
-            ["@types/yarnpkg__cli", null],
-            ["@types/yarnpkg__core", null],
-            ["@types/yarnpkg__fslib", null],
-            ["@yarnpkg/builder", "virtual:93762f395d50e2410536eefd1c9656e618c9e599e2d023ef5341f0dd44b7c10b9c8541440da9da71a8fae8443bde146c84aabb5f6bc6020be89f6fe1913af10c#npm:3.1.0"],
-            ["@yarnpkg/cli", "virtual:5ae41ee3cd3458f3cf40ce517387f15a09242f6f1330942b6a2e07d7e31df094e8debca5d9583d5aee61c7f6b6500e26684e57f8a8bbcb4f2def07322b63d5b8#npm:3.1.0"],
-            ["@yarnpkg/core", "npm:3.1.0"],
-            ["@yarnpkg/fslib", "npm:2.6.1-rc.3"],
-            ["@yarnpkg/plugin-patch", "virtual:4cd4b29477ce3e090504f317d3fb69a25611d82b0c52194aea725de22b605a7b52c88badc518852ac4071a82ea02d551abd043aeaa9d9be74acc4fdd8f032f41#npm:3.1.1-rc.6"],
-            ["clipanion", "virtual:11e49090eef2ab4a7d256d57407eff59125c10a45a2c4a95d4b4eed662e01c6bb0b545ee238f4cce0100c8d2885c1a88c24bcf184f4baba2c58b80f525a4f6ab#npm:3.1.0"],
-            ["typescript", "patch:typescript@npm%3A4.5.4#~builtin<compat/typescript>::version=4.5.4&hash=de8f8a"]
-          ],
-          "packagePeers": [
-            "@types/yarnpkg__cli",
-            "@types/yarnpkg__core",
-            "@types/yarnpkg__fslib",
-            "@yarnpkg/cli",
-            "@yarnpkg/core",
-            "@yarnpkg/fslib"
-          ],
-          "linkType": "SOFT",
-        }],
-        ["workspace:yarn/plugin-pack", {
-          "packageLocation": "./yarn/plugin-pack/",
-          "packageDependencies": [
-            ["@monstrs/yarn-plugin-pack", "workspace:yarn/plugin-pack"],
-            ["@monstrs/code-pack", "workspace:code/code-pack"],
-            ["@monstrs/yarn-pack-utils", "workspace:yarn/pack-utils"],
-            ["@monstrs/yarn-run-utils", "workspace:yarn/run-utils"],
-            ["@yarnpkg/builder", "virtual:93762f395d50e2410536eefd1c9656e618c9e599e2d023ef5341f0dd44b7c10b9c8541440da9da71a8fae8443bde146c84aabb5f6bc6020be89f6fe1913af10c#npm:3.1.0"],
-            ["@yarnpkg/cli", "virtual:5ae41ee3cd3458f3cf40ce517387f15a09242f6f1330942b6a2e07d7e31df094e8debca5d9583d5aee61c7f6b6500e26684e57f8a8bbcb4f2def07322b63d5b8#npm:3.1.0"],
-            ["@yarnpkg/core", "npm:3.1.0"],
-            ["@yarnpkg/fslib", "npm:2.6.1-rc.3"],
-            ["@yarnpkg/plugin-patch", "virtual:4cd4b29477ce3e090504f317d3fb69a25611d82b0c52194aea725de22b605a7b52c88badc518852ac4071a82ea02d551abd043aeaa9d9be74acc4fdd8f032f41#npm:3.1.1-rc.6"],
-            ["clipanion", "virtual:11e49090eef2ab4a7d256d57407eff59125c10a45a2c4a95d4b4eed662e01c6bb0b545ee238f4cce0100c8d2885c1a88c24bcf184f4baba2c58b80f525a4f6ab#npm:3.1.0"],
             ["typescript", "patch:typescript@npm%3A4.5.4#~builtin<compat/typescript>::version=4.5.4&hash=de8f8a"]
           ],
           "linkType": "SOFT",
