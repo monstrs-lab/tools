@@ -13,11 +13,13 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
+    "@iarna/toml": "^2.2.5",
     "@monstrs/code-pack": "workspace:0.0.103",
     "@monstrs/yarn-pack-utils": "workspace:0.0.1",
     "@monstrs/yarn-run-utils": "workspace:0.0.1",
     "@yarnpkg/plugin-patch": "^3.1.1-rc.6",
-    "clipanion": "^3.2.0-rc.4"
+    "clipanion": "^3.2.0-rc.4",
+    "tempy": "^1.0.1"
   },
   "devDependencies": {
     "@yarnpkg/builder": "^3.1.0",
