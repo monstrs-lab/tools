@@ -1,0 +1,6 @@
+releases:
+  "@monstrs/code-pack": patch
+  "@monstrs/code-service": patch
+  "@monstrs/code-service-worker": patch
+  "@monstrs/code-test": patch
+  "@monstrs/code-test-worker": patch
