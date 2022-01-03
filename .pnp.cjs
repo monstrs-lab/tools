@@ -3423,7 +3423,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@yarnpkg/core", "npm:3.1.0"],
             ["@yarnpkg/fslib", "npm:2.6.1-rc.3"],
             ["@yarnpkg/plugin-pack", "virtual:460dcd16d9d07e068a09deca59dbbb4ad37ac41c59253579128b6451fbc9bfa96c5b8b1b303c611eebf104e3a1af4e23bfcd2eab1127284c598dae0e06ecdab8#npm:3.1.0"],
-            ["@yarnpkg/plugin-patch", "virtual:4cd4b29477ce3e090504f317d3fb69a25611d82b0c52194aea725de22b605a7b52c88badc518852ac4071a82ea02d551abd043aeaa9d9be74acc4fdd8f032f41#npm:3.1.1-rc.6"]
+            ["@yarnpkg/plugin-patch", "virtual:4cd4b29477ce3e090504f317d3fb69a25611d82b0c52194aea725de22b605a7b52c88badc518852ac4071a82ea02d551abd043aeaa9d9be74acc4fdd8f032f41#npm:3.1.1-rc.6"],
+            ["tar-stream", "npm:2.2.0"]
           ],
           "linkType": "SOFT",
         }]
@@ -18185,6 +18186,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/tar-stream-npm-2.1.3-fb402ac0e2-7102598974.zip/node_modules/tar-stream/",
           "packageDependencies": [
             ["tar-stream", "npm:2.1.3"],
+            ["bl", "npm:4.1.0"],
+            ["end-of-stream", "npm:1.4.4"],
+            ["fs-constants", "npm:1.0.0"],
+            ["inherits", "npm:2.0.4"],
+            ["readable-stream", "npm:3.6.0"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:2.2.0", {
+          "packageLocation": "./.yarn/cache/tar-stream-npm-2.2.0-884c79b510-699831a8b9.zip/node_modules/tar-stream/",
+          "packageDependencies": [
+            ["tar-stream", "npm:2.2.0"],
             ["bl", "npm:4.1.0"],
             ["end-of-stream", "npm:1.4.4"],
             ["fs-constants", "npm:1.0.0"],
