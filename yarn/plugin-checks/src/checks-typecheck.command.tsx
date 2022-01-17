@@ -59,10 +59,10 @@ class ChecksTypeCheckCommand extends BaseCommand {
 
             diagnostics.forEach((diagnostic) => {
               if (diagnostic.file) {
-                const position = getLineAndCharacterOfPosition(
-                  diagnostic.file,
-                  diagnostic.start || 0
-                )
+                const position =
+                  (diagnostic.file as any).lineMap && diagnostic.start
+                    ? getLineAndCharacterOfPosition(diagnostic.file, diagnostic.start)
+                    : null
 
                 annotations.push({
                   path: ppath.normalize(
@@ -72,18 +72,20 @@ class ChecksTypeCheckCommand extends BaseCommand {
                     .split(EOL)
                     .at(0) as string,
                   message: flattenDiagnosticMessageText(diagnostic.messageText, EOL),
-                  start_line: position.line + 1,
-                  end_line: position.line + 1,
-                  raw_details: codeFrameColumns(
-                    xfs.readFileSync(diagnostic.file.fileName as PortablePath).toString(),
-                    {
-                      start: {
-                        line: position.line + 1,
-                        column: position.character + 1,
-                      },
-                    },
-                    { highlightCode: false }
-                  ),
+                  start_line: position ? position.line + 1 : 0,
+                  end_line: position ? position.line + 1 : 0,
+                  raw_details: position
+                    ? codeFrameColumns(
+                        xfs.readFileSync(diagnostic.file.fileName as PortablePath).toString(),
+                        {
+                          start: {
+                            line: position.line + 1,
+                            column: position.character + 1,
+                          },
+                        },
+                        { highlightCode: false }
+                      )
+                    : flattenDiagnosticMessageText(diagnostic.messageText, EOL),
                   annotation_level: AnnotationLevel.Failure,
                 })
               }
