@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-schematics",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -15,7 +15,7 @@
   "dependencies": {
     "@angular-devkit/core": "^13.1.4",
     "@angular-devkit/schematics": "^13.1.4",
-    "@monstrs/schematics": "workspace:0.0.13"
+    "@monstrs/schematics": "workspace:0.0.14"
   },
   "devDependencies": {
     "rxjs": "6.6.7"

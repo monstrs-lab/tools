@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-schematics-worker",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -14,12 +14,12 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/code-schematics": "workspace:0.0.7",
-    "@monstrs/code-worker-utils": "workspace:0.0.3"
+    "@monstrs/code-schematics": "workspace:0.0.8",
+    "@monstrs/code-worker-utils": "workspace:0.0.4"
   },
   "devDependencies": {
     "@angular-devkit/schematics": "^13.1.4",
-    "@monstrs/schematics": "workspace:0.0.13",
+    "@monstrs/schematics": "workspace:0.0.14",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.1.3",

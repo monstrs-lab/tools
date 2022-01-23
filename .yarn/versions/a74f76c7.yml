@@ -1,9 +1,0 @@
-releases:
-  "@monstrs/code-format-worker": patch
-  "@monstrs/code-lint-worker": patch
-  "@monstrs/code-schematics-worker": patch
-  "@monstrs/code-service-worker": patch
-  "@monstrs/code-test": patch
-  "@monstrs/code-test-worker": patch
-  "@monstrs/code-typescript-worker": patch
-  "@monstrs/code-worker-utils": patch
