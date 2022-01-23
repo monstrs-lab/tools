@@ -13,6 +13,8 @@
     "cli/*"
   ],
   "resolutions": {
+    "@yarnpkg/core": "3.1.0",
+    "clipanion": "3.1.0",
     "globby": "11.0.3"
   },
   "devDependencies": {
@@ -24,13 +26,12 @@
     "@monstrs/config-jest": "workspace:0.0.10",
     "@monstrs/schematics": "workspace:0.0.13",
     "@monstrs/tools-setup-ts-execution": "workspace:0.0.1",
-    "@types/eslint": "^8.4.0",
+    "@types/eslint": "^8.4.1",
     "@types/jest": "^27.4.0",
     "@types/node": "^17.0.10",
     "@yarnpkg/builder": "^3.1.1-rc.2",
     "eslint": "^8.7.0",
     "eslint-import-resolver-node": "^0.3.6",
-    "espree": "^9.2.0",
     "husky": "7.0.4",
     "readable-stream": "^3.6.0",
     "typescript": "^4.5.5",
