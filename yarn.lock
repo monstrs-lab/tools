@@ -1519,7 +1519,7 @@ __metadata:
   resolution: "@monstrs/cli-ui-schematics-component@workspace:cli/cli-ui-schematics-component"
   dependencies:
     "@monstrs/cli-ui-parts": "workspace:0.0.5"
-    "@monstrs/schematics": "workspace:0.0.14"
+    "@monstrs/schematics": "workspace:0.0.15"
     "@types/node": ^17.0.10
     "@types/react": ^17.0.38
     "@yarnpkg/libui": ^2.2.0
@@ -1594,11 +1594,15 @@ __metadata:
   resolution: "@monstrs/code-commit@workspace:code/code-commit"
   dependencies:
     "@commitlint/format": ^16.0.0
+    "@commitlint/is-ignored": ^16.0.0
     "@commitlint/lint": ^16.0.0
     "@commitlint/load": ^16.1.0
     "@commitlint/read": ^16.0.0
+    "@commitlint/rules": ^16.0.0
     "@commitlint/types": ^16.0.0
     "@types/node": ^17.0.10
+    conventional-changelog-angular: ^5.0.13
+    conventional-commits-parser: ^3.2.4
   languageName: unknown
   linkType: soft
 
@@ -1699,7 +1703,7 @@ __metadata:
     "@angular-devkit/schematics": ^13.1.4
     "@monstrs/code-schematics": "workspace:0.0.8"
     "@monstrs/code-worker-utils": "workspace:0.0.4"
-    "@monstrs/schematics": "workspace:0.0.14"
+    "@monstrs/schematics": "workspace:0.0.15"
     "@rollup/plugin-commonjs": ^21.0.1
     "@rollup/plugin-json": ^4.1.0
     "@rollup/plugin-node-resolve": ^13.1.3
@@ -1721,7 +1725,7 @@ __metadata:
   dependencies:
     "@angular-devkit/core": ^13.1.4
     "@angular-devkit/schematics": ^13.1.4
-    "@monstrs/schematics": "workspace:0.0.14"
+    "@monstrs/schematics": "workspace:0.0.15"
     rxjs: 6.6.7
   languageName: unknown
   linkType: soft
@@ -1937,7 +1941,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/schematics@workspace:0.0.14, @monstrs/schematics@workspace:schematics/schematics":
+"@monstrs/schematics@workspace:0.0.15, @monstrs/schematics@workspace:schematics/schematics":
   version: 0.0.0-use.local
   resolution: "@monstrs/schematics@workspace:schematics/schematics"
   dependencies:
@@ -2282,7 +2286,7 @@ __metadata:
     "@monstrs/cli-ui-renderer": "workspace:0.0.26"
     "@monstrs/cli-ui-schematics-component": "workspace:0.0.6"
     "@monstrs/code-schematics-worker": "workspace:0.0.4"
-    "@monstrs/schematics": "workspace:0.0.14"
+    "@monstrs/schematics": "workspace:0.0.15"
     "@monstrs/yarn-run-utils": "workspace:0.0.1"
     "@yarnpkg/builder": 3.1.1-rc.2
     "@yarnpkg/cli": ^3.2.0-rc.11
@@ -5944,6 +5948,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"conventional-changelog-angular@npm:^5.0.13":
+  version: 5.0.13
+  resolution: "conventional-changelog-angular@npm:5.0.13"
+  dependencies:
+    compare-func: ^2.0.0
+    q: ^1.5.1
+  checksum: 6ed4972fce25a50f9f038c749cc9db501363131b0fb2efc1fccecba14e4b1c80651d0d758d4c350a609f32010c66fa343eefd49c02e79e911884be28f53f3f90
+  languageName: node
+  linkType: hard
+
 "conventional-commit-types@npm:^3.0.0":
   version: 3.0.0
   resolution: "conventional-commit-types@npm:3.0.0"
@@ -5964,6 +5978,22 @@ __metadata:
   bin:
     conventional-commits-parser: cli.js
   checksum: 0f57b5cb7cb359eb49e6807cfd82b27cbe9ac30ec580b20ad7e79575561183110532a6c2e6328ce6c4cd05c01458b9bb781f1f6653b14560f7c509b87b0e9ac7
+  languageName: node
+  linkType: hard
+
+"conventional-commits-parser@npm:^3.2.4":
+  version: 3.2.4
+  resolution: "conventional-commits-parser@npm:3.2.4"
+  dependencies:
+    JSONStream: ^1.0.4
+    is-text-path: ^1.0.1
+    lodash: ^4.17.15
+    meow: ^8.0.0
+    split2: ^3.0.0
+    through2: ^4.0.0
+  bin:
+    conventional-commits-parser: cli.js
+  checksum: 1627ff203bc9586d89e47a7fe63acecf339aba74903b9114e23d28094f79d4e2d6389bf146ae561461dcba8fc42e7bc228165d2b173f15756c43f1d32bc50bfd
   languageName: node
   linkType: hard
 
@@ -14081,7 +14111,7 @@ resolve@^2.0.0-next.3:
     "@monstrs/code-service": "workspace:0.0.111"
     "@monstrs/config-eslint": "workspace:0.0.10"
     "@monstrs/config-jest": "workspace:0.0.10"
-    "@monstrs/schematics": "workspace:0.0.14"
+    "@monstrs/schematics": "workspace:0.0.15"
     "@monstrs/tools-setup-ts-execution": "workspace:0.0.1"
     "@types/eslint": ^8.4.0
     "@types/jest": ^27.4.0
