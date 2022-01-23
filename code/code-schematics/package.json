@@ -15,7 +15,7 @@
   "dependencies": {
     "@angular-devkit/core": "^13.1.4",
     "@angular-devkit/schematics": "^13.1.4",
-    "@monstrs/schematics": "workspace:0.0.14"
+    "@monstrs/schematics": "workspace:0.0.15"
   },
   "devDependencies": {
     "rxjs": "6.6.7"

@@ -2839,11 +2839,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@monstrs/code-commit", "workspace:code/code-commit"],
             ["@commitlint/format", "npm:16.0.0"],
+            ["@commitlint/is-ignored", "npm:16.0.0"],
             ["@commitlint/lint", "npm:16.0.0"],
             ["@commitlint/load", "npm:16.1.0"],
             ["@commitlint/read", "npm:16.0.0"],
+            ["@commitlint/rules", "npm:16.0.0"],
             ["@commitlint/types", "npm:16.0.0"],
-            ["@types/node", "npm:17.0.10"]
+            ["@types/node", "npm:17.0.10"],
+            ["conventional-changelog-angular", "npm:5.0.13"],
+            ["conventional-commits-parser", "npm:3.2.4"]
           ],
           "linkType": "SOFT",
         }]
@@ -8749,6 +8753,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["q", "npm:1.5.1"]
           ],
           "linkType": "HARD",
+        }],
+        ["npm:5.0.13", {
+          "packageLocation": "./.yarn/cache/conventional-changelog-angular-npm-5.0.13-50e4a302c4-6ed4972fce.zip/node_modules/conventional-changelog-angular/",
+          "packageDependencies": [
+            ["conventional-changelog-angular", "npm:5.0.13"],
+            ["compare-func", "npm:2.0.0"],
+            ["q", "npm:1.5.1"]
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["conventional-commit-types", [
@@ -8765,6 +8778,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/conventional-commits-parser-npm-3.2.3-f108fda552-0f57b5cb7c.zip/node_modules/conventional-commits-parser/",
           "packageDependencies": [
             ["conventional-commits-parser", "npm:3.2.3"],
+            ["JSONStream", "npm:1.3.5"],
+            ["is-text-path", "npm:1.0.1"],
+            ["lodash", "npm:4.17.21"],
+            ["meow", "npm:8.1.2"],
+            ["split2", "npm:3.2.2"],
+            ["through2", "npm:4.0.2"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:3.2.4", {
+          "packageLocation": "./.yarn/cache/conventional-commits-parser-npm-3.2.4-d1ebb48cf6-1627ff203b.zip/node_modules/conventional-commits-parser/",
+          "packageDependencies": [
+            ["conventional-commits-parser", "npm:3.2.4"],
             ["JSONStream", "npm:1.3.5"],
             ["is-text-path", "npm:1.0.1"],
             ["lodash", "npm:4.17.21"],

@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@angular-devkit/schematics": "^13.1.4",
-    "@monstrs/schematics": "workspace:0.0.14",
+    "@monstrs/schematics": "workspace:0.0.15",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.1.3",
