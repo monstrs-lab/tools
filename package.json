@@ -13,6 +13,9 @@
     "cli/*"
   ],
   "resolutions": {
+    "@yarnpkg/cli": "3.1.0",
+    "@yarnpkg/core": "3.1.0",
+    "clipanion": "3.1.0",
     "globby": "11.0.3"
   },
   "devDependencies": {
