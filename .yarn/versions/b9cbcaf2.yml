@@ -1,5 +1,0 @@
-releases:
-  "@monstrs/cli-ui-schematics-component": patch
-  "@monstrs/code-schematics": patch
-  "@monstrs/code-schematics-worker": patch
-  "@monstrs/schematics": patch
