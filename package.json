@@ -47,7 +47,7 @@
       "collection": "@monstrs/schematics",
       "schematic": "project",
       "type": "libraries",
-      "migration": 0
+      "migration": "1643058087339"
     }
   }
 }
