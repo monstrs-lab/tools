@@ -104,7 +104,7 @@ class GenerateProjectCommand extends BaseCommand {
                     collection: '@monstrs/schematics',
                     schematic: 'project',
                     type: options.type,
-                    migration: Date.now(),
+                    migration: String(Date.now()),
                   },
                 },
               }
