@@ -27,7 +27,7 @@
     "@monstrs/code-service": "workspace:0.0.111",
     "@monstrs/config-eslint": "workspace:0.0.10",
     "@monstrs/config-jest": "workspace:0.0.10",
-    "@monstrs/schematics": "workspace:0.0.16",
+    "@monstrs/schematics": "workspace:0.0.17",
     "@monstrs/tools-setup-ts-execution": "workspace:0.0.1",
     "@types/eslint": "^8.4.0",
     "@types/jest": "^27.4.0",
