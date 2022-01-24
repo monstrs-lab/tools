@@ -2975,7 +2975,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@monstrs/code-schematics", "workspace:code/code-schematics"],
             ["@angular-devkit/core", "virtual:184b2c54223bca244453cb3eea82279816b2a72ab1a2ab42893a757dd2a9477490b57fcaca5371628f0b2b2e32642bd79567a0f75348c4909f699c7dd696968b#npm:13.1.4"],
             ["@angular-devkit/schematics", "npm:13.1.4"],
-            ["@monstrs/schematics", "workspace:schematics/schematics"],
             ["rxjs", "npm:6.6.7"]
           ],
           "linkType": "SOFT",
@@ -2989,7 +2988,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@angular-devkit/schematics", "npm:13.1.4"],
             ["@monstrs/code-schematics", "workspace:code/code-schematics"],
             ["@monstrs/code-worker-utils", "workspace:code/code-worker-utils"],
-            ["@monstrs/schematics", "workspace:schematics/schematics"],
             ["@rollup/plugin-commonjs", "virtual:16c6894e71735c8ce85e88fdf2c39a69fd95d1318c61281c78f523ed65a0c4f3080b557bb22e7eedc993af5a969d2f37377c836ed4a7d514845d5d9f9777f4cb#npm:21.0.1"],
             ["@rollup/plugin-json", "virtual:16c6894e71735c8ce85e88fdf2c39a69fd95d1318c61281c78f523ed65a0c4f3080b557bb22e7eedc993af5a969d2f37377c836ed4a7d514845d5d9f9777f4cb#npm:4.1.0"],
             ["@rollup/plugin-node-resolve", "virtual:16c6894e71735c8ce85e88fdf2c39a69fd95d1318c61281c78f523ed65a0c4f3080b557bb22e7eedc993af5a969d2f37377c836ed4a7d514845d5d9f9777f4cb#npm:13.1.3"],
