@@ -3267,11 +3267,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@angular-devkit/core", "virtual:184b2c54223bca244453cb3eea82279816b2a72ab1a2ab42893a757dd2a9477490b57fcaca5371628f0b2b2e32642bd79567a0f75348c4909f699c7dd696968b#npm:13.1.4"],
             ["@angular-devkit/schematics", "npm:13.1.4"],
             ["@types/node", "npm:17.0.10"],
+            ["js-yaml", "npm:4.1.0"],
             ["rimraf", "npm:3.0.2"],
             ["semver", "npm:6.3.0"],
             ["strip-json-comments", "npm:3.0.1"],
-            ["typescript", "patch:typescript@npm%3A4.5.5#~builtin<compat/typescript>::version=4.5.5&hash=de8f8a"],
-            ["yaml", "npm:1.10.2"]
+            ["typescript", "patch:typescript@npm%3A4.5.5#~builtin<compat/typescript>::version=4.5.5&hash=de8f8a"]
           ],
           "linkType": "SOFT",
         }]
