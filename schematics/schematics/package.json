@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/schematics",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -16,7 +16,7 @@
     "@angular-devkit/core": "^13.1.4",
     "@angular-devkit/schematics": "^13.1.4",
     "@monstrs/config-typescript": "workspace:0.0.10",
-    "@monstrs/schematics-utils": "workspace:0.1.9"
+    "@monstrs/schematics-utils": "workspace:0.1.10"
   },
   "devDependencies": {
     "@types/node": "^17.0.10",
