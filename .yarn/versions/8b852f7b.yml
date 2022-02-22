@@ -1,0 +1,4 @@
+releases:
+  "@monstrs/code-lint": patch
+  "@monstrs/code-lint-worker": patch
+  "@monstrs/config-eslint": patch
