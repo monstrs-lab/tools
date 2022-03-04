@@ -1,0 +1,5 @@
+releases:
+  "@monstrs/cli-ui-log-record-component": patch
+  "@monstrs/cli-ui-pretty-logs": patch
+  "@monstrs/code-service": patch
+  "@monstrs/code-service-worker": patch
