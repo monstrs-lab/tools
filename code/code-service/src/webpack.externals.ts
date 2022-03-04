@@ -3,13 +3,15 @@ export const FORCE_UNPLUGGED_PACKAGES = new Set([
   'node-gyp',
   'node-pre-gyp',
   'node-addon-api',
-  'fsevents',
   'core-js',
   'core-js-pure',
   'protobufjs',
 ])
 
 export const UNUSED_EXTERNALS = [
+  // common
+  'fsevents',
+
   // nestjs
   'cli-color',
   'flaschenpost',

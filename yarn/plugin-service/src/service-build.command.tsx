@@ -5,14 +5,18 @@ import { MessageName }     from '@yarnpkg/core'
 import { Project }         from '@yarnpkg/core'
 
 import React               from 'react'
+import { Option }          from 'clipanion'
 
 import { ErrorInfo }       from '@monstrs/cli-ui-error-info-component'
+import { LogRecord }       from '@monstrs/cli-ui-log-record-component'
 import { ServiceWorker }   from '@monstrs/code-service-worker'
 import { SpinnerProgress } from '@monstrs/yarn-run-utils'
 import { renderStatic }    from '@monstrs/cli-ui-renderer'
 
 class ServiceBuildCommand extends BaseCommand {
   static paths = [['service', 'build']]
+
+  showWarnings = Option.Boolean('-w,--show-warnings', false)
 
   async execute() {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
@@ -37,10 +41,26 @@ class ServiceBuildCommand extends BaseCommand {
 
             progress.end()
 
-            warnings.forEach((warning) =>
-              report.reportWarning(MessageName.UNNAMED, warning.message))
+            if (this.showWarnings) {
+              warnings.forEach((warning) => {
+                renderStatic(
+                  <LogRecord name='webpack' body={warning} />,
+                  process.stdout.columns - 12
+                )
+                  .split('\n')
+                  .forEach((line) => {
+                    report.reportWarning(MessageName.UNNAMED, line)
+                  })
+              })
+            }
 
-            errors.forEach((error) => report.reportError(MessageName.UNNAMED, error.message))
+            errors.forEach((error) => {
+              renderStatic(<LogRecord name='webpack' body={error} />, process.stdout.columns - 12)
+                .split('\n')
+                .forEach((line) => {
+                  report.reportError(MessageName.UNNAMED, line)
+                })
+            })
           } catch (error) {
             progress.end()
 

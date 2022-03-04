@@ -15,9 +15,7 @@ export const LogRecord: FC<LogRecordProps> = ({ severityText = 'TRACE', name, bo
     <Box flexDirection='row'>
       <Box flexGrow={1}>
         <Box paddingRight={1}>{name && <LogNamespace>{name}</LogNamespace>}</Box>
-        <Box>
-          <LogMessage>{body}</LogMessage>
-        </Box>
+        <LogMessage>{body}</LogMessage>
       </Box>
     </Box>
     <LogBody>{body}</LogBody>

@@ -1763,6 +1763,8 @@ __metadata:
     "@yarnpkg/core": ^3.2.0-rc.11
     "@yarnpkg/fslib": ^2.6.1-rc.6
     fast-glob: ^3.2.7
+    find-up: ^5.0.0
+    run-script-webpack-plugin: ^0.0.11
     string-replace-loader: ^3.0.3
     ts-loader: ^9.2.6
     typescript: ^4.5.5
@@ -12842,6 +12844,13 @@ resolve@^2.0.0-next.3:
   dependencies:
     aproba: ^1.1.1
   checksum: c4541e18b5e056af60f398f2f1b3d89aae5c093d1524bf817c5ee68bcfa4851ad9976f457a9aea135b1d0d72ee9a91c386e3d136bcd95b699c367cd09c70be53
+  languageName: node
+  linkType: hard
+
+"run-script-webpack-plugin@npm:^0.0.11":
+  version: 0.0.11
+  resolution: "run-script-webpack-plugin@npm:0.0.11"
+  checksum: 662220ac369df0c881c55b335dc79305e10c7390a7a307623a5f2a664ced3238a0551d935bd5698a3370fcda9e821166b55c854d28db580f5c88aa16fcf51a47
   languageName: node
   linkType: hard
 

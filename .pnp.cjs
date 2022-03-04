@@ -3021,6 +3021,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@yarnpkg/core", "npm:3.1.0"],
             ["@yarnpkg/fslib", "npm:2.6.1-rc.6"],
             ["fast-glob", "npm:3.2.7"],
+            ["find-up", "npm:5.0.0"],
+            ["run-script-webpack-plugin", "npm:0.0.11"],
             ["string-replace-loader", "virtual:5ae41ee3cd3458f3cf40ce517387f15a09242f6f1330942b6a2e07d7e31df094e8debca5d9583d5aee61c7f6b6500e26684e57f8a8bbcb4f2def07322b63d5b8#npm:3.0.3"],
             ["ts-loader", "virtual:5ae41ee3cd3458f3cf40ce517387f15a09242f6f1330942b6a2e07d7e31df094e8debca5d9583d5aee61c7f6b6500e26684e57f8a8bbcb4f2def07322b63d5b8#npm:9.2.6"],
             ["typescript", "patch:typescript@npm%3A4.5.5#~builtin<compat/typescript>::version=4.5.5&hash=de8f8a"],
@@ -16810,6 +16812,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["run-queue", "npm:1.0.3"],
             ["aproba", "npm:1.2.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["run-script-webpack-plugin", [
+        ["npm:0.0.11", {
+          "packageLocation": "./.yarn/cache/run-script-webpack-plugin-npm-0.0.11-f5023352c4-662220ac36.zip/node_modules/run-script-webpack-plugin/",
+          "packageDependencies": [
+            ["run-script-webpack-plugin", "npm:0.0.11"]
           ],
           "linkType": "HARD",
         }]
