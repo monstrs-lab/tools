@@ -45,7 +45,12 @@ class GenerateProjectCommand extends BaseCommand {
 
     const options: ProjectInformationProperties | undefined = await renderForm(
       SubmitInjectedComponentFactory<ProjectInformationProperties>(RequestProjectInformation),
-      {}
+      {},
+      {
+        stdin: this.context.stdin,
+        stdout: this.context.stdout,
+        stderr: this.context.stderr,
+      }
     )
 
     if (overwroteStdin) {
