@@ -16,7 +16,8 @@
   },
   "dependencies": {
     "@monstrs/code-test": "workspace:0.0.113",
-    "@monstrs/code-worker-utils": "workspace:0.0.4"
+    "@monstrs/code-worker-utils": "workspace:0.0.4",
+    "flatted": "^3.2.5"
   },
   "devDependencies": {
     "@jest/test-result": "^27.5.1",
