@@ -1,4 +1,0 @@
-releases:
-  "@monstrs/code-format": patch
-  "@monstrs/code-format-worker": patch
-  "@monstrs/prettier-plugin": patch

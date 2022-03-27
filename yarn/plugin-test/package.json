@@ -13,7 +13,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/code-test-worker": "workspace:0.0.5",
+    "@monstrs/code-test-worker": "workspace:0.0.6",
     "clipanion": "^3.2.0-rc.10"
   },
   "devDependencies": {

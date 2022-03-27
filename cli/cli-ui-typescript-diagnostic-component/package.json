@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/cli-ui-typescript-diagnostic-component",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -12,11 +12,11 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/cli-ui-source-component": "workspace:0.0.26",
-    "@monstrs/code-typescript": "workspace:0.0.116"
+    "@monstrs/cli-ui-source-component": "workspace:0.0.27",
+    "@monstrs/code-typescript": "workspace:0.0.117"
   },
   "devDependencies": {
-    "@monstrs/cli-ui-renderer": "workspace:0.0.27",
+    "@monstrs/cli-ui-renderer": "workspace:0.0.28",
     "@types/jest": "^27.4.1",
     "@types/react": "^17.0.41",
     "ink": "^3.2.0",

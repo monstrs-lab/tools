@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-lint",
-  "version": "0.0.117",
+  "version": "0.0.118",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -13,7 +13,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/config-eslint": "workspace:0.0.11",
+    "@monstrs/config-eslint": "workspace:0.0.12",
     "eslint": "^8.11.0",
     "globby": "^11.0.4",
     "ignore": "^5.2.0"
