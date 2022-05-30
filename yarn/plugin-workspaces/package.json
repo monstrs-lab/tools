@@ -15,12 +15,12 @@
   "dependencies": {
     "@monstrs/yarn-plugin-files": "workspace:0.0.1",
     "@monstrs/yarn-workspace-utils": "workspace:0.0.1",
-    "clipanion": "^3.2.0-rc.10"
+    "clipanion": "^3.2.0-rc.11"
   },
   "devDependencies": {
-    "@yarnpkg/builder": "3.2.0",
-    "@yarnpkg/cli": "^3.2.0",
-    "@yarnpkg/core": "^3.2.0",
+    "@yarnpkg/builder": "^4.0.0-rc.6",
+    "@yarnpkg/cli": "^4.0.0-rc.6",
+    "@yarnpkg/core": "^4.0.0-rc.6",
     "typescript": "^4.6.2"
   },
   "peerDependencies": {

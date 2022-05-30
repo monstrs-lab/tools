@@ -20,16 +20,16 @@
     "@monstrs/code-schematics-worker": "workspace:0.0.9",
     "@monstrs/schematics": "workspace:0.0.21",
     "@monstrs/yarn-run-utils": "workspace:0.0.1",
-    "@yarnpkg/libui": "^2.2.1",
-    "clipanion": "^3.2.0-rc.10",
+    "@yarnpkg/libui": "^3.0.0-rc.6",
+    "clipanion": "^3.2.0-rc.11",
     "force-stdin-tty": "^0.0.1",
     "typanion": "^3.7.1"
   },
   "devDependencies": {
-    "@yarnpkg/builder": "3.2.0",
-    "@yarnpkg/cli": "^3.2.0",
-    "@yarnpkg/core": "^3.2.0",
-    "@yarnpkg/fslib": "^2.6.1",
+    "@yarnpkg/builder": "^4.0.0-rc.6",
+    "@yarnpkg/cli": "^4.0.0-rc.6",
+    "@yarnpkg/core": "^4.0.0-rc.6",
+    "@yarnpkg/fslib": "^3.0.0-rc.6",
     "ink": "^3.2.0",
     "react": "^17.0.2",
     "typescript": "^4.6.2"
