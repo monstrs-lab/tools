@@ -1656,7 +1656,7 @@ __metadata:
     ink: "npm:^3.2.0"
     react: "npm:^17.0.2"
     strip-ansi: "npm:^6.0.1"
-    typescript: "npm:^4.6.2"
+    typescript: "npm:^4.7.2"
   peerDependencies:
     ink: ^3.0.8
     react: "*"
@@ -1840,7 +1840,7 @@ __metadata:
     find-up: "npm:^5.0.0"
     string-replace-loader: "npm:^3.1.0"
     ts-loader: "npm:^9.3.0"
-    typescript: "npm:^4.6.2"
+    typescript: "npm:^4.7.2"
     wait-for-localhost: "npm:^3.3.0"
     webpack: "npm:^5.72.1"
     webpack-chain: "npm:^6.5.1"
@@ -1898,7 +1898,7 @@ __metadata:
     rollup-plugin-analyzer: "npm:^4.0.0"
     rollup-plugin-esbuild: "npm:^4.9.1"
     rollup-plugin-terser: "npm:^7.0.2"
-    typescript: "npm:^4.6.2"
+    typescript: "npm:^4.7.2"
   languageName: unknown
   linkType: soft
 
@@ -1910,7 +1910,7 @@ __metadata:
     "@types/deepmerge": "npm:2.2.0"
     "@types/node": "npm:^17.0.36"
     deepmerge: "npm:^4.2.2"
-    typescript: "npm:^4.6.2"
+    typescript: "npm:^4.7.2"
   languageName: unknown
   linkType: soft
 
@@ -2011,7 +2011,7 @@ __metadata:
     rimraf: "npm:3.0.2"
     semver: "npm:^7.3.7"
     strip-json-comments: "npm:3.1.1"
-    typescript: "npm:4.6.2"
+    typescript: "npm:^4.7.2"
   languageName: unknown
   linkType: soft
 
@@ -2088,7 +2088,7 @@ __metadata:
     memfs: "npm:^3.4.4"
     protocol-buffers-schema: "npm:^3.6.0"
     ts-loader: "npm:^9.3.0"
-    typescript: "npm:^4.6.2"
+    typescript: "npm:^4.7.2"
     webpack: "npm:^5.72.1"
     webpack-chain: "npm:^6.5.1"
   languageName: unknown
@@ -2299,7 +2299,7 @@ __metadata:
     "@yarnpkg/plugin-patch": "npm:^4.0.0-rc.6"
     clipanion: "npm:^3.2.0-rc.11"
     tempy: "npm:^1.0.1"
-    typescript: "npm:^4.6.2"
+    typescript: "npm:^4.7.2"
   peerDependencies:
     "@yarnpkg/cli": ^3.2.0-rc.8
     "@yarnpkg/core": ^3.2.0-rc.8
@@ -2344,7 +2344,7 @@ __metadata:
     "@yarnpkg/core": "npm:^4.0.0-rc.6"
     clipanion: "npm:^3.2.0-rc.11"
     react: "npm:^17.0.2"
-    typescript: "npm:^4.6.2"
+    typescript: "npm:^4.7.2"
   peerDependencies:
     "@yarnpkg/cli": ^3.2.0-rc.8
     "@yarnpkg/core": ^3.2.0-rc.8
@@ -2372,7 +2372,7 @@ __metadata:
     ink: "npm:^3.2.0"
     react: "npm:^17.0.2"
     typanion: "npm:^3.7.1"
-    typescript: "npm:^4.6.2"
+    typescript: "npm:^4.7.2"
   peerDependencies:
     "@yarnpkg/cli": ^3.2.0-rc.7
     "@yarnpkg/core": ^3.2.0-rc.7
@@ -2398,7 +2398,7 @@ __metadata:
     clipanion: "npm:^3.2.0-rc.11"
     react: "npm:^17.0.2"
     rimraf: "npm:^3.0.2"
-    typescript: "npm:^4.6.2"
+    typescript: "npm:^4.7.2"
   peerDependencies:
     "@yarnpkg/cli": ^3.2.0-rc.7
     "@yarnpkg/core": ^3.2.0-rc.7
@@ -2414,7 +2414,7 @@ __metadata:
     "@yarnpkg/cli": "npm:^4.0.0-rc.6"
     "@yarnpkg/core": "npm:^4.0.0-rc.6"
     clipanion: "npm:^3.2.0-rc.11"
-    typescript: "npm:^4.6.2"
+    typescript: "npm:^4.7.2"
   peerDependencies:
     "@yarnpkg/cli": ^3.2.0-rc.7
     "@yarnpkg/core": ^3.2.0-rc.7
@@ -2435,7 +2435,7 @@ __metadata:
     "@yarnpkg/core": "npm:^4.0.0-rc.6"
     clipanion: "npm:^3.2.0-rc.11"
     react: "npm:^17.0.2"
-    typescript: "npm:^4.6.2"
+    typescript: "npm:^4.7.2"
   peerDependencies:
     "@yarnpkg/cli": ^3.2.0-rc.7
     "@yarnpkg/core": ^3.2.0-rc.7
@@ -2452,7 +2452,7 @@ __metadata:
     "@yarnpkg/cli": "npm:^4.0.0-rc.6"
     "@yarnpkg/core": "npm:^4.0.0-rc.6"
     clipanion: "npm:^3.2.0-rc.11"
-    typescript: "npm:^4.6.2"
+    typescript: "npm:^4.7.2"
   peerDependencies:
     "@yarnpkg/cli": ^3.2.0-rc.7
     "@yarnpkg/core": ^3.2.0-rc.7
@@ -13749,7 +13749,7 @@ __metadata:
     espree: "npm:^9.3.2"
     husky: "npm:8.0.1"
     readable-stream: "npm:^3.6.0"
-    typescript: "npm:^4.6.2"
+    typescript: "npm:^4.7.2"
     webpack: "npm:^5.72.1"
   languageName: unknown
   linkType: soft
@@ -14048,23 +14048,43 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:4.6.2":
-  version: 4.6.2
-  resolution: "typescript@npm:4.6.2"
+"typescript@npm:^3.2.4":
+  version: 3.9.10
+  resolution: "typescript@npm:3.9.10"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 61b86ce7f0ed351db6c24092c9fe2b6c330edba8871f1a6ac88cdf08c5df237e1e79d8d6dd118ba0903d90426662b2ab623074a1ee1563de50a49114329a3c2c
+  checksum: 2137104612d9b7544db57b0bd202d0f15f9d8d339070fe9af54ae9568bb774e62f666e51378a8c8c627d0fa7b635ac6060d7ff1f6bcb69734c981c29dd3dbea9
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A4.6.2#optional!builtin<compat/typescript>":
-  version: 4.6.2
-  resolution: "typescript@patch:typescript@npm%3A4.6.2#optional!builtin<compat/typescript>::version=4.6.2&hash=7ad353"
+"typescript@npm:^4.6.4, typescript@npm:^4.7.2":
+  version: 4.7.2
+  resolution: "typescript@npm:4.7.2"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 55110ab105f77165c592d337eeaaddc1f18387e7624d218421b3121073daacbfca50c313c12b16c3b1341c47b1194fde78c7f4ebce929dcdf43d270ef9a13619
+  checksum: f841f230723cda583d1a564fb38fa85abfc28e534d7db933329ee06047a8b4cee84697e2e01f348aff760f6d18da753063c51f4d80763c7b284e78abe8569d82
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@npm%3A^3.2.4#optional!builtin<compat/typescript>":
+  version: 3.9.10
+  resolution: "typescript@patch:typescript@npm%3A3.9.10#optional!builtin<compat/typescript>::version=3.9.10&hash=7ad353"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 060f1bcb5c91a16d01b042974be047455b6471aceae5b17651119d0f690ddba45bdfcefdb92a05ca1563a6f0313f8dd63dc4e8cde0ebf221b3e6b435c32d0ddf
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@npm%3A^4.6.4#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^4.7.2#optional!builtin<compat/typescript>":
+  version: 4.7.2
+  resolution: "typescript@patch:typescript@npm%3A4.7.2#optional!builtin<compat/typescript>::version=4.7.2&hash=7ad353"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: ff28751fd5ca4c0741d73e00513799fb58bce01b69e5e701caf9f8e0245687cd1e7c966479d6af321fba162bb4edc02924ed7dd7f847e633925605659e6510dc
   languageName: node
   linkType: hard
 
