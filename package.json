@@ -17,25 +17,25 @@
     "globby": "11.0.3"
   },
   "devDependencies": {
-    "@angular-devkit/core": "^13.3.0",
-    "@angular-devkit/schematics": "^13.3.0",
+    "@angular-devkit/core": "^13.3.7",
+    "@angular-devkit/schematics": "^13.3.7",
     "@jest/core": "^27.5.1",
     "@monstrs/code-service": "workspace:0.0.113",
     "@monstrs/config-eslint": "workspace:0.0.12",
     "@monstrs/config-jest": "workspace:0.0.11",
     "@monstrs/schematics": "workspace:0.0.21",
     "@monstrs/tools-setup-ts-execution": "workspace:0.0.1",
-    "@types/eslint": "^8.4.1",
-    "@types/jest": "^27.4.1",
-    "@types/node": "^17.0.21",
+    "@types/eslint": "^8.4.2",
+    "@types/jest": "^27.5.1",
+    "@types/node": "^17.0.36",
     "@yarnpkg/builder": "^3.2.0",
     "eslint": "^8.11.0",
     "eslint-import-resolver-node": "^0.3.6",
     "espree": "^9.3.1",
-    "husky": "7.0.4",
+    "husky": "8.0.1",
     "readable-stream": "^3.6.0",
     "typescript": "^4.6.2",
-    "webpack": "^5.70.0"
+    "webpack": "^5.72.1"
   },
   "packageManager": "yarn@3.1.0",
   "tools": {
