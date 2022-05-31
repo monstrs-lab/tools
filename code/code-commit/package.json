@@ -17,7 +17,7 @@
     "@commitlint/lint": "^17.0.0",
     "@commitlint/load": "^17.0.0",
     "@commitlint/read": "^17.0.0",
-    "@commitlint/rules": "^16.2.4",
+    "@commitlint/rules": "^17.0.0",
     "@commitlint/types": "^17.0.0",
     "conventional-changelog-angular": "^5.0.13",
     "conventional-commits-parser": "^3.2.4"
