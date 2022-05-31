@@ -1,33 +1,32 @@
 {
-	  "name": "@monstrs/code-commit",
-	  "version": "0.0.16",
-	  "license": "MIT",
-	  "main": "src/index.ts",
-	  "files": [
-	    "dist"
-	  ],
-	  "scripts": {
-	    "build": "yarn library build",
-	    "prepack": "yarn run build",
-	    "postpack": "rm -rf dist"
-	  },
-	  "dependencies": {
-	    "@commitlint/format": "^17.0.0",
-	    "@commitlint/is-ignored": "^17.0.0",
-	    "@commitlint/lint": "^17.0.0",
-	    "@commitlint/load": "^17.0.0",
-	    "@commitlint/read": "^17.0.0",
-	    "@commitlint/rules": "^17.0.0",
-	    "@commitlint/types": "^17.0.0",
-	    "conventional-changelog-angular": "^5.0.13",
-	    "conventional-commits-parser": "^3.2.4"
-	  },
-	  "devDependencies": {
-	    "@types/node": "^17.0.36"
-	  },
-	  "publishConfig": {
-	    "main": "dist/index.js",
-	    "typings": "dist/index.d.ts"
-	  }
-	}
-	
+  "name": "@monstrs/code-commit",
+  "version": "0.0.16",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn library build",
+    "prepack": "yarn run build",
+    "postpack": "rm -rf dist"
+  },
+  "dependencies": {
+    "@commitlint/format": "^17.0.0",
+    "@commitlint/is-ignored": "^17.0.0",
+    "@commitlint/lint": "^17.0.0",
+    "@commitlint/load": "^17.0.0",
+    "@commitlint/read": "^17.0.0",
+    "@commitlint/rules": "^17.0.0",
+    "@commitlint/types": "^17.0.0",
+    "conventional-changelog-angular": "^5.0.13",
+    "conventional-commits-parser": "^3.2.4"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.36"
+  },
+  "publishConfig": {
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
+  }
+}
