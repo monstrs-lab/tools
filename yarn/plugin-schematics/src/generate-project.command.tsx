@@ -8,39 +8,20 @@ import { npath }                          from '@yarnpkg/fslib'
 import { renderForm }                     from '@yarnpkg/libui/sources/misc/renderForm'
 
 import React                              from 'react'
-import { Option }                         from 'clipanion'
 import { forceStdinTty }                  from 'force-stdin-tty'
-import { isOneOf }                        from 'typanion'
-import { isLiteral }                      from 'typanion'
-import { isOptional }                     from 'typanion'
 
 import { ErrorInfo }                      from '@monstrs/cli-ui-error-info-component'
 import { SubmitInjectedComponentFactory } from '@monstrs/cli-ui-parts'
 import { RequestProjectInformation }      from '@monstrs/cli-ui-schematics-component'
 import { ProjectInformationProperties }   from '@monstrs/cli-ui-schematics-component'
 import { SchematicsWorker }               from '@monstrs/code-schematics-worker'
-import { ProjectType }                    from '@monstrs/schematics'
 import { SpinnerProgress }                from '@monstrs/yarn-run-utils'
 import { renderStatic }                   from '@monstrs/cli-ui-renderer'
 
 class GenerateProjectCommand extends BaseCommand {
   static paths = [['generate', 'project']]
 
-  type = Option.String('-t,--type', {
-    validator: isOptional(
-      isOneOf([isLiteral(ProjectType.PROJECT), isLiteral(ProjectType.LIBRARIES)], {
-        exclusive: true,
-      })
-    ),
-  })
-
   private async requestOptions(): Promise<ProjectInformationProperties | undefined> {
-    if (this.type) {
-      return {
-        type: this.type,
-      }
-    }
-
     const overwroteStdin = forceStdinTty()
 
     const options: ProjectInformationProperties | undefined = await renderForm(
