@@ -1,5 +1,0 @@
-releases:
-  "@monstrs/code-configuration": patch
-  "@monstrs/code-pack": patch
-  "@monstrs/code-service": patch
-  "@monstrs/code-service-worker": patch

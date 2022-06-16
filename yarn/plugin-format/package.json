@@ -13,9 +13,9 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/cli-ui-error-info-component": "workspace:0.0.13",
-    "@monstrs/cli-ui-renderer": "workspace:0.0.28",
-    "@monstrs/code-format-worker": "workspace:0.0.6",
+    "@monstrs/cli-ui-error-info-component": "workspace:0.0.14",
+    "@monstrs/cli-ui-renderer": "workspace:0.0.29",
+    "@monstrs/code-format-worker": "workspace:0.0.7",
     "@monstrs/yarn-run-utils": "workspace:0.0.1",
     "clipanion": "^3.2.0-rc.11",
     "react": "^18.1.0"
