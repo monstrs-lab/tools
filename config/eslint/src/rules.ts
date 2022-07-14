@@ -566,6 +566,7 @@ const rules: Linter.RulesRecord = {
   'react/jsx-pascal-case': [
     'error',
     {
+      allowNamespace: true,
       allowAllCaps: true,
       ignore: [],
     },
