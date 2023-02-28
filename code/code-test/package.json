@@ -20,8 +20,8 @@
     "@monstrs/config-jest": "workspace:0.0.12"
   },
   "devDependencies": {
-    "@types/jest": "^27.5.1",
-    "@types/node": "^17.0.38"
+    "@types/jest": "^27.5.2",
+    "@types/node": "^17.0.45"
   },
   "peerDependenciesMeta": {
     "jest": {
