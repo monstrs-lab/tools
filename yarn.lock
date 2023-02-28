@@ -5,24 +5,25 @@ __metadata:
   version: 6
   cacheKey: 8
 
-"@actions/core@npm:^1.8.2":
-  version: 1.8.2
-  resolution: "@actions/core@npm:1.8.2"
+"@actions/core@npm:^1.10.0":
+  version: 1.10.0
+  resolution: "@actions/core@npm:1.10.0"
   dependencies:
     "@actions/http-client": ^2.0.1
-  checksum: 1cd1a47f751501900a579e641565bbe13a09d626507a4fa46b51e6a959a74a89134490ae7311570ed8ec1735ada83bcfde81a456ea4d2e24e323c16e94e39fd1
+    uuid: ^8.3.2
+  checksum: 0a75621e007ab20d887434cdd165f0b9036f14c22252a2faed33543d8b9d04ec95d823e69ca636a25245574e4585d73e1e9e47a845339553c664f9f2c9614669
   languageName: node
   linkType: hard
 
-"@actions/github@npm:^5.0.3":
-  version: 5.0.3
-  resolution: "@actions/github@npm:5.0.3"
+"@actions/github@npm:^5.1.1":
+  version: 5.1.1
+  resolution: "@actions/github@npm:5.1.1"
   dependencies:
     "@actions/http-client": ^2.0.1
     "@octokit/core": ^3.6.0
     "@octokit/plugin-paginate-rest": ^2.17.0
     "@octokit/plugin-rest-endpoint-methods": ^5.13.0
-  checksum: 1d8e8c5c351dd069a96b1ec39c8f609a2bbcb135d69bb8d9bb5c00752bdff81ec6d67ca90eb77dedc657cd630af484538f881c16eb5b008fd3ee5f430d0c38d2
+  checksum: 2210bd7f8e1e8b407b7df74a259523dc4c63f4ad3a6bfcc0d7867b6e9c3499bd3e25d7de7a9a1bbd0de3be441a8832d5c0b5c0cff3036cd477378c0ec5502434
   languageName: node
   linkType: hard
 
@@ -1796,7 +1797,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/code-pack@workspace:code/code-pack"
   dependencies:
-    "@actions/github": ^5.0.3
+    "@actions/github": ^5.1.1
     "@iarna/toml": ^2.2.5
     "@types/node": ^18.14.2
     "@yarnpkg/core": ^3.4.0
@@ -2042,7 +2043,7 @@ __metadata:
     "@angular-devkit/schematics": ^13.3.7
     "@types/node": ^18.14.2
     js-yaml: ^4.1.0
-    rimraf: 3.0.2
+    rimraf: ^3.0.2
     semver: ^7.3.7
     strip-json-comments: 3.1.1
     typescript: ^4.6.2
@@ -2227,8 +2228,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-checks@workspace:yarn/plugin-checks"
   dependencies:
-    "@actions/core": ^1.8.2
-    "@actions/github": ^5.0.3
+    "@actions/core": ^1.10.0
+    "@actions/github": ^5.1.1
     "@babel/code-frame": ^7.18.6
     "@jest/test-result": ^29.4.3
     "@monstrs/cli-ui-eslint-result-component": "workspace:0.0.17"
@@ -2241,7 +2242,7 @@ __metadata:
     "@monstrs/yarn-plugin-files": "workspace:0.0.1"
     "@monstrs/yarn-run-utils": "workspace:0.0.1"
     "@monstrs/yarn-workspace-utils": "workspace:0.0.1"
-    "@octokit/types": ^6.34.0
+    "@octokit/types": ^9.0.0
     "@types/node": ^18.14.2
     "@yarnpkg/builder": ^3.2.7
     "@yarnpkg/cli": ^3.4.1
@@ -2287,8 +2288,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-files@workspace:yarn/plugin-files"
   dependencies:
-    "@actions/github": ^5.0.3
-    "@octokit/types": ^6.34.0
+    "@actions/github": ^5.1.1
+    "@octokit/types": ^9.0.0
     "@yarnpkg/builder": ^3.2.7
     "@yarnpkg/cli": ^3.4.1
     "@yarnpkg/core": ^3.4.0
@@ -2589,6 +2590,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@octokit/openapi-types@npm:^16.0.0":
+  version: 16.0.0
+  resolution: "@octokit/openapi-types@npm:16.0.0"
+  checksum: 844f30a545da380d63c712e0eb733366bc567d1aab34529c79fdfbec3d73810e81d83f06fdab13058a5cbc7dae786db1a9b90b5b61b1e606854ee45d5ec5f194
+  languageName: node
+  linkType: hard
+
 "@octokit/plugin-paginate-rest@npm:^2.17.0":
   version: 2.17.0
   resolution: "@octokit/plugin-paginate-rest@npm:2.17.0"
@@ -2652,6 +2660,15 @@ __metadata:
   dependencies:
     "@octokit/openapi-types": ^11.2.0
   checksum: f122b9aee8f6baddd515e34a0913e73b21d4bc82d6ee59d77a8aaf01b4a02c10867dd013003d087a83dc96db23511893669015af6d30c27cece185e21cf1df89
+  languageName: node
+  linkType: hard
+
+"@octokit/types@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "@octokit/types@npm:9.0.0"
+  dependencies:
+    "@octokit/openapi-types": ^16.0.0
+  checksum: 5c7f5cca8f00f7c4daa0d00f4fe991c1598ec47cd6ced50b1c5fbe9721bb9dee0adc2acdee265a3a715bb984e53ef3dc7f1cfb7326f712c6d809d59fc5c6648d
   languageName: node
   linkType: hard
 
@@ -12371,17 +12388,6 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"rimraf@npm:3.0.2, rimraf@npm:^3.0.2":
-  version: 3.0.2
-  resolution: "rimraf@npm:3.0.2"
-  dependencies:
-    glob: ^7.1.3
-  bin:
-    rimraf: bin.js
-  checksum: 87f4164e396f0171b0a3386cc1877a817f572148ee13a7e113b238e48e8a9f2f31d009a92ec38a591ff1567d9662c6b67fd8818a2dbbaed74bc26a87a2a4a9a0
-  languageName: node
-  linkType: hard
-
 "rimraf@npm:^2.5.4, rimraf@npm:^2.6.3":
   version: 2.7.1
   resolution: "rimraf@npm:2.7.1"
@@ -12390,6 +12396,17 @@ resolve@^2.0.0-next.3:
   bin:
     rimraf: ./bin.js
   checksum: cdc7f6eacb17927f2a075117a823e1c5951792c6498ebcce81ca8203454a811d4cf8900314154d3259bb8f0b42ab17f67396a8694a54cae3283326e57ad250cd
+  languageName: node
+  linkType: hard
+
+"rimraf@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "rimraf@npm:3.0.2"
+  dependencies:
+    glob: ^7.1.3
+  bin:
+    rimraf: bin.js
+  checksum: 87f4164e396f0171b0a3386cc1877a817f572148ee13a7e113b238e48e8a9f2f31d009a92ec38a591ff1567d9662c6b67fd8818a2dbbaed74bc26a87a2a4a9a0
   languageName: node
   linkType: hard
 
@@ -14230,6 +14247,15 @@ resolve@^2.0.0-next.3:
   bin:
     uuid: ./bin/uuid
   checksum: 58de2feed61c59060b40f8203c0e4ed7fd6f99d42534a499f1741218a1dd0c129f4aa1de797bcf822c8ea5da7e4137aa3673431a96dae729047f7aca7b27866f
+  languageName: node
+  linkType: hard
+
+"uuid@npm:^8.3.2":
+  version: 8.3.2
+  resolution: "uuid@npm:8.3.2"
+  bin:
+    uuid: dist/bin/uuid
+  checksum: 5575a8a75c13120e2f10e6ddc801b2c7ed7d8f3c8ac22c7ed0c7b2ba6383ec0abda88c905085d630e251719e0777045ae3236f04c812184b7c765f63a70e58df
   languageName: node
   linkType: hard
 
