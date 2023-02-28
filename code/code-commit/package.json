@@ -12,18 +12,18 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@commitlint/format": "^17.0.0",
-    "@commitlint/is-ignored": "^17.0.0",
-    "@commitlint/lint": "^17.0.0",
-    "@commitlint/load": "^17.0.0",
-    "@commitlint/read": "^17.0.0",
-    "@commitlint/rules": "^17.0.0",
-    "@commitlint/types": "^17.0.0",
+    "@commitlint/format": "^17.4.4",
+    "@commitlint/is-ignored": "^17.4.4",
+    "@commitlint/lint": "^17.4.4",
+    "@commitlint/load": "^17.4.4",
+    "@commitlint/read": "^17.4.4",
+    "@commitlint/rules": "^17.4.4",
+    "@commitlint/types": "^17.4.4",
     "conventional-changelog-angular": "^5.0.13",
     "conventional-commits-parser": "^3.2.4"
   },
   "devDependencies": {
-    "@types/node": "^17.0.38"
+    "@types/node": "^17.0.45"
   },
   "publishConfig": {
     "main": "dist/index.js",
