@@ -16,7 +16,7 @@
     "@actions/core": "^1.8.2",
     "@actions/github": "^5.0.3",
     "@babel/code-frame": "^7.18.6",
-    "@jest/test-result": "^28.1.0",
+    "@jest/test-result": "^29.4.3",
     "@monstrs/cli-ui-eslint-result-component": "workspace:0.0.17",
     "@monstrs/cli-ui-renderer": "workspace:0.0.29",
     "@monstrs/cli-ui-typescript-diagnostic-component": "workspace:0.0.18",
