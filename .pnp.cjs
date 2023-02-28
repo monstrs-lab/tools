@@ -308,8 +308,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
-            ["@angular-devkit/core", "virtual:151363d7b7bf96c0541acb2fb64a884318e65629fa2fe077d9fa7ed2bacca042b055ede2474c432e0ede40fdae6eb8a5764200253f5c8795e72efd390a5f0068#npm:13.3.7"],\
-            ["@angular-devkit/schematics", "npm:13.3.7"],\
+            ["@angular-devkit/core", "virtual:fc302eb87905c8fbd1eae517e8704c2e0b58184dab6658b7b23ab99e231b1f270cd06feffa79e7e837af959045cea0b05c160f9ec77ac0c6d33af29d44312329#npm:15.2.0"],\
+            ["@angular-devkit/schematics", "npm:15.2.0"],\
             ["@jest/core", "virtual:93762f395d50e2410536eefd1c9656e618c9e599e2d023ef5341f0dd44b7c10b9c8541440da9da71a8fae8443bde146c84aabb5f6bc6020be89f6fe1913af10c#npm:29.4.3"],\
             ["@monstrs/code-service", "workspace:code/code-service"],\
             ["@monstrs/config-eslint", "workspace:config/eslint"],\
@@ -526,25 +526,24 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@angular-devkit/core", [\
-        ["npm:13.3.7", {\
-          "packageLocation": "./.yarn/cache/@angular-devkit-core-npm-13.3.7-12bbc9da57-36bef9b474.zip/node_modules/@angular-devkit/core/",\
+        ["npm:15.2.0", {\
+          "packageLocation": "./.yarn/cache/@angular-devkit-core-npm-15.2.0-b217b5fe00-8421607c44.zip/node_modules/@angular-devkit/core/",\
           "packageDependencies": [\
-            ["@angular-devkit/core", "npm:13.3.7"]\
+            ["@angular-devkit/core", "npm:15.2.0"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:151363d7b7bf96c0541acb2fb64a884318e65629fa2fe077d9fa7ed2bacca042b055ede2474c432e0ede40fdae6eb8a5764200253f5c8795e72efd390a5f0068#npm:13.3.7", {\
-          "packageLocation": "./.yarn/__virtual__/@angular-devkit-core-virtual-0d65613721/0/cache/@angular-devkit-core-npm-13.3.7-12bbc9da57-36bef9b474.zip/node_modules/@angular-devkit/core/",\
+        ["virtual:fc302eb87905c8fbd1eae517e8704c2e0b58184dab6658b7b23ab99e231b1f270cd06feffa79e7e837af959045cea0b05c160f9ec77ac0c6d33af29d44312329#npm:15.2.0", {\
+          "packageLocation": "./.yarn/__virtual__/@angular-devkit-core-virtual-25a2335e50/0/cache/@angular-devkit-core-npm-15.2.0-b217b5fe00-8421607c44.zip/node_modules/@angular-devkit/core/",\
           "packageDependencies": [\
-            ["@angular-devkit/core", "virtual:151363d7b7bf96c0541acb2fb64a884318e65629fa2fe077d9fa7ed2bacca042b055ede2474c432e0ede40fdae6eb8a5764200253f5c8795e72efd390a5f0068#npm:13.3.7"],\
+            ["@angular-devkit/core", "virtual:fc302eb87905c8fbd1eae517e8704c2e0b58184dab6658b7b23ab99e231b1f270cd06feffa79e7e837af959045cea0b05c160f9ec77ac0c6d33af29d44312329#npm:15.2.0"],\
             ["@types/chokidar", null],\
-            ["ajv", "npm:8.9.0"],\
-            ["ajv-formats", "virtual:0d6561372115c7ee12fed14e431046744a34850530b59f81c785ab0433957bf6b7d7602f840b5db9b60ea3b0ff9ade7b585c750db71d9af73f038c409e991eb1#npm:2.1.1"],\
+            ["ajv", "npm:8.12.0"],\
+            ["ajv-formats", "virtual:25a2335e50d5aec91a6034c56c4d3c4095cc771c1177685da7009b1b37242e22d1e811451ddfa822bd5f05b460986f83a469b79c4382b12b4b80ac542329ad38#npm:2.1.1"],\
             ["chokidar", "npm:3.5.2"],\
-            ["fast-json-stable-stringify", "npm:2.1.0"],\
-            ["magic-string", "npm:0.25.7"],\
+            ["jsonc-parser", "npm:3.2.0"],\
             ["rxjs", "npm:6.6.7"],\
-            ["source-map", "npm:0.7.3"]\
+            ["source-map", "npm:0.7.4"]\
           ],\
           "packagePeers": [\
             "@types/chokidar"\
@@ -553,13 +552,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@angular-devkit/schematics", [\
-        ["npm:13.3.7", {\
-          "packageLocation": "./.yarn/cache/@angular-devkit-schematics-npm-13.3.7-151363d7b7-4c0fe3b1f6.zip/node_modules/@angular-devkit/schematics/",\
+        ["npm:15.2.0", {\
+          "packageLocation": "./.yarn/cache/@angular-devkit-schematics-npm-15.2.0-fc302eb879-a1676f92c7.zip/node_modules/@angular-devkit/schematics/",\
           "packageDependencies": [\
-            ["@angular-devkit/schematics", "npm:13.3.7"],\
-            ["@angular-devkit/core", "virtual:151363d7b7bf96c0541acb2fb64a884318e65629fa2fe077d9fa7ed2bacca042b055ede2474c432e0ede40fdae6eb8a5764200253f5c8795e72efd390a5f0068#npm:13.3.7"],\
-            ["jsonc-parser", "npm:3.0.0"],\
-            ["magic-string", "npm:0.25.7"],\
+            ["@angular-devkit/schematics", "npm:15.2.0"],\
+            ["@angular-devkit/core", "virtual:fc302eb87905c8fbd1eae517e8704c2e0b58184dab6658b7b23ab99e231b1f270cd06feffa79e7e837af959045cea0b05c160f9ec77ac0c6d33af29d44312329#npm:15.2.0"],\
+            ["jsonc-parser", "npm:3.2.0"],\
+            ["magic-string", "npm:0.29.0"],\
             ["ora", "npm:5.4.1"],\
             ["rxjs", "npm:6.6.7"]\
           ],\
@@ -3110,8 +3109,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./code/code-schematics/",\
           "packageDependencies": [\
             ["@monstrs/code-schematics", "workspace:code/code-schematics"],\
-            ["@angular-devkit/core", "virtual:151363d7b7bf96c0541acb2fb64a884318e65629fa2fe077d9fa7ed2bacca042b055ede2474c432e0ede40fdae6eb8a5764200253f5c8795e72efd390a5f0068#npm:13.3.7"],\
-            ["@angular-devkit/schematics", "npm:13.3.7"],\
+            ["@angular-devkit/core", "virtual:fc302eb87905c8fbd1eae517e8704c2e0b58184dab6658b7b23ab99e231b1f270cd06feffa79e7e837af959045cea0b05c160f9ec77ac0c6d33af29d44312329#npm:15.2.0"],\
+            ["@angular-devkit/schematics", "npm:15.2.0"],\
             ["rxjs", "npm:7.5.5"]\
           ],\
           "linkType": "SOFT"\
@@ -3122,7 +3121,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./code/code-schematics-worker/",\
           "packageDependencies": [\
             ["@monstrs/code-schematics-worker", "workspace:code/code-schematics-worker"],\
-            ["@angular-devkit/schematics", "npm:13.3.7"],\
+            ["@angular-devkit/schematics", "npm:15.2.0"],\
             ["@monstrs/code-schematics", "workspace:code/code-schematics"],\
             ["@monstrs/code-worker-utils", "workspace:code/code-worker-utils"],\
             ["@rollup/plugin-commonjs", "virtual:16c6894e71735c8ce85e88fdf2c39a69fd95d1318c61281c78f523ed65a0c4f3080b557bb22e7eedc993af5a969d2f37377c836ed4a7d514845d5d9f9777f4cb#npm:22.0.0"],\
@@ -3387,8 +3386,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./schematics/schematics/",\
           "packageDependencies": [\
             ["@monstrs/schematics", "workspace:schematics/schematics"],\
-            ["@angular-devkit/core", "virtual:151363d7b7bf96c0541acb2fb64a884318e65629fa2fe077d9fa7ed2bacca042b055ede2474c432e0ede40fdae6eb8a5764200253f5c8795e72efd390a5f0068#npm:13.3.7"],\
-            ["@angular-devkit/schematics", "npm:13.3.7"],\
+            ["@angular-devkit/core", "virtual:fc302eb87905c8fbd1eae517e8704c2e0b58184dab6658b7b23ab99e231b1f270cd06feffa79e7e837af959045cea0b05c160f9ec77ac0c6d33af29d44312329#npm:15.2.0"],\
+            ["@angular-devkit/schematics", "npm:15.2.0"],\
             ["@monstrs/config-typescript", "workspace:config/typescript"],\
             ["@monstrs/schematics-utils", "workspace:schematics/schematics-utils"],\
             ["@types/node", "npm:18.14.2"],\
@@ -3403,8 +3402,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./schematics/schematics-utils/",\
           "packageDependencies": [\
             ["@monstrs/schematics-utils", "workspace:schematics/schematics-utils"],\
-            ["@angular-devkit/core", "virtual:151363d7b7bf96c0541acb2fb64a884318e65629fa2fe077d9fa7ed2bacca042b055ede2474c432e0ede40fdae6eb8a5764200253f5c8795e72efd390a5f0068#npm:13.3.7"],\
-            ["@angular-devkit/schematics", "npm:13.3.7"],\
+            ["@angular-devkit/core", "virtual:fc302eb87905c8fbd1eae517e8704c2e0b58184dab6658b7b23ab99e231b1f270cd06feffa79e7e837af959045cea0b05c160f9ec77ac0c6d33af29d44312329#npm:15.2.0"],\
+            ["@angular-devkit/schematics", "npm:15.2.0"],\
             ["@types/node", "npm:18.14.2"],\
             ["js-yaml", "npm:4.1.0"],\
             ["rimraf", "npm:3.0.2"],\
@@ -6740,17 +6739,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["uri-js", "npm:4.2.2"]\
           ],\
           "linkType": "HARD"\
-        }],\
-        ["npm:8.9.0", {\
-          "packageLocation": "./.yarn/cache/ajv-npm-8.9.0-d7480193a9-756c048bfa.zip/node_modules/ajv/",\
-          "packageDependencies": [\
-            ["ajv", "npm:8.9.0"],\
-            ["fast-deep-equal", "npm:3.1.3"],\
-            ["json-schema-traverse", "npm:1.0.0"],\
-            ["require-from-string", "npm:2.0.2"],\
-            ["uri-js", "npm:4.2.2"]\
-          ],\
-          "linkType": "HARD"\
         }]\
       ]],\
       ["ajv-errors", [\
@@ -6783,12 +6771,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:0d6561372115c7ee12fed14e431046744a34850530b59f81c785ab0433957bf6b7d7602f840b5db9b60ea3b0ff9ade7b585c750db71d9af73f038c409e991eb1#npm:2.1.1", {\
-          "packageLocation": "./.yarn/__virtual__/ajv-formats-virtual-c53ce549d4/0/cache/ajv-formats-npm-2.1.1-3cec02eae9-4a287d937f.zip/node_modules/ajv-formats/",\
+        ["virtual:25a2335e50d5aec91a6034c56c4d3c4095cc771c1177685da7009b1b37242e22d1e811451ddfa822bd5f05b460986f83a469b79c4382b12b4b80ac542329ad38#npm:2.1.1", {\
+          "packageLocation": "./.yarn/__virtual__/ajv-formats-virtual-7eca4f6f4a/0/cache/ajv-formats-npm-2.1.1-3cec02eae9-4a287d937f.zip/node_modules/ajv-formats/",\
           "packageDependencies": [\
-            ["ajv-formats", "virtual:0d6561372115c7ee12fed14e431046744a34850530b59f81c785ab0433957bf6b7d7602f840b5db9b60ea3b0ff9ade7b585c750db71d9af73f038c409e991eb1#npm:2.1.1"],\
+            ["ajv-formats", "virtual:25a2335e50d5aec91a6034c56c4d3c4095cc771c1177685da7009b1b37242e22d1e811451ddfa822bd5f05b460986f83a469b79c4382b12b4b80ac542329ad38#npm:2.1.1"],\
             ["@types/ajv", null],\
-            ["ajv", "npm:8.9.0"]\
+            ["ajv", "npm:8.12.0"]\
           ],\
           "packagePeers": [\
             "@types/ajv",\
@@ -13420,10 +13408,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["jsonc-parser", [\
-        ["npm:3.0.0", {\
-          "packageLocation": "./.yarn/cache/jsonc-parser-npm-3.0.0-66e692e88a-1df2326f1f.zip/node_modules/jsonc-parser/",\
+        ["npm:3.2.0", {\
+          "packageLocation": "./.yarn/cache/jsonc-parser-npm-3.2.0-1896ece3b7-946dd9a5f3.zip/node_modules/jsonc-parser/",\
           "packageDependencies": [\
-            ["jsonc-parser", "npm:3.0.0"]\
+            ["jsonc-parser", "npm:3.2.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -13970,6 +13958,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["magic-string", "npm:0.25.7"],\
             ["sourcemap-codec", "npm:1.4.8"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:0.29.0", {\
+          "packageLocation": "./.yarn/cache/magic-string-npm-0.29.0-44647222af-19e5398fcf.zip/node_modules/magic-string/",\
+          "packageDependencies": [\
+            ["magic-string", "npm:0.29.0"],\
+            ["@jridgewell/sourcemap-codec", "npm:1.4.14"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -16321,7 +16317,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["es-module-lexer", "npm:0.9.3"],\
             ["esbuild", "npm:0.14.42"],\
             ["joycon", "npm:3.1.1"],\
-            ["jsonc-parser", "npm:3.0.0"],\
+            ["jsonc-parser", "npm:3.2.0"],\
             ["rollup", "npm:2.75.4"]\
           ],\
           "packagePeers": [\
@@ -16821,10 +16817,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:0.7.3", {\
-          "packageLocation": "./.yarn/cache/source-map-npm-0.7.3-e3b4f7982a-cd24efb3b8.zip/node_modules/source-map/",\
+        ["npm:0.7.4", {\
+          "packageLocation": "./.yarn/cache/source-map-npm-0.7.4-bc8d018ab6-01cc5a74b1.zip/node_modules/source-map/",\
           "packageDependencies": [\
-            ["source-map", "npm:0.7.3"]\
+            ["source-map", "npm:0.7.4"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -17506,7 +17502,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/acorn", null],\
             ["acorn", "npm:8.8.2"],\
             ["commander", "npm:2.20.3"],\
-            ["source-map", "npm:0.7.3"],\
+            ["source-map", "npm:0.7.4"],\
             ["source-map-support", "npm:0.5.21"]\
           ],\
           "packagePeers": [\
@@ -17751,8 +17747,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["tools", "workspace:."],\
-            ["@angular-devkit/core", "virtual:151363d7b7bf96c0541acb2fb64a884318e65629fa2fe077d9fa7ed2bacca042b055ede2474c432e0ede40fdae6eb8a5764200253f5c8795e72efd390a5f0068#npm:13.3.7"],\
-            ["@angular-devkit/schematics", "npm:13.3.7"],\
+            ["@angular-devkit/core", "virtual:fc302eb87905c8fbd1eae517e8704c2e0b58184dab6658b7b23ab99e231b1f270cd06feffa79e7e837af959045cea0b05c160f9ec77ac0c6d33af29d44312329#npm:15.2.0"],\
+            ["@angular-devkit/schematics", "npm:15.2.0"],\
             ["@jest/core", "virtual:93762f395d50e2410536eefd1c9656e618c9e599e2d023ef5341f0dd44b7c10b9c8541440da9da71a8fae8443bde146c84aabb5f6bc6020be89f6fe1913af10c#npm:29.4.3"],\
             ["@monstrs/code-service", "workspace:code/code-service"],\
             ["@monstrs/config-eslint", "workspace:config/eslint"],\

@@ -18,7 +18,7 @@
     "@monstrs/code-worker-utils": "workspace:0.0.4"
   },
   "devDependencies": {
-    "@angular-devkit/schematics": "^13.3.7",
+    "@angular-devkit/schematics": "^15.2.0",
     "@rollup/plugin-commonjs": "^22.0.0",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
