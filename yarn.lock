@@ -1519,7 +1519,7 @@ __metadata:
   dependencies:
     "@monstrs/cli-ui-stack-trace-component": "workspace:0.0.30"
     "@types/jest": ^29.4.0
-    "@types/node": ^17.0.45
+    "@types/node": ^18.14.2
     "@types/react": ^18.0.28
     ink: ^3.2.0
     react: ^18.1.0
@@ -1551,7 +1551,7 @@ __metadata:
   resolution: "@monstrs/cli-ui-git-commit-component@workspace:cli/cli-ui-git-commit"
   dependencies:
     "@monstrs/code-commit": "workspace:0.0.17"
-    "@types/node": ^17.0.45
+    "@types/node": ^18.14.2
     "@types/react": ^18.0.28
     "@yarnpkg/libui": ^2.2.2
     camelcase: ^6.3.0
@@ -1575,7 +1575,7 @@ __metadata:
     "@monstrs/cli-ui-stack-trace-component": "workspace:0.0.30"
     "@monstrs/logger": ^0.0.6
     "@types/jest": ^29.4.0
-    "@types/node": ^17.0.45
+    "@types/node": ^18.14.2
     "@types/react": ^18.0.28
     ink: ^3.2.0
     react: ^18.1.0
@@ -1604,7 +1604,7 @@ __metadata:
   dependencies:
     "@monstrs/cli-ui-log-record-component": "workspace:0.0.31"
     "@monstrs/cli-ui-renderer": "workspace:0.0.29"
-    "@types/node": ^17.0.45
+    "@types/node": ^18.14.2
     "@types/react": ^18.0.28
     ink: ^3.2.0
     react: ^18.1.0
@@ -1615,7 +1615,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/cli-ui-renderer@workspace:cli/cli-ui-renderer"
   dependencies:
-    "@types/node": ^17.0.45
+    "@types/node": ^18.14.2
     "@types/react": ^18.0.28
     ink: ^3.2.0
     react: ^18.1.0
@@ -1628,7 +1628,7 @@ __metadata:
   dependencies:
     "@monstrs/cli-ui-parts": "workspace:0.0.7"
     "@monstrs/schematics": "workspace:0.0.22"
-    "@types/node": ^17.0.45
+    "@types/node": ^18.14.2
     "@types/react": ^18.0.28
     "@yarnpkg/libui": ^2.2.2
     camelcase: ^6.3.0
@@ -1650,7 +1650,7 @@ __metadata:
   dependencies:
     "@babel/code-frame": ^7.18.6
     "@types/babel__code-frame": 7.0.3
-    "@types/node": ^17.0.45
+    "@types/node": ^18.14.2
     "@types/react": ^18.0.28
     ink: ^3.2.0
     supports-color: ^8.1.1
@@ -1708,7 +1708,7 @@ __metadata:
     "@commitlint/read": ^17.4.4
     "@commitlint/rules": ^17.4.4
     "@commitlint/types": ^17.4.4
-    "@types/node": ^17.0.45
+    "@types/node": ^18.14.2
     conventional-changelog-angular: ^5.0.13
     conventional-commits-parser: ^3.2.4
   languageName: unknown
@@ -1731,7 +1731,7 @@ __metadata:
     "@rollup/plugin-commonjs": ^22.0.0
     "@rollup/plugin-json": ^4.1.0
     "@rollup/plugin-node-resolve": ^13.3.0
-    "@types/node": ^17.0.45
+    "@types/node": ^18.14.2
     esbuild: ^0.14.42
     rollup: ^2.75.4
     rollup-plugin-analyzer: ^4.0.0
@@ -1746,7 +1746,7 @@ __metadata:
   dependencies:
     "@monstrs/config-prettier": "workspace:0.0.13"
     "@monstrs/prettier-plugin": "workspace:0.0.10"
-    "@types/node": ^17.0.45
+    "@types/node": ^18.14.2
     globby: ^11.1.0
     ignore: ^5.2.4
     prettier: ^2.6.2
@@ -1762,7 +1762,7 @@ __metadata:
     "@rollup/plugin-commonjs": ^22.0.0
     "@rollup/plugin-json": ^4.1.0
     "@rollup/plugin-node-resolve": ^13.3.0
-    "@types/node": ^17.0.45
+    "@types/node": ^18.14.2
     esbuild: ^0.14.42
     eslint: ^8.16.0
     rollup: ^2.75.4
@@ -1777,7 +1777,7 @@ __metadata:
   resolution: "@monstrs/code-lint@workspace:code/code-lint"
   dependencies:
     "@monstrs/config-eslint": "workspace:0.0.13"
-    "@types/node": ^17.0.45
+    "@types/node": ^18.14.2
     eslint: ^8.16.0
     globby: ^11.1.0
     ignore: ^5.2.4
@@ -1798,7 +1798,7 @@ __metadata:
   dependencies:
     "@actions/github": ^5.0.3
     "@iarna/toml": ^2.2.5
-    "@types/node": ^17.0.45
+    "@types/node": ^18.14.2
     "@yarnpkg/core": ^3.4.0
     "@yarnpkg/fslib": ^2.10.1
   languageName: unknown
@@ -1815,7 +1815,7 @@ __metadata:
     "@rollup/plugin-json": ^4.1.0
     "@rollup/plugin-node-resolve": ^13.3.0
     "@rollup/plugin-replace": ^4.0.0
-    "@types/node": ^17.0.45
+    "@types/node": ^18.14.2
     builtin-modules: ^3.3.0
     esbuild: ^0.14.42
     rollup: ^2.75.4
@@ -1846,7 +1846,7 @@ __metadata:
     "@rollup/plugin-json": ^4.1.0
     "@rollup/plugin-node-resolve": ^13.3.0
     "@rollup/plugin-replace": ^4.0.0
-    "@types/node": ^17.0.45
+    "@types/node": ^18.14.2
     esbuild: ^0.14.42
     rollup: ^2.75.4
     rollup-plugin-analyzer: ^4.0.0
@@ -1863,7 +1863,7 @@ __metadata:
     "@monstrs/webpack-proto-imports-loader": "workspace:0.0.28"
     "@monstrs/webpack-start-server-plugin": "workspace:0.2.38"
     "@types/jest": ^29.4.0
-    "@types/node": ^17.0.45
+    "@types/node": ^18.14.2
     "@types/protocol-buffers-schema": 3.4.1
     "@types/wait-for-localhost": 3.1.0
     "@types/webpack": ^5.28.0
@@ -1910,7 +1910,7 @@ __metadata:
     "@jest/types": ^29.4.3
     "@monstrs/config-jest": "workspace:0.0.12"
     "@types/jest": ^29.4.0
-    "@types/node": ^17.0.45
+    "@types/node": ^18.14.2
   peerDependenciesMeta:
     jest:
       optional: true
@@ -1942,7 +1942,7 @@ __metadata:
   dependencies:
     "@monstrs/config-typescript": "workspace:0.0.10"
     "@types/deepmerge": 2.2.0
-    "@types/node": ^17.0.45
+    "@types/node": ^18.14.2
     deepmerge: ^4.3.0
     typescript: ^4.6.2
   languageName: unknown
@@ -1960,7 +1960,7 @@ __metadata:
   dependencies:
     "@monstrs/config-prettier": "workspace:0.0.13"
     "@types/eslint": ^8.21.1
-    "@types/node": ^17.0.45
+    "@types/node": ^18.14.2
     "@typescript-eslint/eslint-plugin": ^5.27.0
     "@typescript-eslint/parser": ^5.27.0
     eslint: ^8.16.0
@@ -1982,7 +1982,7 @@ __metadata:
     "@emotion/jest": ^11.9.1
     "@monstrs/config-typescript": "workspace:0.0.10"
     "@monstrs/jest-pnp-resolver": 0.0.1
-    "@types/node": ^17.0.45
+    "@types/node": ^18.14.2
     jest-static-stubs: ^0.0.1
     ts-jest: ^29.0.5
   languageName: unknown
@@ -1992,7 +1992,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/config-prettier@workspace:config/prettier"
   dependencies:
-    "@types/node": ^17.0.45
+    "@types/node": ^18.14.2
     prettier: ^2.6.2
   languageName: unknown
   linkType: soft
@@ -2023,7 +2023,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/prettier-plugin@workspace:prettier/plugin"
   dependencies:
-    "@types/node": ^17.0.45
+    "@types/node": ^18.14.2
     globby: ^11.1.0
     import-sort: ^6.0.0
     import-sort-parser: ^6.0.0
@@ -2040,7 +2040,7 @@ __metadata:
   dependencies:
     "@angular-devkit/core": ^13.3.7
     "@angular-devkit/schematics": ^13.3.7
-    "@types/node": ^17.0.45
+    "@types/node": ^18.14.2
     js-yaml: ^4.1.0
     rimraf: 3.0.2
     semver: ^7.3.7
@@ -2057,7 +2057,7 @@ __metadata:
     "@angular-devkit/schematics": ^13.3.7
     "@monstrs/config-typescript": "workspace:0.0.10"
     "@monstrs/schematics-utils": "workspace:0.1.14"
-    "@types/node": ^17.0.45
+    "@types/node": ^18.14.2
     copy-dir: ^1.3.0
     globby: ^11.1.0
   languageName: unknown
@@ -2090,7 +2090,7 @@ __metadata:
     "@babel/runtime": ^7.21.0
     "@babel/types": ^7.21.2
     "@types/babel__core": 7.20.0
-    "@types/node": ^17.0.45
+    "@types/node": ^18.14.2
   languageName: unknown
   linkType: soft
 
@@ -2106,7 +2106,7 @@ __metadata:
   resolution: "@monstrs/webpack-localtunnel-plugin@workspace:webpack/webpack-localtunnel-plugin"
   dependencies:
     "@types/localtunnel": 2.0.1
-    "@types/node": ^17.0.45
+    "@types/node": ^18.14.2
     localtunnel: ^2.0.2
   languageName: unknown
   linkType: soft
@@ -2117,7 +2117,7 @@ __metadata:
   dependencies:
     "@monstrs/config-typescript": "workspace:0.0.10"
     "@monstrs/types-import-proto": 0.0.1
-    "@types/node": ^17.0.45
+    "@types/node": ^18.14.2
     file-loader: ^6.2.0
     memfs: ^3.4.13
     protocol-buffers-schema: ^3.6.0
@@ -2139,7 +2139,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/webpack-start-server-plugin@workspace:webpack/webpack-start-server-plugin"
   dependencies:
-    "@types/node": ^17.0.45
+    "@types/node": ^18.14.2
     webpack: ^5.75.0
   languageName: unknown
   linkType: soft
@@ -2242,7 +2242,7 @@ __metadata:
     "@monstrs/yarn-run-utils": "workspace:0.0.1"
     "@monstrs/yarn-workspace-utils": "workspace:0.0.1"
     "@octokit/types": ^6.34.0
-    "@types/node": ^17.0.45
+    "@types/node": ^18.14.2
     "@yarnpkg/builder": ^3.2.7
     "@yarnpkg/cli": ^3.4.1
     "@yarnpkg/core": ^3.4.0
@@ -3010,10 +3010,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:>= 8, @types/node@npm:^17.0.45":
-  version: 17.0.45
-  resolution: "@types/node@npm:17.0.45"
-  checksum: aa04366b9103b7d6cfd6b2ef64182e0eaa7d4462c3f817618486ea0422984c51fc69fd0d436eae6c9e696ddfdbec9ccaa27a917f7c2e8c75c5d57827fe3d95e8
+"@types/node@npm:*, @types/node@npm:>= 8, @types/node@npm:^18.14.2":
+  version: 18.14.2
+  resolution: "@types/node@npm:18.14.2"
+  checksum: 53c07e721f6ae33de71306f6a0b75dae6066a4f55bd5484c93bd59ff25f0c5f004ceafeef509a4d0cb9e24a247efc34d50489bcc1b05a53ecc68e2fc088e65cb
   languageName: node
   linkType: hard
 
@@ -13714,7 +13714,7 @@ resolve@^2.0.0-next.3:
     "@monstrs/tools-setup-ts-execution": "workspace:0.0.1"
     "@types/eslint": ^8.21.1
     "@types/jest": ^29.4.0
-    "@types/node": ^17.0.45
+    "@types/node": ^18.14.2
     "@yarnpkg/builder": ^3.2.7
     eslint: ^8.16.0
     eslint-import-resolver-node: ^0.3.6
