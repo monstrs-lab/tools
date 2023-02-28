@@ -30,8 +30,8 @@ export class Linter {
   async lintFiles(files: Array<string> = []): Promise<Array<ESLint.LintResult>> {
     const ignored = ignorer().add(ignore)
 
-    const linterConfig: any = { configType: 'flat' }
-    const linter = new ESLinter(linterConfig)
+    const linter = new ESLinter({ configType: 'flat' })
+    const config = [...eslintconfig, { files: ['**/*.*'] }]
 
     const results: Array<ESLint.LintResult> = await Promise.all(
       files
@@ -39,8 +39,7 @@ export class Linter {
         .map(async (filePath) => {
           const source = await readFile(filePath, 'utf8')
 
-          // @ts-ignore
-          const messages = linter.verify(source, eslintconfig, { filename: filePath })
+          const messages = linter.verify(source, config, { filename: filePath })
 
           return {
             filePath,
