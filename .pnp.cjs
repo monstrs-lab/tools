@@ -3015,7 +3015,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:18.14.2"],\
             ["globby", "npm:11.0.3"],\
             ["ignore", "npm:5.2.4"],\
-            ["prettier", "npm:2.8.4"]\
+            ["prettier", "npm:2.5.1"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -3311,7 +3311,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-prettier", "virtual:b58551ad2df4fd1a234bba28617a889696746c1bb806da1d6a47b544a6bc58f59952cd35eab2b9d232d04bbbbe2d7eb430e66e72972050a1638f166740ecf863#npm:4.2.1"],\
             ["eslint-plugin-react", "virtual:b58551ad2df4fd1a234bba28617a889696746c1bb806da1d6a47b544a6bc58f59952cd35eab2b9d232d04bbbbe2d7eb430e66e72972050a1638f166740ecf863#npm:7.32.2"],\
             ["eslint-plugin-react-hooks", "virtual:b58551ad2df4fd1a234bba28617a889696746c1bb806da1d6a47b544a6bc58f59952cd35eab2b9d232d04bbbbe2d7eb430e66e72972050a1638f166740ecf863#npm:4.6.0"],\
-            ["prettier", "npm:2.8.4"],\
+            ["prettier", "npm:2.5.1"],\
             ["react", "npm:18.2.0"]\
           ],\
           "linkType": "SOFT"\
@@ -3338,7 +3338,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@monstrs/config-prettier", "workspace:config/prettier"],\
             ["@types/node", "npm:18.14.2"],\
-            ["prettier", "npm:2.8.4"]\
+            ["prettier", "npm:2.5.1"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -3382,7 +3382,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["import-sort-parser", "npm:6.0.0"],\
             ["import-sort-parser-typescript", "npm:6.0.0"],\
             ["import-sort-style", "npm:6.0.0"],\
-            ["prettier", "npm:2.8.4"],\
+            ["prettier", "npm:2.5.1"],\
             ["sort-package-json", "npm:1.57.0"]\
           ],\
           "linkType": "SOFT"\
@@ -10118,7 +10118,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/prettier", null],\
             ["eslint", "npm:8.35.0"],\
             ["eslint-config-prettier", null],\
-            ["prettier", "npm:2.8.4"],\
+            ["prettier", "npm:2.5.1"],\
             ["prettier-linter-helpers", "npm:1.0.0"]\
           ],\
           "packagePeers": [\
@@ -11888,7 +11888,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["import-sort-parser-typescript", "npm:6.0.0"],\
             ["import-sort-parser", "npm:6.0.0"],\
-            ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=23ec76"]\
+            ["typescript", "patch:typescript@npm%3A3.9.10#~builtin<compat/typescript>::version=3.9.10&hash=3bd3d3"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -15701,10 +15701,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["prettier", [\
-        ["npm:2.8.4", {\
-          "packageLocation": "./.yarn/cache/prettier-npm-2.8.4-ba64a351d1-c173064bf3.zip/node_modules/prettier/",\
+        ["npm:2.5.1", {\
+          "packageLocation": "./.yarn/cache/prettier-npm-2.5.1-58b195b509-21b9408476.zip/node_modules/prettier/",\
           "packageDependencies": [\
-            ["prettier", "npm:2.8.4"]\
+            ["prettier", "npm:2.5.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -18506,6 +18506,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["typescript", [\
+        ["patch:typescript@npm%3A3.9.10#~builtin<compat/typescript>::version=3.9.10&hash=3bd3d3", {\
+          "packageLocation": "./.yarn/cache/typescript-patch-7ad1c7f5d0-dc7141ab55.zip/node_modules/typescript/",\
+          "packageDependencies": [\
+            ["typescript", "patch:typescript@npm%3A3.9.10#~builtin<compat/typescript>::version=3.9.10&hash=3bd3d3"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=23ec76", {\
           "packageLocation": "./.yarn/cache/typescript-patch-72dc6f164f-ab417a2f39.zip/node_modules/typescript/",\
           "packageDependencies": [\

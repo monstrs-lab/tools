@@ -12,12 +12,23 @@
     "yarn/*",
     "cli/*"
   ],
+  "scripts": {
+    "build": "yarn worker:format:build && yarn worker:lint:build && yarn worker:schematics:build && yarn worker:service:build && yarn worker:test:build && yarn worker:typescript:build && yarn cli:build && yarn cli:fix",
+    "cli:build": "yarn workspace @monstrs/yarn-cli build",
+    "cli:fix": "yarn workspace @monstrs/yarn-cli fix",
+    "worker:format:build": "yarn workspace @monstrs/code-format-worker build:worker",
+    "worker:lint:build": "yarn workspace @monstrs/code-lint-worker build:worker",
+    "worker:schematics:build": "yarn workspace @monstrs/code-schematics-worker build:worker",
+    "worker:service:build": "yarn workspace @monstrs/code-service-worker build:worker",
+    "worker:test:build": "yarn workspace @monstrs/code-test-worker build:worker",
+    "worker:typescript:build": "yarn workspace @monstrs/code-typescript-worker build:worker"
+  },
   "resolutions": {
     "@types/estree": "1.0.0",
     "@yarnpkg/libui@^2.2.2": "patch:@yarnpkg/libui@npm%3A2.2.2#./.yarn/patches/@yarnpkg-libui-npm-2.2.2-e780854c67.patch",
     "clipanion": "3.2.0-rc.6",
     "globby": "11.0.3",
-    "typescript": "4.9.5"
+    "prettier": "2.5.1"
   },
   "devDependencies": {
     "@angular-devkit/core": "^15.2.0",
