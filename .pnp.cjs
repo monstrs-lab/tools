@@ -2673,7 +2673,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/ink", null],\
             ["@types/node", "npm:18.14.2"],\
             ["@types/react", "npm:18.0.28"],\
-            ["@yarnpkg/libui", "virtual:97232c3f62b7be9af1e671d5cf645af85df3b47c9e6ab79d0abc333b5f301ffcee0702487cea2cf5853eaa23d9db94fd3e8b94b2f130ca2f0e86d9794355b812#npm:2.2.2"],\
+            ["@yarnpkg/libui", "virtual:97232c3f62b7be9af1e671d5cf645af85df3b47c9e6ab79d0abc333b5f301ffcee0702487cea2cf5853eaa23d9db94fd3e8b94b2f130ca2f0e86d9794355b812#patch:@yarnpkg/libui@npm%3A2.2.2#./.yarn/patches/@yarnpkg-libui-npm-2.2.2-e780854c67.patch::version=2.2.2&hash=0be52c&locator=tools%40workspace%3A."],\
             ["camelcase", "npm:6.3.0"],\
             ["figures", "npm:3.2.0"],\
             ["ink", "virtual:11bd5af2a80ab93c290d16e253fd5eda25f6c23efed18026ce02e3946945e078ab2eca3aaf556121c03850dbaab6f49557f766911a06a3fb3a1db705274a5786#npm:3.2.0"],\
@@ -2697,7 +2697,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@monstrs/code-commit", "workspace:code/code-commit"],\
             ["@types/node", "npm:18.14.2"],\
             ["@types/react", "npm:18.0.28"],\
-            ["@yarnpkg/libui", "virtual:6e9d30939f73f06f898b6cd44d7f364c90a26f8ffe9d53004ee7d76023a66ae5cf5a92567785e938a09b3a2fc336f6e405ad8b685828e9655dfa44e095c57608#npm:2.2.2"],\
+            ["@yarnpkg/libui", "virtual:6e9d30939f73f06f898b6cd44d7f364c90a26f8ffe9d53004ee7d76023a66ae5cf5a92567785e938a09b3a2fc336f6e405ad8b685828e9655dfa44e095c57608#patch:@yarnpkg/libui@npm%3A2.2.2#./.yarn/patches/@yarnpkg-libui-npm-2.2.2-e780854c67.patch::version=2.2.2&hash=0be52c&locator=tools%40workspace%3A."],\
             ["camelcase", "npm:6.3.0"],\
             ["figures", "npm:3.2.0"],\
             ["ink", "virtual:6e9d30939f73f06f898b6cd44d7f364c90a26f8ffe9d53004ee7d76023a66ae5cf5a92567785e938a09b3a2fc336f6e405ad8b685828e9655dfa44e095c57608#npm:3.2.0"],\
@@ -2779,7 +2779,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./cli/cli-ui-parts/",\
           "packageDependencies": [\
             ["@monstrs/cli-ui-parts", "workspace:cli/cli-ui-parts"],\
-            ["@yarnpkg/libui", "virtual:42979c25e88790e6b9ef44835079075516683495c963e3a0883c499e4417f3013ee77d48228ea4005e7bb48c8c737415a8ec89ee354700467a10046d01a869d9#npm:2.2.2"],\
+            ["@yarnpkg/libui", "virtual:42979c25e88790e6b9ef44835079075516683495c963e3a0883c499e4417f3013ee77d48228ea4005e7bb48c8c737415a8ec89ee354700467a10046d01a869d9#patch:@yarnpkg/libui@npm%3A2.2.2#./.yarn/patches/@yarnpkg-libui-npm-2.2.2-e780854c67.patch::version=2.2.2&hash=0be52c&locator=tools%40workspace%3A."],\
             ["figures", "npm:3.2.0"],\
             ["ink", "virtual:11bd5af2a80ab93c290d16e253fd5eda25f6c23efed18026ce02e3946945e078ab2eca3aaf556121c03850dbaab6f49557f766911a06a3fb3a1db705274a5786#npm:3.2.0"],\
             ["react", "npm:18.2.0"]\
@@ -2825,7 +2825,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/ink", null],\
             ["@types/node", "npm:18.14.2"],\
             ["@types/react", "npm:18.0.28"],\
-            ["@yarnpkg/libui", "virtual:97232c3f62b7be9af1e671d5cf645af85df3b47c9e6ab79d0abc333b5f301ffcee0702487cea2cf5853eaa23d9db94fd3e8b94b2f130ca2f0e86d9794355b812#npm:2.2.2"],\
+            ["@yarnpkg/libui", "virtual:97232c3f62b7be9af1e671d5cf645af85df3b47c9e6ab79d0abc333b5f301ffcee0702487cea2cf5853eaa23d9db94fd3e8b94b2f130ca2f0e86d9794355b812#patch:@yarnpkg/libui@npm%3A2.2.2#./.yarn/patches/@yarnpkg-libui-npm-2.2.2-e780854c67.patch::version=2.2.2&hash=0be52c&locator=tools%40workspace%3A."],\
             ["camelcase", "npm:6.3.0"],\
             ["figures", "npm:3.2.0"],\
             ["ink", "virtual:11bd5af2a80ab93c290d16e253fd5eda25f6c23efed18026ce02e3946945e078ab2eca3aaf556121c03850dbaab6f49557f766911a06a3fb3a1db705274a5786#npm:3.2.0"],\
@@ -2850,7 +2850,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@monstrs/schematics", "workspace:schematics/schematics"],\
             ["@types/node", "npm:18.14.2"],\
             ["@types/react", "npm:18.0.28"],\
-            ["@yarnpkg/libui", "virtual:6e9d30939f73f06f898b6cd44d7f364c90a26f8ffe9d53004ee7d76023a66ae5cf5a92567785e938a09b3a2fc336f6e405ad8b685828e9655dfa44e095c57608#npm:2.2.2"],\
+            ["@yarnpkg/libui", "virtual:6e9d30939f73f06f898b6cd44d7f364c90a26f8ffe9d53004ee7d76023a66ae5cf5a92567785e938a09b3a2fc336f6e405ad8b685828e9655dfa44e095c57608#patch:@yarnpkg/libui@npm%3A2.2.2#./.yarn/patches/@yarnpkg-libui-npm-2.2.2-e780854c67.patch::version=2.2.2&hash=0be52c&locator=tools%40workspace%3A."],\
             ["camelcase", "npm:6.3.0"],\
             ["figures", "npm:3.2.0"],\
             ["ink", "virtual:6e9d30939f73f06f898b6cd44d7f364c90a26f8ffe9d53004ee7d76023a66ae5cf5a92567785e938a09b3a2fc336f6e405ad8b685828e9655dfa44e095c57608#npm:3.2.0"],\
@@ -3704,7 +3704,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@yarnpkg/cli", "virtual:5ae41ee3cd3458f3cf40ce517387f15a09242f6f1330942b6a2e07d7e31df094e8debca5d9583d5aee61c7f6b6500e26684e57f8a8bbcb4f2def07322b63d5b8#npm:3.4.1"],\
             ["@yarnpkg/core", "npm:3.4.0"],\
             ["@yarnpkg/fslib", "npm:2.10.1"],\
-            ["@yarnpkg/libui", "virtual:42979c25e88790e6b9ef44835079075516683495c963e3a0883c499e4417f3013ee77d48228ea4005e7bb48c8c737415a8ec89ee354700467a10046d01a869d9#npm:2.2.2"],\
+            ["@yarnpkg/libui", "virtual:42979c25e88790e6b9ef44835079075516683495c963e3a0883c499e4417f3013ee77d48228ea4005e7bb48c8c737415a8ec89ee354700467a10046d01a869d9#patch:@yarnpkg/libui@npm%3A2.2.2#./.yarn/patches/@yarnpkg-libui-npm-2.2.2-e780854c67.patch::version=2.2.2&hash=0be52c&locator=tools%40workspace%3A."],\
             ["clipanion", "virtual:f9a3b1e86d96b9e7107e68a17ff001b6f2c90f7ecb592f4954f684bc4fc949ce6368a5139cd27d4e5f680ed1e0b72b3b09009e12489b5038877c4d1eee907a01#npm:3.2.0-rc.6"],\
             ["commitizen", "npm:4.3.0"],\
             ["force-stdin-tty", "npm:0.0.1"],\
@@ -3733,7 +3733,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@yarnpkg/cli", "virtual:5ae41ee3cd3458f3cf40ce517387f15a09242f6f1330942b6a2e07d7e31df094e8debca5d9583d5aee61c7f6b6500e26684e57f8a8bbcb4f2def07322b63d5b8#npm:3.4.1"],\
             ["@yarnpkg/core", "npm:3.4.0"],\
             ["@yarnpkg/fslib", "npm:2.10.1"],\
-            ["@yarnpkg/libui", "virtual:42979c25e88790e6b9ef44835079075516683495c963e3a0883c499e4417f3013ee77d48228ea4005e7bb48c8c737415a8ec89ee354700467a10046d01a869d9#npm:2.2.2"],\
+            ["@yarnpkg/libui", "virtual:42979c25e88790e6b9ef44835079075516683495c963e3a0883c499e4417f3013ee77d48228ea4005e7bb48c8c737415a8ec89ee354700467a10046d01a869d9#patch:@yarnpkg/libui@npm%3A2.2.2#./.yarn/patches/@yarnpkg-libui-npm-2.2.2-e780854c67.patch::version=2.2.2&hash=0be52c&locator=tools%40workspace%3A."],\
             ["clipanion", "virtual:f9a3b1e86d96b9e7107e68a17ff001b6f2c90f7ecb592f4954f684bc4fc949ce6368a5139cd27d4e5f680ed1e0b72b3b09009e12489b5038877c4d1eee907a01#npm:3.2.0-rc.6"],\
             ["commitizen", "npm:4.3.0"],\
             ["force-stdin-tty", "npm:0.0.1"],\
@@ -3991,7 +3991,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@yarnpkg/cli", "virtual:5ae41ee3cd3458f3cf40ce517387f15a09242f6f1330942b6a2e07d7e31df094e8debca5d9583d5aee61c7f6b6500e26684e57f8a8bbcb4f2def07322b63d5b8#npm:3.4.1"],\
             ["@yarnpkg/core", "npm:3.4.0"],\
             ["@yarnpkg/fslib", "npm:2.10.1"],\
-            ["@yarnpkg/libui", "virtual:42979c25e88790e6b9ef44835079075516683495c963e3a0883c499e4417f3013ee77d48228ea4005e7bb48c8c737415a8ec89ee354700467a10046d01a869d9#npm:2.2.2"],\
+            ["@yarnpkg/libui", "virtual:42979c25e88790e6b9ef44835079075516683495c963e3a0883c499e4417f3013ee77d48228ea4005e7bb48c8c737415a8ec89ee354700467a10046d01a869d9#patch:@yarnpkg/libui@npm%3A2.2.2#./.yarn/patches/@yarnpkg-libui-npm-2.2.2-e780854c67.patch::version=2.2.2&hash=0be52c&locator=tools%40workspace%3A."],\
             ["clipanion", "virtual:f9a3b1e86d96b9e7107e68a17ff001b6f2c90f7ecb592f4954f684bc4fc949ce6368a5139cd27d4e5f680ed1e0b72b3b09009e12489b5038877c4d1eee907a01#npm:3.2.0-rc.6"],\
             ["force-stdin-tty", "npm:0.0.1"],\
             ["ink", "virtual:11bd5af2a80ab93c290d16e253fd5eda25f6c23efed18026ce02e3946945e078ab2eca3aaf556121c03850dbaab6f49557f766911a06a3fb3a1db705274a5786#npm:3.2.0"],\
@@ -4026,7 +4026,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@yarnpkg/cli", "virtual:5ae41ee3cd3458f3cf40ce517387f15a09242f6f1330942b6a2e07d7e31df094e8debca5d9583d5aee61c7f6b6500e26684e57f8a8bbcb4f2def07322b63d5b8#npm:3.4.1"],\
             ["@yarnpkg/core", "npm:3.4.0"],\
             ["@yarnpkg/fslib", "npm:2.10.1"],\
-            ["@yarnpkg/libui", "virtual:42979c25e88790e6b9ef44835079075516683495c963e3a0883c499e4417f3013ee77d48228ea4005e7bb48c8c737415a8ec89ee354700467a10046d01a869d9#npm:2.2.2"],\
+            ["@yarnpkg/libui", "virtual:42979c25e88790e6b9ef44835079075516683495c963e3a0883c499e4417f3013ee77d48228ea4005e7bb48c8c737415a8ec89ee354700467a10046d01a869d9#patch:@yarnpkg/libui@npm%3A2.2.2#./.yarn/patches/@yarnpkg-libui-npm-2.2.2-e780854c67.patch::version=2.2.2&hash=0be52c&locator=tools%40workspace%3A."],\
             ["clipanion", "virtual:f9a3b1e86d96b9e7107e68a17ff001b6f2c90f7ecb592f4954f684bc4fc949ce6368a5139cd27d4e5f680ed1e0b72b3b09009e12489b5038877c4d1eee907a01#npm:3.2.0-rc.6"],\
             ["force-stdin-tty", "npm:0.0.1"],\
             ["ink", "virtual:11bd5af2a80ab93c290d16e253fd5eda25f6c23efed18026ce02e3946945e078ab2eca3aaf556121c03850dbaab6f49557f766911a06a3fb3a1db705274a5786#npm:3.2.0"],\
@@ -5786,17 +5786,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@yarnpkg/libui", [\
-        ["npm:2.2.2", {\
-          "packageLocation": "./.yarn/cache/@yarnpkg-libui-npm-2.2.2-e780854c67-438b0a6ceb.zip/node_modules/@yarnpkg/libui/",\
+        ["patch:@yarnpkg/libui@npm%3A2.2.2#./.yarn/patches/@yarnpkg-libui-npm-2.2.2-e780854c67.patch::version=2.2.2&hash=0be52c&locator=tools%40workspace%3A.", {\
+          "packageLocation": "./.yarn/cache/@yarnpkg-libui-patch-7c9f90a851-e686b84f39.zip/node_modules/@yarnpkg/libui/",\
           "packageDependencies": [\
-            ["@yarnpkg/libui", "npm:2.2.2"]\
+            ["@yarnpkg/libui", "patch:@yarnpkg/libui@npm%3A2.2.2#./.yarn/patches/@yarnpkg-libui-npm-2.2.2-e780854c67.patch::version=2.2.2&hash=0be52c&locator=tools%40workspace%3A."]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:42979c25e88790e6b9ef44835079075516683495c963e3a0883c499e4417f3013ee77d48228ea4005e7bb48c8c737415a8ec89ee354700467a10046d01a869d9#npm:2.2.2", {\
-          "packageLocation": "./.yarn/__virtual__/@yarnpkg-libui-virtual-42a9eb4c20/0/cache/@yarnpkg-libui-npm-2.2.2-e780854c67-438b0a6ceb.zip/node_modules/@yarnpkg/libui/",\
+        ["virtual:42979c25e88790e6b9ef44835079075516683495c963e3a0883c499e4417f3013ee77d48228ea4005e7bb48c8c737415a8ec89ee354700467a10046d01a869d9#patch:@yarnpkg/libui@npm%3A2.2.2#./.yarn/patches/@yarnpkg-libui-npm-2.2.2-e780854c67.patch::version=2.2.2&hash=0be52c&locator=tools%40workspace%3A.", {\
+          "packageLocation": "./.yarn/__virtual__/@yarnpkg-libui-virtual-e1537716e3/0/cache/@yarnpkg-libui-patch-7c9f90a851-e686b84f39.zip/node_modules/@yarnpkg/libui/",\
           "packageDependencies": [\
-            ["@yarnpkg/libui", "virtual:42979c25e88790e6b9ef44835079075516683495c963e3a0883c499e4417f3013ee77d48228ea4005e7bb48c8c737415a8ec89ee354700467a10046d01a869d9#npm:2.2.2"],\
+            ["@yarnpkg/libui", "virtual:42979c25e88790e6b9ef44835079075516683495c963e3a0883c499e4417f3013ee77d48228ea4005e7bb48c8c737415a8ec89ee354700467a10046d01a869d9#patch:@yarnpkg/libui@npm%3A2.2.2#./.yarn/patches/@yarnpkg-libui-npm-2.2.2-e780854c67.patch::version=2.2.2&hash=0be52c&locator=tools%40workspace%3A."],\
             ["@types/ink", null],\
             ["@types/react", null],\
             ["chalk", "npm:3.0.0"],\
@@ -5813,10 +5813,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["virtual:6e9d30939f73f06f898b6cd44d7f364c90a26f8ffe9d53004ee7d76023a66ae5cf5a92567785e938a09b3a2fc336f6e405ad8b685828e9655dfa44e095c57608#npm:2.2.2", {\
-          "packageLocation": "./.yarn/__virtual__/@yarnpkg-libui-virtual-f10aebac23/0/cache/@yarnpkg-libui-npm-2.2.2-e780854c67-438b0a6ceb.zip/node_modules/@yarnpkg/libui/",\
+        ["virtual:6e9d30939f73f06f898b6cd44d7f364c90a26f8ffe9d53004ee7d76023a66ae5cf5a92567785e938a09b3a2fc336f6e405ad8b685828e9655dfa44e095c57608#patch:@yarnpkg/libui@npm%3A2.2.2#./.yarn/patches/@yarnpkg-libui-npm-2.2.2-e780854c67.patch::version=2.2.2&hash=0be52c&locator=tools%40workspace%3A.", {\
+          "packageLocation": "./.yarn/__virtual__/@yarnpkg-libui-virtual-0e77273de8/0/cache/@yarnpkg-libui-patch-7c9f90a851-e686b84f39.zip/node_modules/@yarnpkg/libui/",\
           "packageDependencies": [\
-            ["@yarnpkg/libui", "virtual:6e9d30939f73f06f898b6cd44d7f364c90a26f8ffe9d53004ee7d76023a66ae5cf5a92567785e938a09b3a2fc336f6e405ad8b685828e9655dfa44e095c57608#npm:2.2.2"],\
+            ["@yarnpkg/libui", "virtual:6e9d30939f73f06f898b6cd44d7f364c90a26f8ffe9d53004ee7d76023a66ae5cf5a92567785e938a09b3a2fc336f6e405ad8b685828e9655dfa44e095c57608#patch:@yarnpkg/libui@npm%3A2.2.2#./.yarn/patches/@yarnpkg-libui-npm-2.2.2-e780854c67.patch::version=2.2.2&hash=0be52c&locator=tools%40workspace%3A."],\
             ["@types/ink", null],\
             ["@types/react", "npm:18.0.28"],\
             ["chalk", "npm:3.0.0"],\
@@ -5833,10 +5833,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["virtual:7b36dd3a9fb606d0fb62e18152981bcba63eaf5fe159376633d5e879752d5e9cdfe7b24c73bcb852b4c39f5f80b560ddc96386574e204e687c84dec6d2727b16#npm:2.2.2", {\
-          "packageLocation": "./.yarn/__virtual__/@yarnpkg-libui-virtual-59853e64f3/0/cache/@yarnpkg-libui-npm-2.2.2-e780854c67-438b0a6ceb.zip/node_modules/@yarnpkg/libui/",\
+        ["virtual:7b36dd3a9fb606d0fb62e18152981bcba63eaf5fe159376633d5e879752d5e9cdfe7b24c73bcb852b4c39f5f80b560ddc96386574e204e687c84dec6d2727b16#patch:@yarnpkg/libui@npm%3A2.2.2#./.yarn/patches/@yarnpkg-libui-npm-2.2.2-e780854c67.patch::version=2.2.2&hash=0be52c&locator=tools%40workspace%3A.", {\
+          "packageLocation": "./.yarn/__virtual__/@yarnpkg-libui-virtual-94f59bf4d9/0/cache/@yarnpkg-libui-patch-7c9f90a851-e686b84f39.zip/node_modules/@yarnpkg/libui/",\
           "packageDependencies": [\
-            ["@yarnpkg/libui", "virtual:7b36dd3a9fb606d0fb62e18152981bcba63eaf5fe159376633d5e879752d5e9cdfe7b24c73bcb852b4c39f5f80b560ddc96386574e204e687c84dec6d2727b16#npm:2.2.2"],\
+            ["@yarnpkg/libui", "virtual:7b36dd3a9fb606d0fb62e18152981bcba63eaf5fe159376633d5e879752d5e9cdfe7b24c73bcb852b4c39f5f80b560ddc96386574e204e687c84dec6d2727b16#patch:@yarnpkg/libui@npm%3A2.2.2#./.yarn/patches/@yarnpkg-libui-npm-2.2.2-e780854c67.patch::version=2.2.2&hash=0be52c&locator=tools%40workspace%3A."],\
             ["@types/ink", null],\
             ["@types/react", null],\
             ["chalk", "npm:3.0.0"],\
@@ -5853,10 +5853,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["virtual:97232c3f62b7be9af1e671d5cf645af85df3b47c9e6ab79d0abc333b5f301ffcee0702487cea2cf5853eaa23d9db94fd3e8b94b2f130ca2f0e86d9794355b812#npm:2.2.2", {\
-          "packageLocation": "./.yarn/__virtual__/@yarnpkg-libui-virtual-d75923a5c9/0/cache/@yarnpkg-libui-npm-2.2.2-e780854c67-438b0a6ceb.zip/node_modules/@yarnpkg/libui/",\
+        ["virtual:97232c3f62b7be9af1e671d5cf645af85df3b47c9e6ab79d0abc333b5f301ffcee0702487cea2cf5853eaa23d9db94fd3e8b94b2f130ca2f0e86d9794355b812#patch:@yarnpkg/libui@npm%3A2.2.2#./.yarn/patches/@yarnpkg-libui-npm-2.2.2-e780854c67.patch::version=2.2.2&hash=0be52c&locator=tools%40workspace%3A.", {\
+          "packageLocation": "./.yarn/__virtual__/@yarnpkg-libui-virtual-3d50558a09/0/cache/@yarnpkg-libui-patch-7c9f90a851-e686b84f39.zip/node_modules/@yarnpkg/libui/",\
           "packageDependencies": [\
-            ["@yarnpkg/libui", "virtual:97232c3f62b7be9af1e671d5cf645af85df3b47c9e6ab79d0abc333b5f301ffcee0702487cea2cf5853eaa23d9db94fd3e8b94b2f130ca2f0e86d9794355b812#npm:2.2.2"],\
+            ["@yarnpkg/libui", "virtual:97232c3f62b7be9af1e671d5cf645af85df3b47c9e6ab79d0abc333b5f301ffcee0702487cea2cf5853eaa23d9db94fd3e8b94b2f130ca2f0e86d9794355b812#patch:@yarnpkg/libui@npm%3A2.2.2#./.yarn/patches/@yarnpkg-libui-npm-2.2.2-e780854c67.patch::version=2.2.2&hash=0be52c&locator=tools%40workspace%3A."],\
             ["@types/ink", null],\
             ["@types/react", "npm:18.0.28"],\
             ["chalk", "npm:3.0.0"],\
@@ -6158,7 +6158,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/yarnpkg__plugin-essentials", null],\
             ["@yarnpkg/cli", "virtual:5ae41ee3cd3458f3cf40ce517387f15a09242f6f1330942b6a2e07d7e31df094e8debca5d9583d5aee61c7f6b6500e26684e57f8a8bbcb4f2def07322b63d5b8#npm:3.4.1"],\
             ["@yarnpkg/core", "npm:3.4.0"],\
-            ["@yarnpkg/libui", "virtual:7b36dd3a9fb606d0fb62e18152981bcba63eaf5fe159376633d5e879752d5e9cdfe7b24c73bcb852b4c39f5f80b560ddc96386574e204e687c84dec6d2727b16#npm:2.2.2"],\
+            ["@yarnpkg/libui", "virtual:7b36dd3a9fb606d0fb62e18152981bcba63eaf5fe159376633d5e879752d5e9cdfe7b24c73bcb852b4c39f5f80b560ddc96386574e204e687c84dec6d2727b16#patch:@yarnpkg/libui@npm%3A2.2.2#./.yarn/patches/@yarnpkg-libui-npm-2.2.2-e780854c67.patch::version=2.2.2&hash=0be52c&locator=tools%40workspace%3A."],\
             ["@yarnpkg/plugin-essentials", "virtual:d57fc7ac270d76da70e0a1e0a190bdc34880b9cdad739ca9318c37f09a294106ce24bcb8f302ce8fcd473cf7b2e668e380d9f1f5bb263989424fa72d0fbbd1b4#npm:3.3.0"],\
             ["algoliasearch", "npm:4.11.0"],\
             ["clipanion", "virtual:f9a3b1e86d96b9e7107e68a17ff001b6f2c90f7ecb592f4954f684bc4fc949ce6368a5139cd27d4e5f680ed1e0b72b3b09009e12489b5038877c4d1eee907a01#npm:3.2.0-rc.6"],\
@@ -6520,7 +6520,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@yarnpkg/cli", "virtual:5ae41ee3cd3458f3cf40ce517387f15a09242f6f1330942b6a2e07d7e31df094e8debca5d9583d5aee61c7f6b6500e26684e57f8a8bbcb4f2def07322b63d5b8#npm:3.4.1"],\
             ["@yarnpkg/core", "npm:3.4.0"],\
             ["@yarnpkg/fslib", "npm:2.10.1"],\
-            ["@yarnpkg/libui", "virtual:7b36dd3a9fb606d0fb62e18152981bcba63eaf5fe159376633d5e879752d5e9cdfe7b24c73bcb852b4c39f5f80b560ddc96386574e204e687c84dec6d2727b16#npm:2.2.2"],\
+            ["@yarnpkg/libui", "virtual:7b36dd3a9fb606d0fb62e18152981bcba63eaf5fe159376633d5e879752d5e9cdfe7b24c73bcb852b4c39f5f80b560ddc96386574e204e687c84dec6d2727b16#patch:@yarnpkg/libui@npm%3A2.2.2#./.yarn/patches/@yarnpkg-libui-npm-2.2.2-e780854c67.patch::version=2.2.2&hash=0be52c&locator=tools%40workspace%3A."],\
             ["@yarnpkg/parsers", "npm:2.5.1"],\
             ["@yarnpkg/plugin-git", "virtual:d57fc7ac270d76da70e0a1e0a190bdc34880b9cdad739ca9318c37f09a294106ce24bcb8f302ce8fcd473cf7b2e668e380d9f1f5bb263989424fa72d0fbbd1b4#npm:2.6.4"],\
             ["clipanion", "virtual:f9a3b1e86d96b9e7107e68a17ff001b6f2c90f7ecb592f4954f684bc4fc949ce6368a5139cd27d4e5f680ed1e0b72b3b09009e12489b5038877c4d1eee907a01#npm:3.2.0-rc.6"],\

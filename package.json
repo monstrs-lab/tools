@@ -14,6 +14,7 @@
   ],
   "resolutions": {
     "@types/estree": "1.0.0",
+    "@yarnpkg/libui@^2.2.2": "patch:@yarnpkg/libui@npm%3A2.2.2#./.yarn/patches/@yarnpkg-libui-npm-2.2.2-e780854c67.patch",
     "clipanion": "3.2.0-rc.6",
     "globby": "11.0.3",
     "prettier": "2.5.1",

@@ -3780,7 +3780,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@yarnpkg/libui@npm:^2.2.2":
+"@yarnpkg/libui@npm:2.2.2":
   version: 2.2.2
   resolution: "@yarnpkg/libui@npm:2.2.2"
   dependencies:
@@ -3791,6 +3791,20 @@ __metadata:
     ink: ^2.3.0
     react: ^16.8.4
   checksum: 438b0a6ceb005df1f37522ebac581782197c6c174e668bea74781eaacad355872b799c6a5fdb9cc8cf6996c11a1cc5cd931001a1cf081ddcd366bdd9301e4fac
+  languageName: node
+  linkType: hard
+
+"@yarnpkg/libui@patch:@yarnpkg/libui@npm%3A2.2.2#./.yarn/patches/@yarnpkg-libui-npm-2.2.2-e780854c67.patch::locator=tools%40workspace%3A.":
+  version: 2.2.2
+  resolution: "@yarnpkg/libui@patch:@yarnpkg/libui@npm%3A2.2.2#./.yarn/patches/@yarnpkg-libui-npm-2.2.2-e780854c67.patch::version=2.2.2&hash=0be52c&locator=tools%40workspace%3A."
+  dependencies:
+    chalk: ^3.0.0
+    redux: ^4.0.0
+    tslib: ^1.13.0
+  peerDependencies:
+    ink: ^2.3.0
+    react: ^16.8.4
+  checksum: e686b84f39f556c82d7aa672453b247fd7cfe4db3b1bb1ef1aa05c161fdf37696bf86db19249c390ec1fb6373435e81221d797802ed619815dfab907a69e9365
   languageName: node
   linkType: hard
 
