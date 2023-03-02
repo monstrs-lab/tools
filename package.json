@@ -13,15 +13,15 @@
     "cli/*"
   ],
   "scripts": {
-    "build": "yarn worker:format:build && yarn worker:lint:build && yarn worker:schematics:build && yarn worker:service:build && yarn worker:test:build && yarn worker:typescript:build && yarn cli:build && yarn cli:fix",
-    "cli:build": "yarn workspace @monstrs/yarn-cli build",
-    "cli:fix": "yarn workspace @monstrs/yarn-cli fix",
+    "cli:build": "yarn worker:format:build && yarn worker:lint:build && yarn worker:schematics:build && yarn worker:service:build && yarn worker:test:build && yarn worker:typescript:build && yarn yarn:cli:build && yarn yarn:cli:fix",
     "worker:format:build": "yarn workspace @monstrs/code-format-worker build:worker",
     "worker:lint:build": "yarn workspace @monstrs/code-lint-worker build:worker",
     "worker:schematics:build": "yarn workspace @monstrs/code-schematics-worker build:worker",
     "worker:service:build": "yarn workspace @monstrs/code-service-worker build:worker",
     "worker:test:build": "yarn workspace @monstrs/code-test-worker build:worker",
-    "worker:typescript:build": "yarn workspace @monstrs/code-typescript-worker build:worker"
+    "worker:typescript:build": "yarn workspace @monstrs/code-typescript-worker build:worker",
+    "yarn:cli:build": "yarn workspace @monstrs/yarn-cli build",
+    "yarn:cli:fix": "yarn workspace @monstrs/yarn-cli fix"
   },
   "resolutions": {
     "@types/estree": "1.0.0",
