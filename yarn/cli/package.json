@@ -55,7 +55,7 @@
     "@yarnpkg/plugin-workspace-tools": "^3.1.6",
     "@yarnpkg/shell": "^3.2.5",
     "clipanion": "^3.2.0",
-    "semver": "^7.3.7",
+    "semver": "^7.3.8",
     "typanion": "^3.12.1",
     "yup": "^0.32.11"
   },

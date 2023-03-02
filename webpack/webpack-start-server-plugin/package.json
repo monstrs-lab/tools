@@ -15,7 +15,7 @@
     "webpack": "^5.75.0"
   },
   "devDependencies": {
-    "@types/node": "^17.0.45"
+    "@types/node": "^18.14.4"
   },
   "publishConfig": {
     "access": "public",

@@ -4,7 +4,6 @@ import path from 'node:path'
 import json from '@rollup/plugin-json'
 import esbuild from 'rollup-plugin-esbuild'
 import { brotliCompressSync } from 'node:zlib'
-import analyze from 'rollup-plugin-analyzer'
 
 const wrapOutput = () => ({
   name: 'wrap-output',
@@ -31,7 +30,6 @@ export default [
       preferConst: true,
     },
     plugins: [
-      analyze(),
       resolve({
         extensions: ['.mjs', '.js', '.ts', '.tsx', '.json'],
         rootDir: path.join(__dirname, '../../'),

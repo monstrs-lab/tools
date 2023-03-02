@@ -8,15 +8,15 @@ export const unit = {
   moduleNameMapper: {
     '^.+\\.(jpg|jpeg|gif|png|mp4|mkv|avi|webm|swf|wav|mid)$': 'jest-static-stubs/$1',
   },
-  globals: {
-    'ts-jest': {
-      tsconfig: tsconfig.compilerOptions,
-      isolatedModules: true,
-      diagnostics: false,
-    },
-  },
   transform: {
-    '^.+\\.[tj]sx?$': require.resolve('ts-jest'),
+    '^.+\\.[tj]sx?$': [
+      require.resolve('ts-jest'),
+      {
+        tsconfig: tsconfig.compilerOptions,
+        isolatedModules: true,
+        diagnostics: false,
+      },
+    ],
   },
   resolver: require.resolve('@monstrs/jest-pnp-resolver'),
 }
@@ -28,15 +28,15 @@ export const integration = {
   moduleNameMapper: {
     '^.+\\.(jpg|jpeg|gif|png|mp4|mkv|avi|webm|swf|wav|mid)$': 'jest-static-stubs/$1',
   },
-  globals: {
-    'ts-jest': {
-      tsconfig: tsconfig.compilerOptions,
-      isolatedModules: true,
-      diagnostics: false,
-    },
-  },
   transform: {
-    '^.+\\.[tj]sx?$': require.resolve('ts-jest'),
+    '^.+\\.[tj]sx?$': [
+      require.resolve('ts-jest'),
+      {
+        tsconfig: tsconfig.compilerOptions,
+        isolatedModules: true,
+        diagnostics: false,
+      },
+    ],
   },
   resolver: require.resolve('@monstrs/jest-pnp-resolver'),
 }
