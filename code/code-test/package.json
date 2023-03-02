@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-test",
-  "version": "0.0.115",
+  "version": "0.0.116",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -17,7 +17,7 @@
     "@jest/core": "^29.4.3",
     "@jest/test-result": "^29.4.3",
     "@jest/types": "^29.4.3",
-    "@monstrs/config-jest": "workspace:0.0.12"
+    "@monstrs/config-jest": "workspace:0.0.13"
   },
   "devDependencies": {
     "@types/jest": "^29.4.0",

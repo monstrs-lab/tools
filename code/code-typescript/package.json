@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-typescript",
-  "version": "0.0.118",
+  "version": "0.0.119",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [

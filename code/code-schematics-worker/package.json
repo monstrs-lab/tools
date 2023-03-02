@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-schematics-worker",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -14,7 +14,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/code-schematics": "workspace:0.0.14",
+    "@monstrs/code-schematics": "workspace:0.0.15",
     "@monstrs/code-worker-utils": "workspace:0.0.4"
   },
   "devDependencies": {
