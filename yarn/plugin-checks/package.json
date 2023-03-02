@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@octokit/types": "^9.0.0",
-    "@types/node": "^18.14.2",
+    "@types/node": "^18.14.4",
     "@yarnpkg/builder": "^3.2.7",
     "@yarnpkg/cli": "^3.4.1",
     "@yarnpkg/core": "^3.4.0",
