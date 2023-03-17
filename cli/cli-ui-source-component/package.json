@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@types/babel__code-frame": "7.0.3",
-    "@types/node": "^18.14.4",
+    "@types/node": "^18.15.3",
     "@types/react": "^18.0.28",
     "ink": "^3.2.0"
   },
