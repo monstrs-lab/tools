@@ -20,7 +20,7 @@
     "prettier": "^2.8.4"
   },
   "devDependencies": {
-    "@types/node": "^18.14.4"
+    "@types/node": "^18.15.3"
   },
   "publishConfig": {
     "main": "dist/index.js",

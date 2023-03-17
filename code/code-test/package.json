@@ -14,14 +14,14 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@jest/core": "^29.4.3",
-    "@jest/test-result": "^29.4.3",
-    "@jest/types": "^29.4.3",
+    "@jest/core": "^29.5.0",
+    "@jest/test-result": "^29.5.0",
+    "@jest/types": "^29.5.0",
     "@monstrs/config-jest": "workspace:0.0.13"
   },
   "devDependencies": {
-    "@types/jest": "^29.4.0",
-    "@types/node": "^18.14.4"
+    "@types/jest": "^29.5.0",
+    "@types/node": "^18.15.3"
   },
   "peerDependenciesMeta": {
     "jest": {
