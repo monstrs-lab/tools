@@ -13,12 +13,12 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/cli-ui-error-info-component": "workspace:0.0.15",
+    "@monstrs/cli-ui-error-info-component": "workspace:0.0.16",
     "@monstrs/cli-ui-parts": "workspace:0.0.8",
-    "@monstrs/cli-ui-renderer": "workspace:0.0.30",
-    "@monstrs/cli-ui-schematics-component": "workspace:0.0.14",
-    "@monstrs/code-schematics-worker": "workspace:0.0.11",
-    "@monstrs/schematics": "workspace:0.0.23",
+    "@monstrs/cli-ui-renderer": "workspace:0.0.31",
+    "@monstrs/cli-ui-schematics-component": "workspace:0.0.15",
+    "@monstrs/code-schematics-worker": "workspace:0.0.12",
+    "@monstrs/schematics": "workspace:0.0.24",
     "@monstrs/yarn-run-utils": "workspace:0.0.1",
     "@yarnpkg/libui": "^2.2.2",
     "clipanion": "^3.2.0",
