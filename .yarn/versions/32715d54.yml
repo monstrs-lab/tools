@@ -1,0 +1,6 @@
+releases:
+  "@monstrs/cli-ui-schematics-component": patch
+  "@monstrs/code-service": patch
+  "@monstrs/code-service-worker": patch
+  "@monstrs/schematics": patch
+  "@monstrs/webpack-proto-imports-loader": patch
