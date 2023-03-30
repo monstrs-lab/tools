@@ -19,7 +19,7 @@
     "ts-jest": "^29.0.5"
   },
   "devDependencies": {
-    "@types/node": "^18.15.3"
+    "@types/node": "^18.15.11"
   },
   "publishConfig": {
     "main": "dist/index.js",

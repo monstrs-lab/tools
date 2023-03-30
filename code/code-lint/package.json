@@ -14,12 +14,12 @@
   },
   "dependencies": {
     "@monstrs/config-eslint": "workspace:0.0.15",
-    "eslint": "^8.36.0",
+    "eslint": "^8.37.0",
     "globby": "^11.1.0",
     "ignore": "^5.2.4"
   },
   "devDependencies": {
-    "@types/node": "^18.15.3"
+    "@types/node": "^18.15.11"
   },
   "peerDependencies": {
     "react": "*",

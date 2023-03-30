@@ -19,8 +19,8 @@
     "strip-json-comments": "3.1.1"
   },
   "devDependencies": {
-    "@types/node": "^18.15.3",
-    "rimraf": "^4.4.0",
+    "@types/node": "^18.15.11",
+    "rimraf": "^4.4.1",
     "typescript": "^5.0.2"
   },
   "publishConfig": {

@@ -14,8 +14,8 @@
   "devDependencies": {
     "@monstrs/cli-ui-parts": "workspace:0.0.8",
     "@monstrs/schematics": "workspace:0.0.25",
-    "@types/node": "^18.15.3",
-    "@types/react": "^18.0.28",
+    "@types/node": "^18.15.11",
+    "@types/react": "^18.0.31",
     "@yarnpkg/libui": "^2.2.2",
     "camelcase": "^6.3.0",
     "figures": "^3.2.0",
