@@ -15,15 +15,15 @@
     "@commitlint/format": "^17.4.4",
     "@commitlint/is-ignored": "^17.4.4",
     "@commitlint/lint": "^17.4.4",
-    "@commitlint/load": "^17.4.4",
-    "@commitlint/read": "^17.4.4",
+    "@commitlint/load": "^17.5.0",
+    "@commitlint/read": "^17.5.1",
     "@commitlint/rules": "^17.4.4",
     "@commitlint/types": "^17.4.4",
     "conventional-changelog-angular": "^5.0.13",
     "conventional-commits-parser": "^3.2.4"
   },
   "devDependencies": {
-    "@types/node": "^18.15.3"
+    "@types/node": "^18.15.11"
   },
   "publishConfig": {
     "main": "dist/index.js",

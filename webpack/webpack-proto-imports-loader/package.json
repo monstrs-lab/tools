@@ -18,11 +18,11 @@
   "devDependencies": {
     "@monstrs/config-typescript": "workspace:0.0.10",
     "@monstrs/types-import-proto": "0.0.1",
-    "@types/node": "^18.15.3",
+    "@types/node": "^18.15.11",
     "memfs": "^3.4.13",
     "ts-loader": "^9.4.2",
     "typescript": "^5.0.2",
-    "webpack": "^5.76.2",
+    "webpack": "^5.77.0",
     "webpack-chain": "^6.5.1"
   },
   "publishConfig": {
