@@ -1,4 +1,4 @@
-import * as plugin from '.'
+import * as plugin from './index.js'
 
 import babel       from 'prettier/parser-babel'
 import typescript  from 'prettier/parser-typescript'

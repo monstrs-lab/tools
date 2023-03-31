@@ -2,7 +2,7 @@ import type { DryRunEvent } from '@angular-devkit/schematics'
 
 import { EvalWorker }       from '@monstrs/code-worker-utils'
 
-import { getContent }       from './schematics.worker.content'
+import { getContent }       from './schematics.worker.content.js'
 
 export interface SchematicsWorkerRunOptions {
   type: 'generate' | 'migrate'

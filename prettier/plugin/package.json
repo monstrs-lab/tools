@@ -2,6 +2,7 @@
   "name": "@monstrs/prettier-plugin",
   "version": "0.0.12",
   "license": "MIT",
+  "type": "module",
   "main": "src/index.ts",
   "files": [
     "dist"

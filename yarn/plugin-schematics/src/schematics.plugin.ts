@@ -1,8 +1,8 @@
 import { Plugin }                 from '@yarnpkg/core'
 import { Workspace }              from '@yarnpkg/core'
 
-import { GenerateProjectCommand } from './generate-project.command'
-import { MigrationUpCommand }     from './migration-up.command'
+import { GenerateProjectCommand } from './generate-project.command.jsx'
+import { MigrationUpCommand }     from './migration-up.command.jsx'
 
 const beforeWorkspacePacking = (workspace: Workspace, rawManifest: any) => {
   if (rawManifest.publishConfig && rawManifest.publishConfig.schematics) {

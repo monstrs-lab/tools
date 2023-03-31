@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "license": "MIT",
+  "type": "module",
   "main": "src/index.ts",
   "files": [
     "dist"
@@ -32,7 +33,7 @@
     "@yarnpkg/fslib": "^2.10.2",
     "ink": "^3.2.0",
     "react": "^18.2.0",
-    "typescript": "^5.0.2"
+    "typescript": "^5.0.3"
   },
   "peerDependencies": {
     "@yarnpkg/cli": "^3.2.0-rc.7",

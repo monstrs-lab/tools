@@ -3,14 +3,14 @@ import { FC }                             from 'react'
 import { useEffect }                      from 'react'
 import { useState }                       from 'react'
 
-import { RequestCommitMessageAdditional } from './request-commit-message-additional.component'
-import { AdditionalProperties }           from './request-commit-message-additional.component'
-import { RequestCommitMessageBody }       from './request-commit-message-body.component'
-import { RequestCommitMessageBreaking }   from './request-commit-message-breaking.component'
-import { RequestCommitMessageIssues }     from './request-commit-message-issues.component'
-import { RequestCommitMessageScope }      from './request-commit-message-scope.component'
-import { RequestCommitMessageSubject }    from './request-commit-message-subject.component'
-import { RequestCommitMessageType }       from './request-commit-message-type.component'
+import { RequestCommitMessageAdditional } from './request-commit-message-additional.component.jsx'
+import { AdditionalProperties }           from './request-commit-message-additional.component.jsx'
+import { RequestCommitMessageBody }       from './request-commit-message-body.component.jsx'
+import { RequestCommitMessageBreaking }   from './request-commit-message-breaking.component.jsx'
+import { RequestCommitMessageIssues }     from './request-commit-message-issues.component.jsx'
+import { RequestCommitMessageScope }      from './request-commit-message-scope.component.jsx'
+import { RequestCommitMessageSubject }    from './request-commit-message-subject.component.jsx'
+import { RequestCommitMessageType }       from './request-commit-message-type.component.jsx'
 
 const Submit = ({ onSubmit, ...props }) => {
   useEffect(() => {

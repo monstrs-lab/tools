@@ -2,7 +2,7 @@ import React               from 'react'
 import { Text }            from 'ink'
 import { FC }              from 'react'
 
-import { codeFrameSource } from './utils'
+import { codeFrameSource } from './utils.js'
 
 export interface SourcePreviewProps {
   children: string

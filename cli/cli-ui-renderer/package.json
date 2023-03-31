@@ -2,6 +2,7 @@
   "name": "@monstrs/cli-ui-renderer",
   "version": "0.0.31",
   "license": "MIT",
+  "type": "module",
   "main": "src/index.ts",
   "files": [
     "dist"

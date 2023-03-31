@@ -1,0 +1,12 @@
+{
+  "name": "@monstrs/jest-resolver",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "src/index.js",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "ts-jest-resolver": "^2.0.1"
+  }
+}

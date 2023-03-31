@@ -5,7 +5,7 @@ import { Watching }          from 'webpack'
 
 import { StartServerPlugin } from '@monstrs/webpack-start-server-plugin'
 
-import { WebpackConfig }     from './webpack.config'
+import { WebpackConfig }     from './webpack.config.js'
 
 export interface ServiceBuildResultMessage {
   message: string

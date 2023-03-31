@@ -9,8 +9,8 @@ import { Linter as ESLinter } from 'eslint'
 
 import eslintconfig           from '@monstrs/config-eslint'
 
-import { ignore }             from './linter.patterns'
-import { createPatterns }     from './linter.patterns'
+import { ignore }             from './linter.patterns.js'
+import { createPatterns }     from './linter.patterns.js'
 
 export class Linter {
   constructor(private readonly cwd: string) {}

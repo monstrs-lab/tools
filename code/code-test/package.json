@@ -2,6 +2,7 @@
   "name": "@monstrs/code-test",
   "version": "0.0.117",
   "license": "MIT",
+  "type": "module",
   "main": "src/index.ts",
   "files": [
     "dist",

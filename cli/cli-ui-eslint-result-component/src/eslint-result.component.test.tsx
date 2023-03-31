@@ -3,7 +3,7 @@ import stripAnsi        from 'strip-ansi'
 
 import { renderStatic } from '@monstrs/cli-ui-renderer'
 
-import { ESLintResult } from './eslint-result.component'
+import { ESLintResult } from './eslint-result.component.jsx'
 
 describe('eslint result component', () => {
   it('render', () => {

@@ -1,8 +1,13 @@
-import tsconfig from '@monstrs/config-typescript'
+import { createRequire } from 'node:module'
+
+import tsconfig          from '@monstrs/config-typescript'
+
+const require = createRequire(import.meta.url)
 
 export const unit = {
+  extensionsToTreatAsEsm: ['.ts', '.tsx', '.mts'],
   transformIgnorePatterns: ['/node_modules/', '\\.pnp\\.[^\\/]+$'],
-  testRegex: '\\.test\\.(ts|tsx)$',
+  testRegex: '\\.test\\.(ts|tsx|js|jsx)$',
   modulePathIgnorePatterns: ['dist', 'integration'],
   snapshotSerializers: [require.resolve('@emotion/jest/serializer')],
   moduleNameMapper: {
@@ -15,13 +20,15 @@ export const unit = {
         tsconfig: tsconfig.compilerOptions,
         isolatedModules: true,
         diagnostics: false,
+        useESM: true,
       },
     ],
   },
-  resolver: require.resolve('@monstrs/jest-pnp-resolver'),
+  resolver: require.resolve('@monstrs/jest-resolver'),
 }
 
 export const integration = {
+  extensionsToTreatAsEsm: ['.ts', '.tsx', '.mts'],
   testRegex: '/integration/.*\\.test\\.(ts|tsx)$',
   modulePathIgnorePatterns: ['dist'],
   snapshotSerializers: [require.resolve('@emotion/jest/serializer')],
@@ -35,8 +42,9 @@ export const integration = {
         tsconfig: tsconfig.compilerOptions,
         isolatedModules: true,
         diagnostics: false,
+        useESM: true,
       },
     ],
   },
-  resolver: require.resolve('@monstrs/jest-pnp-resolver'),
+  resolver: require.resolve('@monstrs/jest-resolver'),
 }
