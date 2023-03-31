@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "license": "MIT",
+  "type": "module",
   "main": "src/index.ts",
   "files": [
     "dist"
@@ -15,7 +16,7 @@
   "dependencies": {
     "@actions/core": "^1.10.0",
     "@actions/github": "^5.1.1",
-    "@babel/code-frame": "^7.18.6",
+    "@babel/code-frame": "^7.21.4",
     "@jest/test-result": "^29.5.0",
     "@monstrs/cli-ui-eslint-result-component": "workspace:0.0.19",
     "@monstrs/cli-ui-renderer": "workspace:0.0.31",

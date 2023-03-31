@@ -1,8 +1,8 @@
 import { PortablePath }     from '@yarnpkg/fslib'
 import { xfs }              from '@yarnpkg/fslib'
 
-import { packageUtils }     from './utils'
-import { makeTemporaryEnv } from './utils'
+import { packageUtils }     from './utils/index.js'
+import { makeTemporaryEnv } from './utils/index.js'
 
 jest.setTimeout(150000)
 
@@ -24,7 +24,7 @@ describe('yarn', () => {
         makeTemporaryEnv(
           {
             dependencies: {
-              '@monstrs/code-service': await packageUtils.pack('@monstrs/schematics'),
+              '@monstrs/code-service': await packageUtils.pack('@monstrs/code-service'),
               express: '*',
             },
           },
@@ -50,7 +50,7 @@ describe('yarn', () => {
         makeTemporaryEnv(
           {
             dependencies: {
-              '@monstrs/code-service': await packageUtils.pack('@monstrs/schematics'),
+              '@monstrs/code-service': await packageUtils.pack('@monstrs/code-service'),
             },
           },
           async ({ path, run, source }) => {

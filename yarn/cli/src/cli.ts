@@ -1,9 +1,23 @@
 import { YarnVersion }            from '@yarnpkg/core'
 import { main }                   from '@yarnpkg/cli'
 
-import { getPluginConfiguration } from './tools'
+// @ts-ignore
+import { getPluginConfiguration } from '@monstrs/yarn-cli-tools'
 
-main({
-  binaryVersion: YarnVersion || '<unknown>',
-  pluginConfiguration: getPluginConfiguration(),
-})
+import packageJson                from '../package.json' assert { type: 'json' }
+
+const pc = getPluginConfiguration(packageJson['@yarnpkg/builder'].bundles.standard as Array<string>)
+
+if (pc.then) {
+  pc.then((pluginConfiguration) => {
+    main({
+      binaryVersion: YarnVersion || '<unknown>',
+      pluginConfiguration,
+    })
+  })
+} else {
+  main({
+    binaryVersion: YarnVersion || '<unknown>',
+    pluginConfiguration: pc,
+  })
+}

@@ -2,6 +2,7 @@
   "name": "@monstrs/cli-ui-typescript-diagnostic-component",
   "version": "0.0.20",
   "license": "MIT",
+  "type": "module",
   "main": "src/index.ts",
   "files": [
     "dist"
@@ -22,7 +23,7 @@
     "ink": "^3.2.0",
     "react": "^18.2.0",
     "strip-ansi": "^6.0.1",
-    "typescript": "^5.0.2"
+    "typescript": "^5.0.3"
   },
   "peerDependencies": {
     "ink": "^3.0.8",

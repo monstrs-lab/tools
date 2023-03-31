@@ -8,8 +8,8 @@ import { useMemo }            from 'react'
 
 import { COMMIT_TYPE_ENUM }   from '@monstrs/code-commit'
 
-import { IndicatorComponent } from './select-indicator.component'
-import { ItemComponent }      from './select-item.component'
+import { IndicatorComponent } from './select-indicator.component.jsx'
+import { ItemComponent }      from './select-item.component.jsx'
 
 const types = Object.keys(COMMIT_TYPE_ENUM).map((key) => ({
   label: COMMIT_TYPE_ENUM[key].description,

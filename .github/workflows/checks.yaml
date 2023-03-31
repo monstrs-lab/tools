@@ -13,32 +13,32 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
-          node-version: '18.11'
+          node-version: '19.8'
 
       - name: Install
-        run: yarn install
+        run: NODE_OPTIONS='-r /home/runner/work/tools/tools/.pnp.cjs --loader /home/runner/work/tools/tools/.pnp.loader.mjs' yarn install && cp .temp.pnp.loader.mjs .pnp.loader.mjs
 
       - name: Lint
-        run: yarn checks lint
+        run: NODE_OPTIONS='-r /home/runner/work/tools/tools/.pnp.cjs --loader /home/runner/work/tools/tools/.pnp.loader.mjs' yarn checks lint
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
 
       - name: TypeCheck
-        run: yarn checks typecheck
+        run: NODE_OPTIONS='-r /home/runner/work/tools/tools/.pnp.cjs --loader /home/runner/work/tools/tools/.pnp.loader.mjs' yarn checks typecheck
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
 
       - name: TestUnit
-        run: yarn checks test unit
+        run: NODE_OPTIONS='-r /home/runner/work/tools/tools/.pnp.cjs --loader /home/runner/work/tools/tools/.pnp.loader.mjs' yarn checks test unit
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
 
       - name: TestIntegration
-        run: yarn checks test integration
+        run: NODE_OPTIONS='-r /home/runner/work/tools/tools/.pnp.cjs --loader /home/runner/work/tools/tools/.pnp.loader.mjs' yarn checks test integration
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
 
       - name: Release
-        run: yarn checks release
+        run: NODE_OPTIONS='-r /home/runner/work/tools/tools/.pnp.cjs --loader /home/runner/work/tools/tools/.pnp.loader.mjs' yarn checks release
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'

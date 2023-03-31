@@ -3,17 +3,19 @@
   "version": "0.0.1",
   "private": true,
   "license": "MIT",
+  "type": "module",
   "main": "src/index.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "builder build bundle",
+    "build": "builder build bundle && mv bundles/yarn.js bundles/yarn.cjs",
     "fix": "./fix.sh",
     "prepack": "yarn run build",
     "postpack": "rm -rf dist"
   },
   "dependencies": {
+    "@monstrs/yarn-cli-tools": "workspace:0.0.1",
     "@monstrs/yarn-plugin-check": "workspace:0.0.1",
     "@monstrs/yarn-plugin-checks": "workspace:0.0.1",
     "@monstrs/yarn-plugin-commit": "workspace:0.0.1",

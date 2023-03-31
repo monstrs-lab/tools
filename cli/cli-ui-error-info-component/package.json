@@ -2,6 +2,7 @@
   "name": "@monstrs/cli-ui-error-info-component",
   "version": "0.0.16",
   "license": "MIT",
+  "type": "module",
   "main": "src/index.ts",
   "files": [
     "dist"

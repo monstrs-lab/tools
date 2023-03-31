@@ -1,16 +1,18 @@
+import { writeFileSync }              from 'node:fs'
 import { readFile }                   from 'node:fs/promises'
 import { join }                       from 'node:path'
 
 import Config                         from 'webpack-chain'
 import fg                             from 'fast-glob'
 import findUp                         from 'find-up'
+import tempy                          from 'tempy'
 import { HotModuleReplacementPlugin } from 'webpack'
 import { Configuration }              from 'webpack'
 
 import tsconfig                       from '@monstrs/config-typescript'
 
-import { FORCE_UNPLUGGED_PACKAGES }   from './webpack.externals'
-import { UNUSED_EXTERNALS }           from './webpack.externals'
+import { FORCE_UNPLUGGED_PACKAGES }   from './webpack.externals.js'
+import { UNUSED_EXTERNALS }           from './webpack.externals.js'
 
 export type WebpackEnvironment = 'production' | 'development'
 
@@ -63,6 +65,10 @@ export class WebpackConfig {
   }
 
   private applyModules(config: Config) {
+    const configFile = tempy.file()
+
+    writeFileSync(configFile, '{}')
+
     config.module
       .rule('ts')
       .test(/.tsx?$/)
@@ -73,6 +79,7 @@ export class WebpackConfig {
         experimentalWatchApi: true,
         onlyCompileBundledFiles: true,
         compilerOptions: { ...tsconfig.compilerOptions, sourceMap: true },
+        configFile,
       })
 
     config.module

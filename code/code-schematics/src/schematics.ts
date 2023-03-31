@@ -7,10 +7,10 @@ import { DryRunEvent }         from '@angular-devkit/schematics'
 import { NodeWorkflow }        from '@angular-devkit/schematics/tools'
 import { virtualFs }           from '@angular-devkit/core'
 
-import { MigrationEngineHost } from './migration-engine.host'
-import { NodePnpEngineHost }   from './node-pnp-engine.host'
-import { expandCollections }   from './utils'
-import { resolveSchematics }   from './utils'
+import { MigrationEngineHost } from './migration-engine.host.js'
+import { NodePnpEngineHost }   from './node-pnp-engine.host.js'
+import { expandCollections }   from './utils/index.js'
+import { resolveSchematics }   from './utils/index.js'
 
 export class Schematics {
   constructor(

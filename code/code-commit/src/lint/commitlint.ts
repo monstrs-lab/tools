@@ -15,9 +15,9 @@ import { RuleType }           from '@commitlint/types'
 import { Commit }             from '@commitlint/types'
 import { Parser }             from '@commitlint/types'
 import { ParserOptions }      from '@commitlint/types'
-import { buildCommitMesage }  from '@commitlint/lint/lib/commit-message'
+import { buildCommitMesage }  from '@commitlint/lint/lib/commit-message.js'
 
-import defaultParserOpts      from 'conventional-changelog-angular/parser-opts'
+import defaultParserOpts      from 'conventional-changelog-angular/parser-opts.js'
 import { sync }               from 'conventional-commits-parser'
 
 export async function parse(

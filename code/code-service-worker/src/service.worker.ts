@@ -2,7 +2,7 @@ import type { ServiceBuildResult } from '@monstrs/code-service'
 
 import { EvalWorker }              from '@monstrs/code-worker-utils'
 
-import { getContent }              from './service.worker.content'
+import { getContent }              from './service.worker.content.js'
 
 export class ServiceWorker {
   constructor(protected readonly cwd: string, protected readonly rootCwd: string) {}

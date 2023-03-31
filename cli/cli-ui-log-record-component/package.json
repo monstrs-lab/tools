@@ -2,6 +2,7 @@
   "name": "@monstrs/cli-ui-log-record-component",
   "version": "0.0.33",
   "license": "MIT",
+  "type": "module",
   "main": "src/index.ts",
   "files": [
     "dist"

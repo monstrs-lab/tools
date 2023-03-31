@@ -1,7 +1,8 @@
-import reconciler     from 'ink/build/reconciler'
-import render         from 'ink/build/renderer'
 import { ReactNode }  from 'react'
-import { createNode } from 'ink/build/dom'
+
+import { reconciler } from './ink.js'
+import { render }     from './ink.js'
+import { createNode } from './ink.js'
 
 export const renderStatic = (
   target: ReactNode,

@@ -1,21 +1,28 @@
-import type { Diagnostic }      from 'typescript'
-import type { CompilerOptions } from 'typescript'
+import type { Diagnostic }           from 'typescript'
+import type { CompilerOptions }      from 'typescript'
 
-import deepmerge                from 'deepmerge'
-import ts                       from 'typescript'
+import deepmerge                     from 'deepmerge'
+import ts                            from 'typescript'
 
-import tsconfig                 from '@monstrs/config-typescript'
+import tsconfig                      from '@monstrs/config-typescript'
+
+import { transformJsxToJsExtension } from './transformers/index.js'
+
+interface TypeScriptBuildOptions {
+  replaceJsxExt?: boolean
+}
 
 class TypeScript {
   constructor(private readonly cwd: string) {}
 
   check(include: Array<string> = []): Promise<Array<Diagnostic>> {
-    return this.run(include)
+    return this.run(include, { allowImportingTsExtensions: true })
   }
 
   build(
     include: Array<string> = [],
-    override: Partial<CompilerOptions> = {}
+    override: Partial<CompilerOptions> = {},
+    options?: TypeScriptBuildOptions
   ): Promise<Array<Diagnostic>> {
     return this.run(include, override, false)
   }
@@ -40,7 +47,9 @@ class TypeScript {
       noEmit,
     })
 
-    const result = program.emit()
+    const result = program.emit(undefined, undefined, undefined, undefined, {
+      after: [transformJsxToJsExtension],
+    })
 
     return ts.getPreEmitDiagnostics(program).concat(result.diagnostics)
   }

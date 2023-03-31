@@ -15,8 +15,8 @@ import { format }         from 'prettier/standalone'
 
 import config             from '@monstrs/config-prettier'
 
-import { ignore }         from './formatter.patterns'
-import { createPatterns } from './formatter.patterns'
+import { ignore }         from './formatter.patterns.js'
+import { createPatterns } from './formatter.patterns.js'
 
 export class Formatter {
   constructor(private readonly cwd: string) {}

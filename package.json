@@ -10,10 +10,12 @@
     "config/*",
     "utils/*",
     "yarn/*",
+    "jest/*",
     "cli/*"
   ],
   "scripts": {
     "cli:build": "yarn worker:format:build && yarn worker:lint:build && yarn worker:schematics:build && yarn worker:service:build && yarn worker:test:build && yarn worker:typescript:build && yarn yarn:cli:build && yarn yarn:cli:fix",
+    "worker:build": "yarn worker:format:build && yarn worker:lint:build && yarn worker:schematics:build && yarn worker:service:build && yarn worker:test:build && yarn worker:typescript:build",
     "worker:format:build": "yarn workspace @monstrs/code-format-worker build:worker",
     "worker:lint:build": "yarn workspace @monstrs/code-lint-worker build:worker",
     "worker:schematics:build": "yarn workspace @monstrs/code-schematics-worker build:worker",
@@ -46,12 +48,13 @@
     "@types/jest": "^29.5.0",
     "@types/node": "^18.15.11",
     "@yarnpkg/builder": "^3.2.7",
+    "esbuild": "npm:esbuild-wasm@^0.17.14",
     "eslint": "^8.37.0",
     "eslint-import-resolver-node": "^0.3.7",
     "espree": "^9.5.1",
     "husky": "8.0.3",
     "readable-stream": "^4.3.0",
-    "typescript": "^5.0.2",
+    "typescript": "^5.0.3",
     "webpack": "^5.77.0"
   },
   "packageManager": "yarn@3.1.0",

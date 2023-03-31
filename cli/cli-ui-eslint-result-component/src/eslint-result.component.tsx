@@ -6,8 +6,8 @@ import { Box }                      from 'ink'
 import { FC }                       from 'react'
 import { useMemo }                  from 'react'
 
-import { ESLintResultMessageProps } from './eslint-result-message.component'
-import { ESLintResultMessage }      from './eslint-result-message.component'
+import { ESLintResultMessageProps } from './eslint-result-message.component.jsx'
+import { ESLintResultMessage }      from './eslint-result-message.component.jsx'
 
 export interface ESLintResultProps {
   messages: Array<ESLintResultMessageProps>

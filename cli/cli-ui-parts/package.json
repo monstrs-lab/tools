@@ -2,6 +2,7 @@
   "name": "@monstrs/cli-ui-parts",
   "version": "0.0.8",
   "license": "MIT",
+  "type": "module",
   "main": "src/index.ts",
   "files": [
     "dist"

@@ -2,6 +2,7 @@
   "name": "@monstrs/webpack-localtunnel-plugin",
   "version": "0.0.29",
   "license": "MIT",
+  "type": "module",
   "main": "src/index.ts",
   "files": [
     "dist"

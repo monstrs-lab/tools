@@ -30,7 +30,7 @@ export default {
 
     sourceMap: false,
 
-    module: 'commonjs',
+    module: 'esnext',
     target: 'es2021',
 
     jsx: 'react',

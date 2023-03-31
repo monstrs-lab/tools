@@ -3,8 +3,8 @@ import sortPackageJson                  from 'sort-package-json'
 import { parsers as babelParsers }      from 'prettier/parser-babel'
 import { parsers as typescriptParsers } from 'prettier/parser-typescript'
 
-import { ImportSortParser }             from './import-sort'
-import { style }                        from './import-sort'
+import { ImportSortParser }             from './import-sort/index.js'
+import { style }                        from './import-sort/index.js'
 
 const preprocess = (source, { plugins }) => {
   const plugin = plugins.find((p) => p.parsers?.typescript)

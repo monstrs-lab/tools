@@ -2,6 +2,7 @@
   "name": "@monstrs/code-typescript",
   "version": "0.0.120",
   "license": "MIT",
+  "type": "module",
   "main": "src/index.ts",
   "files": [
     "dist"
@@ -19,7 +20,7 @@
   "devDependencies": {
     "@types/deepmerge": "2.2.0",
     "@types/node": "^18.15.11",
-    "typescript": "^5.0.2"
+    "typescript": "^5.0.3"
   },
   "publishConfig": {
     "main": "dist/index.js",

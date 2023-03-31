@@ -2,6 +2,7 @@
   "name": "@monstrs/cli-ui-stack-trace-component",
   "version": "0.0.32",
   "license": "MIT",
+  "type": "module",
   "main": "src/index.ts",
   "files": [
     "dist"

@@ -3,7 +3,7 @@ import stripAnsi                from 'strip-ansi'
 
 import { renderStatic }         from '@monstrs/cli-ui-renderer'
 
-import { TypeScriptDiagnostic } from './typescript-diagnostic.component'
+import { TypeScriptDiagnostic } from './typescript-diagnostic.component.jsx'
 
 describe('eslint result component', () => {
   it('render', () => {
