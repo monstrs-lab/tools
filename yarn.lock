@@ -2123,6 +2123,7 @@ __metadata:
   dependencies:
     "@angular-devkit/core": ^15.2.4
     "@angular-devkit/schematics": ^15.2.4
+    "@monstrs/schematics-pnp": "workspace:0.0.1"
     rxjs: 7.8.0
   languageName: unknown
   linkType: soft
@@ -2321,6 +2322,16 @@ __metadata:
     import-sort-style: ^6.0.0
     prettier: ^2.8.7
     sort-package-json: ^1.57.0
+  languageName: unknown
+  linkType: soft
+
+"@monstrs/schematics-pnp@workspace:0.0.1, @monstrs/schematics-pnp@workspace:schematics/schematics-pnp":
+  version: 0.0.0-use.local
+  resolution: "@monstrs/schematics-pnp@workspace:schematics/schematics-pnp"
+  dependencies:
+    "@angular-devkit/core": ^15.2.4
+    "@angular-devkit/schematics": ^15.2.4
+    rxjs: 7.8.0
   languageName: unknown
   linkType: soft
 

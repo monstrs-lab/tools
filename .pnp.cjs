@@ -156,6 +156,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:schematics/schematics"\
       },\
       {\
+        "name": "@monstrs/schematics-pnp",\
+        "reference": "workspace:schematics/schematics-pnp"\
+      },\
+      {\
         "name": "@monstrs/schematics-utils",\
         "reference": "workspace:schematics/schematics-utils"\
       },\
@@ -286,6 +290,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@monstrs/jest-resolver", ["workspace:jest/jest-resolver"]],\
       ["@monstrs/prettier-plugin", ["workspace:prettier/plugin"]],\
       ["@monstrs/schematics", ["workspace:schematics/schematics"]],\
+      ["@monstrs/schematics-pnp", ["workspace:schematics/schematics-pnp"]],\
       ["@monstrs/schematics-utils", ["workspace:schematics/schematics-utils"]],\
       ["@monstrs/tools-setup-ts-execution", ["workspace:utils/setup-ts-execution"]],\
       ["@monstrs/webpack-localtunnel-plugin", ["workspace:webpack/webpack-localtunnel-plugin"]],\
@@ -3548,6 +3553,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@monstrs/code-schematics", "workspace:code/code-schematics"],\
             ["@angular-devkit/core", "virtual:18a6aad51e5bc1dad249fa56f243ba22fc685f61995855e238a0607a7d0e29f8d902ae7d82b366c2d3d771b6a76a453b3fb500bba0600f976bc0ca150b9da5e6#npm:15.2.4"],\
             ["@angular-devkit/schematics", "npm:15.2.4"],\
+            ["@monstrs/schematics-pnp", "workspace:schematics/schematics-pnp"],\
             ["rxjs", "npm:7.8.0"]\
           ],\
           "linkType": "SOFT"\
@@ -3828,6 +3834,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:18.15.11"],\
             ["copy-dir", "npm:1.3.0"],\
             ["globby", "npm:11.0.3"]\
+          ],\
+          "linkType": "SOFT"\
+        }]\
+      ]],\
+      ["@monstrs/schematics-pnp", [\
+        ["workspace:schematics/schematics-pnp", {\
+          "packageLocation": "./schematics/schematics-pnp/",\
+          "packageDependencies": [\
+            ["@monstrs/schematics-pnp", "workspace:schematics/schematics-pnp"],\
+            ["@angular-devkit/core", "virtual:18a6aad51e5bc1dad249fa56f243ba22fc685f61995855e238a0607a7d0e29f8d902ae7d82b366c2d3d771b6a76a453b3fb500bba0600f976bc0ca150b9da5e6#npm:15.2.4"],\
+            ["@angular-devkit/schematics", "npm:15.2.4"],\
+            ["rxjs", "npm:7.8.0"]\
           ],\
           "linkType": "SOFT"\
         }]\
