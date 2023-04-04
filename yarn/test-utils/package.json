@@ -1,0 +1,25 @@
+{
+  "name": "@monstrs/yarn-test-utils",
+  "version": "0.0.1",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "main": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "yarn:download": "yarn node ./scripts/download-yarn-tests-packages.script.mjs"
+  },
+  "dependencies": {
+    "@yarnpkg/core": "^3.5.0",
+    "@yarnpkg/fslib": "^2.10.2",
+    "@yarnpkg/plugin-pack": "^3.2.0",
+    "pkg-tests-core": "*"
+  },
+  "publishConfig": {
+    "access": "public",
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
+  }
+}

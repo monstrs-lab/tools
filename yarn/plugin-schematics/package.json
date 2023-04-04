@@ -27,6 +27,7 @@
     "typanion": "^3.12.1"
   },
   "devDependencies": {
+    "@monstrs/yarn-test-utils": "workspace:0.0.1",
     "@yarnpkg/builder": "^3.2.7",
     "@yarnpkg/cli": "^3.5.0",
     "@yarnpkg/core": "^3.5.0",

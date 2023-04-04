@@ -61,9 +61,6 @@
     "typanion": "^3.12.1",
     "yup": "^0.32.11"
   },
-  "devDependencies": {
-    "super-resolve": "^1.0.0"
-  },
   "publishConfig": {
     "access": "public",
     "main": "dist/index.js",
