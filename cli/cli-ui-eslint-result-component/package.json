@@ -16,8 +16,8 @@
     "@monstrs/cli-ui-source-component": "workspace:0.0.30"
   },
   "devDependencies": {
+    "@jest/globals": "29.5.0",
     "@monstrs/cli-ui-renderer": "workspace:0.0.31",
-    "@types/jest": "^29.5.0",
     "@types/react": "^18.0.31",
     "ink": "^3.2.0",
     "react": "^18.2.0",

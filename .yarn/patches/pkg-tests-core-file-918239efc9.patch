@@ -30,3 +30,31 @@ index a749507c68f750d403c8fe7e79114997ab78c265..4e8ed3eb9c0dd77c040769cfaf7b0118
                  ...rcEnv,
                  ...env,
              },
+diff --git a/lib/utils/tests.d.ts b/lib/utils/tests.d.ts
+index 20a39e2298d60fe5e467709240c4e68e24cee843..51844022d3817480d42917393d9c3ad82f403e11 100644
+--- a/lib/utils/tests.d.ts
++++ b/lib/utils/tests.d.ts
+@@ -1,6 +1,5 @@
+ /// <reference types="node" />
+ /// <reference types="node" />
+-/// <reference types="jest" />
+ import { PortablePath } from '@yarnpkg/fslib';
+ import pem from 'pem';
+ import { Gzip } from 'zlib';
+@@ -100,7 +99,15 @@ export declare const generatePkgDriver: ({ getName, runDriver, }: {
+     getName: () => string;
+     runDriver: PackageRunDriver;
+ }) => PackageDriver;
+-export declare const testIf: (condition: () => boolean, name: string, execute?: jest.ProvidesCallback | undefined, timeout?: number | undefined) => void;
++
++interface DoneCallback {
++    (...args: any[]): any;
++    fail(error?: string | { message: string }): any;
++}
++
++type ProvidesCallback = ((cb: DoneCallback) => void | undefined) | (() => Promise<unknown>);
++
++export declare const testIf: (condition: () => boolean, name: string, execute?: ProvidesCallback | undefined, timeout?: number | undefined) => void;
+ export declare const getHttpsCertificates: () => Promise<{
+     server: pem.CertificateCreationResult;
+     ca: pem.CertificateCreationResult;

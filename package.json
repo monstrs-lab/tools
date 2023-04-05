@@ -46,7 +46,6 @@
     "@monstrs/config-jest": "workspace:0.0.14",
     "@monstrs/schematics": "workspace:0.0.25",
     "@types/eslint": "^8.37.0",
-    "@types/jest": "^29.5.0",
     "@types/node": "^18.15.11",
     "@yarnpkg/builder": "^3.2.7",
     "esbuild": "npm:esbuild-wasm@^0.17.14",

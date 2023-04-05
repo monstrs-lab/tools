@@ -19,8 +19,8 @@
     "string-to-color": "^2.2.2"
   },
   "devDependencies": {
+    "@jest/globals": "29.5.0",
     "@monstrs/logger": "^0.0.6",
-    "@types/jest": "^29.5.0",
     "@types/node": "^18.15.11",
     "@types/react": "^18.0.31",
     "ink": "^3.2.0",

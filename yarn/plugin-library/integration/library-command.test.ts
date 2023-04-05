@@ -1,4 +1,8 @@
 import { PortablePath }     from '@yarnpkg/fslib'
+import { jest }             from '@jest/globals'
+import { describe }         from '@jest/globals'
+import { expect }           from '@jest/globals'
+import { test }             from '@jest/globals'
 import { xfs }              from '@yarnpkg/fslib'
 
 import { makeTemporaryEnv } from '@monstrs/yarn-test-utils'

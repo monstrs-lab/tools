@@ -1,4 +1,8 @@
 import { PortablePath }     from '@yarnpkg/fslib'
+import { jest }             from '@jest/globals'
+import { describe }         from '@jest/globals'
+import { expect }           from '@jest/globals'
+import { test }             from '@jest/globals'
 import { xfs }              from '@yarnpkg/fslib'
 
 import { packageUtils }     from '@monstrs/yarn-test-utils'
@@ -7,7 +11,8 @@ import { makeTemporaryEnv } from '@monstrs/yarn-test-utils'
 jest.setTimeout(150000)
 
 const content = `
-const express = require('express')
+import express from 'express'
+
 const app = express()
 const port = 3000
 

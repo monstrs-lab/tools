@@ -27,6 +27,7 @@
     "typanion": "^3.12.1"
   },
   "devDependencies": {
+    "@jest/globals": "^29.5.0",
     "@monstrs/yarn-test-utils": "workspace:0.0.1",
     "@yarnpkg/builder": "^3.2.7",
     "@yarnpkg/cli": "^3.5.0",

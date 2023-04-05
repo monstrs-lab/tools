@@ -36,7 +36,7 @@ export class Tester {
         : [],
     }
 
-    const argv: any = {
+    const argv = {
       rootDir: this.cwd,
       ci: false,
       detectLeaks: false,
@@ -50,6 +50,7 @@ export class Tester {
       maxConcurrency: 5,
       notifyMode: 'failure-change',
       _: files || [],
+      $0: '',
       ...options,
     }
 
@@ -89,8 +90,8 @@ export class Tester {
       maxConcurrency: 5,
       notifyMode: 'failure-change',
       _: files || [],
-      ...options,
       $0: '',
+      ...options,
     }
 
     const { results } = await runCLI(argv, [this.cwd])

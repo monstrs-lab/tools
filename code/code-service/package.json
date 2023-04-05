@@ -29,7 +29,7 @@
     "webpack-chain": "^6.5.1"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.0",
+    "@jest/globals": "^29.5.0",
     "@types/node": "^18.15.11",
     "@types/protocol-buffers-schema": "3.4.1",
     "@types/wait-for-localhost": "3.1.0",
