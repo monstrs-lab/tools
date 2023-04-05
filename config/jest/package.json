@@ -17,7 +17,7 @@
     "@monstrs/config-typescript": "workspace:0.0.10",
     "@monstrs/jest-resolver": "workspace:0.0.1",
     "jest-static-stubs": "^0.0.1",
-    "ts-jest": "^29.0.5"
+    "ts-jest": "^29.1.0"
   },
   "devDependencies": {
     "@types/node": "^18.15.11"

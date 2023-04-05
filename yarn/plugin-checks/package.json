@@ -30,7 +30,7 @@
     "@monstrs/yarn-workspace-utils": "workspace:0.0.1",
     "clipanion": "^3.2.0",
     "react": "^18.2.0",
-    "strip-ansi": "^6.0.1"
+    "strip-ansi": "^7.0.1"
   },
   "devDependencies": {
     "@octokit/types": "^9.0.0",

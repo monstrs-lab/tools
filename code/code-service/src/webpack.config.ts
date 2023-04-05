@@ -5,9 +5,9 @@ import { join }                     from 'node:path'
 
 import Config                       from 'webpack-chain'
 import fg                           from 'fast-glob'
-import findUp                       from 'find-up'
-import tempy                        from 'tempy'
 import webpack                      from 'webpack'
+import { findUp }                   from 'find-up'
+import { temporaryFile }            from 'tempy'
 
 import tsconfig                     from '@monstrs/config-typescript'
 
@@ -67,7 +67,7 @@ export class WebpackConfig {
   private applyModules(config: Config) {
     const require = createRequire(import.meta.url)
 
-    const configFile = tempy.file()
+    const configFile = temporaryFile()
 
     writeFileSync(configFile, '{"include":["**/*"]}')
 

@@ -20,12 +20,12 @@
     "@yarnpkg/cli": "^3.5.0",
     "@yarnpkg/core": "^3.5.0",
     "fast-glob": "^3.2.12",
-    "find-up": "^5.0.0",
+    "find-up": "^6.3.0",
     "string-replace-loader": "^3.1.0",
-    "tempy": "^1.0.1",
+    "tempy": "^3.0.0",
     "ts-loader": "^9.4.2",
     "typescript": "^5.0.3",
-    "webpack": "^5.77.0",
+    "webpack": "^5.78.0",
     "webpack-chain": "^6.5.1"
   },
   "devDependencies": {
@@ -35,7 +35,7 @@
     "@types/wait-for-localhost": "3.1.0",
     "@types/webpack": "^5.28.1",
     "@yarnpkg/fslib": "^2.10.2",
-    "wait-for-localhost": "^3.3.0"
+    "wait-for-localhost": "^4.0.1"
   },
   "publishConfig": {
     "main": "dist/index.js",

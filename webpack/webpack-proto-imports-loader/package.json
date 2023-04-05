@@ -23,7 +23,7 @@
     "memfs": "^3.4.13",
     "ts-loader": "^9.4.2",
     "typescript": "^5.0.3",
-    "webpack": "^5.77.0",
+    "webpack": "^5.78.0",
     "webpack-chain": "^6.5.1"
   },
   "publishConfig": {

@@ -1,21 +1,21 @@
-import { BaseCommand }   from '@yarnpkg/cli'
-import { Workspace }     from '@yarnpkg/core'
-import { Configuration } from '@yarnpkg/core'
-import { Project }       from '@yarnpkg/core'
-import { StreamReport }  from '@yarnpkg/core'
-import { PortablePath }  from '@yarnpkg/fslib'
-import { stringify }     from '@iarna/toml'
-import { execUtils }     from '@yarnpkg/core'
-import { xfs }           from '@yarnpkg/fslib'
-import { ppath }         from '@yarnpkg/fslib'
-import { toFilename }    from '@yarnpkg/fslib'
+import { BaseCommand }        from '@yarnpkg/cli'
+import { Workspace }          from '@yarnpkg/core'
+import { Configuration }      from '@yarnpkg/core'
+import { Project }            from '@yarnpkg/core'
+import { StreamReport }       from '@yarnpkg/core'
+import { PortablePath }       from '@yarnpkg/fslib'
+import { stringify }          from '@iarna/toml'
+import { execUtils }          from '@yarnpkg/core'
+import { xfs }                from '@yarnpkg/fslib'
+import { ppath }              from '@yarnpkg/fslib'
+import { toFilename }         from '@yarnpkg/fslib'
 
-import tempy             from 'tempy'
-import { Option }        from 'clipanion'
+import { Option }             from 'clipanion'
+import { temporaryDirectory } from 'tempy'
 
-import { TagPolicy }     from '@monstrs/code-pack'
-import { tagUtils }      from '@monstrs/code-pack'
-import { packUtils }     from '@monstrs/yarn-pack-utils'
+import { TagPolicy }          from '@monstrs/code-pack'
+import { tagUtils }           from '@monstrs/code-pack'
+import { packUtils }          from '@monstrs/yarn-pack-utils'
 
 const forRepository = async (repo: string) => {
   const descriptor = {
@@ -59,7 +59,7 @@ class ImagePackCommand extends BaseCommand {
       },
       async (report) => {
         if (this.isWorkspaceAllowedForBundle(workspace)) {
-          const destination = tempy.directory() as PortablePath
+          const destination = temporaryDirectory() as PortablePath
 
           report.reportInfo(
             null,
