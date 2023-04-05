@@ -192,18 +192,19 @@ function getFileFormat(filepath) {
     case `.cts`: {
       return `commonjs`;
     }
-    case `.ts`: {
-      const pkg = readPackageScope(filepath);
-      if (!pkg)
-        return `commonjs`;
-      return (_a = pkg.data.type) != null ? _a : `commonjs`;
-    }
-	case `.tsx`: {
+    case `.tsx`: {
 		const pkg = readPackageScope(filepath);
 		if (!pkg)
 		  return `commonjs`;
 		return (_a = pkg.data.type) != null ? _a : `commonjs`;
 	  }
+      case `.ts`: {
+      
+      const pkg = readPackageScope(filepath);
+      if (!pkg)
+        return `commonjs`;
+      return (_a = pkg.data.type) != null ? _a : `commonjs`;
+    }
     default: {
       return null;
     }
@@ -213,7 +214,7 @@ function transformSource(source, format, ext) {
   const { transformSync } = require(`esbuild`);
   const { code } = transformSync(source, {
     format: format === `module` ? `esm` : `cjs`,
-    loader: ext === 'tsx' ? 'tsx' : `ts`,
+    loader: ext === 'tsx' ? 'tsx' : 'ts',
     target: `node${process.versions.node}`
   });
   return code;
@@ -7865,7 +7866,7 @@ async function resolve$2(originalSpecifier, context, nextResolve) {
 }
 
 async function resolve$1(originalSpecifier, context, nextResolve) {
-  const tsSpecifier = originalSpecifier.replace(/\.(c|m)?js$/, `.$1ts`).replace(/\.(c|m)?jsx$/, `.$1tsx`);
+  const tsSpecifier = originalSpecifier.replace(/\.(c|m)?js$/, '.$1ts').replace(/\.(c|m)?jsx$/, '.$1tsx');
   try {
     return await resolve$2(tsSpecifier, context, nextResolve);
   } catch (err) {
