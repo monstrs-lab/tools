@@ -23,12 +23,12 @@ jobs:
           node-version: '19.8'
 
       - name: Install
-        run: NODE_OPTIONS='-r /home/runner/work/tools/tools/.pnp.cjs --loader /home/runner/work/tools/tools/.pnp.loader.mjs' yarn install
+        run: source .env && export NODE_OPTIONS && yarn install
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
 
       - name: Version
-        run: NODE_OPTIONS='-r /home/runner/work/tools/tools/.pnp.cjs --loader /home/runner/work/tools/tools/.pnp.loader.mjs' yarn workspaces changed foreach --no-private --verbose version patch --deferred
+        run: source .env && export NODE_OPTIONS && yarn workspaces changed foreach --no-private --verbose version patch --deferred
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
 
