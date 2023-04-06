@@ -3,9 +3,9 @@ import { relative }           from 'node:path'
 
 import type { ESLint }        from 'eslint'
 
-import globby                 from 'globby'
 import ignorer                from 'ignore'
 import { Linter as ESLinter } from 'eslint'
+import { globby }             from 'globby'
 
 import eslintconfig           from '@monstrs/config-eslint'
 
@@ -24,7 +24,7 @@ export class Linter {
   }
 
   async lintProject(): Promise<Array<ESLint.LintResult>> {
-    return this.lintFiles(await globby(createPatterns(this.cwd), { dot: true, nodir: true } as any))
+    return this.lintFiles(await globby(createPatterns(this.cwd), { dot: true }))
   }
 
   async lintFiles(files: Array<string> = []): Promise<Array<ESLint.LintResult>> {

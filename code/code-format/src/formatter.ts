@@ -2,13 +2,13 @@ import { writeFile }      from 'node:fs/promises'
 import { readFile }       from 'node:fs/promises'
 import { relative }       from 'node:path'
 
-import globby             from 'globby'
 import ignorer            from 'ignore'
 import babel              from 'prettier/plugins/babel'
 import graphql            from 'prettier/plugins/graphql'
 import markdown           from 'prettier/plugins/markdown'
 import typescript         from 'prettier/plugins/typescript'
 import yaml               from 'prettier/plugins/yaml'
+import { globby }         from 'globby'
 import { format }         from 'prettier/standalone'
 
 import config             from '@monstrs/config-prettier'
@@ -54,7 +54,6 @@ export class Formatter {
   async formatProject() {
     const files = await globby(createPatterns(this.cwd), {
       dot: true,
-      onlyFiles: true,
     })
 
     await this.formatFiles(files)

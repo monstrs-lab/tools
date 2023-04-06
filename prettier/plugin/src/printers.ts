@@ -4,15 +4,28 @@ import { format } from 'prettier/standalone'
 
 let printer
 
-format('const n = 5;', {
-  plugins: [babel, typescript],
-  parser(text, { typescript: ts }, options) {
-    const plugin = options.plugins.find((x) => x.printers && x.printers.estree)
+// TODO: move to plugin builder
+await format('const n = 5;', {
+  plugins: [
+    babel,
+    {
+      ...typescript,
+      parsers: {
+        ...typescript.parsers,
+        typescript: {
+          ...typescript.parsers.typescript,
+          parse(text, options) {
+            const plugin: any = options.plugins.find((x: any) => x.printers && x.printers.estree)
 
-    printer = plugin.printers.estree
+            printer = plugin.printers.estree
 
-    return ts(text)
-  },
+            return typescript.parsers.typescript.parse(text, options)
+          },
+        },
+      },
+    },
+  ],
+  parser: 'typescript',
 })
 
 const nodeImportSize = (node) => {
