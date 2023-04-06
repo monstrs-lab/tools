@@ -2796,7 +2796,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@rollup/plugin-json", "virtual:16c6894e71735c8ce85e88fdf2c39a69fd95d1318c61281c78f523ed65a0c4f3080b557bb22e7eedc993af5a969d2f37377c836ed4a7d514845d5d9f9777f4cb#npm:6.0.0"],\
             ["@rollup/plugin-node-resolve", "virtual:16c6894e71735c8ce85e88fdf2c39a69fd95d1318c61281c78f523ed65a0c4f3080b557bb22e7eedc993af5a969d2f37377c836ed4a7d514845d5d9f9777f4cb#npm:15.0.2"],\
             ["esbuild", "npm:0.17.15"],\
-            ["flatted", "npm:3.2.7"],\
+            ["flatted", "patch:flatted@npm%3A3.2.7#./.yarn/patches/flatted-npm-3.2.7-0da10b7c56.patch::version=3.2.7&hash=027a11&locator=tools%40workspace%3A."],\
             ["rollup", "npm:3.20.2"],\
             ["rollup-plugin-esbuild", "virtual:16c6894e71735c8ce85e88fdf2c39a69fd95d1318c61281c78f523ed65a0c4f3080b557bb22e7eedc993af5a969d2f37377c836ed4a7d514845d5d9f9777f4cb#npm:5.0.0"],\
             ["rollup-plugin-terser", "virtual:16c6894e71735c8ce85e88fdf2c39a69fd95d1318c61281c78f523ed65a0c4f3080b557bb22e7eedc993af5a969d2f37377c836ed4a7d514845d5d9f9777f4cb#npm:7.0.2"]\
@@ -2829,7 +2829,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@rollup/plugin-json", "virtual:16c6894e71735c8ce85e88fdf2c39a69fd95d1318c61281c78f523ed65a0c4f3080b557bb22e7eedc993af5a969d2f37377c836ed4a7d514845d5d9f9777f4cb#npm:6.0.0"],\
             ["@rollup/plugin-node-resolve", "virtual:16c6894e71735c8ce85e88fdf2c39a69fd95d1318c61281c78f523ed65a0c4f3080b557bb22e7eedc993af5a969d2f37377c836ed4a7d514845d5d9f9777f4cb#npm:15.0.2"],\
             ["esbuild", "npm:0.17.15"],\
-            ["flatted", "npm:3.2.7"],\
+            ["flatted", "patch:flatted@npm%3A3.2.7#./.yarn/patches/flatted-npm-3.2.7-0da10b7c56.patch::version=3.2.7&hash=027a11&locator=tools%40workspace%3A."],\
             ["rollup", "npm:3.20.2"],\
             ["rollup-plugin-esbuild", "virtual:16c6894e71735c8ce85e88fdf2c39a69fd95d1318c61281c78f523ed65a0c4f3080b557bb22e7eedc993af5a969d2f37377c836ed4a7d514845d5d9f9777f4cb#npm:5.0.0"],\
             ["rollup-plugin-terser", "virtual:16c6894e71735c8ce85e88fdf2c39a69fd95d1318c61281c78f523ed65a0c4f3080b557bb22e7eedc993af5a969d2f37377c836ed4a7d514845d5d9f9777f4cb#npm:7.0.2"],\
@@ -2937,7 +2937,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["import-sort-parser-typescript", "npm:6.0.0"],\
             ["import-sort-style", "npm:6.0.0"],\
             ["prettier", "npm:3.0.0-alpha.6"],\
-            ["sort-package-json", "npm:2.4.1"]\
+            ["sort-package-json", "patch:sort-package-json@npm%3A2.4.1#./.yarn/patches/sort-package-json-npm-2.4.1-8ff012947f.patch::version=2.4.1&hash=7cbcc3&locator=tools%40workspace%3A."]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -10324,7 +10324,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/flat-cache-npm-3.0.4-ee77e5911e-4fdd10ecbc.zip/node_modules/flat-cache/",\
           "packageDependencies": [\
             ["flat-cache", "npm:3.0.4"],\
-            ["flatted", "npm:3.2.7"],\
+            ["flatted", "patch:flatted@npm%3A3.2.7#./.yarn/patches/flatted-npm-3.2.7-0da10b7c56.patch::version=3.2.7&hash=027a11&locator=tools%40workspace%3A."],\
             ["rimraf", "npm:3.0.2"]\
           ],\
           "linkType": "HARD"\
@@ -10340,10 +10340,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["flatted", [\
-        ["npm:3.2.7", {\
-          "packageLocation": "./.yarn/cache/flatted-npm-3.2.7-0da10b7c56-427633049d.zip/node_modules/flatted/",\
+        ["patch:flatted@npm%3A3.2.7#./.yarn/patches/flatted-npm-3.2.7-0da10b7c56.patch::version=3.2.7&hash=027a11&locator=tools%40workspace%3A.", {\
+          "packageLocation": "./.yarn/cache/flatted-patch-1da6a31564-f4820e53e5.zip/node_modules/flatted/",\
           "packageDependencies": [\
-            ["flatted", "npm:3.2.7"]\
+            ["flatted", "patch:flatted@npm%3A3.2.7#./.yarn/patches/flatted-npm-3.2.7-0da10b7c56.patch::version=3.2.7&hash=027a11&locator=tools%40workspace%3A."]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -16726,10 +16726,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["sort-package-json", [\
-        ["npm:2.4.1", {\
-          "packageLocation": "./.yarn/cache/sort-package-json-npm-2.4.1-8ff012947f-b0059f3fb5.zip/node_modules/sort-package-json/",\
+        ["patch:sort-package-json@npm%3A2.4.1#./.yarn/patches/sort-package-json-npm-2.4.1-8ff012947f.patch::version=2.4.1&hash=7cbcc3&locator=tools%40workspace%3A.", {\
+          "packageLocation": "./.yarn/cache/sort-package-json-patch-5b34ac6273-81e0f46234.zip/node_modules/sort-package-json/",\
           "packageDependencies": [\
-            ["sort-package-json", "npm:2.4.1"],\
+            ["sort-package-json", "patch:sort-package-json@npm%3A2.4.1#./.yarn/patches/sort-package-json-npm-2.4.1-8ff012947f.patch::version=2.4.1&hash=7cbcc3&locator=tools%40workspace%3A."],\
             ["detect-indent", "npm:7.0.1"],\
             ["detect-newline", "npm:4.0.0"],\
             ["git-hooks-list", "patch:git-hooks-list@npm%3A3.1.0#./.yarn/patches/git-hooks-list-npm-3.1.0-d79db164cf.patch::version=3.1.0&hash=ae1c3a&locator=tools%40workspace%3A."],\

@@ -11,7 +11,7 @@ export default {
     forceConsistentCasingInFileNames: true,
     importHelpers: false,
     isolatedModules: false,
-    moduleResolution: 'node',
+    moduleResolution: 'nodenext',
     noFallthroughCasesInSwitch: true,
 
     noImplicitAny: false,

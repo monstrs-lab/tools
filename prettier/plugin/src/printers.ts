@@ -1,32 +1,6 @@
-import babel      from 'prettier/plugins/babel'
-import typescript from 'prettier/plugins/typescript'
-import { format } from 'prettier/standalone'
+import { extractPrinter } from './patch.js'
 
-let printer
-
-// TODO: move to plugin builder
-await format('const n = 5;', {
-  plugins: [
-    babel,
-    {
-      ...typescript,
-      parsers: {
-        ...typescript.parsers,
-        typescript: {
-          ...typescript.parsers.typescript,
-          parse(text, options) {
-            const plugin: any = options.plugins.find((x: any) => x.printers && x.printers.estree)
-
-            printer = plugin.printers.estree
-
-            return typescript.parsers.typescript.parse(text, options)
-          },
-        },
-      },
-    },
-  ],
-  parser: 'typescript',
-})
+const printer = await extractPrinter()
 
 const nodeImportSize = (node) => {
   if (node.specifiers.length === 0) {

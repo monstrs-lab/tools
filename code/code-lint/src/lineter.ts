@@ -3,7 +3,7 @@ import { relative }           from 'node:path'
 
 import type { ESLint }        from 'eslint'
 
-import ignorer                from 'ignore'
+import ignorerPkg             from 'ignore'
 import { Linter as ESLinter } from 'eslint'
 import { globby }             from 'globby'
 
@@ -11,6 +11,9 @@ import eslintconfig           from '@monstrs/config-eslint'
 
 import { ignore }             from './linter.patterns.js'
 import { createPatterns }     from './linter.patterns.js'
+
+// TODO: moduleResolution
+const ignorer = ignorerPkg as any
 
 export class Linter {
   constructor(private readonly cwd: string) {}

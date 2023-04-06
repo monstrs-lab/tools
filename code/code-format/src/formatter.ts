@@ -2,7 +2,7 @@ import { writeFile }      from 'node:fs/promises'
 import { readFile }       from 'node:fs/promises'
 import { relative }       from 'node:path'
 
-import ignorer            from 'ignore'
+import ignorerPkg         from 'ignore'
 import babel              from 'prettier/plugins/babel'
 import graphql            from 'prettier/plugins/graphql'
 import markdown           from 'prettier/plugins/markdown'
@@ -16,6 +16,9 @@ import plugin             from '@monstrs/prettier-plugin'
 
 import { ignore }         from './formatter.patterns.js'
 import { createPatterns } from './formatter.patterns.js'
+
+// TODO: moduleResolution
+const ignorer = ignorerPkg as any
 
 export class Formatter {
   constructor(private readonly cwd: string) {}
@@ -33,7 +36,14 @@ export class Formatter {
       const output = await format(input, {
         ...config,
         filepath: filename,
-        plugins: [yaml, markdown, graphql, babel, typescript, plugin],
+        plugins: [
+          yaml as any,
+          markdown as any,
+          graphql as any,
+          babel as any,
+          typescript as any,
+          plugin as any,
+        ],
       })
 
       if (output !== input && output) {
