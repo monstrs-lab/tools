@@ -6,20 +6,18 @@ import { test }             from '@jest/globals'
 import { xfs }              from '@yarnpkg/fslib'
 
 import { makeTemporaryEnv } from '@monstrs/yarn-test-utils'
-import { packageUtils }     from '@monstrs/yarn-test-utils'
 
 jest.setTimeout(150000)
 
 describe('yarn', () => {
   describe('commands', () => {
     describe('test', () => {
-      test('it should test unit withouth errors', async (...args) => {
-        const jestConfig = await packageUtils.pack('@monstrs/config-jest')
-
+      test(
+        'it should test unit withouth errors',
         makeTemporaryEnv(
           {
             dependencies: {
-              '@monstrs/config-jest': jestConfig,
+              '@monstrs/config-jest': 'workspace:*',
               '@jest/core': '^29.5.0',
               typescript: '^5.0.3',
             },
@@ -42,16 +40,15 @@ test('success', () => {
             expect(stdout).toContain('Done')
             expect(stderr).toContain('PASS ./unit-success.test.ts')
           }
-        )(...args)
-      })
+        )
+      )
 
-      test('it should test unit with errors', async (...args) => {
-        const jestConfig = await packageUtils.pack('@monstrs/config-jest')
-
+      test(
+        'it should test unit with errors',
         makeTemporaryEnv(
           {
             dependencies: {
-              '@monstrs/config-jest': jestConfig,
+              '@monstrs/config-jest': 'workspace:*',
               '@jest/core': '^29.5.0',
               typescript: '^5.0.3',
             },
@@ -74,16 +71,15 @@ test('success', () => {
             expect(stdout).toContain('Done')
             expect(stderr).toContain('FAIL ./unit-invalid.test.ts')
           }
-        )(...args)
-      })
+        )
+      )
 
-      test('it should test integration withouth errors', async (...args) => {
-        const jestConfig = await packageUtils.pack('@monstrs/config-jest')
-
+      test(
+        'it should test integration withouth errors',
         makeTemporaryEnv(
           {
             dependencies: {
-              '@monstrs/config-jest': jestConfig,
+              '@monstrs/config-jest': 'workspace:*',
               '@jest/core': '^29.5.0',
               typescript: '^5.0.3',
             },
@@ -107,16 +103,15 @@ test('success', () => {
             expect(stdout).toContain('Done')
             expect(stderr).toContain('PASS integration/success.test.ts')
           }
-        )(...args)
-      })
+        )
+      )
 
-      test('it should test integration with errors', async (...args) => {
-        const jestConfig = await packageUtils.pack('@monstrs/config-jest')
-
+      test(
+        'it should test integration with errors',
         makeTemporaryEnv(
           {
             dependencies: {
-              '@monstrs/config-jest': jestConfig,
+              '@monstrs/config-jest': 'workspace:*',
               '@jest/core': '^29.5.0',
               typescript: '^5.0.3',
             },
@@ -140,8 +135,8 @@ test('success', () => {
             expect(stdout).toContain('Done')
             expect(stderr).toContain('FAIL integration/invalid.test.ts')
           }
-        )(...args)
-      })
+        )
+      )
     })
   })
 })
