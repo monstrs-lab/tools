@@ -44,10 +44,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:cli/cli-ui-renderer"\
       },\
       {\
-        "name": "@monstrs/cli-ui-schematics-component",\
-        "reference": "workspace:cli/cli-ui-schematics-component"\
-      },\
-      {\
         "name": "@monstrs/cli-ui-source-component",\
         "reference": "workspace:cli/cli-ui-source-component"\
       },\
@@ -86,14 +82,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       {\
         "name": "@monstrs/code-pack",\
         "reference": "workspace:code/code-pack"\
-      },\
-      {\
-        "name": "@monstrs/code-schematics",\
-        "reference": "workspace:code/code-schematics"\
-      },\
-      {\
-        "name": "@monstrs/code-schematics-worker",\
-        "reference": "workspace:code/code-schematics-worker"\
       },\
       {\
         "name": "@monstrs/code-service",\
@@ -152,14 +140,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:prettier/plugin"\
       },\
       {\
-        "name": "@monstrs/schematics",\
-        "reference": "workspace:schematics/schematics"\
-      },\
-      {\
-        "name": "@monstrs/schematics-utils",\
-        "reference": "workspace:schematics/schematics-utils"\
-      },\
-      {\
         "name": "@monstrs/webpack-localtunnel-plugin",\
         "reference": "workspace:webpack/webpack-localtunnel-plugin"\
       },\
@@ -216,10 +196,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:yarn/plugin-lint"\
       },\
       {\
-        "name": "@monstrs/yarn-plugin-schematics",\
-        "reference": "workspace:yarn/plugin-schematics"\
-      },\
-      {\
         "name": "@monstrs/yarn-plugin-service",\
         "reference": "workspace:yarn/plugin-service"\
       },\
@@ -252,16 +228,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
     "fallbackExclusionList": [\
       ["@fixtures/service-simple", ["workspace:code/code-service/integration/fixtures/simple"]],\
-      ["@monstrs/cli-ui-error-info-component", ["virtual:28e3ed17dcd2ed76e528a9b3b405093af421bb02d64e864abd5498430209f3a381a0927af8b803b4c29288b7c7f46b48c3d605b0b01a55f23335e4670dfe551d#workspace:cli/cli-ui-error-info-component", "virtual:44e1a101bd192c959a8a8b727c7f7d7852845c36d68b15e561d3419e6534ac05bdaf94cb6725106198bfdfd6466a52d13581ac5c3c6dc6ed2a751f5ca1a7d2ec#workspace:cli/cli-ui-error-info-component", "workspace:cli/cli-ui-error-info-component"]],\
+      ["@monstrs/cli-ui-error-info-component", ["virtual:44e1a101bd192c959a8a8b727c7f7d7852845c36d68b15e561d3419e6534ac05bdaf94cb6725106198bfdfd6466a52d13581ac5c3c6dc6ed2a751f5ca1a7d2ec#workspace:cli/cli-ui-error-info-component", "workspace:cli/cli-ui-error-info-component"]],\
       ["@monstrs/cli-ui-eslint-result-component", ["virtual:84cc809ab3e95c477581c0740c4e8e94087a756992d4cfa31045a766bfb47b89975ff65bcceef416ba90ce651413ccca39711c1ff35dca0c09600b74289c016e#workspace:cli/cli-ui-eslint-result-component", "workspace:cli/cli-ui-eslint-result-component"]],\
       ["@monstrs/cli-ui-git-commit-component", ["virtual:32d04a7d90654236611060bc71d5203217623140f8500d63cd2f6bd06103f16a3887da6674e024ef952330cff4358a2b5cdaedad2e2f0dc1ee56fff6eeb88857#workspace:cli/cli-ui-git-commit", "workspace:cli/cli-ui-git-commit"]],\
       ["@monstrs/cli-ui-log-record-component", ["virtual:66c52beb35390fa55a978c7367f6788f0923074aa5a168a3c5e58585a051b2ddf1b7047514ee55b07af0a1465b658a6cc5096764389c38971d9cd8a279a3d82c#workspace:cli/cli-ui-log-record-component", "virtual:f42bd553a30f476edb3e8ef9febd4e7293213d225288960433c2c7df8174d9f1eb7978820de9e304ff9dd14762e12b6afd7703a8699992c05bc111efbd94ec6c#workspace:cli/cli-ui-log-record-component", "workspace:cli/cli-ui-log-record-component"]],\
       ["@monstrs/cli-ui-parts", ["workspace:cli/cli-ui-parts"]],\
       ["@monstrs/cli-ui-pretty-logs", ["workspace:cli/cli-ui-pretty-logs"]],\
       ["@monstrs/cli-ui-renderer", ["workspace:cli/cli-ui-renderer"]],\
-      ["@monstrs/cli-ui-schematics-component", ["virtual:28e3ed17dcd2ed76e528a9b3b405093af421bb02d64e864abd5498430209f3a381a0927af8b803b4c29288b7c7f46b48c3d605b0b01a55f23335e4670dfe551d#workspace:cli/cli-ui-schematics-component", "workspace:cli/cli-ui-schematics-component"]],\
-      ["@monstrs/cli-ui-source-component", ["virtual:0b5c5b5f4acfe6c6d7a7cf91accd44ebee509790b96c81fa76d2724d96cceb1a9b2c93765b5072898defa5dfdf20143bf2d406f7561ce291e93460e4812a7247#workspace:cli/cli-ui-source-component", "virtual:3307ad2937d34eeeb6c24f7d30213727ee0bc936b464a86a3ef632a0f607e8572aa460a5be55e068a6cb53c750ce7359f0797ec3e9e5efc985f967f05a9c9006#workspace:cli/cli-ui-source-component", "workspace:cli/cli-ui-source-component"]],\
-      ["@monstrs/cli-ui-stack-trace-component", ["virtual:11bd5af2a80ab93c290d16e253fd5eda25f6c23efed18026ce02e3946945e078ab2eca3aaf556121c03850dbaab6f49557f766911a06a3fb3a1db705274a5786#workspace:cli/cli-ui-stack-trace-component", "virtual:2add2267e86f8fe594f717091cb29255617d85cdc78bcf8852af8ad01ba8dcdb499912f3851e0193029f5850d211e3836d48fce42f182cd400cbabdedaca0990#workspace:cli/cli-ui-stack-trace-component", "workspace:cli/cli-ui-stack-trace-component"]],\
+      ["@monstrs/cli-ui-source-component", ["virtual:0b5c5b5f4acfe6c6d7a7cf91accd44ebee509790b96c81fa76d2724d96cceb1a9b2c93765b5072898defa5dfdf20143bf2d406f7561ce291e93460e4812a7247#workspace:cli/cli-ui-source-component", "workspace:cli/cli-ui-source-component"]],\
+      ["@monstrs/cli-ui-stack-trace-component", ["virtual:11bd5af2a80ab93c290d16e253fd5eda25f6c23efed18026ce02e3946945e078ab2eca3aaf556121c03850dbaab6f49557f766911a06a3fb3a1db705274a5786#workspace:cli/cli-ui-stack-trace-component", "workspace:cli/cli-ui-stack-trace-component"]],\
       ["@monstrs/cli-ui-typescript-diagnostic-component", ["virtual:84cc809ab3e95c477581c0740c4e8e94087a756992d4cfa31045a766bfb47b89975ff65bcceef416ba90ce651413ccca39711c1ff35dca0c09600b74289c016e#workspace:cli/cli-ui-typescript-diagnostic-component", "workspace:cli/cli-ui-typescript-diagnostic-component"]],\
       ["@monstrs/code-commit", ["workspace:code/code-commit"]],\
       ["@monstrs/code-configuration", ["workspace:code/code-configuration"]],\
@@ -270,8 +245,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@monstrs/code-lint", ["virtual:b3aac7d36f7af0c5d7aa9d8dbcefb0289314e005eea77b3e1fe7d623c71b36c1cecef5e0fff43825eab16917825dd662ea07aebed40f9442b06886d489295dd8#workspace:code/code-lint", "workspace:code/code-lint"]],\
       ["@monstrs/code-lint-worker", ["workspace:code/code-lint-worker"]],\
       ["@monstrs/code-pack", ["workspace:code/code-pack"]],\
-      ["@monstrs/code-schematics", ["workspace:code/code-schematics"]],\
-      ["@monstrs/code-schematics-worker", ["workspace:code/code-schematics-worker"]],\
       ["@monstrs/code-service", ["workspace:code/code-service"]],\
       ["@monstrs/code-service-worker", ["workspace:code/code-service-worker"]],\
       ["@monstrs/code-test", ["virtual:69d3b9d60f876691646ebf707a456665593a6a98e47675268a0ede4753548a768abde878a11f99259e14e138a1b28bfa7667a1e752f93822817ce6bc97f0adc7#workspace:code/code-test", "workspace:code/code-test"]],\
@@ -285,8 +258,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@monstrs/config-typescript", ["workspace:config/typescript"]],\
       ["@monstrs/jest-resolver", ["workspace:jest/jest-resolver"]],\
       ["@monstrs/prettier-plugin", ["workspace:prettier/plugin"]],\
-      ["@monstrs/schematics", ["workspace:schematics/schematics"]],\
-      ["@monstrs/schematics-utils", ["workspace:schematics/schematics-utils"]],\
       ["@monstrs/webpack-localtunnel-plugin", ["workspace:webpack/webpack-localtunnel-plugin"]],\
       ["@monstrs/webpack-proto-imports-loader", ["workspace:webpack/webpack-proto-imports-loader"]],\
       ["@monstrs/webpack-start-server-plugin", ["workspace:webpack/webpack-start-server-plugin"]],\
@@ -301,7 +272,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@monstrs/yarn-plugin-image", ["virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-image", "workspace:yarn/plugin-image"]],\
       ["@monstrs/yarn-plugin-library", ["virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-library", "workspace:yarn/plugin-library"]],\
       ["@monstrs/yarn-plugin-lint", ["virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-lint", "workspace:yarn/plugin-lint"]],\
-      ["@monstrs/yarn-plugin-schematics", ["virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-schematics", "workspace:yarn/plugin-schematics"]],\
       ["@monstrs/yarn-plugin-service", ["virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-service", "workspace:yarn/plugin-service"]],\
       ["@monstrs/yarn-plugin-test", ["virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-test", "workspace:yarn/plugin-test"]],\
       ["@monstrs/yarn-plugin-typescript", ["virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-typescript", "workspace:yarn/plugin-typescript"]],\
@@ -318,13 +288,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
-            ["@angular-devkit/core", "virtual:d9b15c56344d8ac77de2f0bf09306680f7c8de88bd42bf1b064ded3f14c7723bdb9422d4a7b76da67e1bc2e65e9241eeebde6e252f9ac9293d000874b4c8d8b8#npm:15.2.5"],\
-            ["@angular-devkit/schematics", "npm:15.2.5"],\
             ["@jest/core", "virtual:93762f395d50e2410536eefd1c9656e618c9e599e2d023ef5341f0dd44b7c10b9c8541440da9da71a8fae8443bde146c84aabb5f6bc6020be89f6fe1913af10c#npm:29.5.0"],\
             ["@monstrs/code-service", "workspace:code/code-service"],\
             ["@monstrs/config-eslint", "workspace:config/eslint"],\
             ["@monstrs/config-jest", "workspace:config/jest"],\
-            ["@monstrs/schematics", "workspace:schematics/schematics"],\
             ["@types/eslint", "npm:8.37.0"],\
             ["@types/node", "npm:18.15.11"],\
             ["@yarnpkg/builder", "npm:3.2.7"],\
@@ -533,46 +500,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@ampproject/remapping", "npm:2.2.0"],\
             ["@jridgewell/gen-mapping", "npm:0.1.1"],\
             ["@jridgewell/trace-mapping", "npm:0.3.17"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@angular-devkit/core", [\
-        ["npm:15.2.5", {\
-          "packageLocation": "./.yarn/cache/@angular-devkit-core-npm-15.2.5-02ed626706-4f44e190ba.zip/node_modules/@angular-devkit/core/",\
-          "packageDependencies": [\
-            ["@angular-devkit/core", "npm:15.2.5"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:d9b15c56344d8ac77de2f0bf09306680f7c8de88bd42bf1b064ded3f14c7723bdb9422d4a7b76da67e1bc2e65e9241eeebde6e252f9ac9293d000874b4c8d8b8#npm:15.2.5", {\
-          "packageLocation": "./.yarn/__virtual__/@angular-devkit-core-virtual-d250701da9/0/cache/@angular-devkit-core-npm-15.2.5-02ed626706-4f44e190ba.zip/node_modules/@angular-devkit/core/",\
-          "packageDependencies": [\
-            ["@angular-devkit/core", "virtual:d9b15c56344d8ac77de2f0bf09306680f7c8de88bd42bf1b064ded3f14c7723bdb9422d4a7b76da67e1bc2e65e9241eeebde6e252f9ac9293d000874b4c8d8b8#npm:15.2.5"],\
-            ["@types/chokidar", null],\
-            ["ajv", "npm:8.12.0"],\
-            ["ajv-formats", "virtual:d250701da992d18e3902e7ff0be97c5f1802c6a27e0c17858e5b67d01dd9f233f684256972db57a543277a6cb67bcdb711703406f2a4ca3b1d414f6b81b11d42#npm:2.1.1"],\
-            ["chokidar", "npm:3.5.2"],\
-            ["jsonc-parser", "npm:3.2.0"],\
-            ["rxjs", "npm:6.6.7"],\
-            ["source-map", "npm:0.7.4"]\
-          ],\
-          "packagePeers": [\
-            "@types/chokidar"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@angular-devkit/schematics", [\
-        ["npm:15.2.5", {\
-          "packageLocation": "./.yarn/cache/@angular-devkit-schematics-npm-15.2.5-d9b15c5634-dc03136799.zip/node_modules/@angular-devkit/schematics/",\
-          "packageDependencies": [\
-            ["@angular-devkit/schematics", "npm:15.2.5"],\
-            ["@angular-devkit/core", "virtual:d9b15c56344d8ac77de2f0bf09306680f7c8de88bd42bf1b064ded3f14c7723bdb9422d4a7b76da67e1bc2e65e9241eeebde6e252f9ac9293d000874b4c8d8b8#npm:15.2.5"],\
-            ["jsonc-parser", "npm:3.2.0"],\
-            ["magic-string", "npm:0.29.0"],\
-            ["ora", "npm:5.4.1"],\
-            ["rxjs", "npm:6.6.7"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -2306,24 +2233,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@monstrs/cli-ui-error-info-component", [\
-        ["virtual:28e3ed17dcd2ed76e528a9b3b405093af421bb02d64e864abd5498430209f3a381a0927af8b803b4c29288b7c7f46b48c3d605b0b01a55f23335e4670dfe551d#workspace:cli/cli-ui-error-info-component", {\
-          "packageLocation": "./.yarn/__virtual__/@monstrs-cli-ui-error-info-component-virtual-2add2267e8/1/cli/cli-ui-error-info-component/",\
-          "packageDependencies": [\
-            ["@monstrs/cli-ui-error-info-component", "virtual:28e3ed17dcd2ed76e528a9b3b405093af421bb02d64e864abd5498430209f3a381a0927af8b803b4c29288b7c7f46b48c3d605b0b01a55f23335e4670dfe551d#workspace:cli/cli-ui-error-info-component"],\
-            ["@monstrs/cli-ui-stack-trace-component", "virtual:2add2267e86f8fe594f717091cb29255617d85cdc78bcf8852af8ad01ba8dcdb499912f3851e0193029f5850d211e3836d48fce42f182cd400cbabdedaca0990#workspace:cli/cli-ui-stack-trace-component"],\
-            ["@types/ink", null],\
-            ["@types/node", "npm:18.15.11"],\
-            ["@types/react", "npm:18.0.33"],\
-            ["ink", "virtual:2de6196846b61deb07658513ba2a1bf57d04c14e5cbcbbca60d92f6aaec8ddd5290c53390361cc0f703600dd0ad6da83b9151a0868597214482e2d3db303c9ef#npm:3.2.0"],\
-            ["react", "npm:18.2.0"]\
-          ],\
-          "packagePeers": [\
-            "@types/ink",\
-            "ink",\
-            "react"\
-          ],\
-          "linkType": "SOFT"\
-        }],\
         ["virtual:44e1a101bd192c959a8a8b727c7f7d7852845c36d68b15e561d3419e6534ac05bdaf94cb6725106198bfdfd6466a52d13581ac5c3c6dc6ed2a751f5ca1a7d2ec#workspace:cli/cli-ui-error-info-component", {\
           "packageLocation": "./.yarn/__virtual__/@monstrs-cli-ui-error-info-component-virtual-60b4fbf737/1/cli/cli-ui-error-info-component/",\
           "packageDependencies": [\
@@ -2540,53 +2449,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT"\
         }]\
       ]],\
-      ["@monstrs/cli-ui-schematics-component", [\
-        ["virtual:28e3ed17dcd2ed76e528a9b3b405093af421bb02d64e864abd5498430209f3a381a0927af8b803b4c29288b7c7f46b48c3d605b0b01a55f23335e4670dfe551d#workspace:cli/cli-ui-schematics-component", {\
-          "packageLocation": "./.yarn/__virtual__/@monstrs-cli-ui-schematics-component-virtual-90f3ee42f5/1/cli/cli-ui-schematics-component/",\
-          "packageDependencies": [\
-            ["@monstrs/cli-ui-schematics-component", "virtual:28e3ed17dcd2ed76e528a9b3b405093af421bb02d64e864abd5498430209f3a381a0927af8b803b4c29288b7c7f46b48c3d605b0b01a55f23335e4670dfe551d#workspace:cli/cli-ui-schematics-component"],\
-            ["@monstrs/cli-ui-parts", "workspace:cli/cli-ui-parts"],\
-            ["@monstrs/schematics", "workspace:schematics/schematics"],\
-            ["@types/ink", null],\
-            ["@types/node", "npm:18.15.11"],\
-            ["@types/react", "npm:18.0.33"],\
-            ["@yarnpkg/libui", "virtual:2e17cdc88ac68748718045a10e568c7e6d5b535e8e0980953f6e010490fb06c90491e6c912765dc7f092aa444b8517ea0d6645dcc783b0afc54446964a99f89c#patch:@yarnpkg/libui@npm%3A2.2.2#./.yarn/patches/@yarnpkg-libui-npm-2.2.2-e780854c67.patch::version=2.2.2&hash=0be52c&locator=tools%40workspace%3A."],\
-            ["camelcase", "npm:7.0.1"],\
-            ["figures", "npm:5.0.0"],\
-            ["ink", "virtual:2de6196846b61deb07658513ba2a1bf57d04c14e5cbcbbca60d92f6aaec8ddd5290c53390361cc0f703600dd0ad6da83b9151a0868597214482e2d3db303c9ef#npm:3.2.0"],\
-            ["ink-autocomplete", "npm:0.0.0"],\
-            ["ink-multi-select", "npm:2.0.0"],\
-            ["ink-select-input", "virtual:2e17cdc88ac68748718045a10e568c7e6d5b535e8e0980953f6e010490fb06c90491e6c912765dc7f092aa444b8517ea0d6645dcc783b0afc54446964a99f89c#npm:4.2.2"],\
-            ["ink-text-input", "virtual:2e17cdc88ac68748718045a10e568c7e6d5b535e8e0980953f6e010490fb06c90491e6c912765dc7f092aa444b8517ea0d6645dcc783b0afc54446964a99f89c#npm:4.0.3"],\
-            ["react", "npm:18.2.0"]\
-          ],\
-          "packagePeers": [\
-            "@types/ink",\
-            "ink",\
-            "react"\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["workspace:cli/cli-ui-schematics-component", {\
-          "packageLocation": "./cli/cli-ui-schematics-component/",\
-          "packageDependencies": [\
-            ["@monstrs/cli-ui-schematics-component", "workspace:cli/cli-ui-schematics-component"],\
-            ["@monstrs/cli-ui-parts", "workspace:cli/cli-ui-parts"],\
-            ["@monstrs/schematics", "workspace:schematics/schematics"],\
-            ["@types/node", "npm:18.15.11"],\
-            ["@types/react", "npm:18.0.33"],\
-            ["@yarnpkg/libui", "virtual:6e9d30939f73f06f898b6cd44d7f364c90a26f8ffe9d53004ee7d76023a66ae5cf5a92567785e938a09b3a2fc336f6e405ad8b685828e9655dfa44e095c57608#patch:@yarnpkg/libui@npm%3A2.2.2#./.yarn/patches/@yarnpkg-libui-npm-2.2.2-e780854c67.patch::version=2.2.2&hash=0be52c&locator=tools%40workspace%3A."],\
-            ["camelcase", "npm:7.0.1"],\
-            ["figures", "npm:5.0.0"],\
-            ["ink", "virtual:6e9d30939f73f06f898b6cd44d7f364c90a26f8ffe9d53004ee7d76023a66ae5cf5a92567785e938a09b3a2fc336f6e405ad8b685828e9655dfa44e095c57608#npm:3.2.0"],\
-            ["ink-autocomplete", "npm:0.0.0"],\
-            ["ink-multi-select", "npm:2.0.0"],\
-            ["ink-select-input", "virtual:6e9d30939f73f06f898b6cd44d7f364c90a26f8ffe9d53004ee7d76023a66ae5cf5a92567785e938a09b3a2fc336f6e405ad8b685828e9655dfa44e095c57608#npm:4.2.2"],\
-            ["ink-text-input", "virtual:6e9d30939f73f06f898b6cd44d7f364c90a26f8ffe9d53004ee7d76023a66ae5cf5a92567785e938a09b3a2fc336f6e405ad8b685828e9655dfa44e095c57608#npm:4.0.3"]\
-          ],\
-          "linkType": "SOFT"\
-        }]\
-      ]],\
       ["@monstrs/cli-ui-source-component", [\
         ["virtual:0b5c5b5f4acfe6c6d7a7cf91accd44ebee509790b96c81fa76d2724d96cceb1a9b2c93765b5072898defa5dfdf20143bf2d406f7561ce291e93460e4812a7247#workspace:cli/cli-ui-source-component", {\
           "packageLocation": "./.yarn/__virtual__/@monstrs-cli-ui-source-component-virtual-b7fc6fabd5/1/cli/cli-ui-source-component/",\
@@ -2598,27 +2460,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:18.15.11"],\
             ["@types/react", "npm:18.0.33"],\
             ["ink", "virtual:11bd5af2a80ab93c290d16e253fd5eda25f6c23efed18026ce02e3946945e078ab2eca3aaf556121c03850dbaab6f49557f766911a06a3fb3a1db705274a5786#npm:3.2.0"],\
-            ["react", "npm:18.2.0"],\
-            ["supports-color", "npm:9.3.1"]\
-          ],\
-          "packagePeers": [\
-            "@types/ink",\
-            "@types/react",\
-            "ink",\
-            "react"\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:3307ad2937d34eeeb6c24f7d30213727ee0bc936b464a86a3ef632a0f607e8572aa460a5be55e068a6cb53c750ce7359f0797ec3e9e5efc985f967f05a9c9006#workspace:cli/cli-ui-source-component", {\
-          "packageLocation": "./.yarn/__virtual__/@monstrs-cli-ui-source-component-virtual-297eb9832a/1/cli/cli-ui-source-component/",\
-          "packageDependencies": [\
-            ["@monstrs/cli-ui-source-component", "virtual:3307ad2937d34eeeb6c24f7d30213727ee0bc936b464a86a3ef632a0f607e8572aa460a5be55e068a6cb53c750ce7359f0797ec3e9e5efc985f967f05a9c9006#workspace:cli/cli-ui-source-component"],\
-            ["@babel/code-frame", "npm:7.21.4"],\
-            ["@types/babel__code-frame", "npm:7.0.3"],\
-            ["@types/ink", null],\
-            ["@types/node", "npm:18.15.11"],\
-            ["@types/react", "npm:18.0.33"],\
-            ["ink", "virtual:2de6196846b61deb07658513ba2a1bf57d04c14e5cbcbbca60d92f6aaec8ddd5290c53390361cc0f703600dd0ad6da83b9151a0868597214482e2d3db303c9ef#npm:3.2.0"],\
             ["react", "npm:18.2.0"],\
             ["supports-color", "npm:9.3.1"]\
           ],\
@@ -2656,28 +2497,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/ink", null],\
             ["@types/react", "npm:18.0.33"],\
             ["ink", "virtual:11bd5af2a80ab93c290d16e253fd5eda25f6c23efed18026ce02e3946945e078ab2eca3aaf556121c03850dbaab6f49557f766911a06a3fb3a1db705274a5786#npm:3.2.0"],\
-            ["react", "npm:18.2.0"],\
-            ["strip-ansi", "npm:7.0.1"]\
-          ],\
-          "packagePeers": [\
-            "@types/ink",\
-            "@types/react",\
-            "ink",\
-            "react"\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:2add2267e86f8fe594f717091cb29255617d85cdc78bcf8852af8ad01ba8dcdb499912f3851e0193029f5850d211e3836d48fce42f182cd400cbabdedaca0990#workspace:cli/cli-ui-stack-trace-component", {\
-          "packageLocation": "./.yarn/__virtual__/@monstrs-cli-ui-stack-trace-component-virtual-3307ad2937/1/cli/cli-ui-stack-trace-component/",\
-          "packageDependencies": [\
-            ["@monstrs/cli-ui-stack-trace-component", "virtual:2add2267e86f8fe594f717091cb29255617d85cdc78bcf8852af8ad01ba8dcdb499912f3851e0193029f5850d211e3836d48fce42f182cd400cbabdedaca0990#workspace:cli/cli-ui-stack-trace-component"],\
-            ["@jest/globals", "npm:29.5.0"],\
-            ["@monstrs/cli-ui-renderer", "workspace:cli/cli-ui-renderer"],\
-            ["@monstrs/cli-ui-source-component", "virtual:3307ad2937d34eeeb6c24f7d30213727ee0bc936b464a86a3ef632a0f607e8572aa460a5be55e068a6cb53c750ce7359f0797ec3e9e5efc985f967f05a9c9006#workspace:cli/cli-ui-source-component"],\
-            ["@monstrs/stack-trace", "npm:0.0.4"],\
-            ["@types/ink", null],\
-            ["@types/react", "npm:18.0.33"],\
-            ["ink", "virtual:2de6196846b61deb07658513ba2a1bf57d04c14e5cbcbbca60d92f6aaec8ddd5290c53390361cc0f703600dd0ad6da83b9151a0868597214482e2d3db303c9ef#npm:3.2.0"],\
             ["react", "npm:18.2.0"],\
             ["strip-ansi", "npm:7.0.1"]\
           ],\
@@ -2878,41 +2697,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT"\
         }]\
       ]],\
-      ["@monstrs/code-schematics", [\
-        ["workspace:code/code-schematics", {\
-          "packageLocation": "./code/code-schematics/",\
-          "packageDependencies": [\
-            ["@monstrs/code-schematics", "workspace:code/code-schematics"],\
-            ["@angular-devkit/core", "virtual:d9b15c56344d8ac77de2f0bf09306680f7c8de88bd42bf1b064ded3f14c7723bdb9422d4a7b76da67e1bc2e65e9241eeebde6e252f9ac9293d000874b4c8d8b8#npm:15.2.5"],\
-            ["@angular-devkit/schematics", "npm:15.2.5"],\
-            ["rxjs", "npm:7.8.0"]\
-          ],\
-          "linkType": "SOFT"\
-        }]\
-      ]],\
-      ["@monstrs/code-schematics-worker", [\
-        ["workspace:code/code-schematics-worker", {\
-          "packageLocation": "./code/code-schematics-worker/",\
-          "packageDependencies": [\
-            ["@monstrs/code-schematics-worker", "workspace:code/code-schematics-worker"],\
-            ["@angular-devkit/schematics", "npm:15.2.5"],\
-            ["@monstrs/code-schematics", "workspace:code/code-schematics"],\
-            ["@monstrs/code-worker-utils", "workspace:code/code-worker-utils"],\
-            ["@rollup/plugin-commonjs", "virtual:16c6894e71735c8ce85e88fdf2c39a69fd95d1318c61281c78f523ed65a0c4f3080b557bb22e7eedc993af5a969d2f37377c836ed4a7d514845d5d9f9777f4cb#npm:24.0.1"],\
-            ["@rollup/plugin-json", "virtual:16c6894e71735c8ce85e88fdf2c39a69fd95d1318c61281c78f523ed65a0c4f3080b557bb22e7eedc993af5a969d2f37377c836ed4a7d514845d5d9f9777f4cb#npm:6.0.0"],\
-            ["@rollup/plugin-node-resolve", "virtual:16c6894e71735c8ce85e88fdf2c39a69fd95d1318c61281c78f523ed65a0c4f3080b557bb22e7eedc993af5a969d2f37377c836ed4a7d514845d5d9f9777f4cb#npm:15.0.2"],\
-            ["@rollup/plugin-replace", "virtual:4ca0dd7e463ec0a0fbd64c6d29d549120ae9990afcaf2fcd436ce0fa8cc2f9238e7fe4d0b6b9dcfa5fb510d7ed64e70f8308cd0e7ad167547b6dd7e8dec41321#npm:5.0.2"],\
-            ["@types/node", "npm:18.15.11"],\
-            ["builtin-modules", "npm:3.3.0"],\
-            ["esbuild", "npm:0.17.15"],\
-            ["rollup", "npm:3.20.2"],\
-            ["rollup-plugin-esbuild", "virtual:16c6894e71735c8ce85e88fdf2c39a69fd95d1318c61281c78f523ed65a0c4f3080b557bb22e7eedc993af5a969d2f37377c836ed4a7d514845d5d9f9777f4cb#npm:5.0.0"],\
-            ["rollup-plugin-terser", "virtual:16c6894e71735c8ce85e88fdf2c39a69fd95d1318c61281c78f523ed65a0c4f3080b557bb22e7eedc993af5a969d2f37377c836ed4a7d514845d5d9f9777f4cb#npm:7.0.2"],\
-            ["rxjs", "npm:7.8.0"]\
-          ],\
-          "linkType": "SOFT"\
-        }]\
-      ]],\
       ["@monstrs/code-service", [\
         ["workspace:code/code-service", {\
           "packageLocation": "./code/code-service/",\
@@ -2952,7 +2736,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@rollup/plugin-commonjs", "virtual:16c6894e71735c8ce85e88fdf2c39a69fd95d1318c61281c78f523ed65a0c4f3080b557bb22e7eedc993af5a969d2f37377c836ed4a7d514845d5d9f9777f4cb#npm:24.0.1"],\
             ["@rollup/plugin-json", "virtual:16c6894e71735c8ce85e88fdf2c39a69fd95d1318c61281c78f523ed65a0c4f3080b557bb22e7eedc993af5a969d2f37377c836ed4a7d514845d5d9f9777f4cb#npm:6.0.0"],\
             ["@rollup/plugin-node-resolve", "virtual:16c6894e71735c8ce85e88fdf2c39a69fd95d1318c61281c78f523ed65a0c4f3080b557bb22e7eedc993af5a969d2f37377c836ed4a7d514845d5d9f9777f4cb#npm:15.0.2"],\
-            ["@rollup/plugin-replace", "virtual:4ca0dd7e463ec0a0fbd64c6d29d549120ae9990afcaf2fcd436ce0fa8cc2f9238e7fe4d0b6b9dcfa5fb510d7ed64e70f8308cd0e7ad167547b6dd7e8dec41321#npm:5.0.2"],\
+            ["@rollup/plugin-replace", "virtual:51fa9f0eae0eba6cde02e159057d04c108cf4a67253dd74ad57baab231a3591227c0bfe3496e94dcb8e25d3fb0f633d5173394d5a6500fb619215e64d03f9597#npm:5.0.2"],\
             ["@types/node", "npm:18.15.11"],\
             ["esbuild", "npm:0.17.15"],\
             ["rollup", "npm:3.20.2"],\
@@ -3153,40 +2937,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT"\
         }]\
       ]],\
-      ["@monstrs/schematics", [\
-        ["workspace:schematics/schematics", {\
-          "packageLocation": "./schematics/schematics/",\
-          "packageDependencies": [\
-            ["@monstrs/schematics", "workspace:schematics/schematics"],\
-            ["@angular-devkit/core", "virtual:d9b15c56344d8ac77de2f0bf09306680f7c8de88bd42bf1b064ded3f14c7723bdb9422d4a7b76da67e1bc2e65e9241eeebde6e252f9ac9293d000874b4c8d8b8#npm:15.2.5"],\
-            ["@angular-devkit/schematics", "npm:15.2.5"],\
-            ["@jest/globals", "npm:29.5.0"],\
-            ["@monstrs/config-typescript", "workspace:config/typescript"],\
-            ["@monstrs/schematics-utils", "workspace:schematics/schematics-utils"],\
-            ["@types/node", "npm:18.15.11"],\
-            ["copy-dir", "npm:1.3.0"],\
-            ["globby", "npm:11.0.3"]\
-          ],\
-          "linkType": "SOFT"\
-        }]\
-      ]],\
-      ["@monstrs/schematics-utils", [\
-        ["workspace:schematics/schematics-utils", {\
-          "packageLocation": "./schematics/schematics-utils/",\
-          "packageDependencies": [\
-            ["@monstrs/schematics-utils", "workspace:schematics/schematics-utils"],\
-            ["@angular-devkit/core", "virtual:d9b15c56344d8ac77de2f0bf09306680f7c8de88bd42bf1b064ded3f14c7723bdb9422d4a7b76da67e1bc2e65e9241eeebde6e252f9ac9293d000874b4c8d8b8#npm:15.2.5"],\
-            ["@angular-devkit/schematics", "npm:15.2.5"],\
-            ["@types/node", "npm:18.15.11"],\
-            ["js-yaml", "npm:4.1.0"],\
-            ["rimraf", "npm:4.4.1"],\
-            ["semver", "npm:7.3.8"],\
-            ["strip-json-comments", "npm:5.0.0"],\
-            ["typescript", "patch:typescript@npm%3A5.0.3#~builtin<compat/typescript>::version=5.0.3&hash=85af82"]\
-          ],\
-          "linkType": "SOFT"\
-        }]\
-      ]],\
       ["@monstrs/stack-trace", [\
         ["npm:0.0.4", {\
           "packageLocation": "./.yarn/cache/@monstrs-stack-trace-npm-0.0.4-ddea7f29ab-534753201a.zip/node_modules/@monstrs/stack-trace/",\
@@ -3272,7 +3022,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@monstrs/yarn-plugin-image", "virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-image"],\
             ["@monstrs/yarn-plugin-library", "virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-library"],\
             ["@monstrs/yarn-plugin-lint", "virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-lint"],\
-            ["@monstrs/yarn-plugin-schematics", "virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-schematics"],\
             ["@monstrs/yarn-plugin-service", "virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-service"],\
             ["@monstrs/yarn-plugin-test", "virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-test"],\
             ["@monstrs/yarn-plugin-typescript", "virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-typescript"],\
@@ -3325,7 +3074,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@monstrs/yarn-plugin-image", "virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-image"],\
             ["@monstrs/yarn-plugin-library", "virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-library"],\
             ["@monstrs/yarn-plugin-lint", "virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-lint"],\
-            ["@monstrs/yarn-plugin-schematics", "virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-schematics"],\
             ["@monstrs/yarn-plugin-service", "virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-service"],\
             ["@monstrs/yarn-plugin-test", "virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-test"],\
             ["@monstrs/yarn-plugin-typescript", "virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-typescript"],\
@@ -3778,77 +3526,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@yarnpkg/fslib", "npm:2.10.2"],\
             ["clipanion", "virtual:f9a3b1e86d96b9e7107e68a17ff001b6f2c90f7ecb592f4954f684bc4fc949ce6368a5139cd27d4e5f680ed1e0b72b3b09009e12489b5038877c4d1eee907a01#npm:3.2.0-rc.6"],\
             ["react", "npm:18.2.0"],\
-            ["typescript", "patch:typescript@npm%3A5.0.3#~builtin<compat/typescript>::version=5.0.3&hash=85af82"]\
-          ],\
-          "linkType": "SOFT"\
-        }]\
-      ]],\
-      ["@monstrs/yarn-plugin-schematics", [\
-        ["virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-schematics", {\
-          "packageLocation": "./.yarn/__virtual__/@monstrs-yarn-plugin-schematics-virtual-28e3ed17dc/1/yarn/plugin-schematics/",\
-          "packageDependencies": [\
-            ["@monstrs/yarn-plugin-schematics", "virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-schematics"],\
-            ["@jest/globals", "npm:29.5.0"],\
-            ["@monstrs/cli-ui-error-info-component", "virtual:28e3ed17dcd2ed76e528a9b3b405093af421bb02d64e864abd5498430209f3a381a0927af8b803b4c29288b7c7f46b48c3d605b0b01a55f23335e4670dfe551d#workspace:cli/cli-ui-error-info-component"],\
-            ["@monstrs/cli-ui-parts", "workspace:cli/cli-ui-parts"],\
-            ["@monstrs/cli-ui-renderer", "workspace:cli/cli-ui-renderer"],\
-            ["@monstrs/cli-ui-schematics-component", "virtual:28e3ed17dcd2ed76e528a9b3b405093af421bb02d64e864abd5498430209f3a381a0927af8b803b4c29288b7c7f46b48c3d605b0b01a55f23335e4670dfe551d#workspace:cli/cli-ui-schematics-component"],\
-            ["@monstrs/code-schematics-worker", "workspace:code/code-schematics-worker"],\
-            ["@monstrs/schematics", "workspace:schematics/schematics"],\
-            ["@monstrs/yarn-run-utils", "workspace:yarn/run-utils"],\
-            ["@monstrs/yarn-test-utils", "workspace:yarn/test-utils"],\
-            ["@types/ink", null],\
-            ["@types/react", null],\
-            ["@types/yarnpkg__cli", null],\
-            ["@types/yarnpkg__core", null],\
-            ["@types/yarnpkg__fslib", null],\
-            ["@yarnpkg/builder", "npm:3.2.7"],\
-            ["@yarnpkg/cli", "virtual:5ae41ee3cd3458f3cf40ce517387f15a09242f6f1330942b6a2e07d7e31df094e8debca5d9583d5aee61c7f6b6500e26684e57f8a8bbcb4f2def07322b63d5b8#npm:3.5.0"],\
-            ["@yarnpkg/core", "patch:@yarnpkg/core@npm%3A3.5.0#./.yarn/patches/@yarnpkg-core-npm-3.5.0-6ad940becd.patch::version=3.5.0&hash=616bd3&locator=tools%40workspace%3A."],\
-            ["@yarnpkg/fslib", "npm:2.10.2"],\
-            ["@yarnpkg/libui", "virtual:42979c25e88790e6b9ef44835079075516683495c963e3a0883c499e4417f3013ee77d48228ea4005e7bb48c8c737415a8ec89ee354700467a10046d01a869d9#patch:@yarnpkg/libui@npm%3A2.2.2#./.yarn/patches/@yarnpkg-libui-npm-2.2.2-e780854c67.patch::version=2.2.2&hash=0be52c&locator=tools%40workspace%3A."],\
-            ["clipanion", "virtual:f9a3b1e86d96b9e7107e68a17ff001b6f2c90f7ecb592f4954f684bc4fc949ce6368a5139cd27d4e5f680ed1e0b72b3b09009e12489b5038877c4d1eee907a01#npm:3.2.0-rc.6"],\
-            ["force-stdin-tty", "npm:0.0.1"],\
-            ["ink", "virtual:2de6196846b61deb07658513ba2a1bf57d04c14e5cbcbbca60d92f6aaec8ddd5290c53390361cc0f703600dd0ad6da83b9151a0868597214482e2d3db303c9ef#npm:3.2.0"],\
-            ["react", "npm:18.2.0"],\
-            ["typanion", "npm:3.12.1"],\
-            ["typescript", "patch:typescript@npm%3A5.0.3#~builtin<compat/typescript>::version=5.0.3&hash=85af82"]\
-          ],\
-          "packagePeers": [\
-            "@types/ink",\
-            "@types/react",\
-            "@types/yarnpkg__cli",\
-            "@types/yarnpkg__core",\
-            "@types/yarnpkg__fslib",\
-            "@yarnpkg/cli",\
-            "@yarnpkg/core",\
-            "@yarnpkg/fslib"\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["workspace:yarn/plugin-schematics", {\
-          "packageLocation": "./yarn/plugin-schematics/",\
-          "packageDependencies": [\
-            ["@monstrs/yarn-plugin-schematics", "workspace:yarn/plugin-schematics"],\
-            ["@jest/globals", "npm:29.5.0"],\
-            ["@monstrs/cli-ui-error-info-component", "virtual:28e3ed17dcd2ed76e528a9b3b405093af421bb02d64e864abd5498430209f3a381a0927af8b803b4c29288b7c7f46b48c3d605b0b01a55f23335e4670dfe551d#workspace:cli/cli-ui-error-info-component"],\
-            ["@monstrs/cli-ui-parts", "workspace:cli/cli-ui-parts"],\
-            ["@monstrs/cli-ui-renderer", "workspace:cli/cli-ui-renderer"],\
-            ["@monstrs/cli-ui-schematics-component", "virtual:28e3ed17dcd2ed76e528a9b3b405093af421bb02d64e864abd5498430209f3a381a0927af8b803b4c29288b7c7f46b48c3d605b0b01a55f23335e4670dfe551d#workspace:cli/cli-ui-schematics-component"],\
-            ["@monstrs/code-schematics-worker", "workspace:code/code-schematics-worker"],\
-            ["@monstrs/schematics", "workspace:schematics/schematics"],\
-            ["@monstrs/yarn-run-utils", "workspace:yarn/run-utils"],\
-            ["@monstrs/yarn-test-utils", "workspace:yarn/test-utils"],\
-            ["@yarnpkg/builder", "npm:3.2.7"],\
-            ["@yarnpkg/cli", "virtual:5ae41ee3cd3458f3cf40ce517387f15a09242f6f1330942b6a2e07d7e31df094e8debca5d9583d5aee61c7f6b6500e26684e57f8a8bbcb4f2def07322b63d5b8#npm:3.5.0"],\
-            ["@yarnpkg/core", "patch:@yarnpkg/core@npm%3A3.5.0#./.yarn/patches/@yarnpkg-core-npm-3.5.0-6ad940becd.patch::version=3.5.0&hash=616bd3&locator=tools%40workspace%3A."],\
-            ["@yarnpkg/fslib", "npm:2.10.2"],\
-            ["@yarnpkg/libui", "virtual:42979c25e88790e6b9ef44835079075516683495c963e3a0883c499e4417f3013ee77d48228ea4005e7bb48c8c737415a8ec89ee354700467a10046d01a869d9#patch:@yarnpkg/libui@npm%3A2.2.2#./.yarn/patches/@yarnpkg-libui-npm-2.2.2-e780854c67.patch::version=2.2.2&hash=0be52c&locator=tools%40workspace%3A."],\
-            ["clipanion", "virtual:f9a3b1e86d96b9e7107e68a17ff001b6f2c90f7ecb592f4954f684bc4fc949ce6368a5139cd27d4e5f680ed1e0b72b3b09009e12489b5038877c4d1eee907a01#npm:3.2.0-rc.6"],\
-            ["force-stdin-tty", "npm:0.0.1"],\
-            ["ink", "virtual:2de6196846b61deb07658513ba2a1bf57d04c14e5cbcbbca60d92f6aaec8ddd5290c53390361cc0f703600dd0ad6da83b9151a0868597214482e2d3db303c9ef#npm:3.2.0"],\
-            ["react", "npm:18.2.0"],\
-            ["typanion", "npm:3.12.1"],\
             ["typescript", "patch:typescript@npm%3A5.0.3#~builtin<compat/typescript>::version=5.0.3&hash=85af82"]\
           ],\
           "linkType": "SOFT"\
@@ -4359,10 +4036,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:4ca0dd7e463ec0a0fbd64c6d29d549120ae9990afcaf2fcd436ce0fa8cc2f9238e7fe4d0b6b9dcfa5fb510d7ed64e70f8308cd0e7ad167547b6dd7e8dec41321#npm:5.0.2", {\
-          "packageLocation": "./.yarn/__virtual__/@rollup-plugin-replace-virtual-ee13cceaf2/0/cache/@rollup-plugin-replace-npm-5.0.2-4ec60fa184-3a91b5fa2c.zip/node_modules/@rollup/plugin-replace/",\
+        ["virtual:51fa9f0eae0eba6cde02e159057d04c108cf4a67253dd74ad57baab231a3591227c0bfe3496e94dcb8e25d3fb0f633d5173394d5a6500fb619215e64d03f9597#npm:5.0.2", {\
+          "packageLocation": "./.yarn/__virtual__/@rollup-plugin-replace-virtual-b12cb33fd7/0/cache/@rollup-plugin-replace-npm-5.0.2-4ec60fa184-3a91b5fa2c.zip/node_modules/@rollup/plugin-replace/",\
           "packageDependencies": [\
-            ["@rollup/plugin-replace", "virtual:4ca0dd7e463ec0a0fbd64c6d29d549120ae9990afcaf2fcd436ce0fa8cc2f9238e7fe4d0b6b9dcfa5fb510d7ed64e70f8308cd0e7ad167547b6dd7e8dec41321#npm:5.0.2"],\
+            ["@rollup/plugin-replace", "virtual:51fa9f0eae0eba6cde02e159057d04c108cf4a67253dd74ad57baab231a3591227c0bfe3496e94dcb8e25d3fb0f633d5173394d5a6500fb619215e64d03f9597#npm:5.0.2"],\
             ["@rollup/pluginutils", "virtual:07dd28eae7ead00896fd176b0dd64a99d9f8d62208056c3806aa5d371276c6aa41aff1a78f6aab3f278bff8a60c993c0df7280d252ed2cc4565af69ca80352ef#npm:5.0.2"],\
             ["@types/rollup", null],\
             ["magic-string", "npm:0.27.0"],\
@@ -6670,28 +6347,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
-      ["ajv-formats", [\
-        ["npm:2.1.1", {\
-          "packageLocation": "./.yarn/cache/ajv-formats-npm-2.1.1-3cec02eae9-4a287d937f.zip/node_modules/ajv-formats/",\
-          "packageDependencies": [\
-            ["ajv-formats", "npm:2.1.1"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:d250701da992d18e3902e7ff0be97c5f1802c6a27e0c17858e5b67d01dd9f233f684256972db57a543277a6cb67bcdb711703406f2a4ca3b1d414f6b81b11d42#npm:2.1.1", {\
-          "packageLocation": "./.yarn/__virtual__/ajv-formats-virtual-2d1f0933e5/0/cache/ajv-formats-npm-2.1.1-3cec02eae9-4a287d937f.zip/node_modules/ajv-formats/",\
-          "packageDependencies": [\
-            ["ajv-formats", "virtual:d250701da992d18e3902e7ff0be97c5f1802c6a27e0c17858e5b67d01dd9f233f684256972db57a543277a6cb67bcdb711703406f2a4ca3b1d414f6b81b11d42#npm:2.1.1"],\
-            ["@types/ajv", null],\
-            ["ajv", "npm:8.12.0"]\
-          ],\
-          "packagePeers": [\
-            "@types/ajv",\
-            "ajv"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
       ["ajv-keywords", [\
         ["npm:3.5.2", {\
           "packageLocation": "./.yarn/cache/ajv-keywords-npm-3.5.2-0e391b70e2-7dc5e59316.zip/node_modules/ajv-keywords/",\
@@ -8589,15 +8244,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/copy-descriptor-npm-0.1.1-864db4ab66-d4b7b57b14.zip/node_modules/copy-descriptor/",\
           "packageDependencies": [\
             ["copy-descriptor", "npm:0.1.1"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["copy-dir", [\
-        ["npm:1.3.0", {\
-          "packageLocation": "./.yarn/cache/copy-dir-npm-1.3.0-04bd189206-92779cd699.zip/node_modules/copy-dir/",\
-          "packageDependencies": [\
-            ["copy-dir", "npm:1.3.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -14033,14 +13679,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@jridgewell/sourcemap-codec", "npm:1.4.14"]\
           ],\
           "linkType": "HARD"\
-        }],\
-        ["npm:0.29.0", {\
-          "packageLocation": "./.yarn/cache/magic-string-npm-0.29.0-44647222af-19e5398fcf.zip/node_modules/magic-string/",\
-          "packageDependencies": [\
-            ["magic-string", "npm:0.29.0"],\
-            ["@jridgewell/sourcemap-codec", "npm:1.4.14"]\
-          ],\
-          "linkType": "HARD"\
         }]\
       ]],\
       ["make-dir", [\
@@ -16657,14 +16295,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["rxjs", [\
-        ["npm:6.6.7", {\
-          "packageLocation": "./.yarn/cache/rxjs-npm-6.6.7-055046ea3c-bc334edef1.zip/node_modules/rxjs/",\
-          "packageDependencies": [\
-            ["rxjs", "npm:6.6.7"],\
-            ["tslib", "npm:1.13.0"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:7.8.0", {\
           "packageLocation": "./.yarn/cache/rxjs-npm-7.8.0-722f1c7172-61b4d4fd32.zip/node_modules/rxjs/",\
           "packageDependencies": [\
@@ -17619,13 +17249,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["strip-json-comments", "npm:3.1.1"]\
           ],\
           "linkType": "HARD"\
-        }],\
-        ["npm:5.0.0", {\
-          "packageLocation": "./.yarn/cache/strip-json-comments-npm-5.0.0-8c82f56132-99cad07ccc.zip/node_modules/strip-json-comments/",\
-          "packageDependencies": [\
-            ["strip-json-comments", "npm:5.0.0"]\
-          ],\
-          "linkType": "HARD"\
         }]\
       ]],\
       ["stylis", [\
@@ -18087,13 +17710,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["tools", "workspace:."],\
-            ["@angular-devkit/core", "virtual:d9b15c56344d8ac77de2f0bf09306680f7c8de88bd42bf1b064ded3f14c7723bdb9422d4a7b76da67e1bc2e65e9241eeebde6e252f9ac9293d000874b4c8d8b8#npm:15.2.5"],\
-            ["@angular-devkit/schematics", "npm:15.2.5"],\
             ["@jest/core", "virtual:93762f395d50e2410536eefd1c9656e618c9e599e2d023ef5341f0dd44b7c10b9c8541440da9da71a8fae8443bde146c84aabb5f6bc6020be89f6fe1913af10c#npm:29.5.0"],\
             ["@monstrs/code-service", "workspace:code/code-service"],\
             ["@monstrs/config-eslint", "workspace:config/eslint"],\
             ["@monstrs/config-jest", "workspace:config/jest"],\
-            ["@monstrs/schematics", "workspace:schematics/schematics"],\
             ["@types/eslint", "npm:8.37.0"],\
             ["@types/node", "npm:18.15.11"],\
             ["@yarnpkg/builder", "npm:3.2.7"],\

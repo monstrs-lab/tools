@@ -32,7 +32,6 @@
     "config/**/*",
     "jest/**/*",
     "prettier/**/*",
-    "schematics/**/*",
     "webpack/**/*",
     "yarn/**/*"
   ]
