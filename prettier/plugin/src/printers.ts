@@ -1,5 +1,5 @@
-import babel      from 'prettier/parser-babel'
-import typescript from 'prettier/parser-typescript'
+import babel      from 'prettier/plugins/babel'
+import typescript from 'prettier/plugins/typescript'
 import { format } from 'prettier/standalone'
 
 let printer
@@ -49,7 +49,7 @@ export const print = (path, options, prnt) => {
   return result
 }
 
-export const preprocess = (ast, options) => {
+export const preprocess = async (ast, options) => {
   const imports = ast.body.filter(
     (node) =>
       node.type === 'ImportDeclaration' && node.loc && node.loc.end.line === node.loc.start.line

@@ -18,7 +18,7 @@
     "import-sort-parser": "^6.0.0",
     "import-sort-parser-typescript": "^6.0.0",
     "import-sort-style": "^6.0.0",
-    "prettier": "^2.8.7",
+    "prettier": "^3.0.0-alpha.6",
     "sort-package-json": "^2.4.1"
   },
   "devDependencies": {

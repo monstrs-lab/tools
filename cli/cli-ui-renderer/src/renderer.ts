@@ -14,8 +14,8 @@ export const renderStatic = (
 
   reconciler.updateContainer(target, container, null)
 
-  rootNode.yogaNode!.calculateLayout(undefined, undefined, 1)
   rootNode.yogaNode!.setWidth(terminalWidth)
+  rootNode.yogaNode!.calculateLayout(undefined, undefined, 1)
 
   const output = new Output({
     width: rootNode.yogaNode!.getComputedWidth(),

@@ -1,10 +1,10 @@
-import sortImports                      from 'import-sort'
-import sortPackageJson                  from 'sort-package-json'
-import { parsers as babelParsers }      from 'prettier/parser-babel'
-import { parsers as typescriptParsers } from 'prettier/parser-typescript'
+import sortImports          from 'import-sort'
+import babel                from 'prettier/plugins/babel'
+import typescript           from 'prettier/plugins/typescript'
+import sortPackageJson      from 'sort-package-json'
 
-import { ImportSortParser }             from './import-sort/index.js'
-import { style }                        from './import-sort/index.js'
+import { ImportSortParser } from './import-sort/index.js'
+import { style }            from './import-sort/index.js'
 
 const preprocess = (source, { plugins }) => {
   const plugin = plugins.find((p) => p.parsers?.typescript)
@@ -18,7 +18,7 @@ const preprocess = (source, { plugins }) => {
   return code
 }
 
-const parse = (source, _, { plugins }) => {
+const parse = async (source, { plugins }) => {
   const plugin = plugins.find((p) => p.parsers?.typescript)
 
   const program = plugin.parsers.typescript.parse(source)
@@ -34,7 +34,6 @@ const parse = (source, _, { plugins }) => {
 
         program.body.splice(index, 1)
 
-        // eslint-disable-next-line no-shadow
         node.specifiers.forEach((_, specifierIndex) => {
           program.body.splice(index + specifierIndex, 0, {
             ...node,
@@ -51,17 +50,17 @@ const parse = (source, _, { plugins }) => {
 
 export const parsers = {
   typescript: {
-    ...typescriptParsers.typescript,
+    ...typescript.parsers.typescript,
     astFormat: 'typescript-custom',
     preprocess,
     parse,
   },
   'json-stringify': {
-    ...babelParsers['json-stringify'],
+    ...babel.parsers['json-stringify'],
     preprocess(text, options) {
-      if (babelParsers['json-stringify'].preprocess) {
+      if (babel.parsers['json-stringify'].preprocess) {
         // eslint-disable-next-line no-param-reassign
-        text = babelParsers['json-stringify'].preprocess(text, options)
+        text = babel.parsers['json-stringify'].preprocess(text, options)
       }
 
       return options.filepath && /(^|\\|\/)package\.json$/.test(options.filepath)
