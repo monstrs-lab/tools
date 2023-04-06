@@ -1,10 +1,12 @@
 import { execFileSync }       from 'node:child_process'
 import { mkdtemp }            from 'node:fs/promises'
-import { writeFile } from 'node:fs/promises'
+import { writeFile }          from 'node:fs/promises'
 import { readFile }           from 'node:fs/promises'
 import { tmpdir }             from 'node:os'
 import { join }               from 'node:path'
 import { fileURLToPath }      from 'node:url'
+
+import pkg                    from '../package.json' assert { type: "json" }
 
 const repo = await mkdtemp(join(tmpdir(), 'yarn-'))
 const cache = join(fileURLToPath(new URL('.', import.meta.url)), '../cache')
@@ -15,7 +17,7 @@ execFileSync('git', [
   '1',
   'git@github.com:yarnpkg/berry',
   '--branch',
-  '@yarnpkg/cli/3.5.0',
+  `@yarnpkg/core/${pkg.dependencies['@yarnpkg/core'].replace('^', '')}`,
   repo,
 ])
 

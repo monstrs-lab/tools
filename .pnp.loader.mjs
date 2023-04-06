@@ -1,13 +1,17 @@
-import require$$0$1, { URL as URL$1, fileURLToPath, pathToFileURL } from 'url';
 import fs from 'fs';
 import path$1 from 'path';
-import moduleExports, { Module, createRequire } from 'module';
+import require$$0$1, { URL as URL$1, fileURLToPath, pathToFileURL } from 'url';
+import moduleExports, { Module } from 'module';
+import { createRequire } from 'node:module';
+import { extname } from 'node:path';
+import { fileURLToPath as fileURLToPath$1, pathToFileURL as pathToFileURL$1 } from 'node:url';
 import require$$1 from 'util';
 import require$$0, { EOL } from 'os';
 import require$$2 from 'stream';
 import require$$4 from 'zlib';
 import require$$1$1 from 'events';
 import require$$0$2 from 'readline';
+import fs$1 from 'node:fs';
 import assert from 'assert';
 
 const [major, minor] = process.versions.node.split(`.`).map((value) => parseInt(value, 10));
@@ -168,7 +172,44 @@ function getFileFormat$1(filepath) {
   }
 }
 
-async function getFormat$2(resolved, context, defaultGetFormat) {
+const require = createRequire(import.meta.url);
+const getFileFormat = (filepath) => {
+  const ext = extname(filepath);
+  switch (ext) {
+    case ".mts": {
+      return "module";
+    }
+    case ".cts": {
+      return "commonjs";
+    }
+    case ".ts": {
+      const pkg = readPackageScope(filepath);
+      if (!pkg)
+        return "commonjs";
+      return pkg.data.type ?? "commonjs";
+    }
+    case ".tsx": {
+      const pkg = readPackageScope(filepath);
+      if (!pkg)
+        return "commonjs";
+      return pkg.data.type ?? "commonjs";
+    }
+    default: {
+      return null;
+    }
+  }
+};
+const transformSource = (source, format, ext) => {
+  const { transformSync } = require("esbuild");
+  const { code } = transformSync(source, {
+    format: format === "module" ? "esm" : "cjs",
+    loader: ext === "tsx" ? "tsx" : "ts",
+    target: `node${process.versions.node}`
+  });
+  return code;
+};
+
+async function getFormat$1(resolved, context, defaultGetFormat) {
   const url = tryParseURL(resolved);
   if ((url == null ? void 0 : url.protocol) !== `file:`)
     return defaultGetFormat(resolved, context, defaultGetFormat);
@@ -181,79 +222,29 @@ async function getFormat$2(resolved, context, defaultGetFormat) {
   return defaultGetFormat(resolved, context, defaultGetFormat);
 }
 
-const require = createRequire(import.meta.url);
-function getFileFormat(filepath) {
-  var _a;
-  const ext = path$1.extname(filepath);
-  switch (ext) {
-    case `.mts`: {
-      return `module`;
-    }
-    case `.cts`: {
-      return `commonjs`;
-    }
-    case `.tsx`: {
-		const pkg = readPackageScope(filepath);
-		if (!pkg)
-		  return `commonjs`;
-		return (_a = pkg.data.type) != null ? _a : `commonjs`;
-	  }
-      case `.ts`: {
-      
-      const pkg = readPackageScope(filepath);
-      if (!pkg)
-        return `commonjs`;
-      return (_a = pkg.data.type) != null ? _a : `commonjs`;
-    }
-    default: {
-      return null;
-    }
-  }
-}
-function transformSource(source, format, ext) {
-  const { transformSync } = require(`esbuild`);
-  const { code } = transformSync(source, {
-    format: format === `module` ? `esm` : `cjs`,
-    loader: ext === 'tsx' ? 'tsx' : 'ts',
-    target: `node${process.versions.node}`
-  });
-  return code;
-}
-
-async function getFormat$1(resolved, context, defaultGetFormat) {
-  return await getFormat$2(resolved, context, async (resolved2, context2) => {
-    const url = tryParseURL(resolved2);
-    if ((url == null ? void 0 : url.protocol) !== `file:`)
-      return defaultGetFormat(resolved2, context2, defaultGetFormat);
-    const filePath = fileURLToPath(url);
-    const format = getFileFormat(filePath);
-    if (format) {
-      return {
-        format
-      };
-    }
+const getFormatHook = async (resolved, context, defaultGetFormat) => getFormat$1(resolved, context, async (resolved2, context2) => {
+  const url = tryParseURL(resolved2);
+  if ((url == null ? void 0 : url.protocol) !== `file:`)
     return defaultGetFormat(resolved2, context2, defaultGetFormat);
-  });
-}
+  const filePath = fileURLToPath$1(url);
+  const format = getFileFormat(filePath);
+  if (format) {
+    return {
+      format
+    };
+  }
+  return defaultGetFormat(resolved2, context2, defaultGetFormat);
+});
 
-async function getSource$2(urlString, context, defaultGetSource) {
+const getSourceHook = async (urlString, context, defaultGetSource) => {
+  const result = await getSourceHook(urlString, context, defaultGetSource);
   const url = tryParseURL(urlString);
   if ((url == null ? void 0 : url.protocol) !== `file:`)
     return defaultGetSource(urlString, context, defaultGetSource);
   return {
-    source: await fs.promises.readFile(fileURLToPath(url), `utf8`)
+    source: transformSource(result.source, context.format, urlString.includes(".tsx") ? "tsx" : "ts")
   };
-}
-
-async function getSource$1(urlString, context, defaultGetSource) {
-  const result = await getSource$2(urlString, context, defaultGetSource);
-  const url = tryParseURL(urlString);
-  if ((url == null ? void 0 : url.protocol) !== `file:`)
-    return defaultGetSource(urlString, context, defaultGetSource);
-  return {
-    source: transformSource(result.source, context.format, urlString.includes('.tsx') ? 'tsx' : 'ts')
-  };
-}
+};
 
 var lib = {};
 
@@ -2379,7 +2370,7 @@ function requireZipFS () {
 		function toUnixTimestamp(time) {
 		    if (typeof time === `string` && String(+time) === time)
 		        return +time;
-		    if (Number.isFinite(time)) {
+		    if (typeof time === `number` && Number.isFinite(time)) {
 		        if (time < 0) {
 		            return Date.now() / 1000;
 		        }
@@ -2990,7 +2981,7 @@ function requireZipFS () {
 		            resolvedP = path_1.ppath.resolve(parentP, path_1.ppath.basename(resolvedP));
 		            if (!resolveLastComponent || this.symlinkCount === 0)
 		                break;
-		            const index = this.libzip.name.locate(this.zip, resolvedP.slice(1));
+		            const index = this.libzip.name.locate(this.zip, resolvedP.slice(1), 0);
 		            if (index === -1)
 		                break;
 		            if (this.isSymbolicLink(index)) {
@@ -3017,7 +3008,7 @@ function requireZipFS () {
 		    allocateUnattachedSource(content) {
 		        const error = this.libzip.struct.errorS();
 		        const { buffer, byteLength } = this.allocateBuffer(content);
-		        const source = this.libzip.source.fromUnattachedBuffer(buffer, byteLength, 0, true, error);
+		        const source = this.libzip.source.fromUnattachedBuffer(buffer, byteLength, 0, 1, error);
 		        if (source === 0) {
 		            this.libzip.free(error);
 		            throw this.makeLibzipError(error);
@@ -3026,7 +3017,7 @@ function requireZipFS () {
 		    }
 		    allocateSource(content) {
 		        const { buffer, byteLength } = this.allocateBuffer(content);
-		        const source = this.libzip.source.fromBuffer(this.zip, buffer, byteLength, 0, true);
+		        const source = this.libzip.source.fromBuffer(this.zip, buffer, byteLength, 0, 1);
 		        if (source === 0) {
 		            this.libzip.free(buffer);
 		            throw this.makeLibzipError(this.libzip.getError(this.zip));
@@ -6925,6 +6916,7 @@ class NodeFS extends BasePortableFakeFS {
   watch(p, a, b) {
     return this.realFs.watch(
       npath.fromPortablePath(p),
+      // @ts-expect-error
       a,
       b
     );
@@ -6932,6 +6924,7 @@ class NodeFS extends BasePortableFakeFS {
   watchFile(p, a, b) {
     return this.realFs.watchFile(
       npath.fromPortablePath(p),
+      // @ts-expect-error
       a,
       b
     );
@@ -7175,6 +7168,7 @@ class ProxiedFS extends FakeFS {
   watch(p, a, b) {
     return this.baseFs.watch(
       this.mapToBase(p),
+      // @ts-expect-error
       a,
       b
     );
@@ -7182,6 +7176,7 @@ class ProxiedFS extends FakeFS {
   watchFile(p, a, b) {
     return this.baseFs.watchFile(
       this.mapToBase(p),
+      // @ts-expect-error
       a,
       b
     );
@@ -7273,7 +7268,7 @@ class VirtualFS extends ProxiedFS {
   }
 }
 
-async function load$2(urlString, context, nextLoad) {
+async function load$1(urlString, context, nextLoad) {
   var _a;
   const url = tryParseURL(urlString);
   if ((url == null ? void 0 : url.protocol) !== `file:`)
@@ -7304,34 +7299,30 @@ async function load$2(urlString, context, nextLoad) {
   };
 }
 
-async function load$1(urlString, context, nextLoad) {
-  return await load$2(urlString, context, async (urlString2, context2) => {
-    const url = tryParseURL(urlString2);
-    if ((url == null ? void 0 : url.protocol) !== `file:`)
-      return nextLoad(urlString2, context2, nextLoad);
-    const filePath = fileURLToPath(url);
-    const format = getFileFormat(filePath);
-    if (!format)
-      return nextLoad(urlString2, context2, nextLoad);
-    if (process.env.WATCH_REPORT_DEPENDENCIES && process.send) {
-      const pathToSend = pathToFileURL(
-        lib.npath.fromPortablePath(
-          lib.VirtualFS.resolveVirtual(lib.npath.toPortablePath(filePath))
-        )
-      ).href;
-      process.send({
-        // eslint-disable-next-line @typescript-eslint/naming-convention
-        "watch:import": WATCH_MODE_MESSAGE_USES_ARRAYS ? [pathToSend] : pathToSend
-      });
-    }
-    const source = await fs.promises.readFile(filePath, `utf8`);
-    return {
-      format,
-      source: transformSource(source, format, filePath.includes('.tsx') ? 'tsx' : 'ts'),
-      shortCircuit: true
-    };
-  });
-}
+const loadHook = async (urlString, context, nextLoad) => load$1(urlString, context, async (urlString2, context2) => {
+  const url = tryParseURL(urlString2);
+  if ((url == null ? void 0 : url.protocol) !== `file:`)
+    return nextLoad(urlString2, context2, nextLoad);
+  const filePath = fileURLToPath$1(url);
+  const format = getFileFormat(filePath);
+  if (!format)
+    return nextLoad(urlString2, context2, nextLoad);
+  if (process.env.WATCH_REPORT_DEPENDENCIES && process.send) {
+    const pathToSend = pathToFileURL$1(
+      lib.npath.fromPortablePath(lib.VirtualFS.resolveVirtual(lib.npath.toPortablePath(filePath)))
+    ).href;
+    process.send({
+      // eslint-disable-next-line @typescript-eslint/naming-convention
+      "watch:import": WATCH_MODE_MESSAGE_USES_ARRAYS ? [pathToSend] : pathToSend
+    });
+  }
+  const source = await fs$1.promises.readFile(filePath, `utf8`);
+  return {
+    format,
+    source: transformSource(source, format, filePath.includes(".tsx") ? "tsx" : "ts"),
+    shortCircuit: true
+  };
+});
 
 const ArrayIsArray = Array.isArray;
 const JSONStringify = JSON.stringify;
@@ -7804,15 +7795,15 @@ async function resolvePrivateRequest(specifier, issuer, context, nextResolve) {
     conditions: new Set(context.conditions),
     readFileSyncFn: tryReadFile
   });
-  if (resolved instanceof URL) {
+  if (resolved instanceof URL$1) {
     return { url: resolved.href, shortCircuit: true };
   } else {
     if (resolved.startsWith(`#`))
       throw new Error(`Mapping from one private import to another isn't allowed`);
-    return resolve$2(resolved, context, nextResolve);
+    return resolve$1(resolved, context, nextResolve);
   }
 }
-async function resolve$2(originalSpecifier, context, nextResolve) {
+async function resolve$1(originalSpecifier, context, nextResolve) {
   var _a;
   const { findPnpApi } = moduleExports;
   if (!findPnpApi || isBuiltinModule(originalSpecifier))
@@ -7848,6 +7839,7 @@ async function resolve$2(originalSpecifier, context, nextResolve) {
   }
   const result = pnpapi.resolveRequest(specifier, issuer, {
     conditions: new Set(conditions),
+    // TODO: Handle --experimental-specifier-resolution=node
     extensions: allowLegacyResolve ? void 0 : []
   });
   if (!result)
@@ -7865,47 +7857,20 @@ async function resolve$2(originalSpecifier, context, nextResolve) {
   };
 }
 
-async function resolve$1(originalSpecifier, context, nextResolve) {
-  const tsSpecifier = originalSpecifier.replace(/\.(c|m)?js$/, '.$1ts').replace(/\.(c|m)?jsx$/, '.$1tsx');
+const resolveHook = async (originalSpecifier, context, nextResolve) => {
+  const tsSpecifier = originalSpecifier.replace(/\.(c|m)?js$/, `.$1ts`).replace(/\.(c|m)?jsx$/, ".$1tsx");
   try {
-    return await resolve$2(tsSpecifier, context, nextResolve);
+    return await resolve$1(tsSpecifier, context, nextResolve);
   } catch (err) {
     if (tsSpecifier === originalSpecifier)
       throw err;
-    return await resolve$2(originalSpecifier, context, nextResolve);
+    return await resolve$1(originalSpecifier, context, nextResolve);
   }
-}
-
-const binding = process.binding(`fs`);
-const originalfstat = binding.fstat;
-const ZIP_MASK = 4278190080;
-const ZIP_MAGIC = 704643072;
-binding.fstat = function(...args) {
-  const [fd, useBigint, req] = args;
-  if ((fd & ZIP_MASK) === ZIP_MAGIC && useBigint === false && req === void 0) {
-    try {
-      const stats = fs.fstatSync(fd);
-      return new Float64Array([
-        stats.dev,
-        stats.mode,
-        stats.nlink,
-        stats.uid,
-        stats.gid,
-        stats.rdev,
-        stats.blksize,
-        stats.ino,
-        stats.size,
-        stats.blocks
-      ]);
-    } catch {
-    }
-  }
-  return originalfstat.apply(this, args);
 };
 
-const resolve = resolve$1;
-const getFormat = HAS_CONSOLIDATED_HOOKS ? void 0 : getFormat$1;
-const getSource = HAS_CONSOLIDATED_HOOKS ? void 0 : getSource$1;
-const load = HAS_CONSOLIDATED_HOOKS ? load$1 : void 0;
+const resolve = resolveHook;
+const getFormat = HAS_CONSOLIDATED_HOOKS ? void 0 : getFormatHook;
+const getSource = HAS_CONSOLIDATED_HOOKS ? void 0 : getSourceHook;
+const load = HAS_CONSOLIDATED_HOOKS ? loadHook : void 0;
 
 export { getFormat, getSource, load, resolve };
