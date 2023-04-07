@@ -6,7 +6,7 @@ import { Option }      from 'clipanion'
 
 const config = {
   '*.{yml,yaml,json,graphql,md}': 'yarn format',
-  '*.{js,jsx,ts,tsx}': ['yarn format', 'yarn lint'],
+  '*.{js,mjs,cjs,jsx,ts,tsx}': ['yarn format', 'yarn lint'],
   '*.{ts,tsx}': ['yarn typecheck'],
   '*.{tsx,ts}': ['yarn test unit --bail --find-related-tests'],
 }

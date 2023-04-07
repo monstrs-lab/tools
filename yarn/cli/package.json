@@ -14,7 +14,7 @@
   ],
   "scripts": {
     "build": "builder build bundle && mv bundles/yarn.js bundles/yarn.cjs",
-    "fix": "./fix.sh",
+    "fix": "yarn node patches/cli.patch.mjs",
     "prepack": "yarn run build",
     "postpack": "rm -rf dist"
   },
