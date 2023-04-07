@@ -1921,6 +1921,7 @@ __metadata:
     "@monstrs/yarn-plugin-image": "workspace:0.0.1"
     "@monstrs/yarn-plugin-library": "workspace:0.0.1"
     "@monstrs/yarn-plugin-lint": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-runtime": "workspace:0.0.1"
     "@monstrs/yarn-plugin-service": "workspace:0.0.1"
     "@monstrs/yarn-plugin-test": "workspace:0.0.1"
     "@monstrs/yarn-plugin-typescript": "workspace:0.0.1"
@@ -1972,6 +1973,7 @@ __metadata:
     "@monstrs/yarn-plugin-image": "workspace:0.0.1"
     "@monstrs/yarn-plugin-library": "workspace:0.0.1"
     "@monstrs/yarn-plugin-lint": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-runtime": "workspace:0.0.1"
     "@monstrs/yarn-plugin-service": "workspace:0.0.1"
     "@monstrs/yarn-plugin-test": "workspace:0.0.1"
     "@monstrs/yarn-plugin-typescript": "workspace:0.0.1"
@@ -2225,6 +2227,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@monstrs/yarn-plugin-runtime@workspace:0.0.1, @monstrs/yarn-plugin-runtime@workspace:yarn/plugin-runtime":
+  version: 0.0.0-use.local
+  resolution: "@monstrs/yarn-plugin-runtime@workspace:yarn/plugin-runtime"
+  dependencies:
+    "@monstrs/code-runtime": "workspace:0.0.12"
+    "@yarnpkg/core": ^3.5.0
+    semver: ^7.3.8
+  languageName: unknown
+  linkType: soft
+
 "@monstrs/yarn-plugin-service@workspace:0.0.1, @monstrs/yarn-plugin-service@workspace:yarn/plugin-service":
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-service@workspace:yarn/plugin-service"
@@ -2278,7 +2290,9 @@ __metadata:
     "@monstrs/cli-ui-error-info-component": "workspace:0.0.16"
     "@monstrs/cli-ui-renderer": "workspace:0.0.31"
     "@monstrs/cli-ui-typescript-diagnostic-component": "workspace:0.0.20"
+    "@monstrs/code-runtime": "workspace:0.0.12"
     "@monstrs/code-typescript-worker": "workspace:0.0.9"
+    "@monstrs/config-typescript": "workspace:0.0.10"
     "@monstrs/yarn-run-utils": "workspace:0.0.1"
     "@monstrs/yarn-test-utils": "workspace:0.0.1"
     "@yarnpkg/builder": ^3.2.7
@@ -2286,7 +2300,9 @@ __metadata:
     "@yarnpkg/core": ^3.5.0
     "@yarnpkg/fslib": ^2.10.2
     clipanion: ^3.2.0
+    deepmerge: ^4.3.1
     react: ^18.2.0
+    semver: ^7.3.8
     typescript: ^5.0.3
   peerDependencies:
     "@yarnpkg/cli": ^3.2.0-rc.7

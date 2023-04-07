@@ -1,12 +1,10 @@
 {
   "compilerOptions": {
-    "noEmit": true,
     "lib": ["dom", "dom.iterable", "esnext"],
     "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "esModuleInterop": true,
-    "allowImportingTsExtensions": true,
     "forceConsistentCasingInFileNames": true,
     "importHelpers": false,
     "isolatedModules": false,
@@ -23,16 +21,19 @@
     "resolveJsonModule": true,
     "strict": true,
     "sourceMap": false,
-    "target": "es2019",
-    "jsx": "react"
+    "target": "es2021",
+    "jsx": "react",
+    "strictPropertyInitialization": false,
+    "outDir": "./dist"
   },
   "include": [
-    "cli/**/*",
     "code/**/*",
-    "config/**/*",
-    "jest/**/*",
+    "ctl/**/*",
+    "utils/**/*",
+    "yarn/**/*",
+    "github/**/*",
     "prettier/**/*",
-    "webpack/**/*",
-    "yarn/**/*"
+    "eslint/**/*",
+    "schematics/**/*"
   ]
 }

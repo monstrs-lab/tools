@@ -13,6 +13,7 @@
     "@monstrs/yarn-plugin-image": "workspace:0.0.1",
     "@monstrs/yarn-plugin-library": "workspace:0.0.1",
     "@monstrs/yarn-plugin-lint": "workspace:0.0.1",
+    "@monstrs/yarn-plugin-runtime": "workspace:0.0.1",
     "@monstrs/yarn-plugin-service": "workspace:0.0.1",
     "@monstrs/yarn-plugin-test": "workspace:0.0.1",
     "@monstrs/yarn-plugin-typescript": "workspace:0.0.1",
