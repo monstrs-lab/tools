@@ -5,7 +5,7 @@ import { rules }              from './commit.rules.js'
 import { lint as commitlint } from './commitlint.js'
 
 // TODO: moduleResolution
-const commitformat = commitformatPkg as any
+const commitformat = commitformatPkg.default || commitformatPkg
 
 export class CommitLinter {
   async lint(message: string): Promise<LintOutcome> {
