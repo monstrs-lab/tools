@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/webpack-localtunnel-plugin",
-  "version": "0.0.29",
+  "version": "0.1.0",
   "license": "MIT",
   "type": "module",
   "exports": {
