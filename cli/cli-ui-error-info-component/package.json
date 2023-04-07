@@ -2,6 +2,11 @@
   "name": "@monstrs/cli-ui-error-info-component",
   "version": "0.0.16",
   "license": "MIT",
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": "./src/index.ts"
+  },
   "main": "src/index.ts",
   "files": [
     "dist"
@@ -15,9 +20,8 @@
     "@monstrs/cli-ui-stack-trace-component": "workspace:0.0.32"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.0",
     "@types/node": "^18.15.11",
-    "@types/react": "^18.0.31",
+    "@types/react": "^18.0.33",
     "ink": "^3.2.0",
     "react": "^18.2.0"
   },
@@ -27,6 +31,14 @@
   },
   "publishConfig": {
     "access": "public",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "import": "./dist/index.js",
+        "default": "./dist/index.js",
+        "types": "./dist/index.d.ts"
+      }
+    },
     "main": "dist/index.js",
     "typings": "dist/index.d.ts"
   }

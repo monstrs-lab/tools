@@ -2,6 +2,11 @@
   "name": "@monstrs/code-service",
   "version": "0.0.117",
   "license": "MIT",
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": "./src/index.ts"
+  },
   "main": "src/index.ts",
   "files": [
     "dist",
@@ -13,29 +18,36 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
+    "@monstrs/code-runtime": "workspace:0.0.12",
     "@monstrs/config-typescript": "workspace:0.0.10",
-    "@monstrs/webpack-proto-imports-loader": "workspace:0.0.31",
-    "@monstrs/webpack-start-server-plugin": "workspace:0.2.40",
     "@yarnpkg/cli": "^3.5.0",
     "@yarnpkg/core": "^3.5.0",
     "fast-glob": "^3.2.12",
-    "find-up": "^5.0.0",
+    "find-up": "^6.3.0",
     "string-replace-loader": "^3.1.0",
-    "ts-loader": "^9.4.2",
-    "typescript": "^5.0.2",
-    "webpack": "^5.77.0",
+    "tempy": "^3.0.0",
+    "typescript": "^5.0.4",
     "webpack-chain": "^6.5.1"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.0",
+    "@jest/globals": "^29.5.0",
     "@types/node": "^18.15.11",
     "@types/protocol-buffers-schema": "3.4.1",
     "@types/wait-for-localhost": "3.1.0",
     "@types/webpack": "^5.28.1",
     "@yarnpkg/fslib": "^2.10.2",
-    "wait-for-localhost": "^3.3.0"
+    "wait-for-localhost": "^4.0.1"
   },
   "publishConfig": {
+    "access": "public",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "import": "./dist/index.js",
+        "default": "./dist/index.js",
+        "types": "./dist/index.d.ts"
+      }
+    },
     "main": "dist/index.js",
     "typings": "dist/index.d.ts"
   }

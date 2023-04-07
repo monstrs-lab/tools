@@ -14,7 +14,7 @@ export class SpinnerProgress {
   constructor(private readonly stdout, private readonly configuration: Configuration) {}
 
   start() {
-    if (this.stdout.isTTY) {
+    if (this.stdout.isTTY && !process.env.TOOLS_DISABLE_PROGRESS) {
       this.running = true
       this.write()
       this.tick()

@@ -9,7 +9,7 @@
     "importHelpers": false,
     "isolatedModules": false,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "nodenext",
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": false,
     "noImplicitReturns": false,
@@ -21,8 +21,10 @@
     "resolveJsonModule": true,
     "strict": true,
     "sourceMap": false,
-    "target": "es2019",
-    "jsx": "react"
+    "target": "es2021",
+    "jsx": "react",
+    "strictPropertyInitialization": false,
+    "outDir": "./dist"
   },
   "include": [
     "code/**/*",

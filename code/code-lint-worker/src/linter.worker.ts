@@ -1,8 +1,8 @@
-import type { ESLint } from 'eslint'
+import type { ESLint } from '@monstrs/code-runtime/eslint'
 
 import { EvalWorker }  from '@monstrs/code-worker-utils'
 
-import { getContent }  from './linter.worker.content'
+import { getContent }  from './linter.worker.content.js'
 
 export class LinterWorker {
   constructor(private readonly cwd: string) {}

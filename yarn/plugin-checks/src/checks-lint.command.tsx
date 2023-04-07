@@ -1,6 +1,6 @@
 import { readFileSync }     from 'node:fs'
 
-import type { ESLint }      from 'eslint'
+import type { ESLint }      from '@monstrs/code-runtime/eslint'
 
 import { BaseCommand }      from '@yarnpkg/cli'
 import { StreamReport }     from '@yarnpkg/core'
@@ -15,9 +15,9 @@ import { ESLintResult }     from '@monstrs/cli-ui-eslint-result-component'
 import { LinterWorker }     from '@monstrs/code-lint-worker'
 import { renderStatic }     from '@monstrs/cli-ui-renderer'
 
-import { GitHubChecks }     from './github.checks'
-import { AnnotationLevel }  from './github.checks'
-import { Annotation }       from './github.checks'
+import { GitHubChecks }     from './github.checks.ts'
+import { AnnotationLevel }  from './github.checks.ts'
+import { Annotation }       from './github.checks.ts'
 
 class ChecksLintCommand extends BaseCommand {
   static paths = [['checks', 'lint']]

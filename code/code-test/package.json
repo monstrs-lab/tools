@@ -2,6 +2,11 @@
   "name": "@monstrs/code-test",
   "version": "0.0.117",
   "license": "MIT",
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": "./src/index.ts"
+  },
   "main": "src/index.ts",
   "files": [
     "dist",
@@ -14,13 +19,11 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@jest/core": "^29.5.0",
     "@jest/test-result": "^29.5.0",
     "@jest/types": "^29.5.0",
-    "@monstrs/config-jest": "workspace:0.0.14"
+    "@monstrs/code-runtime": "workspace:0.0.12"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.0",
     "@types/node": "^18.15.11"
   },
   "peerDependenciesMeta": {
@@ -29,6 +32,15 @@
     }
   },
   "publishConfig": {
+    "access": "public",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "import": "./dist/index.js",
+        "default": "./dist/index.js",
+        "types": "./dist/index.d.ts"
+      }
+    },
     "main": "dist/index.js",
     "typings": "dist/index.d.ts"
   }

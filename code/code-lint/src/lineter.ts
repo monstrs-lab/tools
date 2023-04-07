@@ -1,16 +1,19 @@
 import { readFile }           from 'node:fs/promises'
 import { relative }           from 'node:path'
 
-import type { ESLint }        from 'eslint'
+import type { ESLint }        from '@monstrs/code-runtime/eslint'
 
-import globby                 from 'globby'
-import ignorer                from 'ignore'
-import { Linter as ESLinter } from 'eslint'
+import ignorerPkg             from 'ignore'
+import { globby }             from 'globby'
 
-import eslintconfig           from '@monstrs/config-eslint'
+import { Linter as ESLinter } from '@monstrs/code-runtime/eslint'
+import { eslintconfig }       from '@monstrs/code-runtime/eslint'
 
-import { ignore }             from './linter.patterns'
-import { createPatterns }     from './linter.patterns'
+import { ignore }             from './linter.patterns.js'
+import { createPatterns }     from './linter.patterns.js'
+
+// TODO: moduleResolution
+const ignorer = ignorerPkg as any
 
 export class Linter {
   constructor(private readonly cwd: string) {}
@@ -24,7 +27,7 @@ export class Linter {
   }
 
   async lintProject(): Promise<Array<ESLint.LintResult>> {
-    return this.lintFiles(await globby(createPatterns(this.cwd), { dot: true, nodir: true } as any))
+    return this.lintFiles(await globby(createPatterns(this.cwd), { dot: true }))
   }
 
   async lintFiles(files: Array<string> = []): Promise<Array<ESLint.LintResult>> {

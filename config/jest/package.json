@@ -2,9 +2,14 @@
   "name": "@monstrs/config-jest",
   "version": "0.0.14",
   "license": "MIT",
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": "./src/index.ts"
+  },
   "main": "src/index.ts",
   "files": [
-    "src"
+    "dist"
   ],
   "scripts": {
     "build": "yarn library build",
@@ -14,14 +19,23 @@
   "dependencies": {
     "@emotion/jest": "^11.10.5",
     "@monstrs/config-typescript": "workspace:0.0.10",
-    "@monstrs/jest-pnp-resolver": "0.0.1",
+    "@monstrs/jest-resolver": "workspace:0.0.1",
     "jest-static-stubs": "^0.0.1",
-    "ts-jest": "^29.0.5"
+    "ts-jest": "^29.1.0"
   },
   "devDependencies": {
     "@types/node": "^18.15.11"
   },
   "publishConfig": {
+    "access": "public",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "import": "./dist/index.js",
+        "default": "./dist/index.js",
+        "types": "./dist/index.d.ts"
+      }
+    },
     "main": "dist/index.js",
     "typings": "dist/index.d.ts"
   }

@@ -2,6 +2,11 @@
   "name": "@monstrs/code-commit",
   "version": "0.0.19",
   "license": "MIT",
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": "./src/index.ts"
+  },
   "main": "src/index.ts",
   "files": [
     "dist"
@@ -23,9 +28,19 @@
     "conventional-commits-parser": "^3.2.4"
   },
   "devDependencies": {
+    "@jest/globals": "29.5.0",
     "@types/node": "^18.15.11"
   },
   "publishConfig": {
+    "access": "public",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "import": "./dist/index.js",
+        "default": "./dist/index.js",
+        "types": "./dist/index.d.ts"
+      }
+    },
     "main": "dist/index.js",
     "typings": "dist/index.d.ts"
   }

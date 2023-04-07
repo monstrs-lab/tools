@@ -1,12 +1,12 @@
-import { accessSync }       from 'node:fs'
-import { join }             from 'node:path'
+import { accessSync }            from 'node:fs'
+import { join }                  from 'node:path'
 
-import { AggregatedResult } from '@jest/test-result'
-import { Config }           from '@jest/types'
-import { runCLI }           from '@jest/core'
+import type { AggregatedResult } from '@jest/test-result'
+import type { Config }           from '@jest/types'
 
-import { integration }      from '@monstrs/config-jest'
-import { unit }             from '@monstrs/config-jest'
+import { runCLI }                from '@monstrs/code-runtime/jest'
+import { integration }           from '@monstrs/code-runtime/jest'
+import { unit }                  from '@monstrs/code-runtime/jest'
 
 export class Tester {
   constructor(private readonly cwd: string) {}
@@ -25,15 +25,18 @@ export class Tester {
     process.env.TS_JEST_DISABLE_VER_CHECKER = 'true'
 
     const setup = {
-      globalSetup: this.isFileExists(join(this.cwd, '.config/test/unit/setup.ts'))
-        ? join(this.cwd, '.config/test/unit/setup.ts')
+      globalSetup: this.isFileExists(join(this.cwd, '.config/test/unit/global-setup.ts'))
+        ? join(this.cwd, '.config/test/unit/global-setup.ts')
         : undefined,
-      globalTeardown: this.isFileExists(join(this.cwd, '.config/test/unit/teardown.ts'))
-        ? join(this.cwd, '.config/test/unit/teardown.ts')
+      globalTeardown: this.isFileExists(join(this.cwd, '.config/test/unit/global-teardown.ts'))
+        ? join(this.cwd, '.config/test/unit/global-teardown.ts')
         : undefined,
+      setupFilesAfterEnv: this.isFileExists(join(this.cwd, '.config/test/unit/setup.ts'))
+        ? [join(this.cwd, '.config/test/unit/setup.ts')]
+        : [],
     }
 
-    const argv: any = {
+    const argv = {
       rootDir: this.cwd,
       ci: false,
       detectLeaks: false,
@@ -47,6 +50,7 @@ export class Tester {
       maxConcurrency: 5,
       notifyMode: 'failure-change',
       _: files || [],
+      $0: '',
       ...options,
     }
 
@@ -59,15 +63,20 @@ export class Tester {
     process.env.TS_JEST_DISABLE_VER_CHECKER = 'true'
 
     const setup = {
-      globalSetup: this.isFileExists(join(this.cwd, '.config/test/integration/setup.ts'))
-        ? join(this.cwd, '.config/test/integration/setup.ts')
+      globalSetup: this.isFileExists(join(this.cwd, '.config/test/integration/global-setup.ts'))
+        ? join(this.cwd, '.config/test/integration/global-setup.ts')
         : undefined,
-      globalTeardown: this.isFileExists(join(this.cwd, '.config/test/integration/teardown.ts'))
-        ? join(this.cwd, '.config/test/integration/teardown.ts')
+      globalTeardown: this.isFileExists(
+        join(this.cwd, '.config/test/integration/global-teardown.ts')
+      )
+        ? join(this.cwd, '.config/test/integration/global-teardown.ts')
         : undefined,
+      setupFilesAfterEnv: this.isFileExists(join(this.cwd, '.config/test/integration/setup.ts'))
+        ? [join(this.cwd, '.config/test/integration/setup.ts')]
+        : [],
     }
 
-    const argv: any = {
+    const argv = {
       rootDir: this.cwd,
       ci: false,
       detectLeaks: false,
@@ -81,6 +90,7 @@ export class Tester {
       maxConcurrency: 5,
       notifyMode: 'failure-change',
       _: files || [],
+      $0: '',
       ...options,
     }
 

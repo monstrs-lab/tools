@@ -1,8 +1,8 @@
 import { BaseCommand }             from '@yarnpkg/cli'
 import { PortablePath }            from '@yarnpkg/fslib'
-import { SubmitInjectedComponent } from '@yarnpkg/libui/sources/misc/renderForm'
+import { SubmitInjectedComponent } from '@yarnpkg/libui/sources/misc/renderForm.js'
 import { xfs }                     from '@yarnpkg/fslib'
-import { renderForm }              from '@yarnpkg/libui/sources/misc/renderForm'
+import { renderForm }              from '@yarnpkg/libui/sources/misc/renderForm.js'
 
 import React                       from 'react'
 import wrap                        from 'word-wrap'

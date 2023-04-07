@@ -4,10 +4,11 @@ import { relative }                 from 'node:path'
 import React                        from 'react'
 import { Box }                      from 'ink'
 import { FC }                       from 'react'
+import { nanoid }                   from 'nanoid'
 import { useMemo }                  from 'react'
 
-import { ESLintResultMessageProps } from './eslint-result-message.component'
-import { ESLintResultMessage }      from './eslint-result-message.component'
+import { ESLintResultMessageProps } from './eslint-result-message.component.jsx'
+import { ESLintResultMessage }      from './eslint-result-message.component.jsx'
 
 export interface ESLintResultProps {
   messages: Array<ESLintResultMessageProps>
@@ -31,12 +32,7 @@ export const ESLintResult: FC<ESLintResultProps> = ({ filePath, source, messages
   return (
     <Box flexDirection='column'>
       {messages.map((message) => (
-        <ESLintResultMessage
-          key={`${message.ruleId}-${message.line}-${message.column}`}
-          filePath={filepath}
-          message={message}
-          source={source}
-        />
+        <ESLintResultMessage key={nanoid()} filePath={filepath} message={message} source={source} />
       ))}
     </Box>
   )

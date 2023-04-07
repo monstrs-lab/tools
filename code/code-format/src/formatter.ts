@@ -1,22 +1,24 @@
-import * as plugin        from '@monstrs/prettier-plugin'
-
 import { writeFile }      from 'node:fs/promises'
 import { readFile }       from 'node:fs/promises'
 import { relative }       from 'node:path'
 
-import globby             from 'globby'
-import ignorer            from 'ignore'
-import babel              from 'prettier/parser-babel'
-import graphql            from 'prettier/parser-graphql'
-import markdown           from 'prettier/parser-markdown'
-import typescript         from 'prettier/parser-typescript'
-import yaml               from 'prettier/parser-yaml'
+import ignorerPkg         from 'ignore'
+import babel              from 'prettier/plugins/babel'
+import graphql            from 'prettier/plugins/graphql'
+import markdown           from 'prettier/plugins/markdown'
+import typescript         from 'prettier/plugins/typescript'
+import yaml               from 'prettier/plugins/yaml'
+import { globby }         from 'globby'
 import { format }         from 'prettier/standalone'
 
 import config             from '@monstrs/config-prettier'
+import plugin             from '@monstrs/prettier-plugin'
 
-import { ignore }         from './formatter.patterns'
-import { createPatterns } from './formatter.patterns'
+import { ignore }         from './formatter.patterns.js'
+import { createPatterns } from './formatter.patterns.js'
+
+// TODO: moduleResolution
+const ignorer = ignorerPkg as any
 
 export class Formatter {
   constructor(private readonly cwd: string) {}
@@ -30,10 +32,18 @@ export class Formatter {
       // eslint-disable-next-line no-await-in-loop
       const input = await readFile(filename, 'utf8')
 
-      const output = format(input, {
+      // eslint-disable-next-line no-await-in-loop
+      const output = await format(input, {
         ...config,
         filepath: filename,
-        plugins: [yaml, markdown, graphql, babel, typescript, plugin],
+        plugins: [
+          yaml as any,
+          markdown as any,
+          graphql as any,
+          babel as any,
+          typescript as any,
+          plugin as any,
+        ],
       })
 
       if (output !== input && output) {
@@ -54,7 +64,6 @@ export class Formatter {
   async formatProject() {
     const files = await globby(createPatterns(this.cwd), {
       dot: true,
-      onlyFiles: true,
     })
 
     await this.formatFiles(files)

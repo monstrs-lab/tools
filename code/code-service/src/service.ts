@@ -1,11 +1,9 @@
 import { PassThrough }       from 'node:stream'
 
-import webpack               from 'webpack'
-import { Watching }          from 'webpack'
+import { StartServerPlugin } from '@monstrs/code-runtime/webpack'
+import { webpack }           from '@monstrs/code-runtime/webpack'
 
-import { StartServerPlugin } from '@monstrs/webpack-start-server-plugin'
-
-import { WebpackConfig }     from './webpack.config'
+import { WebpackConfig }     from './webpack.config.js'
 
 export interface ServiceBuildResultMessage {
   message: string
@@ -58,7 +56,7 @@ export class Service {
     })
   }
 
-  async watch(callback?): Promise<Watching> {
+  async watch(callback?): Promise<webpack.Watching> {
     const config = new WebpackConfig(this.cwd)
 
     const pass = new PassThrough()

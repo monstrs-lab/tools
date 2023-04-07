@@ -1,9 +1,13 @@
+import { describe }     from '@jest/globals'
+import { expect }       from '@jest/globals'
+import { it }           from '@jest/globals'
+
 import React            from 'react'
 import stripAnsi        from 'strip-ansi'
 
 import { renderStatic } from '@monstrs/cli-ui-renderer'
 
-import { ESLintResult } from './eslint-result.component'
+import { ESLintResult } from './eslint-result.component.jsx'
 
 describe('eslint result component', () => {
   it('render', () => {

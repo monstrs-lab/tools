@@ -3,7 +3,7 @@ import type { Config }           from '@jest/types'
 
 import { EvalWorker }            from '@monstrs/code-worker-utils'
 
-import { getContent }            from './tester.worker.content'
+import { getContent }            from './tester.worker.content.js'
 
 export class TesterWorker {
   constructor(private readonly cwd: string) {}

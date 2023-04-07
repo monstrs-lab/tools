@@ -1,4 +1,4 @@
-import { SubmitInjectedComponent } from '@yarnpkg/libui/sources/misc/renderForm'
+import { SubmitInjectedComponent } from '@yarnpkg/libui/sources/misc/renderForm.js'
 
 import React                       from 'react'
 import { FC }                      from 'react'

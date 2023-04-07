@@ -1,19 +1,6 @@
-import babel      from 'prettier/parser-babel'
-import typescript from 'prettier/parser-typescript'
-import { format } from 'prettier/standalone'
+import { extractPrinter } from './patch.js'
 
-let printer
-
-format('const n = 5;', {
-  plugins: [babel, typescript],
-  parser(text, { typescript: ts }, options) {
-    const plugin = options.plugins.find((x) => x.printers && x.printers.estree)
-
-    printer = plugin.printers.estree
-
-    return ts(text)
-  },
-})
+const printer = await extractPrinter()
 
 const nodeImportSize = (node) => {
   if (node.specifiers.length === 0) {
@@ -49,7 +36,7 @@ export const print = (path, options, prnt) => {
   return result
 }
 
-export const preprocess = (ast, options) => {
+export const preprocess = async (ast, options) => {
   const imports = ast.body.filter(
     (node) =>
       node.type === 'ImportDeclaration' && node.loc && node.loc.end.line === node.loc.start.line

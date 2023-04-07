@@ -3,17 +3,23 @@
   "version": "0.0.1",
   "private": true,
   "license": "MIT",
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": "./src/index.ts"
+  },
   "main": "src/index.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "builder build bundle",
+    "build": "builder build bundle && mv bundles/yarn.js bundles/yarn.cjs",
     "fix": "./fix.sh",
     "prepack": "yarn run build",
     "postpack": "rm -rf dist"
   },
   "dependencies": {
+    "@monstrs/yarn-cli-tools": "workspace:0.0.1",
     "@monstrs/yarn-plugin-check": "workspace:0.0.1",
     "@monstrs/yarn-plugin-checks": "workspace:0.0.1",
     "@monstrs/yarn-plugin-commit": "workspace:0.0.1",
@@ -22,7 +28,7 @@
     "@monstrs/yarn-plugin-image": "workspace:0.0.1",
     "@monstrs/yarn-plugin-library": "workspace:0.0.1",
     "@monstrs/yarn-plugin-lint": "workspace:0.0.1",
-    "@monstrs/yarn-plugin-schematics": "workspace:0.0.1",
+    "@monstrs/yarn-plugin-runtime": "workspace:0.0.1",
     "@monstrs/yarn-plugin-service": "workspace:0.0.1",
     "@monstrs/yarn-plugin-test": "workspace:0.0.1",
     "@monstrs/yarn-plugin-typescript": "workspace:0.0.1",
@@ -57,14 +63,18 @@
     "clipanion": "^3.2.0",
     "semver": "^7.3.8",
     "typanion": "^3.12.1",
-    "yup": "^0.32.11"
-  },
-  "devDependencies": {
-    "@monstrs/tools-setup-ts-execution": "workspace:0.0.1",
-    "super-resolve": "^1.0.0"
+    "yup": "^1.0.2"
   },
   "publishConfig": {
     "access": "public",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "import": "./dist/index.js",
+        "default": "./dist/index.js",
+        "types": "./dist/index.d.ts"
+      }
+    },
     "main": "dist/index.js",
     "typings": "dist/index.d.ts"
   },
@@ -79,11 +89,11 @@
         "@monstrs/yarn-plugin-lint",
         "@monstrs/yarn-plugin-test",
         "@monstrs/yarn-plugin-image",
-        "@monstrs/yarn-plugin-schematics",
         "@monstrs/yarn-plugin-typescript",
         "@monstrs/yarn-plugin-workspaces",
         "@monstrs/yarn-plugin-library",
         "@monstrs/yarn-plugin-service",
+        "@monstrs/yarn-plugin-runtime",
         "@yarnpkg/plugin-interactive-tools",
         "@yarnpkg/plugin-workspace-tools",
         "@yarnpkg/plugin-typescript",

@@ -2,6 +2,11 @@
   "name": "@monstrs/webpack-proto-imports-loader",
   "version": "0.0.31",
   "license": "MIT",
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": "./src/index.ts"
+  },
   "main": "src/index.ts",
   "files": [
     "dist"
@@ -19,14 +24,22 @@
     "@monstrs/config-typescript": "workspace:0.0.10",
     "@monstrs/types-import-proto": "0.0.1",
     "@types/node": "^18.15.11",
-    "memfs": "^3.4.13",
+    "memfs": "^3.5.0",
     "ts-loader": "^9.4.2",
-    "typescript": "^5.0.2",
-    "webpack": "^5.77.0",
+    "typescript": "^5.0.4",
+    "webpack": "^5.78.0",
     "webpack-chain": "^6.5.1"
   },
   "publishConfig": {
     "access": "public",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "import": "./dist/index.js",
+        "default": "./dist/index.js",
+        "types": "./dist/index.d.ts"
+      }
+    },
     "main": "dist/index.js",
     "typings": "dist/index.d.ts"
   }

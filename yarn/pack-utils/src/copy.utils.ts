@@ -62,7 +62,7 @@ export const copyPlugins = async (
   }
 }
 
-// https://github.com/yarnpkg/berry/blob/d38d573/packages/plugin-patch/sources/patchUtils.ts#L10
+// https://github.com/yarnpkg/berry/blob/d38d573/packages/plugin-patch/sources/patchUtils.js#L10
 const BUILTIN_REGEXP = /^builtin<([^>]+)>$/
 
 export const copyProtocolFiles = async (

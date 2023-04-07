@@ -42,7 +42,6 @@ class LibraryBuildCommand extends BaseCommand {
 
             const diagnostics = await ts.build([join(this.context.cwd, './src')], {
               outDir: join(this.context.cwd, this.target),
-              module: 'commonjs' as any,
               declaration: true,
             })
 

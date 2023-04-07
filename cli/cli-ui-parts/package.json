@@ -2,6 +2,11 @@
   "name": "@monstrs/cli-ui-parts",
   "version": "0.0.8",
   "license": "MIT",
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": "./src/index.ts"
+  },
   "main": "src/index.ts",
   "files": [
     "dist"
@@ -13,12 +18,20 @@
   },
   "dependencies": {
     "@yarnpkg/libui": "^2.2.2",
-    "figures": "^3.2.0",
+    "figures": "^5.0.0",
     "ink": "^3.2.0",
     "react": "^18.2.0"
   },
   "publishConfig": {
     "access": "public",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "import": "./dist/index.js",
+        "default": "./dist/index.js",
+        "types": "./dist/index.d.ts"
+      }
+    },
     "main": "dist/index.js",
     "typings": "dist/index.d.ts"
   }

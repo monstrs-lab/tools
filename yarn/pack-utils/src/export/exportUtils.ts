@@ -6,10 +6,10 @@
 import { Project }               from '@yarnpkg/core'
 import { VirtualFetcher }        from '@yarnpkg/core'
 import { Workspace }             from '@yarnpkg/core'
-import { MultiFetcher }          from '@yarnpkg/core/lib/MultiFetcher'
-import { MultiResolver }         from '@yarnpkg/core/lib/MultiResolver'
-import { ProtocolResolver }      from '@yarnpkg/core/lib/ProtocolResolver'
-import { VirtualResolver }       from '@yarnpkg/core/lib/VirtualResolver'
+import { MultiFetcher }          from '@yarnpkg/core/lib/MultiFetcher.js'
+import { MultiResolver }         from '@yarnpkg/core/lib/MultiResolver.js'
+import { ProtocolResolver }      from '@yarnpkg/core/lib/ProtocolResolver.js'
+import { VirtualResolver }       from '@yarnpkg/core/lib/VirtualResolver.js'
 import { CwdFS }                 from '@yarnpkg/fslib'
 import { Filename }              from '@yarnpkg/fslib'
 import { PortablePath }          from '@yarnpkg/fslib'
@@ -23,8 +23,8 @@ import { packUtils }             from '@yarnpkg/plugin-pack'
 import tar                       from 'tar-stream'
 import { createGzip }            from 'zlib'
 
-import { WorkspacePackFetcher }  from './WorkspacePackFetcher'
-import { WorkspacePackResolver } from './WorkspacePackResolver'
+import { WorkspacePackFetcher }  from './WorkspacePackFetcher.js'
+import { WorkspacePackResolver } from './WorkspacePackResolver.js'
 
 /**
  * Make a MultiFetcher that resolves workspaces using WorkspacePackFetcher

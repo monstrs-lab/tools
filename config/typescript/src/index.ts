@@ -11,7 +11,7 @@ export default {
     forceConsistentCasingInFileNames: true,
     importHelpers: false,
     isolatedModules: false,
-    moduleResolution: 'node',
+    moduleResolution: 'nodenext',
     noFallthroughCasesInSwitch: true,
 
     noImplicitAny: false,
@@ -30,7 +30,7 @@ export default {
 
     sourceMap: false,
 
-    module: 'commonjs',
+    module: 'esnext',
     target: 'es2021',
 
     jsx: 'react',

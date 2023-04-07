@@ -1,16 +1,19 @@
-import { readFile }                   from 'node:fs/promises'
-import { join }                       from 'node:path'
+import { writeFileSync }                 from 'node:fs'
+import { readFile }                      from 'node:fs/promises'
+import { join }                          from 'node:path'
 
-import Config                         from 'webpack-chain'
-import fg                             from 'fast-glob'
-import findUp                         from 'find-up'
-import { HotModuleReplacementPlugin } from 'webpack'
-import { Configuration }              from 'webpack'
+import Config                            from 'webpack-chain'
+import fg                                from 'fast-glob'
+import { findUp }                        from 'find-up'
+import { temporaryFile }                 from 'tempy'
 
-import tsconfig                       from '@monstrs/config-typescript'
+import tsconfig                          from '@monstrs/config-typescript'
+import { webpack }                       from '@monstrs/code-runtime/webpack'
+import { tsLoaderPath }                  from '@monstrs/code-runtime/webpack'
+import { webpackProtoImportsLoaderPath } from '@monstrs/code-runtime/webpack'
 
-import { FORCE_UNPLUGGED_PACKAGES }   from './webpack.externals'
-import { UNUSED_EXTERNALS }           from './webpack.externals'
+import { FORCE_UNPLUGGED_PACKAGES }      from './webpack.externals.js'
+import { UNUSED_EXTERNALS }              from './webpack.externals.js'
 
 export type WebpackEnvironment = 'production' | 'development'
 
@@ -20,7 +23,7 @@ export class WebpackConfig {
   async build(
     environment: WebpackEnvironment = 'production',
     plugins: Array<any> = []
-  ): Promise<Configuration> {
+  ): Promise<webpack.Configuration> {
     const config = new Config()
 
     this.applyCommon(config, environment)
@@ -58,28 +61,34 @@ export class WebpackConfig {
 
   private applyPlugins(config: Config, environment: WebpackEnvironment) {
     config.when(environment === 'development', () => {
-      config.plugin('hot').use(HotModuleReplacementPlugin)
+      config.plugin('hot').use(webpack.HotModuleReplacementPlugin)
     })
   }
 
   private applyModules(config: Config) {
+    const configFile = temporaryFile()
+
+    writeFileSync(configFile, '{"include":["**/*"]}')
+
     config.module
       .rule('ts')
       .test(/.tsx?$/)
       .use('ts')
-      .loader(require.resolve('ts-loader'))
+      .loader(tsLoaderPath)
       .options({
         transpileOnly: true,
         experimentalWatchApi: true,
         onlyCompileBundledFiles: true,
         compilerOptions: { ...tsconfig.compilerOptions, sourceMap: true },
+        context: this.cwd,
+        configFile,
       })
 
     config.module
       .rule('protos')
       .test(/\.proto$/)
       .use('proto')
-      .loader(require.resolve('@monstrs/webpack-proto-imports-loader'))
+      .loader(webpackProtoImportsLoaderPath)
   }
 
   async getUnpluggedDependencies(): Promise<Set<string>> {
