@@ -5,7 +5,6 @@ releases:
   "@monstrs/cli-ui-log-record-component": patch
   "@monstrs/cli-ui-pretty-logs": patch
   "@monstrs/cli-ui-renderer": patch
-  "@monstrs/cli-ui-schematics-component": patch
   "@monstrs/cli-ui-source-component": patch
   "@monstrs/cli-ui-stack-trace-component": patch
   "@monstrs/cli-ui-typescript-diagnostic-component": patch
@@ -15,8 +14,6 @@ releases:
   "@monstrs/code-lint": patch
   "@monstrs/code-lint-worker": patch
   "@monstrs/code-pack": patch
-  "@monstrs/code-schematics": patch
-  "@monstrs/code-schematics-worker": patch
   "@monstrs/code-service": patch
   "@monstrs/code-service-worker": patch
   "@monstrs/code-test": patch
@@ -27,8 +24,6 @@ releases:
   "@monstrs/config-jest": patch
   "@monstrs/config-prettier": patch
   "@monstrs/prettier-plugin": patch
-  "@monstrs/schematics": patch
-  "@monstrs/schematics-utils": patch
   "@monstrs/webpack-localtunnel-plugin": patch
   "@monstrs/webpack-proto-imports-loader": patch
   "@monstrs/webpack-start-server-plugin": patch
