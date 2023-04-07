@@ -2851,7 +2851,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         ["workspace:code/code-worker-utils", {\
           "packageLocation": "./code/code-worker-utils/",\
           "packageDependencies": [\
-            ["@monstrs/code-worker-utils", "workspace:code/code-worker-utils"]\
+            ["@monstrs/code-worker-utils", "workspace:code/code-worker-utils"],\
+            ["hash-string", "npm:1.0.0"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -11336,6 +11337,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["inherits", "npm:2.0.4"],\
             ["readable-stream", "npm:3.6.0"],\
             ["safe-buffer", "npm:5.2.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["hash-string", [\
+        ["npm:1.0.0", {\
+          "packageLocation": "./.yarn/cache/hash-string-npm-1.0.0-5972f21b3c-6e66df274d.zip/node_modules/hash-string/",\
+          "packageDependencies": [\
+            ["hash-string", "npm:1.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\

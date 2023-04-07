@@ -12,6 +12,9 @@
     "prepack": "yarn run build",
     "postpack": "rm -rf dist"
   },
+  "dependencies": {
+    "hash-string": "^1.0.0"
+  },
   "publishConfig": {
     "main": "dist/index.js",
     "typings": "dist/index.d.ts"

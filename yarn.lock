@@ -1760,6 +1760,8 @@ __metadata:
 "@monstrs/code-worker-utils@workspace:0.0.4, @monstrs/code-worker-utils@workspace:code/code-worker-utils":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-worker-utils@workspace:code/code-worker-utils"
+  dependencies:
+    hash-string: ^1.0.0
   languageName: unknown
   linkType: soft
 
@@ -8309,6 +8311,13 @@ fsevents@^1.2.7:
     readable-stream: ^3.6.0
     safe-buffer: ^5.2.0
   checksum: 26b7e97ac3de13cb23fc3145e7e3450b0530274a9562144fc2bf5c1e2983afd0e09ed7cc3b20974ba66039fad316db463da80eb452e7373e780cbee9a0d2f2dc
+  languageName: node
+  linkType: hard
+
+"hash-string@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "hash-string@npm:1.0.0"
+  checksum: 6e66df274dec2509a01aa7356ed729437c6596584db9b68d3b863c708368a4da5bb24b0c58f169f1b7e3a0e81a48ade6636776681097fdb3e5206f9752b73026
   languageName: node
   linkType: hard
 

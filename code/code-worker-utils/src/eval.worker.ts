@@ -5,9 +5,20 @@ import { join }          from 'node:path'
 import { dirname }       from 'node:path'
 import { Worker }        from 'node:worker_threads'
 
+import hash              from 'hash-string'
+
 export class EvalWorker {
   private static build(content: string, workerData: object): Worker {
-    const file = join(process.cwd(), '.yarn/dist/worker.mjs')
+    const filename = hash(content)
+    const file = join(process.cwd(), `.yarn/dist/${filename}.mjs`)
+
+    if (!existsSync(file)) {
+      if (!existsSync(dirname(file))) {
+        mkdirSync(dirname(file))
+      }
+
+      writeFileSync(file, content)
+    }
 
     const execArgv: Array<string> = []
 
@@ -20,12 +31,6 @@ export class EvalWorker {
       execArgv.push('--loader')
       execArgv.push(join(process.cwd(), '.pnp.loader.mjs'))
     }
-
-    if (!existsSync(dirname(file))) {
-      mkdirSync(dirname(file))
-    }
-
-    writeFileSync(file, content)
 
     return new Worker(file, {
       execArgv: [...execArgv, ...process.execArgv],
