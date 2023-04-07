@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import json from '@rollup/plugin-json'
 import esbuild from 'rollup-plugin-esbuild'
 import { brotliCompressSync } from 'node:zlib'
-import { fileURLToPath} from 'node:url'
+import { fileURLToPath } from 'node:url'
 
 const wrapOutput = () => ({
   name: 'wrap-output',

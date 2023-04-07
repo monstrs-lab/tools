@@ -2280,6 +2280,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/ink", null],\
             ["@types/react", "npm:18.0.33"],\
             ["ink", "virtual:11bd5af2a80ab93c290d16e253fd5eda25f6c23efed18026ce02e3946945e078ab2eca3aaf556121c03850dbaab6f49557f766911a06a3fb3a1db705274a5786#npm:3.2.0"],\
+            ["nanoid", "npm:4.0.2"],\
             ["react", "npm:18.2.0"],\
             ["strip-ansi", "npm:7.0.1"]\
           ],\
@@ -2298,6 +2299,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@monstrs/cli-ui-source-component", "virtual:0b5c5b5f4acfe6c6d7a7cf91accd44ebee509790b96c81fa76d2724d96cceb1a9b2c93765b5072898defa5dfdf20143bf2d406f7561ce291e93460e4812a7247#workspace:cli/cli-ui-source-component"],\
             ["@types/react", "npm:18.0.33"],\
             ["ink", "virtual:11bd5af2a80ab93c290d16e253fd5eda25f6c23efed18026ce02e3946945e078ab2eca3aaf556121c03850dbaab6f49557f766911a06a3fb3a1db705274a5786#npm:3.2.0"],\
+            ["nanoid", "npm:4.0.2"],\
             ["react", "npm:18.2.0"],\
             ["strip-ansi", "npm:7.0.1"]\
           ],\
@@ -2503,6 +2505,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/ink", null],\
             ["@types/react", "npm:18.0.33"],\
             ["ink", "virtual:11bd5af2a80ab93c290d16e253fd5eda25f6c23efed18026ce02e3946945e078ab2eca3aaf556121c03850dbaab6f49557f766911a06a3fb3a1db705274a5786#npm:3.2.0"],\
+            ["nanoid", "npm:4.0.2"],\
             ["react", "npm:18.2.0"],\
             ["strip-ansi", "npm:7.0.1"]\
           ],\
@@ -2524,6 +2527,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@monstrs/stack-trace", "npm:0.0.4"],\
             ["@types/react", "npm:18.0.33"],\
             ["ink", "virtual:11bd5af2a80ab93c290d16e253fd5eda25f6c23efed18026ce02e3946945e078ab2eca3aaf556121c03850dbaab6f49557f766911a06a3fb3a1db705274a5786#npm:3.2.0"],\
+            ["nanoid", "npm:4.0.2"],\
             ["react", "npm:18.2.0"],\
             ["strip-ansi", "npm:7.0.1"]\
           ],\
@@ -3606,6 +3610,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@monstrs/yarn-plugin-runtime", "workspace:yarn/plugin-runtime"],\
             ["@monstrs/code-runtime", "workspace:code/code-runtime"],\
+            ["@yarnpkg/builder", "npm:3.2.7"],\
             ["@yarnpkg/core", "patch:@yarnpkg/core@npm%3A3.5.0#./.yarn/patches/@yarnpkg-core-npm-3.5.0-6ad940becd.patch::version=3.5.0&hash=616bd3&locator=tools%40workspace%3A."],\
             ["semver", "npm:7.3.8"]\
           ],\
@@ -14531,6 +14536,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/nanoclone-npm-0.2.1-972ee958a0-96b2954e22.zip/node_modules/nanoclone/",\
           "packageDependencies": [\
             ["nanoclone", "npm:0.2.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["nanoid", [\
+        ["npm:4.0.2", {\
+          "packageLocation": "./.yarn/cache/nanoid-npm-4.0.2-ae010cad86-747c399cea.zip/node_modules/nanoid/",\
+          "packageDependencies": [\
+            ["nanoid", "npm:4.0.2"]\
           ],\
           "linkType": "HARD"\
         }]\

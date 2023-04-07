@@ -35,6 +35,7 @@
     "@types/node": "^18.15.11"
   },
   "publishConfig": {
+    "access": "public",
     "exports": {
       "./package.json": "./package.json",
       ".": {
@@ -62,6 +63,8 @@
         "default": "./dist/typescript.js",
         "types": "./dist/typescript.d.ts"
       }
-    }
+    },
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
   }
 }

@@ -1,5 +1,3 @@
-/* eslint-disable react/no-array-index-key */
-
 import { parse }          from '@monstrs/stack-trace'
 
 import React              from 'react'
@@ -7,6 +5,7 @@ import { Text }           from 'ink'
 import { Box }            from 'ink'
 import { Spacer }         from 'ink'
 import { FC }             from 'react'
+import { nanoid }         from 'nanoid'
 import { useMemo }        from 'react'
 
 import { SourcePreview }  from '@monstrs/cli-ui-source-component'
@@ -35,7 +34,7 @@ export const StackTrace: FC<StackTraceProps> = ({ children }) => {
         </Box>
       )}
       {stack.frames.map((frame: any, index) => (
-        <Box key={`${frame.file}-${frame.line}-${frame.column}-${index}`} justifyContent='flex-end'>
+        <Box key={nanoid()} justifyContent='flex-end'>
           <Text>{frame.function}</Text>
           <Spacer />
           <Text color='gray'>{frame.file}</Text>

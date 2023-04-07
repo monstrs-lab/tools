@@ -1,12 +1,12 @@
-import { execFileSync }       from 'node:child_process'
-import { execSync }           from 'node:child_process'
-import { mkdtemp }            from 'node:fs/promises'
-import { writeFile }          from 'node:fs/promises'
-import { tmpdir }             from 'node:os'
-import { join }               from 'node:path'
-import { fileURLToPath }      from 'node:url'
+import { execFileSync } from 'node:child_process'
+import { execSync } from 'node:child_process'
+import { mkdtemp } from 'node:fs/promises'
+import { writeFile } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
-import pkg                    from '../package.json' assert { type: 'json' }
+import pkg from '../package.json' assert { type: 'json' }
 
 const repo = await mkdtemp(join(tmpdir(), 'yarn-pnp-'))
 const cache = join(fileURLToPath(new URL('.', import.meta.url)), '../cache')
@@ -46,7 +46,7 @@ export default defineConfig({
     cjs({requireReturnsDefault: 'preferred'}),
   ],
 });
-`;
+`
 
 execFileSync('git', [
   'clone',
@@ -58,18 +58,16 @@ execFileSync('git', [
   repo,
 ])
 
-execSync(`find ./ -iname "package.json" -type f | xargs sed -i -e 's/0\.15\.5/0\.17\.15/gi'`, { cwd: repo })
+execSync(`find ./ -iname "package.json" -type f | xargs sed -i -e 's/0.15.5/0.17.15/gi'`, {
+  cwd: repo,
+})
 
 execFileSync('yarn', ['install'], { cwd: repo })
 
-await writeFile(
-  join(repo, 'packages/yarnpkg-pnp/rollup.config.js'),
-  rollupConfig
-)
+await writeFile(join(repo, 'packages/yarnpkg-pnp/rollup.config.js'), rollupConfig)
 
 execFileSync(
   'yarn',
   ['workspace', '@yarnpkg/pnp', 'pack', '--out', join(cache, 'yarnpkg-pnp.tgz')],
   { cwd: repo }
 )
-

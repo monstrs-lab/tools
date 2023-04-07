@@ -1392,6 +1392,7 @@ __metadata:
     "@monstrs/cli-ui-source-component": "workspace:0.0.30"
     "@types/react": ^18.0.33
     ink: ^3.2.0
+    nanoid: ^4.0.2
     react: ^18.2.0
     strip-ansi: ^7.0.1
   peerDependencies:
@@ -1502,6 +1503,7 @@ __metadata:
     "@monstrs/stack-trace": ^0.0.4
     "@types/react": ^18.0.33
     ink: ^3.2.0
+    nanoid: ^4.0.2
     react: ^18.2.0
     strip-ansi: ^7.0.1
   peerDependencies:
@@ -2232,6 +2234,7 @@ __metadata:
   resolution: "@monstrs/yarn-plugin-runtime@workspace:yarn/plugin-runtime"
   dependencies:
     "@monstrs/code-runtime": "workspace:0.0.12"
+    "@yarnpkg/builder": ^3.2.7
     "@yarnpkg/core": ^3.5.0
     semver: ^7.3.8
   languageName: unknown
@@ -10975,6 +10978,15 @@ fsevents@^1.2.7:
   version: 0.2.1
   resolution: "nanoclone@npm:0.2.1"
   checksum: 96b2954e22f70561f41e20d69856266c65583c2a441dae108f1dc71b716785d2c8038dac5f1d5e92b117aed3825f526b53139e2e5d6e6db8a77cfa35b3b8bf40
+  languageName: node
+  linkType: hard
+
+"nanoid@npm:^4.0.2":
+  version: 4.0.2
+  resolution: "nanoid@npm:4.0.2"
+  bin:
+    nanoid: bin/nanoid.js
+  checksum: 747c399cea4664dd0be1d0ec498ffd1ef8f1f5221676fc8b577e3f46f66d9afcddb9595d63d19a2e78d0bc6cc33984f65e66bf1682c850b9e26288883d96b53f
   languageName: node
   linkType: hard
 

@@ -1,12 +1,12 @@
-import { execFileSync }       from 'node:child_process'
-import { mkdtemp }            from 'node:fs/promises'
-import { writeFile }          from 'node:fs/promises'
-import { readFile }           from 'node:fs/promises'
-import { tmpdir }             from 'node:os'
-import { join }               from 'node:path'
-import { fileURLToPath }      from 'node:url'
+import { execFileSync } from 'node:child_process'
+import { mkdtemp } from 'node:fs/promises'
+import { writeFile } from 'node:fs/promises'
+import { readFile } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
-import pkg                    from '../package.json' assert { type: "json" }
+import pkg from '../package.json' assert { type: 'json' }
 
 const repo = await mkdtemp(join(tmpdir(), 'yarn-'))
 const cache = join(fileURLToPath(new URL('.', import.meta.url)), '../cache')

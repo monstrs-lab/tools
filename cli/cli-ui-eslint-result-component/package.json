@@ -7,6 +7,7 @@
     "./package.json": "./package.json",
     ".": "./src/index.ts"
   },
+  "main": "src/index.ts",
   "files": [
     "dist"
   ],
@@ -16,7 +17,8 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/cli-ui-source-component": "workspace:0.0.30"
+    "@monstrs/cli-ui-source-component": "workspace:0.0.30",
+    "nanoid": "^4.0.2"
   },
   "devDependencies": {
     "@jest/globals": "29.5.0",
@@ -39,6 +41,8 @@
         "default": "./dist/index.js",
         "types": "./dist/index.d.ts"
       }
-    }
+    },
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
   }
 }
