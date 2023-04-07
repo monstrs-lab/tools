@@ -44,7 +44,7 @@
     "@yarnpkg/builder": "^3.2.7",
     "esbuild": "npm:esbuild-wasm@^0.17.14",
     "husky": "8.0.3",
-    "typescript": "^5.0.3"
+    "typescript": "^5.0.4"
   },
   "packageManager": "yarn@3.1.0",
   "tools": {

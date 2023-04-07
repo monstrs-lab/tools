@@ -23,9 +23,9 @@
     "@monstrs/config-typescript": "workspace:0.0.10",
     "@monstrs/types-import-proto": "0.0.1",
     "@types/node": "^18.15.11",
-    "memfs": "^3.4.13",
+    "memfs": "^3.5.0",
     "ts-loader": "^9.4.2",
-    "typescript": "^5.0.3",
+    "typescript": "^5.0.4",
     "webpack": "^5.78.0",
     "webpack-chain": "^6.5.1"
   },

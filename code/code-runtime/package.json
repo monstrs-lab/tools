@@ -28,7 +28,7 @@
     "@monstrs/webpack-start-server-plugin": "workspace:0.2.40",
     "eslint": "^8.37.0",
     "ts-loader": "^9.4.2",
-    "typescript": "^5.0.3",
+    "typescript": "^5.0.4",
     "webpack": "^5.78.0"
   },
   "devDependencies": {
