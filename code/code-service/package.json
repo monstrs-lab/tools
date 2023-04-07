@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-service",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -18,8 +18,8 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/code-runtime": "workspace:0.1.0",
-    "@monstrs/config-typescript": "workspace:0.1.0",
+    "@monstrs/code-runtime": "workspace:0.1.1",
+    "@monstrs/config-typescript": "workspace:0.1.1",
     "@yarnpkg/cli": "^3.5.0",
     "@yarnpkg/core": "^3.5.0",
     "fast-glob": "^3.2.12",

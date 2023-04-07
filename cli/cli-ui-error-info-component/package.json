@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/cli-ui-error-info-component",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -17,7 +17,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/cli-ui-stack-trace-component": "workspace:0.1.0"
+    "@monstrs/cli-ui-stack-trace-component": "workspace:0.1.1"
   },
   "devDependencies": {
     "@types/node": "^18.15.11",
