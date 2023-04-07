@@ -62,8 +62,6 @@
         "default": "./dist/typescript.js",
         "types": "./dist/typescript.d.ts"
       }
-    },
-    "main": "dist/index.js",
-    "typings": "dist/index.d.ts"
+    }
   }
 }

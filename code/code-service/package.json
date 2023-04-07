@@ -3,7 +3,10 @@
   "version": "0.0.117",
   "license": "MIT",
   "type": "module",
-  "main": "src/index.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": "./src/index.ts"
+  },
   "files": [
     "dist",
     "tsconfig.stub.json"
@@ -35,7 +38,13 @@
     "wait-for-localhost": "^4.0.1"
   },
   "publishConfig": {
-    "main": "dist/index.js",
-    "typings": "dist/index.d.ts"
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "import": "./dist/index.js",
+        "default": "./dist/index.js",
+        "types": "./dist/index.d.ts"
+      }
+    }
   }
 }
