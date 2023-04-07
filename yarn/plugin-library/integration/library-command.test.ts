@@ -17,6 +17,7 @@ describe('yarn', () => {
         makeTemporaryEnv(
           {
             dependencies: {
+              '@monstrs/code-runtime': 'workspace:*',
               typescript: '^5.0.3',
             },
           },

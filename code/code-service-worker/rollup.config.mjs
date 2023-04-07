@@ -22,7 +22,17 @@ const wrapOutput = () => ({
 
 export default [
   {
-    external: ['pnpapi', '@monstrs/code-service', 'webpack'],
+    external(id) {
+      if (['pnpapi', '@monstrs/code-runtime'].includes(id)) {
+        return true
+      }
+
+      if (id.includes('/code-runtime/')) {
+        return true
+      }
+
+      return false
+    },
     input: './src/service.worker.source.ts',
     output: {
       file: './src/service.worker.content.ts',

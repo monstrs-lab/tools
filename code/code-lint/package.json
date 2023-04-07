@@ -13,8 +13,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/config-eslint": "workspace:0.0.15",
-    "eslint": "^8.37.0",
+    "@monstrs/code-runtime": "workspace:0.0.12",
     "globby": "^13.1.3",
     "ignore": "^5.2.4"
   },

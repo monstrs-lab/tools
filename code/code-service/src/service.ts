@@ -1,8 +1,7 @@
 import { PassThrough }       from 'node:stream'
 
-import webpack               from 'webpack'
-
-import { StartServerPlugin } from '@monstrs/webpack-start-server-plugin'
+import { StartServerPlugin } from '@monstrs/code-runtime/webpack'
+import { webpack }           from '@monstrs/code-runtime/webpack'
 
 import { WebpackConfig }     from './webpack.config.js'
 

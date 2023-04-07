@@ -125,6 +125,13 @@ export class PackageUtils {
         }
       }
 
+      if (workspace.manifest.raw.publishConfig) {
+        if (workspace.manifest.raw.publishConfig.exports) {
+          // eslint-disable-next-line no-param-reassign
+          workspace.manifest.raw.exports = workspace.manifest.raw.publishConfig.exports
+        }
+      }
+
       const files = await genPackList(workspace)
 
       const pack = await genPackStream(workspace, files)

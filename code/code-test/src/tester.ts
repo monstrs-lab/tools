@@ -1,12 +1,12 @@
-import { accessSync }       from 'node:fs'
-import { join }             from 'node:path'
+import { accessSync }            from 'node:fs'
+import { join }                  from 'node:path'
 
-import { AggregatedResult } from '@jest/test-result'
-import { Config }           from '@jest/types'
-import { runCLI }           from '@jest/core'
+import type { AggregatedResult } from '@jest/test-result'
+import type { Config }           from '@jest/types'
 
-import { integration }      from '@monstrs/config-jest'
-import { unit }             from '@monstrs/config-jest'
+import { runCLI }                from '@monstrs/code-runtime/jest'
+import { integration }           from '@monstrs/code-runtime/jest'
+import { unit }                  from '@monstrs/code-runtime/jest'
 
 export class Tester {
   constructor(private readonly cwd: string) {}

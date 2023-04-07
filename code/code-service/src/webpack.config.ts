@@ -1,18 +1,19 @@
-import { writeFileSync }            from 'node:fs'
-import { readFile }                 from 'node:fs/promises'
-import { createRequire }            from 'node:module'
-import { join }                     from 'node:path'
+import { writeFileSync }                 from 'node:fs'
+import { readFile }                      from 'node:fs/promises'
+import { join }                          from 'node:path'
 
-import Config                       from 'webpack-chain'
-import fg                           from 'fast-glob'
-import webpack                      from 'webpack'
-import { findUp }                   from 'find-up'
-import { temporaryFile }            from 'tempy'
+import Config                            from 'webpack-chain'
+import fg                                from 'fast-glob'
+import { findUp }                        from 'find-up'
+import { temporaryFile }                 from 'tempy'
 
-import tsconfig                     from '@monstrs/config-typescript'
+import tsconfig                          from '@monstrs/config-typescript'
+import { webpack }                       from '@monstrs/code-runtime/webpack'
+import { tsLoaderPath }                  from '@monstrs/code-runtime/webpack'
+import { webpackProtoImportsLoaderPath } from '@monstrs/code-runtime/webpack'
 
-import { FORCE_UNPLUGGED_PACKAGES } from './webpack.externals.js'
-import { UNUSED_EXTERNALS }         from './webpack.externals.js'
+import { FORCE_UNPLUGGED_PACKAGES }      from './webpack.externals.js'
+import { UNUSED_EXTERNALS }              from './webpack.externals.js'
 
 export type WebpackEnvironment = 'production' | 'development'
 
@@ -65,8 +66,6 @@ export class WebpackConfig {
   }
 
   private applyModules(config: Config) {
-    const require = createRequire(import.meta.url)
-
     const configFile = temporaryFile()
 
     writeFileSync(configFile, '{"include":["**/*"]}')
@@ -75,7 +74,7 @@ export class WebpackConfig {
       .rule('ts')
       .test(/.tsx?$/)
       .use('ts')
-      .loader(require.resolve('ts-loader'))
+      .loader(tsLoaderPath)
       .options({
         transpileOnly: true,
         experimentalWatchApi: true,
@@ -89,7 +88,7 @@ export class WebpackConfig {
       .rule('protos')
       .test(/\.proto$/)
       .use('proto')
-      .loader(require.resolve('@monstrs/webpack-proto-imports-loader'))
+      .loader(webpackProtoImportsLoaderPath)
   }
 
   async getUnpluggedDependencies(): Promise<Set<string>> {

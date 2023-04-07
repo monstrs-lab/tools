@@ -22,7 +22,17 @@ const wrapOutput = () => ({
 
 export default [
   {
-    external: ['pnpapi', 'typescript', '@jest/core', '@monstrs/config-jest'],
+    external(id) {
+      if (['pnpapi', '@monstrs/code-runtime'].includes(id)) {
+        return true
+      }
+
+      if (id.includes('/code-runtime/')) {
+        return true
+      }
+
+      return false
+    },
     input: './src/tester.worker.source.ts',
     output: {
       file: './src/tester.worker.content.ts',

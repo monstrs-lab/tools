@@ -5,7 +5,7 @@
   "type": "module",
   "main": "src/index.ts",
   "files": [
-    "src"
+    "dist"
   ],
   "scripts": {
     "build": "yarn library build",
@@ -29,6 +29,11 @@
   "devDependencies": {
     "@types/eslint": "^8.37.0",
     "@types/node": "^18.15.11"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
   },
   "publishConfig": {
     "main": "dist/index.js",

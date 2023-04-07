@@ -17,8 +17,7 @@ describe('yarn', () => {
         makeTemporaryEnv(
           {
             dependencies: {
-              '@monstrs/config-jest': 'workspace:*',
-              '@jest/core': '^29.5.0',
+              '@monstrs/code-runtime': 'workspace:*',
               typescript: '^5.0.3',
             },
           },
@@ -48,8 +47,7 @@ test('success', () => {
         makeTemporaryEnv(
           {
             dependencies: {
-              '@monstrs/config-jest': 'workspace:*',
-              '@jest/core': '^29.5.0',
+              '@monstrs/code-runtime': 'workspace:*',
               typescript: '^5.0.3',
             },
           },
@@ -79,8 +77,7 @@ test('success', () => {
         makeTemporaryEnv(
           {
             dependencies: {
-              '@monstrs/config-jest': 'workspace:*',
-              '@jest/core': '^29.5.0',
+              '@monstrs/code-runtime': 'workspace:*',
               typescript: '^5.0.3',
             },
           },
@@ -111,8 +108,7 @@ test('success', () => {
         makeTemporaryEnv(
           {
             dependencies: {
-              '@monstrs/config-jest': 'workspace:*',
-              '@jest/core': '^29.5.0',
+              '@monstrs/code-runtime': 'workspace:*',
               typescript: '^5.0.3',
             },
           },

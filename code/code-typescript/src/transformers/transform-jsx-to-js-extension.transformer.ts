@@ -1,4 +1,4 @@
-import ts from 'typescript'
+import { ts } from '@monstrs/code-runtime/typescript'
 
 export const transformJsxToJsExtension = (
   ctx: ts.TransformationContext

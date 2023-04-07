@@ -1590,13 +1590,13 @@ __metadata:
   resolution: "@monstrs/code-lint-worker@workspace:code/code-lint-worker"
   dependencies:
     "@monstrs/code-lint": "workspace:0.0.121"
+    "@monstrs/code-runtime": "workspace:0.0.12"
     "@monstrs/code-worker-utils": "workspace:0.0.4"
     "@rollup/plugin-commonjs": ^24.0.1
     "@rollup/plugin-json": ^6.0.0
     "@rollup/plugin-node-resolve": ^15.0.2
     "@types/node": ^18.15.11
     esbuild: ^0.17.15
-    eslint: ^8.37.0
     rollup: ^3.20.2
     rollup-plugin-esbuild: ^5.0.0
     rollup-plugin-terser: ^7.0.2
@@ -1607,9 +1607,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/code-lint@workspace:code/code-lint"
   dependencies:
-    "@monstrs/config-eslint": "workspace:0.0.15"
+    "@monstrs/code-runtime": "workspace:0.0.12"
     "@types/node": ^18.15.11
-    eslint: ^8.37.0
     globby: ^13.1.3
     ignore: ^5.2.4
   peerDependencies:
@@ -1632,6 +1631,23 @@ __metadata:
     "@types/node": ^18.15.11
     "@yarnpkg/core": ^3.5.0
     "@yarnpkg/fslib": ^2.10.2
+  languageName: unknown
+  linkType: soft
+
+"@monstrs/code-runtime@workspace:0.0.12, @monstrs/code-runtime@workspace:code/code-runtime":
+  version: 0.0.0-use.local
+  resolution: "@monstrs/code-runtime@workspace:code/code-runtime"
+  dependencies:
+    "@jest/core": ^29.5.0
+    "@monstrs/config-eslint": "workspace:0.0.15"
+    "@monstrs/config-jest": "workspace:0.0.14"
+    "@monstrs/webpack-proto-imports-loader": "workspace:0.0.31"
+    "@monstrs/webpack-start-server-plugin": "workspace:0.2.40"
+    "@types/node": ^18.15.11
+    eslint: ^8.37.0
+    ts-loader: ^9.4.2
+    typescript: ^5.0.3
+    webpack: ^5.78.0
   languageName: unknown
   linkType: soft
 
@@ -1658,9 +1674,8 @@ __metadata:
   resolution: "@monstrs/code-service@workspace:code/code-service"
   dependencies:
     "@jest/globals": ^29.5.0
+    "@monstrs/code-runtime": "workspace:0.0.12"
     "@monstrs/config-typescript": "workspace:0.0.10"
-    "@monstrs/webpack-proto-imports-loader": "workspace:0.0.31"
-    "@monstrs/webpack-start-server-plugin": "workspace:0.2.40"
     "@types/node": ^18.15.11
     "@types/protocol-buffers-schema": 3.4.1
     "@types/wait-for-localhost": 3.1.0
@@ -1672,10 +1687,8 @@ __metadata:
     find-up: ^6.3.0
     string-replace-loader: ^3.1.0
     tempy: ^3.0.0
-    ts-loader: ^9.4.2
     typescript: ^5.0.3
     wait-for-localhost: ^4.0.1
-    webpack: ^5.78.0
     webpack-chain: ^6.5.1
   languageName: unknown
   linkType: soft
@@ -1703,10 +1716,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/code-test@workspace:code/code-test"
   dependencies:
-    "@jest/core": ^29.5.0
     "@jest/test-result": ^29.5.0
     "@jest/types": ^29.5.0
-    "@monstrs/config-jest": "workspace:0.0.14"
+    "@monstrs/code-runtime": "workspace:0.0.12"
     "@types/node": ^18.15.11
   peerDependenciesMeta:
     jest:
@@ -1736,6 +1748,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/code-typescript@workspace:code/code-typescript"
   dependencies:
+    "@monstrs/code-runtime": "workspace:0.0.12"
     "@monstrs/config-typescript": "workspace:0.0.10"
     "@types/deepmerge": 2.2.0
     "@types/node": ^18.15.11
@@ -1768,6 +1781,9 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     prettier: ^3.0.0-alpha.6
     react: ^18.2.0
+  peerDependenciesMeta:
+    typescript:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -2030,6 +2046,7 @@ __metadata:
     "@monstrs/cli-ui-renderer": "workspace:0.0.31"
     "@monstrs/cli-ui-typescript-diagnostic-component": "workspace:0.0.20"
     "@monstrs/code-lint-worker": "workspace:0.0.9"
+    "@monstrs/code-runtime": "workspace:0.0.12"
     "@monstrs/code-test-worker": "workspace:0.0.9"
     "@monstrs/code-typescript": "workspace:0.0.120"
     "@monstrs/code-typescript-worker": "workspace:0.0.9"
@@ -2043,7 +2060,6 @@ __metadata:
     "@yarnpkg/core": ^3.5.0
     "@yarnpkg/fslib": ^2.10.2
     clipanion: ^3.2.0
-    eslint: ^8.37.0
     react: ^18.2.0
     strip-ansi: ^7.0.1
   peerDependencies:
@@ -13956,6 +13972,7 @@ pem@dexus/pem:
   resolution: "tools@workspace:."
   dependencies:
     "@jest/core": ^29.5.0
+    "@monstrs/code-runtime": "workspace:0.0.12"
     "@monstrs/code-service": "workspace:0.0.117"
     "@monstrs/config-eslint": "workspace:0.0.15"
     "@monstrs/config-jest": "workspace:0.0.14"

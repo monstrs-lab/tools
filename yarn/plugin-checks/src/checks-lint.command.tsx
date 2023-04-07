@@ -1,6 +1,6 @@
 import { readFileSync }     from 'node:fs'
 
-import type { ESLint }      from 'eslint'
+import type { ESLint }      from '@monstrs/code-runtime/eslint'
 
 import { BaseCommand }      from '@yarnpkg/cli'
 import { StreamReport }     from '@yarnpkg/core'

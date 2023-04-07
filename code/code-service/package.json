@@ -14,18 +14,15 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
+    "@monstrs/code-runtime": "workspace:0.0.12",
     "@monstrs/config-typescript": "workspace:0.0.10",
-    "@monstrs/webpack-proto-imports-loader": "workspace:0.0.31",
-    "@monstrs/webpack-start-server-plugin": "workspace:0.2.40",
     "@yarnpkg/cli": "^3.5.0",
     "@yarnpkg/core": "^3.5.0",
     "fast-glob": "^3.2.12",
     "find-up": "^6.3.0",
     "string-replace-loader": "^3.1.0",
     "tempy": "^3.0.0",
-    "ts-loader": "^9.4.2",
     "typescript": "^5.0.3",
-    "webpack": "^5.78.0",
     "webpack-chain": "^6.5.1"
   },
   "devDependencies": {
