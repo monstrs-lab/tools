@@ -135,12 +135,12 @@ export const copyYarnRelease = async (
   report: Report
 ): Promise<void> => {
   const src = project.configuration.get('yarnPath')
-  const path = ppath.relative(project.cwd, src)
+  const path = ppath.relative(project.cwd, src!)
   const dest = ppath.join(destination, path)
 
   report.reportInfo(null, path)
 
-  await xfs.copyPromise(dest, src, {
+  await xfs.copyPromise(dest, src!, {
     overwrite: true,
   })
 }

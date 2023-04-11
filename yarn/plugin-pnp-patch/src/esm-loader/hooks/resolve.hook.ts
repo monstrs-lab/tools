@@ -9,7 +9,7 @@ export const resolveHook = async (
     .replace(/\.(c|m)?js$/, `.$1ts`)
     .replace(/\.(c|m)?jsx$/, '.$1tsx')
   try {
-    return resolveBaseHook(tsSpecifier, context, nextResolve)
+    return await resolveBaseHook(tsSpecifier, context, nextResolve)
   } catch (err) {
     if (tsSpecifier === originalSpecifier) throw err
 
