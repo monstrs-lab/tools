@@ -19,11 +19,11 @@
   },
   "dependencies": {
     "@monstrs/code-runtime": "workspace:0.1.1",
-    "semver": "^7.3.8"
+    "semver": "^7.4.0"
   },
   "devDependencies": {
-    "@yarnpkg/builder": "^3.2.7",
-    "@yarnpkg/core": "^3.5.0"
+    "@yarnpkg/builder": "^4.0.0-rc.42",
+    "@yarnpkg/core": "^4.0.0-rc.42"
   },
   "publishConfig": {
     "access": "public",

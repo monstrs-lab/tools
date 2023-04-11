@@ -7,9 +7,7 @@ import { PortablePath }      from '@yarnpkg/fslib'
 import { Filename }          from '@yarnpkg/fslib'
 import { xfs }               from '@yarnpkg/fslib'
 import { ppath }             from '@yarnpkg/fslib'
-import { prepareForPack }    from '@yarnpkg/plugin-pack/lib/packUtils.js'
-import { genPackList }       from '@yarnpkg/plugin-pack/lib/packUtils.js'
-import { genPackStream }     from '@yarnpkg/plugin-pack/lib/packUtils.js'
+import { packUtils }         from '@yarnpkg/plugin-pack'
 
 export class PackageUtils {
   private configuration!: Configuration
@@ -85,7 +83,7 @@ export class PackageUtils {
       return target
     }
 
-    await prepareForPack(workspace, { report: new ThrowReport() }, async () => {
+    await packUtils.prepareForPack(workspace, { report: new ThrowReport() }, async () => {
       for (const descriptor of workspace.manifest.dependencies.values()) {
         if (descriptor.range.startsWith(WorkspaceResolver.protocol)) {
           const dependent = project.tryWorkspaceByDescriptor(descriptor)
@@ -132,9 +130,9 @@ export class PackageUtils {
         }
       }
 
-      const files = await genPackList(workspace)
+      const files = await packUtils.genPackList(workspace)
 
-      const pack = await genPackStream(workspace, files)
+      const pack = await packUtils.genPackStream(workspace, files)
       const write = xfs.createWriteStream(target)
 
       pack.pipe(write)

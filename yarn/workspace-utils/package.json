@@ -13,7 +13,7 @@
     "dist"
   ],
   "devDependencies": {
-    "@yarnpkg/core": "^3.5.0"
+    "@yarnpkg/core": "^4.0.0-rc.42"
   },
   "publishConfig": {
     "access": "public",

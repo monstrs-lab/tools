@@ -31,10 +31,10 @@
   "devDependencies": {
     "@jest/globals": "^29.5.0",
     "@monstrs/yarn-test-utils": "workspace:0.0.1",
-    "@yarnpkg/builder": "^3.2.7",
-    "@yarnpkg/cli": "^3.5.0",
-    "@yarnpkg/core": "^3.5.0",
-    "@yarnpkg/fslib": "^2.10.2",
+    "@yarnpkg/builder": "^4.0.0-rc.42",
+    "@yarnpkg/cli": "^4.0.0-rc.42",
+    "@yarnpkg/core": "^4.0.0-rc.42",
+    "@yarnpkg/fslib": "^3.0.0-rc.42",
     "typescript": "^5.0.4"
   },
   "peerDependencies": {
