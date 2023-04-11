@@ -59,7 +59,7 @@ export class CommitMessageCommand extends BaseCommand {
       RequestCommitMessageApp,
       {},
       {
-        stdin: this.context.stdin,
+        stdin: process.stdin,
         stdout: this.context.stdout,
         stderr: this.context.stderr,
       }

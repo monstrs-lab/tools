@@ -1,4 +1,4 @@
-import MultiSelect            from 'ink-multi-select'
+import MultiSelectPkg         from 'ink-multi-select'
 import React                  from 'react'
 import figures                from 'figures'
 import { Text }               from 'ink'
@@ -8,6 +8,9 @@ import { useCallback }        from 'react'
 
 import { IndicatorComponent } from './select-indicator.component.jsx'
 import { ItemComponent }      from './select-item.component.jsx'
+
+// TODO: moduleResolution
+const MultiSelect = (MultiSelectPkg as any).default || (MultiSelectPkg as any)
 
 const COMMIT_ADDITIONAL = [
   {

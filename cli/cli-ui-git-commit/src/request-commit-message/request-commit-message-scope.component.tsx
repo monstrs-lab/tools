@@ -14,9 +14,9 @@ import { IndicatorComponent }    from './select-indicator.component.jsx'
 import { ItemComponent }         from './select-item.component.jsx'
 
 // TODO: moduleResolution
-const Select = SelectPkg as any
+const Select = (SelectPkg as any).default || (SelectPkg as any)
 // TODO: moduleResolution
-const TextInput = TextInputPkg as any
+const TextInput = (TextInputPkg as any).default || TextInputPkg
 
 const scopes = Object.keys(COMMIT_SCOPE_ENUM).map((key) => ({
   label: COMMIT_SCOPE_ENUM[key].description,
