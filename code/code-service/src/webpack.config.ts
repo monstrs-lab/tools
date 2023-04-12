@@ -2,7 +2,7 @@ import { writeFileSync }                 from 'node:fs'
 import { readFile }                      from 'node:fs/promises'
 import { join }                          from 'node:path'
 
-import Config                            from 'webpack-chain'
+import Config                            from 'webpack-chain-5'
 import fg                                from 'fast-glob'
 import { findUp }                        from 'find-up'
 import { temporaryFile }                 from 'tempy'
@@ -53,6 +53,11 @@ export class WebpackConfig {
     config.output.path(join(this.cwd, 'dist')).filename('[name].js')
 
     config.resolve.extensions.add('.tsx').add('.ts').add('.js')
+    config.resolve.extensionAlias
+      .set('.js', ['.js', '.ts'])
+      .set('.jsx', ['.jsx', '.tsx'])
+      .set('.cjs', ['.cjs', '.cts'])
+      .set('.mjs', ['.mjs', '.mts'])
 
     config.devtool(
       environment === 'production' ? 'source-map' : ('eval-cheap-module-source-map' as any)
