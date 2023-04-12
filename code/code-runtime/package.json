@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-runtime",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -23,9 +23,9 @@
   "dependencies": {
     "@jest/core": "^29.5.0",
     "@monstrs/config-eslint": "workspace:0.1.1",
-    "@monstrs/config-jest": "workspace:0.1.1",
-    "@monstrs/webpack-proto-imports-loader": "workspace:0.1.1",
-    "@monstrs/webpack-start-server-plugin": "workspace:0.3.1",
+    "@monstrs/config-jest": "workspace:0.1.2",
+    "@monstrs/webpack-proto-imports-loader": "workspace:0.1.2",
+    "@monstrs/webpack-start-server-plugin": "workspace:0.3.2",
     "eslint": "^8.38.0",
     "ts-loader": "^9.4.2",
     "typescript": "^5.0.4",

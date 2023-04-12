@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/webpack-proto-imports-loader",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -16,7 +16,7 @@
     "protocol-buffers-schema": "^3.6.0"
   },
   "devDependencies": {
-    "@monstrs/config-typescript": "workspace:0.1.1",
+    "@monstrs/config-typescript": "workspace:0.1.2",
     "@monstrs/types-import-proto": "0.0.1",
     "@types/node": "^18.15.11",
     "memfs": "^3.5.0",

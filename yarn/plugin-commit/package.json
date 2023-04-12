@@ -18,7 +18,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/cli-ui-git-commit-component": "workspace:0.1.1",
+    "@monstrs/cli-ui-git-commit-component": "workspace:0.1.2",
     "@monstrs/code-commit": "workspace:0.1.1",
     "@yarnpkg/libui": "^3.0.0-rc.42",
     "clipanion": "^3.2.0",
