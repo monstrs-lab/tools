@@ -9,6 +9,7 @@ import { MessageName }          from '@yarnpkg/core'
 import React                    from 'react'
 import rimraf                   from 'rimraf'
 import { Option }               from 'clipanion'
+import { isEnum }               from 'typanion'
 
 import { ErrorInfo }            from '@monstrs/cli-ui-error-info-component'
 import { TypeScriptDiagnostic } from '@monstrs/cli-ui-typescript-diagnostic-component'
@@ -20,6 +21,10 @@ class LibraryBuildCommand extends BaseCommand {
   static paths = [['library', 'build']]
 
   target = Option.String('-t,--target', './dist')
+
+  module: any = Option.String('-m,--module', 'nodenext', {
+    validator: isEnum(['nodenext', 'commonjs']),
+  })
 
   async execute() {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
@@ -42,6 +47,7 @@ class LibraryBuildCommand extends BaseCommand {
 
             const diagnostics = await ts.build([join(this.context.cwd, './src')], {
               outDir: join(this.context.cwd, this.target),
+              module: this.module,
               declaration: true,
             })
 
