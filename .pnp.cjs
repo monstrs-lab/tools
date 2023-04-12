@@ -3498,7 +3498,8 @@ const RAW_RUNTIME_STATE =
           ["@yarnpkg/fslib", "npm:3.0.0-rc.42"],\
           ["clipanion", "virtual:ba24742e5bfaec41d1d0434e6865c2744ffb69a716f18fa84bd7d44084043647838926c96a391f66b9946857565b9825479e97ad07079ef40683084ce389d203#npm:3.2.0"],\
           ["react", "npm:18.2.0"],\
-          ["rimraf", "npm:4.4.1"]\
+          ["rimraf", "npm:4.4.1"],\
+          ["typanion", "npm:3.12.1"]\
         ],\
         "packagePeers": [\
           "@types/yarnpkg__cli",\
@@ -3527,7 +3528,8 @@ const RAW_RUNTIME_STATE =
           ["@yarnpkg/fslib", "npm:3.0.0-rc.42"],\
           ["clipanion", "virtual:ba24742e5bfaec41d1d0434e6865c2744ffb69a716f18fa84bd7d44084043647838926c96a391f66b9946857565b9825479e97ad07079ef40683084ce389d203#npm:3.2.0"],\
           ["react", "npm:18.2.0"],\
-          ["rimraf", "npm:4.4.1"]\
+          ["rimraf", "npm:4.4.1"],\
+          ["typanion", "npm:3.12.1"]\
         ],\
         "linkType": "SOFT"\
       }]\

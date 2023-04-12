@@ -2,17 +2,12 @@
   "name": "@monstrs/webpack-start-server-plugin",
   "version": "0.3.1",
   "license": "MIT",
-  "type": "module",
-  "exports": {
-    "./package.json": "./package.json",
-    ".": "./src/index.ts"
-  },
   "main": "src/index.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "yarn library build",
+    "build": "yarn library build --module commonjs",
     "prepack": "yarn run build",
     "postpack": "rm -rf dist"
   },
@@ -24,14 +19,6 @@
   },
   "publishConfig": {
     "access": "public",
-    "exports": {
-      "./package.json": "./package.json",
-      ".": {
-        "import": "./dist/index.js",
-        "default": "./dist/index.js",
-        "types": "./dist/index.d.ts"
-      }
-    },
     "main": "dist/index.js",
     "typings": "dist/index.d.ts"
   }

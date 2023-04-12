@@ -1,9 +1,8 @@
-import sysPath           from 'path'
-import webpack           from 'webpack'
-import { ChildProcess }  from 'child_process'
-import { Writable }      from 'stream'
-import { fork }          from 'child_process'
-import { createRequire } from 'module'
+import sysPath          from 'path'
+import webpack          from 'webpack'
+import { ChildProcess } from 'child_process'
+import { Writable }     from 'stream'
+import { fork }         from 'child_process'
 
 export interface StartServerPluginOptions {
   verbose: boolean
@@ -169,7 +168,7 @@ export class StartServerPlugin {
   }
 
   getMonitor() {
-    const loaderPath = createRequire(import.meta.url).resolve('./monitor.loader')
+    const loaderPath = require.resolve('./monitor.loader')
 
     return `!!${loaderPath}!${loaderPath}`
   }

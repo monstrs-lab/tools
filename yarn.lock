@@ -2183,6 +2183,7 @@ __metadata:
     clipanion: "npm:^3.2.0"
     react: "npm:^18.2.0"
     rimraf: "npm:^4.4.1"
+    typanion: "npm:^3.12.1"
   peerDependencies:
     "@yarnpkg/cli": ^3.2.0-rc.8
     "@yarnpkg/core": ^3.2.0-rc.8
