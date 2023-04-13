@@ -1,0 +1,6 @@
+releases:
+  "@monstrs/cli-ui-typescript-diagnostic-component": patch
+  "@monstrs/code-service": patch
+  "@monstrs/code-service-worker": patch
+  "@monstrs/code-typescript": patch
+  "@monstrs/code-typescript-worker": patch
