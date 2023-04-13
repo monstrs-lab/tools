@@ -15,9 +15,9 @@ import { ESLintResult }     from '@monstrs/cli-ui-eslint-result-component'
 import { LinterWorker }     from '@monstrs/code-lint-worker'
 import { renderStatic }     from '@monstrs/cli-ui-renderer'
 
-import { GitHubChecks }     from './github.checks.ts'
-import { AnnotationLevel }  from './github.checks.ts'
-import { Annotation }       from './github.checks.ts'
+import { GitHubChecks }     from './github.checks.js'
+import { AnnotationLevel }  from './github.checks.js'
+import { Annotation }       from './github.checks.js'
 
 class ChecksLintCommand extends BaseCommand {
   static paths = [['checks', 'lint']]

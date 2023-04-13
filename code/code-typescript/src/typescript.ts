@@ -9,7 +9,7 @@ class TypeScript {
   constructor(private readonly cwd: string) {}
 
   check(include: Array<string> = []): Promise<Array<ts.Diagnostic>> {
-    return this.run(include, { allowImportingTsExtensions: true })
+    return this.run(include)
   }
 
   build(
@@ -44,10 +44,18 @@ class TypeScript {
       after: [transformJsxToJsExtension],
     })
 
-    return ts
-      .getPreEmitDiagnostics(program)
-      .filter((diagnostic) => ![2209].includes(diagnostic.code))
-      .concat(result.diagnostics)
+    return this.filterDiagnostics(ts.getPreEmitDiagnostics(program).concat(result.diagnostics))
+  }
+
+  private filterDiagnostics(diagnostics: Array<ts.Diagnostic>): Array<ts.Diagnostic> {
+    return diagnostics
+      .filter((diagnostic) => diagnostic.code !== 2209)
+      .filter(
+        (diagnostic) => !(diagnostic.code === 1479 && diagnostic.file?.fileName.includes('/.yarn/'))
+      )
+      .filter(
+        (diagnostic) => !(diagnostic.code === 2834 && diagnostic.file?.fileName.includes('/.yarn/'))
+      )
   }
 }
 

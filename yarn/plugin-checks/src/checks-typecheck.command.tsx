@@ -18,9 +18,9 @@ import { renderStatic }                  from '@monstrs/cli-ui-renderer'
 import { flattenDiagnosticMessageText }  from '@monstrs/code-typescript'
 import { getLineAndCharacterOfPosition } from '@monstrs/code-typescript'
 
-import { GitHubChecks }                  from './github.checks.ts'
-import { AnnotationLevel }               from './github.checks.ts'
-import { Annotation }                    from './github.checks.ts'
+import { GitHubChecks }                  from './github.checks.js'
+import { AnnotationLevel }               from './github.checks.js'
+import { Annotation }                    from './github.checks.js'
 
 class ChecksTypeCheckCommand extends BaseCommand {
   static paths = [['checks', 'typecheck']]
