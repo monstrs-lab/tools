@@ -50,7 +50,7 @@ export class WebpackConfig {
 
     config.entry('index').add(join(this.cwd, 'src/index'))
 
-    config.output.path(join(this.cwd, 'dist')).filename('[name].js')
+    config.output.path(join(this.cwd, 'dist')).filename('[name].cjs')
 
     config.resolve.extensions.add('.tsx').add('.ts').add('.js')
     config.resolve.extensionAlias
