@@ -59,9 +59,7 @@ export class WebpackConfig {
       .set('.cjs', ['.cjs', '.cts'])
       .set('.mjs', ['.mjs', '.mts'])
 
-    config.devtool(
-      environment === 'production' ? 'source-map' : ('eval-cheap-module-source-map' as any)
-    )
+    config.devtool(environment === 'production' ? 'source-map' : 'eval-cheap-module-source-map')
   }
 
   private applyPlugins(config: Config, environment: WebpackEnvironment) {

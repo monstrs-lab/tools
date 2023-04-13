@@ -38,6 +38,7 @@
     "@monstrs/code-runtime": "workspace:0.1.2",
     "@types/node": "^18.15.11",
     "@yarnpkg/builder": "^4.0.0-rc.42",
+    "class-validator": "^0.14.0",
     "esbuild": "npm:esbuild-wasm@^0.17.14",
     "husky": "8.0.3",
     "typescript": "^5.0.4"
