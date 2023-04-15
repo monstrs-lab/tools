@@ -146,11 +146,11 @@ export class WebpackConfig {
 
   async getWorkspaceExternals(): Promise<Set<string>> {
     try {
-      const { externalDependencies = {}, tools = {} } = JSON.parse(
+      const { dependencies = {} } = JSON.parse(
         await readFile(join(this.cwd, 'package.json'), 'utf-8')
       )
 
-      return new Set([...Object.keys(externalDependencies), ...(tools?.service?.externals || [])])
+      return new Set(Object.keys(dependencies))
     } catch {
       return Promise.resolve(new Set())
     }
