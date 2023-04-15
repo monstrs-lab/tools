@@ -1,19 +1,19 @@
-import { writeFileSync }                 from 'node:fs'
-import { readFile }                      from 'node:fs/promises'
-import { join }                          from 'node:path'
+import { writeFileSync }            from 'node:fs'
+import { readFile }                 from 'node:fs/promises'
+import { join }                     from 'node:path'
 
-import Config                            from 'webpack-chain-5'
-import fg                                from 'fast-glob'
-import { findUp }                        from 'find-up'
-import { temporaryFile }                 from 'tempy'
+import Config                       from 'webpack-chain-5'
+import fg                           from 'fast-glob'
+import { findUp }                   from 'find-up'
+import { temporaryFile }            from 'tempy'
 
-import tsconfig                          from '@monstrs/config-typescript'
-import { webpack }                       from '@monstrs/code-runtime/webpack'
-import { tsLoaderPath }                  from '@monstrs/code-runtime/webpack'
-import { webpackProtoImportsLoaderPath } from '@monstrs/code-runtime/webpack'
+import tsconfig                     from '@monstrs/config-typescript'
+import { webpack }                  from '@monstrs/code-runtime/webpack'
+import { tsLoaderPath }             from '@monstrs/code-runtime/webpack'
+import { stringReplaceLoaderPath }  from '@monstrs/code-runtime/webpack'
 
-import { FORCE_UNPLUGGED_PACKAGES }      from './webpack.externals.js'
-import { UNUSED_EXTERNALS }              from './webpack.externals.js'
+import { FORCE_UNPLUGGED_PACKAGES } from './webpack.externals.js'
+import { UNUSED_EXTERNALS }         from './webpack.externals.js'
 
 export type WebpackEnvironment = 'production' | 'development'
 
@@ -31,6 +31,7 @@ export class WebpackConfig {
     this.applyModules(config)
 
     config.externals(await this.getExternals())
+    config.externalsType('import')
 
     plugins.forEach((plugin) => {
       config.plugin(plugin.name).use(plugin.use, plugin.args)
@@ -50,7 +51,10 @@ export class WebpackConfig {
 
     config.entry('index').add(join(this.cwd, 'src/index'))
 
-    config.output.path(join(this.cwd, 'dist')).filename('[name].cjs')
+    config.output.path(join(this.cwd, 'dist')).filename('[name].js')
+    config.output.chunkFormat('module')
+    config.output.library({ type: 'module' })
+    config.output.module(true)
 
     config.resolve.extensions.add('.tsx').add('.ts').add('.js')
     config.resolve.extensionAlias
@@ -60,6 +64,8 @@ export class WebpackConfig {
       .set('.mjs', ['.mjs', '.mts'])
 
     config.devtool(environment === 'production' ? 'source-map' : 'eval-cheap-module-source-map')
+
+    config.experiments({ outputModule: true })
   }
 
   private applyPlugins(config: Config, environment: WebpackEnvironment) {
@@ -88,10 +94,14 @@ export class WebpackConfig {
       })
 
     config.module
-      .rule('protos')
-      .test(/\.proto$/)
-      .use('proto')
-      .loader(webpackProtoImportsLoaderPath)
+      .rule('replace-typeorm')
+      .test(/PostgresDriver\.js$/)
+      .use('replace-typeorm')
+      .loader(stringReplaceLoaderPath)
+      .options({
+        search: `PlatformTools_1.PlatformTools.load("pg-native")`,
+        replace: 'undefined',
+      })
   }
 
   async getUnpluggedDependencies(): Promise<Set<string>> {
@@ -142,14 +152,19 @@ export class WebpackConfig {
 
     const unpluggedExternals: Array<string> = Array.from(await this.getUnpluggedDependencies())
 
-    return Array.from(
-      new Set([...workspaceExternals, ...unpluggedExternals, ...UNUSED_EXTERNALS])
+    const workspaceAndUnpluggedExternals = Array.from(
+      new Set([...workspaceExternals, ...unpluggedExternals])
     ).reduce(
       (result, dependency) => ({
         ...result,
-        [dependency]: `commonjs2 ${dependency}`,
+        [dependency]: `import ${dependency}`,
       }),
       {}
     )
+
+    return {
+      ...UNUSED_EXTERNALS,
+      ...workspaceAndUnpluggedExternals,
+    }
   }
 }

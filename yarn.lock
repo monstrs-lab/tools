@@ -1644,10 +1644,10 @@ __metadata:
     "@jest/core": "npm:^29.5.0"
     "@monstrs/config-eslint": "workspace:0.1.1"
     "@monstrs/config-jest": "workspace:0.1.2"
-    "@monstrs/webpack-proto-imports-loader": "workspace:0.1.2"
     "@monstrs/webpack-start-server-plugin": "workspace:0.3.2"
     "@types/node": "npm:^18.15.11"
     eslint: "npm:^8.38.0"
+    string-replace-loader: "npm:^3.1.0"
     ts-loader: "npm:^9.4.2"
     typescript: "npm:^5.0.4"
     webpack: "npm:^5.78.0"
@@ -1862,13 +1862,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@monstrs/types-import-proto@npm:0.0.1":
-  version: 0.0.1
-  resolution: "@monstrs/types-import-proto@npm:0.0.1"
-  checksum: 437d11e641e68d8c2bdd34686f7a69bfbb1ce736f936992340a23daae874a556bf3b42ba0be23ad3180d65f260b47779961cdf305b34aace8101e2461f83d796
-  languageName: node
-  linkType: hard
-
 "@monstrs/webpack-localtunnel-plugin@workspace:webpack/webpack-localtunnel-plugin":
   version: 0.0.0-use.local
   resolution: "@monstrs/webpack-localtunnel-plugin@workspace:webpack/webpack-localtunnel-plugin"
@@ -1876,23 +1869,6 @@ __metadata:
     "@types/localtunnel": "npm:2.0.1"
     "@types/node": "npm:^18.15.11"
     localtunnel: "npm:^2.0.2"
-  languageName: unknown
-  linkType: soft
-
-"@monstrs/webpack-proto-imports-loader@workspace:0.1.2, @monstrs/webpack-proto-imports-loader@workspace:webpack/webpack-proto-imports-loader":
-  version: 0.0.0-use.local
-  resolution: "@monstrs/webpack-proto-imports-loader@workspace:webpack/webpack-proto-imports-loader"
-  dependencies:
-    "@monstrs/config-typescript": "workspace:0.1.2"
-    "@monstrs/types-import-proto": "npm:0.0.1"
-    "@types/node": "npm:^18.15.11"
-    file-loader: "npm:^6.2.0"
-    memfs: "npm:^3.5.0"
-    protocol-buffers-schema: "npm:^3.6.0"
-    ts-loader: "npm:^9.4.2"
-    typescript: "npm:^5.0.4"
-    webpack: "npm:^5.78.0"
-    webpack-chain: "npm:^6.5.1"
   languageName: unknown
   linkType: soft
 
@@ -7027,18 +7003,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"file-loader@npm:^6.2.0":
-  version: 6.2.0
-  resolution: "file-loader@npm:6.2.0"
-  dependencies:
-    loader-utils: "npm:^2.0.0"
-    schema-utils: "npm:^3.0.0"
-  peerDependencies:
-    webpack: ^4.0.0 || ^5.0.0
-  checksum: 437c5fd08f2ec95c017510d8b14a490c1af4b01201efe228eaace5313c4eb61f3510137adf0945cf1fc64dec5f4bf1359d0bd6c67d51778801f6574f336cc08f
-  languageName: node
-  linkType: hard
-
 "fill-range@npm:^7.0.1":
   version: 7.0.1
   resolution: "fill-range@npm:7.0.1"
@@ -7256,13 +7220,6 @@ __metadata:
   dependencies:
     minipass: "npm:^3.0.0"
   checksum: 56d19f9a034cbef50b7fe846a71ab1a6a7ee7906205f9f18b7c9696e1f6d83c4d708a0196c65536f34e569205664840dd4f97f1286a26148a4c5bf74a67fe8db
-  languageName: node
-  linkType: hard
-
-"fs-monkey@npm:^1.0.3":
-  version: 1.0.3
-  resolution: "fs-monkey@npm:1.0.3"
-  checksum: fc4c994978d617d5f4dca22ecd385e2262ea724e5b74a2b2bbd86652c07051d02e51128126dd4c70a25a8111505c8121de0e221eaf29410a11b217edf4c3d26d
   languageName: node
   linkType: hard
 
@@ -9727,15 +9684,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"memfs@npm:^3.5.0":
-  version: 3.5.0
-  resolution: "memfs@npm:3.5.0"
-  dependencies:
-    fs-monkey: "npm:^1.0.3"
-  checksum: 177b78b58698d46e63fcbf00d4a85c14d303b88db9ba9da303d91ebf47349ab3ed8f1e134c4c27fdd6c885c0a71c1b128f8c6ae1c7ef0cbc28b95aeac9a28244
-  languageName: node
-  linkType: hard
-
 "meow@npm:^8.0.0":
   version: 8.1.2
   resolution: "meow@npm:8.1.2"
@@ -10827,13 +10775,6 @@ pem@dexus/pem:
   version: 2.0.5
   resolution: "property-expr@npm:2.0.5"
   checksum: 2759ff5de231b60cf9f8569eb7997b73953fb5bfbdcbbc63c57bbe25c4c7514005e43060cdf22339bd72687d685c680ac279d675c615ede84939338752ba869c
-  languageName: node
-  linkType: hard
-
-"protocol-buffers-schema@npm:^3.6.0":
-  version: 3.6.0
-  resolution: "protocol-buffers-schema@npm:3.6.0"
-  checksum: ac960e8ece80f61430a9cfd0d0e3dd0bfe9cce7e279cfed9651f5c942d6fb5f96e73a48a7fae15696be1bbe0a1368d477baec2dfbc0f7bec167ef5c549e530a9
   languageName: node
   linkType: hard
 
@@ -13043,16 +12984,6 @@ pem@dexus/pem:
     deepmerge: "npm:^1.5.2"
     javascript-stringify: "npm:^2.0.1"
   checksum: 18475b3df4612f01b1db74c859455e27f26a8773a4522d629d2919d31b6060d18b53891609f41deb202aa704db98ee9a1d0c51da97141f0181a6862a806af199
-  languageName: node
-  linkType: hard
-
-"webpack-chain@npm:^6.5.1":
-  version: 6.5.1
-  resolution: "webpack-chain@npm:6.5.1"
-  dependencies:
-    deepmerge: "npm:^1.5.2"
-    javascript-stringify: "npm:^2.0.1"
-  checksum: 0ae80a7373d171475d74bbeacd5724be78fd816958f562ad3ddbff05d78d6fda1281e391064083103109d2e891fdf7c1ff92bd4da723ca475b1427b396e5052d
   languageName: node
   linkType: hard
 

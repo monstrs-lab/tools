@@ -9,35 +9,35 @@ export const FORCE_UNPLUGGED_PACKAGES = new Set([
   'protobufjs',
 ])
 
-export const UNUSED_EXTERNALS = [
+export const UNUSED_EXTERNALS = {
   // nestjs
-  'cli-color',
-  'flaschenpost',
-  'amqp-connection-manager',
-  'amqplib',
-  'redis',
-  'mqtt',
-  'nats',
-  '@nestjs/websockets',
+  'cli-color': 'import cli-color',
+  flaschenpost: 'import flaschenpost',
+  'amqp-connection-manager': 'import amqp-connection-manager',
+  amqplib: 'import amqplib',
+  redis: 'import redis',
+  mqtt: 'import mqtt',
+  nats: 'import nats',
+  '@nestjs/websockets': 'import @nestjs/websockets',
 
   // typeorm
-  'typeorm-aurora-data-api-driver',
-  'react-native-sqlite-storage',
-  '@sap/hana-client',
-  'better-sqlite3',
-  'mongodb',
-  'oracledb',
-  'pg-native',
-  'mysql',
-  'ioredis',
-  'hdb-pool',
-  'mysql2',
-  'mssql',
-  'sql.js',
+  'typeorm-aurora-data-api-driver': 'import typeorm-aurora-data-api-driver',
+  'react-native-sqlite-storage': 'import react-native-sqlite-storage',
+  '@sap/hana-client': 'import @sap/hana-client',
+  'better-sqlite3': 'import better-sqlite3',
+  mongodb: 'import mongodb',
+  oracledb: 'import oracledb',
+  'pg-native': 'import pg-native',
+  mysql: 'import mysql',
+  ioredis: 'import ioredis',
+  'hdb-pool': 'import hdb-pool',
+  mysql2: 'import mysql2',
+  mssql: 'import mssql',
+  'sql.js': 'import sql.js',
 
   // pnp
-  'pnpapi',
+  pnpapi: 'import pnpapi',
 
   // nextjs
-  'next',
-]
+  next: 'import next',
+}
