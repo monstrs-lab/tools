@@ -64,6 +64,8 @@ export class WebpackConfig {
       .set('.cjs', ['.cjs', '.cts'])
       .set('.mjs', ['.mjs', '.mts'])
 
+    config.resolve.alias.set('class-transformer/storage', 'class-transformer/cjs/storage')
+
     config.devtool(environment === 'production' ? 'source-map' : 'eval-cheap-module-source-map')
 
     config.experiments({ outputModule: true })
