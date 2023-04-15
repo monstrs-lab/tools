@@ -7,6 +7,6 @@ import { StartServerPlugin } from '@monstrs/webpack-start-server-plugin'
 const require = createRequire(import.meta.url)
 
 const tsLoaderPath = require.resolve('ts-loader')
-const webpackProtoImportsLoaderPath = require.resolve('@monstrs/webpack-proto-imports-loader')
+const stringReplaceLoaderPath = require.resolve('string-replace-loader')
 
-export { webpack, StartServerPlugin, tsLoaderPath, webpackProtoImportsLoaderPath }
+export { webpack, StartServerPlugin, tsLoaderPath, stringReplaceLoaderPath }

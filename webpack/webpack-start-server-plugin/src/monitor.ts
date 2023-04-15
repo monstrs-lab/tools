@@ -1,11 +1,14 @@
 /* eslint-disable */
+// @ts-nocheck
+
+/// <reference types='webpack/module.d.ts'/>
 
 declare const module: any
 
 // Monitor server script startup and reload. Should be added at the end of entries
 const monitorFn = () => {
   // Handle hot updates, copied with slight adjustments from webpack/hot/signal.js
-  if (module.hot) {
+  if (import.meta.webpackHot) {
     const log = (type, msg) => {
       console.log(
         JSON.stringify({
@@ -56,7 +59,7 @@ const monitorFn = () => {
     // TODO don't show this when sending signal instead of message
     log('info', 'Handling Hot Module Reloading')
     var checkForUpdate = function checkForUpdate(fromUpdate) {
-      module.hot
+      import.meta.webpackHot
         .check()
         .then(function (updatedModules) {
           if (!updatedModules) {
@@ -65,7 +68,7 @@ const monitorFn = () => {
             return
           }
 
-          return module.hot
+          return import.meta.webpackHot
             .apply({
               ignoreUnaccepted: true,
               // TODO probably restart
@@ -83,7 +86,7 @@ const monitorFn = () => {
             })
         })
         .catch(function (err) {
-          var status = module.hot.status()
+          var status = import.meta.webpackHot.status()
           if (['abort', 'fail'].indexOf(status) >= 0) {
             if (process.send) {
               process.send('SSWP_HMR_FAIL')
@@ -102,8 +105,8 @@ const monitorFn = () => {
     process.on('message', function (message) {
       if (message !== 'SSWP_HMR') return
 
-      if (module.hot.status() !== 'idle') {
-        log('warn', 'Got signal but currently in ' + module.hot.status() + ' state.')
+      if (import.meta.webpackHot.status() !== 'idle') {
+        log('warn', 'Got signal but currently in ' + import.meta.webpackHot.status() + ' state.')
         log('warn', 'Need to be in idle state to start hot update.')
         return
       }
