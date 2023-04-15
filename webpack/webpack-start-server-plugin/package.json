@@ -12,7 +12,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "webpack": "^5.78.0"
+    "webpack": "^5.79.0"
   },
   "devDependencies": {
     "@types/node": "^18.15.11"

@@ -25,8 +25,7 @@
     "@monstrs/yarn-pack-utils": "workspace:0.0.1",
     "@monstrs/yarn-run-utils": "workspace:0.0.1",
     "clipanion": "^3.2.0",
-    "react": "^18.2.0",
-    "rimraf": "^4.4.1"
+    "react": "^18.2.0"
   },
   "devDependencies": {
     "@jest/globals": "^29.5.0",

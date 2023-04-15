@@ -1,4 +1,4 @@
-import { access }               from 'node:fs/promises'
+import { rm }                   from 'node:fs/promises'
 import { join }                 from 'node:path'
 
 import { BaseCommand }          from '@yarnpkg/cli'
@@ -7,7 +7,6 @@ import { StreamReport }         from '@yarnpkg/core'
 import { MessageName }          from '@yarnpkg/core'
 
 import React                    from 'react'
-import rimraf                   from 'rimraf'
 import { Option }               from 'clipanion'
 import { isEnum }               from 'typanion'
 
@@ -76,9 +75,7 @@ class LibraryBuildCommand extends BaseCommand {
 
   protected async cleanTarget() {
     try {
-      await access(this.target)
-
-      rimraf.sync(this.target)
+      await rm(this.target, { recursive: true, force: true })
       // eslint-disable-next-line no-empty
     } catch {}
   }

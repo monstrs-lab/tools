@@ -30,7 +30,7 @@
     "string-replace-loader": "^3.1.0",
     "ts-loader": "^9.4.2",
     "typescript": "^5.0.4",
-    "webpack": "^5.78.0"
+    "webpack": "^5.79.0"
   },
   "devDependencies": {
     "@types/node": "^18.15.11"
