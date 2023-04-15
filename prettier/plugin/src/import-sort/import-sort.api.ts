@@ -1,6 +1,7 @@
-import { readFileSync } from 'fs'
+import { readFileSync } from 'node:fs'
+import { join }         from 'node:path'
+
 import { globbySync }   from 'globby'
-import { join }         from 'path'
 
 const loadWorkspaces = () => {
   const exists = new Set()

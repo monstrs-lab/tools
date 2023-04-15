@@ -1,6 +1,7 @@
+import { Writable }     from 'node:stream'
+
 import localtunnel      from 'localtunnel'
 import { TunnelConfig } from 'localtunnel'
-import { Writable }     from 'stream'
 
 export interface WebpackLocalTunnelPluginOptions extends TunnelConfig {
   reconnect: boolean

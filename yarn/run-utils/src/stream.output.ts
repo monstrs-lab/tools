@@ -1,4 +1,4 @@
-import { PassThrough } from 'stream'
+import { PassThrough } from 'node:stream'
 
 export class StreamOutput {
   public readonly stream = new PassThrough()
