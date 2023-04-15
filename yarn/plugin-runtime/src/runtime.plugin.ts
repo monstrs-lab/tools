@@ -1,9 +1,5 @@
-import { Plugin }          from '@yarnpkg/core'
-
-import { validateProject } from './validate-project.hook.js'
+import { Plugin } from '@yarnpkg/core'
 
 export const plugin: Plugin = {
-  hooks: {
-    validateProject,
-  },
+  hooks: {},
 }

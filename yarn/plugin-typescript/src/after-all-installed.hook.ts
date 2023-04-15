@@ -33,17 +33,23 @@ const isUpdateNeeded = (from: object, to: object) =>
     return from[key] !== to[key]
   })
 
-export const afterAllInstalled = async (project: Project) => {
-  const tsconfigpath = ppath.join(project.topLevelWorkspace.cwd, 'tsconfig.json' as PortablePath)
+export const afterAllInstalled = async (project: Project, options) => {
+  if (!options.immutable) {
+    const tsconfigpath = ppath.join(project.topLevelWorkspace.cwd, 'tsconfig.json' as PortablePath)
 
-  const exists = (await xfs.existsPromise(tsconfigpath))
-    ? await xfs.readJsonPromise(tsconfigpath)
-    : { compilerOptions: {} }
+    const exists = (await xfs.existsPromise(tsconfigpath))
+      ? await xfs.readJsonPromise(tsconfigpath)
+      : { compilerOptions: {} }
 
-  if (isUpdateNeeded(tsconfig.compilerOptions, exists.compilerOptions)) {
-    await xfs.writeJsonPromise(
-      tsconfigpath,
-      deepmerge(exists, { compilerOptions: tsconfig.compilerOptions }, { arrayMerge: combineMerge })
-    )
+    if (isUpdateNeeded(tsconfig.compilerOptions, exists.compilerOptions)) {
+      await xfs.writeJsonPromise(
+        tsconfigpath,
+        deepmerge(
+          exists,
+          { compilerOptions: tsconfig.compilerOptions },
+          { arrayMerge: combineMerge }
+        )
+      )
+    }
   }
 }
