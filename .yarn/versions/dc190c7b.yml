@@ -29,4 +29,4 @@ releases:
   "@monstrs/config-prettier": patch
   "@monstrs/config-typescript": patch
   "@monstrs/prettier-plugin": patch
-  "@monstrs/webpack-proto-imports-loader": patch
+ 
