@@ -2711,6 +2711,7 @@ const RAW_RUNTIME_STATE =
           ["@monstrs/webpack-start-server-plugin", "workspace:webpack/webpack-start-server-plugin"],\
           ["@types/node", "npm:18.15.11"],\
           ["eslint", "npm:8.38.0"],\
+          ["node-loader", "virtual:36ed317f34b479cc2a2ad4741a9b637395c3bfe5808841693467982afe17b6ba704168d8e9b566b4e4e95e07f671b62fb2a61ebfce445b7644f654bd89e68f6a#npm:2.0.0"],\
           ["string-replace-loader", "virtual:36ed317f34b479cc2a2ad4741a9b637395c3bfe5808841693467982afe17b6ba704168d8e9b566b4e4e95e07f671b62fb2a61ebfce445b7644f654bd89e68f6a#npm:3.1.0"],\
           ["ts-loader", "virtual:36ed317f34b479cc2a2ad4741a9b637395c3bfe5808841693467982afe17b6ba704168d8e9b566b4e4e95e07f671b62fb2a61ebfce445b7644f654bd89e68f6a#npm:9.4.2"],\
           ["typescript", "patch:typescript@npm%3A5.0.4#optional!builtin<compat/typescript>::version=5.0.4&hash=b5f058"],\
@@ -13804,6 +13805,29 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/node-int64-npm-0.4.0-0dc04ec3b2-5333c7f5b1.zip/node_modules/node-int64/",\
         "packageDependencies": [\
           ["node-int64", "npm:0.4.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["node-loader", [\
+      ["npm:2.0.0", {\
+        "packageLocation": "./.yarn/cache/node-loader-npm-2.0.0-61cb05ae91-68dc953cd7.zip/node_modules/node-loader/",\
+        "packageDependencies": [\
+          ["node-loader", "npm:2.0.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:36ed317f34b479cc2a2ad4741a9b637395c3bfe5808841693467982afe17b6ba704168d8e9b566b4e4e95e07f671b62fb2a61ebfce445b7644f654bd89e68f6a#npm:2.0.0", {\
+        "packageLocation": "./.yarn/__virtual__/node-loader-virtual-775710dc3b/0/cache/node-loader-npm-2.0.0-61cb05ae91-68dc953cd7.zip/node_modules/node-loader/",\
+        "packageDependencies": [\
+          ["node-loader", "virtual:36ed317f34b479cc2a2ad4741a9b637395c3bfe5808841693467982afe17b6ba704168d8e9b566b4e4e95e07f671b62fb2a61ebfce445b7644f654bd89e68f6a#npm:2.0.0"],\
+          ["@types/webpack", null],\
+          ["loader-utils", "npm:2.0.0"],\
+          ["webpack", "virtual:cf2f0a6d097d54badaede963695142e1c446aca13e9369d00a13ca6021ded1ae514943cea41654e55f89ee1558b97d3c12776ecf7e33630eb1e43903bddbbfa3#npm:5.78.0"]\
+        ],\
+        "packagePeers": [\
+          "@types/webpack",\
+          "webpack"\
         ],\
         "linkType": "HARD"\
       }]\
