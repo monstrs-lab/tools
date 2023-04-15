@@ -10,6 +10,7 @@ import { temporaryFile }            from 'tempy'
 import tsconfig                     from '@monstrs/config-typescript'
 import { webpack }                  from '@monstrs/code-runtime/webpack'
 import { tsLoaderPath }             from '@monstrs/code-runtime/webpack'
+import { nodeLoaderPath }           from '@monstrs/code-runtime/webpack'
 import { stringReplaceLoaderPath }  from '@monstrs/code-runtime/webpack'
 
 import { FORCE_UNPLUGGED_PACKAGES } from './webpack.externals.js'
@@ -92,6 +93,12 @@ export class WebpackConfig {
         context: this.cwd,
         configFile,
       })
+
+    config.module
+      .rule('node')
+      .test(/\.node$/)
+      .use('node')
+      .loader(nodeLoaderPath)
 
     config.module
       .rule('replace-typeorm')
