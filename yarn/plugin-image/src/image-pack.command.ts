@@ -68,6 +68,16 @@ class ImagePackCommand extends BaseCommand {
 
           await packUtils.pack(configuration, project, workspace, report, destination)
 
+          // Fix lockfile generation
+          await execUtils.pipevp('yarn', ['install'], {
+            cwd: destination,
+            env: process.env,
+            stdin: this.context.stdin,
+            stdout: this.context.stdout,
+            stderr: this.context.stderr,
+            end: execUtils.EndStrategy.ErrorCode,
+          })
+
           const repo = workspace.manifest.raw.name.replace('@', '').replace(/\//g, '-')
           const image = `${this.registry}${repo}`
 
