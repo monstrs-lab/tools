@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/cli-ui-eslint-result-component",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -17,7 +17,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/cli-ui-source-component": "workspace:0.1.2",
+    "@monstrs/cli-ui-source-component": "workspace:0.1.3",
     "nanoid": "^4.0.2"
   },
   "devDependencies": {
