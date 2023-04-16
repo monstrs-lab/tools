@@ -1,11 +1,11 @@
 import { isAbsolute }               from 'node:path'
 import { relative }                 from 'node:path'
 
-import React                        from 'react'
 import { Box }                      from 'ink'
 import { FC }                       from 'react'
 import { nanoid }                   from 'nanoid'
 import { useMemo }                  from 'react'
+import React                        from 'react'
 
 import { ESLintResultMessageProps } from './eslint-result-message.component.jsx'
 import { ESLintResultMessage }      from './eslint-result-message.component.jsx'

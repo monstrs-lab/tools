@@ -1,7 +1,6 @@
 import type { WriteStream }    from 'node:tty'
 
 import { codeFrameColumns }    from '@babel/code-frame'
-
 import { createSupportsColor } from 'supports-color'
 
 const { level } = createSupportsColor({ isTTY: true } as WriteStream) || { level: 0 }

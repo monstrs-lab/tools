@@ -2,7 +2,7 @@ import type { IImport }     from 'import-sort-parser'
 import type { IParser }     from 'import-sort-parser'
 import type { NamedMember } from 'import-sort-parser'
 
-export class ImportSortParser implements IParser {
+export class ImportSortTypeScriptParser implements IParser {
   constructor(private readonly program) {}
 
   parseImports(code: string) {
@@ -22,6 +22,10 @@ export class ImportSortParser implements IParser {
 
           defaultMember: node.specifiers.find(
             (specifier) => specifier.type === 'ImportDefaultSpecifier'
+          )?.local?.name,
+
+          namespaceMember: node.specifiers.find(
+            (specifier) => specifier.type === 'ImportNamespaceSpecifier'
           )?.local?.name,
 
           namedMembers: node.specifiers

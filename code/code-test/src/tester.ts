@@ -1,8 +1,8 @@
-import { accessSync }            from 'node:fs'
-import { join }                  from 'node:path'
-
 import type { AggregatedResult } from '@jest/test-result'
 import type { Config }           from '@jest/types'
+
+import { accessSync }            from 'node:fs'
+import { join }                  from 'node:path'
 
 import { runCLI }                from '@monstrs/code-runtime/jest'
 import { integration }           from '@monstrs/code-runtime/jest'

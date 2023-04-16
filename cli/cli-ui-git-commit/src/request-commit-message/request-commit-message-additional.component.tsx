@@ -1,10 +1,10 @@
-import MultiSelectPkg         from 'ink-multi-select'
-import React                  from 'react'
-import figures                from 'figures'
 import { Text }               from 'ink'
 import { Box }                from 'ink'
 import { FC }                 from 'react'
 import { useCallback }        from 'react'
+import MultiSelectPkg         from 'ink-multi-select'
+import React                  from 'react'
+import figures                from 'figures'
 
 import { IndicatorComponent } from './select-indicator.component.jsx'
 import { ItemComponent }      from './select-item.component.jsx'

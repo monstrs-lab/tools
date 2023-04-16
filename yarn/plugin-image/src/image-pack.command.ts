@@ -9,7 +9,6 @@ import { execUtils }          from '@yarnpkg/core'
 import { xfs }                from '@yarnpkg/fslib'
 import { ppath }              from '@yarnpkg/fslib'
 import { toFilename }         from '@yarnpkg/fslib'
-
 import { Option }             from 'clipanion'
 import { temporaryDirectory } from 'tempy'
 

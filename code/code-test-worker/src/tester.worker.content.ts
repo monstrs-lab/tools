@@ -1,4 +1,4 @@
-import { brotliDecompressSync } from 'zlib'
+import { brotliDecompressSync } from 'node:zlib'
 
 let hook
 

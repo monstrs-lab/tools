@@ -1,10 +1,10 @@
+import type { ESLint }        from '@monstrs/code-runtime/eslint'
+
 import { readFile }           from 'node:fs/promises'
 import { relative }           from 'node:path'
 
-import type { ESLint }        from '@monstrs/code-runtime/eslint'
-
-import ignorerPkg             from 'ignore'
 import { globby }             from 'globby'
+import ignorerPkg             from 'ignore'
 
 import { Linter as ESLinter } from '@monstrs/code-runtime/eslint'
 import { eslintconfig }       from '@monstrs/code-runtime/eslint'

@@ -1,10 +1,10 @@
-import sortImportsPkg       from 'import-sort'
-import sortPackageJson      from 'sort-package-json'
+import sortImportsPkg                 from 'import-sort'
+import sortPackageJson                from 'sort-package-json'
 
-import { ImportSortParser } from './import-sort/index.js'
-import { style }            from './import-sort/index.js'
-import { babel }            from './imports.js'
-import { typescript }       from './imports.js'
+import { ImportSortTypeScriptParser } from './import-sort/index.js'
+import { style }                      from './import-sort/index.js'
+import { babel }                      from './imports.js'
+import { typescript }                 from './imports.js'
 
 // TODO: moduleResolution
 const sortImports = sortImportsPkg as any
@@ -14,7 +14,7 @@ const preprocess = (source, { plugins }) => {
 
   const { code } = sortImports(
     source,
-    new ImportSortParser(plugin.parsers.typescript.parse(source)),
+    new ImportSortTypeScriptParser(plugin.parsers.typescript.parse(source)),
     style
   )
 

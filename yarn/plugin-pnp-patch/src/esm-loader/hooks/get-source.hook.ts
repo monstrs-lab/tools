@@ -1,8 +1,7 @@
 import * as loaderUtils                   from '@yarnpkg/pnp/lib/esm-loader/loaderUtils.js'
+import { getSource as getSourceBaseHook } from '@yarnpkg/pnp/lib/esm-loader/hooks/getSource.js'
 
 import * as tsLoaderUtils                 from './loader.utils.js'
-
-import { getSource as getSourceBaseHook } from '@yarnpkg/pnp/lib/esm-loader/hooks/getSource.js'
 
 export const getSourceHook = async (
   urlString: string,
