@@ -1,4 +1,4 @@
-import { writeFileSync }            from 'node:fs'
+import { writeFile }                from 'node:fs/promises'
 import { readFile }                 from 'node:fs/promises'
 import { mkdtemp }                  from 'node:fs/promises'
 import { join }                     from 'node:path'
@@ -81,7 +81,7 @@ export class WebpackConfig {
   private async applyModules(config: Config) {
     const configFile = join(await mkdtemp(join(tmpdir(), 'tools-service-')), 'tsconfig.json')
 
-    writeFileSync(configFile, '{"include":["**/*"]}')
+    await writeFile(configFile, '{"include":["**/*"]}')
 
     config.module
       .rule('ts')

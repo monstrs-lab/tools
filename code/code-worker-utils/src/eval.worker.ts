@@ -1,36 +1,44 @@
-import { writeFileSync } from 'node:fs'
-import { existsSync }    from 'node:fs'
-import { mkdirSync }     from 'node:fs'
-import { join }          from 'node:path'
-import { dirname }       from 'node:path'
-import { Worker }        from 'node:worker_threads'
+import { writeFile } from 'node:fs/promises'
+import { access }    from 'node:fs/promises'
+import { mkdir }     from 'node:fs/promises'
+import { join }      from 'node:path'
+import { dirname }   from 'node:path'
+import { Worker }    from 'node:worker_threads'
 
-import hash              from 'hash-string'
+import hash          from 'hash-string'
 
 export class EvalWorker {
-  private static build(content: string, workerData: object): Worker {
+  private static async build(content: string, workerData: object): Promise<Worker> {
     const filename = hash(content)
     const file = join(process.cwd(), `.yarn/dist/${filename}.mjs`)
 
-    if (!existsSync(file)) {
-      if (!existsSync(dirname(file))) {
-        mkdirSync(dirname(file))
+    try {
+      try {
+        await access(dirname(file))
+      } catch {
+        await mkdir(dirname(file), { recursive: true })
       }
 
-      writeFileSync(file, content)
+      await access(file)
+    } catch {
+      await writeFile(file, content)
     }
 
     const execArgv: Array<string> = []
 
-    if (existsSync(join(process.cwd(), '.pnp.cjs'))) {
+    try {
+      await access(join(process.cwd(), '.pnp.cjs'))
+
       execArgv.push('--require')
       execArgv.push(join(process.cwd(), '.pnp.cjs'))
-    }
+    } catch {} // eslint-disable-line no-empty
 
-    if (existsSync(join(process.cwd(), '.pnp.loader.mjs'))) {
+    try {
+      await access(join(process.cwd(), '.pnp.cjs'))
+
       execArgv.push('--loader')
       execArgv.push(join(process.cwd(), '.pnp.loader.mjs'))
-    }
+    } catch {} // eslint-disable-line no-empty
 
     return new Worker(file, {
       execArgv: [...execArgv, ...process.execArgv],
@@ -40,9 +48,9 @@ export class EvalWorker {
   }
 
   static async run<T>(content: string, workerData: object): Promise<T> {
-    return new Promise((resolve, reject) => {
-      const worker = EvalWorker.build(content, workerData)
+    const worker = await EvalWorker.build(content, workerData)
 
+    return new Promise((resolve, reject) => {
       const exitHandler = (code: number) => {
         if (code !== 0) reject(new Error(`Worker stopped with exit code ${code}`))
       }
@@ -60,9 +68,8 @@ export class EvalWorker {
   }
 
   static async watch(content: string, workerData: object, onMessage) {
+    const worker = await EvalWorker.build(content, workerData)
     return new Promise((resolve, reject) => {
-      const worker = EvalWorker.build(content, workerData)
-
       const exitHandler = (code: number) => {
         if (code !== 0) {
           reject(new Error(`Worker stopped with exit code ${code}`))
