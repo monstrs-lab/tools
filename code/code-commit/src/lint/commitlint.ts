@@ -2,8 +2,6 @@
 
 import util                   from 'node:util'
 
-import isIgnoredPkg           from '@commitlint/is-ignored'
-import defaultRulesPkg        from '@commitlint/rules'
 import { BaseRule }           from '@commitlint/types'
 import { LintOptions }        from '@commitlint/types'
 import { LintOutcome }        from '@commitlint/types'
@@ -16,9 +14,10 @@ import { Commit }             from '@commitlint/types'
 import { Parser }             from '@commitlint/types'
 import { ParserOptions }      from '@commitlint/types'
 import { buildCommitMesage }  from '@commitlint/lint/lib/commit-message.js'
-
-import defaultParserOpts      from 'conventional-changelog-angular/parser-opts.js'
+import isIgnoredPkg           from '@commitlint/is-ignored'
+import defaultRulesPkg        from '@commitlint/rules'
 import { sync }               from 'conventional-commits-parser'
+import defaultParserOpts      from 'conventional-changelog-angular/parser-opts.js'
 
 // @ts-ignore
 const isIgnored = isIgnoredPkg.default || isIgnoredPkg

@@ -1,8 +1,9 @@
 /* eslint-disable consistent-return */
 
+import { EOL }          from 'node:os'
+import { Transform }    from 'node:stream'
+
 import React            from 'react'
-import { EOL }          from 'os'
-import { Transform }    from 'stream'
 
 import { LogRecord }    from '@monstrs/cli-ui-log-record-component'
 import { renderStatic } from '@monstrs/cli-ui-renderer'

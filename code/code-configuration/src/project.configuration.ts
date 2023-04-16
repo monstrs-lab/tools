@@ -12,7 +12,7 @@ export class ProjectConfiguration {
   static async findRcFile(cwd: PortablePath): Promise<Partial<ProjectConfiguration>> {
     const rcPath = ppath.join(cwd, '.projectrc.json' as PortablePath)
 
-    if (xfs.existsSync(rcPath)) {
+    if (await xfs.existsPromise(rcPath)) {
       const content = await xfs.readFilePromise(rcPath, 'utf8')
 
       try {

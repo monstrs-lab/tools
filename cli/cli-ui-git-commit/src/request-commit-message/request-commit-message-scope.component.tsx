@@ -1,12 +1,12 @@
-import SelectPkg                 from 'ink-select-input'
-import TextInputPkg              from 'ink-text-input'
-import React                     from 'react'
 import { Text }                  from 'ink'
 import { Box }                   from 'ink'
 import { UncontrolledTextInput } from 'ink-text-input'
 import { useState }              from 'react'
 import { useMemo }               from 'react'
 import { useCallback }           from 'react'
+import SelectPkg                 from 'ink-select-input'
+import TextInputPkg              from 'ink-text-input'
+import React                     from 'react'
 
 import { COMMIT_SCOPE_ENUM }     from '@monstrs/code-commit'
 

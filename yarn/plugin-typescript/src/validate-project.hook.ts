@@ -1,7 +1,6 @@
 import type { Project } from '@yarnpkg/core'
 
 import { structUtils }  from '@yarnpkg/core'
-
 import semver           from 'semver'
 
 import runtime          from '@monstrs/code-runtime/package.json' assert { type: 'json' }

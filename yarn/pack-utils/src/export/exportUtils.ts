@@ -3,6 +3,8 @@
 
 // @ts-nocheck
 
+import { createGzip }            from 'node:zlib'
+
 import { Project }               from '@yarnpkg/core'
 import { VirtualFetcher }        from '@yarnpkg/core'
 import { Workspace }             from '@yarnpkg/core'
@@ -18,9 +20,7 @@ import { tgzUtils }              from '@yarnpkg/core'
 import { ppath }                 from '@yarnpkg/fslib'
 import { xfs }                   from '@yarnpkg/fslib'
 import { packUtils }             from '@yarnpkg/plugin-pack'
-
 import tar                       from 'tar-stream'
-import { createGzip }            from 'zlib'
 
 import { ProtocolResolver }      from './ProtocolResolver.js'
 import { WorkspacePackFetcher }  from './WorkspacePackFetcher.js'

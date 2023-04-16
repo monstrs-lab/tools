@@ -1,7 +1,7 @@
-import React          from 'react'
 import { Box }        from 'ink'
 import { Text }       from 'ink'
 import { FC }         from 'react'
+import React          from 'react'
 
 import { StackTrace } from '@monstrs/cli-ui-stack-trace-component'
 

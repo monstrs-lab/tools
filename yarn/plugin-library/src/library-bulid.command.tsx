@@ -5,10 +5,9 @@ import { BaseCommand }          from '@yarnpkg/cli'
 import { Configuration }        from '@yarnpkg/core'
 import { StreamReport }         from '@yarnpkg/core'
 import { MessageName }          from '@yarnpkg/core'
-
-import React                    from 'react'
 import { Option }               from 'clipanion'
 import { isEnum }               from 'typanion'
+import React                    from 'react'
 
 import { ErrorInfo }            from '@monstrs/cli-ui-error-info-component'
 import { TypeScriptDiagnostic } from '@monstrs/cli-ui-typescript-diagnostic-component'

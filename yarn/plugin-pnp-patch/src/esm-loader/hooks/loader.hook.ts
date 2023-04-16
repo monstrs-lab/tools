@@ -1,17 +1,16 @@
 /* eslint-disable no-shadow */
 
-import * as loaderUtils                   from '@yarnpkg/pnp/lib/esm-loader/loaderUtils.js'
-
-import * as tsLoaderUtils                 from './loader.utils.js'
-
 import fs                                 from 'node:fs'
 import { fileURLToPath }                  from 'node:url'
 import { pathToFileURL }                  from 'node:url'
 
+import * as loaderUtils                   from '@yarnpkg/pnp/lib/esm-loader/loaderUtils.js'
 import { VirtualFS }                      from '@yarnpkg/fslib'
 import { WATCH_MODE_MESSAGE_USES_ARRAYS } from '@yarnpkg/pnp/lib/esm-loader/loaderFlags.js'
 import { npath }                          from '@yarnpkg/fslib'
 import { load as loadBaseHook }           from '@yarnpkg/pnp/lib/esm-loader/hooks/load.js'
+
+import * as tsLoaderUtils                 from './loader.utils.js'
 
 export const loadHook = async (
   urlString: string,

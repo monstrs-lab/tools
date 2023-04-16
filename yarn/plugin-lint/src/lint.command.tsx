@@ -3,9 +3,8 @@ import { StreamReport }    from '@yarnpkg/core'
 import { Configuration }   from '@yarnpkg/core'
 import { MessageName }     from '@yarnpkg/core'
 import { Project }         from '@yarnpkg/core'
-
-import React               from 'react'
 import { Option }          from 'clipanion'
+import React               from 'react'
 
 import { ErrorInfo }       from '@monstrs/cli-ui-error-info-component'
 import { ESLintResult }    from '@monstrs/cli-ui-eslint-result-component'

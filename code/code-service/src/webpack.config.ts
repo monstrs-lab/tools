@@ -1,17 +1,18 @@
-import { writeFileSync }            from 'node:fs'
+import { writeFile }                from 'node:fs/promises'
 import { readFile }                 from 'node:fs/promises'
+import { mkdtemp }                  from 'node:fs/promises'
 import { join }                     from 'node:path'
+import { tmpdir }                   from 'node:os'
 
+import { findUp }                   from 'find-up'
 import Config                       from 'webpack-chain-5'
 import fg                           from 'fast-glob'
-import { findUp }                   from 'find-up'
-import { temporaryFile }            from 'tempy'
 
-import tsconfig                     from '@monstrs/config-typescript'
 import { webpack }                  from '@monstrs/code-runtime/webpack'
 import { tsLoaderPath }             from '@monstrs/code-runtime/webpack'
 import { nodeLoaderPath }           from '@monstrs/code-runtime/webpack'
 import { stringReplaceLoaderPath }  from '@monstrs/code-runtime/webpack'
+import tsconfig                     from '@monstrs/config-typescript'
 
 import { FORCE_UNPLUGGED_PACKAGES } from './webpack.externals.js'
 import { UNUSED_EXTERNALS }         from './webpack.externals.js'
@@ -27,9 +28,9 @@ export class WebpackConfig {
   ): Promise<webpack.Configuration> {
     const config = new Config()
 
-    this.applyCommon(config, environment)
-    this.applyPlugins(config, environment)
-    this.applyModules(config)
+    await this.applyCommon(config, environment)
+    await this.applyPlugins(config, environment)
+    await this.applyModules(config)
 
     config.externals(await this.getExternals())
     config.externalsType('import')
@@ -41,7 +42,7 @@ export class WebpackConfig {
     return config.toConfig()
   }
 
-  private applyCommon(config: Config, environment: WebpackEnvironment) {
+  private async applyCommon(config: Config, environment: WebpackEnvironment) {
     config
       .mode(environment)
       .bail(environment === 'production')
@@ -71,16 +72,16 @@ export class WebpackConfig {
     config.experiments({ outputModule: true })
   }
 
-  private applyPlugins(config: Config, environment: WebpackEnvironment) {
+  private async applyPlugins(config: Config, environment: WebpackEnvironment) {
     config.when(environment === 'development', () => {
       config.plugin('hot').use(webpack.HotModuleReplacementPlugin)
     })
   }
 
-  private applyModules(config: Config) {
-    const configFile = temporaryFile()
+  private async applyModules(config: Config) {
+    const configFile = join(await mkdtemp(join(tmpdir(), 'tools-service-')), 'tsconfig.json')
 
-    writeFileSync(configFile, '{"include":["**/*"]}')
+    await writeFile(configFile, '{"include":["**/*"]}')
 
     config.module
       .rule('ts')

@@ -1,12 +1,11 @@
 /* eslint-disable no-shadow */
 
-import * as loaderUtils                   from '@yarnpkg/pnp/lib/esm-loader/loaderUtils.js'
-
-import * as tsLoaderUtils                 from './loader.utils.js'
-
 import { fileURLToPath }                  from 'node:url'
 
+import * as loaderUtils                   from '@yarnpkg/pnp/lib/esm-loader/loaderUtils.js'
 import { getFormat as getFormatBaseHook } from '@yarnpkg/pnp/lib/esm-loader/hooks/getFormat.js'
+
+import * as tsLoaderUtils                 from './loader.utils.js'
 
 export const getFormatHook = async (
   resolved: string,

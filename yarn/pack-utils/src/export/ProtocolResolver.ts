@@ -7,7 +7,6 @@ import { Locator }               from '@yarnpkg/core'
 import { Package }               from '@yarnpkg/core'
 import { semverUtils }           from '@yarnpkg/core'
 import { structUtils }           from '@yarnpkg/core'
-
 import semver                    from 'semver'
 
 export const TAG_REGEXP = /^(?!v)[a-z0-9._-]+$/i

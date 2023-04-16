@@ -3,7 +3,6 @@ import type { Project } from '@yarnpkg/core'
 import { PortablePath } from '@yarnpkg/fslib'
 import { xfs }          from '@yarnpkg/fslib'
 import { ppath }        from '@yarnpkg/fslib'
-
 import deepmerge        from 'deepmerge'
 
 import tsconfig         from '@monstrs/config-typescript'

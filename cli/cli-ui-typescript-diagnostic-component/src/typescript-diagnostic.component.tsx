@@ -1,14 +1,14 @@
-import { isAbsolute }                    from 'node:path'
-import { relative }                      from 'node:path'
-
 import type { DiagnosticMessageChain }   from 'typescript'
 import type { SourceFile }               from 'typescript'
 
-import React                             from 'react'
+import { isAbsolute }                    from 'node:path'
+import { relative }                      from 'node:path'
+
 import { Text }                          from 'ink'
 import { Box }                           from 'ink'
 import { FC }                            from 'react'
 import { useMemo }                       from 'react'
+import React                             from 'react'
 
 import { SourcePreview }                 from '@monstrs/cli-ui-source-component'
 import { getLineAndCharacterOfPosition } from '@monstrs/code-typescript'

@@ -1,7 +1,7 @@
-import React                              from 'react'
 import { FC }                             from 'react'
 import { useEffect }                      from 'react'
 import { useState }                       from 'react'
+import React                              from 'react'
 
 import { RequestCommitMessageAdditional } from './request-commit-message-additional.component.jsx'
 import { AdditionalProperties }           from './request-commit-message-additional.component.jsx'

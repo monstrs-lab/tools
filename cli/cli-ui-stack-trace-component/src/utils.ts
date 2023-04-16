@@ -1,6 +1,6 @@
-import { StackFrame } from '@monstrs/stack-trace'
+import { readFileSync } from 'node:fs'
 
-import fs             from 'fs'
+import { StackFrame }   from '@monstrs/stack-trace'
 
 export const getFrameSource = (frame: StackFrame): string | null => {
   if (frame.sourceMap) {
@@ -9,7 +9,7 @@ export const getFrameSource = (frame: StackFrame): string | null => {
 
   if (frame.file) {
     try {
-      return fs.readFileSync(frame.file, 'utf-8')
+      return readFileSync(frame.file, 'utf-8')
       // eslint-disable-next-line
     } catch (error) {}
   }

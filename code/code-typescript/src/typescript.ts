@@ -1,7 +1,7 @@
 import deepmerge                     from 'deepmerge'
 
-import tsconfig                      from '@monstrs/config-typescript'
 import { ts }                        from '@monstrs/code-runtime/typescript'
+import tsconfig                      from '@monstrs/config-typescript'
 
 import { transformJsxToJsExtension } from './transformers/index.js'
 

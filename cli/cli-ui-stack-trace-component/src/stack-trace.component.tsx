@@ -1,12 +1,11 @@
 import { parse }          from '@monstrs/stack-trace'
-
-import React              from 'react'
 import { Text }           from 'ink'
 import { Box }            from 'ink'
 import { Spacer }         from 'ink'
 import { FC }             from 'react'
 import { nanoid }         from 'nanoid'
 import { useMemo }        from 'react'
+import React              from 'react'
 
 import { SourcePreview }  from '@monstrs/cli-ui-source-component'
 
