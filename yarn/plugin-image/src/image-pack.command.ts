@@ -68,11 +68,20 @@ class ImagePackCommand extends BaseCommand {
           // Fix lockfile generation
           await execUtils.pipevp('yarn', ['install'], {
             cwd: destination,
-            env: process.env,
             stdin: this.context.stdin,
             stdout: this.context.stdout,
             stderr: this.context.stderr,
             end: execUtils.EndStrategy.ErrorCode,
+            env: Object.keys(process.env).reduce((result, key) => {
+              if (key.includes('GITHUB') || key.startsWith('CI')) {
+                return result
+              }
+
+              return {
+                ...result,
+                [key]: process.env[key],
+              }
+            }, {}),
           })
 
           const repo = workspace.manifest.raw.name.replace('@', '').replace(/\//g, '-')
