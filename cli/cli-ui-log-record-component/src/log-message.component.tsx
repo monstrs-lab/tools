@@ -1,27 +1,15 @@
-import type { Body } from '@monstrs/logger'
-
-import { Text }      from 'ink'
-import { FC }        from 'react'
-import React         from 'react'
-
-const getMessage = (body: Body) => {
-  if (typeof body === 'string') {
-    return body
-  }
-
-  if (typeof body.message === 'string') {
-    return body.message
-  }
-
-  if (body.stack) {
-    return ''
-  }
-
-  return JSON.stringify(body)
-}
+import { Text } from 'ink'
+import { FC }   from 'react'
+import React    from 'react'
 
 export interface MessageProps {
-  children: Body
+  children?: string
 }
 
-export const LogMessage: FC<MessageProps> = ({ children }) => <Text>{getMessage(children)}</Text>
+export const LogMessage: FC<MessageProps> = ({ children }) => {
+  if (!children) {
+    return null
+  }
+
+  return <Text>{children}</Text>
+}

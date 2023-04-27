@@ -1,11 +1,17 @@
-import { Text } from 'ink'
-import { FC }   from 'react'
-import React    from 'react'
+import type { AttributeValue } from '@monstrs/logger'
+
+import { Text }                from 'ink'
+import { FC }                  from 'react'
+import React                   from 'react'
 
 export interface NamespaceProps {
-  children: string
+  children?: AttributeValue
 }
 
-export const LogNamespace: FC<NamespaceProps> = ({ children }) => (
-  <Text color='#d75f00'>{children}</Text>
-)
+export const LogNamespace: FC<NamespaceProps> = ({ children }) => {
+  if (!children) {
+    return null
+  }
+
+  return <Text color='#d75f00'>{children}</Text>
+}

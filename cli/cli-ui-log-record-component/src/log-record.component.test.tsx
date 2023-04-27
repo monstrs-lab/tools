@@ -23,13 +23,13 @@ const createStack = () => {
 
 describe('log record component', () => {
   it('render', () => {
-    const output = renderStatic(<LogRecord name='test' body='message' />, 160)
+    const output = renderStatic(<LogRecord namespace='test' body='message' />, 160)
 
     expect(stripAnsi(output)).toMatchSnapshot()
   })
 
   it('render body error stack', () => {
-    const output = renderStatic(<LogRecord name='test' body={{ stack: createStack() }} />, 160)
+    const output = renderStatic(<LogRecord namespace='test' stack={createStack()} />, 160)
 
     expect(stripAnsi(output)).toMatchSnapshot()
   })
