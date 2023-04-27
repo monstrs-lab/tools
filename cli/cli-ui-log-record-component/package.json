@@ -19,12 +19,12 @@
   "dependencies": {
     "@monstrs/cli-ui-renderer": "workspace:0.1.2",
     "@monstrs/cli-ui-stack-trace-component": "workspace:0.1.3",
-    "@monstrs/logger": "^0.0.6",
+    "@monstrs/logger": "^0.0.11",
     "string-to-color": "^2.2.2"
   },
   "devDependencies": {
     "@jest/globals": "29.5.0",
-    "@monstrs/logger": "^0.0.6",
+    "@monstrs/logger": "^0.0.11",
     "@types/node": "^18.15.11",
     "@types/react": "^18.0.35",
     "ink": "^3.2.0",

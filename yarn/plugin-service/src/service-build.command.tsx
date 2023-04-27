@@ -43,7 +43,7 @@ class ServiceBuildCommand extends BaseCommand {
             if (this.showWarnings) {
               warnings.forEach((warning) => {
                 renderStatic(
-                  <LogRecord name='webpack' body={warning} />,
+                  <LogRecord namespace='webpack' body={warning.message} />,
                   process.stdout.columns - 12
                 )
                   .split('\n')
@@ -54,7 +54,10 @@ class ServiceBuildCommand extends BaseCommand {
             }
 
             errors.forEach((error) => {
-              renderStatic(<LogRecord name='webpack' body={error} />, process.stdout.columns - 12)
+              renderStatic(
+                <LogRecord namespace='webpack' body={error.message} />,
+                process.stdout.columns - 12
+              )
                 .split('\n')
                 .forEach((line) => {
                   report.reportError(MessageName.UNNAMED, line)
