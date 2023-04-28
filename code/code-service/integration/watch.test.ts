@@ -1,14 +1,11 @@
 import { join }          from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-import { jest }          from '@jest/globals'
 import { describe }      from '@jest/globals'
 import { expect }        from '@jest/globals'
 import { it }            from '@jest/globals'
 
 import { Service }       from '../src/index.js'
-
-jest.setTimeout(10000)
 
 const closeWatcher = (watcher): Promise<void> =>
   new Promise((resolve) => {

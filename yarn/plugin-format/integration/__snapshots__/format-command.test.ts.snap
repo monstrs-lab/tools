@@ -3,9 +3,9 @@
 exports[`yarn commands format it should align imports 1`] = `
 "import type { type } from './a'
 
-import third         from './a'
 import { first }     from './a'
 import { second }    from './a'
+import third         from './a'
 "
 `;
 
