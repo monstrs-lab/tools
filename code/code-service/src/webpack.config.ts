@@ -19,6 +19,12 @@ import { UNUSED_EXTERNALS }         from './webpack.externals.js'
 
 export type WebpackEnvironment = 'production' | 'development'
 
+export interface WebpackConfigPlugin {
+  name: string
+  use: any
+  args: any[]
+}
+
 export class WebpackConfig {
   constructor(private readonly cwd: string) {}
 
@@ -32,7 +38,7 @@ export class WebpackConfig {
     await this.applyPlugins(config, environment)
     await this.applyModules(config)
 
-    config.externals(await this.getExternals())
+    config.externals(await this.getExternals(environment))
     config.externalsType('import')
 
     plugins.forEach((plugin) => {
@@ -50,6 +56,10 @@ export class WebpackConfig {
       .optimization.minimize(false)
 
     config.node.set('__dirname', false).set('__filename', false)
+
+    if (environment === 'development') {
+      config.entry('hot').add('webpack/hot/poll?100')
+    }
 
     config.entry('index').add(join(this.cwd, 'src/index'))
 
@@ -73,9 +83,9 @@ export class WebpackConfig {
   }
 
   private async applyPlugins(config: Config, environment: WebpackEnvironment) {
-    config.when(environment === 'development', () => {
+    if (environment === 'development') {
       config.plugin('hot').use(webpack.HotModuleReplacementPlugin)
-    })
+    }
   }
 
   private async applyModules(config: Config) {
@@ -157,7 +167,7 @@ export class WebpackConfig {
     }
   }
 
-  async getExternals(): Promise<{ [key: string]: string }> {
+  async getExternals(environment: WebpackEnvironment): Promise<{ [key: string]: string }> {
     const workspaceExternals: Array<string> = Array.from(await this.getWorkspaceExternals())
 
     const unpluggedExternals: Array<string> = Array.from(await this.getUnpluggedDependencies())
@@ -172,7 +182,11 @@ export class WebpackConfig {
       {}
     )
 
+    const hot: { [key: string]: string } =
+      environment === 'development' ? { 'webpack/hot/poll?100': 'webpack/hot/poll?100' } : {}
+
     return {
+      ...hot,
       ...UNUSED_EXTERNALS,
       ...workspaceAndUnpluggedExternals,
     }

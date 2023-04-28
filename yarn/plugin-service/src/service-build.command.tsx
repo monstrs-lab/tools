@@ -1,21 +1,14 @@
-import { BaseCommand }     from '@yarnpkg/cli'
-import { Configuration }   from '@yarnpkg/core'
-import { StreamReport }    from '@yarnpkg/core'
-import { MessageName }     from '@yarnpkg/core'
-import { Project }         from '@yarnpkg/core'
-import { Option }          from 'clipanion'
-import React               from 'react'
+import { Configuration }          from '@yarnpkg/core'
+import { StreamReport }           from '@yarnpkg/core'
+import { Project }                from '@yarnpkg/core'
 
-import { ErrorInfo }       from '@monstrs/cli-ui-error-info-component'
-import { LogRecord }       from '@monstrs/cli-ui-log-record-component'
-import { ServiceWorker }   from '@monstrs/code-service-worker'
-import { SpinnerProgress } from '@monstrs/yarn-run-utils'
-import { renderStatic }    from '@monstrs/cli-ui-renderer'
+import { ServiceWorker }          from '@monstrs/code-service-worker'
+import { SpinnerProgress }        from '@monstrs/yarn-run-utils'
 
-class ServiceBuildCommand extends BaseCommand {
+import { AbstractServiceCommand } from './abstract-service.command.jsx'
+
+class ServiceBuildCommand extends AbstractServiceCommand {
   static paths = [['service', 'build']]
-
-  showWarnings = Option.Boolean('-w,--show-warnings', false)
 
   async execute() {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
@@ -33,44 +26,15 @@ class ServiceBuildCommand extends BaseCommand {
           try {
             progress.start()
 
-            const { errors, warnings } = await new ServiceWorker(
-              this.context.cwd,
-              project.cwd
-            ).run()
+            const logRecords = await new ServiceWorker(this.context.cwd, project.cwd).run()
 
             progress.end()
 
-            if (this.showWarnings) {
-              warnings.forEach((warning) => {
-                renderStatic(
-                  <LogRecord namespace='webpack' body={warning.message} />,
-                  process.stdout.columns - 12
-                )
-                  .split('\n')
-                  .forEach((line) => {
-                    report.reportWarning(MessageName.UNNAMED, line)
-                  })
-              })
-            }
-
-            errors.forEach((error) => {
-              renderStatic(
-                <LogRecord namespace='webpack' body={error.message} />,
-                process.stdout.columns - 12
-              )
-                .split('\n')
-                .forEach((line) => {
-                  report.reportError(MessageName.UNNAMED, line)
-                })
-            })
+            logRecords.forEach((logRecord) => this.renderLogRecord(logRecord, report))
           } catch (error) {
             progress.end()
 
-            renderStatic(<ErrorInfo error={error as Error} />, process.stdout.columns - 12)
-              .split('\n')
-              .forEach((line) => {
-                report.reportError(MessageName.UNNAMED, line)
-              })
+            this.renderLogRecord(error as Error, report)
           }
         })
       }
