@@ -25,8 +25,10 @@ export abstract class AbstractServiceCommand extends BaseCommand {
       renderStatic(<ErrorInfo error={logRecord.record as Error} />, process.stdout.columns - 12)
         .split('\n')
         .forEach((line) => {
-          if (logRecord.severityNumber === SeverityNumber.WARN && this.showWarnings) {
-            report.reportWarning(MessageName.UNNAMED, line)
+          if (logRecord.severityNumber === SeverityNumber.WARN) {
+            if (this.showWarnings) {
+              report.reportWarning(MessageName.UNNAMED, line)
+            }
           } else {
             report.reportError(MessageName.UNNAMED, line)
           }
@@ -37,8 +39,10 @@ export abstract class AbstractServiceCommand extends BaseCommand {
         .forEach((line) => {
           if (logRecord.severityNumber! <= SeverityNumber.INFO) {
             report.reportInfo(MessageName.UNNAMED, line)
-          } else if (logRecord.severityNumber! <= SeverityNumber.WARN && this.showWarnings) {
-            report.reportWarning(MessageName.UNNAMED, line)
+          } else if (logRecord.severityNumber! <= SeverityNumber.WARN) {
+            if (this.showWarnings) {
+              report.reportWarning(MessageName.UNNAMED, line)
+            }
           } else {
             report.reportError(MessageName.UNNAMED, line)
           }
