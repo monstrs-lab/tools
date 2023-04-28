@@ -5,7 +5,7 @@ import { BaseCommand }           from '@yarnpkg/cli'
 import { AnnotationLevel }       from './github.checks.js'
 import { Annotation }            from './github.checks.js'
 
-abstract class AbstractChecksTestCommand extends BaseCommand {
+export abstract class AbstractChecksTestCommand extends BaseCommand {
   formatResults(results: AggregatedResult, cwd?: string): Annotation[] {
     return results.testResults
       .map(({ testResults, testFilePath }) =>
@@ -23,5 +23,3 @@ abstract class AbstractChecksTestCommand extends BaseCommand {
       .flat()
   }
 }
-
-export { AbstractChecksTestCommand }

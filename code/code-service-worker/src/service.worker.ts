@@ -1,31 +1,31 @@
-import type { ServiceBuildResult } from '@monstrs/code-service'
+import type { ServiceLogRecord } from '@monstrs/code-service'
 
-import { EvalWorker }              from '@monstrs/code-worker-utils'
+import { EvalWorker }            from '@monstrs/code-worker-utils'
 
-import { getContent }              from './service.worker.content.js'
+import { getContent }            from './service.worker.content.js'
 
 export class ServiceWorker {
   constructor(protected readonly cwd: string, protected readonly rootCwd: string) {}
 
-  async run(): Promise<ServiceBuildResult> {
+  async run(): Promise<Array<ServiceLogRecord>> {
     process.chdir(this.rootCwd)
 
-    return EvalWorker.run<ServiceBuildResult>(getContent(), {
+    return EvalWorker.run<Array<ServiceLogRecord>>(getContent(), {
       cwd: this.cwd,
       environment: 'production',
     })
   }
 
-  async watch(onMessage) {
+  async watch(callback: (logRecord: ServiceLogRecord) => void) {
     process.chdir(this.rootCwd)
 
-    return EvalWorker.watch(
+    return EvalWorker.watch<ServiceLogRecord>(
       getContent(),
       {
         environment: 'development',
         cwd: this.cwd,
       },
-      onMessage
+      callback
     )
   }
 }

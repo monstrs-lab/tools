@@ -1,21 +1,14 @@
-import { BaseCommand }     from '@yarnpkg/cli'
-import { Configuration }   from '@yarnpkg/core'
-import { StreamReport }    from '@yarnpkg/core'
-import { MessageName }     from '@yarnpkg/core'
-import { Project }         from '@yarnpkg/core'
-import { Option }          from 'clipanion'
-import React               from 'react'
+import { Configuration }          from '@yarnpkg/core'
+import { StreamReport }           from '@yarnpkg/core'
+import { Project }                from '@yarnpkg/core'
 
-import { ErrorInfo }       from '@monstrs/cli-ui-error-info-component'
-import { LogRecord }       from '@monstrs/cli-ui-log-record-component'
-import { ServiceWorker }   from '@monstrs/code-service-worker'
-import { SpinnerProgress } from '@monstrs/yarn-run-utils'
-import { renderStatic }    from '@monstrs/cli-ui-renderer'
+import { ServiceWorker }          from '@monstrs/code-service-worker'
+import { SpinnerProgress }        from '@monstrs/yarn-run-utils'
 
-class ServiceDevCommand extends BaseCommand {
+import { AbstractServiceCommand } from './abstract-service.command.jsx'
+
+class ServiceDevCommand extends AbstractServiceCommand {
   static paths = [['service', 'dev']]
-
-  showWarnings = Option.Boolean('-w,--show-warnings', false)
 
   async execute() {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
@@ -36,28 +29,12 @@ class ServiceDevCommand extends BaseCommand {
             await new ServiceWorker(this.context.cwd, project.cwd).watch((logRecord) => {
               progress.end()
 
-              renderStatic(<LogRecord name='webpack' {...logRecord} />, process.stdout.columns - 12)
-                .split('\n')
-                .forEach((line) => {
-                  if (logRecord.severityText === 'ERROR') {
-                    report.reportError(MessageName.UNNAMED, line)
-                  } else if (logRecord.severityText === 'WARN') {
-                    if (this.showWarnings) {
-                      report.reportWarning(MessageName.UNNAMED, line)
-                    }
-                  } else {
-                    report.reportInfo(MessageName.UNNAMED, line)
-                  }
-                })
+              this.renderLogRecord(logRecord, report)
             })
           } catch (error) {
             progress.end()
 
-            renderStatic(<ErrorInfo error={error as Error} />, process.stdout.columns - 12)
-              .split('\n')
-              .forEach((line) => {
-                report.reportError(MessageName.UNNAMED, line)
-              })
+            this.renderLogRecord(error as Error, report)
           }
         })
       }

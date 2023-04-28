@@ -1,17 +1,16 @@
-import { ChildProcess } from 'node:child_process'
-import { fork }         from 'node:child_process'
-import { resolve }      from 'node:path'
-import { Writable }     from 'node:stream'
+import { ChildProcess }      from 'node:child_process'
+import { fork }              from 'node:child_process'
+import { resolve }           from 'node:path'
+import { Writable }          from 'node:stream'
 
-import webpack          from 'webpack'
+import webpack               from 'webpack'
+
+import { StartServerLogger } from './start-server.logger.js'
 
 export interface StartServerPluginOptions {
-  verbose: boolean
-  entryName: string
+  entryName?: string
   stdout?: Writable
   stderr?: Writable
-  onWorkerStart?: (workeer: ChildProcess) => void
-  onWorkerExit?: () => void
 }
 
 export class StartServerPlugin {
@@ -21,20 +20,32 @@ export class StartServerPlugin {
 
   worker: ChildProcess | null = null
 
-  workerLoaded: boolean = false
+  logger: StartServerLogger
 
   constructor(options: Partial<StartServerPluginOptions> = {}) {
+    this.logger = new StartServerLogger(options)
     this.options = {
-      verbose: true,
       entryName: 'index',
       ...options,
     }
+
+    this.enableRestarting()
+  }
+
+  private enableRestarting(): void {
+    process.stdin.setEncoding('utf8')
+    process.stdin.on('data', (data: string) => {
+      if (data.trim() === 'rs') {
+        this.restartServer()
+      }
+    })
   }
 
   getEntryFile(compilation) {
     const { entryName } = this.options
     const { entrypoints } = compilation
-    const entry = entrypoints.get ? entrypoints.get(entryName) : entrypoints[entryName]
+
+    const entry = entrypoints.get ? entrypoints.get(entryName) : entrypoints[entryName!]
 
     if (!entry) {
       throw new Error(
@@ -45,18 +56,13 @@ export class StartServerPlugin {
       )
     }
 
-    /* eslint-disable no-underscore-dangle */
-
     const entryScript = webpack.EntryPlugin
-      ? entry._runtimeChunk.files.values().next().value
+      ? // eslint-disable-next-line no-underscore-dangle
+        entry._runtimeChunk.files.values().next().value
       : entry.chunks[0].files[0]
 
-    /* eslint-enable no-underscore-dangle */
-
     if (!entryScript) {
-      this.error(`Entry chunk not outputted: ${entry}`)
-
-      return null
+      throw new Error(`Entry chunk not outputted: ${entry}`)
     }
 
     const { path } = compilation.outputOptions
@@ -64,68 +70,47 @@ export class StartServerPlugin {
     return resolve(path, entryScript)
   }
 
-  handleWorkerExit = (code, signal) => {
-    if (code) {
-      this.error(`script exited with code: ${code}`)
-    }
-
-    if (signal && signal !== 'SIGTERM') {
-      this.error(`script exited after signal ${signal}`)
-    }
-
-    this.worker = null
-
-    if (this.options.onWorkerExit) {
-      this.options.onWorkerExit()
-    }
-
-    if (!this.workerLoaded) {
-      this.error('Script did not load, or HMR failed; not restarting')
-
+  private afterEmit = (compilation: webpack.Compilation, callback: () => void): void => {
+    if (this.worker && this.worker.connected && this.worker?.pid) {
+      this.restartServer()
+      callback()
       return
     }
 
-    this.workerLoaded = false
+    this.startServer(compilation, callback)
+  }
+
+  apply = (compiler: webpack.Compiler): void => {
+    compiler.hooks.afterEmit.tapAsync({ name: 'StartServerPlugin' }, this.afterEmit)
+  }
+
+  private restartServer(): void {
+    this.logger.info('Restarting service...')
+
+    if (this.worker?.pid) {
+      process.kill(this.worker.pid)
+    }
 
     if (this.entryFile) {
-      this.runWorker(this.entryFile)
+      this.runWorker(this.entryFile, (worker) => {
+        this.worker = worker
+      })
     }
   }
 
-  handleWorkerError = (err) => {
-    this.error(err)
+  private startServer = (compilation: webpack.Compilation, cb: () => void): void => {
+    this.entryFile = this.getEntryFile(compilation)
 
-    this.worker = null
-
-    if (this.options.onWorkerExit) {
-      this.options.onWorkerExit()
-    }
+    this.runWorker(this.entryFile, (worker) => {
+      this.worker = worker
+      cb()
+    })
   }
 
-  handleWorkerMessage = (message) => {
-    if (message === 'SSWP_LOADED') {
-      this.workerLoaded = true
-
-      this.info('Script loaded')
-    } else if (message === 'SSWP_HMR_FAIL') {
-      this.workerLoaded = false
-    }
-  }
-
-  runWorker(entryFile: string, callback?) {
-    if (this.worker) return
-
-    if (this.options.verbose) {
-      this.info(`running \`node ${entryFile}\``)
-    }
-
+  private runWorker(entryFile: string, cb: (arg0: ChildProcess) => void): void {
     const worker = fork(entryFile, [], {
       silent: true,
     })
-
-    worker.once('exit', this.handleWorkerExit)
-    worker.once('error', this.handleWorkerError)
-    worker.on('message', this.handleWorkerMessage)
 
     if (this.options.stdout) {
       worker.stdout?.pipe(this.options.stdout, { end: false })
@@ -135,88 +120,6 @@ export class StartServerPlugin {
       worker.stderr?.pipe(this.options.stderr, { end: false })
     }
 
-    this.worker = worker
-
-    if (this.options.onWorkerStart) {
-      this.options.onWorkerStart(worker)
-    }
-
-    if (callback) callback()
-  }
-
-  hmrWorker(compilation, callback) {
-    if (this.worker?.send) {
-      this.worker.send('SSWP_HMR')
-    } else {
-      this.error('hot reloaded but no way to tell the worker')
-    }
-
-    callback()
-  }
-
-  afterEmit = (compilation, callback) => {
-    const entryFile = this.getEntryFile(compilation)
-
-    if (entryFile) {
-      this.entryFile = entryFile
-    }
-
-    if (this.worker) {
-      this.hmrWorker(compilation, callback)
-    } else if (this.entryFile) {
-      this.runWorker(this.entryFile, callback)
-    }
-  }
-
-  getMonitor() {
-    const loaderPath = require.resolve('./monitor.loader')
-
-    return `!!${loaderPath}!${loaderPath}`
-  }
-
-  apply = (compiler) => {
-    const plugin = { name: 'StartServerPlugin' }
-
-    compiler.hooks.make.tap(plugin, (compilation) => {
-      compilation.addEntry(
-        compilation.compiler.context,
-        webpack.EntryPlugin.createDependency(this.getMonitor(), {
-          name: this.options.entryName,
-        }),
-        this.options.entryName,
-        // eslint-disable-next-line @typescript-eslint/no-empty-function
-        () => {}
-      )
-    })
-
-    compiler.hooks.afterEmit.tapAsync(plugin, this.afterEmit)
-  }
-
-  info(body) {
-    if (this.options.stdout) {
-      this.options.stdout.write(
-        Buffer.from(
-          JSON.stringify({
-            severityText: 'INFO',
-            name: 'start-server',
-            body,
-          })
-        )
-      )
-    }
-  }
-
-  error(body) {
-    if (this.options.stderr) {
-      this.options.stderr.write(
-        Buffer.from(
-          JSON.stringify({
-            severityText: 'ERROR',
-            name: 'start-server',
-            body,
-          })
-        )
-      )
-    }
+    setTimeout(() => cb(worker), 0)
   }
 }

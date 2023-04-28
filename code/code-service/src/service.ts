@@ -1,29 +1,19 @@
-import { PassThrough }       from 'node:stream'
+import type { ServiceLogRecord }    from './service.interfaces.js'
+import type { WebpackConfigPlugin } from './webpack.config.js'
 
-import { StartServerPlugin } from '@monstrs/code-runtime/webpack'
-import { webpack }           from '@monstrs/code-runtime/webpack'
+import { PassThrough }              from 'node:stream'
 
-import { WebpackConfig }     from './webpack.config.js'
+import { SeverityNumber }           from '@monstrs/logger'
 
-export interface ServiceBuildResultMessage {
-  message: string
-}
+import { StartServerPlugin }        from '@monstrs/code-runtime/webpack'
+import { webpack }                  from '@monstrs/code-runtime/webpack'
 
-export interface ServiceBuildResult {
-  errors: ServiceBuildResultMessage[]
-  warnings: ServiceBuildResultMessage[]
-}
-
-export interface WebpackConfigPlugin {
-  name: string
-  use: any
-  args: any[]
-}
+import { WebpackConfig }            from './webpack.config.js'
 
 export class Service {
   constructor(private readonly cwd: string) {}
 
-  async build(plugins: Array<WebpackConfigPlugin> = []): Promise<ServiceBuildResult> {
+  async build(plugins: Array<WebpackConfigPlugin> = []): Promise<Array<ServiceLogRecord>> {
     const config = new WebpackConfig(this.cwd)
 
     const compiler = webpack(await config.build())
@@ -34,29 +24,23 @@ export class Service {
           if (!error.message) {
             reject(error)
           } else {
-            resolve({
-              errors: [error],
-              warnings: [],
-            })
+            resolve([error])
           }
         } else if (stats) {
           const { errors = [], warnings = [] } = stats.toJson()
 
-          resolve({
-            errors,
-            warnings,
-          })
+          resolve([
+            ...errors.map((record) => ({ record, severityNumber: SeverityNumber.ERROR })),
+            ...warnings.map((record) => ({ record, severityNumber: SeverityNumber.WARN })),
+          ])
         } else {
-          resolve({
-            errors: [],
-            warnings: [],
-          })
+          resolve([])
         }
       })
     })
   }
 
-  async watch(callback?): Promise<webpack.Watching> {
+  async watch(callback: (logRecord: ServiceLogRecord) => void): Promise<webpack.Watching> {
     const config = new WebpackConfig(this.cwd)
 
     const pass = new PassThrough()
@@ -70,7 +54,7 @@ export class Service {
           try {
             callback(JSON.parse(row))
           } catch {
-            callback({ body: row })
+            callback({ severityNumber: SeverityNumber.INFO, body: row })
           }
         })
     })
@@ -90,24 +74,13 @@ export class Service {
       ])
     ).watch({}, (error, stats) => {
       if (error) {
-        callback({
-          severityText: 'ERROR',
-          body: error,
-        })
+        callback(error)
       } else if (stats) {
         const { errors = [], warnings = [] } = stats.toJson()
 
-        warnings.forEach((warning) =>
-          callback({
-            severityText: 'WARN',
-            body: warning,
-          }))
+        warnings.forEach((record) => callback({ record, severityNumber: SeverityNumber.WARN }))
 
-        errors.forEach((err) =>
-          callback({
-            severityText: 'ERROR',
-            body: err,
-          }))
+        errors.forEach((record) => callback({ record, severityNumber: SeverityNumber.ERROR }))
       }
     })
   }

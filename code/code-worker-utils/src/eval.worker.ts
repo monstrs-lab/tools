@@ -44,6 +44,7 @@ export class EvalWorker {
       execArgv: [...execArgv, ...process.execArgv],
       workerData,
       env: process.env,
+      stdin: true,
     })
   }
 
@@ -67,18 +68,33 @@ export class EvalWorker {
     })
   }
 
-  static async watch(content: string, workerData: object, onMessage) {
+  static async watch<T>(
+    content: string,
+    workerData: object,
+    callback: (logRecord: T) => void
+  ): Promise<void> {
     const worker = await EvalWorker.build(content, workerData)
+
     return new Promise((resolve, reject) => {
-      const exitHandler = (code: number) => {
-        if (code !== 0) {
-          reject(new Error(`Worker stopped with exit code ${code}`))
-        } else {
-          resolve(null)
+      const stdinHandler = (data) => {
+        if (worker.stdin) {
+          worker.stdin.write(data)
         }
       }
 
-      worker.on('message', onMessage)
+      const exitHandler = (code: number) => {
+        process.stdin.off('data', stdinHandler)
+
+        if (code !== 0) {
+          reject(new Error(`Worker stopped with exit code ${code}`))
+        } else {
+          resolve()
+        }
+      }
+
+      process.stdin.on('data', stdinHandler)
+
+      worker.on('message', callback)
 
       worker.once('error', reject)
       worker.once('exit', exitHandler)
