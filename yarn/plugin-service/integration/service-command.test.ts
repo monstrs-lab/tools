@@ -7,16 +7,15 @@ import { xfs }              from '@yarnpkg/fslib'
 import { makeTemporaryEnv } from '@monstrs/yarn-test-utils'
 
 const content = `
-import express from 'express'
+import { createServer } from 'node:http'
 
-const app = express()
 const port = 3000
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
-
-app.listen(port)`
+createServer((req, res) => {
+  res.writeHead(200)
+  res.end('Hello World!')
+}).listen(port)
+`
 
 describe('yarn', () => {
   describe('commands', () => {
@@ -27,7 +26,6 @@ describe('yarn', () => {
           {
             dependencies: {
               '@monstrs/code-runtime': 'workspace:*',
-              express: '*',
             },
           },
           async ({ path, run, source }) => {
@@ -44,30 +42,6 @@ describe('yarn', () => {
             await expect(
               xfs.readFilePromise(`${path}/dist/index.js` as PortablePath, 'utf8')
             ).resolves.toContain('Hello World!')
-          }
-        )
-      )
-
-      test(
-        'it should build with errors',
-        makeTemporaryEnv(
-          {
-            dependencies: {
-              '@monstrs/code-runtime': 'workspace:*',
-            },
-          },
-          async ({ path, run, source }) => {
-            await run('install')
-
-            await xfs.mkdirPromise(`${path}/src` as PortablePath)
-            await xfs.writeFilePromise(`${path}/src/index.ts` as PortablePath, content)
-
-            try {
-              await run('service', 'build')
-            } catch (error: any) {
-              expect(error.code).toBe(1)
-              expect(error.stdout).toContain("Module not found: Error: Can't resolve 'express'")
-            }
           }
         )
       )

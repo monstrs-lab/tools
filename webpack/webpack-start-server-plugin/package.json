@@ -12,7 +12,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "yarn library build --module commonjs",
+    "build": "yarn library build",
     "prepack": "yarn run build",
     "postpack": "rm -rf dist"
   },

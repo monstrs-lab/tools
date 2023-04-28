@@ -57,10 +57,6 @@ export class WebpackConfig {
 
     config.node.set('__dirname', false).set('__filename', false)
 
-    if (environment === 'development') {
-      config.entry('hot').add('webpack/hot/poll?100')
-    }
-
     config.entry('index').add(join(this.cwd, 'src/index'))
 
     config.output.path(join(this.cwd, 'dist')).filename('[name].js')
@@ -82,11 +78,8 @@ export class WebpackConfig {
     config.experiments({ outputModule: true })
   }
 
-  private async applyPlugins(config: Config, environment: WebpackEnvironment) {
-    if (environment === 'development') {
-      config.plugin('hot').use(webpack.HotModuleReplacementPlugin)
-    }
-  }
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  private async applyPlugins(config: Config, environment: WebpackEnvironment) {}
 
   private async applyModules(config: Config) {
     const configFile = join(await mkdtemp(join(tmpdir(), 'tools-service-')), 'tsconfig.json')
@@ -182,11 +175,7 @@ export class WebpackConfig {
       {}
     )
 
-    const hot: { [key: string]: string } =
-      environment === 'development' ? { 'webpack/hot/poll?100': 'webpack/hot/poll?100' } : {}
-
     return {
-      ...hot,
       ...UNUSED_EXTERNALS,
       ...workspaceAndUnpluggedExternals,
     }
