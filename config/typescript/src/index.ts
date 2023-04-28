@@ -38,6 +38,7 @@ export default {
     outDir: './dist',
   },
   exclude: [
+    'next-env.d.ts',
     'integration',
     'node_modules',
     'src/**/*.spec.ts',
