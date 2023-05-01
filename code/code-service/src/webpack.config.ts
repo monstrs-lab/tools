@@ -59,7 +59,7 @@ export class WebpackConfig {
 
     config.entry('index').add(join(this.cwd, 'src/index'))
 
-    config.output.path(join(this.cwd, 'dist')).filename('[name].js')
+    config.output.path(join(this.cwd, 'dist')).filename('index.js')
     config.output.chunkFormat('module')
     config.output.library({ type: 'module' })
     config.output.module(true)

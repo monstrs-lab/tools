@@ -21,17 +21,17 @@
     "yarn:download": "yarn node ./scripts/download-yarn-pnp-packages.script.mjs"
   },
   "dependencies": {
-    "@yarnpkg/builder": "^4.0.0-rc.42",
-    "@yarnpkg/core": "^4.0.0-rc.42",
-    "@yarnpkg/fslib": "^3.0.0-rc.42",
-    "@yarnpkg/plugin-pnp": "^4.0.0-rc.42",
+    "@yarnpkg/builder": "^4.0.0-rc.43",
+    "@yarnpkg/core": "^4.0.0-rc.43",
+    "@yarnpkg/fslib": "^3.0.0-rc.43",
+    "@yarnpkg/plugin-pnp": "^4.0.0-rc.43",
     "@yarnpkg/pnp": "file:./cache/yarnpkg-pnp.tgz"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-commonjs": "^24.1.0",
     "@rollup/plugin-node-resolve": "^15.0.2",
-    "esbuild": "^0.17.16",
-    "rollup": "3.20.2",
+    "esbuild": "^0.17.18",
+    "rollup": "^3.21.3",
     "rollup-plugin-esbuild": "^5.0.0",
     "tslib": "^2.5.0"
   },

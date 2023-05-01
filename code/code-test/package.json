@@ -24,7 +24,7 @@
     "@monstrs/code-runtime": "workspace:0.1.6"
   },
   "devDependencies": {
-    "@types/node": "^18.15.11"
+    "@types/node": "^18.16.3"
   },
   "peerDependenciesMeta": {
     "jest": {

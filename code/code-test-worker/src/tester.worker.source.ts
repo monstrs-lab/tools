@@ -1,8 +1,7 @@
 import { parentPort } from 'node:worker_threads'
 import { workerData } from 'node:worker_threads'
 
-import { stringify }  from 'flatted'
-import { parse }      from 'flatted'
+import serialize      from 'safe-stable-stringify'
 
 import { Tester }     from '@monstrs/code-test'
 
@@ -13,7 +12,7 @@ const tester = new Tester(cwd)
 const tests = type === 'unit' ? tester.unit(options, files) : tester.integration(options, files)
 
 tests
-  .then((results) => parentPort!.postMessage(parse(stringify(results))))
+  .then((results) => parentPort!.postMessage(JSON.parse(serialize(results))))
   .then(() => {
     setTimeout(() => {
       process.exit(0)

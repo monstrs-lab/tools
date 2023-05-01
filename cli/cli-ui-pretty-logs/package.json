@@ -19,12 +19,12 @@
   "dependencies": {
     "@monstrs/cli-ui-log-record-component": "workspace:0.1.4",
     "@monstrs/cli-ui-renderer": "workspace:0.1.2",
-    "ink": "^3.2.0",
+    "ink": "^4.2.0",
     "react": "^18.2.0"
   },
   "devDependencies": {
-    "@types/node": "^18.15.11",
-    "@types/react": "^18.0.35"
+    "@types/node": "^18.16.3",
+    "@types/react": "^18.2.0"
   },
   "publishConfig": {
     "access": "public",

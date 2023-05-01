@@ -32,14 +32,14 @@
   "devDependencies": {
     "@jest/globals": "^29.5.0",
     "@monstrs/yarn-test-utils": "workspace:0.0.1",
-    "@yarnpkg/builder": "^4.0.0-rc.42",
-    "@yarnpkg/cli": "^4.0.0-rc.42",
-    "@yarnpkg/core": "^4.0.0-rc.42",
-    "@yarnpkg/fslib": "^3.0.0-rc.42"
+    "@yarnpkg/builder": "^4.0.0-rc.43",
+    "@yarnpkg/cli": "^4.0.0-rc.43",
+    "@yarnpkg/core": "^4.0.0-rc.43",
+    "@yarnpkg/fslib": "^3.0.0-rc.43"
   },
   "peerDependencies": {
-    "@yarnpkg/cli": "^3.2.0-rc.8",
-    "@yarnpkg/core": "^3.2.0-rc.8"
+    "@yarnpkg/cli": "^4",
+    "@yarnpkg/core": "^4"
   },
   "publishConfig": {
     "access": "public",
