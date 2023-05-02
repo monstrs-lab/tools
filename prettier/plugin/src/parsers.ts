@@ -40,7 +40,7 @@ const parse = async (source, { plugins }) => {
         node.specifiers.forEach((_, specifierIndex) => {
           program.body.splice(index + specifierIndex, 0, {
             ...node,
-            // eslint-disable-next-line no-shadow
+            // eslint-disable-next-line @typescript-eslint/no-shadow
             specifiers: node.specifiers.filter((_, i) => specifierIndex === i),
           })
         })
