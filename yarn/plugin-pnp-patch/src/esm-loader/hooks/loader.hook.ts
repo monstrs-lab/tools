@@ -1,4 +1,4 @@
-/* eslint-disable no-shadow */
+/* eslint-disable @typescript-eslint/no-shadow */
 
 import fs                                 from 'node:fs'
 import { fileURLToPath }                  from 'node:url'
