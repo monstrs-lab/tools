@@ -21,17 +21,24 @@ execFileSync('git', [
   repo,
 ])
 
-const pkgTestsCore = await readFile(
-  join(repo, 'packages/acceptance-tests/pkg-tests-core/package.json'),
-  'utf-8'
+const pkgTestsCore = JSON.parse(
+  await readFile(join(repo, 'packages/acceptance-tests/pkg-tests-core/package.json'), 'utf-8')
 )
+
 await writeFile(
   join(repo, 'packages/acceptance-tests/pkg-tests-core/package.json'),
   JSON.stringify({
-    ...JSON.parse(pkgTestsCore),
+    ...pkgTestsCore,
     scripts: {
       postpack: 'rm -rf lib',
       prepack: 'run build:compile "$(pwd)"',
+    },
+    peerDependencies: {
+      'pkg-tests-fixtures': pkgTestsCore.devDependencies['pkg-tests-fixtures'],
+    },
+    devDependencies: {
+      ...pkgTestsCore.devDependencies,
+      'pkg-tests-fixtures': undefined,
     },
     publishConfig: {
       main: './lib/index.js',
@@ -49,6 +56,7 @@ execFileSync(
   ['workspace', 'pkg-tests-fixtures', 'pack', '--out', join(cache, 'pkg-tests-fixtures.tgz')],
   { cwd: repo }
 )
+
 execFileSync(
   'yarn',
   ['workspace', 'pkg-tests-core', 'pack', '--out', join(cache, 'pkg-tests-core.tgz')],

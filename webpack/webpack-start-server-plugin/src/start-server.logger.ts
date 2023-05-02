@@ -15,9 +15,8 @@ export class StartServerLogger {
           JSON.stringify({
             body,
             severityNumber: 9,
-            severityText: 'INFO',
             attributes: {
-              '@namespace': 'start-server',
+              '@namespace': 'webpack:start-server',
             },
           })
         )
@@ -32,9 +31,8 @@ export class StartServerLogger {
           JSON.stringify({
             body: error.message,
             severityNumber: 17,
-            severityText: 'ERROR',
             attributes: {
-              '@namespace': 'start-server',
+              '@namespace': 'webpack:start-server',
               '@stack': error.stack,
             },
           })

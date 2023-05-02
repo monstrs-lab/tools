@@ -18,6 +18,9 @@ jobs:
       - name: Install
         run: source .env && export NODE_OPTIONS && yarn install
 
+      - name: Build
+        run: source .env && export NODE_OPTIONS && yarn cli:build
+
       - name: Lint
         run: source .env && export NODE_OPTIONS && yarn checks lint
         env:

@@ -17,14 +17,14 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@emotion/jest": "^11.10.5",
+    "@emotion/jest": "^11.10.8",
     "@monstrs/config-typescript": "workspace:0.1.4",
     "@monstrs/jest-resolver": "workspace:0.1.1",
     "jest-static-stubs": "^0.0.1",
     "ts-jest": "^29.1.0"
   },
   "devDependencies": {
-    "@types/node": "^18.15.11"
+    "@types/node": "^18.16.3"
   },
   "publishConfig": {
     "access": "public",

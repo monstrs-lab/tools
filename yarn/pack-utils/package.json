@@ -13,12 +13,12 @@
     "dist"
   ],
   "devDependencies": {
-    "@yarnpkg/cli": "^4.0.0-rc.42",
-    "@yarnpkg/core": "^4.0.0-rc.42",
-    "@yarnpkg/fslib": "^3.0.0-rc.42",
-    "@yarnpkg/plugin-pack": "^4.0.0-rc.42",
-    "@yarnpkg/plugin-patch": "^4.0.0-rc.42",
-    "semver": "^7.4.0",
+    "@yarnpkg/cli": "^4.0.0-rc.43",
+    "@yarnpkg/core": "^4.0.0-rc.43",
+    "@yarnpkg/fslib": "^3.0.0-rc.43",
+    "@yarnpkg/plugin-pack": "^4.0.0-rc.43",
+    "@yarnpkg/plugin-patch": "^4.0.0-rc.43",
+    "semver": "^7.5.0",
     "tar-stream": "^3.0.0"
   },
   "publishConfig": {

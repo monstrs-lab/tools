@@ -1,8 +1,7 @@
 import { parentPort } from 'node:worker_threads'
 import { workerData } from 'node:worker_threads'
 
-import { stringify }  from 'flatted'
-import { parse }      from 'flatted'
+import serialize      from 'safe-stable-stringify'
 
 import { TypeScript } from '@monstrs/code-typescript'
 
@@ -11,8 +10,9 @@ const { type, cwd, include, override } = workerData
 const ts = new TypeScript(cwd)
 
 if (type === 'check') {
-  ts.check(include).then((diagnostics) => parentPort!.postMessage(parse(stringify(diagnostics))))
+  ts.check(include).then((diagnostics) =>
+    parentPort!.postMessage(JSON.parse(serialize(diagnostics))))
 } else {
   ts.build(include, override).then((diagnostics) =>
-    parentPort!.postMessage(parse(stringify(diagnostics))))
+    parentPort!.postMessage(JSON.parse(serialize(diagnostics))))
 }

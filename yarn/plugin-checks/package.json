@@ -38,17 +38,17 @@
   },
   "devDependencies": {
     "@monstrs/code-runtime": "workspace:0.1.6",
-    "@octokit/types": "^9.0.0",
-    "@types/node": "^18.15.11",
-    "@yarnpkg/builder": "^4.0.0-rc.42",
-    "@yarnpkg/cli": "^4.0.0-rc.42",
-    "@yarnpkg/core": "^4.0.0-rc.42",
-    "@yarnpkg/fslib": "^3.0.0-rc.42"
+    "@octokit/types": "^9.2.0",
+    "@types/node": "^18.16.3",
+    "@yarnpkg/builder": "^4.0.0-rc.43",
+    "@yarnpkg/cli": "^4.0.0-rc.43",
+    "@yarnpkg/core": "^4.0.0-rc.43",
+    "@yarnpkg/fslib": "^3.0.0-rc.43"
   },
   "peerDependencies": {
-    "@yarnpkg/cli": "^3.2.0-rc.8",
-    "@yarnpkg/core": "^3.2.0-rc.8",
-    "@yarnpkg/fslib": "^2.6.1-rc.3"
+    "@yarnpkg/cli": "^4",
+    "@yarnpkg/core": "^4",
+    "@yarnpkg/fslib": "^3"
   },
   "publishConfig": {
     "access": "public",
