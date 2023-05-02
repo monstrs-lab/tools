@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-typescript-worker",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -19,7 +19,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/code-typescript": "workspace:0.1.6",
+    "@monstrs/code-typescript": "workspace:0.1.7",
     "@monstrs/code-worker-utils": "workspace:0.1.4",
     "safe-stable-stringify": "^2.4.3"
   },
