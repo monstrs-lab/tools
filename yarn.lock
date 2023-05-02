@@ -1443,8 +1443,8 @@ __metadata:
     decamelize: "npm:^6.0.0"
     ink: "npm:^4.2.0"
     react: "npm:^18.2.0"
-    string-to-color: "npm:^2.2.2"
     strip-ansi: "npm:^7.0.1"
+    uniqolor: "npm:^1.1.0"
   peerDependencies:
     ink: ^3.0.8
     react: "*"
@@ -5494,13 +5494,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"colornames@npm:^1.1.1":
-  version: 1.1.1
-  resolution: "colornames@npm:1.1.1"
-  checksum: 6e4bbeb16f1ee340ee3caa69ab73bac2ad4846df7f8a7ba03f37bcda7d144ee8ed1f792f152bd7d593545cdc1c0777b985e147de399eee31215b07a727baee2a
-  languageName: node
-  linkType: hard
-
 "combined-stream@npm:^1.0.6, combined-stream@npm:~1.0.6":
   version: 1.0.8
   resolution: "combined-stream@npm:1.0.8"
@@ -7582,13 +7575,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hex-rgb@npm:^4.1.0":
-  version: 4.2.0
-  resolution: "hex-rgb@npm:4.2.0"
-  checksum: 06ad8813ba6ce12369ee9400b378d6347cf0be2ae70a643ba3938e07620022320e4e4222b0f3d1d50dca35b911f7e0cf4b8ee977c5ed9ba34c5062d2b5491f3b
-  languageName: node
-  linkType: hard
-
 "homedir-polyfill@npm:^1.0.1":
   version: 1.0.3
   resolution: "homedir-polyfill@npm:1.0.3"
@@ -9343,13 +9329,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.padend@npm:^4.6.1":
-  version: 4.6.1
-  resolution: "lodash.padend@npm:4.6.1"
-  checksum: ba52598ce377216d7079b5a628e83530e110af4cd954410f2bfdb9402b033c097552c78658aafaae3dd18bdb0c9e265916c2d986e6f7cc37a1c5eb990d519234
-  languageName: node
-  linkType: hard
-
 "lodash.snakecase@npm:^4.1.1":
   version: 4.1.1
   resolution: "lodash.snakecase@npm:4.1.1"
@@ -9364,13 +9343,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.trimstart@npm:^4.5.1":
-  version: 4.5.1
-  resolution: "lodash.trimstart@npm:4.5.1"
-  checksum: 03982736eefdc12ab70e9f005cf6a41226dd901121619135eeb3ed4da8a657d7b77072f97cbb085ca3a987e40b67877fbd38e14bc41b243660f2bcc8a614432e
-  languageName: node
-  linkType: hard
-
 "lodash.uniq@npm:^4.5.0":
   version: 4.5.0
   resolution: "lodash.uniq@npm:4.5.0"
@@ -9382,13 +9354,6 @@ __metadata:
   version: 4.3.1
   resolution: "lodash.upperfirst@npm:4.3.1"
   checksum: 5b588ebd49cc166f12d48f63bdf2b6cb17652dcdcf4e6ab32e5978d13749af055eb0f3835d42995093dab410f03fa56d6c5ba57c1f3e3daa54dff14dd5415539
-  languageName: node
-  linkType: hard
-
-"lodash.words@npm:^4.2.0":
-  version: 4.2.0
-  resolution: "lodash.words@npm:4.2.0"
-  checksum: 7eaadd06bb2a36fcb5115985bd373202d3851bc62355efe8916d6b7eaa6347aa9f4e036cab82441631ef669505f19abba34f6a58b1ff005687fc7b2085223459
   languageName: node
   linkType: hard
 
@@ -11032,13 +10997,6 @@ pem@dexus/pem:
   languageName: node
   linkType: hard
 
-"rgb-hex@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "rgb-hex@npm:3.0.0"
-  checksum: 1e7acac0b4bc24230caea81a54bf3bbfc33520f97cd26f8727ef0eb55928fb44a37b62d8803bb42fdd3032db3fe5f062c61f522af6b24dd9b99cdb79a60ac157
-  languageName: node
-  linkType: hard
-
 "rimraf@npm:^2.6.3":
   version: 2.7.1
   resolution: "rimraf@npm:2.7.1"
@@ -11664,20 +11622,6 @@ pem@dexus/pem:
   peerDependencies:
     webpack: ^5
   checksum: ebac4460742a0d34c8ac8cf479c46be39cd832145c7041f566bcb0cf9cbb47501737fdc6c1f3492550b3c94326ce0a8750591dd0d0ace6c969634af5bd941462
-  languageName: node
-  linkType: hard
-
-"string-to-color@npm:^2.2.2":
-  version: 2.2.2
-  resolution: "string-to-color@npm:2.2.2"
-  dependencies:
-    colornames: "npm:^1.1.1"
-    hex-rgb: "npm:^4.1.0"
-    lodash.padend: "npm:^4.6.1"
-    lodash.trimstart: "npm:^4.5.1"
-    lodash.words: "npm:^4.2.0"
-    rgb-hex: "npm:^3.0.0"
-  checksum: a8fb4a055d23ef4e4e4ff084b1e74cd53af0e548024be5d144be90102f1a09fd9cd3a6a8adad2aeaad87595ea80ee7a8d5bc791e2efd82cfb629052956eb6adf
   languageName: node
   linkType: hard
 
@@ -12496,6 +12440,13 @@ pem@dexus/pem:
     has-symbols: "npm:^1.0.3"
     which-boxed-primitive: "npm:^1.0.2"
   checksum: de21ca5e49bb56d46c7d3672d3d2900b3859ee9541903993bca02a94a317ec1c720b316f025bf5c0f51f7ff9ad383782970acae0408b900ae0537727f614c4e1
+  languageName: node
+  linkType: hard
+
+"uniqolor@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "uniqolor@npm:1.1.0"
+  checksum: 584778c6a994ff5ca12eba17077e47c6b261e9b29f8959b4cfd054603d0f1b96236d10ca4f772ed51044f6acf5ce49917b2118e52e2eff813cb47913af6e2631
   languageName: node
   linkType: hard
 

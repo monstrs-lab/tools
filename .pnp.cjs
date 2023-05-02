@@ -2364,8 +2364,8 @@ const RAW_RUNTIME_STATE =
           ["decamelize", "npm:6.0.0"],\
           ["ink", "virtual:11bd5af2a80ab93c290d16e253fd5eda25f6c23efed18026ce02e3946945e078ab2eca3aaf556121c03850dbaab6f49557f766911a06a3fb3a1db705274a5786#npm:3.2.0"],\
           ["react", "npm:18.2.0"],\
-          ["string-to-color", "npm:2.2.2"],\
-          ["strip-ansi", "npm:7.0.1"]\
+          ["strip-ansi", "npm:7.0.1"],\
+          ["uniqolor", "npm:1.1.0"]\
         ],\
         "packagePeers": [\
           "@types/ink",\
@@ -2387,8 +2387,8 @@ const RAW_RUNTIME_STATE =
           ["decamelize", "npm:6.0.0"],\
           ["ink", "virtual:11bd5af2a80ab93c290d16e253fd5eda25f6c23efed18026ce02e3946945e078ab2eca3aaf556121c03850dbaab6f49557f766911a06a3fb3a1db705274a5786#npm:3.2.0"],\
           ["react", "npm:18.2.0"],\
-          ["string-to-color", "npm:2.2.2"],\
-          ["strip-ansi", "npm:7.0.1"]\
+          ["strip-ansi", "npm:7.0.1"],\
+          ["uniqolor", "npm:1.1.0"]\
         ],\
         "packagePeers": [\
           "@types/ink",\
@@ -2411,8 +2411,8 @@ const RAW_RUNTIME_STATE =
           ["decamelize", "npm:6.0.0"],\
           ["ink", "virtual:11bd5af2a80ab93c290d16e253fd5eda25f6c23efed18026ce02e3946945e078ab2eca3aaf556121c03850dbaab6f49557f766911a06a3fb3a1db705274a5786#npm:3.2.0"],\
           ["react", "npm:18.2.0"],\
-          ["string-to-color", "npm:2.2.2"],\
-          ["strip-ansi", "npm:7.0.1"]\
+          ["strip-ansi", "npm:7.0.1"],\
+          ["uniqolor", "npm:1.1.0"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -8313,15 +8313,6 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
-    ["colornames", [\
-      ["npm:1.1.1", {\
-        "packageLocation": "./.yarn/cache/colornames-npm-1.1.1-7336d028e4-6e4bbeb16f.zip/node_modules/colornames/",\
-        "packageDependencies": [\
-          ["colornames", "npm:1.1.1"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
     ["combined-stream", [\
       ["npm:1.0.8", {\
         "packageLocation": "./.yarn/cache/combined-stream-npm-1.0.8-dc14d4a63a-c3224efc79.zip/node_modules/combined-stream/",\
@@ -10769,15 +10760,6 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
-    ["hex-rgb", [\
-      ["npm:4.2.0", {\
-        "packageLocation": "./.yarn/cache/hex-rgb-npm-4.2.0-303e0c8622-06ad8813ba.zip/node_modules/hex-rgb/",\
-        "packageDependencies": [\
-          ["hex-rgb", "npm:4.2.0"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
     ["homedir-polyfill", [\
       ["npm:1.0.3", {\
         "packageLocation": "./.yarn/cache/homedir-polyfill-npm-1.0.3-da1a29ce00-c3dad1334e.zip/node_modules/homedir-polyfill/",\
@@ -12915,15 +12897,6 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
-    ["lodash.padend", [\
-      ["npm:4.6.1", {\
-        "packageLocation": "./.yarn/cache/lodash.padend-npm-4.6.1-6a28392d72-ba52598ce3.zip/node_modules/lodash.padend/",\
-        "packageDependencies": [\
-          ["lodash.padend", "npm:4.6.1"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
     ["lodash.snakecase", [\
       ["npm:4.1.1", {\
         "packageLocation": "./.yarn/cache/lodash.snakecase-npm-4.1.1-b12cdbecb4-5e840ba777.zip/node_modules/lodash.snakecase/",\
@@ -12942,15 +12915,6 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
-    ["lodash.trimstart", [\
-      ["npm:4.5.1", {\
-        "packageLocation": "./.yarn/cache/lodash.trimstart-npm-4.5.1-ad539ab14e-03982736ee.zip/node_modules/lodash.trimstart/",\
-        "packageDependencies": [\
-          ["lodash.trimstart", "npm:4.5.1"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
     ["lodash.uniq", [\
       ["npm:4.5.0", {\
         "packageLocation": "./.yarn/cache/lodash.uniq-npm-4.5.0-7c270dca85-8ac56bbaa8.zip/node_modules/lodash.uniq/",\
@@ -12965,15 +12929,6 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/lodash.upperfirst-npm-4.3.1-e3b7c364ba-5b588ebd49.zip/node_modules/lodash.upperfirst/",\
         "packageDependencies": [\
           ["lodash.upperfirst", "npm:4.3.1"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["lodash.words", [\
-      ["npm:4.2.0", {\
-        "packageLocation": "./.yarn/cache/lodash.words-npm-4.2.0-ff45c1e566-7eaadd06bb.zip/node_modules/lodash.words/",\
-        "packageDependencies": [\
-          ["lodash.words", "npm:4.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -14845,15 +14800,6 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
-    ["rgb-hex", [\
-      ["npm:3.0.0", {\
-        "packageLocation": "./.yarn/cache/rgb-hex-npm-3.0.0-3ae567c8ec-1e7acac0b4.zip/node_modules/rgb-hex/",\
-        "packageDependencies": [\
-          ["rgb-hex", "npm:3.0.0"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
     ["rimraf", [\
       ["npm:2.7.1", {\
         "packageLocation": "./.yarn/cache/rimraf-npm-2.7.1-9a71f3cc37-35e2f6ca89.zip/node_modules/rimraf/",\
@@ -15552,21 +15498,6 @@ const RAW_RUNTIME_STATE =
         "packagePeers": [\
           "@types/webpack",\
           "webpack"\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["string-to-color", [\
-      ["npm:2.2.2", {\
-        "packageLocation": "./.yarn/cache/string-to-color-npm-2.2.2-d9e25dc808-a8fb4a055d.zip/node_modules/string-to-color/",\
-        "packageDependencies": [\
-          ["string-to-color", "npm:2.2.2"],\
-          ["colornames", "npm:1.1.1"],\
-          ["hex-rgb", "npm:4.2.0"],\
-          ["lodash.padend", "npm:4.6.1"],\
-          ["lodash.trimstart", "npm:4.5.1"],\
-          ["lodash.words", "npm:4.2.0"],\
-          ["rgb-hex", "npm:3.0.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -16508,6 +16439,15 @@ const RAW_RUNTIME_STATE =
           ["has-bigints", "npm:1.0.2"],\
           ["has-symbols", "npm:1.0.3"],\
           ["which-boxed-primitive", "npm:1.0.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["uniqolor", [\
+      ["npm:1.1.0", {\
+        "packageLocation": "./.yarn/cache/uniqolor-npm-1.1.0-add87e1340-584778c6a9.zip/node_modules/uniqolor/",\
+        "packageDependencies": [\
+          ["uniqolor", "npm:1.1.0"]\
         ],\
         "linkType": "HARD"\
       }]\

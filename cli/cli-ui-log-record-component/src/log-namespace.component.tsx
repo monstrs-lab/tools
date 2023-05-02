@@ -4,7 +4,7 @@ import { Text }                from 'ink'
 import { FC }                  from 'react'
 import { useMemo }             from 'react'
 import React                   from 'react'
-import toColor                 from 'string-to-color'
+import uniqolor                from 'uniqolor'
 import decamelize              from 'decamelize'
 
 export interface NamespaceProps {
@@ -22,7 +22,7 @@ export const LogNamespace: FC<NamespaceProps> = ({ children }) => {
 
   const color = useMemo(() => {
     if (value && typeof value === 'string') {
-      return toColor(value.split(':').at(0))
+      return uniqolor(value.split(':').at(0)!).color
     }
 
     return '#d75f00'

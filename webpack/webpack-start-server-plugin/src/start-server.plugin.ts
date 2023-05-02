@@ -30,6 +30,13 @@ export class StartServerPlugin {
       entryName: 'index',
       ...options,
     }
+
+    process.stdin.setEncoding('utf8')
+    process.stdin.on('data', (data: string) => {
+      if (data.trim() === 'rs') {
+        this.restartServer()
+      }
+    })
   }
 
   private afterEmit = (compilation: webpack.Compilation, callback: () => void): void => {
@@ -50,8 +57,22 @@ export class StartServerPlugin {
     compiler.hooks.afterEmit.tapAsync({ name: 'StartServerPlugin' }, this.afterEmit)
   }
 
+  private restartServer(): void {
+    this.logger.info('Restarting server...')
+
+    if (this.worker?.pid) {
+      process.kill(this.worker.pid)
+    }
+
+    if (this.entryFile) {
+      this.runWorker(this.entryFile, (worker) => {
+        this.worker = worker
+      })
+    }
+  }
+
   private startServer = (compilation: webpack.Compilation, callback: () => void): void => {
-    this.logger.info('Start server...')
+    this.logger.info('Starting server...')
 
     this.entryFile = join(compilation.compiler.options.output.path!, 'index.js')
 
