@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-test-worker",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -20,7 +20,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/code-test": "workspace:0.1.7",
+    "@monstrs/code-test": "workspace:0.1.8",
     "@monstrs/code-worker-utils": "workspace:0.1.4",
     "safe-stable-stringify": "^2.4.3"
   },
