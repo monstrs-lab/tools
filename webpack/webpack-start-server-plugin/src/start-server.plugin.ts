@@ -1,9 +1,9 @@
+import type webpack          from 'webpack'
+
 import { ChildProcess }      from 'node:child_process'
 import { fork }              from 'node:child_process'
 import { join }              from 'node:path'
 import { Writable }          from 'node:stream'
-
-import webpack               from 'webpack'
 
 import { StartServerLogger } from './start-server.logger.js'
 
