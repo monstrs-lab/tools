@@ -1,5 +1,5 @@
 import type { ServiceLogRecord }    from './service.interfaces.js'
-import type { WebpackConfigPlugin } from './webpack.config.js'
+import type { WebpackConfigPlugin } from './webpack.interfaces.js'
 
 import { PassThrough }              from 'node:stream'
 
