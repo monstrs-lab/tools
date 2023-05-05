@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-runtime",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -22,8 +22,8 @@
   },
   "dependencies": {
     "@jest/core": "^29.5.0",
-    "@monstrs/config-eslint": "workspace:0.1.5",
-    "@monstrs/config-jest": "workspace:0.1.5",
+    "@monstrs/config-eslint": "workspace:0.1.6",
+    "@monstrs/config-jest": "workspace:0.1.6",
     "eslint": "^8.39.0",
     "node-loader": "^2.0.0",
     "ts-loader": "^9.4.2",
