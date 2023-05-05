@@ -18,6 +18,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
+    "@monstrs/code-configuration": "workspace:0.1.4",
     "@monstrs/code-runtime": "workspace:0.1.8",
     "@monstrs/config-typescript": "workspace:0.1.4",
     "@monstrs/webpack-start-server-plugin": "workspace:0.3.6",
@@ -37,6 +38,7 @@
     "@types/wait-for-localhost": "3.1.0",
     "@types/webpack": "^5.28.1",
     "@yarnpkg/fslib": "^3.0.0-rc.43",
+    "package-json-type": "^1.0.3",
     "wait-for-localhost": "^4.0.1"
   },
   "publishConfig": {

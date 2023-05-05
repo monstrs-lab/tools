@@ -1,29 +1,20 @@
-import { writeFile }                from 'node:fs/promises'
-import { readFile }                 from 'node:fs/promises'
-import { mkdtemp }                  from 'node:fs/promises'
-import { join }                     from 'node:path'
-import { tmpdir }                   from 'node:os'
+import type { WebpackEnvironment } from './webpack.interfaces.js'
 
-import { findUp }                   from 'find-up'
-import Config                       from 'webpack-chain-5'
-import fg                           from 'fast-glob'
+import { writeFile }               from 'node:fs/promises'
+import { mkdtemp }                 from 'node:fs/promises'
+import { join }                    from 'node:path'
+import { tmpdir }                  from 'node:os'
 
-import { webpack }                  from '@monstrs/code-runtime/webpack'
-import { tsLoaderPath }             from '@monstrs/code-runtime/webpack'
-import { nodeLoaderPath }           from '@monstrs/code-runtime/webpack'
-import { stringReplaceLoaderPath }  from '@monstrs/code-runtime/webpack'
-import tsconfig                     from '@monstrs/config-typescript'
+import Config                      from 'webpack-chain-5'
 
-import { FORCE_UNPLUGGED_PACKAGES } from './webpack.externals.js'
-import { UNUSED_EXTERNALS }         from './webpack.externals.js'
+import { webpack }                 from '@monstrs/code-runtime/webpack'
+import { tsLoaderPath }            from '@monstrs/code-runtime/webpack'
+import { nodeLoaderPath }          from '@monstrs/code-runtime/webpack'
+import { stringReplaceLoaderPath } from '@monstrs/code-runtime/webpack'
+import tsconfig                    from '@monstrs/config-typescript'
 
-export type WebpackEnvironment = 'production' | 'development'
-
-export interface WebpackConfigPlugin {
-  name: string
-  use: any
-  args: any[]
-}
+import { WebpackExternals }        from './webpack.externals.js'
+import { LAZY_IMPORTS }            from './webpack.ignore.js'
 
 export class WebpackConfig {
   constructor(private readonly cwd: string) {}
@@ -38,7 +29,8 @@ export class WebpackConfig {
     await this.applyPlugins(config, environment)
     await this.applyModules(config)
 
-    config.externals(await this.getExternals(environment))
+    config.externalsPresets({ node: true })
+    config.externals([await new WebpackExternals(this.cwd).build()])
     config.externalsType('import')
 
     plugins.forEach((plugin) => {
@@ -55,8 +47,6 @@ export class WebpackConfig {
       .target('async-node')
       .optimization.minimize(false)
 
-    config.node.set('__dirname', false).set('__filename', false)
-
     config.entry('index').add(join(this.cwd, 'src/index'))
 
     config.output.path(join(this.cwd, 'dist')).filename('index.js')
@@ -64,6 +54,7 @@ export class WebpackConfig {
     config.output.library({ type: 'module' })
     config.output.module(true)
 
+    config.resolve.symlinks(true)
     config.resolve.extensions.add('.tsx').add('.ts').add('.js')
     config.resolve.extensionAlias
       .set('.js', ['.js', '.ts'])
@@ -78,8 +69,27 @@ export class WebpackConfig {
     config.experiments({ outputModule: true })
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  private async applyPlugins(config: Config, environment: WebpackEnvironment) {}
+  private async applyPlugins(config: Config, environment: WebpackEnvironment) {
+    config.plugin('ignore').use(webpack.IgnorePlugin, [
+      {
+        checkResource(resource) {
+          if (!LAZY_IMPORTS.includes(resource)) {
+            return false
+          }
+
+          try {
+            require.resolve(resource, {
+              paths: [this.cwd],
+            })
+          } catch (err) {
+            return true
+          }
+
+          return false
+        },
+      },
+    ])
+  }
 
   private async applyModules(config: Config) {
     const configFile = join(await mkdtemp(join(tmpdir(), 'tools-service-')), 'tsconfig.json')
@@ -115,69 +125,5 @@ export class WebpackConfig {
         search: `PlatformTools_1.PlatformTools.load("pg-native")`,
         replace: 'undefined',
       })
-  }
-
-  async getUnpluggedDependencies(): Promise<Set<string>> {
-    const yarnFolder = await findUp('.yarn')
-
-    if (!yarnFolder) {
-      return Promise.resolve(new Set())
-    }
-
-    const pnpUnpluggedFolder = join(yarnFolder, 'unplugged')
-    const dependenciesNames = new Set<string>()
-
-    const entries = await fg('*/node_modules/*/package.json', {
-      cwd: pnpUnpluggedFolder,
-    })
-
-    await Promise.all(
-      entries
-        .map((entry) => join(pnpUnpluggedFolder, entry))
-        .map(async (entry) => {
-          try {
-            const { name } = JSON.parse((await readFile(entry)).toString())
-
-            if (name && !FORCE_UNPLUGGED_PACKAGES.has(name)) {
-              dependenciesNames.add(name)
-            }
-          } catch {} // eslint-disable-line
-        })
-    )
-
-    return dependenciesNames
-  }
-
-  async getWorkspaceExternals(): Promise<Set<string>> {
-    try {
-      const { dependencies = {}, tools = {} } = JSON.parse(
-        await readFile(join(this.cwd, 'package.json'), 'utf-8')
-      )
-
-      return new Set([...Object.keys(dependencies), ...(tools.service?.externals || [])])
-    } catch {
-      return Promise.resolve(new Set())
-    }
-  }
-
-  async getExternals(environment: WebpackEnvironment): Promise<{ [key: string]: string }> {
-    const workspaceExternals: Array<string> = Array.from(await this.getWorkspaceExternals())
-
-    const unpluggedExternals: Array<string> = Array.from(await this.getUnpluggedDependencies())
-
-    const workspaceAndUnpluggedExternals = Array.from(
-      new Set([...workspaceExternals, ...unpluggedExternals])
-    ).reduce(
-      (result, dependency) => ({
-        ...result,
-        [dependency]: `import ${dependency}`,
-      }),
-      {}
-    )
-
-    return {
-      ...UNUSED_EXTERNALS,
-      ...workspaceAndUnpluggedExternals,
-    }
   }
 }

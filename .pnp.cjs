@@ -2732,6 +2732,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@monstrs/code-service", "workspace:code/code-service"],\
           ["@jest/globals", "npm:29.5.0"],\
+          ["@monstrs/code-configuration", "workspace:code/code-configuration"],\
           ["@monstrs/code-runtime", "workspace:code/code-runtime"],\
           ["@monstrs/config-typescript", "workspace:config/typescript"],\
           ["@monstrs/logger", "npm:0.0.11"],\
@@ -2745,6 +2746,7 @@ const RAW_RUNTIME_STATE =
           ["@yarnpkg/fslib", "npm:3.0.0-rc.43"],\
           ["fast-glob", "npm:3.2.12"],\
           ["find-up", "npm:6.3.0"],\
+          ["package-json-type", "npm:1.0.3"],\
           ["string-replace-loader", "virtual:5ae41ee3cd3458f3cf40ce517387f15a09242f6f1330942b6a2e07d7e31df094e8debca5d9583d5aee61c7f6b6500e26684e57f8a8bbcb4f2def07322b63d5b8#npm:3.1.0"],\
           ["typescript", "patch:typescript@npm%3A5.0.4#optional!builtin<compat/typescript>::version=5.0.4&hash=b5f058"],\
           ["wait-for-localhost", "npm:4.0.1"],\
@@ -13936,6 +13938,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/p-try-npm-2.2.0-e0390dbaf8-1b9a6b5d6f.zip/node_modules/p-try/",\
         "packageDependencies": [\
           ["p-try", "npm:2.2.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["package-json-type", [\
+      ["npm:1.0.3", {\
+        "packageLocation": "./.yarn/cache/package-json-type-npm-1.0.3-03cb0af88a-67a915a4db.zip/node_modules/package-json-type/",\
+        "packageDependencies": [\
+          ["package-json-type", "npm:1.0.3"]\
         ],\
         "linkType": "HARD"\
       }]\

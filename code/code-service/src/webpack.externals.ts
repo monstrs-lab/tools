@@ -1,43 +1,53 @@
-export const FORCE_UNPLUGGED_PACKAGES = new Set([
-  'nan',
-  'node-gyp',
-  'node-pre-gyp',
-  'node-addon-api',
-  'fsevents',
-  'core-js',
-  'core-js-pure',
-  'protobufjs',
-])
+import type { IPackageJson }      from 'package-json-type'
 
-export const UNUSED_EXTERNALS = {
-  // nestjs
-  'cli-color': 'import cli-color',
-  flaschenpost: 'import flaschenpost',
-  'amqp-connection-manager': 'import amqp-connection-manager',
-  amqplib: 'import amqplib',
-  redis: 'import redis',
-  mqtt: 'import mqtt',
-  nats: 'import nats',
-  '@nestjs/websockets': 'import @nestjs/websockets',
+import { readFile }               from 'node:fs/promises'
+import { join }                   from 'node:path'
 
-  // typeorm
-  'typeorm-aurora-data-api-driver': 'import typeorm-aurora-data-api-driver',
-  'react-native-sqlite-storage': 'import react-native-sqlite-storage',
-  '@sap/hana-client': 'import @sap/hana-client',
-  'better-sqlite3': 'import better-sqlite3',
-  mongodb: 'import mongodb',
-  oracledb: 'import oracledb',
-  'pg-native': 'import pg-native',
-  mysql: 'import mysql',
-  ioredis: 'import ioredis',
-  'hdb-pool': 'import hdb-pool',
-  mysql2: 'import mysql2',
-  mssql: 'import mssql',
-  'sql.js': 'import sql.js',
+import { WorkspaceConfiguration } from '@monstrs/code-configuration'
 
-  // pnp
-  pnpapi: 'import pnpapi',
+export class WebpackExternals {
+  #externals: Array<string> = []
 
-  // nextjs
-  next: 'import next',
+  #dependencies: Array<string> = []
+
+  constructor(private readonly cwd: string) {}
+
+  async loadPackageJson(): Promise<IPackageJson> {
+    try {
+      return JSON.parse(await readFile(join(this.cwd, 'package.json'), 'utf-8'))
+    } catch {
+      return {}
+    }
+  }
+
+  async loadDependencies() {
+    const { dependencies = {} } = await this.loadPackageJson()
+
+    return Object.keys(dependencies)
+  }
+
+  async loadExternals() {
+    const { service } = await WorkspaceConfiguration.find(this.cwd)
+
+    return service?.externals || []
+  }
+
+  async build() {
+    this.#externals = await this.loadExternals()
+    this.#dependencies = await this.loadDependencies()
+
+    return this.externals
+  }
+
+  private externals = ({ context, request }: { context?: any; request?: any }, callback) => {
+    if (this.#dependencies.includes(request)) {
+      return callback(null, request, 'module')
+    }
+
+    if (this.#externals.includes(request)) {
+      return callback(null, request, 'import')
+    }
+
+    return callback()
+  }
 }
