@@ -2811,10 +2811,10 @@ const RAW_RUNTIME_STATE =
           ["@rollup/plugin-json", "virtual:16c6894e71735c8ce85e88fdf2c39a69fd95d1318c61281c78f523ed65a0c4f3080b557bb22e7eedc993af5a969d2f37377c836ed4a7d514845d5d9f9777f4cb#npm:6.0.0"],\
           ["@rollup/plugin-node-resolve", "virtual:16c6894e71735c8ce85e88fdf2c39a69fd95d1318c61281c78f523ed65a0c4f3080b557bb22e7eedc993af5a969d2f37377c836ed4a7d514845d5d9f9777f4cb#npm:15.0.2"],\
           ["esbuild", "npm:0.17.18"],\
+          ["flatted", "patch:flatted@npm%3A3.2.7#~/.yarn/patches/flatted-npm-3.2.7-0da10b7c56.patch::version=3.2.7&hash=1c858b"],\
           ["rollup", "npm:3.21.5"],\
           ["rollup-plugin-esbuild", "virtual:16c6894e71735c8ce85e88fdf2c39a69fd95d1318c61281c78f523ed65a0c4f3080b557bb22e7eedc993af5a969d2f37377c836ed4a7d514845d5d9f9777f4cb#npm:5.0.0"],\
-          ["rollup-plugin-terser", "virtual:16c6894e71735c8ce85e88fdf2c39a69fd95d1318c61281c78f523ed65a0c4f3080b557bb22e7eedc993af5a969d2f37377c836ed4a7d514845d5d9f9777f4cb#npm:7.0.2"],\
-          ["safe-stable-stringify", "npm:2.4.3"]\
+          ["rollup-plugin-terser", "virtual:16c6894e71735c8ce85e88fdf2c39a69fd95d1318c61281c78f523ed65a0c4f3080b557bb22e7eedc993af5a969d2f37377c836ed4a7d514845d5d9f9777f4cb#npm:7.0.2"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -2845,10 +2845,10 @@ const RAW_RUNTIME_STATE =
           ["@rollup/plugin-json", "virtual:16c6894e71735c8ce85e88fdf2c39a69fd95d1318c61281c78f523ed65a0c4f3080b557bb22e7eedc993af5a969d2f37377c836ed4a7d514845d5d9f9777f4cb#npm:6.0.0"],\
           ["@rollup/plugin-node-resolve", "virtual:16c6894e71735c8ce85e88fdf2c39a69fd95d1318c61281c78f523ed65a0c4f3080b557bb22e7eedc993af5a969d2f37377c836ed4a7d514845d5d9f9777f4cb#npm:15.0.2"],\
           ["esbuild", "npm:0.17.18"],\
+          ["flatted", "patch:flatted@npm%3A3.2.7#~/.yarn/patches/flatted-npm-3.2.7-0da10b7c56.patch::version=3.2.7&hash=1c858b"],\
           ["rollup", "npm:3.21.5"],\
           ["rollup-plugin-esbuild", "virtual:16c6894e71735c8ce85e88fdf2c39a69fd95d1318c61281c78f523ed65a0c4f3080b557bb22e7eedc993af5a969d2f37377c836ed4a7d514845d5d9f9777f4cb#npm:5.0.0"],\
           ["rollup-plugin-terser", "virtual:16c6894e71735c8ce85e88fdf2c39a69fd95d1318c61281c78f523ed65a0c4f3080b557bb22e7eedc993af5a969d2f37377c836ed4a7d514845d5d9f9777f4cb#npm:7.0.2"],\
-          ["safe-stable-stringify", "npm:2.4.3"],\
           ["typescript", "patch:typescript@npm%3A5.0.4#optional!builtin<compat/typescript>::version=5.0.4&hash=b5f058"]\
         ],\
         "linkType": "SOFT"\
@@ -10091,6 +10091,13 @@ const RAW_RUNTIME_STATE =
           ["flatted", "npm:3.2.7"]\
         ],\
         "linkType": "HARD"\
+      }],\
+      ["patch:flatted@npm%3A3.2.7#~/.yarn/patches/flatted-npm-3.2.7-0da10b7c56.patch::version=3.2.7&hash=1c858b", {\
+        "packageLocation": "./.yarn/cache/flatted-patch-1cf24f4f39-2103fe1207.zip/node_modules/flatted/",\
+        "packageDependencies": [\
+          ["flatted", "patch:flatted@npm%3A3.2.7#~/.yarn/patches/flatted-npm-3.2.7-0da10b7c56.patch::version=3.2.7&hash=1c858b"]\
+        ],\
+        "linkType": "HARD"\
       }]\
     ]],\
     ["for-each", [\
@@ -14874,15 +14881,6 @@ const RAW_RUNTIME_STATE =
           ["call-bind", "npm:1.0.2"],\
           ["get-intrinsic", "npm:1.2.0"],\
           ["is-regex", "npm:1.1.4"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["safe-stable-stringify", [\
-      ["npm:2.4.3", {\
-        "packageLocation": "./.yarn/cache/safe-stable-stringify-npm-2.4.3-d895741b40-a948b6699f.zip/node_modules/safe-stable-stringify/",\
-        "packageDependencies": [\
-          ["safe-stable-stringify", "npm:2.4.3"]\
         ],\
         "linkType": "HARD"\
       }]\

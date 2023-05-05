@@ -1,3 +1,5 @@
+/// <reference path='./types.d.ts' />
+
 export * as eslint from './eslint.js'
 export * as jest from './jest.js'
 export * as webpack from './webpack.js'

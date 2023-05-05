@@ -1713,10 +1713,10 @@ __metadata:
     "@rollup/plugin-json": "npm:^6.0.0"
     "@rollup/plugin-node-resolve": "npm:^15.0.2"
     esbuild: "npm:^0.17.18"
+    flatted: "patch:flatted@npm%3A3.2.7#~/.yarn/patches/flatted-npm-3.2.7-0da10b7c56.patch"
     rollup: "npm:^3.21.5"
     rollup-plugin-esbuild: "npm:^5.0.0"
     rollup-plugin-terser: "npm:^7.0.2"
-    safe-stable-stringify: "npm:^2.4.3"
   languageName: unknown
   linkType: soft
 
@@ -1744,10 +1744,10 @@ __metadata:
     "@rollup/plugin-json": "npm:^6.0.0"
     "@rollup/plugin-node-resolve": "npm:^15.0.2"
     esbuild: "npm:^0.17.18"
+    flatted: "patch:flatted@npm%3A3.2.7#~/.yarn/patches/flatted-npm-3.2.7-0da10b7c56.patch"
     rollup: "npm:^3.21.5"
     rollup-plugin-esbuild: "npm:^5.0.0"
     rollup-plugin-terser: "npm:^7.0.2"
-    safe-stable-stringify: "npm:^2.4.3"
     typescript: "npm:^5.0.4"
   languageName: unknown
   linkType: soft
@@ -6959,10 +6959,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"flatted@npm:^3.1.0":
+"flatted@npm:3.2.7, flatted@npm:^3.1.0":
   version: 3.2.7
   resolution: "flatted@npm:3.2.7"
   checksum: d57a559a56f8743f48067b992e70f222921bec6656de4617ee60dab5e531c2aeba67ace287965b759cca80fa0d3f0c7ffc39341ccc9bc874594f4b73c0fea48c
+  languageName: node
+  linkType: hard
+
+"flatted@patch:flatted@npm%3A3.2.7#~/.yarn/patches/flatted-npm-3.2.7-0da10b7c56.patch":
+  version: 3.2.7
+  resolution: "flatted@patch:flatted@npm%3A3.2.7#~/.yarn/patches/flatted-npm-3.2.7-0da10b7c56.patch::version=3.2.7&hash=1c858b"
+  checksum: 2103fe1207828ff318840acfe359df2be2088eec1affce4fcb3c156452726b21d8ba482d554079ef775958e1ca28b5c3a6702899da81710cf380e5fd46f1b6e6
   languageName: node
   linkType: hard
 
@@ -11038,13 +11045,6 @@ pem@dexus/pem:
     get-intrinsic: "npm:^1.1.3"
     is-regex: "npm:^1.1.4"
   checksum: f7d330e0337cc12ba90dbf88d2f5815106149226c4741a9b5a906aa453f77bc9862570d5b58ca26f20c03807e8e30ed70e5d087fdf2e547da2c0cccaca58931a
-  languageName: node
-  linkType: hard
-
-"safe-stable-stringify@npm:^2.4.3":
-  version: 2.4.3
-  resolution: "safe-stable-stringify@npm:2.4.3"
-  checksum: a948b6699f0399445821754f73144dcc8c2e746eb972d9722b100c43f78e8fc38b21163d9429b3460f6b4f38caf4fb454f57cd9fb2a01568f7463607bd1f6d22
   languageName: node
   linkType: hard
 

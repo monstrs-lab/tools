@@ -12,6 +12,7 @@
     "./typescript": "./src/typescript.ts"
   },
   "main": "src/index.ts",
+  "typings": "src/types.d.ts",
   "files": [
     "dist"
   ],
