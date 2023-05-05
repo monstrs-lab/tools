@@ -47,6 +47,8 @@ export abstract class AbstractServiceCommand extends BaseCommand {
             report.reportError(MessageName.UNNAMED, line)
           }
         })
+    } else {
+      report.reportWarning(MessageName.UNNAMED, `Unknown record type: ${JSON.stringify(logRecord)}`)
     }
   }
 }

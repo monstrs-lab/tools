@@ -26,13 +26,12 @@
     "@monstrs/config-jest": "workspace:0.1.5",
     "eslint": "^8.39.0",
     "node-loader": "^2.0.0",
-    "string-replace-loader": "^3.1.0",
     "ts-loader": "^9.4.2",
     "typescript": "^5.0.4",
-    "webpack": "^5.81.0"
+    "webpack": "^5.82.0"
   },
   "devDependencies": {
-    "@types/node": "^18.16.3"
+    "@types/node": "^18.16.4"
   },
   "publishConfig": {
     "access": "public",

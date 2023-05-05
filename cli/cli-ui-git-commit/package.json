@@ -18,8 +18,8 @@
   },
   "devDependencies": {
     "@monstrs/code-commit": "workspace:0.1.5",
-    "@types/node": "^18.16.3",
-    "@types/react": "^18.2.0",
+    "@types/node": "^18.16.4",
+    "@types/react": "^18.2.5",
     "@yarnpkg/libui": "^3.0.0-rc.43",
     "camelcase": "^7.0.1",
     "figures": "^5.0.0",

@@ -23,7 +23,7 @@
     "@yarnpkg/fslib": "^3.0.0-rc.43"
   },
   "devDependencies": {
-    "@types/node": "^18.16.3"
+    "@types/node": "^18.16.4"
   },
   "publishConfig": {
     "access": "public",

@@ -39,7 +39,7 @@
   "devDependencies": {
     "@monstrs/code-runtime": "workspace:0.1.8",
     "@octokit/types": "^9.2.0",
-    "@types/node": "^18.16.3",
+    "@types/node": "^18.16.4",
     "@yarnpkg/builder": "^4.0.0-rc.43",
     "@yarnpkg/cli": "^4.0.0-rc.43",
     "@yarnpkg/core": "^4.0.0-rc.43",
