@@ -10,7 +10,6 @@ import Config                      from 'webpack-chain-5'
 import { webpack }                 from '@monstrs/code-runtime/webpack'
 import { tsLoaderPath }            from '@monstrs/code-runtime/webpack'
 import { nodeLoaderPath }          from '@monstrs/code-runtime/webpack'
-import { stringReplaceLoaderPath } from '@monstrs/code-runtime/webpack'
 import tsconfig                    from '@monstrs/config-typescript'
 
 import { WebpackExternals }        from './webpack.externals.js'
@@ -29,10 +28,6 @@ export class WebpackConfig {
     await this.applyPlugins(config, environment)
     await this.applyModules(config)
 
-    config.externalsPresets({ node: true })
-    config.externals([await new WebpackExternals(this.cwd).build()])
-    config.externalsType('import')
-
     plugins.forEach((plugin) => {
       config.plugin(plugin.name).use(plugin.use, plugin.args)
     })
@@ -50,11 +45,9 @@ export class WebpackConfig {
     config.entry('index').add(join(this.cwd, 'src/index'))
 
     config.output.path(join(this.cwd, 'dist')).filename('index.js')
-    config.output.chunkFormat('module')
-    config.output.library({ type: 'module' })
+    config.output.chunkFormat('array-push')
     config.output.module(true)
 
-    config.resolve.symlinks(true)
     config.resolve.extensions.add('.tsx').add('.ts').add('.js')
     config.resolve.extensionAlias
       .set('.js', ['.js', '.ts'])
@@ -64,12 +57,20 @@ export class WebpackConfig {
 
     config.resolve.alias.set('class-transformer/storage', 'class-transformer/cjs/storage')
 
+    config.externalsType('import')
+    config.externalsPresets({ node: true })
+    config.externals([await new WebpackExternals(this.cwd).build()])
+
     config.devtool(environment === 'production' ? 'source-map' : 'eval-cheap-module-source-map')
 
     config.experiments({ outputModule: true })
   }
 
   private async applyPlugins(config: Config, environment: WebpackEnvironment) {
+    config.when(environment === 'development', () => {
+      config.plugin('hot').use(webpack.HotModuleReplacementPlugin)
+    })
+
     config.plugin('ignore').use(webpack.IgnorePlugin, [
       {
         checkResource(resource) {
@@ -115,15 +116,5 @@ export class WebpackConfig {
       .test(/\.node$/)
       .use('node')
       .loader(nodeLoaderPath)
-
-    config.module
-      .rule('replace-typeorm')
-      .test(/PostgresDriver\.js$/)
-      .use('replace-typeorm')
-      .loader(stringReplaceLoaderPath)
-      .options({
-        search: `PlatformTools_1.PlatformTools.load("pg-native")`,
-        replace: 'undefined',
-      })
   }
 }

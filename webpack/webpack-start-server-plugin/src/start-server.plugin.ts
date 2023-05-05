@@ -8,7 +8,6 @@ import { Writable }          from 'node:stream'
 import { StartServerLogger } from './start-server.logger.js'
 
 export interface StartServerPluginOptions {
-  entryName?: string
   stdout?: Writable
   stderr?: Writable
 }
@@ -26,10 +25,7 @@ export class StartServerPlugin {
 
   constructor(options: Partial<StartServerPluginOptions> = {}) {
     this.logger = new StartServerLogger(options)
-    this.options = {
-      entryName: 'index',
-      ...options,
-    }
+    this.options = options
   }
 
   private afterEmit = (compilation: webpack.Compilation, callback: () => void): void => {
