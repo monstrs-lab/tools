@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/config-jest",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@emotion/jest": "^11.10.8",
-    "@monstrs/config-typescript": "workspace:0.1.4",
+    "@monstrs/config-typescript": "workspace:0.1.5",
     "@monstrs/jest-resolver": "workspace:0.1.1",
     "jest-static-stubs": "^0.0.1",
     "ts-jest": "^29.1.0"

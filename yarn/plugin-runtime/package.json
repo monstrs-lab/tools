@@ -18,7 +18,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/code-runtime": "workspace:0.1.9",
+    "@monstrs/code-runtime": "workspace:0.1.10",
     "semver": "^7.5.0"
   },
   "devDependencies": {
