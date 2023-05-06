@@ -22,7 +22,7 @@
   "dependencies": {
     "@monstrs/code-test": "workspace:0.1.9",
     "@monstrs/code-worker-utils": "workspace:0.1.4",
-    "safe-stable-stringify": "^2.4.3"
+    "flatted": "patch:flatted@npm%3A3.2.7#~/.yarn/patches/flatted-npm-3.2.7-0da10b7c56.patch"
   },
   "devDependencies": {
     "@jest/test-result": "^29.5.0",

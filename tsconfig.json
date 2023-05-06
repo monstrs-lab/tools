@@ -35,5 +35,6 @@
     "prettier/**/*",
     "eslint/**/*",
     "schematics/**/*"
-  ]
+  ],
+  "types": ["@monstrs/code-runtime"]
 }

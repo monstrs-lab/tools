@@ -44,8 +44,12 @@ export class WebpackConfig {
 
     config.entry('index').add(join(this.cwd, 'src/index'))
 
-    config.output.path(join(this.cwd, 'dist')).filename('index.js')
-    config.output.chunkFormat('array-push')
+    if (environment === 'development') {
+      config.entry('hot').add('webpack/hot/poll?100')
+    }
+
+    config.output.path(join(this.cwd, 'dist')).filename('[name].js')
+    config.output.chunkFormat('module')
     config.output.module(true)
 
     config.resolve.extensions.add('.tsx').add('.ts').add('.js')
@@ -59,7 +63,7 @@ export class WebpackConfig {
 
     config.externalsType('import')
     config.externalsPresets({ node: true })
-    config.externals([await new WebpackExternals(this.cwd).build()])
+    config.externals(['webpack/hot/poll?100', await new WebpackExternals(this.cwd).build()])
 
     config.devtool(environment === 'production' ? 'source-map' : 'eval-cheap-module-source-map')
 
@@ -67,9 +71,9 @@ export class WebpackConfig {
   }
 
   private async applyPlugins(config: Config, environment: WebpackEnvironment) {
-    config.when(environment === 'development', () => {
+    if (environment === 'development') {
       config.plugin('hot').use(webpack.HotModuleReplacementPlugin)
-    })
+    }
 
     config.plugin('ignore').use(webpack.IgnorePlugin, [
       {
