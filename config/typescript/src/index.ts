@@ -38,7 +38,7 @@ export default {
     outDir: './dist',
   },
   exclude: [
-    'next-env.d.ts',
+    '**/*/next-env.d.ts',
     'integration',
     'node_modules',
     'src/**/*.spec.ts',
@@ -48,5 +48,5 @@ export default {
     '**/*/dist/**/*.d.ts',
     'integration/**/*.test.ts',
   ],
-  types: ['@monstrs/code-runtime'],
+  types: ['@monstrs/code-runtime/types'],
 }
