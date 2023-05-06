@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-typescript-worker",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -19,7 +19,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/code-typescript": "workspace:0.1.10",
+    "@monstrs/code-typescript": "workspace:0.1.11",
     "@monstrs/code-worker-utils": "workspace:0.1.4",
     "flatted": "patch:flatted@npm%3A3.2.7#~/.yarn/patches/flatted-npm-3.2.7-0da10b7c56.patch"
   },
