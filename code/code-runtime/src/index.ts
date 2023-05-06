@@ -1,4 +1,4 @@
-/// <reference path='./types.d.ts' />
+/// <reference path='../types/index.d.ts' />
 
 export * as eslint from './eslint.js'
 export * as jest from './jest.js'
