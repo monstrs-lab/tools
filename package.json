@@ -1,6 +1,7 @@
 {
   "name": "tools",
   "private": true,
+  "type": "module",
   "workspaces": [
     "prettier/**/*",
     "code/**/*",

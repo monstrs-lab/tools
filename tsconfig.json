@@ -36,5 +36,5 @@
     "eslint/**/*",
     "schematics/**/*"
   ],
-  "types": ["@monstrs/code-runtime"]
+  "types": ["@monstrs/code-runtime/types"]
 }
