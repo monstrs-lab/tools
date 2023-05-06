@@ -48,5 +48,4 @@ export default {
     '**/*/dist/**/*.d.ts',
     'integration/**/*.test.ts',
   ],
-  types: ['@monstrs/code-runtime/types'],
 }
