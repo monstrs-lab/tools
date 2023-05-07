@@ -5,7 +5,7 @@ class CheckCommand extends BaseCommand {
 
   async execute() {
     await this.cli.run(['format'])
-    await this.cli.run(['typecheck'])
+    await this.cli.run(['types', 'check'])
     await this.cli.run(['lint'])
   }
 }
