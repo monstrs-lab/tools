@@ -1653,6 +1653,7 @@ __metadata:
     "@jest/core": "npm:^29.5.0"
     "@monstrs/config-eslint": "workspace:0.1.7"
     "@monstrs/config-jest": "workspace:0.1.8"
+    "@types/eslint": "npm:^8.37.0"
     "@types/node": "npm:^18.16.4"
     eslint: "npm:^8.39.0"
     node-loader: "npm:^2.0.0"

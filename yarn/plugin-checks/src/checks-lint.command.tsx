@@ -1,4 +1,5 @@
 import type { ESLint }      from '@monstrs/code-runtime/eslint'
+import type { Linter }      from '@monstrs/code-runtime/eslint'
 
 import { readFileSync }     from 'node:fs'
 
@@ -81,7 +82,7 @@ class ChecksLintCommand extends BaseCommand {
     return commandReport.exitCode()
   }
 
-  private getAnnotationLevel(severity: ESLint.Severity): AnnotationLevel {
+  private getAnnotationLevel(severity: Linter.Severity): AnnotationLevel {
     if (severity === 1) {
       return AnnotationLevel.Warning
     }

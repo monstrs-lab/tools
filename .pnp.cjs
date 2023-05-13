@@ -2710,6 +2710,7 @@ const RAW_RUNTIME_STATE =
           ["@jest/core", "virtual:36ed317f34b479cc2a2ad4741a9b637395c3bfe5808841693467982afe17b6ba704168d8e9b566b4e4e95e07f671b62fb2a61ebfce445b7644f654bd89e68f6a#npm:29.5.0"],\
           ["@monstrs/config-eslint", "virtual:36ed317f34b479cc2a2ad4741a9b637395c3bfe5808841693467982afe17b6ba704168d8e9b566b4e4e95e07f671b62fb2a61ebfce445b7644f654bd89e68f6a#workspace:config/eslint"],\
           ["@monstrs/config-jest", "workspace:config/jest"],\
+          ["@types/eslint", "npm:8.37.0"],\
           ["@types/node", "npm:18.16.4"],\
           ["eslint", "npm:8.39.0"],\
           ["node-loader", "virtual:36ed317f34b479cc2a2ad4741a9b637395c3bfe5808841693467982afe17b6ba704168d8e9b566b4e4e95e07f671b62fb2a61ebfce445b7644f654bd89e68f6a#npm:2.0.0"],\
