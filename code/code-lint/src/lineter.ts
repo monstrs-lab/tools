@@ -1,6 +1,7 @@
 import type { ESLint }        from '@monstrs/code-runtime/eslint'
 
 import { readFile }           from 'node:fs/promises'
+import { writeFile }          from 'node:fs/promises'
 import { relative }           from 'node:path'
 
 import { globby }             from 'globby'
@@ -11,53 +12,75 @@ import { eslintconfig }       from '@monstrs/code-runtime/eslint'
 
 import { ignore }             from './linter.patterns.js'
 import { createPatterns }     from './linter.patterns.js'
+import { createLintResult }   from './linter.utils.js'
 
 // TODO: moduleResolution
 const ignorer = ignorerPkg as any
 
-export class Linter {
-  constructor(private readonly cwd: string) {}
+export interface LintOptions {
+  fix?: boolean
+}
 
-  async lint(files?: Array<string>): Promise<Array<ESLint.LintResult>> {
-    if (files && files.length > 0) {
-      return this.lintFiles(files)
+export class Linter {
+  private linter: ESLinter
+
+  private config: ESLinter.Config<ESLinter.RulesRecord, ESLinter.RulesRecord>
+
+  private ignore: typeof ignorer
+
+  constructor(private readonly cwd: string) {
+    this.linter = new ESLinter({ configType: 'flat' } as any)
+    this.config = [...eslintconfig, { files: ['**/*.*'] }] as ESLinter.Config<
+      ESLinter.RulesRecord,
+      ESLinter.RulesRecord
+    >
+    this.ignore = ignorer().add(ignore)
+  }
+
+  async lintFile(filename, options?: LintOptions): Promise<ESLint.LintResult> {
+    const source = await readFile(filename, 'utf8')
+
+    if (options?.fix) {
+      const { messages, fixed, output } = this.linter.verifyAndFix(source, this.config, {
+        filename,
+      })
+
+      if (fixed) {
+        await writeFile(filename, output, 'utf8')
+      }
+
+      return createLintResult(filename, output, messages)
     }
 
-    return this.lintProject()
-  }
-
-  async lintProject(): Promise<Array<ESLint.LintResult>> {
-    return this.lintFiles(await globby(createPatterns(this.cwd), { dot: true }))
-  }
-
-  async lintFiles(files: Array<string> = []): Promise<Array<ESLint.LintResult>> {
-    const ignored = ignorer().add(ignore)
-
-    const linter = new ESLinter({ configType: 'flat' })
-    const config = [...eslintconfig, { files: ['**/*.*'] }]
-
-    const results: Array<ESLint.LintResult> = await Promise.all(
-      files
-        .filter((file) => ignored.filter([relative(this.cwd, file)]).length !== 0)
-        .map(async (filePath) => {
-          const source = await readFile(filePath, 'utf8')
-
-          const messages = linter.verify(source, config, { filename: filePath })
-
-          return {
-            filePath,
-            source,
-            messages,
-            errorCount: messages.filter((message) => message.severity === 1).length,
-            fatalErrorCount: messages.filter((message) => message.severity === 0).length,
-            warningCount: messages.filter((message) => message.severity === 2).length,
-            fixableErrorCount: 0,
-            fixableWarningCount: 0,
-            usedDeprecatedRules: [],
-          }
-        })
+    return createLintResult(
+      filename,
+      source,
+      this.linter.verify(source, this.config, {
+        filename,
+      })
     )
+  }
 
-    return results
+  async lintFiles(
+    files: Array<string> = [],
+    options?: LintOptions
+  ): Promise<Array<ESLint.LintResult>> {
+    return Promise.all(
+      files
+        .filter((file) => this.ignore.filter([relative(this.cwd, file)]).length !== 0)
+        .map((filename) => this.lintFile(filename, options))
+    )
+  }
+
+  async lintProject(options?: LintOptions): Promise<Array<ESLint.LintResult>> {
+    return this.lintFiles(await globby(createPatterns(this.cwd), { dot: true }), options)
+  }
+
+  async lint(files?: Array<string>, options?: LintOptions): Promise<Array<ESLint.LintResult>> {
+    if (files && files.length > 0) {
+      return this.lintFiles(files, options)
+    }
+
+    return this.lintProject(options)
   }
 }
