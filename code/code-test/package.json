@@ -21,7 +21,7 @@
   "dependencies": {
     "@jest/test-result": "^29.5.0",
     "@jest/types": "^29.5.0",
-    "@monstrs/code-runtime": "workspace:0.1.14"
+    "@monstrs/tools-runtime": "workspace:0.0.1"
   },
   "devDependencies": {
     "@types/node": "^18.16.4"

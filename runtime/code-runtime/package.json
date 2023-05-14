@@ -1,0 +1,74 @@
+{
+  "name": "@monstrs/tools-runtime",
+  "version": "0.0.1",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    "./types": "./types/index.d.ts",
+    ".": "./src/index.ts",
+    "./eslint": "./src/eslint.ts",
+    "./webpack": "./src/webpack.ts",
+    "./jest": "./src/jest.ts",
+    "./typescript": "./src/typescript.ts"
+  },
+  "main": "src/index.ts",
+  "types": "types/index.d.ts",
+  "files": [
+    "types",
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn library build",
+    "prepack": "yarn run build",
+    "postpack": "rm -rf dist"
+  },
+  "dependencies": {
+    "@jest/core": "^29.5.0",
+    "@monstrs/config-eslint": "workspace:0.1.9",
+    "@monstrs/config-jest": "workspace:0.1.10",
+    "eslint": "^8.39.0",
+    "node-loader": "^2.0.0",
+    "ts-loader": "^9.4.2",
+    "typescript": "^5.0.4",
+    "webpack": "^5.82.0"
+  },
+  "devDependencies": {
+    "@types/eslint": "^8.37.0",
+    "@types/node": "^18.16.4"
+  },
+  "publishConfig": {
+    "access": "public",
+    "exports": {
+      "./package.json": "./package.json",
+      "./types": "./types/index.d.ts",
+      ".": {
+        "import": "./dist/index.js",
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "./eslint": {
+        "import": "./dist/eslint.js",
+        "default": "./dist/eslint.js",
+        "types": "./dist/eslint.d.ts"
+      },
+      "./webpack": {
+        "import": "./dist/webpack.js",
+        "default": "./dist/webpack.js",
+        "types": "./dist/webpack.d.ts"
+      },
+      "./jest": {
+        "import": "./dist/jest.js",
+        "default": "./dist/jest.js",
+        "types": "./dist/jest.d.ts"
+      },
+      "./typescript": {
+        "import": "./dist/typescript.js",
+        "default": "./dist/typescript.js",
+        "types": "./dist/typescript.d.ts"
+      }
+    },
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts"
+  }
+}

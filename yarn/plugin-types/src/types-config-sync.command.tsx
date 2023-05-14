@@ -61,7 +61,7 @@ export class TypesConfigSyncCommand extends BaseCommand {
           if (isUpdateNeeded(tsconfig.compilerOptions, exists.compilerOptions)) {
             await xfs.writeFilePromise(
               ppath.join(project.topLevelWorkspace.cwd, 'project.types.d.ts' as PortablePath),
-              '/// <reference types="@monstrs/code-runtime/types" />'
+              '/// <reference types="@monstrs/tools-runtime/types" />'
             )
 
             const config = deepmerge(

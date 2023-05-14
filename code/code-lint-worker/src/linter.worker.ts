@@ -1,4 +1,4 @@
-import type { ESLint }      from '@monstrs/code-runtime/eslint'
+import type { ESLint }      from '@monstrs/tools-runtime/eslint'
 import type { LintOptions } from '@monstrs/code-lint'
 
 import { EvalWorker }       from '@monstrs/code-worker-utils'

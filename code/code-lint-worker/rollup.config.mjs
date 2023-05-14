@@ -23,7 +23,7 @@ const wrapOutput = () => ({
 export default [
   {
     external(id) {
-      if (['pnpapi', 'eslint', 'typescript', '@monstrs/code-runtime'].includes(id)) {
+      if (['pnpapi', 'eslint', 'typescript', '@monstrs/tools-runtime'].includes(id)) {
         return true
       }
 

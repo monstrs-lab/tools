@@ -16,7 +16,7 @@ describe('yarn', () => {
         makeTemporaryEnv(
           {
             dependencies: {
-              '@monstrs/code-runtime': 'workspace:*',
+              '@monstrs/tools-runtime': 'workspace:*',
               typescript: '^5.0.3',
             },
           },
@@ -42,7 +42,7 @@ describe('yarn', () => {
         makeTemporaryEnv(
           {
             dependencies: {
-              '@monstrs/code-runtime': 'workspace:*',
+              '@monstrs/tools-runtime': 'workspace:*',
               typescript: '^5.0.3',
             },
           },
@@ -68,7 +68,7 @@ describe('yarn', () => {
         makeTemporaryEnv(
           {
             dependencies: {
-              '@monstrs/code-runtime': 'workspace:*',
+              '@monstrs/tools-runtime': 'workspace:*',
               typescript: '^5.0.3',
             },
           },
@@ -95,7 +95,7 @@ describe('yarn', () => {
         makeTemporaryEnv(
           {
             dependencies: {
-              '@monstrs/code-runtime': 'workspace:*',
+              '@monstrs/tools-runtime': 'workspace:*',
               typescript: '^5.0.3',
             },
           },

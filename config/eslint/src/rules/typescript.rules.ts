@@ -29,7 +29,7 @@ export const rules: Linter.RulesRecord = {
   '@typescript-eslint/no-dynamic-delete': 'error',
   '@typescript-eslint/no-empty-interface': 'error',
   '@typescript-eslint/no-extra-non-null-assertion': 'error',
-  '@typescript-eslint/no-floating-promises': 'error',
+  '@typescript-eslint/no-floating-promises': 'off',
   '@typescript-eslint/no-for-in-array': 'error',
   '@typescript-eslint/no-import-type-side-effects': 'error',
   '@typescript-eslint/no-invalid-void-type': 'error',

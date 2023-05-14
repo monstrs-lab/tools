@@ -5,9 +5,9 @@ import { constants }             from 'node:fs'
 import { access }                from 'node:fs/promises'
 import { join }                  from 'node:path'
 
-import { runCLI }                from '@monstrs/code-runtime/jest'
-import { integration }           from '@monstrs/code-runtime/jest'
-import { unit }                  from '@monstrs/code-runtime/jest'
+import { runCLI }                from '@monstrs/tools-runtime/jest'
+import { integration }           from '@monstrs/tools-runtime/jest'
+import { unit }                  from '@monstrs/tools-runtime/jest'
 
 export class Tester {
   constructor(private readonly cwd: string) {}

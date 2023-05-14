@@ -23,7 +23,7 @@
     "@monstrs/code-worker-utils": "workspace:0.1.6"
   },
   "devDependencies": {
-    "@monstrs/code-runtime": "workspace:0.1.14",
+    "@monstrs/tools-runtime": "workspace:0.0.1",
     "@rollup/plugin-commonjs": "^24.1.0",
     "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-node-resolve": "^15.0.2",
