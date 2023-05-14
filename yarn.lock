@@ -1586,11 +1586,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-lint-worker@workspace:0.1.14, @monstrs/code-lint-worker@workspace:code/code-lint-worker":
+"@monstrs/code-lint-worker@workspace:0.1.15, @monstrs/code-lint-worker@workspace:code/code-lint-worker":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-lint-worker@workspace:code/code-lint-worker"
   dependencies:
-    "@monstrs/code-lint": "workspace:0.1.14"
+    "@monstrs/code-lint": "workspace:0.1.15"
     "@monstrs/code-runtime": "workspace:0.1.14"
     "@monstrs/code-worker-utils": "workspace:0.1.6"
     "@rollup/plugin-commonjs": "npm:^24.1.0"
@@ -1604,7 +1604,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-lint@workspace:0.1.14, @monstrs/code-lint@workspace:code/code-lint":
+"@monstrs/code-lint@workspace:0.1.15, @monstrs/code-lint@workspace:code/code-lint":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-lint@workspace:code/code-lint"
   dependencies:
@@ -2021,7 +2021,7 @@ __metadata:
     "@monstrs/cli-ui-eslint-result-component": "workspace:0.1.7"
     "@monstrs/cli-ui-renderer": "workspace:0.1.6"
     "@monstrs/cli-ui-typescript-diagnostic-component": "workspace:0.1.14"
-    "@monstrs/code-lint-worker": "workspace:0.1.14"
+    "@monstrs/code-lint-worker": "workspace:0.1.15"
     "@monstrs/code-runtime": "workspace:0.1.14"
     "@monstrs/code-test-worker": "workspace:0.1.14"
     "@monstrs/code-typescript": "workspace:0.1.14"
@@ -2164,7 +2164,7 @@ __metadata:
     "@monstrs/cli-ui-error-info-component": "workspace:0.1.7"
     "@monstrs/cli-ui-eslint-result-component": "workspace:0.1.7"
     "@monstrs/cli-ui-renderer": "workspace:0.1.6"
-    "@monstrs/code-lint-worker": "workspace:0.1.14"
+    "@monstrs/code-lint-worker": "workspace:0.1.15"
     "@monstrs/yarn-run-utils": "workspace:0.0.1"
     "@monstrs/yarn-test-utils": "workspace:0.0.1"
     "@yarnpkg/builder": "npm:^4.0.0-rc.43"
