@@ -6,7 +6,7 @@ import { PassThrough }              from 'node:stream'
 import { SeverityNumber }           from '@monstrs/logger'
 
 import { StartServerPlugin }        from '@monstrs/webpack-start-server-plugin'
-import { webpack }                  from '@monstrs/code-runtime/webpack'
+import { webpack }                  from '@monstrs/tools-runtime/webpack'
 
 import { WebpackConfig }            from './webpack.config.js'
 

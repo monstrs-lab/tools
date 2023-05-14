@@ -7,9 +7,9 @@ import { tmpdir }                  from 'node:os'
 
 import Config                      from 'webpack-chain-5'
 
-import { webpack }                 from '@monstrs/code-runtime/webpack'
-import { tsLoaderPath }            from '@monstrs/code-runtime/webpack'
-import { nodeLoaderPath }          from '@monstrs/code-runtime/webpack'
+import { webpack }                 from '@monstrs/tools-runtime/webpack'
+import { tsLoaderPath }            from '@monstrs/tools-runtime/webpack'
+import { nodeLoaderPath }          from '@monstrs/tools-runtime/webpack'
 import tsconfig                    from '@monstrs/config-typescript'
 
 import { WebpackExternals }        from './webpack.externals.js'

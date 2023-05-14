@@ -1,4 +1,4 @@
-import type { Linter as ESLinter } from '@monstrs/code-runtime/eslint'
+import type { Linter as ESLinter } from '@monstrs/tools-runtime/eslint'
 
 export const createLintResult = (
   filePath: string,

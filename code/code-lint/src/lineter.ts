@@ -1,4 +1,4 @@
-import type { ESLint }        from '@monstrs/code-runtime/eslint'
+import type { ESLint }        from '@monstrs/tools-runtime/eslint'
 
 import { readFile }           from 'node:fs/promises'
 import { writeFile }          from 'node:fs/promises'
@@ -9,8 +9,8 @@ import { globby }             from 'globby'
 import ignorerPkg             from 'ignore'
 import deepmerge              from 'deepmerge'
 
-import { Linter as ESLinter } from '@monstrs/code-runtime/eslint'
-import { eslintconfig }       from '@monstrs/code-runtime/eslint'
+import { Linter as ESLinter } from '@monstrs/tools-runtime/eslint'
+import { eslintconfig }       from '@monstrs/tools-runtime/eslint'
 
 import { ignore }             from './linter.patterns.js'
 import { createPatterns }     from './linter.patterns.js'

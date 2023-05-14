@@ -17,7 +17,7 @@ describe('yarn', () => {
           {
             dependencies: {
               typescript: '^5.0.3',
-              '@monstrs/code-runtime': 'workspace:*',
+              '@monstrs/tools-runtime': 'workspace:*',
             },
           },
           async ({ path, run, source }) => {
@@ -48,7 +48,7 @@ describe('yarn', () => {
         {
           dependencies: {
             typescript: '^5.0.3',
-            '@monstrs/code-runtime': 'workspace:*',
+            '@monstrs/tools-runtime': 'workspace:*',
           },
         },
         async ({ path, run, source }) => {
