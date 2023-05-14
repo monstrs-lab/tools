@@ -8,11 +8,11 @@ import { transformJsxToJsExtension } from './transformers/index.js'
 class TypeScript {
   constructor(private readonly cwd: string) {}
 
-  check(include: Array<string> = []): Promise<Array<ts.Diagnostic>> {
+  async check(include: Array<string> = []): Promise<Array<ts.Diagnostic>> {
     return this.run(include)
   }
 
-  build(
+  async build(
     include: Array<string> = [],
     override: Partial<ts.CompilerOptions> = {}
   ): Promise<Array<ts.Diagnostic>> {
@@ -31,7 +31,7 @@ class TypeScript {
 
     const { fileNames, options, errors } = ts.parseJsonConfigFileContent(config, ts.sys, this.cwd)
 
-    if (errors?.length > 0) {
+    if (errors.length > 0) {
       return errors
     }
 

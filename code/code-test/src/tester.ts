@@ -22,7 +22,7 @@ export class Tester {
     }
   }
 
-  async unit(options?: Partial<Config.Argv>, files?: string[]): Promise<AggregatedResult> {
+  async unit(options?: Partial<Config.Argv>, files?: Array<string>): Promise<AggregatedResult> {
     process.env.TS_JEST_DISABLE_VER_CHECKER = 'true'
 
     const setup = {
@@ -60,7 +60,10 @@ export class Tester {
     return results
   }
 
-  async integration(options?: Partial<Config.Argv>, files?: string[]): Promise<AggregatedResult> {
+  async integration(
+    options?: Partial<Config.Argv>,
+    files?: Array<string>
+  ): Promise<AggregatedResult> {
     process.env.TS_JEST_DISABLE_VER_CHECKER = 'true'
 
     const setup = {

@@ -9,8 +9,8 @@ import hash          from 'hash-string'
 
 export class EvalWorker {
   private static async build(content: string, workerData: object): Promise<Worker> {
-    const filename = hash(content)
-    const file = join(process.cwd(), `.yarn/dist/${filename}.mjs`)
+    const filename: string = hash(content)
+    const file: string = join(process.cwd(), `.yarn/dist/${filename}.mjs`)
 
     try {
       try {

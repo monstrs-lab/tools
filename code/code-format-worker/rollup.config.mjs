@@ -36,7 +36,7 @@ export default [
         jail: join(fileURLToPath(new URL('.', import.meta.url)), '../../'),
         preferBuiltins: true,
       }),
-      esbuild({ tsconfig: false, target: 'node16' }),
+      esbuild({ tsconfig: false, target: 'node20' }),
       cjs({ transformMixedEsModules: true, extensions: ['.js', '.ts'] }),
       json(),
       wrapOutput(),

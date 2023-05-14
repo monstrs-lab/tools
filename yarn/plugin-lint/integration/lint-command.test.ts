@@ -1,10 +1,12 @@
-import { PortablePath }     from '@yarnpkg/fslib'
-import { describe }         from '@jest/globals'
-import { expect }           from '@jest/globals'
-import { test }             from '@jest/globals'
-import { xfs }              from '@yarnpkg/fslib'
+import type { PortablePath } from '@yarnpkg/fslib'
 
-import { makeTemporaryEnv } from '@monstrs/yarn-test-utils'
+import { describe }          from '@jest/globals'
+import { expect }            from '@jest/globals'
+import { test }              from '@jest/globals'
+import { xfs }               from '@yarnpkg/fslib'
+import { ppath }             from '@yarnpkg/fslib'
+
+import { makeTemporaryEnv }  from '@monstrs/yarn-test-utils'
 
 describe('yarn', () => {
   describe('commands', () => {
@@ -22,11 +24,13 @@ describe('yarn', () => {
             await run('install')
 
             await xfs.writeFilePromise(
-              `${path}/success.ts` as PortablePath,
-              `
-const n = (v: number) => v
-n(5)
-`
+              ppath.join(path, 'success.ts' as PortablePath),
+              `const n = (v: number) => v; n(5);`
+            )
+
+            await xfs.writeFilePromise(
+              ppath.join(path, 'tsconfig.json' as PortablePath),
+              '{"include": ["success.ts"]}'
             )
 
             const { code, stdout } = await run('lint')
@@ -50,7 +54,11 @@ n(5)
         async ({ path, run, source }) => {
           await run('install')
 
-          await xfs.writeFilePromise(`${path}/invalid.ts` as PortablePath, 'const n = 5')
+          await xfs.writeFilePromise(ppath.join(path, 'invalid.ts' as PortablePath), 'const n = 5')
+          await xfs.writeFilePromise(
+            ppath.join(path, 'tsconfig.json' as PortablePath),
+            '{"include": ["invalid.ts"]}'
+          )
 
           try {
             await run('lint')

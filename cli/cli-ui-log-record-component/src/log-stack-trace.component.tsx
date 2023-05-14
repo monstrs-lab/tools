@@ -1,13 +1,13 @@
 import type { AttributeValue } from '@monstrs/logger'
+import type { FC }             from 'react'
 
 import { Box }                 from 'ink'
-import { FC }                  from 'react'
 import React                   from 'react'
 
 import { StackTrace }          from '@monstrs/cli-ui-stack-trace-component'
 
 export interface LogStackTraceProps {
-  children?: string | AttributeValue
+  children?: AttributeValue | string
 }
 
 export const LogStackTrace: FC<LogStackTraceProps> = ({ children }) => {

@@ -1,7 +1,8 @@
-import * as loaderUtils                   from '@yarnpkg/pnp/lib/esm-loader/loaderUtils.js'
-import { getSource as getSourceBaseHook } from '@yarnpkg/pnp/lib/esm-loader/hooks/getSource.js'
+import type { getSource as getSourceBaseHook } from '@yarnpkg/pnp/lib/esm-loader/hooks/getSource.js'
 
-import * as tsLoaderUtils                 from './loader.utils.js'
+import * as loaderUtils                        from '@yarnpkg/pnp/lib/esm-loader/loaderUtils.js'
+
+import * as tsLoaderUtils                      from './loader.utils.js'
 
 export const getSourceHook = async (
   urlString: string,

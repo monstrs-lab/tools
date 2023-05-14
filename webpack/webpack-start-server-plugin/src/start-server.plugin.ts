@@ -1,9 +1,9 @@
+import type { ChildProcess } from 'node:child_process'
+import type { Writable }     from 'node:stream'
 import type webpack          from 'webpack'
 
-import { ChildProcess }      from 'node:child_process'
 import { fork }              from 'node:child_process'
 import { join }              from 'node:path'
-import { Writable }          from 'node:stream'
 
 import { StartServerLogger } from './start-server.logger.js'
 
@@ -34,7 +34,7 @@ export class StartServerPlugin {
 
       callback()
     } else {
-      if (this.worker?.connected && this.worker?.pid) {
+      if (this.worker?.connected && this.worker.pid) {
         process.kill(this.worker.pid)
       }
 
@@ -71,6 +71,8 @@ export class StartServerPlugin {
       worker.stderr?.pipe(this.options.stderr, { end: false })
     }
 
-    setTimeout(() => callback(worker), 0)
+    setTimeout(() => {
+      callback(worker)
+    }, 0)
   }
 }

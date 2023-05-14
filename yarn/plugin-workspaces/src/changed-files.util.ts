@@ -1,5 +1,6 @@
-import { Project }   from '@yarnpkg/core'
-import { execUtils } from '@yarnpkg/core'
+import type { Project } from '@yarnpkg/core'
+
+import { execUtils }    from '@yarnpkg/core'
 
 export const getLocalChangedFiles = async (
   project: Project,

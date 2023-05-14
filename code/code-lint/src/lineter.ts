@@ -68,7 +68,7 @@ export class Linter {
     return Promise.all(
       files
         .filter((file) => this.ignore.filter([relative(this.cwd, file)]).length !== 0)
-        .map((filename) => this.lintFile(filename, options))
+        .map(async (filename) => this.lintFile(filename, options))
     )
   }
 

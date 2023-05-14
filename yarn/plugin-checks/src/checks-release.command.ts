@@ -1,3 +1,5 @@
+import type { Annotation }       from './github.checks.js'
+
 import { BaseCommand }           from '@yarnpkg/cli'
 import { Configuration }         from '@yarnpkg/core'
 import { Project }               from '@yarnpkg/core'
@@ -11,7 +13,6 @@ import { getChangedWorkspaces }  from '@monstrs/yarn-workspace-utils'
 
 import { GitHubChecks }          from './github.checks.js'
 import { AnnotationLevel }       from './github.checks.js'
-import { Annotation }            from './github.checks.js'
 
 class ChecksReleaseCommand extends BaseCommand {
   static paths = [['checks', 'release']]
@@ -48,7 +49,9 @@ class ChecksReleaseCommand extends BaseCommand {
           if (code > 0) {
             annotations.push({
               annotation_level: AnnotationLevel.Failure,
-              title: `Error release workspace ${workspace.manifest.raw.name}`,
+              title: `Error release workspace ${
+                (workspace.manifest.raw.name as string) || workspace.relativeCwd
+              }`,
               message: `Exit code ${code}`,
               raw_details: stripAnsi(context.output),
               path: ppath.join(workspace.relativeCwd, toFilename('package.json')),

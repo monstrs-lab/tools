@@ -39,8 +39,13 @@ class ChecksRunCommand extends BaseCommand {
       })
 
       this.context.stdout.write(stdout || stderr)
-    } catch (error: any) {
-      report.reportError(MessageName.UNNAMED, `Run check ${args.join(' ')} error: ${error.message}`)
+    } catch (error) {
+      report.reportError(
+        MessageName.UNNAMED,
+        `Run check ${args.join(' ')} error: ${
+          error instanceof Error ? error.message : (error as string)
+        }`
+      )
     }
   }
 }

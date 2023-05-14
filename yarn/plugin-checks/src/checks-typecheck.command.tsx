@@ -1,3 +1,6 @@
+import type { PortablePath }             from '@yarnpkg/fslib'
+import type { Annotation }               from './github.checks.js'
+
 import { EOL }                           from 'node:os'
 
 import { BaseCommand }                   from '@yarnpkg/cli'
@@ -5,7 +8,6 @@ import { Configuration }                 from '@yarnpkg/core'
 import { Project }                       from '@yarnpkg/core'
 import { StreamReport }                  from '@yarnpkg/core'
 import { MessageName }                   from '@yarnpkg/core'
-import { PortablePath }                  from '@yarnpkg/fslib'
 import { codeFrameColumns }              from '@babel/code-frame'
 import { xfs }                           from '@yarnpkg/fslib'
 import { ppath }                         from '@yarnpkg/fslib'
@@ -19,7 +21,6 @@ import { getLineAndCharacterOfPosition } from '@monstrs/code-typescript'
 
 import { GitHubChecks }                  from './github.checks.js'
 import { AnnotationLevel }               from './github.checks.js'
-import { Annotation }                    from './github.checks.js'
 
 class ChecksTypeCheckCommand extends BaseCommand {
   static paths = [['checks', 'typecheck']]
@@ -51,7 +52,9 @@ class ChecksTypeCheckCommand extends BaseCommand {
             diagnostics.forEach((diagnostic) => {
               const output = renderStatic(<TypeScriptDiagnostic {...diagnostic} />)
 
-              output.split('\n').forEach((line) => report.reportInfo(MessageName.UNNAMED, line))
+              output.split('\n').forEach((line) => {
+                report.reportInfo(MessageName.UNNAMED, line)
+              })
             })
 
             const annotations: Array<Annotation> = []
@@ -69,12 +72,13 @@ class ChecksTypeCheckCommand extends BaseCommand {
                   ),
                   title: flattenDiagnosticMessageText(diagnostic.messageText, EOL)
                     .split(EOL)
-                    .at(0) as string,
+                    .at(0)!,
                   message: flattenDiagnosticMessageText(diagnostic.messageText, EOL),
                   start_line: position ? position.line + 1 : 0,
                   end_line: position ? position.line + 1 : 0,
                   raw_details: position
                     ? codeFrameColumns(
+                        // eslint-disable-next-line n/no-sync
                         xfs.readFileSync(diagnostic.file.fileName as PortablePath).toString(),
                         {
                           start: {

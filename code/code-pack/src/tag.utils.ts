@@ -1,8 +1,8 @@
-import { PortablePath } from '@yarnpkg/fslib'
-import { context }      from '@actions/github'
-import { execUtils }    from '@yarnpkg/core'
+import type { PortablePath } from '@yarnpkg/fslib'
+import type { TagPolicy }    from './pack.interfaces.js'
 
-import { TagPolicy }    from './pack.interfaces.js'
+import { context }           from '@actions/github'
+import { execUtils }         from '@yarnpkg/core'
 
 export const getPullRequestSha = (): string => {
   const event = context.payload

@@ -1,6 +1,7 @@
+import type { FC }            from 'react'
+
 import { Text }               from 'ink'
 import { Box }                from 'ink'
-import { FC }                 from 'react'
 import { useCallback }        from 'react'
 import MultiSelectPkg         from 'ink-multi-select'
 import React                  from 'react'
@@ -35,9 +36,13 @@ const COMMIT_ADDITIONAL = [
   },
 ]
 
-const CheckboxComponent = ({ isSelected }) => (
+interface CheckboxComponentProps {
+  isSelected: boolean
+}
+
+const CheckboxComponent: FC<CheckboxComponentProps> = ({ isSelected }) => (
   <Box marginRight={1}>
-    <Text>{isSelected ? figures.circleFilled : figures.circle}</Text>
+    <Text>{!!isSelected && figures.circleFilled}</Text>
   </Box>
 )
 
@@ -79,7 +84,6 @@ export const RequestCommitMessageAdditional: FC<RequestCommitMessageAdditionalPr
         </Text>
       </Box>
       <Box>
-        {/* @ts-ignore */}
         <MultiSelect
           items={COMMIT_ADDITIONAL}
           indicatorComponent={IndicatorComponent}

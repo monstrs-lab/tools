@@ -1,13 +1,14 @@
-import { BaseCommand }   from '@yarnpkg/cli'
-import { Configuration } from '@yarnpkg/core'
-import { Project }       from '@yarnpkg/core'
-import { StreamReport }  from '@yarnpkg/core'
-import { PortablePath }  from '@yarnpkg/fslib'
-import { xfs }           from '@yarnpkg/fslib'
-import { ppath }         from '@yarnpkg/fslib'
-import deepmerge         from 'deepmerge'
+import type { PortablePath } from '@yarnpkg/fslib'
 
-import tsconfig          from '@monstrs/config-typescript'
+import { BaseCommand }       from '@yarnpkg/cli'
+import { Configuration }     from '@yarnpkg/core'
+import { Project }           from '@yarnpkg/core'
+import { StreamReport }      from '@yarnpkg/core'
+import { xfs }               from '@yarnpkg/fslib'
+import { ppath }             from '@yarnpkg/fslib'
+import deepmerge             from 'deepmerge'
+
+import tsconfig              from '@monstrs/config-typescript'
 
 const combineMerge = (target, source, options) => {
   const destination = target.slice()

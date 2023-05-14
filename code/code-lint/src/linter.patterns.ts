@@ -24,9 +24,9 @@ const ignore = [
   '.terraform',
 ]
 
-const patterns: string[] = ['./**/*.{js,mjs,cjs,jsx,ts,tsx}']
+const patterns: Array<string> = ['./**/*.{js,mjs,cjs,jsx,ts,tsx}']
 
-const ignorePatterns: string[] = [
+const ignorePatterns: Array<string> = [
   '!**/node_modules/**',
   '!./node_modules/**',
   '!**/.{git,svn,hg}/**',
@@ -36,7 +36,7 @@ const ignorePatterns: string[] = [
   '!**/gen/**',
 ]
 
-const createPatterns = (cwd: string): string[] => [
+const createPatterns = (cwd: string): Array<string> => [
   ...patterns.map((pattern) => join(cwd, pattern)),
   ...ignorePatterns,
 ]

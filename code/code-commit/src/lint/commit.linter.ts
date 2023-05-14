@@ -1,4 +1,5 @@
-import { LintOutcome }        from '@commitlint/types'
+import type { LintOutcome }   from '@commitlint/types'
+
 import commitformatPkg        from '@commitlint/format'
 
 import { rules }              from './commit.rules.js'

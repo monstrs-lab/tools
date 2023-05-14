@@ -1,8 +1,8 @@
 import type { LogRecord as Record }        from '@monstrs/logger'
+import type { FC }                         from 'react'
 
 import { LOGGER_NAMESPACE_ATTRIBUTE_NAME } from '@monstrs/logger'
 import { Box }                             from 'ink'
-import { FC }                              from 'react'
 import React                               from 'react'
 
 import { LogStackTrace }                   from './log-stack-trace.component.jsx'

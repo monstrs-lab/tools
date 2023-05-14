@@ -1,6 +1,7 @@
-import { PortablePath } from '@yarnpkg/fslib'
-import { ppath }        from '@yarnpkg/fslib'
-import { xfs }          from '@yarnpkg/fslib'
+import type { PortablePath } from '@yarnpkg/fslib'
+
+import { ppath }             from '@yarnpkg/fslib'
+import { xfs }               from '@yarnpkg/fslib'
 
 export interface ProjectConfigurationTunnel {
   host?: string

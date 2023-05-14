@@ -1,4 +1,4 @@
-import { ReactNode }          from 'react'
+import type { ReactNode }     from 'react'
 
 import { Output }             from './ink.js'
 import { reconciler }         from './ink.js'

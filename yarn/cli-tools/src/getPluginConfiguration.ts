@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-require-imports
 const { getDynamicLibs } = require('@yarnpkg/cli')
 
 module.exports.getPluginConfiguration = async (bundles = []) => {
@@ -7,7 +8,7 @@ module.exports.getPluginConfiguration = async (bundles = []) => {
   const modules = getDynamicLibs()
 
   for (const plugin of plugins) {
-    // @ts-ignore
+    // @ts-expect-error
     modules.set(plugin, (await import(plugin)).default) // eslint-disable-line no-await-in-loop
   }
 

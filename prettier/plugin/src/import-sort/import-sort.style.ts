@@ -1,5 +1,5 @@
-import { IStyleAPI }         from 'import-sort-style'
-import { IStyleItem }        from 'import-sort-style'
+import type { IStyleAPI }    from 'import-sort-style'
+import type { IStyleItem }   from 'import-sort-style'
 
 import { isWorkspaceModule } from './import-sort.api.js'
 import { isNodeModule }      from './import-sort.api.js'
@@ -20,7 +20,7 @@ export const style = ({
   startsWithUpperCase,
   moduleName,
   naturally,
-}: IStyleAPI): IStyleItem[] => {
+}: IStyleAPI): Array<IStyleItem> => {
   const noMember = [
     {
       // import 'foo'

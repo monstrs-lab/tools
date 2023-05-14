@@ -1,6 +1,6 @@
-import { readFileSync } from 'node:fs'
+import type { StackFrame } from '@monstrs/stack-trace'
 
-import { StackFrame }   from '@monstrs/stack-trace'
+import { readFileSync }    from 'node:fs'
 
 export const getFrameSource = (frame: StackFrame): string | null => {
   if (frame.sourceMap) {

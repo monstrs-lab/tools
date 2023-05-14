@@ -1,20 +1,25 @@
-import { BaseCommand }             from '@yarnpkg/cli'
-import { PortablePath }            from '@yarnpkg/fslib'
-import { SubmitInjectedComponent } from '@yarnpkg/libui/sources/misc/renderForm.js'
-import { xfs }                     from '@yarnpkg/fslib'
-import { renderForm }              from '@yarnpkg/libui/sources/misc/renderForm.js'
-import { Option }                  from 'clipanion'
-import { forceStdinTty }           from 'force-stdin-tty'
-import { useStdin }                from 'ink'
-import { useEffect }               from 'react'
-import { useState }                from 'react'
-import React                       from 'react'
-import wrap                        from 'word-wrap'
+import type { FC }                      from 'react'
+import type { PortablePath }            from '@yarnpkg/fslib'
+import type { SubmitInjectedComponent } from '@yarnpkg/libui/sources/misc/renderForm.js'
+import type { CommitProperties }        from '@monstrs/cli-ui-git-commit-component'
 
-import { RequestCommitMessage }    from '@monstrs/cli-ui-git-commit-component'
-import { CommitProperties }        from '@monstrs/cli-ui-git-commit-component'
+import { BaseCommand }                  from '@yarnpkg/cli'
+import { xfs }                          from '@yarnpkg/fslib'
+import { renderForm }                   from '@yarnpkg/libui/sources/misc/renderForm.js'
+import { Option }                       from 'clipanion'
+import { forceStdinTty }                from 'force-stdin-tty'
+import { useStdin }                     from 'ink'
+import { useEffect }                    from 'react'
+import { useState }                     from 'react'
+import React                            from 'react'
+import wrap                             from 'word-wrap'
 
-const RequestCommitMessageSubmit = ({ commit, useSubmit }) => {
+import { RequestCommitMessage }         from '@monstrs/cli-ui-git-commit-component'
+
+const RequestCommitMessageSubmit: FC<SubmitInjectedComponent<{ commit: string }>> = ({
+  commit,
+  useSubmit,
+}) => {
   const { stdin } = useStdin()
 
   useSubmit(commit)
@@ -26,7 +31,7 @@ const RequestCommitMessageSubmit = ({ commit, useSubmit }) => {
   return null
 }
 
-const RequestCommitMessageApp: SubmitInjectedComponent<CommitProperties> = ({ useSubmit }) => {
+const RequestCommitMessageApp: FC<SubmitInjectedComponent<CommitProperties>> = ({ useSubmit }) => {
   const [commit, setCommit] = useState()
 
   if (!commit) {

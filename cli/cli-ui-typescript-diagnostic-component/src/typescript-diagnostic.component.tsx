@@ -1,12 +1,12 @@
 import type { DiagnosticMessageChain }   from 'typescript'
 import type { SourceFile }               from 'typescript'
+import type { FC }                       from 'react'
 
 import { isAbsolute }                    from 'node:path'
 import { relative }                      from 'node:path'
 
 import { Text }                          from 'ink'
 import { Box }                           from 'ink'
-import { FC }                            from 'react'
 import { useMemo }                       from 'react'
 import React                             from 'react'
 
@@ -15,8 +15,8 @@ import { getLineAndCharacterOfPosition } from '@monstrs/code-typescript'
 import { flattenDiagnosticMessageText }  from '@monstrs/code-typescript'
 
 export interface TypeScriptDiagnosticProps {
-  file?: SourceFile | any
-  messageText: string | DiagnosticMessageChain
+  file?: SourceFile
+  messageText: DiagnosticMessageChain | string
   start?: number
 }
 
@@ -38,8 +38,8 @@ export const TypeScriptDiagnostic: FC<TypeScriptDiagnosticProps> = ({
   }, [file])
 
   const position = useMemo(() => {
-    if (file?.lineMap && start) {
-      return getLineAndCharacterOfPosition(file, start!)
+    if ((file as any)?.lineMap && start) {
+      return getLineAndCharacterOfPosition(file, start)
     }
 
     return null
@@ -47,11 +47,11 @@ export const TypeScriptDiagnostic: FC<TypeScriptDiagnosticProps> = ({
 
   return (
     <Box flexDirection='column' marginBottom={1}>
-      {filepath && (
+      {!!filepath && (
         <Box marginBottom={1}>
           <Text color='cyan'>
             {filepath}
-            {position && (
+            {!!position && (
               <Text color='yellow'>
                 :{position.line + 1}:{position.character}
               </Text>
@@ -65,7 +65,7 @@ export const TypeScriptDiagnostic: FC<TypeScriptDiagnosticProps> = ({
         </Text>
         <Text color='white'>: {flattenDiagnosticMessageText(messageText, '\n')}</Text>
       </Box>
-      {file?.text && position && (
+      {!!file?.text && !!position && (
         <Box marginBottom={1}>
           <SourcePreview line={position.line + 1} column={position.character}>
             {file.text}

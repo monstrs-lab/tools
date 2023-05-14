@@ -30,7 +30,9 @@ class ServiceBuildCommand extends AbstractServiceCommand {
 
             progress.end()
 
-            logRecords.forEach((logRecord) => this.renderLogRecord(logRecord, report))
+            logRecords.forEach((logRecord) => {
+              this.renderLogRecord(logRecord, report)
+            })
           } catch (error) {
             progress.end()
 

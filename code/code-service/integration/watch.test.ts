@@ -7,7 +7,7 @@ import { it }            from '@jest/globals'
 
 import { Service }       from '../src/index.js'
 
-const closeWatcher = (watcher): Promise<void> =>
+const closeWatcher = async (watcher): Promise<void> =>
   new Promise((resolve) => {
     watcher.close(() => {
       setTimeout(() => {
