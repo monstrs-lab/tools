@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@monstrs/code-runtime": "workspace:0.1.14",
+    "deepmerge": "^4.3.1",
     "globby": "^13.1.4",
     "ignore": "^5.2.4"
   },

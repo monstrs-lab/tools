@@ -5,6 +5,7 @@ const ignore = [
   '.pnp.js',
   '.pnp.cjs',
   '.pnp.loader.mjs',
+  '.pnp-ts.loader.mjs',
   '.git',
   'node_modules',
   'coverage',

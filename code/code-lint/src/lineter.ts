@@ -3,9 +3,11 @@ import type { ESLint }        from '@monstrs/code-runtime/eslint'
 import { readFile }           from 'node:fs/promises'
 import { writeFile }          from 'node:fs/promises'
 import { relative }           from 'node:path'
+import { join }               from 'node:path'
 
 import { globby }             from 'globby'
 import ignorerPkg             from 'ignore'
+import deepmerge              from 'deepmerge'
 
 import { Linter as ESLinter } from '@monstrs/code-runtime/eslint'
 import { eslintconfig }       from '@monstrs/code-runtime/eslint'
@@ -24,17 +26,24 @@ export interface LintOptions {
 export class Linter {
   private linter: ESLinter
 
-  private config: ESLinter.Config<ESLinter.RulesRecord, ESLinter.RulesRecord>
-
   private ignore: typeof ignorer
 
   constructor(private readonly cwd: string) {
     this.linter = new ESLinter({ configType: 'flat' } as any)
-    this.config = [...eslintconfig, { files: ['**/*.*'] }] as ESLinter.Config<
-      ESLinter.RulesRecord,
-      ESLinter.RulesRecord
-    >
     this.ignore = ignorer().add(ignore)
+  }
+
+  protected get config(): ESLinter.Config<ESLinter.RulesRecord, ESLinter.RulesRecord> {
+    return [
+      deepmerge(eslintconfig[0], {
+        languageOptions: {
+          parserOptions: {
+            project: join(this.cwd, 'tsconfig.json'),
+          },
+        },
+      }),
+      { files: ['**/*.*'] },
+    ] as ESLinter.Config<ESLinter.RulesRecord, ESLinter.RulesRecord>
   }
 
   async lintFile(filename, options?: LintOptions): Promise<ESLint.LintResult> {
