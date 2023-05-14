@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/cli-ui-log-record-component",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -17,8 +17,8 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/cli-ui-renderer": "workspace:0.1.5",
-    "@monstrs/cli-ui-stack-trace-component": "workspace:0.1.6",
+    "@monstrs/cli-ui-renderer": "workspace:0.1.6",
+    "@monstrs/cli-ui-stack-trace-component": "workspace:0.1.7",
     "@monstrs/logger": "^0.0.11",
     "decamelize": "^6.0.0",
     "uniqolor": "^1.1.0"
