@@ -8,6 +8,7 @@
     "@monstrs/yarn-plugin-check": "workspace:0.0.1",
     "@monstrs/yarn-plugin-checks": "workspace:0.0.1",
     "@monstrs/yarn-plugin-commit": "workspace:0.0.1",
+    "@monstrs/yarn-plugin-essentials": "workspace:0.0.1",
     "@monstrs/yarn-plugin-files": "workspace:0.0.1",
     "@monstrs/yarn-plugin-format": "workspace:0.0.1",
     "@monstrs/yarn-plugin-image": "workspace:0.0.1",

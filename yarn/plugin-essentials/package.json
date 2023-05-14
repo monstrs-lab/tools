@@ -1,0 +1,47 @@
+{
+  "name": "@monstrs/yarn-plugin-essentials",
+  "version": "0.0.1",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": "./src/index.ts"
+  },
+  "main": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "builder build plugin",
+    "prepack": "yarn run build",
+    "postpack": "rm -rf dist"
+  },
+  "dependencies": {
+    "@yarnpkg/plugin-essentials": "^4.0.0-rc.43",
+    "clipanion": "^3.2.0"
+  },
+  "devDependencies": {
+    "@yarnpkg/builder": "^4.0.0-rc.43",
+    "@yarnpkg/cli": "^4.0.0-rc.43",
+    "@yarnpkg/core": "^4.0.0-rc.43"
+  },
+  "peerDependencies": {
+    "@yarnpkg/cli": "workspace:^",
+    "@yarnpkg/core": "workspace:^",
+    "@yarnpkg/plugin-git": "workspace:^"
+  },
+  "publishConfig": {
+    "access": "public",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "import": "./dist/index.js",
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts"
+  }
+}
