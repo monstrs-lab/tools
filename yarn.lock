@@ -1610,6 +1610,7 @@ __metadata:
   dependencies:
     "@monstrs/code-runtime": "workspace:0.1.14"
     "@types/node": "npm:^18.16.4"
+    deepmerge: "npm:^4.3.1"
     globby: "npm:^13.1.4"
     ignore: "npm:^5.2.4"
   peerDependencies:

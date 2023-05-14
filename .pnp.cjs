@@ -2625,6 +2625,7 @@ const RAW_RUNTIME_STATE =
           ["@types/node", "npm:18.16.4"],\
           ["@types/react", null],\
           ["@types/typescript", null],\
+          ["deepmerge", "npm:4.3.1"],\
           ["globby", "npm:13.1.4"],\
           ["ignore", "npm:5.2.4"],\
           ["react", null],\
@@ -2644,6 +2645,7 @@ const RAW_RUNTIME_STATE =
           ["@monstrs/code-lint", "workspace:code/code-lint"],\
           ["@monstrs/code-runtime", "workspace:code/code-runtime"],\
           ["@types/node", "npm:18.16.4"],\
+          ["deepmerge", "npm:4.3.1"],\
           ["globby", "npm:13.1.4"],\
           ["ignore", "npm:5.2.4"]\
         ],\
