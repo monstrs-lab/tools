@@ -1,5 +1,6 @@
 import type { ESLint }      from '@monstrs/code-runtime/eslint'
 import type { Linter }      from '@monstrs/code-runtime/eslint'
+import type { Annotation }  from './github.checks.js'
 
 import { readFileSync }     from 'node:fs'
 
@@ -17,7 +18,6 @@ import { renderStatic }     from '@monstrs/cli-ui-renderer'
 
 import { GitHubChecks }     from './github.checks.js'
 import { AnnotationLevel }  from './github.checks.js'
-import { Annotation }       from './github.checks.js'
 
 class ChecksLintCommand extends BaseCommand {
   static paths = [['checks', 'lint']]
@@ -54,17 +54,19 @@ class ChecksLintCommand extends BaseCommand {
             .forEach((result) => {
               const output = renderStatic(<ESLintResult {...result} />)
 
-              output.split('\n').forEach((line) => report.reportInfo(MessageName.UNNAMED, line))
+              output.split('\n').forEach((line) => {
+                report.reportInfo(MessageName.UNNAMED, line)
+              })
             })
 
           const annotations = this.formatResults(results, project.cwd)
 
           const warnings: number = annotations.filter(
-            (annotation) => annotation.annotation_level === 'warning'
+            (annotation) => annotation.annotation_level === AnnotationLevel.Warning
           ).length
 
           const errors: number = annotations.filter(
-            (annotation) => annotation.annotation_level === 'failure'
+            (annotation) => annotation.annotation_level === AnnotationLevel.Failure
           ).length
 
           await checks.complete(checkId, {
@@ -92,7 +94,7 @@ class ChecksLintCommand extends BaseCommand {
 
   private formatResults(results: Array<ESLint.LintResult>, cwd?: string): Array<Annotation> {
     return results
-      .filter((result) => result.messages?.length > 0)
+      .filter((result) => result.messages.length > 0)
       .map(({ filePath, messages = [] }) =>
         messages.map((message) => {
           const line = (message.line || 0) + 1
@@ -109,7 +111,7 @@ class ChecksLintCommand extends BaseCommand {
               },
               { highlightCode: false }
             ),
-            title: `(${message.ruleId}): ${message.message}`,
+            title: `(${message.ruleId || 'unknown'}): ${message.message}`,
             message: message.message,
           }
         }))

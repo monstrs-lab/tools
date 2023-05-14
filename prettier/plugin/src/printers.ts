@@ -1,3 +1,5 @@
+import type { Printer }   from 'prettier'
+
 import { extractPrinter } from './patch.js'
 
 const printer = await extractPrinter()
@@ -11,13 +13,14 @@ const nodeImportSize = (node) => {
 
   const offset = specifier.imported ? 8 : 6
 
+  // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
   return specifier.loc.end.column + offset
 }
 
-export const print = (path, options, prnt) => {
+export const print: Printer['print'] = (path, options, prnt) => {
   const node = path.getNode()
 
-  const plugin = options.plugins.find((p) => p?.printers?.estree)
+  const plugin: any = options.plugins.find((p: any) => p?.printers?.estree)
 
   let result = plugin.printers.estree.print(path, options, prnt)
 
@@ -36,7 +39,7 @@ export const print = (path, options, prnt) => {
   return result
 }
 
-export const preprocess = async (ast, options) => {
+export const preprocess = async (ast) => {
   const imports = ast.body.filter(
     (node) =>
       node.type === 'ImportDeclaration' && node.loc && node.loc.end.line === node.loc.start.line
@@ -63,7 +66,7 @@ export const preprocess = async (ast, options) => {
   return ast
 }
 
-export const printers = {
+export const printers: Record<string, Printer> = {
   'typescript-custom': {
     ...printer,
     preprocess,

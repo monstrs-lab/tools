@@ -1,3 +1,5 @@
+import type { Parser }                from 'prettier'
+
 import sortImportsPkg                 from 'import-sort'
 import sortPackageJson                from 'sort-package-json'
 
@@ -9,8 +11,8 @@ import { typescript }                 from './imports.js'
 // TODO: moduleResolution
 const sortImports = sortImportsPkg as any
 
-const preprocess = (source, { plugins }) => {
-  const plugin = plugins.find((p) => p.parsers?.typescript)
+const preprocess: Parser['preprocess'] = (source, { plugins }) => {
+  const plugin: any = plugins.find((p: any) => p.parsers?.typescript)
 
   const { code } = sortImports(
     source,
@@ -21,8 +23,8 @@ const preprocess = (source, { plugins }) => {
   return code
 }
 
-const parse = async (source, { plugins }) => {
-  const plugin = plugins.find((p) => p.parsers?.typescript)
+const parse: Parser['parse'] = async (source, { plugins }) => {
+  const plugin: any = plugins.find((p: any) => p.parsers?.typescript)
 
   const program = plugin.parsers.typescript.parse(source)
 
@@ -38,6 +40,7 @@ const parse = async (source, { plugins }) => {
         program.body.splice(index, 1)
 
         node.specifiers.forEach((_, specifierIndex) => {
+          // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
           program.body.splice(index + specifierIndex, 0, {
             ...node,
             // eslint-disable-next-line @typescript-eslint/no-shadow
@@ -51,7 +54,7 @@ const parse = async (source, { plugins }) => {
   return program
 }
 
-export const parsers = {
+export const parsers: Record<string, Parser> = {
   typescript: {
     ...typescript.parsers!.typescript,
     astFormat: 'typescript-custom',

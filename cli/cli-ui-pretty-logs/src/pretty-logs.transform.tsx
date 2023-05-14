@@ -41,7 +41,7 @@ export class PrettyLogsTransform extends Transform {
       .map(this.parse)
       .filter(Boolean)
       .map(this.render)
-      .forEach((row) => {
+      .forEach((row: string) => {
         this.push(`${row}${EOL}`)
       })
 

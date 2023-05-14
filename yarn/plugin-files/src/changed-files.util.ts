@@ -1,8 +1,9 @@
-import { Endpoints }  from '@octokit/types'
-import { Project }    from '@yarnpkg/core'
-import { context }    from '@actions/github'
-import { getOctokit } from '@actions/github'
-import { execUtils }  from '@yarnpkg/core'
+import type { Endpoints } from '@octokit/types'
+import type { Project }   from '@yarnpkg/core'
+
+import { context }        from '@actions/github'
+import { getOctokit }     from '@actions/github'
+import { execUtils }      from '@yarnpkg/core'
 
 type GetCommitResponseData = Endpoints['GET /repos/{owner}/{repo}/commits/{ref}']['response']
 
@@ -12,7 +13,7 @@ export const getEventCommmits = async () => {
   }
 
   if (context.eventName === 'pull_request' && context.payload.pull_request) {
-    const url = context.payload.pull_request.commits_url
+    const url: string = context.payload.pull_request.commits_url
 
     return getOctokit(process.env.GITHUB_TOKEN!).paginate(`GET ${url}`, context.repo)
   }
@@ -35,7 +36,7 @@ export const getCommitData = async (ref: string): Promise<GetCommitResponseData>
 export const getChangedCommmits = async (): Promise<Array<GetCommitResponseData>> => {
   const eventCommits = await getEventCommmits()
 
-  return Promise.all(eventCommits.map((commit) => getCommitData(commit.id || commit.sha)))
+  return Promise.all(eventCommits.map(async (commit) => getCommitData(commit.id || commit.sha)))
 }
 
 export const getGithubChangedFiles = async (): Promise<Array<string>> => {
@@ -43,11 +44,11 @@ export const getGithubChangedFiles = async (): Promise<Array<string>> => {
 
   return commits
     .map((commit) => {
-      if (!commit?.data?.files) {
+      if (!commit.data.files) {
         return []
       }
 
-      return commit.data.files.map((file) => file.filename).filter(Boolean) as Array<string>
+      return commit.data.files.map((file) => file.filename).filter(Boolean)
     })
     .flat()
 }

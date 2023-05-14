@@ -1,9 +1,17 @@
+import type { FC }               from 'react'
+
 import { Text }                  from 'ink'
 import { Box }                   from 'ink'
 import { UncontrolledTextInput } from 'ink-text-input'
 import React                     from 'react'
 
-export const RequestCommitMessageBreaking = ({ onSubmit }) => (
+export interface RequestCommitMessageBreakingProps {
+  onSubmit: (value: string) => void
+}
+
+export const RequestCommitMessageBreaking: FC<RequestCommitMessageBreakingProps> = ({
+  onSubmit,
+}) => (
   <Box flexDirection='column'>
     <Box>
       <Text bold color='cyanBright'>

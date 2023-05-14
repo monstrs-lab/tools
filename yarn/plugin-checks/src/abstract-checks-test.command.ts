@@ -1,12 +1,12 @@
 import type { AggregatedResult } from '@jest/test-result'
+import type { Annotation }       from './github.checks.js'
 
 import { BaseCommand }           from '@yarnpkg/cli'
 
 import { AnnotationLevel }       from './github.checks.js'
-import { Annotation }            from './github.checks.js'
 
 export abstract class AbstractChecksTestCommand extends BaseCommand {
-  formatResults(results: AggregatedResult, cwd?: string): Annotation[] {
+  formatResults(results: AggregatedResult, cwd?: string): Array<Annotation> {
     return results.testResults
       .map(({ testResults, testFilePath }) =>
         testResults

@@ -1,6 +1,5 @@
 import { BaseCommand } from '@yarnpkg/cli'
 import { Option }      from 'clipanion'
-// @ts-ignore
 import lintStaged      from 'lint-staged'
 
 const config = {

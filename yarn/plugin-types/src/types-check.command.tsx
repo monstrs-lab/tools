@@ -48,7 +48,9 @@ export class TypesCheckCommand extends BaseCommand {
             diagnostics.forEach((diagnostic) => {
               const output = renderStatic(<TypeScriptDiagnostic {...diagnostic} />)
 
-              output.split('\n').forEach((line) => report.reportError(MessageName.UNNAMED, line))
+              output.split('\n').forEach((line) => {
+                report.reportError(MessageName.UNNAMED, line)
+              })
             })
           } catch (error) {
             progress.end()

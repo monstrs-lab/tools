@@ -1,13 +1,14 @@
-import { MinimalResolveOptions } from '@yarnpkg/core'
-import { ResolveOptions }        from '@yarnpkg/core'
-import { Resolver }              from '@yarnpkg/core'
-import { Descriptor }            from '@yarnpkg/core'
-import { DescriptorHash }        from '@yarnpkg/core'
-import { Locator }               from '@yarnpkg/core'
-import { Package }               from '@yarnpkg/core'
-import { semverUtils }           from '@yarnpkg/core'
-import { structUtils }           from '@yarnpkg/core'
-import semver                    from 'semver'
+import type { MinimalResolveOptions } from '@yarnpkg/core'
+import type { ResolveOptions }        from '@yarnpkg/core'
+import type { Resolver }              from '@yarnpkg/core'
+import type { Descriptor }            from '@yarnpkg/core'
+import type { DescriptorHash }        from '@yarnpkg/core'
+import type { Locator }               from '@yarnpkg/core'
+import type { Package }               from '@yarnpkg/core'
+
+import { semverUtils }                from '@yarnpkg/core'
+import { structUtils }                from '@yarnpkg/core'
+import semver                         from 'semver'
 
 export const TAG_REGEXP = /^(?!v)[a-z0-9._-]+$/i
 
@@ -51,7 +52,7 @@ export class ProtocolResolver implements Resolver {
   async getSatisfying(
     descriptor: Descriptor,
     dependencies: Record<string, Package>,
-    locators: Locator[],
+    locators: Array<Locator>,
     opts: ResolveOptions
   ) {
     return opts.resolver.getSatisfying(

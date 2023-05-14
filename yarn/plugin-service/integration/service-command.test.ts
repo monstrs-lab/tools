@@ -1,10 +1,12 @@
-import { PortablePath }     from '@yarnpkg/fslib'
-import { describe }         from '@jest/globals'
-import { expect }           from '@jest/globals'
-import { test }             from '@jest/globals'
-import { xfs }              from '@yarnpkg/fslib'
+import type { PortablePath } from '@yarnpkg/fslib'
 
-import { makeTemporaryEnv } from '@monstrs/yarn-test-utils'
+import { describe }          from '@jest/globals'
+import { expect }            from '@jest/globals'
+import { test }              from '@jest/globals'
+import { xfs }               from '@yarnpkg/fslib'
+import { ppath }             from '@yarnpkg/fslib'
+
+import { makeTemporaryEnv }  from '@monstrs/yarn-test-utils'
 
 const content = `
 import { createServer } from 'node:http'
@@ -31,8 +33,8 @@ describe('yarn', () => {
           async ({ path, run, source }) => {
             await run('install')
 
-            await xfs.mkdirPromise(`${path}/src` as PortablePath)
-            await xfs.writeFilePromise(`${path}/src/index.ts` as PortablePath, content)
+            await xfs.mkdirPromise(ppath.join(path, 'src' as PortablePath))
+            await xfs.writeFilePromise(ppath.join(path, 'src/index.ts' as PortablePath), content)
 
             const { code, stdout } = await run('service', 'build')
 

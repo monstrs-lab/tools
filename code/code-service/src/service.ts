@@ -78,9 +78,13 @@ export class Service {
       } else if (stats) {
         const { errors = [], warnings = [] } = stats.toJson()
 
-        warnings.forEach((record) => callback({ record, severityNumber: SeverityNumber.WARN }))
+        warnings.forEach((record) => {
+          callback({ record, severityNumber: SeverityNumber.WARN })
+        })
 
-        errors.forEach((record) => callback({ record, severityNumber: SeverityNumber.ERROR }))
+        errors.forEach((record) => {
+          callback({ record, severityNumber: SeverityNumber.ERROR })
+        })
       }
     })
   }

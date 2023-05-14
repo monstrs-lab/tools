@@ -44,7 +44,9 @@ class LintCommand extends BaseCommand {
               .forEach((result) => {
                 const output = renderStatic(<ESLintResult {...result} />)
 
-                output.split('\n').forEach((line) => report.reportError(MessageName.UNNAMED, line))
+                output.split('\n').forEach((line) => {
+                  report.reportError(MessageName.UNNAMED, line)
+                })
               })
           } catch (error: any) {
             progress.end()

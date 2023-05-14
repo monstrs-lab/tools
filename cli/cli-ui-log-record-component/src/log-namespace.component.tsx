@@ -1,7 +1,7 @@
 import type { AttributeValue } from '@monstrs/logger'
+import type { FC }             from 'react'
 
 import { Text }                from 'ink'
-import { FC }                  from 'react'
 import { useMemo }             from 'react'
 import React                   from 'react'
 import uniqolor                from 'uniqolor'

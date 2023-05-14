@@ -1,10 +1,12 @@
-import { PortablePath }     from '@yarnpkg/fslib'
-import { describe }         from '@jest/globals'
-import { expect }           from '@jest/globals'
-import { test }             from '@jest/globals'
-import { xfs }              from '@yarnpkg/fslib'
+import type { PortablePath } from '@yarnpkg/fslib'
 
-import { makeTemporaryEnv } from '@monstrs/yarn-test-utils'
+import { describe }          from '@jest/globals'
+import { expect }            from '@jest/globals'
+import { test }              from '@jest/globals'
+import { xfs }               from '@yarnpkg/fslib'
+import { ppath }             from '@yarnpkg/fslib'
+
+import { makeTemporaryEnv }  from '@monstrs/yarn-test-utils'
 
 describe('yarn', () => {
   describe('commands', () => {
@@ -14,7 +16,7 @@ describe('yarn', () => {
         makeTemporaryEnv({}, async ({ path, run, source }) => {
           await run('install')
 
-          const filePath = `${path}/split-imports.ts` as PortablePath
+          const filePath = ppath.join(path, 'split-imports.ts' as PortablePath)
 
           await xfs.writeFilePromise(
             filePath,
@@ -35,7 +37,7 @@ import { d } from './e'
         makeTemporaryEnv({}, async ({ path, run, source }) => {
           await run('install')
 
-          const filePath = `${path}/order-imports.ts` as PortablePath
+          const filePath = ppath.join(path, 'order-imports.ts' as PortablePath)
 
           await xfs.writeFilePromise(
             filePath,
@@ -57,7 +59,7 @@ import type { c } from './d'
         makeTemporaryEnv({}, async ({ path, run, source }) => {
           await run('install')
 
-          const filePath = `${path}/align-imports.ts` as PortablePath
+          const filePath = ppath.join(path, 'align-imports.ts' as PortablePath)
 
           await xfs.writeFilePromise(
             filePath,

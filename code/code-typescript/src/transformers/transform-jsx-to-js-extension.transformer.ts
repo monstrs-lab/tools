@@ -5,8 +5,8 @@ export const transformJsxToJsExtension = (
 ): ts.Transformer<ts.SourceFile> => {
   const visitor = (node) => {
     if (
-      ts.isImportDeclaration(node) &&
       node.moduleSpecifier &&
+      ts.isImportDeclaration(node) &&
       ts.isStringLiteral(node.moduleSpecifier)
     ) {
       if (node.moduleSpecifier.text.endsWith('.jsx')) {

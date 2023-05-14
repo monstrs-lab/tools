@@ -1,16 +1,15 @@
-import type { webpack }   from '@monstrs/code-runtime/webpack'
-
-import { SeverityNumber } from '@monstrs/logger'
+import type { SeverityNumber } from '@monstrs/logger'
+import type { webpack }        from '@monstrs/code-runtime/webpack'
 
 export interface WebpackLogRecord {
   record: webpack.StatsError
-  severityNumber: SeverityNumber.WARN | SeverityNumber.ERROR
+  severityNumber: SeverityNumber.ERROR | SeverityNumber.WARN
 }
 
-export type WebpackEnvironment = 'production' | 'development'
+export type WebpackEnvironment = 'development' | 'production'
 
 export interface WebpackConfigPlugin {
   name: string
   use: any
-  args: any[]
+  args: Array<any>
 }

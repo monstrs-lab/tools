@@ -17,12 +17,16 @@ export const getFileFormat = (filepath: string): string | null => {
     }
     case '.ts': {
       const pkg = nodeUtils.readPackageScope(filepath)
+
       if (!pkg) return 'commonjs'
+
       return pkg.data.type ?? 'commonjs'
     }
     case '.tsx': {
       const pkg = nodeUtils.readPackageScope(filepath)
+
       if (!pkg) return 'commonjs'
+
       return pkg.data.type ?? 'commonjs'
     }
     default: {

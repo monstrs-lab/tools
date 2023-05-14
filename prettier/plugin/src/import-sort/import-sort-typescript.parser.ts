@@ -6,7 +6,7 @@ export class ImportSortTypeScriptParser implements IParser {
   constructor(private readonly program) {}
 
   parseImports(code: string) {
-    const imports: IImport[] = this.program.body
+    const imports: Array<IImport> = this.program.body
       .filter((node) => node.type === 'ImportDeclaration')
       .map((node) => {
         const imp: IImport = {
@@ -88,12 +88,12 @@ export class ImportSortTypeScriptParser implements IParser {
     }
 
     const newImportCode = importCode.replace(/\{[\s\S]*\}/g, (namedMembersString) => {
-      const useMultipleLines = namedMembersString.indexOf(eol) !== -1
+      const useMultipleLines = namedMembersString.includes(eol)
 
       let prefix: string | undefined
 
       if (useMultipleLines) {
-        ;[prefix] = namedMembersString.split(eol)[1].match(/^\s*/) as RegExpMatchArray
+        ;[prefix] = namedMembersString.split(eol)[1].match(/^\s*/)!
       }
 
       const useSpaces = namedMembersString.charAt(1) === ' '
@@ -118,11 +118,11 @@ export class ImportSortTypeScriptParser implements IParser {
   }
 
   formatNamedMembers(
-    namedMembers: NamedMember[],
+    namedMembers: Array<NamedMember>,
     useMultipleLines: boolean,
     useSpaces: boolean,
     useTrailingComma: boolean,
-    prefix: string | undefined,
+    prefix: string = '',
     eol = '\n'
   ): string {
     /* eslint-disable prefer-template */
@@ -132,9 +132,9 @@ export class ImportSortTypeScriptParser implements IParser {
         '{' +
         eol +
         namedMembers
-          .map(({ name, alias }, index) => {
-            const lastImport = index === namedMembers.length - 1
-            const comma = !useTrailingComma && lastImport ? '' : ','
+          .map(({ name, alias }: { name: string; alias: string }, index) => {
+            const lastImport: boolean = index === namedMembers.length - 1
+            const comma: string = !useTrailingComma && lastImport ? '' : ','
 
             if (name === alias) {
               return `${prefix}${name}${comma}` + eol

@@ -1,10 +1,12 @@
-import { PortablePath }     from '@yarnpkg/fslib'
-import { describe }         from '@jest/globals'
-import { expect }           from '@jest/globals'
-import { test }             from '@jest/globals'
-import { xfs }              from '@yarnpkg/fslib'
+import type { PortablePath } from '@yarnpkg/fslib'
 
-import { makeTemporaryEnv } from '@monstrs/yarn-test-utils'
+import { describe }          from '@jest/globals'
+import { expect }            from '@jest/globals'
+import { test }              from '@jest/globals'
+import { xfs }               from '@yarnpkg/fslib'
+import { ppath }             from '@yarnpkg/fslib'
+
+import { makeTemporaryEnv }  from '@monstrs/yarn-test-utils'
 
 describe('yarn', () => {
   describe('commands', () => {
@@ -22,12 +24,8 @@ describe('yarn', () => {
             await run('install')
 
             await xfs.writeFilePromise(
-              `${path}/unit-success.test.ts` as PortablePath,
-              `
-test('success', () => {
-  expect(true).toBe(true)
-})
-`
+              ppath.join(path, 'unit-success.test.ts' as PortablePath),
+              `test('success', () => { expect(true).toBe(true) })`
             )
 
             const { code, stdout, stderr } = await run('test', 'unit')
@@ -52,12 +50,8 @@ test('success', () => {
             await run('install')
 
             await xfs.writeFilePromise(
-              `${path}/unit-invalid.test.ts` as PortablePath,
-              `
-test('success', () => {
-  expect(true).toBe(false)
-})
-`
+              ppath.join(path, 'unit-invalid.test.ts' as PortablePath),
+              `test('success', () => { expect(true).toBe(false) })`
             )
 
             const { code, stdout, stderr } = await run('test', 'unit')
@@ -81,14 +75,10 @@ test('success', () => {
           async ({ path, run, source }) => {
             await run('install')
 
-            await xfs.mkdirPromise(`${path}/integration` as PortablePath)
+            await xfs.mkdirPromise(ppath.join(path, 'integration' as PortablePath))
             await xfs.writeFilePromise(
-              `${path}/integration/success.test.ts` as PortablePath,
-              `
-test('success', () => {
-  expect(true).toBe(true)
-})
-`
+              ppath.join(path, 'integration/success.test.ts' as PortablePath),
+              `test('success', () => { expect(true).toBe(true) })`
             )
 
             const { code, stdout, stderr } = await run('test', 'integration')
@@ -112,14 +102,10 @@ test('success', () => {
           async ({ path, run, source }) => {
             await run('install')
 
-            await xfs.mkdirPromise(`${path}/integration` as PortablePath)
+            await xfs.mkdirPromise(ppath.join(path, 'integration' as PortablePath))
             await xfs.writeFilePromise(
-              `${path}/integration/invalid.test.ts` as PortablePath,
-              `
-test('success', () => {
-  expect(true).toBe(false)
-})
-`
+              ppath.join(path, 'integration/invalid.test.ts' as PortablePath),
+              `test('success', () => { expect(true).toBe(false) })`
             )
 
             const { code, stdout, stderr } = await run('test', 'integration')

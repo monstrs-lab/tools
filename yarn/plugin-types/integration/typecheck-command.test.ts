@@ -1,10 +1,12 @@
-import { PortablePath }     from '@yarnpkg/fslib'
-import { describe }         from '@jest/globals'
-import { expect }           from '@jest/globals'
-import { test }             from '@jest/globals'
-import { xfs }              from '@yarnpkg/fslib'
+import type { PortablePath } from '@yarnpkg/fslib'
 
-import { makeTemporaryEnv } from '@monstrs/yarn-test-utils'
+import { describe }          from '@jest/globals'
+import { expect }            from '@jest/globals'
+import { test }              from '@jest/globals'
+import { xfs }               from '@yarnpkg/fslib'
+import { ppath }             from '@yarnpkg/fslib'
+
+import { makeTemporaryEnv }  from '@monstrs/yarn-test-utils'
 
 describe('yarn', () => {
   describe('commands', () => {
@@ -17,15 +19,12 @@ describe('yarn', () => {
               '@monstrs/code-runtime': 'workspace:*',
             },
           },
-          async ({ path, run, source }) => {
+          async ({ path, run }) => {
             await run('install')
 
             await xfs.writeFilePromise(
-              `${path}/success.ts` as PortablePath,
-              `
-const s = (n: number) => n
-s(5)
-`
+              ppath.join(path, 'success.ts' as PortablePath),
+              `const s = (n: number) => n; s(5)`
             )
 
             const { code, stdout } = await run('types', 'check')
@@ -45,15 +44,12 @@ s(5)
             '@monstrs/code-runtime': 'workspace:*',
           },
         },
-        async ({ path, run, source }) => {
+        async ({ path, run }) => {
           await run('install')
 
           await xfs.writeFilePromise(
-            `${path}/invalid.ts` as PortablePath,
-            `
-const s = (n: string) => n
-s(5)
-`
+            ppath.join(path, 'invalid.ts' as PortablePath),
+            `const s = (n: string) => n; s(5)`
           )
 
           try {
@@ -63,8 +59,8 @@ s(5)
             expect(error.stdout).toContain(
               "Argument of type 'number' is not assignable to parameter of type"
             )
-            expect(error.stdout).toContain('const s = (n: string) => n')
-            expect(error.stdout).toContain('invalid.ts:3:2')
+            expect(error.stdout).toContain('const s = (n: string) => n; s(5)')
+            expect(error.stdout).toContain('invalid.ts:1:30')
           }
         }
       )

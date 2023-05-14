@@ -27,14 +27,13 @@
     "outDir": "./dist"
   },
   "include": [
-    "code/**/*",
-    "ctl/**/*",
-    "utils/**/*",
-    "yarn/**/*",
-    "github/**/*",
     "prettier/**/*",
-    "eslint/**/*",
-    "schematics/**/*"
+    "code/**/*",
+    "webpack/**/*",
+    "config/**/*",
+    "yarn/**/*",
+    "jest/**/*",
+    "cli/**/*"
   ],
   "types": ["@monstrs/code-runtime/types"]
 }

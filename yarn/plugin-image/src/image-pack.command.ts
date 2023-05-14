@@ -1,18 +1,20 @@
-import { BaseCommand }   from '@yarnpkg/cli'
-import { Workspace }     from '@yarnpkg/core'
-import { Configuration } from '@yarnpkg/core'
-import { Project }       from '@yarnpkg/core'
-import { StreamReport }  from '@yarnpkg/core'
-import { stringify }     from '@iarna/toml'
-import { execUtils }     from '@yarnpkg/core'
-import { xfs }           from '@yarnpkg/fslib'
-import { ppath }         from '@yarnpkg/fslib'
-import { toFilename }    from '@yarnpkg/fslib'
-import { Option }        from 'clipanion'
+import type { Workspace } from '@yarnpkg/core'
+import type { TagPolicy } from '@monstrs/code-pack'
 
-import { TagPolicy }     from '@monstrs/code-pack'
-import { tagUtils }      from '@monstrs/code-pack'
-import { packUtils }     from '@monstrs/yarn-pack-utils'
+import { BaseCommand }    from '@yarnpkg/cli'
+import { Configuration }  from '@yarnpkg/core'
+import { Project }        from '@yarnpkg/core'
+import { StreamReport }   from '@yarnpkg/core'
+import { structUtils }    from '@yarnpkg/core'
+import { stringify }      from '@iarna/toml'
+import { execUtils }      from '@yarnpkg/core'
+import { xfs }            from '@yarnpkg/fslib'
+import { ppath }          from '@yarnpkg/fslib'
+import { toFilename }     from '@yarnpkg/fslib'
+import { Option }         from 'clipanion'
+
+import { tagUtils }       from '@monstrs/code-pack'
+import { packUtils }      from '@monstrs/yarn-pack-utils'
 
 const forRepository = async (repo: string) => {
   const descriptor = {
@@ -60,7 +62,11 @@ class ImagePackCommand extends BaseCommand {
 
           report.reportInfo(
             null,
-            `Package workspace ${workspace.manifest.raw.name} to ${destination}`
+            `Package workspace ${
+              workspace.manifest.name
+                ? structUtils.prettyIdent(configuration, workspace.manifest.name)
+                : workspace.relativeCwd
+            } to ${destination}`
           )
 
           await packUtils.pack(configuration, project, workspace, report, destination)
@@ -84,8 +90,8 @@ class ImagePackCommand extends BaseCommand {
             }, {}),
           })
 
-          const repo = workspace.manifest.raw.name.replace('@', '').replace(/\//g, '-')
-          const image = `${this.registry}${repo}`
+          const repo: string = workspace.manifest.raw.name.replace('@', '').replace(/\//g, '-')
+          const image: string = `${this.registry}${repo}`
 
           const tag = await tagUtils.getTag(this.tagPolicy || 'revision')
 
@@ -120,7 +126,11 @@ class ImagePackCommand extends BaseCommand {
         } else {
           report.reportInfo(
             null,
-            `Workspace ${workspace.manifest.raw.name} not allowed for package.`
+            `Workspace ${
+              workspace.manifest.name
+                ? structUtils.prettyIdent(configuration, workspace.manifest.name)
+                : workspace.relativeCwd
+            } not allowed for package.`
           )
         }
       }

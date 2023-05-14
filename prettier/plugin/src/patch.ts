@@ -16,7 +16,7 @@ export const extractPrinter = async () => {
           typescript: {
             ...typescript.parsers.typescript,
             parse(text, options) {
-              const plugin: any = options.plugins.find((x: any) => x.printers && x.printers.estree)
+              const plugin: any = options.plugins.find((x: any) => x.printers?.estree)
 
               printer = plugin.printers.estree
 

@@ -1,9 +1,11 @@
+import type { FC }            from 'react'
+
 import { Text }               from 'ink'
 import { Box }                from 'ink'
 import { useState }           from 'react'
 import { useMemo }            from 'react'
-import SelectPkg              from 'ink-select-input'
-import TextInputPkg           from 'ink-text-input'
+import Select                 from 'ink-select-input'
+import TextInput              from 'ink-text-input'
 import React                  from 'react'
 
 import { COMMIT_TYPE_ENUM }   from '@monstrs/code-commit'
@@ -11,17 +13,16 @@ import { COMMIT_TYPE_ENUM }   from '@monstrs/code-commit'
 import { IndicatorComponent } from './select-indicator.component.jsx'
 import { ItemComponent }      from './select-item.component.jsx'
 
-// TODO: moduleResolution
-const Select = (SelectPkg as any).default || (SelectPkg as any)
-// TODO: moduleResolution
-const TextInput = (TextInputPkg as any).default || TextInputPkg
-
 const types = Object.keys(COMMIT_TYPE_ENUM).map((key) => ({
   label: COMMIT_TYPE_ENUM[key].description,
   value: key,
 }))
 
-export const RequestCommitMessageType = ({ onSubmit }) => {
+export interface RequestCommitMessageTypeProps {
+  onSubmit: (value: string) => void
+}
+
+export const RequestCommitMessageType: FC<RequestCommitMessageTypeProps> = ({ onSubmit }) => {
   const [value, setValue] = useState('')
 
   const matches = useMemo(() => {
@@ -43,12 +44,14 @@ export const RequestCommitMessageType = ({ onSubmit }) => {
         </Box>
         <TextInput value={value} onChange={setValue} />
       </Box>
-      {hasSuggestion && (
+      {!!hasSuggestion && (
         <Select
           items={matches}
-          onSelect={(v) => onSubmit(v.value)}
           indicatorComponent={IndicatorComponent}
           itemComponent={ItemComponent}
+          onSelect={(v) => {
+            onSubmit(v.value)
+          }}
         />
       )}
     </Box>

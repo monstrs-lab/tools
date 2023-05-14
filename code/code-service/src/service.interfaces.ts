@@ -1,5 +1,4 @@
-import type { LogRecord }   from '@monstrs/logger'
+import type { LogRecord }        from '@monstrs/logger'
+import type { WebpackLogRecord } from './webpack.interfaces.js'
 
-import { WebpackLogRecord } from './webpack.interfaces.js'
-
-export type ServiceLogRecord = WebpackLogRecord | Error | LogRecord
+export type ServiceLogRecord = Error | LogRecord | WebpackLogRecord

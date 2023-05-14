@@ -1,6 +1,7 @@
-import { Configuration } from '@yarnpkg/core'
-import { MessageName }   from '@yarnpkg/core'
-import { formatUtils }   from '@yarnpkg/core'
+import type { Configuration } from '@yarnpkg/core'
+
+import { MessageName }        from '@yarnpkg/core'
+import { formatUtils }        from '@yarnpkg/core'
 
 export class SpinnerProgress {
   static PROGRESS_FRAMES = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏']

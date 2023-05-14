@@ -5,29 +5,33 @@ import { Service }    from '@monstrs/code-service'
 
 const { environment, cwd } = workerData
 
-const service = new Service(cwd)
-
-const waitSignals = (watcher): Promise<void> =>
+const waitSignals = async (watcher): Promise<void> =>
   new Promise((resolve) => {
     process.on('SIGINT', () => {
-      watcher.close(() => resolve())
+      watcher.close(() => {
+        resolve()
+      })
     })
 
     process.on('SIGTERM', () => {
-      watcher.close(() => resolve())
+      watcher.close(() => {
+        resolve()
+      })
     })
   })
 
 const execute = async () => {
   if (environment === 'production') {
-    parentPort!.postMessage(await service.build())
+    parentPort!.postMessage(await new Service(cwd).build())
   }
 
   if (environment === 'development') {
-    const watcher = await service.watch((message) => parentPort!.postMessage(message))
+    const watcher = await new Service(cwd).watch((message) => {
+      parentPort!.postMessage(message)
+    })
 
     await waitSignals(watcher)
   }
 }
 
-execute()
+await execute()

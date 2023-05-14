@@ -26,7 +26,7 @@ class TestIntegrationCommand extends BaseCommand {
     const args: Array<string> = []
 
     if (workspace) {
-      if (this.files?.length > 0) {
+      if (this.files.length > 0) {
         const scope = this.context.cwd.replace(project.cwd, '')
 
         this.files.forEach((file) =>
@@ -36,7 +36,7 @@ class TestIntegrationCommand extends BaseCommand {
 
         args.push(scope.startsWith('/') ? scope.substr(1) : scope)
       }
-    } else if (this.files?.length > 0) {
+    } else if (this.files.length > 0) {
       this.files.forEach((file) => args.push(file))
     }
 

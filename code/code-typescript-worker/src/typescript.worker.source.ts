@@ -8,11 +8,14 @@ import { TypeScript } from '@monstrs/code-typescript'
 
 const { type, cwd, include, override } = workerData
 
-const ts = new TypeScript(cwd)
+const execute = async () => {
+  if (type === 'check') {
+    parentPort!.postMessage(parse(stringify(await new TypeScript(cwd).check(include))))
+  }
 
-if (type === 'check') {
-  ts.check(include).then((diagnostics) => parentPort!.postMessage(parse(stringify(diagnostics))))
-} else {
-  ts.build(include, override).then((diagnostics) =>
-    parentPort!.postMessage(parse(stringify(diagnostics))))
+  if (type === 'build') {
+    parentPort!.postMessage(parse(stringify(await new TypeScript(cwd).build(include, override))))
+  }
 }
+
+await execute()
