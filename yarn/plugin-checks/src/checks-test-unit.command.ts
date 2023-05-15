@@ -20,7 +20,7 @@ class ChecksTestUnitCommand extends AbstractChecksTestCommand {
         configuration,
       },
       async () => {
-        const checks = new GitHubChecks('Test:Unit')
+        const checks = new GitHubChecks('test:unit')
 
         const { id: checkId } = await checks.start()
 

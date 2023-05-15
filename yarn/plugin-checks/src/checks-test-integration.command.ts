@@ -20,7 +20,7 @@ class ChecksTestIntegrationCommand extends AbstractChecksTestCommand {
         configuration,
       },
       async () => {
-        const checks = new GitHubChecks('Test:Integration')
+        const checks = new GitHubChecks('test:integration')
 
         const { id: checkId } = await checks.start()
 

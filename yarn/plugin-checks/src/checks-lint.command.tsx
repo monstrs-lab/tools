@@ -33,7 +33,7 @@ class ChecksLintCommand extends BaseCommand {
         configuration,
       },
       async (report) => {
-        const checks = new GitHubChecks('Lint')
+        const checks = new GitHubChecks('lint')
 
         const { id: checkId } = await checks.start()
 
