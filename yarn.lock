@@ -1763,7 +1763,6 @@ __metadata:
     eslint-plugin-jsx-a11y: "npm:^6.7.1"
     eslint-plugin-n: "npm:^15.7.0"
     eslint-plugin-prettier: "npm:^4.2.1"
-    eslint-plugin-promise: "npm:^6.1.1"
     eslint-plugin-react: "npm:^7.32.2"
     eslint-plugin-react-hooks: "npm:^4.6.0"
     eslint-plugin-security: "npm:^1.7.1"
@@ -6516,15 +6515,6 @@ __metadata:
     eslint-config-prettier:
       optional: true
   checksum: add67757bf011d6c2f1e7c659975117b43aa9f81ebc799d69205fb2c43ed45ec0d36bdbdcfd3f0242ba1ac7030a73b381468adb82dda5aee0d986d450226442c
-  languageName: node
-  linkType: hard
-
-"eslint-plugin-promise@npm:^6.1.1":
-  version: 6.1.1
-  resolution: "eslint-plugin-promise@npm:6.1.1"
-  peerDependencies:
-    eslint: ^7.0.0 || ^8.0.0
-  checksum: d0d2ce6371ccc7c26a7b5bf0d8c4eed31a8342eac88aa06aa190cf7b58771965b13f48a09ea9d7dae90795e7befa9e0709f3131e29301b584659e10ddd39334c
   languageName: node
   linkType: hard
 

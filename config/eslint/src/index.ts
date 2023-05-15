@@ -7,7 +7,6 @@ import reactHooks             from 'eslint-plugin-react-hooks'
 import eslintPluginReactHooks from 'eslint-plugin-react-hooks'
 import node                   from 'eslint-plugin-n'
 import security               from 'eslint-plugin-security'
-import promise                from 'eslint-plugin-promise'
 
 import { rules }              from './rules/index.js'
 
@@ -22,7 +21,6 @@ export default [
       'jsx-a11y': jsxA11y,
       n: node,
       security,
-      promise,
       react,
     },
     linterOptions: {

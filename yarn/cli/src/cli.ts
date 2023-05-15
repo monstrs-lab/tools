@@ -1,5 +1,3 @@
-/* eslint-disable promise/catch-or-return */
-
 import { YarnVersion }            from '@yarnpkg/core'
 import { main }                   from '@yarnpkg/cli'
 
