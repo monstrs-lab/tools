@@ -1896,6 +1896,7 @@ __metadata:
     "@monstrs/yarn-plugin-image": "workspace:0.0.1"
     "@monstrs/yarn-plugin-library": "workspace:0.0.1"
     "@monstrs/yarn-plugin-lint": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-project": "workspace:0.0.1"
     "@monstrs/yarn-plugin-service": "workspace:0.0.1"
     "@monstrs/yarn-plugin-test": "workspace:0.0.1"
     "@monstrs/yarn-plugin-types": "workspace:0.0.1"
@@ -1947,6 +1948,7 @@ __metadata:
     "@monstrs/yarn-plugin-image": "workspace:0.0.1"
     "@monstrs/yarn-plugin-library": "workspace:0.0.1"
     "@monstrs/yarn-plugin-lint": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-project": "workspace:0.0.1"
     "@monstrs/yarn-plugin-service": "workspace:0.0.1"
     "@monstrs/yarn-plugin-test": "workspace:0.0.1"
     "@monstrs/yarn-plugin-types": "workspace:0.0.1"
@@ -2212,6 +2214,20 @@ __metadata:
     rollup: "npm:^3.21.5"
     rollup-plugin-esbuild: "npm:^5.0.0"
     tslib: "npm:^2.5.0"
+  languageName: unknown
+  linkType: soft
+
+"@monstrs/yarn-plugin-project@workspace:0.0.1, @monstrs/yarn-plugin-project@workspace:yarn/plugin-project":
+  version: 0.0.0-use.local
+  resolution: "@monstrs/yarn-plugin-project@workspace:yarn/plugin-project"
+  dependencies:
+    "@monstrs/tools-runtime": "workspace:0.0.3"
+    "@yarnpkg/builder": "npm:^4.0.0-rc.43"
+    "@yarnpkg/cli": "npm:^4.0.0-rc.43"
+    "@yarnpkg/core": "npm:^4.0.0-rc.43"
+    "@yarnpkg/fslib": "npm:^3.0.0-rc.43"
+    clipanion: "npm:^3.2.0"
+    semver: "npm:^7.5.0"
   languageName: unknown
   linkType: soft
 

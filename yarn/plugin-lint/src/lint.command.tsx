@@ -15,6 +15,8 @@ import { renderStatic }    from '@monstrs/cli-ui-renderer'
 class LintCommand extends BaseCommand {
   static paths = [['lint']]
 
+  fix = Option.Boolean('--fix')
+
   files: Array<string> = Option.Rest({ required: 0 })
 
   async execute() {
@@ -34,7 +36,7 @@ class LintCommand extends BaseCommand {
 
           try {
             const results = await new LinterWorker(project.cwd).run(this.files, {
-              fix: this.files.length === 0,
+              fix: this.fix,
             })
 
             progress.end()

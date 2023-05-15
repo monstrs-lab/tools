@@ -4,7 +4,7 @@ import lintStaged      from 'lint-staged'
 
 const config = {
   '*.{yml,yaml,json,graphql,md}': 'yarn format',
-  '*.{js,mjs,cjs,jsx,ts,tsx}': ['yarn format', 'yarn lint'],
+  '*.{js,mjs,cjs,jsx,ts,tsx}': ['yarn format', 'yarn lint --fix'],
   '*.{ts,tsx}': ['yarn types check'],
   '*.{tsx,ts}': ['yarn test unit --bail --find-related-tests'],
 }
