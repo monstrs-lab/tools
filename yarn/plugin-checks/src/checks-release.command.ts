@@ -25,7 +25,7 @@ class ChecksReleaseCommand extends BaseCommand {
 
     const workspaces = getChangedWorkspaces(project, await getChangedFiles(project))
 
-    const checks = new GitHubChecks('Release')
+    const checks = new GitHubChecks('release')
 
     const { id: checkId } = await checks.start()
 

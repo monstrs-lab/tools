@@ -37,7 +37,7 @@ class ChecksTypeCheckCommand extends BaseCommand {
       },
       async (report) => {
         await report.startTimerPromise('Type Check', async () => {
-          const checks = new GitHubChecks('TypeCheck')
+          const checks = new GitHubChecks('types:check')
 
           const { id: checkId } = await checks.start()
 
@@ -103,7 +103,7 @@ class ChecksTypeCheckCommand extends BaseCommand {
             })
           } catch (error) {
             await checks.failure({
-              title: 'TypeCheck run failed',
+              title: 'Types check run failed',
               summary: (error as any).message,
             })
           }
