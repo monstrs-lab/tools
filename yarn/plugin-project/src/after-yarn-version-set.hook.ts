@@ -7,4 +7,5 @@ export const afterYarnVersionSet = async (
   cli: MiniCli<CommandContext>
 ) => {
   await cli.run(['project', 'config', 'update'])
+  await cli.run(['types', 'config', 'sync'])
 }

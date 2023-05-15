@@ -1,4 +1,5 @@
 import type { FC }                        from 'react'
+
 import type { AdditionalProperties }      from './request-commit-message-additional.component.jsx'
 
 import { useEffect }                      from 'react'

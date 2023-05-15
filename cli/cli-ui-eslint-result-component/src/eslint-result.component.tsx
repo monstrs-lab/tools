@@ -1,4 +1,5 @@
 import type { FC }                       from 'react'
+
 import type { ESLintResultMessageProps } from './eslint-result-message.component.jsx'
 
 import { isAbsolute }                    from 'node:path'

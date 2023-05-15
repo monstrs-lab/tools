@@ -1,4 +1,5 @@
 import type { PortablePath }             from '@yarnpkg/fslib'
+
 import type { Annotation }               from './github.checks.js'
 
 import { EOL }                           from 'node:os'

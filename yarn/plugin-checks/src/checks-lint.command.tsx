@@ -1,5 +1,6 @@
 import type { ESLint }      from '@monstrs/tools-runtime/eslint'
 import type { Linter }      from '@monstrs/tools-runtime/eslint'
+
 import type { Annotation }  from './github.checks.js'
 
 import { readFileSync }     from 'node:fs'
