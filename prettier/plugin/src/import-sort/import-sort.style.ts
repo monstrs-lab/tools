@@ -36,7 +36,7 @@ export const style = ({
     },
   ]
 
-  const types = [
+  const typesAbsolute = [
     {
       // import type * as foo from 'bar'
       match: and(isImportType, isAbsoluteModule, hasNamespaceMember),
@@ -57,6 +57,9 @@ export const style = ({
       // import type foo from 'bar'
       match: and(isImportType, isAbsoluteModule, hasDefaultMember, member(startsWithLowerCase)),
     },
+  ]
+
+  const typesRelative = [
     {
       // import type * as foo from 'bar'
       match: and(isImportType, isRelativeModule, hasNamespaceMember),
@@ -222,7 +225,9 @@ export const style = ({
   return [
     ...noMember,
     { separator: true },
-    ...types,
+    ...typesAbsolute,
+    { separator: true },
+    ...typesRelative,
     { separator: true },
     ...node,
     { separator: true },
