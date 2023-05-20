@@ -13,9 +13,10 @@
     "cli/*"
   ],
   "scripts": {
-    "cli:build": "yarn worker:format:build && yarn worker:lint:build && yarn worker:service:build && yarn worker:test:build && yarn worker:typescript:build && yarn yarn:cli:build && yarn yarn:cli:fix",
+    "cli:build": "yarn worker:format:build && yarn worker:lint:build && yarn worker:service:build && yarn worker:test:build && yarn worker:typescript:build && yarn worker:icons:build && yarn yarn:cli:build && yarn yarn:cli:fix",
     "worker:build": "yarn worker:format:build && yarn worker:lint:build && yarn worker:service:build && yarn worker:test:build && yarn worker:typescript:build",
     "worker:format:build": "yarn workspace @monstrs/code-format-worker build:worker",
+    "worker:icons:build": "yarn workspace @monstrs/code-icons-worker build:worker",
     "worker:lint:build": "yarn workspace @monstrs/code-lint-worker build:worker",
     "worker:service:build": "yarn workspace @monstrs/code-service-worker build:worker",
     "worker:test:build": "yarn workspace @monstrs/code-test-worker build:worker",
