@@ -85,7 +85,7 @@ export class Icons {
             template,
             typescript: true,
             expandProps: true,
-            replaceAttrValues: replacements[icon.name] || {},
+            replaceAttrValues: replacements[`${icon.component}Icon`] || {},
           },
           {
             componentName: `${icon.component}Icon`,
