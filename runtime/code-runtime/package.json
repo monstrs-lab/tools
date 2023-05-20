@@ -10,7 +10,8 @@
     "./eslint": "./src/eslint.ts",
     "./webpack": "./src/webpack.ts",
     "./jest": "./src/jest.ts",
-    "./typescript": "./src/typescript.ts"
+    "./typescript": "./src/typescript.ts",
+    "./svgr": "./src/svgr.ts"
   },
   "main": "src/index.ts",
   "types": "types/index.d.ts",
@@ -27,6 +28,8 @@
     "@jest/core": "^29.5.0",
     "@monstrs/config-eslint": "workspace:0.1.11",
     "@monstrs/config-jest": "workspace:0.1.10",
+    "@svgr/core": "^8.0.0",
+    "@svgr/plugin-jsx": "^8.0.1",
     "eslint": "^8.39.0",
     "node-loader": "^2.0.0",
     "ts-loader": "^9.4.2",
@@ -66,6 +69,11 @@
         "import": "./dist/typescript.js",
         "default": "./dist/typescript.js",
         "types": "./dist/typescript.d.ts"
+      },
+      "./svgr": {
+        "import": "./dist/svgr.js",
+        "default": "./dist/svgr.js",
+        "types": "./dist/svgr.d.ts"
       }
     },
     "main": "dist/index.js",
