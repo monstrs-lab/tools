@@ -18,7 +18,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/tools-runtime": "workspace:0.0.4",
+    "@monstrs/tools-runtime": "workspace:0.0.5",
     "clipanion": "^3.2.0",
     "semver": "^7.5.0"
   },
