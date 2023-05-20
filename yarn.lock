@@ -2122,6 +2122,7 @@ __metadata:
     "@monstrs/yarn-plugin-library": "workspace:^"
     "@monstrs/yarn-plugin-lint": "workspace:^"
     "@monstrs/yarn-plugin-project": "workspace:^"
+    "@monstrs/yarn-plugin-renderer": "workspace:^"
     "@monstrs/yarn-plugin-service": "workspace:^"
     "@monstrs/yarn-plugin-test": "workspace:^"
     "@monstrs/yarn-plugin-types": "workspace:^"
@@ -2175,6 +2176,7 @@ __metadata:
     "@monstrs/yarn-plugin-library": "workspace:^"
     "@monstrs/yarn-plugin-lint": "workspace:^"
     "@monstrs/yarn-plugin-project": "workspace:^"
+    "@monstrs/yarn-plugin-renderer": "workspace:^"
     "@monstrs/yarn-plugin-service": "workspace:^"
     "@monstrs/yarn-plugin-test": "workspace:^"
     "@monstrs/yarn-plugin-types": "workspace:^"
@@ -2455,6 +2457,27 @@ __metadata:
     "@yarnpkg/fslib": "npm:^3.0.0-rc.43"
     clipanion: "npm:^3.2.0"
     semver: "npm:^7.5.0"
+  languageName: unknown
+  linkType: soft
+
+"@monstrs/yarn-plugin-renderer@workspace:^, @monstrs/yarn-plugin-renderer@workspace:yarn/plugin-renderer":
+  version: 0.0.0-use.local
+  resolution: "@monstrs/yarn-plugin-renderer@workspace:yarn/plugin-renderer"
+  dependencies:
+    "@jest/globals": "npm:29.5.0"
+    "@monstrs/yarn-run-utils": "workspace:0.0.1"
+    "@monstrs/yarn-test-utils": "workspace:0.0.1"
+    "@types/localtunnel": "npm:^2.0.1"
+    "@yarnpkg/builder": "npm:^4.0.0-rc.43"
+    "@yarnpkg/cli": "npm:^4.0.0-rc.43"
+    "@yarnpkg/core": "npm:^4.0.0-rc.43"
+    "@yarnpkg/fslib": "npm:^3.0.0-rc.43"
+    clipanion: "npm:^3.2.0"
+    cross-spawn: "npm:^7.0.3"
+    localtunnel: "npm:^2.0.2"
+  peerDependencies:
+    "@yarnpkg/cli": ^4
+    "@yarnpkg/core": ^4
   languageName: unknown
   linkType: soft
 
@@ -3282,6 +3305,15 @@ __metadata:
   dependencies:
     "@types/node": "npm:*"
   checksum: f7ffcce604a24f1ea8705a2f4c234460d47bd1e649ed8706ec110b41d65e2488fc8709507c15e71d381b8b8e8f7e171839e84ac573b80ed5290b479863b24827
+  languageName: node
+  linkType: hard
+
+"@types/localtunnel@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "@types/localtunnel@npm:2.0.1"
+  dependencies:
+    "@types/node": "npm:*"
+  checksum: 78f51324b0382b49ddb610371a1b65656ba168979d4144ff34f8a13d01c566a1383d0e05db921947c9972327fdc526dd5019d1e9505470aa3883347711c462fa
   languageName: node
   linkType: hard
 
@@ -5299,6 +5331,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"axios@npm:0.21.4":
+  version: 0.21.4
+  resolution: "axios@npm:0.21.4"
+  dependencies:
+    follow-redirects: "npm:^1.14.0"
+  checksum: 3bb41e72f935e007d9d9c146b3fae09ab0b560dffb9e3f9b3598a270dc94311ae2a0e11d418b7d21409ca5477cc29c867ef4d0cd6fc704b91e6958a35c8fedd5
+  languageName: node
+  linkType: hard
+
 "axobject-query@npm:^3.1.1":
   version: 3.1.1
   resolution: "axobject-query@npm:3.1.1"
@@ -5845,6 +5886,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cliui@npm:^7.0.2":
+  version: 7.0.4
+  resolution: "cliui@npm:7.0.4"
+  dependencies:
+    string-width: "npm:^4.2.0"
+    strip-ansi: "npm:^6.0.0"
+    wrap-ansi: "npm:^7.0.0"
+  checksum: 11f16da76b7dc4a78bce29ea89445e2ad30cc7cf78954813095d187cc17924461cf42f941d481cd920ab1672221c709af677436179d6cb87f6176139117664aa
+  languageName: node
+  linkType: hard
+
 "clone-response@npm:^1.0.2":
   version: 1.0.2
   resolution: "clone-response@npm:1.0.2"
@@ -6280,6 +6332,18 @@ __metadata:
   dependencies:
     ms: "npm:2.0.0"
   checksum: 143f776060e764362b11d8788c6ef7b125fe930f0b5766559c11521af6dfc256979726167a66218249d8e2f99548c1a8bdb026aad577deecc86b56b4652d4626
+  languageName: node
+  linkType: hard
+
+"debug@npm:4.3.2":
+  version: 4.3.2
+  resolution: "debug@npm:4.3.2"
+  dependencies:
+    ms: "npm:2.1.2"
+  peerDependenciesMeta:
+    supports-color:
+      optional: true
+  checksum: 329c3fd97ff1d4b7b8683c2d0d353300903e96747306075e1f5bd28a81be385f3ab6420938ce173bba55b7ed3b3499762295d531ff20c730224c5bd7127b105d
   languageName: node
   linkType: hard
 
@@ -7651,6 +7715,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"follow-redirects@npm:^1.14.0":
+  version: 1.15.2
+  resolution: "follow-redirects@npm:1.15.2"
+  peerDependenciesMeta:
+    debug:
+      optional: true
+  checksum: 930171f8b81bf00e9368df4b17f3b835934762d51192632af53a51a8a608d5510a1ffbc6da5761dce9996cdbd750740490ca844320e5ff11cdaf2329a5a69647
+  languageName: node
+  linkType: hard
+
 "for-each@npm:^0.3.3":
   version: 0.3.3
   resolution: "for-each@npm:0.3.3"
@@ -7812,6 +7886,13 @@ __metadata:
   version: 1.0.0-beta.2
   resolution: "gensync@npm:1.0.0-beta.2"
   checksum: c3e28898b5eb6cf92ce2f3bd1230f87bb642803aa743cbce53af55b50283a5283922a8717208edf1912ec1d944f1a4b262e9abfdb9ff9695e61f2939e56c89d8
+  languageName: node
+  linkType: hard
+
+"get-caller-file@npm:^2.0.5":
+  version: 2.0.5
+  resolution: "get-caller-file@npm:2.0.5"
+  checksum: 24c1eb494b27c789e9267d7220bb131e409427b793f9e2b07f772f8d84c44eb0b42b90c258d858ee758ec6a21092c16a1c78c5fac02c0df7c156bb7113307192
   languageName: node
   linkType: hard
 
@@ -9898,6 +9979,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"localtunnel@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "localtunnel@npm:2.0.2"
+  dependencies:
+    axios: "npm:0.21.4"
+    debug: "npm:4.3.2"
+    openurl: "npm:1.1.1"
+    yargs: "npm:17.1.1"
+  bin:
+    lt: bin/lt.js
+  checksum: 74036389bff339a465d890334e2f3b3838ac038385a5f68990839951d676126113d7dfed2e3d78acd35eb5b3fb2f7bb55dc7e1334d5f49bf95d5d612dcc7dbdd
+  languageName: node
+  linkType: hard
+
 "locate-path@npm:^5.0.0":
   version: 5.0.0
   resolution: "locate-path@npm:5.0.0"
@@ -10806,6 +10901,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"openurl@npm:1.1.1":
+  version: 1.1.1
+  resolution: "openurl@npm:1.1.1"
+  checksum: 81366cc6e08a35fca82b522d3b8598797b46ac9366fcc316a661c585328fc65a6a75e181e381026b03dcef60f84fcaec9081e4acfc27d05eca055367000d391c
+  languageName: node
+  linkType: hard
+
 "optionator@npm:^0.9.1":
   version: 0.9.1
   resolution: "optionator@npm:0.9.1"
@@ -11560,6 +11662,13 @@ pem@dexus/pem:
     tunnel-agent: "npm:^0.6.0"
     uuid: "npm:^3.3.2"
   checksum: 0b6b8f79ddd55bd51d820b9b8f8c3c16945173e7605de652c300bcff5814b576b7f8fd6538fa9a0c886249fbbeb83d5e4424d9baf6fd4e3332e9a803e6b03319
+  languageName: node
+  linkType: hard
+
+"require-directory@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "require-directory@npm:2.1.1"
+  checksum: 1b1289dc30006e3c6576dd899ed812921f680d652005118cfabcf5d0679e885ff19a6659219e6705571a6ba7f4278f24d93b17f7e7e9ba28dc4b38e256f35d61
   languageName: node
   linkType: hard
 
@@ -13555,6 +13664,13 @@ pem@dexus/pem:
   languageName: node
   linkType: hard
 
+"y18n@npm:^5.0.5":
+  version: 5.0.8
+  resolution: "y18n@npm:5.0.8"
+  checksum: 10a6a4dcab8518b72a500520664b686bffe79d8e756af1a7eedf49fa72ab35e40f508896e0baa534f7f92e08193a6dad4283298c11ea7885e710c76b7e2bcc7a
+  languageName: node
+  linkType: hard
+
 "yallist@npm:^3.0.0, yallist@npm:^3.0.2, yallist@npm:^3.0.3":
   version: 3.1.1
   resolution: "yallist@npm:3.1.1"
@@ -13576,7 +13692,7 @@ pem@dexus/pem:
   languageName: node
   linkType: hard
 
-"yargs-parser@npm:^20.2.3":
+"yargs-parser@npm:^20.2.2, yargs-parser@npm:^20.2.3":
   version: 20.2.9
   resolution: "yargs-parser@npm:20.2.9"
   checksum: fd739a429b7cde755b8e9d28520619fb8adb94c686b2d75d3c93a6ec199fbc8bf120af6d2be144f8d3075f3d675b09893f8894a362548107aa90bb97ad662c7a
@@ -13587,6 +13703,21 @@ pem@dexus/pem:
   version: 21.1.1
   resolution: "yargs-parser@npm:21.1.1"
   checksum: fc4457cf1e4d7d41e5b3a1d62e86b3934af704dd8777979a3c4c573e08eea437801444622cd68607c0266d53b90d84e8e79fd4f5ff170d1be8860064111bbad6
+  languageName: node
+  linkType: hard
+
+"yargs@npm:17.1.1":
+  version: 17.1.1
+  resolution: "yargs@npm:17.1.1"
+  dependencies:
+    cliui: "npm:^7.0.2"
+    escalade: "npm:^3.1.1"
+    get-caller-file: "npm:^2.0.5"
+    require-directory: "npm:^2.1.1"
+    string-width: "npm:^4.2.0"
+    y18n: "npm:^5.0.5"
+    yargs-parser: "npm:^20.2.2"
+  checksum: 35569987aad54a9d389866fa8d5c74c9a4534088f373865c38e51e49aa50f1260b2ed6b56629a51133563d329101bf4e8d2ade6446b8aa2d37ed7fd7a2134af6
   languageName: node
   linkType: hard
 
