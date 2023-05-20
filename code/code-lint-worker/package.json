@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-lint-worker",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -19,11 +19,11 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/code-lint": "workspace:0.1.17",
+    "@monstrs/code-lint": "workspace:0.1.18",
     "@monstrs/code-worker-utils": "workspace:0.1.6"
   },
   "devDependencies": {
-    "@monstrs/tools-runtime": "workspace:0.0.3",
+    "@monstrs/tools-runtime": "workspace:0.0.4",
     "@rollup/plugin-commonjs": "^24.1.0",
     "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-node-resolve": "^15.0.2",
