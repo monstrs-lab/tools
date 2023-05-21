@@ -1741,7 +1741,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-format-worker@workspace:0.1.14, @monstrs/code-format-worker@workspace:code/code-format-worker":
+"@monstrs/code-format-worker@workspace:0.1.14, @monstrs/code-format-worker@workspace:^, @monstrs/code-format-worker@workspace:code/code-format-worker":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-format-worker@workspace:code/code-format-worker"
   dependencies:
@@ -1809,7 +1809,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-lint-worker@workspace:0.1.19, @monstrs/code-lint-worker@workspace:code/code-lint-worker":
+"@monstrs/code-lint-worker@workspace:0.1.19, @monstrs/code-lint-worker@workspace:^, @monstrs/code-lint-worker@workspace:code/code-lint-worker":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-lint-worker@workspace:code/code-lint-worker"
   dependencies:
@@ -2560,7 +2560,9 @@ __metadata:
   resolution: "@monstrs/yarn-plugin-ui@workspace:yarn/plugin-ui"
   dependencies:
     "@jest/globals": "npm:29.5.0"
+    "@monstrs/code-format-worker": "workspace:^"
     "@monstrs/code-icons-worker": "workspace:^"
+    "@monstrs/code-lint-worker": "workspace:^"
     "@monstrs/yarn-run-utils": "workspace:0.0.1"
     "@monstrs/yarn-test-utils": "workspace:0.0.1"
     "@yarnpkg/builder": "npm:^4.0.0-rc.43"

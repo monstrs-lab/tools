@@ -32,7 +32,7 @@ class FormatCommand extends BaseCommand {
           progress.start()
 
           try {
-            await new FormatterWorker(project.cwd).run(this.files)
+            await new FormatterWorker(project.cwd).run(this.context.cwd, this.files)
 
             progress.end()
           } catch (error) {

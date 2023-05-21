@@ -26,7 +26,7 @@ class ServiceDevCommand extends AbstractServiceCommand {
           progress.start()
 
           try {
-            await new ServiceWorker(this.context.cwd, project.cwd).watch((logRecord) => {
+            await new ServiceWorker(project.cwd).watch(this.context.cwd, (logRecord) => {
               progress.end()
 
               this.renderLogRecord(logRecord, report)

@@ -5,25 +5,26 @@ import { EvalWorker }            from '@monstrs/code-worker-utils'
 import { getContent }            from './service.worker.content.js'
 
 export class ServiceWorker {
-  constructor(protected readonly cwd: string, protected readonly rootCwd: string) {}
+  constructor(protected readonly cwd: string) {}
 
-  async run(): Promise<Array<ServiceLogRecord>> {
-    process.chdir(this.rootCwd)
+  async run(cwd: string): Promise<Array<ServiceLogRecord>> {
+    process.chdir(this.cwd)
 
-    return EvalWorker.run<Array<ServiceLogRecord>>(getContent(), {
-      cwd: this.cwd,
+    return EvalWorker.run<Array<ServiceLogRecord>>(this.cwd, getContent(), {
       environment: 'production',
+      cwd,
     })
   }
 
-  async watch(callback: (logRecord: ServiceLogRecord) => void) {
-    process.chdir(this.rootCwd)
+  async watch(cwd: string, callback: (logRecord: ServiceLogRecord) => void) {
+    process.chdir(this.cwd)
 
     return EvalWorker.watch<ServiceLogRecord>(
+      this.cwd,
       getContent(),
       {
         environment: 'development',
-        cwd: this.cwd,
+        cwd,
       },
       callback
     )

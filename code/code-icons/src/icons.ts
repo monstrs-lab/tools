@@ -105,7 +105,7 @@ export class Icons {
   }
 
   protected async save(icons: Array<IconOutput>): Promise<void> {
-    const target = join(this.cwd, 'src/icons')
+    const target = join(this.cwd, 'src')
 
     try {
       await access(target)
