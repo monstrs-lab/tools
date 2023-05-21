@@ -26,7 +26,7 @@ class ServiceBuildCommand extends AbstractServiceCommand {
           try {
             progress.start()
 
-            const logRecords = await new ServiceWorker(this.context.cwd, project.cwd).run()
+            const logRecords = await new ServiceWorker(project.cwd).run(this.context.cwd)
 
             progress.end()
 

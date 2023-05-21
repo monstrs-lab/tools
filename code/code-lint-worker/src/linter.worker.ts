@@ -8,9 +8,13 @@ import { getContent }       from './linter.worker.content.js'
 export class LinterWorker {
   constructor(private readonly cwd: string) {}
 
-  async run(files: Array<string> = [], options?: LintOptions): Promise<Array<ESLint.LintResult>> {
-    return EvalWorker.run(getContent(), {
-      cwd: this.cwd,
+  async run(
+    cwd: string,
+    files: Array<string> = [],
+    options?: LintOptions
+  ): Promise<Array<ESLint.LintResult>> {
+    return EvalWorker.run(this.cwd, getContent(), {
+      cwd,
       options,
       files,
     })

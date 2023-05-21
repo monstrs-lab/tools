@@ -4098,7 +4098,9 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@monstrs/yarn-plugin-ui", "virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-ui"],\
           ["@jest/globals", "npm:29.5.0"],\
+          ["@monstrs/code-format-worker", "workspace:code/code-format-worker"],\
           ["@monstrs/code-icons-worker", "workspace:code/code-icons-worker"],\
+          ["@monstrs/code-lint-worker", "workspace:code/code-lint-worker"],\
           ["@monstrs/yarn-run-utils", "workspace:yarn/run-utils"],\
           ["@monstrs/yarn-test-utils", "workspace:yarn/test-utils"],\
           ["@types/yarnpkg__cli", null],\
@@ -4121,7 +4123,9 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@monstrs/yarn-plugin-ui", "workspace:yarn/plugin-ui"],\
           ["@jest/globals", "npm:29.5.0"],\
+          ["@monstrs/code-format-worker", "workspace:code/code-format-worker"],\
           ["@monstrs/code-icons-worker", "workspace:code/code-icons-worker"],\
+          ["@monstrs/code-lint-worker", "workspace:code/code-lint-worker"],\
           ["@monstrs/yarn-run-utils", "workspace:yarn/run-utils"],\
           ["@monstrs/yarn-test-utils", "workspace:yarn/test-utils"],\
           ["@yarnpkg/builder", "npm:4.0.0-rc.43"],\

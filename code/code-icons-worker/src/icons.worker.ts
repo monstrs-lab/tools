@@ -5,9 +5,9 @@ import { getContent } from './icons.worker.content.js'
 export class IconsWorker {
   constructor(private readonly cwd: string) {}
 
-  async run() {
-    return EvalWorker.run(getContent(), {
-      cwd: this.cwd,
+  async run(cwd: string) {
+    return EvalWorker.run(this.cwd, getContent(), {
+      cwd,
     })
   }
 }

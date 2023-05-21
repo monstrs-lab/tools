@@ -35,7 +35,7 @@ class LintCommand extends BaseCommand {
           progress.start()
 
           try {
-            const results = await new LinterWorker(project.cwd).run(this.files, {
+            const results = await new LinterWorker(project.cwd).run(this.context.cwd, this.files, {
               fix: this.fix,
             })
 

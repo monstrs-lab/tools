@@ -8,9 +8,9 @@ import { Worker }    from 'node:worker_threads'
 import hash          from 'hash-string'
 
 export class EvalWorker {
-  private static async build(content: string, workerData: object): Promise<Worker> {
+  private static async build(cwd: string, content: string, workerData: object): Promise<Worker> {
     const filename: string = hash(content)
-    const file: string = join(process.cwd(), `.yarn/dist/${filename}.mjs`)
+    const file: string = join(cwd, `.yarn/dist/${filename}.mjs`)
 
     try {
       try {
@@ -27,17 +27,17 @@ export class EvalWorker {
     const execArgv: Array<string> = []
 
     try {
-      await access(join(process.cwd(), '.pnp.cjs'))
+      await access(join(cwd, '.pnp.cjs'))
 
       execArgv.push('--require')
-      execArgv.push(join(process.cwd(), '.pnp.cjs'))
+      execArgv.push(join(cwd, '.pnp.cjs'))
     } catch {} // eslint-disable-line no-empty
 
     try {
-      await access(join(process.cwd(), '.pnp.cjs'))
+      await access(join(cwd, '.pnp.cjs'))
 
       execArgv.push('--loader')
-      execArgv.push(join(process.cwd(), '.pnp.loader.mjs'))
+      execArgv.push(join(cwd, '.pnp.loader.mjs'))
     } catch {} // eslint-disable-line no-empty
 
     return new Worker(file, {
@@ -48,8 +48,8 @@ export class EvalWorker {
     })
   }
 
-  static async run<T>(content: string, workerData: object): Promise<T> {
-    const worker = await EvalWorker.build(content, workerData)
+  static async run<T>(cwd: string, content: string, workerData: object): Promise<T> {
+    const worker = await EvalWorker.build(cwd, content, workerData)
 
     return new Promise((resolve, reject) => {
       const exitHandler = (code: number) => {
@@ -69,11 +69,12 @@ export class EvalWorker {
   }
 
   static async watch<T>(
+    cwd: string,
     content: string,
     workerData: object,
     callback: (logRecord: T) => void
   ): Promise<void> {
-    const worker = await EvalWorker.build(content, workerData)
+    const worker = await EvalWorker.build(cwd, content, workerData)
 
     return new Promise((resolve, reject) => {
       const stdinHandler = (data) => {

@@ -25,10 +25,7 @@ describe('icons', () => {
 
       await expect(
         readFile(
-          join(
-            fileURLToPath(new URL('.', import.meta.url)),
-            'fixtures/simple/src/icons/alarm.icon.tsx'
-          ),
+          join(fileURLToPath(new URL('.', import.meta.url)), 'fixtures/simple/src/alarm.icon.tsx'),
           'utf8'
         )
       ).resolves.toMatchSnapshot()
