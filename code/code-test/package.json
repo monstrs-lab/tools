@@ -24,7 +24,7 @@
     "@monstrs/tools-runtime": "workspace:0.0.5"
   },
   "devDependencies": {
-    "@types/node": "^18.16.4"
+    "@types/node": "^20.2.3"
   },
   "peerDependenciesMeta": {
     "jest": {

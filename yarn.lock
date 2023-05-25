@@ -1562,13 +1562,69 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mikro-orm/core@npm:*":
+  version: 5.7.10
+  resolution: "@mikro-orm/core@npm:5.7.10"
+  dependencies:
+    acorn-loose: "npm:8.3.0"
+    acorn-walk: "npm:8.2.0"
+    dotenv: "npm:16.0.3"
+    fs-extra: "npm:11.1.1"
+    globby: "npm:11.1.0"
+    mikro-orm: "npm:~5.7.10"
+    reflect-metadata: "npm:0.1.13"
+  peerDependencies:
+    "@mikro-orm/better-sqlite": ^5.0.0
+    "@mikro-orm/entity-generator": ^5.0.0
+    "@mikro-orm/mariadb": ^5.0.0
+    "@mikro-orm/migrations": ^5.0.0
+    "@mikro-orm/migrations-mongodb": ^5.0.0
+    "@mikro-orm/mongodb": ^5.0.0
+    "@mikro-orm/mysql": ^5.0.0
+    "@mikro-orm/postgresql": ^5.0.0
+    "@mikro-orm/seeder": ^5.0.0
+    "@mikro-orm/sqlite": ^5.0.0
+  peerDependenciesMeta:
+    "@mikro-orm/better-sqlite":
+      optional: true
+    "@mikro-orm/entity-generator":
+      optional: true
+    "@mikro-orm/mariadb":
+      optional: true
+    "@mikro-orm/migrations":
+      optional: true
+    "@mikro-orm/migrations-mongodb":
+      optional: true
+    "@mikro-orm/mongodb":
+      optional: true
+    "@mikro-orm/mysql":
+      optional: true
+    "@mikro-orm/postgresql":
+      optional: true
+    "@mikro-orm/seeder":
+      optional: true
+    "@mikro-orm/sqlite":
+      optional: true
+  checksum: 9b60c3b732fd43cacdb99ce630ecb7ae8f9be52fa6d3df7ea3651ed8f27ced788b1c328a4c856d18da96a76cf4d3f4d4d42f5ab77c185df8fc1537b1076ebc05
+  languageName: node
+  linkType: hard
+
+"@mikro-orm/sql-highlighter@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "@mikro-orm/sql-highlighter@npm:1.0.1"
+  dependencies:
+    ansi-colors: "npm:^4.1.1"
+  checksum: 191f8e248a4f8e72cfd8b110f5207c211c7e298e374a1cc85824c392d28b63eb495adc423ff079e499274d9b16f115af01d6106d3ef8091f7e4741b385fcc955
+  languageName: node
+  linkType: hard
+
 "@monstrs/cli-ui-error-info-component@workspace:0.1.7, @monstrs/cli-ui-error-info-component@workspace:cli/cli-ui-error-info-component":
   version: 0.0.0-use.local
   resolution: "@monstrs/cli-ui-error-info-component@workspace:cli/cli-ui-error-info-component"
   dependencies:
     "@monstrs/cli-ui-stack-trace-component": "workspace:0.1.7"
-    "@types/node": "npm:^18.16.4"
-    "@types/react": "npm:^18.2.5"
+    "@types/node": "npm:^20.2.3"
+    "@types/react": "npm:^18.2.7"
     ink: "npm:^4.2.0"
     react: "npm:^18.2.0"
   peerDependencies:
@@ -1584,7 +1640,7 @@ __metadata:
     "@jest/globals": "npm:29.5.0"
     "@monstrs/cli-ui-renderer": "workspace:0.1.6"
     "@monstrs/cli-ui-source-component": "workspace:0.1.7"
-    "@types/react": "npm:^18.2.5"
+    "@types/react": "npm:^18.2.7"
     ink: "npm:^4.2.0"
     nanoid: "npm:^4.0.2"
     react: "npm:^18.2.0"
@@ -1600,8 +1656,8 @@ __metadata:
   resolution: "@monstrs/cli-ui-git-commit-component@workspace:cli/cli-ui-git-commit"
   dependencies:
     "@monstrs/code-commit": "workspace:0.1.8"
-    "@types/node": "npm:^18.16.4"
-    "@types/react": "npm:^18.2.5"
+    "@types/node": "npm:^20.2.3"
+    "@types/react": "npm:^18.2.7"
     "@yarnpkg/libui": "npm:^3.0.0-rc.43"
     camelcase: "npm:^7.0.1"
     figures: "npm:^5.0.0"
@@ -1621,14 +1677,18 @@ __metadata:
   resolution: "@monstrs/cli-ui-log-record-component@workspace:cli/cli-ui-log-record-component"
   dependencies:
     "@jest/globals": "npm:29.5.0"
+    "@mikro-orm/sql-highlighter": "npm:^1.0.1"
     "@monstrs/cli-ui-renderer": "workspace:0.1.6"
     "@monstrs/cli-ui-stack-trace-component": "workspace:0.1.7"
-    "@monstrs/logger": "npm:^0.0.11"
-    "@types/node": "npm:^18.16.4"
-    "@types/react": "npm:^18.2.5"
+    "@monstrs/logger": "npm:^0.0.15"
+    "@monstrs/mikro-orm-logger": "npm:^0.0.9"
+    "@types/node": "npm:^20.2.3"
+    "@types/react": "npm:^18.2.7"
     decamelize: "npm:^6.0.0"
     ink: "npm:^4.2.0"
+    nanoid: "npm:^4.0.2"
     react: "npm:^18.2.0"
+    sql-formatter: "npm:^12.2.1"
     strip-ansi: "npm:^7.0.1"
     uniqolor: "npm:^1.1.0"
   peerDependencies:
@@ -1643,8 +1703,8 @@ __metadata:
   dependencies:
     "@monstrs/cli-ui-log-record-component": "workspace:0.1.8"
     "@monstrs/cli-ui-renderer": "workspace:0.1.6"
-    "@types/node": "npm:^18.16.4"
-    "@types/react": "npm:^18.2.5"
+    "@types/node": "npm:^20.2.3"
+    "@types/react": "npm:^18.2.7"
     ink: "npm:^4.2.0"
     react: "npm:^18.2.0"
   languageName: unknown
@@ -1654,8 +1714,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/cli-ui-renderer@workspace:cli/cli-ui-renderer"
   dependencies:
-    "@types/node": "npm:^18.16.4"
-    "@types/react": "npm:^18.2.5"
+    "@types/node": "npm:^20.2.3"
+    "@types/react": "npm:^18.2.7"
     ink: "npm:^4.2.0"
     react: "npm:^18.2.0"
   languageName: unknown
@@ -1667,8 +1727,8 @@ __metadata:
   dependencies:
     "@babel/code-frame": "npm:^7.21.4"
     "@types/babel__code-frame": "npm:7.0.3"
-    "@types/node": "npm:^18.16.4"
-    "@types/react": "npm:^18.2.5"
+    "@types/node": "npm:^20.2.3"
+    "@types/react": "npm:^18.2.7"
     ink: "npm:^4.2.0"
     supports-color: "npm:^9.3.1"
   peerDependencies:
@@ -1685,7 +1745,7 @@ __metadata:
     "@monstrs/cli-ui-renderer": "workspace:0.1.6"
     "@monstrs/cli-ui-source-component": "workspace:0.1.7"
     "@monstrs/stack-trace": "npm:^0.0.4"
-    "@types/react": "npm:^18.2.5"
+    "@types/react": "npm:^18.2.7"
     ink: "npm:^4.2.0"
     nanoid: "npm:^4.0.2"
     react: "npm:^18.2.0"
@@ -1704,7 +1764,7 @@ __metadata:
     "@monstrs/cli-ui-renderer": "workspace:0.1.6"
     "@monstrs/cli-ui-source-component": "workspace:0.1.7"
     "@monstrs/code-typescript": "workspace:0.1.18"
-    "@types/react": "npm:^18.2.5"
+    "@types/react": "npm:^18.2.7"
     ink: "npm:^4.2.0"
     react: "npm:^18.2.0"
     strip-ansi: "npm:^7.0.1"
@@ -1727,7 +1787,7 @@ __metadata:
     "@commitlint/rules": "npm:^17.6.1"
     "@commitlint/types": "npm:^17.4.4"
     "@jest/globals": "npm:29.5.0"
-    "@types/node": "npm:^18.16.4"
+    "@types/node": "npm:^20.2.3"
     conventional-changelog-angular: "npm:^5.0.13"
     conventional-commits-parser: "npm:^3.2.4"
   languageName: unknown
@@ -1750,7 +1810,7 @@ __metadata:
     "@rollup/plugin-commonjs": "npm:^24.1.0"
     "@rollup/plugin-json": "npm:^6.0.0"
     "@rollup/plugin-node-resolve": "npm:^15.0.2"
-    "@types/node": "npm:^18.16.4"
+    "@types/node": "npm:^20.2.3"
     esbuild: "npm:^0.17.18"
     rollup: "npm:^3.21.5"
     rollup-plugin-esbuild: "npm:^5.0.0"
@@ -1765,7 +1825,7 @@ __metadata:
   dependencies:
     "@monstrs/config-prettier": "workspace:0.2.6"
     "@monstrs/prettier-plugin": "workspace:0.1.9"
-    "@types/node": "npm:^18.16.4"
+    "@types/node": "npm:^20.2.3"
     globby: "npm:^13.1.4"
     ignore: "npm:^5.2.4"
     prettier: "npm:^3.0.0-alpha.6"
@@ -1781,7 +1841,7 @@ __metadata:
     "@rollup/plugin-commonjs": "npm:^24.1.0"
     "@rollup/plugin-json": "npm:^6.0.0"
     "@rollup/plugin-node-resolve": "npm:^15.0.2"
-    "@types/node": "npm:^18.16.4"
+    "@types/node": "npm:^20.2.3"
     esbuild: "npm:^0.17.18"
     rollup: "npm:^3.21.5"
     rollup-plugin-esbuild: "npm:^5.0.0"
@@ -1796,9 +1856,9 @@ __metadata:
   dependencies:
     "@jest/globals": "npm:^29.5.0"
     "@monstrs/config-typescript": "workspace:0.1.7"
-    "@monstrs/logger": "npm:^0.0.11"
+    "@monstrs/logger": "npm:^0.0.15"
     "@monstrs/tools-runtime": "workspace:0.0.5"
-    "@types/node": "npm:^18.16.4"
+    "@types/node": "npm:^20.2.3"
     "@types/webpack": "npm:^5.28.1"
     "@yarnpkg/cli": "npm:^4.0.0-rc.43"
     "@yarnpkg/core": "npm:^4.0.0-rc.43"
@@ -1819,7 +1879,7 @@ __metadata:
     "@rollup/plugin-commonjs": "npm:^24.1.0"
     "@rollup/plugin-json": "npm:^6.0.0"
     "@rollup/plugin-node-resolve": "npm:^15.0.2"
-    "@types/node": "npm:^18.16.4"
+    "@types/node": "npm:^20.2.3"
     esbuild: "npm:^0.17.18"
     rollup: "npm:^3.21.5"
     rollup-plugin-esbuild: "npm:^5.0.0"
@@ -1832,7 +1892,7 @@ __metadata:
   resolution: "@monstrs/code-lint@workspace:code/code-lint"
   dependencies:
     "@monstrs/tools-runtime": "workspace:0.0.5"
-    "@types/node": "npm:^18.16.4"
+    "@types/node": "npm:^20.2.3"
     deepmerge: "npm:^4.3.1"
     globby: "npm:^13.1.4"
     ignore: "npm:^5.2.4"
@@ -1853,7 +1913,7 @@ __metadata:
   dependencies:
     "@actions/github": "npm:^5.1.1"
     "@iarna/toml": "npm:^2.2.5"
-    "@types/node": "npm:^18.16.4"
+    "@types/node": "npm:^20.2.3"
     "@yarnpkg/core": "npm:^4.0.0-rc.43"
     "@yarnpkg/fslib": "npm:^3.0.0-rc.43"
   languageName: unknown
@@ -1869,7 +1929,7 @@ __metadata:
     "@rollup/plugin-json": "npm:^6.0.0"
     "@rollup/plugin-node-resolve": "npm:^15.0.2"
     "@rollup/plugin-replace": "npm:^5.0.2"
-    "@types/node": "npm:^18.16.4"
+    "@types/node": "npm:^20.2.3"
     esbuild: "npm:^0.17.18"
     rollup: "npm:^3.21.5"
     rollup-plugin-esbuild: "npm:^5.0.0"
@@ -1884,10 +1944,10 @@ __metadata:
     "@jest/globals": "npm:^29.5.0"
     "@monstrs/code-configuration": "workspace:0.1.7"
     "@monstrs/config-typescript": "workspace:0.1.7"
-    "@monstrs/logger": "npm:^0.0.11"
+    "@monstrs/logger": "npm:^0.0.15"
     "@monstrs/tools-runtime": "workspace:0.0.5"
     "@monstrs/webpack-start-server-plugin": "workspace:0.3.9"
-    "@types/node": "npm:^18.16.4"
+    "@types/node": "npm:^20.2.3"
     "@types/webpack": "npm:^5.28.1"
     "@yarnpkg/cli": "npm:^4.0.0-rc.43"
     "@yarnpkg/core": "npm:^4.0.0-rc.43"
@@ -1924,7 +1984,7 @@ __metadata:
     "@jest/test-result": "npm:^29.5.0"
     "@jest/types": "npm:^29.5.0"
     "@monstrs/tools-runtime": "workspace:0.0.5"
-    "@types/node": "npm:^18.16.4"
+    "@types/node": "npm:^20.2.3"
   peerDependenciesMeta:
     jest:
       optional: true
@@ -1956,7 +2016,7 @@ __metadata:
     "@monstrs/config-typescript": "workspace:0.1.7"
     "@monstrs/tools-runtime": "workspace:0.0.5"
     "@types/deepmerge": "npm:2.2.0"
-    "@types/node": "npm:^18.16.4"
+    "@types/node": "npm:^20.2.3"
     deepmerge: "npm:^4.3.1"
     typescript: "npm:^5.0.4"
   languageName: unknown
@@ -1977,7 +2037,7 @@ __metadata:
     "@monstrs/config-prettier": "workspace:0.2.6"
     "@next/eslint-plugin-next": "npm:^13.4.2"
     "@types/eslint": "npm:^8.37.0"
-    "@types/node": "npm:^18.16.4"
+    "@types/node": "npm:^20.2.3"
     "@typescript-eslint/eslint-plugin": "npm:^5.59.2"
     "@typescript-eslint/parser": "npm:^5.59.2"
     eslint: "npm:^8.39.0"
@@ -2004,7 +2064,7 @@ __metadata:
     "@emotion/jest": "npm:^11.10.8"
     "@monstrs/config-typescript": "workspace:0.1.7"
     "@monstrs/jest-resolver": "workspace:0.1.2"
-    "@types/node": "npm:^18.16.4"
+    "@types/node": "npm:^20.2.3"
     jest-static-stubs: "npm:^0.0.1"
     ts-jest: "npm:^29.1.0"
   languageName: unknown
@@ -2014,7 +2074,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/config-prettier@workspace:config/prettier"
   dependencies:
-    "@types/node": "npm:^18.16.4"
+    "@types/node": "npm:^20.2.3"
     prettier: "npm:^3.0.0-alpha.6"
   languageName: unknown
   linkType: soft
@@ -2033,9 +2093,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/logger@npm:^0.0.11":
-  version: 0.0.11
-  resolution: "@monstrs/logger@npm:0.0.11"
+"@monstrs/logger@npm:^0.0.15":
+  version: 0.0.15
+  resolution: "@monstrs/logger@npm:0.0.15"
   dependencies:
     "@opentelemetry/api": "npm:*"
     "@opentelemetry/api-logs": "npm:^0.38.0"
@@ -2043,7 +2103,18 @@ __metadata:
     "@opentelemetry/sdk-logs": "npm:^0.37.0"
     on-exit-leak-free: "npm:^2.1.0"
     sonic-boom: "npm:^3.3.0"
-  checksum: 8d7a1d6698a1a2d41ce1431481fb83ba7f44f97761ea30a6a65f64c507c77d0b9e97c4359e705369347c93885198ed1026956061a273e5dde9d6a2870cbba525
+  checksum: 322a6e167c0b4485c7c81b1971a338fb6c7462c9ef073d25ae11eb15badb73c14b8b86b7e567f7eff31fda51287304a3503b90a5182f73c67a7357adc412a09d
+  languageName: node
+  linkType: hard
+
+"@monstrs/mikro-orm-logger@npm:^0.0.9":
+  version: 0.0.9
+  resolution: "@monstrs/mikro-orm-logger@npm:0.0.9"
+  dependencies:
+    "@monstrs/logger": "npm:^0.0.15"
+  peerDependencies:
+    "@mikro-orm/core": ^5
+  checksum: b8e6932bd2df67f33bb57e3da0814aab7bd1a3dd3d18bce794969554f47de7d1d4340570149c10dea7317a81d6d03fbc1c4ade5a1660637b2deec908a984a082
   languageName: node
   linkType: hard
 
@@ -2051,7 +2122,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/prettier-plugin@workspace:prettier/plugin"
   dependencies:
-    "@types/node": "npm:^18.16.4"
+    "@types/node": "npm:^20.2.3"
     "@types/prettier": "npm:^2.7.2"
     globby: "npm:^13.1.4"
     import-sort: "npm:^6.0.0"
@@ -2083,7 +2154,7 @@ __metadata:
     "@svgr/core": "npm:^8.0.0"
     "@svgr/plugin-jsx": "npm:^8.0.1"
     "@types/eslint": "npm:^8.37.0"
-    "@types/node": "npm:^18.16.4"
+    "@types/node": "npm:^20.2.3"
     eslint: "npm:^8.39.0"
     node-loader: "npm:^2.0.0"
     ts-loader: "npm:^9.4.2"
@@ -2103,7 +2174,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/webpack-start-server-plugin@workspace:webpack/webpack-start-server-plugin"
   dependencies:
-    "@types/node": "npm:^18.16.4"
+    "@types/node": "npm:^20.2.3"
     webpack: "npm:^5.82.0"
   languageName: unknown
   linkType: soft
@@ -2262,7 +2333,7 @@ __metadata:
     "@monstrs/yarn-run-utils": "workspace:0.0.1"
     "@monstrs/yarn-workspace-utils": "workspace:0.0.1"
     "@octokit/types": "npm:^9.2.0"
-    "@types/node": "npm:^18.16.4"
+    "@types/node": "npm:^20.2.3"
     "@yarnpkg/builder": "npm:^4.0.0-rc.43"
     "@yarnpkg/cli": "npm:^4.0.0-rc.43"
     "@yarnpkg/core": "npm:^4.0.0-rc.43"
@@ -2491,7 +2562,7 @@ __metadata:
     "@monstrs/cli-ui-renderer": "workspace:0.1.6"
     "@monstrs/code-service": "workspace:0.1.18"
     "@monstrs/code-service-worker": "workspace:0.1.18"
-    "@monstrs/logger": "npm:^0.0.11"
+    "@monstrs/logger": "npm:^0.0.15"
     "@monstrs/yarn-pack-utils": "workspace:0.0.1"
     "@monstrs/yarn-run-utils": "workspace:0.0.1"
     "@monstrs/yarn-test-utils": "workspace:0.0.1"
@@ -2513,6 +2584,8 @@ __metadata:
   resolution: "@monstrs/yarn-plugin-test@workspace:yarn/plugin-test"
   dependencies:
     "@jest/globals": "npm:^29.5.0"
+    "@monstrs/cli-ui-log-record-component": "workspace:0.1.8"
+    "@monstrs/cli-ui-renderer": "workspace:0.1.6"
     "@monstrs/code-test-worker": "workspace:0.1.18"
     "@monstrs/yarn-test-utils": "workspace:0.0.1"
     "@yarnpkg/builder": "npm:^4.0.0-rc.43"
@@ -2520,6 +2593,7 @@ __metadata:
     "@yarnpkg/core": "npm:^4.0.0-rc.43"
     "@yarnpkg/fslib": "npm:^3.0.0-rc.43"
     clipanion: "npm:^3.2.0"
+    react: "npm:^18.2.0"
     typescript: "npm:^5.0.4"
   peerDependencies:
     "@yarnpkg/cli": ^4
@@ -3333,17 +3407,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:>= 8, @types/node@npm:^18.11.11, @types/node@npm:^18.16.4":
+"@types/node@npm:18.16.4":
   version: 18.16.4
   resolution: "@types/node@npm:18.16.4"
   checksum: a7a5662d6589016ff13c41bdab7dd1eab57284e51788c9f75a6f472f5e12085d221bfb11fd9abd18323619a102a26c9e27194105caff72bbbed842631adecb1e
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^13.7.0":
-  version: 13.13.52
-  resolution: "@types/node@npm:13.13.52"
-  checksum: cd8a49109e0f844a4f507c7dca16374fc689e52a8daf45d16b185dc89e84d13594cf5478ed59ffdb12b119c2d39b7725f910629719f5d2ff4a7a1b45c92b0ba9
   languageName: node
   linkType: hard
 
@@ -3375,7 +3442,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^18.2.5":
+"@types/react@npm:*":
   version: 18.2.5
   resolution: "@types/react@npm:18.2.5"
   dependencies:
@@ -3383,6 +3450,17 @@ __metadata:
     "@types/scheduler": "npm:*"
     csstype: "npm:^3.0.2"
   checksum: e187dfc6f325b8e9bd629e84d09047d4e428227b68c860a1d420856577684b07193e651198281776119e614894936e8d74e765bc01d11962d204708da85a9735
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:^18.2.7":
+  version: 18.2.7
+  resolution: "@types/react@npm:18.2.7"
+  dependencies:
+    "@types/prop-types": "npm:*"
+    "@types/scheduler": "npm:*"
+    csstype: "npm:^3.0.2"
+  checksum: 5703e342e02c45575b5e10b2fe13dd0df233d52e4e75e128819bea706c330c6ccbde16476ba268f1bbbc96a2faebb84ed0705aa507954feb30c834364ea50deb
   languageName: node
   linkType: hard
 
@@ -4917,7 +4995,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"acorn-walk@npm:^8.1.1":
+"acorn-loose@npm:8.3.0":
+  version: 8.3.0
+  resolution: "acorn-loose@npm:8.3.0"
+  dependencies:
+    acorn: "npm:^8.5.0"
+  checksum: d128d1734448a0fd9d3980c2287354d87fa52b5d9c362fea3e82b8dca0c277c2e8fb4f029425f481f8aa632e4556b7651b48265d9889ecc4cc9c035073fa41d1
+  languageName: node
+  linkType: hard
+
+"acorn-walk@npm:8.2.0, acorn-walk@npm:^8.1.1":
   version: 8.2.0
   resolution: "acorn-walk@npm:8.2.0"
   checksum: 389d3f19998ac0924a590485a6502b72059e3ab67cc820477c2c40cca06b6c50bb8d424bfbb8fe97955eb489b88cb5dc7ee6979fcf9321dce7eb451ba3456d3d
@@ -6007,7 +6094,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^2.20.0":
+"commander@npm:^2.19.0, commander@npm:^2.20.0":
   version: 2.20.3
   resolution: "commander@npm:2.20.3"
   checksum: a6cb7ce73cc1db74a2da4bb6b4fc4f9a655ba35beb90f32bf5831d7d3be610dafc01dcc8a17f8204cf4e3f1f434d2115b7db56dfb0b827d42b10d1ba6ae8cbb4
@@ -6596,6 +6683,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"discontinuous-range@npm:1.0.0":
+  version: 1.0.0
+  resolution: "discontinuous-range@npm:1.0.0"
+  checksum: 85786395546622dae3111890803112c3dd8dc1981a8a5b9632374d49aa7707eac6d709a1fc5fd1d1ba96b9be9c53bdd14ee8143cdf406f2a7182d95b68ba56f9
+  languageName: node
+  linkType: hard
+
 "doctrine@npm:^2.1.0":
   version: 2.1.0
   resolution: "doctrine@npm:2.1.0"
@@ -6668,6 +6762,13 @@ __metadata:
   dependencies:
     is-obj: "npm:^2.0.0"
   checksum: 640302936faf887e4772e97f33efdc1d12adc33183503497687f0400ef832f1596e81f19a9d0f641a8e3312e9cbaa1a5d6620783dda0113871064dc9dec4a30d
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:16.0.3":
+  version: 16.0.3
+  resolution: "dotenv@npm:16.0.3"
+  checksum: abce82d99b45e2ebbd42625a78cadbfafe03072c15e6538b6a3a7ed204b6e091c0de929dd09231edc61f78afbdcd5b8a2f21b9e933e8ab27d75bee865a0e58c9
   languageName: node
   linkType: hard
 
@@ -7775,6 +7876,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fs-extra@npm:11.1.1":
+  version: 11.1.1
+  resolution: "fs-extra@npm:11.1.1"
+  dependencies:
+    graceful-fs: "npm:^4.2.0"
+    jsonfile: "npm:^6.0.1"
+    universalify: "npm:^2.0.0"
+  checksum: 9bc3e5ce6860e97abf1fb408f1d716253e1bb16da36203b2ee3f71160e5ec1e7a9d2b9bae4c99a50598a250be6db0e3b17e8031ea7c498c24513857f48db5402
+  languageName: node
+  linkType: hard
+
 "fs-extra@npm:9.1.0":
   version: 9.1.0
   resolution: "fs-extra@npm:9.1.0"
@@ -8132,7 +8244,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globby@npm:^11.0.1, globby@npm:^11.1.0":
+"globby@npm:11.1.0, globby@npm:^11.0.1, globby@npm:^11.1.0":
   version: 11.1.0
   resolution: "globby@npm:11.1.0"
   dependencies:
@@ -10324,6 +10436,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mikro-orm@npm:~5.7.10":
+  version: 5.7.10
+  resolution: "mikro-orm@npm:5.7.10"
+  checksum: 072b2febea35e58e394747f7b2aa582e1bb4938db479d51c1cee58397c96ae793a6049cb58fff762c22c829dec20bd0a59cae4e7322495818f0f56890cea1bc7
+  languageName: node
+  linkType: hard
+
 "mime-db@npm:1.51.0":
   version: 1.51.0
   resolution: "mime-db@npm:1.51.0"
@@ -10494,6 +10613,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"moo@npm:^0.5.0":
+  version: 0.5.2
+  resolution: "moo@npm:0.5.2"
+  checksum: 7e242e222112e74ce8e8d7eb879ba22966fcaf2b45884c71111287e600220101f5f8f55c606f36f6b8aed1080f9d05618f26f5e0c879a534dd3f803037b20702
+  languageName: node
+  linkType: hard
+
 "ms@npm:2.0.0":
   version: 2.0.0
   resolution: "ms@npm:2.0.0"
@@ -10549,6 +10675,23 @@ __metadata:
   version: 1.4.0
   resolution: "natural-compare@npm:1.4.0"
   checksum: cf6f4ccd700fbeaae533f0821e4de8582e340f9b0324f1e6d2486484e44a64f95acf7c7e5ef274f963934d5b74c3716c8ae58e367e112effae95d8d021158bff
+  languageName: node
+  linkType: hard
+
+"nearley@npm:^2.20.1":
+  version: 2.20.1
+  resolution: "nearley@npm:2.20.1"
+  dependencies:
+    commander: "npm:^2.19.0"
+    moo: "npm:^0.5.0"
+    railroad-diagrams: "npm:^1.0.0"
+    randexp: "npm:0.4.6"
+  bin:
+    nearley-railroad: bin/nearley-railroad.js
+    nearley-test: bin/nearley-test.js
+    nearley-unparse: bin/nearley-unparse.js
+    nearleyc: bin/nearleyc.js
+  checksum: 71aa9a1288329a575a7eeb0bba8e3f927357cb7edecd66c18fb6cbece09bf520bd93256eed7969225db10e3dc32aa9378555898639038cb5cc1793d624b5f907
   languageName: node
   linkType: hard
 
@@ -11447,6 +11590,23 @@ pem@dexus/pem:
   languageName: node
   linkType: hard
 
+"railroad-diagrams@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "railroad-diagrams@npm:1.0.0"
+  checksum: 9bc31c8ce428f2ae887430de4bafc7b78d552fd8795d5de51e7aeb38a18fb99918b378792eda2c3eb053431d9d618cfb425eacda251f11a5707b5da115dd5d93
+  languageName: node
+  linkType: hard
+
+"randexp@npm:0.4.6":
+  version: 0.4.6
+  resolution: "randexp@npm:0.4.6"
+  dependencies:
+    discontinuous-range: "npm:1.0.0"
+    ret: "npm:~0.1.10"
+  checksum: feacb1d577914ad13c672942e2f45699aa1ce0c06dd0efb22d7254ebb32c8eb7c31cc01b557003c0552e6455433f098b128a126e87326ef4c0c8a28f478ae74e
+  languageName: node
+  linkType: hard
+
 "randombytes@npm:^2.1.0":
   version: 2.1.0
   resolution: "randombytes@npm:2.1.0"
@@ -11595,6 +11755,13 @@ pem@dexus/pem:
     indent-string: "npm:^4.0.0"
     strip-indent: "npm:^3.0.0"
   checksum: bbc590863463cb58ee2cba8434cedfc7a7ba3187e90f38d81d7b4332d08a3a0188f3786c3b15f5f5d6b729c1e2304c85b5cfdf7f07dd00797719845a548fe770
+  languageName: node
+  linkType: hard
+
+"reflect-metadata@npm:0.1.13":
+  version: 0.1.13
+  resolution: "reflect-metadata@npm:0.1.13"
+  checksum: 61ce7c28a941bb75972972dfb8196e1d62e7c80a30111e1e0454ecb1a506fbee5dcb58c18c212b9f784b96686eb5b5b1baf7eb768e0d627c11c213e65f3af412
   languageName: node
   linkType: hard
 
@@ -11796,6 +11963,13 @@ pem@dexus/pem:
     onetime: "npm:^5.1.0"
     signal-exit: "npm:^3.0.2"
   checksum: c0480003dbdebd1a4cfc75287b073a2ce66fb7eaa611282a5dc27593a9edaa39a030fa8ad765f1cb8689f71dbe57988baa8300f60e26a2a8240e41aae25f4de9
+  languageName: node
+  linkType: hard
+
+"ret@npm:~0.1.10":
+  version: 0.1.15
+  resolution: "ret@npm:0.1.15"
+  checksum: d65bd0cc83122e33a284e87ff9b51f553e5da3d05b0643740a0c07189f6025972a70856e794bdae3d8cdfb36bc8c05a3aad3935bdadbd20bdaa1789b70a21e8c
   languageName: node
   linkType: hard
 
@@ -12327,6 +12501,18 @@ pem@dexus/pem:
   version: 1.0.3
   resolution: "sprintf-js@npm:1.0.3"
   checksum: 3e0738f581ab5582868689318a4987ea532cdf220266c1af6fdc5a5091f5c4e758fe3fed9125ac82ed91119ec2cbe0762c0e069b59b929bf70e8bbbf879e56e5
+  languageName: node
+  linkType: hard
+
+"sql-formatter@npm:^12.2.1":
+  version: 12.2.1
+  resolution: "sql-formatter@npm:12.2.1"
+  dependencies:
+    argparse: "npm:^2.0.1"
+    nearley: "npm:^2.20.1"
+  bin:
+    sql-formatter: bin/sql-formatter-cli.cjs
+  checksum: 38348b7d9e05c832412eeac2ec3effc9eaf88cfd5bd771baf2ac8787177aa152260f7c788558b44f1e2798296f172ea0310d91e130d4b61fde16cf571dcf6aff
   languageName: node
   linkType: hard
 
@@ -12937,7 +13123,7 @@ pem@dexus/pem:
   resolution: "tools@workspace:."
   dependencies:
     "@monstrs/tools-runtime": "workspace:0.0.5"
-    "@types/node": "npm:^18.16.4"
+    "@types/node": "npm:^20.2.3"
     "@yarnpkg/builder": "npm:^4.0.0-rc.43"
     esbuild: "npm:esbuild-wasm@^0.17.18"
     husky: "npm:8.0.3"

@@ -8,7 +8,7 @@ import { renderNodeToOutput } from './ink.js'
 export const renderStatic = (
   target: ReactNode,
   terminalWidth: number = process.stdout.columns || 80
-) => {
+): string => {
   const rootNode = createNode('ink-root')
   const container = reconciler.createContainer(rootNode, false, false)
 

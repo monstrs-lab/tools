@@ -1,12 +1,14 @@
-import { describe }     from '@jest/globals'
-import { expect }       from '@jest/globals'
-import { it }           from '@jest/globals'
-import React            from 'react'
-import stripAnsi        from 'strip-ansi'
+import { LOGGER_SQL_ATTRIBUTE_NAME }    from '@monstrs/mikro-orm-logger'
+import { LOGGER_PARAMS_ATTRIBUTE_NAME } from '@monstrs/mikro-orm-logger'
+import { describe }                     from '@jest/globals'
+import { expect }                       from '@jest/globals'
+import { it }                           from '@jest/globals'
+import React                            from 'react'
+import stripAnsi                        from 'strip-ansi'
 
-import { renderStatic } from '@monstrs/cli-ui-renderer'
+import { renderStatic }                 from '@monstrs/cli-ui-renderer'
 
-import { LogRecord }    from './log-record.component.jsx'
+import { LogRecord }                    from './log-record.component.jsx'
 
 const createStack = () => {
   const cwd = process.cwd()
@@ -30,6 +32,22 @@ describe('log record component', () => {
 
   it('render body error stack', () => {
     const output = renderStatic(<LogRecord namespace='test' stack={createStack()} />, 160)
+
+    expect(stripAnsi(output)).toMatchSnapshot()
+  })
+
+  it('render mikro orm query', () => {
+    const output = renderStatic(
+      <LogRecord
+        namespace='test'
+        body='query'
+        attributes={{
+          [LOGGER_SQL_ATTRIBUTE_NAME]: `select "s0".* from "test" as "s0" where "s0"."id" = 'a89794ba-7269-41e7-8075-e17bc2657942'`,
+          [LOGGER_PARAMS_ATTRIBUTE_NAME]: ['a89794ba-7269-41e7-8075-e17bc2657942'],
+        }}
+      />,
+      160
+    )
 
     expect(stripAnsi(output)).toMatchSnapshot()
   })
