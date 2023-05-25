@@ -35,6 +35,17 @@ export class RendererBuildCommand extends BaseCommand {
                 report.reportInfo(MessageName.UNNAMED, line)
               }))
 
+          stderr.on('data', (data) =>
+            data
+              .toString()
+              .split('\n')
+              .filter(Boolean)
+              .forEach((line = '') => {
+                if (!line.startsWith('- warn')) {
+                  report.reportError(MessageName.UNNAMED, line)
+                }
+              }))
+
           try {
             await xfs.writeJsonPromise(ppath.join(this.context.cwd, 'src/package.json'), {
               type: 'module',
