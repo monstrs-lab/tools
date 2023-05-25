@@ -18,8 +18,11 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
+    "@monstrs/cli-ui-log-record-component": "workspace:0.1.8",
+    "@monstrs/cli-ui-renderer": "workspace:0.1.6",
     "@monstrs/code-test-worker": "workspace:0.1.18",
-    "clipanion": "^3.2.0"
+    "clipanion": "^3.2.0",
+    "react": "^18.2.0"
   },
   "devDependencies": {
     "@jest/globals": "^29.5.0",

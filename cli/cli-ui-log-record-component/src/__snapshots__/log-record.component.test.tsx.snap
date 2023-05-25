@@ -12,3 +12,14 @@ mapper                                      .yarn/cache/jest-jasmine2-npm-26.6.3
 processTicksAndRejections                                                                                                   internal/process/task_queues.js:93:5
 "
 `;
+
+exports[`log record component render mikro orm query 1`] = `
+"test query
+    SQL:    select
+              "s0".*
+            from
+              "test" as "s0"
+            where
+              "s0"."id" = 'a89794ba-7269-41e7-8075-e17bc2657942'
+    PARAMS: [a89794ba-7269-41e7-8075-e17bc2657942]"
+`;

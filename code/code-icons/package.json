@@ -28,8 +28,8 @@
   },
   "devDependencies": {
     "@jest/globals": "^29.5.0",
-    "@monstrs/logger": "^0.0.11",
-    "@types/node": "^18.16.4",
+    "@monstrs/logger": "^0.0.15",
+    "@types/node": "^20.2.3",
     "@types/webpack": "^5.28.1",
     "@yarnpkg/fslib": "^3.0.0-rc.43"
   },

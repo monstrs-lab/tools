@@ -24,7 +24,7 @@
     "ts-jest": "^29.1.0"
   },
   "devDependencies": {
-    "@types/node": "^18.16.4"
+    "@types/node": "^20.2.3"
   },
   "publishConfig": {
     "access": "public",

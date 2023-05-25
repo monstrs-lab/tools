@@ -8,6 +8,7 @@ import React                               from 'react'
 import { LogStackTrace }                   from './log-stack-trace.component.jsx'
 import { LogMessage }                      from './log-message.component.jsx'
 import { LogNamespace }                    from './log-namespace.component.jsx'
+import { LogMikroOrm }                     from './log-mikro-orm.component.jsx'
 
 export interface LogRecordProps extends Record {
   namespace?: string
@@ -27,5 +28,6 @@ export const LogRecord: FC<LogRecordProps> = ({ namespace, body, stack, attribut
       </Box>
     </Box>
     <LogStackTrace>{stack || attributes['@stack']}</LogStackTrace>
+    <LogMikroOrm>{attributes}</LogMikroOrm>
   </Box>
 )

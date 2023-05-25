@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@types/deepmerge": "2.2.0",
-    "@types/node": "^18.16.4",
+    "@types/node": "^20.2.3",
     "typescript": "^5.0.4"
   },
   "publishConfig": {
