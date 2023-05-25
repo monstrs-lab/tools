@@ -40,10 +40,8 @@ export class RendererBuildCommand extends BaseCommand {
               .toString()
               .split('\n')
               .filter(Boolean)
-              .forEach((line = '') => {
-                if (!(line.trim().startsWith('warn') || line.trim().startsWith('<w>'))) {
-                  report.reportError(MessageName.UNNAMED, line)
-                }
+              .forEach((line) => {
+                report.reportInfo(MessageName.UNNAMED, line)
               }))
 
           try {
