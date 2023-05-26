@@ -17,10 +17,10 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "webpack": "^5.82.0"
+    "webpack": "^5.84.1"
   },
   "devDependencies": {
-    "@types/node": "^20.2.3"
+    "@types/node": "^20.2.4"
   },
   "publishConfig": {
     "access": "public",

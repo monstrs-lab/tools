@@ -3,12 +3,12 @@ export const LAZY_IMPORTS = [
   'amqp-connection-manager',
   '@grpc/grpc-js',
   'amqplib',
-  'ioredis',
   'redis',
   'mqtt',
   'nats',
 
   // sql
+  'cloudflare:sockets',
   'better-sqlite3',
   'pg-native',
   'hdb-pool',
