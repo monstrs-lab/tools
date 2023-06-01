@@ -26,6 +26,14 @@
   "devDependencies": {
     "@types/node": "^20.2.3"
   },
+  "peerDependenciesMeta": {
+    "jest": {
+      "optional": true
+    },
+    "typescript": {
+      "optional": true
+    }
+  },
   "publishConfig": {
     "access": "public",
     "exports": {
