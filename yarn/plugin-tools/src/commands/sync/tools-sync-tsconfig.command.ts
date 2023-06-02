@@ -26,6 +26,18 @@ const combineMerge = (target, source, options) => {
   return destination
 }
 
+const converWorkspacesToIncludes = (workspaces: string) => {
+  if (workspaces.endsWith('/**/*')) {
+    return workspaces
+  }
+
+  if (!workspaces.endsWith('/**/*') && workspaces.endsWith('/*')) {
+    return workspaces.replace('/*', '/**/*')
+  }
+
+  return workspaces
+}
+
 export class ToolsSyncTSConfigCommand extends BaseCommand {
   static paths = [['tools', 'sync', 'tsconfig']]
 
@@ -63,7 +75,13 @@ export class ToolsSyncTSConfigCommand extends BaseCommand {
           await xfs.writeJsonPromise(tsconfigpath, {
             ...config,
             include: Array.from(
-              new Set(['project.types.d.ts', ...((config as any).include || [])])
+              new Set([
+                'project.types.d.ts',
+                ...((config as any).include || []),
+                ...(project.topLevelWorkspace.manifest.raw.workspaces || []).map(
+                  converWorkspacesToIncludes
+                ),
+              ])
             ),
           })
         })
