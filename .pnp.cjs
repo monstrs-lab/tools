@@ -328,7 +328,6 @@ const RAW_RUNTIME_STATE =
             "esbuild-wasm",\
             "npm:0.17.18"\
           ]],\
-          ["husky", "npm:8.0.3"],\
           ["typescript", "patch:typescript@npm%3A5.0.4#optional!builtin<compat/typescript>::version=5.0.4&hash=b5f058"]\
         ],\
         "linkType": "SOFT"\
@@ -4167,6 +4166,7 @@ const RAW_RUNTIME_STATE =
           ["@yarnpkg/fslib", "npm:3.0.0-rc.43"],\
           ["clipanion", "virtual:b70a67a2169cc33321ce931378e7d8d1e224cefabe565604870e653646bfc1df59cb4e02134f4b377f65bb7f23ee932786cfbb187fdf9452caf3e0f86750d30e#npm:3.2.0"],\
           ["deepmerge", "npm:4.3.1"],\
+          ["husky", "npm:8.0.3"],\
           ["semver", "npm:7.5.0"]\
         ],\
         "linkType": "SOFT"\
@@ -17528,7 +17528,6 @@ const RAW_RUNTIME_STATE =
             "esbuild-wasm",\
             "npm:0.17.18"\
           ]],\
-          ["husky", "npm:8.0.3"],\
           ["typescript", "patch:typescript@npm%3A5.0.4#optional!builtin<compat/typescript>::version=5.0.4&hash=b5f058"]\
         ],\
         "linkType": "SOFT"\

@@ -51,7 +51,7 @@ export class ToolsSyncTSConfigCommand extends BaseCommand {
 
           await xfs.writeFilePromise(
             ppath.join(project.topLevelWorkspace.cwd, 'project.types.d.ts' as PortablePath),
-            '/// <reference types="@monstrs/tools-runtime/types" />'
+            '/// <reference types="@monstrs/tools-runtime/types" />\n'
           )
 
           const config = deepmerge(

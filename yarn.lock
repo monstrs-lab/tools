@@ -2604,6 +2604,7 @@ __metadata:
     "@yarnpkg/fslib": "npm:^3.0.0-rc.43"
     clipanion: "npm:^3.2.0"
     deepmerge: "npm:^4.3.1"
+    husky: "npm:^8.0.3"
     semver: "npm:^7.5.0"
   languageName: unknown
   linkType: soft
@@ -8521,7 +8522,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"husky@npm:8.0.3":
+"husky@npm:^8.0.3":
   version: 8.0.3
   resolution: "husky@npm:8.0.3"
   bin:
@@ -13131,7 +13132,6 @@ pem@dexus/pem:
     "@types/node": "npm:^20.2.3"
     "@yarnpkg/builder": "npm:^4.0.0-rc.43"
     esbuild: "npm:esbuild-wasm@^0.17.18"
-    husky: "npm:8.0.3"
     typescript: "npm:^5.0.4"
   languageName: unknown
   linkType: soft
