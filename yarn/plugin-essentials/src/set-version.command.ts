@@ -38,7 +38,7 @@ export class SetVersionCommand extends BaseCommand {
     await configuration.triggerHook(
       (hooks) => (hooks as any).afterYarnVersionSet,
       configuration,
-      this.cli
+      this.context
     )
 
     return exitCode

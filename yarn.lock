@@ -2067,6 +2067,11 @@ __metadata:
     "@types/node": "npm:^20.2.3"
     jest-static-stubs: "npm:^0.0.1"
     ts-jest: "npm:^29.1.0"
+  peerDependenciesMeta:
+    jest:
+      optional: true
+    typescript:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -2144,7 +2149,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@monstrs/tools-runtime@workspace:0.0.5, @monstrs/tools-runtime@workspace:runtime/code-runtime":
+"@monstrs/tools-runtime@workspace:0.0.5, @monstrs/tools-runtime@workspace:^, @monstrs/tools-runtime@workspace:runtime/code-runtime":
   version: 0.0.0-use.local
   resolution: "@monstrs/tools-runtime@workspace:runtime/code-runtime"
   dependencies:
@@ -2192,10 +2197,10 @@ __metadata:
     "@monstrs/yarn-plugin-image": "workspace:^"
     "@monstrs/yarn-plugin-library": "workspace:^"
     "@monstrs/yarn-plugin-lint": "workspace:^"
-    "@monstrs/yarn-plugin-project": "workspace:^"
     "@monstrs/yarn-plugin-renderer": "workspace:^"
     "@monstrs/yarn-plugin-service": "workspace:^"
     "@monstrs/yarn-plugin-test": "workspace:^"
+    "@monstrs/yarn-plugin-tools": "workspace:^"
     "@monstrs/yarn-plugin-types": "workspace:^"
     "@monstrs/yarn-plugin-ui": "workspace:^"
     "@monstrs/yarn-plugin-workspaces": "workspace:^"
@@ -2246,10 +2251,10 @@ __metadata:
     "@monstrs/yarn-plugin-image": "workspace:^"
     "@monstrs/yarn-plugin-library": "workspace:^"
     "@monstrs/yarn-plugin-lint": "workspace:^"
-    "@monstrs/yarn-plugin-project": "workspace:^"
     "@monstrs/yarn-plugin-renderer": "workspace:^"
     "@monstrs/yarn-plugin-service": "workspace:^"
     "@monstrs/yarn-plugin-test": "workspace:^"
+    "@monstrs/yarn-plugin-tools": "workspace:^"
     "@monstrs/yarn-plugin-types": "workspace:^"
     "@monstrs/yarn-plugin-ui": "workspace:^"
     "@monstrs/yarn-plugin-workspaces": "workspace:^"
@@ -2517,20 +2522,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/yarn-plugin-project@workspace:^, @monstrs/yarn-plugin-project@workspace:yarn/plugin-project":
-  version: 0.0.0-use.local
-  resolution: "@monstrs/yarn-plugin-project@workspace:yarn/plugin-project"
-  dependencies:
-    "@monstrs/tools-runtime": "workspace:0.0.5"
-    "@yarnpkg/builder": "npm:^4.0.0-rc.43"
-    "@yarnpkg/cli": "npm:^4.0.0-rc.43"
-    "@yarnpkg/core": "npm:^4.0.0-rc.43"
-    "@yarnpkg/fslib": "npm:^3.0.0-rc.43"
-    clipanion: "npm:^3.2.0"
-    semver: "npm:^7.5.0"
-  languageName: unknown
-  linkType: soft
-
 "@monstrs/yarn-plugin-renderer@workspace:^, @monstrs/yarn-plugin-renderer@workspace:yarn/plugin-renderer":
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-renderer@workspace:yarn/plugin-renderer"
@@ -2601,6 +2592,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@monstrs/yarn-plugin-tools@workspace:^, @monstrs/yarn-plugin-tools@workspace:yarn/plugin-tools":
+  version: 0.0.0-use.local
+  resolution: "@monstrs/yarn-plugin-tools@workspace:yarn/plugin-tools"
+  dependencies:
+    "@monstrs/config-typescript": "workspace:0.1.7"
+    "@monstrs/tools-runtime": "workspace:^"
+    "@yarnpkg/builder": "npm:^4.0.0-rc.43"
+    "@yarnpkg/cli": "npm:^4.0.0-rc.43"
+    "@yarnpkg/core": "npm:^4.0.0-rc.43"
+    "@yarnpkg/fslib": "npm:^3.0.0-rc.43"
+    clipanion: "npm:^3.2.0"
+    deepmerge: "npm:^4.3.1"
+    husky: "npm:^8.0.3"
+    semver: "npm:^7.5.0"
+  languageName: unknown
+  linkType: soft
+
 "@monstrs/yarn-plugin-types@workspace:^, @monstrs/yarn-plugin-types@workspace:yarn/plugin-types":
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-types@workspace:yarn/plugin-types"
@@ -2610,7 +2618,6 @@ __metadata:
     "@monstrs/cli-ui-renderer": "workspace:0.1.6"
     "@monstrs/cli-ui-typescript-diagnostic-component": "workspace:0.1.18"
     "@monstrs/code-typescript-worker": "workspace:0.1.18"
-    "@monstrs/config-typescript": "workspace:0.1.7"
     "@monstrs/tools-runtime": "workspace:0.0.5"
     "@monstrs/yarn-run-utils": "workspace:0.0.1"
     "@monstrs/yarn-test-utils": "workspace:0.0.1"
@@ -2619,7 +2626,6 @@ __metadata:
     "@yarnpkg/core": "npm:^4.0.0-rc.43"
     "@yarnpkg/fslib": "npm:^3.0.0-rc.43"
     clipanion: "npm:^3.2.0"
-    deepmerge: "npm:^4.3.1"
     react: "npm:^18.2.0"
     semver: "npm:^7.5.0"
     typescript: "npm:^5.0.4"
@@ -8516,7 +8522,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"husky@npm:8.0.3":
+"husky@npm:^8.0.3":
   version: 8.0.3
   resolution: "husky@npm:8.0.3"
   bin:
@@ -13126,7 +13132,6 @@ pem@dexus/pem:
     "@types/node": "npm:^20.2.3"
     "@yarnpkg/builder": "npm:^4.0.0-rc.43"
     esbuild: "npm:esbuild-wasm@^0.17.18"
-    husky: "npm:8.0.3"
     typescript: "npm:^5.0.4"
   languageName: unknown
   linkType: soft
