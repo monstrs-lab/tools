@@ -27,9 +27,9 @@
     "@jest/globals": "29.5.0",
     "@monstrs/yarn-run-utils": "workspace:0.0.1",
     "@monstrs/yarn-test-utils": "workspace:0.0.1",
-    "@yarnpkg/builder": "^4.0.0-rc.43",
-    "@yarnpkg/cli": "^4.0.0-rc.43",
-    "@yarnpkg/core": "^4.0.0-rc.43"
+    "@yarnpkg/builder": "^4.0.0-rc.45",
+    "@yarnpkg/cli": "^4.0.0-rc.45",
+    "@yarnpkg/core": "^4.0.0-rc.45"
   },
   "peerDependencies": {
     "@yarnpkg/cli": "^4",

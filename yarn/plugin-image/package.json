@@ -22,14 +22,14 @@
     "@monstrs/code-pack": "workspace:0.1.7",
     "@monstrs/yarn-pack-utils": "workspace:0.0.1",
     "@monstrs/yarn-run-utils": "workspace:0.0.1",
-    "@yarnpkg/plugin-patch": "^4.0.0-rc.43",
+    "@yarnpkg/plugin-patch": "^4.0.0-rc.45",
     "clipanion": "^3.2.0"
   },
   "devDependencies": {
-    "@yarnpkg/builder": "^4.0.0-rc.43",
-    "@yarnpkg/cli": "^4.0.0-rc.43",
-    "@yarnpkg/core": "^4.0.0-rc.43",
-    "@yarnpkg/fslib": "^3.0.0-rc.43",
+    "@yarnpkg/builder": "^4.0.0-rc.45",
+    "@yarnpkg/cli": "^4.0.0-rc.45",
+    "@yarnpkg/core": "^4.0.0-rc.45",
+    "@yarnpkg/fslib": "^3.0.0-rc.45",
     "typescript": "^5.0.4"
   },
   "peerDependencies": {
