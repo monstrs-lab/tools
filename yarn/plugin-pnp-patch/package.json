@@ -29,11 +29,11 @@
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^24.1.0",
-    "@rollup/plugin-node-resolve": "^15.0.2",
-    "esbuild": "^0.17.18",
-    "rollup": "^3.21.5",
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "esbuild": "^0.17.19",
+    "rollup": "^3.23.0",
     "rollup-plugin-esbuild": "^5.0.0",
-    "tslib": "^2.5.0"
+    "tslib": "^2.5.3"
   },
   "publishConfig": {
     "access": "public",
