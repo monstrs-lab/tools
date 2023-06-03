@@ -72,11 +72,18 @@ export const afterAllInstalled = async (project: Project) => {
       await xfs.writeFilePromise(ppath.join(target, '_/.gitignore'), '*')
       await xfs.writeFilePromise(ppath.join(target, '_/husky.sh'), husky)
 
-      await xfs.writeFilePromise(ppath.join(target, 'commit-msg'), hook('yarn commit message lint'))
-      await xfs.writeFilePromise(ppath.join(target, 'pre-commit'), hook('yarn commit staged'))
+      await xfs.writeFilePromise(
+        ppath.join(target, 'commit-msg'),
+        hook('yarn commit message lint'),
+        { mode: 0o755 }
+      )
+      await xfs.writeFilePromise(ppath.join(target, 'pre-commit'), hook('yarn commit staged'), {
+        mode: 0o755,
+      })
       await xfs.writeFilePromise(
         ppath.join(target, 'prepare-commit-msg'),
-        hook('yarn commit message $@')
+        hook('yarn commit message $@'),
+        { mode: 0o755 }
       )
 
       const { error } = git(['config', 'core.hooksPath', target])
