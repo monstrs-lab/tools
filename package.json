@@ -13,16 +13,14 @@
     "cli/*"
   ],
   "scripts": {
-    "cli:build": "yarn worker:format:build && yarn worker:lint:build && yarn worker:service:build && yarn worker:test:build && yarn worker:typescript:build && yarn worker:icons:build && yarn yarn:cli:build && yarn yarn:cli:fix",
-    "worker:build": "yarn worker:format:build && yarn worker:lint:build && yarn worker:service:build && yarn worker:test:build && yarn worker:typescript:build",
+    "cli:build": "yarn worker:build && yarn workspace @monstrs/yarn-cli build",
+    "worker:build": "yarn worker:format:build && yarn worker:lint:build && yarn worker:service:build && yarn worker:test:build && yarn worker:typescript:build && yarn worker:icons:build",
     "worker:format:build": "yarn workspace @monstrs/code-format-worker build:worker",
     "worker:icons:build": "yarn workspace @monstrs/code-icons-worker build:worker",
     "worker:lint:build": "yarn workspace @monstrs/code-lint-worker build:worker",
     "worker:service:build": "yarn workspace @monstrs/code-service-worker build:worker",
     "worker:test:build": "yarn workspace @monstrs/code-test-worker build:worker",
     "worker:typescript:build": "yarn workspace @monstrs/code-typescript-worker build:worker",
-    "yarn:cli:build": "yarn workspace @monstrs/yarn-cli build",
-    "yarn:cli:fix": "yarn workspace @monstrs/yarn-cli fix",
     "yarn:download": "yarn workspace @monstrs/yarn-plugin-pnp-patch yarn:download && yarn workspace @monstrs/yarn-test-utils yarn:download"
   },
   "resolutions": {

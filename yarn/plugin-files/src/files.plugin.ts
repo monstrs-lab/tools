@@ -1,6 +1,6 @@
 import type { Plugin }             from '@yarnpkg/core'
 
-import { FilesChangedListCommand } from './files-changed-list.command.js'
+import { FilesChangedListCommand } from './commands/index.js'
 
 export const plugin: Plugin = {
   commands: [FilesChangedListCommand],

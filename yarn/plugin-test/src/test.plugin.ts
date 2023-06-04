@@ -1,7 +1,7 @@
 import type { Plugin }            from '@yarnpkg/core'
 
-import { TestIntegrationCommand } from './test-integration.command.jsx'
-import { TestUnitCommand }        from './test-unit.command.jsx'
+import { TestIntegrationCommand } from './commands/index.js'
+import { TestUnitCommand }        from './commands/index.js'
 
 export const plugin: Plugin = {
   commands: [TestIntegrationCommand, TestUnitCommand],

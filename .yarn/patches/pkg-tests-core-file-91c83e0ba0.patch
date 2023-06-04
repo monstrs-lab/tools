@@ -7,7 +7,7 @@ index a749507c68f750d403c8fe7e79114997ab78c265..d0a503a6b8ce7c9d9c76a6ceed29b79d
              ? [projectFolder]
              : [];
 -        const yarnBinary = require.resolve(`${__dirname}/../../../../yarnpkg-cli/bundles/yarn.js`);
-+            const yarnBinary = require.resolve(`${__dirname.substr(0, __dirname.indexOf('/.yarn'))}/yarn/cli/bundles/yarn.cjs`);
++            const yarnBinary = require.resolve(`${__dirname.substr(0, __dirname.indexOf('/.yarn'))}/yarn/cli/dist/yarn.cjs`);
          const res = await execFile(process.execPath, [yarnBinary, ...cwdArgs, command, ...args], {
              cwd: cwd || path,
              env: {
