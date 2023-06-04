@@ -1,6 +1,6 @@
 import type { Plugin }            from '@yarnpkg/core'
 
-import { UiIconsGenerateCommand } from './ui-icons-generate.command.js'
+import { UiIconsGenerateCommand } from './commands/index.js'
 
 export const plugin: Plugin = {
   commands: [UiIconsGenerateCommand],

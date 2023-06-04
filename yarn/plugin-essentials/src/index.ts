@@ -1,3 +1,3 @@
 export { plugin as default } from './essentials.plugin.js'
 
-export * from './set-version.command.js'
+export * from './commands/index.js'

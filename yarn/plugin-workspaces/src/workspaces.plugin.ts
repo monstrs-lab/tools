@@ -1,7 +1,7 @@
 import type { Plugin }                     from '@yarnpkg/core'
 
-import { WorkspacesChangedForeachCommand } from './workspaces-changed-foreach.command.js'
-import { WorkspacesChangedListCommand }    from './workspaces-changed-list.command.js'
+import { WorkspacesChangedForeachCommand } from './commands/index.js'
+import { WorkspacesChangedListCommand }    from './commands/index.js'
 
 export const plugin: Plugin = {
   commands: [WorkspacesChangedForeachCommand, WorkspacesChangedListCommand],

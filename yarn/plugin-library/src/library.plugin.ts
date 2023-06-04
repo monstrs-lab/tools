@@ -1,7 +1,7 @@
 import type { Plugin }            from '@yarnpkg/core'
 
-import { LibraryBuildCommand }    from './library-bulid.command.jsx'
-import { beforeWorkspacePacking } from './before-workspace-packing.hook.js'
+import { LibraryBuildCommand }    from './commands/index.js'
+import { beforeWorkspacePacking } from './hooks/index.js'
 
 export const plugin: Plugin = {
   hooks: {

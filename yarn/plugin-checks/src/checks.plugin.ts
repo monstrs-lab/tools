@@ -1,11 +1,11 @@
 import type { Plugin }                  from '@yarnpkg/core'
 
-import { ChecksLintCommand }            from './checks-lint.command.jsx'
-import { ChecksReleaseCommand }         from './checks-release.command.js'
-import { ChecksRunCommand }             from './checks-run.command.js'
-import { ChecksTestIntegrationCommand } from './checks-test-integration.command.js'
-import { ChecksTestUnitCommand }        from './checks-test-unit.command.js'
-import { ChecksTypeCheckCommand }       from './checks-typecheck.command.jsx'
+import { ChecksLintCommand }            from './commands/index.js'
+import { ChecksReleaseCommand }         from './commands/index.js'
+import { ChecksRunCommand }             from './commands/index.js'
+import { ChecksTestIntegrationCommand } from './commands/index.js'
+import { ChecksTestUnitCommand }        from './commands/index.js'
+import { ChecksTypeCheckCommand }       from './commands/index.js'
 
 export const plugin: Plugin = {
   commands: [
