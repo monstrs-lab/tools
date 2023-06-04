@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/yarn-plugin-library",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "license": "MIT",
   "type": "module",
@@ -18,20 +18,20 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/cli-ui-error-info-component": "workspace:0.3.0",
-    "@monstrs/cli-ui-log-record-component": "workspace:0.3.0",
-    "@monstrs/cli-ui-pretty-logs": "workspace:0.3.0",
-    "@monstrs/cli-ui-renderer": "workspace:0.3.0",
-    "@monstrs/cli-ui-typescript-diagnostic-component": "workspace:0.3.0",
-    "@monstrs/code-typescript-worker": "workspace:0.3.0",
-    "@monstrs/yarn-run-utils": "workspace:0.2.0",
+    "@monstrs/cli-ui-error-info-component": "workspace:0.3.1",
+    "@monstrs/cli-ui-log-record-component": "workspace:0.3.1",
+    "@monstrs/cli-ui-pretty-logs": "workspace:0.3.1",
+    "@monstrs/cli-ui-renderer": "workspace:0.3.1",
+    "@monstrs/cli-ui-typescript-diagnostic-component": "workspace:0.3.1",
+    "@monstrs/code-typescript-worker": "workspace:0.3.1",
+    "@monstrs/yarn-run-utils": "workspace:0.2.1",
     "clipanion": "^3.2.0",
     "react": "^18.2.0",
     "typanion": "^3.12.1"
   },
   "devDependencies": {
     "@jest/globals": "^29.5.0",
-    "@monstrs/yarn-test-utils": "workspace:0.2.0",
+    "@monstrs/yarn-test-utils": "workspace:0.2.1",
     "@yarnpkg/builder": "^4.0.0-rc.45",
     "@yarnpkg/cli": "^4.0.0-rc.45",
     "@yarnpkg/core": "^4.0.0-rc.45",

@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/yarn-plugin-workspaces",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "license": "MIT",
   "type": "module",
@@ -18,8 +18,8 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/yarn-plugin-files": "workspace:0.2.0",
-    "@monstrs/yarn-workspace-utils": "workspace:0.2.0",
+    "@monstrs/yarn-plugin-files": "workspace:0.2.1",
+    "@monstrs/yarn-workspace-utils": "workspace:0.2.1",
     "clipanion": "^3.2.0"
   },
   "devDependencies": {
