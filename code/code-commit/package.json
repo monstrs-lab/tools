@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-commit",
-  "version": "0.1.10",
+  "version": "0.2.0",
   "license": "MIT",
   "type": "module",
   "exports": {
