@@ -1,5 +1,7 @@
 import type { PortablePath } from '@yarnpkg/fslib'
 
+import assert                from 'node:assert'
+
 import { BaseCommand }       from '@yarnpkg/cli'
 import { Configuration }     from '@yarnpkg/core'
 import { Project }           from '@yarnpkg/core'
@@ -72,7 +74,7 @@ export class ToolsSyncTSConfigCommand extends BaseCommand {
             { arrayMerge: combineMerge }
           )
 
-          await xfs.writeJsonPromise(tsconfigpath, {
+          const created = {
             ...config,
             include: Array.from(
               new Set([
@@ -83,7 +85,13 @@ export class ToolsSyncTSConfigCommand extends BaseCommand {
                 ),
               ])
             ),
-          })
+          }
+
+          try {
+            assert.deepEqual(exists, created)
+          } catch {
+            await xfs.writeJsonPromise(tsconfigpath, created)
+          }
         })
       }
     )
