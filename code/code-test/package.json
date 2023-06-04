@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-test",
-  "version": "0.1.19",
+  "version": "0.1.20",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -21,7 +21,7 @@
   "dependencies": {
     "@jest/test-result": "^29.5.0",
     "@jest/types": "^29.5.0",
-    "@monstrs/tools-runtime": "workspace:0.0.6"
+    "@monstrs/tools-runtime": "workspace:0.0.7"
   },
   "devDependencies": {
     "@types/node": "^20.2.5"

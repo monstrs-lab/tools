@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/config-eslint",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -17,7 +17,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/config-prettier": "workspace:0.2.7",
+    "@monstrs/config-prettier": "workspace:0.2.8",
     "@next/eslint-plugin-next": "^13.4.4",
     "@typescript-eslint/eslint-plugin": "^5.59.8",
     "@typescript-eslint/parser": "^5.59.8",
