@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/yarn-plugin-renderer",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -23,8 +23,8 @@
   },
   "devDependencies": {
     "@jest/globals": "29.5.0",
-    "@monstrs/yarn-run-utils": "workspace:0.1.0",
-    "@monstrs/yarn-test-utils": "workspace:0.1.0",
+    "@monstrs/yarn-run-utils": "workspace:0.2.0",
+    "@monstrs/yarn-test-utils": "workspace:0.2.0",
     "@types/localtunnel": "^2.0.1",
     "@yarnpkg/builder": "^4.0.0-rc.45",
     "@yarnpkg/cli": "^4.0.0-rc.45",

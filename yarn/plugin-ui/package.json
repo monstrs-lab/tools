@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/yarn-plugin-ui",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -17,15 +17,15 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/code-format-worker": "workspace:0.2.0",
-    "@monstrs/code-icons-worker": "workspace:0.2.0",
-    "@monstrs/code-lint-worker": "workspace:0.2.0",
+    "@monstrs/code-format-worker": "workspace:0.3.0",
+    "@monstrs/code-icons-worker": "workspace:0.3.0",
+    "@monstrs/code-lint-worker": "workspace:0.3.0",
     "clipanion": "^3.2.0"
   },
   "devDependencies": {
     "@jest/globals": "29.5.0",
-    "@monstrs/yarn-run-utils": "workspace:0.1.0",
-    "@monstrs/yarn-test-utils": "workspace:0.1.0",
+    "@monstrs/yarn-run-utils": "workspace:0.2.0",
+    "@monstrs/yarn-test-utils": "workspace:0.2.0",
     "@yarnpkg/builder": "^4.0.0-rc.45",
     "@yarnpkg/cli": "^4.0.0-rc.45",
     "@yarnpkg/core": "^4.0.0-rc.45"
