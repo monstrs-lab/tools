@@ -1638,7 +1638,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-format-worker@workspace:0.1.16, @monstrs/code-format-worker@workspace:^, @monstrs/code-format-worker@workspace:code/code-format-worker":
+"@monstrs/code-format-worker@workspace:0.1.16, @monstrs/code-format-worker@workspace:code/code-format-worker":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-format-worker@workspace:code/code-format-worker"
   dependencies:
@@ -1669,7 +1669,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-icons-worker@workspace:^, @monstrs/code-icons-worker@workspace:code/code-icons-worker":
+"@monstrs/code-icons-worker@workspace:0.1.17, @monstrs/code-icons-worker@workspace:code/code-icons-worker":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-icons-worker@workspace:code/code-icons-worker"
   dependencies:
@@ -1706,7 +1706,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-lint-worker@workspace:0.1.21, @monstrs/code-lint-worker@workspace:^, @monstrs/code-lint-worker@workspace:code/code-lint-worker":
+"@monstrs/code-lint-worker@workspace:0.1.21, @monstrs/code-lint-worker@workspace:code/code-lint-worker":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-lint-worker@workspace:code/code-lint-worker"
   dependencies:
@@ -1986,7 +1986,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@monstrs/tools-runtime@workspace:0.0.7, @monstrs/tools-runtime@workspace:^, @monstrs/tools-runtime@workspace:runtime/code-runtime":
+"@monstrs/tools-runtime@workspace:0.0.7, @monstrs/tools-runtime@workspace:runtime/code-runtime":
   version: 0.0.0-use.local
   resolution: "@monstrs/tools-runtime@workspace:runtime/code-runtime"
   dependencies:
@@ -2021,26 +2021,26 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/yarn-cli-tools@workspace:^, @monstrs/yarn-cli-tools@workspace:yarn/cli-tools":
+"@monstrs/yarn-cli-tools@workspace:0.0.1, @monstrs/yarn-cli-tools@workspace:yarn/cli-tools":
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-cli-tools@workspace:yarn/cli-tools"
   dependencies:
-    "@monstrs/yarn-plugin-check": "workspace:^"
-    "@monstrs/yarn-plugin-checks": "workspace:^"
-    "@monstrs/yarn-plugin-commit": "workspace:^"
-    "@monstrs/yarn-plugin-essentials": "workspace:^"
-    "@monstrs/yarn-plugin-files": "workspace:^"
-    "@monstrs/yarn-plugin-format": "workspace:^"
-    "@monstrs/yarn-plugin-image": "workspace:^"
-    "@monstrs/yarn-plugin-library": "workspace:^"
-    "@monstrs/yarn-plugin-lint": "workspace:^"
-    "@monstrs/yarn-plugin-renderer": "workspace:^"
-    "@monstrs/yarn-plugin-service": "workspace:^"
-    "@monstrs/yarn-plugin-test": "workspace:^"
-    "@monstrs/yarn-plugin-tools": "workspace:^"
-    "@monstrs/yarn-plugin-types": "workspace:^"
-    "@monstrs/yarn-plugin-ui": "workspace:^"
-    "@monstrs/yarn-plugin-workspaces": "workspace:^"
+    "@monstrs/yarn-plugin-check": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-checks": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-commit": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-essentials": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-files": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-format": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-image": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-library": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-lint": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-renderer": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-service": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-test": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-tools": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-types": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-ui": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-workspaces": "workspace:0.0.1"
     "@yarnpkg/builder": "npm:^4.0.0-rc.45"
     "@yarnpkg/cli": "npm:^4.0.0-rc.45"
     "@yarnpkg/core": "npm:^4.0.0-rc.45"
@@ -2078,23 +2078,23 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-cli@workspace:yarn/cli"
   dependencies:
-    "@monstrs/yarn-cli-tools": "workspace:^"
-    "@monstrs/yarn-plugin-check": "workspace:^"
-    "@monstrs/yarn-plugin-checks": "workspace:^"
-    "@monstrs/yarn-plugin-commit": "workspace:^"
-    "@monstrs/yarn-plugin-essentials": "workspace:^"
-    "@monstrs/yarn-plugin-files": "workspace:^"
-    "@monstrs/yarn-plugin-format": "workspace:^"
-    "@monstrs/yarn-plugin-image": "workspace:^"
-    "@monstrs/yarn-plugin-library": "workspace:^"
-    "@monstrs/yarn-plugin-lint": "workspace:^"
-    "@monstrs/yarn-plugin-renderer": "workspace:^"
-    "@monstrs/yarn-plugin-service": "workspace:^"
-    "@monstrs/yarn-plugin-test": "workspace:^"
-    "@monstrs/yarn-plugin-tools": "workspace:^"
-    "@monstrs/yarn-plugin-types": "workspace:^"
-    "@monstrs/yarn-plugin-ui": "workspace:^"
-    "@monstrs/yarn-plugin-workspaces": "workspace:^"
+    "@monstrs/yarn-cli-tools": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-check": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-checks": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-commit": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-essentials": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-files": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-format": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-image": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-library": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-lint": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-renderer": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-service": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-test": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-tools": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-types": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-ui": "workspace:0.0.1"
+    "@monstrs/yarn-plugin-workspaces": "workspace:0.0.1"
     "@yarnpkg/builder": "npm:^4.0.0-rc.45"
     "@yarnpkg/cli": "npm:^4.0.0-rc.45"
     "@yarnpkg/core": "npm:^4.0.0-rc.45"
@@ -2142,7 +2142,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/yarn-plugin-check@workspace:^, @monstrs/yarn-plugin-check@workspace:yarn/plugin-check":
+"@monstrs/yarn-plugin-check@workspace:0.0.1, @monstrs/yarn-plugin-check@workspace:yarn/plugin-check":
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-check@workspace:yarn/plugin-check"
   dependencies:
@@ -2155,7 +2155,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/yarn-plugin-checks@workspace:^, @monstrs/yarn-plugin-checks@workspace:yarn/plugin-checks":
+"@monstrs/yarn-plugin-checks@workspace:0.0.1, @monstrs/yarn-plugin-checks@workspace:yarn/plugin-checks":
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-checks@workspace:yarn/plugin-checks"
   dependencies:
@@ -2190,7 +2190,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/yarn-plugin-commit@workspace:^, @monstrs/yarn-plugin-commit@workspace:yarn/plugin-commit":
+"@monstrs/yarn-plugin-commit@workspace:0.0.1, @monstrs/yarn-plugin-commit@workspace:yarn/plugin-commit":
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-commit@workspace:yarn/plugin-commit"
   dependencies:
@@ -2215,7 +2215,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/yarn-plugin-essentials@workspace:^, @monstrs/yarn-plugin-essentials@workspace:yarn/plugin-essentials":
+"@monstrs/yarn-plugin-essentials@workspace:0.0.1, @monstrs/yarn-plugin-essentials@workspace:yarn/plugin-essentials":
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-essentials@workspace:yarn/plugin-essentials"
   dependencies:
@@ -2225,13 +2225,13 @@ __metadata:
     "@yarnpkg/plugin-essentials": "npm:^4.0.0-rc.45"
     clipanion: "npm:^3.2.0"
   peerDependencies:
-    "@yarnpkg/cli": "workspace:^"
-    "@yarnpkg/core": "workspace:^"
-    "@yarnpkg/plugin-git": "workspace:^"
+    "@yarnpkg/cli": "workspace:0.0.1"
+    "@yarnpkg/core": "workspace:0.0.1"
+    "@yarnpkg/plugin-git": "workspace:0.0.1"
   languageName: unknown
   linkType: soft
 
-"@monstrs/yarn-plugin-files@workspace:0.0.1, @monstrs/yarn-plugin-files@workspace:^, @monstrs/yarn-plugin-files@workspace:yarn/plugin-files":
+"@monstrs/yarn-plugin-files@workspace:0.0.1, @monstrs/yarn-plugin-files@workspace:yarn/plugin-files":
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-files@workspace:yarn/plugin-files"
   dependencies:
@@ -2247,7 +2247,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/yarn-plugin-format@workspace:^, @monstrs/yarn-plugin-format@workspace:yarn/plugin-format":
+"@monstrs/yarn-plugin-format@workspace:0.0.1, @monstrs/yarn-plugin-format@workspace:yarn/plugin-format":
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-format@workspace:yarn/plugin-format"
   dependencies:
@@ -2269,7 +2269,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/yarn-plugin-image@workspace:^, @monstrs/yarn-plugin-image@workspace:yarn/plugin-image":
+"@monstrs/yarn-plugin-image@workspace:0.0.1, @monstrs/yarn-plugin-image@workspace:yarn/plugin-image":
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-image@workspace:yarn/plugin-image"
   dependencies:
@@ -2291,7 +2291,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/yarn-plugin-library@workspace:^, @monstrs/yarn-plugin-library@workspace:yarn/plugin-library":
+"@monstrs/yarn-plugin-library@workspace:0.0.1, @monstrs/yarn-plugin-library@workspace:yarn/plugin-library":
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-library@workspace:yarn/plugin-library"
   dependencies:
@@ -2317,7 +2317,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/yarn-plugin-lint@workspace:^, @monstrs/yarn-plugin-lint@workspace:yarn/plugin-lint":
+"@monstrs/yarn-plugin-lint@workspace:0.0.1, @monstrs/yarn-plugin-lint@workspace:yarn/plugin-lint":
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-lint@workspace:yarn/plugin-lint"
   dependencies:
@@ -2359,7 +2359,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/yarn-plugin-renderer@workspace:^, @monstrs/yarn-plugin-renderer@workspace:yarn/plugin-renderer":
+"@monstrs/yarn-plugin-renderer@workspace:0.0.1, @monstrs/yarn-plugin-renderer@workspace:yarn/plugin-renderer":
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-renderer@workspace:yarn/plugin-renderer"
   dependencies:
@@ -2380,7 +2380,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/yarn-plugin-service@workspace:^, @monstrs/yarn-plugin-service@workspace:yarn/plugin-service":
+"@monstrs/yarn-plugin-service@workspace:0.0.1, @monstrs/yarn-plugin-service@workspace:yarn/plugin-service":
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-service@workspace:yarn/plugin-service"
   dependencies:
@@ -2407,7 +2407,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/yarn-plugin-test@workspace:^, @monstrs/yarn-plugin-test@workspace:yarn/plugin-test":
+"@monstrs/yarn-plugin-test@workspace:0.0.1, @monstrs/yarn-plugin-test@workspace:yarn/plugin-test":
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-test@workspace:yarn/plugin-test"
   dependencies:
@@ -2429,12 +2429,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/yarn-plugin-tools@workspace:^, @monstrs/yarn-plugin-tools@workspace:yarn/plugin-tools":
+"@monstrs/yarn-plugin-tools@workspace:0.0.1, @monstrs/yarn-plugin-tools@workspace:yarn/plugin-tools":
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-tools@workspace:yarn/plugin-tools"
   dependencies:
     "@monstrs/config-typescript": "workspace:0.1.7"
-    "@monstrs/tools-runtime": "workspace:^"
+    "@monstrs/tools-runtime": "workspace:0.0.7"
     "@yarnpkg/builder": "npm:^4.0.0-rc.45"
     "@yarnpkg/cli": "npm:^4.0.0-rc.45"
     "@yarnpkg/core": "npm:^4.0.0-rc.45"
@@ -2446,7 +2446,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/yarn-plugin-types@workspace:^, @monstrs/yarn-plugin-types@workspace:yarn/plugin-types":
+"@monstrs/yarn-plugin-types@workspace:0.0.1, @monstrs/yarn-plugin-types@workspace:yarn/plugin-types":
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-types@workspace:yarn/plugin-types"
   dependencies:
@@ -2472,14 +2472,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/yarn-plugin-ui@workspace:^, @monstrs/yarn-plugin-ui@workspace:yarn/plugin-ui":
+"@monstrs/yarn-plugin-ui@workspace:0.0.1, @monstrs/yarn-plugin-ui@workspace:yarn/plugin-ui":
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-ui@workspace:yarn/plugin-ui"
   dependencies:
     "@jest/globals": "npm:29.5.0"
-    "@monstrs/code-format-worker": "workspace:^"
-    "@monstrs/code-icons-worker": "workspace:^"
-    "@monstrs/code-lint-worker": "workspace:^"
+    "@monstrs/code-format-worker": "workspace:0.1.16"
+    "@monstrs/code-icons-worker": "workspace:0.1.17"
+    "@monstrs/code-lint-worker": "workspace:0.1.21"
     "@monstrs/yarn-run-utils": "workspace:0.0.1"
     "@monstrs/yarn-test-utils": "workspace:0.0.1"
     "@yarnpkg/builder": "npm:^4.0.0-rc.45"
@@ -2492,7 +2492,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/yarn-plugin-workspaces@workspace:^, @monstrs/yarn-plugin-workspaces@workspace:yarn/plugin-workspaces":
+"@monstrs/yarn-plugin-workspaces@workspace:0.0.1, @monstrs/yarn-plugin-workspaces@workspace:yarn/plugin-workspaces":
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-workspaces@workspace:yarn/plugin-workspaces"
   dependencies:
