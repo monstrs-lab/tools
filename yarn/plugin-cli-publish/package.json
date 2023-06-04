@@ -1,5 +1,5 @@
 {
-  "name": "@monstrs/yarn-workspace-utils",
+  "name": "@monstrs/yarn-plugin-cli-publish",
   "version": "0.2.0",
   "private": true,
   "license": "MIT",
@@ -12,8 +12,22 @@
   "files": [
     "dist"
   ],
+  "scripts": {
+    "build": "builder build plugin",
+    "prepack": "yarn run build",
+    "postpack": "rm -rf dist"
+  },
   "devDependencies": {
-    "@yarnpkg/core": "^4.0.0-rc.45"
+    "@types/node": "^20.2.5",
+    "@yarnpkg/builder": "^4.0.0-rc.45",
+    "@yarnpkg/cli": "^4.0.0-rc.45",
+    "@yarnpkg/core": "^4.0.0-rc.45",
+    "@yarnpkg/fslib": "^3.0.0-rc.45"
+  },
+  "peerDependencies": {
+    "@yarnpkg/cli": "^4",
+    "@yarnpkg/core": "^4",
+    "@yarnpkg/fslib": "^3"
   },
   "publishConfig": {
     "access": "public",
