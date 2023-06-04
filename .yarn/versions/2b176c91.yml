@@ -1,6 +1,0 @@
-releases:
-  "@monstrs/yarn-cli": patch
-  "@monstrs/yarn-cli-tools": patch
-  "@monstrs/yarn-plugin-essentials": patch
-  "@monstrs/yarn-plugin-tools": patch
-  "@monstrs/yarn-plugin-ui": patch

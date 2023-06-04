@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/yarn-plugin-test",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@jest/globals": "^29.5.0",
-    "@monstrs/yarn-test-utils": "workspace:0.0.1",
+    "@monstrs/yarn-test-utils": "workspace:0.0.2",
     "@yarnpkg/builder": "^4.0.0-rc.45",
     "@yarnpkg/cli": "^4.0.0-rc.45",
     "@yarnpkg/core": "^4.0.0-rc.45",
