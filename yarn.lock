@@ -2027,6 +2027,7 @@ __metadata:
   dependencies:
     "@monstrs/yarn-plugin-check": "workspace:0.2.0"
     "@monstrs/yarn-plugin-checks": "workspace:0.2.0"
+    "@monstrs/yarn-plugin-cli-publish": "workspace:0.2.0"
     "@monstrs/yarn-plugin-commit": "workspace:0.2.0"
     "@monstrs/yarn-plugin-essentials": "workspace:0.2.0"
     "@monstrs/yarn-plugin-files": "workspace:0.2.0"
@@ -2081,6 +2082,7 @@ __metadata:
     "@monstrs/yarn-cli-tools": "workspace:0.2.0"
     "@monstrs/yarn-plugin-check": "workspace:0.2.0"
     "@monstrs/yarn-plugin-checks": "workspace:0.2.0"
+    "@monstrs/yarn-plugin-cli-publish": "workspace:0.2.0"
     "@monstrs/yarn-plugin-commit": "workspace:0.2.0"
     "@monstrs/yarn-plugin-essentials": "workspace:0.2.0"
     "@monstrs/yarn-plugin-files": "workspace:0.2.0"
@@ -2183,6 +2185,22 @@ __metadata:
     clipanion: "npm:^3.2.0"
     react: "npm:^18.2.0"
     strip-ansi: "npm:^7.1.0"
+  peerDependencies:
+    "@yarnpkg/cli": ^4
+    "@yarnpkg/core": ^4
+    "@yarnpkg/fslib": ^3
+  languageName: unknown
+  linkType: soft
+
+"@monstrs/yarn-plugin-cli-publish@workspace:0.2.0, @monstrs/yarn-plugin-cli-publish@workspace:yarn/plugin-cli-publish":
+  version: 0.0.0-use.local
+  resolution: "@monstrs/yarn-plugin-cli-publish@workspace:yarn/plugin-cli-publish"
+  dependencies:
+    "@types/node": "npm:^20.2.5"
+    "@yarnpkg/builder": "npm:^4.0.0-rc.45"
+    "@yarnpkg/cli": "npm:^4.0.0-rc.45"
+    "@yarnpkg/core": "npm:^4.0.0-rc.45"
+    "@yarnpkg/fslib": "npm:^3.0.0-rc.45"
   peerDependencies:
     "@yarnpkg/cli": ^4
     "@yarnpkg/core": ^4

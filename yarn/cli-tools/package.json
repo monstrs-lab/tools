@@ -6,6 +6,7 @@
   "dependencies": {
     "@monstrs/yarn-plugin-check": "workspace:0.2.0",
     "@monstrs/yarn-plugin-checks": "workspace:0.2.0",
+    "@monstrs/yarn-plugin-cli-publish": "workspace:0.2.0",
     "@monstrs/yarn-plugin-commit": "workspace:0.2.0",
     "@monstrs/yarn-plugin-essentials": "workspace:0.2.0",
     "@monstrs/yarn-plugin-files": "workspace:0.2.0",
