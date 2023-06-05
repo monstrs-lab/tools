@@ -1,0 +1,36 @@
+name: Notify
+
+on:
+  workflow_run:
+    workflows:
+      - Publish
+    types:
+      - completed
+
+jobs:
+  run:
+    name: Notify
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: master
+
+      - name: Notify
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.PAT_TOKEN }}
+          script: |
+            const { version } = JSON.parse(require('fs').readFileSync('yarn/cli/package.json', 'utf8'))
+
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: 'common-modules',
+              workflow_id: 'tools.yml',
+              ref: 'master',
+              inputs: {
+                version,
+              }
+            })

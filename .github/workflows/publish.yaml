@@ -25,7 +25,6 @@ jobs:
       - name: Npm Publish
         run: |
           source .env && export NODE_OPTIONS && yarn version apply --all
-          source .env && export NODE_OPTIONS && yarn cli:build
           source .env && export NODE_OPTIONS && yarn workspaces changed foreach --verbose --topological --no-private npm publish --access public
         env:
           YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
