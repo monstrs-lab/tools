@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/yarn-cli",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -22,7 +22,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/yarn-cli-tools": "workspace:0.2.2",
+    "@monstrs/yarn-cli-tools": "workspace:0.2.3",
     "@monstrs/yarn-plugin-check": "workspace:0.2.1",
     "@monstrs/yarn-plugin-checks": "workspace:0.2.1",
     "@monstrs/yarn-plugin-cli-publish": "workspace:0.2.0",
