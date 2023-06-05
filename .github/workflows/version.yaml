@@ -13,14 +13,14 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           ref: master
 
       - name: Setup Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: '19.9'
+          node-version: '20'
 
       - name: Install
         run: source .env && export NODE_OPTIONS && yarn install
@@ -37,7 +37,6 @@ jobs:
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
         with:
-          author_name: github-actions
-          author_email: 41898282+github-actions[bot]@users.noreply.github.com
+          committer_name: GitHub Actions
+          committer_email: 41898282+github-actions[bot]@users.noreply.github.com
           message: 'chore(common): versions'
-          branch: master
