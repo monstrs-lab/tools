@@ -34,3 +34,73 @@ jobs:
                 version,
               }
             })
+
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: 'telemetry-modules',
+              workflow_id: 'tools.yaml',
+              ref: 'master',
+              inputs: {
+                version,
+              }
+            })
+
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: 'mikro-orm-modules',
+              workflow_id: 'tools.yaml',
+              ref: 'master',
+              inputs: {
+                version,
+              }
+            })
+
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: 'nestjs-modules',
+              workflow_id: 'tools.yaml',
+              ref: 'master',
+              inputs: {
+                version,
+              }
+            })
+
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: 'react-modules',
+              workflow_id: 'tools.yaml',
+              ref: 'master',
+              inputs: {
+                version,
+              }
+            })
+
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: 'buildpacks',
+              workflow_id: 'tools.yaml',
+              ref: 'master',
+              inputs: {
+                version,
+              }
+            })
+
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: 'types',
+              workflow_id: 'tools.yaml',
+              ref: 'master',
+              inputs: {
+                version,
+              }
+            })
+
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: 'ui',
+              workflow_id: 'tools.yaml',
+              ref: 'master',
+              inputs: {
+                version,
+              }
+            })
