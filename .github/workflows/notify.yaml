@@ -28,7 +28,7 @@ jobs:
             await github.rest.actions.createWorkflowDispatch({
               owner: context.repo.owner,
               repo: 'common-modules',
-              workflow_id: 'tools.yml',
+              workflow_id: 'tools.yaml',
               ref: 'master',
               inputs: {
                 version,
