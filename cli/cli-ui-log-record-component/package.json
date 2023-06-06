@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/cli-ui-log-record-component",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -19,7 +19,7 @@
   "dependencies": {
     "@mikro-orm/sql-highlighter": "^1.0.1",
     "@monstrs/cli-ui-renderer": "workspace:0.3.1",
-    "@monstrs/cli-ui-stack-trace-component": "workspace:0.3.1",
+    "@monstrs/cli-ui-stack-trace-component": "workspace:0.3.2",
     "@monstrs/logger": "^0.0.16",
     "@monstrs/mikro-orm-logger": "^0.0.10",
     "decamelize": "^6.0.0",
