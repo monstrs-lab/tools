@@ -1,0 +1,5 @@
+releases:
+  "@monstrs/code-lint": patch
+  "@monstrs/code-lint-worker": patch
+  "@monstrs/yarn-cli": patch
+  "@monstrs/yarn-cli-tools": patch
