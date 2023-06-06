@@ -1,22 +1,23 @@
-import type { Workspace } from '@yarnpkg/core'
-import type { TagPolicy } from '@monstrs/code-pack'
+import type { Workspace }    from '@yarnpkg/core'
+import type { TagPolicy }    from '@monstrs/code-pack'
+import type { PortablePath } from '@yarnpkg/fslib'
 
-import { BaseCommand }    from '@yarnpkg/cli'
-import { Configuration }  from '@yarnpkg/core'
-import { Project }        from '@yarnpkg/core'
-import { StreamReport }   from '@yarnpkg/core'
-import { structUtils }    from '@yarnpkg/core'
-import { stringify }      from '@iarna/toml'
-import { execUtils }      from '@yarnpkg/core'
-import { xfs }            from '@yarnpkg/fslib'
-import { ppath }          from '@yarnpkg/fslib'
-import { toFilename }     from '@yarnpkg/fslib'
-import { Option }         from 'clipanion'
+import { BaseCommand }       from '@yarnpkg/cli'
+import { Configuration }     from '@yarnpkg/core'
+import { Project }           from '@yarnpkg/core'
+import { StreamReport }      from '@yarnpkg/core'
+import { structUtils }       from '@yarnpkg/core'
+import { stringify }         from '@iarna/toml'
+import { execUtils }         from '@yarnpkg/core'
+import { xfs }               from '@yarnpkg/fslib'
+import { ppath }             from '@yarnpkg/fslib'
+import { toFilename }        from '@yarnpkg/fslib'
+import { Option }            from 'clipanion'
 
-import { tagUtils }       from '@monstrs/code-pack'
-import { packUtils }      from '@monstrs/yarn-pack-utils'
+import { tagUtils }          from '@monstrs/code-pack'
+import { packUtils }         from '@monstrs/yarn-pack-utils'
 
-const forRepository = async (repo: string) => {
+const forRepository = async (repo: string): Promise<PortablePath> => {
   const descriptor = {
     project: {
       id: repo,
@@ -44,7 +45,7 @@ class ImagePackCommand extends BaseCommand {
 
   publish: boolean = Option.Boolean('-p,--publish', false)
 
-  async execute() {
+  async execute(): Promise<number> {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
 
     const { project } = await Project.find(configuration, this.context.cwd)

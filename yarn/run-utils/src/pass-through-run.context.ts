@@ -14,7 +14,7 @@ export class PassThroughRunContext {
     this.stderr = this.stderrOutput.stream
   }
 
-  get output() {
+  get output(): string {
     return [this.stdoutOutput.data, this.stderrOutput.data].filter(Boolean).join('\n')
   }
 }

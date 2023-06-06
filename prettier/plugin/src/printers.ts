@@ -4,7 +4,7 @@ import { extractPrinter } from './patch.js'
 
 const printer = await extractPrinter()
 
-const nodeImportSize = (node) => {
+const nodeImportSize = (node): number => {
   if (node.specifiers.length === 0) {
     return 0
   }
@@ -17,7 +17,7 @@ const nodeImportSize = (node) => {
   return specifier.loc.end.column + offset
 }
 
-export const print: Printer['print'] = (path, options, prnt) => {
+export const print: Printer['print'] = (path, options, prnt): any => {
   const node = path.getNode()
 
   const plugin: any = options.plugins.find((p: any) => p?.printers?.estree)
@@ -39,7 +39,7 @@ export const print: Printer['print'] = (path, options, prnt) => {
   return result
 }
 
-export const preprocess = async (ast) => {
+export const preprocess = async (ast): Promise<unknown> => {
   const imports = ast.body.filter(
     (node) =>
       node.type === 'ImportDeclaration' && node.loc && node.loc.end.line === node.loc.start.line

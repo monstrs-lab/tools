@@ -12,7 +12,7 @@ import { SpinnerProgress } from '@monstrs/yarn-run-utils'
 export class UiIconsGenerateCommand extends BaseCommand {
   static paths = [['ui', 'icons', 'generate']]
 
-  async execute() {
+  async execute(): Promise<number> {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
     const { project } = await Project.find(configuration, this.context.cwd)
 

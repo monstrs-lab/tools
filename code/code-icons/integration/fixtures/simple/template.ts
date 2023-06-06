@@ -1,4 +1,4 @@
-export default (variables, { tpl }) => tpl`
+export default (variables, { tpl }): string => tpl`
   import React from 'react'
 
   import { vars } from '@fixtures/icons-theme'

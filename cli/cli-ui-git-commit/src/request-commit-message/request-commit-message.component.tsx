@@ -28,7 +28,7 @@ interface SubmitProps extends CommitProperties {
   onSubmit: (value: CommitProperties) => void
 }
 
-const Submit: FC<SubmitProps> = ({ onSubmit, ...props }) => {
+const Submit: FC<SubmitProps> = ({ onSubmit, ...props }): null => {
   useEffect(() => {
     onSubmit(props)
   }, [props, onSubmit])

@@ -12,7 +12,7 @@ import { unit }                  from '@monstrs/tools-runtime/jest'
 export class Tester {
   constructor(private readonly cwd: string) {}
 
-  private async isConfigExists(file) {
+  private async isConfigExists(file): Promise<boolean> {
     try {
       await access(join(this.cwd, file), constants.R_OK)
 

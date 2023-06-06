@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires, @typescript-eslint/no-require-imports */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 
 const tsJestResolver = require('ts-jest-resolver')
 

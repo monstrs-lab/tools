@@ -1,5 +1,8 @@
-import { getOctokit } from '@actions/github'
-import { context }    from '@actions/github'
+import type { GetResponseDataTypeFromEndpointMethod } from '@octokit/types'
+import type { RequestParameters }                     from '@octokit/types'
+
+import { getOctokit }                                 from '@actions/github'
+import { context }                                    from '@actions/github'
 
 export enum AnnotationLevel {
   Warning = 'warning',
@@ -17,16 +20,26 @@ export interface Annotation {
 }
 
 export class GitHubChecks {
-  private octokit
+  private octokit: ReturnType<typeof getOctokit>
 
   constructor(private readonly name: string) {
     this.octokit = getOctokit(process.env.GITHUB_TOKEN!)
   }
 
-  start() {
+  async create(
+    params: RequestParameters
+  ): Promise<GetResponseDataTypeFromEndpointMethod<typeof this.octokit.rest.checks.create>> {
+    const response = await this.octokit.rest.checks.create(params)
+
+    return response.data
+  }
+
+  async start(): Promise<
+    GetResponseDataTypeFromEndpointMethod<typeof this.octokit.rest.checks.create>
+  > {
     const { payload } = context
 
-    return this.octokit.rest.checks.create({
+    return this.create({
       ...context.repo,
       name: this.name,
       head_sha: payload.after || payload.pull_request?.head.sha || (process.env.GITHUB_SHA as any),
@@ -35,10 +48,13 @@ export class GitHubChecks {
     })
   }
 
-  complete(id: number, output) {
+  async complete(
+    id: number,
+    output
+  ): Promise<GetResponseDataTypeFromEndpointMethod<typeof this.octokit.rest.checks.create>> {
     const { payload } = context
 
-    return this.octokit.rest.checks.create({
+    return this.create({
       ...context.repo,
       check_run_id: id,
       name: this.name,
@@ -56,10 +72,12 @@ export class GitHubChecks {
     })
   }
 
-  failure(output) {
+  async failure(
+    output
+  ): Promise<GetResponseDataTypeFromEndpointMethod<typeof this.octokit.rest.checks.create>> {
     const { payload } = context
 
-    return this.octokit.rest.checks.create({
+    return this.create({
       ...context.repo,
       name: this.name,
       head_sha: payload.after || payload.pull_request?.head.sha || (process.env.GITHUB_SHA as any),

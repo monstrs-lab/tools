@@ -24,7 +24,7 @@ class LibraryBuildCommand extends BaseCommand {
     validator: isEnum(['nodenext', 'commonjs']),
   })
 
-  async execute() {
+  async execute(): Promise<number> {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
 
     const commandReport = await StreamReport.start(
@@ -78,7 +78,7 @@ class LibraryBuildCommand extends BaseCommand {
     return commandReport.exitCode()
   }
 
-  protected async cleanTarget() {
+  protected async cleanTarget(): Promise<void> {
     try {
       await rm(this.target, { recursive: true, force: true })
       // eslint-disable-next-line no-empty

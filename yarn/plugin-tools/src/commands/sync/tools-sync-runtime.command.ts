@@ -10,7 +10,7 @@ import runtime           from '@monstrs/tools-runtime/package.json' assert { typ
 export class ToolsSyncRuntimeCommand extends BaseCommand {
   static paths = [['tools', 'sync', 'runtime']]
 
-  async execute() {
+  async execute(): Promise<number> {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
     const { project } = await Project.find(configuration, this.context.cwd)
 

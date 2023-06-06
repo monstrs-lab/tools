@@ -18,7 +18,7 @@ export class CommitLinter {
     options = {
       helpUrl: 'https://github.com/conventional-changelog/commitlint/#what-is-commitlint',
     }
-  ) {
+  ): string {
     return commitformat(report, options)
   }
 }

@@ -1,4 +1,4 @@
-import type { FC }               from 'react'
+import type { JSX }              from 'react'
 
 import { Text }                  from 'ink'
 import { Box }                   from 'ink'
@@ -24,7 +24,9 @@ export interface RequestCommitMessageScopeProps {
   onSubmit: (value: string) => void
 }
 
-export const RequestCommitMessageScope: FC<RequestCommitMessageScopeProps> = ({ onSubmit }) => {
+export const RequestCommitMessageScope = ({
+  onSubmit,
+}: RequestCommitMessageScopeProps): JSX.Element => {
   const [custom, setCustom] = useState(false)
   const [value, setValue] = useState('')
 

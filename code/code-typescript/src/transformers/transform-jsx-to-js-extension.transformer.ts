@@ -3,6 +3,7 @@ import { ts } from '@monstrs/tools-runtime/typescript'
 export const transformJsxToJsExtension = (
   ctx: ts.TransformationContext
 ): ts.Transformer<ts.SourceFile> => {
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const visitor = (node) => {
     if (
       node.moduleSpecifier &&

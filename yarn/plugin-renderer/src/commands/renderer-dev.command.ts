@@ -14,7 +14,7 @@ export class RendererDevCommand extends BaseCommand {
 
   #tunnel: Tunnel
 
-  async runTunnel(host: string, port: number) {
+  async runTunnel(host: string, port: number): Promise<void> {
     if (this.#tunnel) {
       this.#tunnel.close()
     }
@@ -25,7 +25,7 @@ export class RendererDevCommand extends BaseCommand {
     console.log('your url is: %s', this.#tunnel.url)
   }
 
-  startTunnel(host: string, port: number) {
+  startTunnel(host: string, port: number): void {
     this.runTunnel(host, port)
 
     process.stdin.on('data', (data) => {
@@ -35,7 +35,7 @@ export class RendererDevCommand extends BaseCommand {
     })
   }
 
-  async execute() {
+  async execute(): Promise<void> {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
     const { project } = await Project.find(configuration, this.context.cwd)
 

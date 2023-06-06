@@ -21,7 +21,7 @@ export class PackageUtils {
     return process.cwd() as PortablePath
   }
 
-  async getWorkspacePackage(name: string) {
+  async getWorkspacePackage(name: string): Promise<PortablePath> {
     const workspace = (await this.getRootWorkspace())
       .getRecursiveWorkspaceChildren()
       .find((ws) => ws.manifest.raw.name === name)
@@ -29,7 +29,7 @@ export class PackageUtils {
     return ppath.resolve(workspace!.cwd, 'package.tgz' as Filename)
   }
 
-  async getConfiguration() {
+  async getConfiguration(): Promise<Configuration> {
     if (!this.configuration) {
       this.configuration = await Configuration.find(this.cwd, null, {
         strict: false,
@@ -41,7 +41,7 @@ export class PackageUtils {
     return this.configuration
   }
 
-  async getProject() {
+  async getProject(): Promise<Project> {
     if (!this.project) {
       const { project, workspace } = await Project.find(await this.getConfiguration(), this.cwd)
 
@@ -52,7 +52,7 @@ export class PackageUtils {
     return this.project
   }
 
-  async getRootWorkspace() {
+  async getRootWorkspace(): Promise<Workspace> {
     if (!this.rootWorkspace) {
       await this.getProject()
     }

@@ -1,4 +1,4 @@
-import type { FC }               from 'react'
+import type { JSX }              from 'react'
 
 import { Text }                  from 'ink'
 import { Box }                   from 'ink'
@@ -9,9 +9,9 @@ export interface RequestCommitMessageBreakingProps {
   onSubmit: (value: string) => void
 }
 
-export const RequestCommitMessageBreaking: FC<RequestCommitMessageBreakingProps> = ({
+export const RequestCommitMessageBreaking = ({
   onSubmit,
-}) => (
+}: RequestCommitMessageBreakingProps): JSX.Element => (
   <Box flexDirection='column'>
     <Box>
       <Text bold color='cyanBright'>

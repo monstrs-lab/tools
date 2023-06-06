@@ -8,7 +8,7 @@ import { renderStatic } from '@monstrs/cli-ui-renderer'
 
 import { StackTrace }   from './stack-trace.component.jsx'
 
-const createStack = () => {
+const createStack = (): string => {
   const cwd = process.cwd()
 
   return `Error: test

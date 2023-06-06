@@ -8,7 +8,7 @@ import { TypeScript } from '@monstrs/code-typescript'
 
 const { type, cwd, include, override } = workerData
 
-const execute = async () => {
+const execute = async (): Promise<void> => {
   if (type === 'check') {
     parentPort!.postMessage(parse(stringify(await new TypeScript(cwd).check(include))))
   }

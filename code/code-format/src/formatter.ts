@@ -23,7 +23,7 @@ const ignorer = ignorerPkg as any
 export class Formatter {
   constructor(private readonly cwd: string) {}
 
-  async formatFiles(files: Array<string> = []) {
+  async formatFiles(files: Array<string> = []): Promise<void> {
     const formatFiles = ignorer()
       .add(ignore)
       .filter(files.map((filepath) => relative(this.cwd, filepath)))
@@ -53,7 +53,7 @@ export class Formatter {
     }
   }
 
-  async format(files?: Array<string>) {
+  async format(files?: Array<string>): Promise<void> {
     if (files && files.length > 0) {
       await this.formatFiles(files)
     } else {
@@ -61,7 +61,7 @@ export class Formatter {
     }
   }
 
-  async formatProject() {
+  async formatProject(): Promise<void> {
     const files = await globby(createPatterns(this.cwd), {
       dot: true,
     })

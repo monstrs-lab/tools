@@ -30,7 +30,7 @@ class WorkspacesChangedForeachCommand extends BaseCommand {
 
   args = Option.Proxy()
 
-  async execute() {
+  async execute(): Promise<number> {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
 
     const { project, workspace } = await Project.find(configuration, this.context.cwd)

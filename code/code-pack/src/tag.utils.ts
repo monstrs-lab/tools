@@ -28,7 +28,7 @@ export const getPullRequestNumber = (): string => {
   return String(event.pull_request?.number)
 }
 
-export const getRevision = async () => {
+export const getRevision = async (): Promise<string> => {
   if (process.env.GITHUB_EVENT_PATH && process.env.GITHUB_TOKEN) {
     return getPullRequestSha()
   }
@@ -43,7 +43,7 @@ export const getRevision = async () => {
   return revision.replace(/"/g, '')
 }
 
-export const getContext = async () => {
+export const getContext = async (): Promise<string> => {
   if (process.env.GITHUB_EVENT_PATH && process.env.GITHUB_TOKEN) {
     return getPullRequestNumber()
   }
@@ -51,7 +51,7 @@ export const getContext = async () => {
   return 'local'
 }
 
-export const getTag = async (tagPolicy: TagPolicy) => {
+export const getTag = async (tagPolicy: TagPolicy): Promise<string> => {
   const revision = await getRevision()
   const hash = revision.substr(0, 7)
 

@@ -52,7 +52,7 @@ export class EvalWorker {
     const worker = await EvalWorker.build(cwd, content, workerData)
 
     return new Promise((resolve, reject) => {
-      const exitHandler = (code: number) => {
+      const exitHandler = (code: number): void => {
         if (code !== 0) reject(new Error(`Worker stopped with exit code ${code}`))
       }
 
@@ -77,13 +77,13 @@ export class EvalWorker {
     const worker = await EvalWorker.build(cwd, content, workerData)
 
     return new Promise((resolve, reject) => {
-      const stdinHandler = (data) => {
+      const stdinHandler = (data): void => {
         if (worker.stdin) {
           worker.stdin.write(data)
         }
       }
 
-      const exitHandler = (code: number) => {
+      const exitHandler = (code: number): void => {
         process.stdin.off('data', stdinHandler)
 
         if (code !== 0) {

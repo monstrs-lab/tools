@@ -10,7 +10,7 @@ import { renderStatic }                 from '@monstrs/cli-ui-renderer'
 
 import { LogRecord }                    from './log-record.component.jsx'
 
-const createStack = () => {
+const createStack = (): string => {
   const cwd = process.cwd()
 
   return `Error: test

@@ -8,7 +8,7 @@ import { execUtils }     from '@yarnpkg/core'
 class ChecksRunCommand extends BaseCommand {
   static paths = [['checks', 'run']]
 
-  async execute() {
+  async execute(): Promise<number> {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
     const { project } = await Project.find(configuration, this.context.cwd)
 
@@ -32,7 +32,7 @@ class ChecksRunCommand extends BaseCommand {
     return commandReport.exitCode()
   }
 
-  private async runCheck(cwd, args: Array<string>, report: StreamReport) {
+  private async runCheck(cwd, args: Array<string>, report: StreamReport): Promise<void> {
     try {
       const { stdout, stderr } = await execUtils.execvp('yarn', ['checks', ...args], {
         cwd,

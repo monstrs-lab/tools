@@ -26,7 +26,7 @@ import { AnnotationLevel }               from '../utils/index.js'
 class ChecksTypeCheckCommand extends BaseCommand {
   static paths = [['checks', 'typecheck']]
 
-  async execute() {
+  async execute(): Promise<number> {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
     const { project } = await Project.find(configuration, this.context.cwd)
 

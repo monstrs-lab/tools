@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+
 import type { MinimalResolveOptions } from '@yarnpkg/core'
 import type { ResolveOptions }        from '@yarnpkg/core'
 import type { Resolver }              from '@yarnpkg/core'
@@ -63,20 +65,20 @@ export class ProtocolResolver implements Resolver {
     )
   }
 
-  async resolve(locator: Locator, opts: ResolveOptions) {
+  async resolve(locator: Locator, opts: ResolveOptions): Promise<Package> {
     const pkg = await opts.resolver.resolve(this.forwardLocator(locator, opts), opts)
 
     return structUtils.renamePackage(pkg, locator)
   }
 
-  private forwardDescriptor(descriptor: Descriptor, opts: MinimalResolveOptions) {
+  private forwardDescriptor(descriptor: Descriptor, opts: MinimalResolveOptions): Descriptor {
     return structUtils.makeDescriptor(
       descriptor,
       `${opts.project.configuration.get(`defaultProtocol`)}${descriptor.range}`
     )
   }
 
-  private forwardLocator(locator: Locator, opts: MinimalResolveOptions) {
+  private forwardLocator(locator: Locator, opts: MinimalResolveOptions): Locator {
     return structUtils.makeLocator(
       locator,
       `${opts.project.configuration.get(`defaultProtocol`)}${locator.reference}`

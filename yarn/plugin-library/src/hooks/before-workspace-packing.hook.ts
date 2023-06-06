@@ -1,6 +1,6 @@
 import type { Workspace } from '@yarnpkg/core'
 
-export const beforeWorkspacePacking = (workspace: Workspace, rawManifest: any) => {
+export const beforeWorkspacePacking = (workspace: Workspace, rawManifest: any): void => {
   if (rawManifest.publishConfig) {
     if (rawManifest.publishConfig.exports) {
       // eslint-disable-next-line no-param-reassign

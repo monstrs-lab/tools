@@ -10,7 +10,7 @@ import { AbstractServiceCommand } from './abstract-service.command.jsx'
 class ServiceDevCommand extends AbstractServiceCommand {
   static paths = [['service', 'dev']]
 
-  async execute() {
+  async execute(): Promise<number> {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
     const { project } = await Project.find(configuration, this.context.cwd)
 
