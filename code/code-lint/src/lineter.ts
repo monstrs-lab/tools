@@ -24,26 +24,32 @@ export interface LintOptions {
 }
 
 export class Linter {
+  #config: ESLinter.Config<ESLinter.RulesRecord, ESLinter.RulesRecord>
+
   private linter: ESLinter
 
   private ignore: typeof ignorer
 
-  constructor(private readonly cwd: string) {
+  constructor(private readonly cwd: string, private readonly rootCwd: string) {
     this.linter = new ESLinter({ configType: 'flat' } as any)
     this.ignore = ignorer().add(ignore)
   }
 
   protected get config(): ESLinter.Config<ESLinter.RulesRecord, ESLinter.RulesRecord> {
-    return [
-      deepmerge(eslintconfig[0], {
-        languageOptions: {
-          parserOptions: {
-            project: join(this.cwd, 'tsconfig.json'),
+    if (!this.#config) {
+      this.#config = [
+        deepmerge(eslintconfig[0], {
+          languageOptions: {
+            parserOptions: {
+              project: join(this.rootCwd, 'tsconfig.json'),
+            },
           },
-        },
-      }),
-      { files: ['**/*.*'] },
-    ] as ESLinter.Config<ESLinter.RulesRecord, ESLinter.RulesRecord>
+        }),
+        { files: ['**/*.*'] },
+      ] as ESLinter.Config<ESLinter.RulesRecord, ESLinter.RulesRecord>
+    }
+
+    return this.#config
   }
 
   async lintFile(filename, options?: LintOptions): Promise<ESLint.LintResult> {

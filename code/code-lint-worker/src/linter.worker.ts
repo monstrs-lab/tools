@@ -14,6 +14,7 @@ export class LinterWorker {
     options?: LintOptions
   ): Promise<Array<ESLint.LintResult>> {
     return EvalWorker.run(this.cwd, getContent(), {
+      rootCwd: this.cwd,
       cwd,
       options,
       files,
