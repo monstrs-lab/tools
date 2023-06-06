@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-lint-worker",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -19,7 +19,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/code-lint": "workspace:0.3.2",
+    "@monstrs/code-lint": "workspace:0.3.3",
     "@monstrs/code-worker-utils": "workspace:0.3.2"
   },
   "devDependencies": {
