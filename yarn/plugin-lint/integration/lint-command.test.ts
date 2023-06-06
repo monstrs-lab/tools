@@ -25,7 +25,7 @@ describe('yarn', () => {
 
             await xfs.writeFilePromise(
               ppath.join(path, 'success.ts' as PortablePath),
-              `const n = (v: number) => v; n(5);`
+              `const n = (v: number): number => v; n(5);`
             )
 
             await xfs.writeFilePromise(

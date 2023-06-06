@@ -1,4 +1,5 @@
 import type { IPackageJson }      from 'package-json-type'
+import type { webpack }           from '@monstrs/tools-runtime/webpack'
 
 import { readFile }               from 'node:fs/promises'
 import { join }                   from 'node:path'
@@ -20,34 +21,39 @@ export class WebpackExternals {
     }
   }
 
-  async loadDependencies() {
+  async loadDependencies(): Promise<Array<string>> {
     const { dependencies = {} } = await this.loadPackageJson()
 
     return Object.keys(dependencies)
   }
 
-  async loadExternals() {
+  async loadExternals(): Promise<Array<string>> {
     const { service } = await WorkspaceConfiguration.find(this.cwd)
 
     return service?.externals || []
   }
 
-  async build() {
+  async build(): Promise<typeof this.externals> {
     this.#externals = await this.loadExternals()
     this.#dependencies = await this.loadDependencies()
 
     return this.externals
   }
 
-  private externals = ({ context, request }: { context?: any; request?: any }, callback) => {
-    if (this.#dependencies.includes(request)) {
-      return callback(null, request, 'module')
+  private externals = (
+    { request }: webpack.ExternalItemFunctionData,
+    callback: (
+      error?: Error | undefined,
+      result?: string | undefined,
+      type?: webpack.Configuration['externalsType']
+    ) => void
+  ): void => {
+    if (request && this.#dependencies.includes(request)) {
+      callback(undefined, request, 'module')
+    } else if (request && this.#externals.includes(request)) {
+      callback(undefined, request, 'import')
+    } else {
+      callback()
     }
-
-    if (this.#externals.includes(request)) {
-      return callback(null, request, 'import')
-    }
-
-    return callback()
   }
 }

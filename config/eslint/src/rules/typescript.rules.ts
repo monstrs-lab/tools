@@ -20,6 +20,7 @@ export const rules: Linter.RulesRecord = {
       fixStyle: 'separate-type-imports',
     },
   ],
+  '@typescript-eslint/explicit-function-return-type': 'error',
   '@typescript-eslint/default-param-last': 'error',
   '@typescript-eslint/no-base-to-string': 'error',
   '@typescript-eslint/no-confusing-void-expression': 'error',

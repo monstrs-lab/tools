@@ -20,7 +20,7 @@ const waitSignals = async (watcher): Promise<void> =>
     })
   })
 
-const execute = async () => {
+const execute = async (): Promise<void> => {
   if (environment === 'production') {
     parentPort!.postMessage(await new Service(cwd).build())
   }

@@ -22,7 +22,7 @@ export class WebpackConfig {
     return config.toConfig()
   }
 
-  private async applyCommon(config: Config) {
+  private async applyCommon(config: Config): Promise<void> {
     config.mode('development').bail(false).target('async-node').optimization.minimize(false)
 
     config.entry('replacements').add(join(this.cwd, 'replacements'))
@@ -46,7 +46,7 @@ export class WebpackConfig {
     config.experiments({ outputModule: true })
   }
 
-  private async applyModules(config: Config) {
+  private async applyModules(config: Config): Promise<void> {
     const configFile = join(await mkdtemp(join(tmpdir(), 'tools-icons-')), 'tsconfig.json')
 
     await writeFile(configFile, '{"include":["**/*"]}')

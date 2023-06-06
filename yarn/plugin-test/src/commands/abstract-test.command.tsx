@@ -14,10 +14,10 @@ export abstract class AbstractTestCommand extends BaseCommand {
 
   files: Array<string> = Option.Rest({ required: 0 })
 
-  wrapOutput() {
+  wrapOutput(): void {
     const original = process.stdout.write
 
-    process.stdout.write = (value, callback) => {
+    process.stdout.write = (value, callback): boolean => {
       const items = value.toString().split('\n')
 
       const logRecords = items.map((item) => {

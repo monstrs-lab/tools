@@ -10,7 +10,7 @@ import { Tester }     from '@monstrs/code-test'
 
 const { type, cwd, options, files = [] } = workerData
 
-const execute = async () => {
+const execute = async (): Promise<void> => {
   if (type === 'unit') {
     parentPort!.postMessage(parse(stringify(await new Tester(cwd).unit(options, files))))
   }

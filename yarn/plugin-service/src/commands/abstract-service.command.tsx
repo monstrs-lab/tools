@@ -14,7 +14,7 @@ import { renderStatic }          from '@monstrs/cli-ui-renderer'
 export abstract class AbstractServiceCommand extends BaseCommand {
   showWarnings = Option.Boolean('-w,--show-warnings', false)
 
-  renderLogRecord(logRecord: ServiceLogRecord, report: StreamReport) {
+  renderLogRecord(logRecord: ServiceLogRecord, report: StreamReport): void {
     if (logRecord instanceof Error) {
       renderStatic(<ErrorInfo error={logRecord} />, process.stdout.columns - 12)
         .split('\n')

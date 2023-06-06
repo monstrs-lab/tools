@@ -9,7 +9,7 @@ export class StreamOutput {
     this.stream.on('data', (chunk) => this.chunks.push(chunk))
   }
 
-  get data() {
+  get data(): string {
     return Buffer.concat(this.chunks).toString()
   }
 }

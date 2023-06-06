@@ -1,4 +1,4 @@
-import type { FC }            from 'react'
+import type { JSX }           from 'react'
 
 import { Text }               from 'ink'
 import { Box }                from 'ink'
@@ -40,7 +40,7 @@ interface CheckboxComponentProps {
   isSelected: boolean
 }
 
-const CheckboxComponent: FC<CheckboxComponentProps> = ({ isSelected }) => (
+const CheckboxComponent = ({ isSelected }: CheckboxComponentProps): JSX.Element => (
   <Box marginRight={1}>
     <Text>{!!isSelected && figures.circleFilled}</Text>
   </Box>
@@ -58,9 +58,9 @@ interface RequestCommitMessageAdditionalProps {
   onSubmit: (props: AdditionalProperties) => void
 }
 
-export const RequestCommitMessageAdditional: FC<RequestCommitMessageAdditionalProps> = ({
+export const RequestCommitMessageAdditional = ({
   onSubmit,
-}) => {
+}: RequestCommitMessageAdditionalProps): JSX.Element => {
   const onSubmitValues = useCallback(
     (values) => {
       onSubmit(

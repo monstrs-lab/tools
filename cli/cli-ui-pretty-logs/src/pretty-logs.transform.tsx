@@ -9,7 +9,7 @@ import { LogRecord }    from '@monstrs/cli-ui-log-record-component'
 import { renderStatic } from '@monstrs/cli-ui-renderer'
 
 export class PrettyLogsTransform extends Transform {
-  parse(row) {
+  parse(row): unknown {
     try {
       if (row) {
         const data = JSON.parse(row)
@@ -29,12 +29,12 @@ export class PrettyLogsTransform extends Transform {
     }
   }
 
-  render(data = {}) {
+  render(data = {}): string {
     return renderStatic(<LogRecord {...data} />)
   }
 
   // eslint-disable-next-line no-underscore-dangle
-  _transform(chunk, encoding, callback) {
+  _transform(chunk, encoding, callback): void {
     const parts = chunk.toString().split(/\r?\n/)
 
     parts

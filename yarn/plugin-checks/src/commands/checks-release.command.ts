@@ -17,7 +17,7 @@ import { AnnotationLevel }       from '../utils/index.js'
 class ChecksReleaseCommand extends BaseCommand {
   static paths = [['checks', 'release']]
 
-  async execute() {
+  async execute(): Promise<void> {
     const { project } = await Project.find(
       await Configuration.find(this.context.cwd, this.context.plugins),
       this.context.cwd
@@ -36,7 +36,7 @@ class ChecksReleaseCommand extends BaseCommand {
         if (workspace.manifest.scripts.get('build')) {
           const context = new PassThroughRunContext()
 
-          const outputWritter = (data) => this.context.stdout.write(data)
+          const outputWritter = (data): boolean => this.context.stdout.write(data)
 
           context.stdout.on('data', outputWritter)
           context.stderr.on('data', outputWritter)

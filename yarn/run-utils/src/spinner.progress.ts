@@ -14,7 +14,7 @@ export class SpinnerProgress {
 
   constructor(private readonly stdout, private readonly configuration: Configuration) {}
 
-  start() {
+  start(): void {
     if (this.stdout.isTTY && !process.env.TOOLS_DISABLE_PROGRESS) {
       this.running = true
       this.write()
@@ -22,14 +22,14 @@ export class SpinnerProgress {
     }
   }
 
-  end() {
+  end(): void {
     if (this.stdout.isTTY && this.running) {
       this.running = false
       this.clear(true)
     }
   }
 
-  private tick() {
+  private tick(): void {
     setTimeout(() => {
       if (this.running) {
         this.clear()
@@ -42,7 +42,7 @@ export class SpinnerProgress {
     }, SpinnerProgress.PROGRESS_INTERVAL)
   }
 
-  private write() {
+  private write(): void {
     const spinner = SpinnerProgress.PROGRESS_FRAMES[this.position]
 
     const name = formatUtils.pretty(
@@ -56,7 +56,7 @@ export class SpinnerProgress {
     )
   }
 
-  private clear(complete = false) {
+  private clear(complete = false): void {
     this.stdout.write(`\x1b[${0}A`)
 
     if (complete) {

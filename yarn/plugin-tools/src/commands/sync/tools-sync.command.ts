@@ -10,7 +10,7 @@ const commands: Array<Array<string>> = [
 export class ToolsSyncCommand extends BaseCommand {
   static paths = [['tools', 'sync']]
 
-  async execute() {
+  async execute(): Promise<number> {
     for (const command of commands) {
       // eslint-disable-next-line no-await-in-loop
       const exitCode = await this.cli.run(command)

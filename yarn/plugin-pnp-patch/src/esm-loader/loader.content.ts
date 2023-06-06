@@ -2,7 +2,7 @@ import { brotliDecompressSync } from 'zlib'
 
 let hook
 
-export const getContent = () => {
+export const getContent = (): string => {
   if (typeof hook === `undefined`)
     hook = brotliDecompressSync(
       Buffer.from(

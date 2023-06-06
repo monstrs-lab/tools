@@ -11,7 +11,7 @@ import { AbstractTestCommand } from './abstract-test.command.jsx'
 class TestIntegrationCommand extends AbstractTestCommand {
   static paths = [['test', 'integration']]
 
-  async execute() {
+  async execute(): Promise<number> {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
     const { project, workspace } = await Project.find(configuration, this.context.cwd)
 

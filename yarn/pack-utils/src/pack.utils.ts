@@ -25,7 +25,7 @@ export const pack = async (
   workspace: Workspace,
   report: Report,
   destination: PortablePath
-) => {
+): Promise<void> => {
   const cache = await Cache.find(configuration, { immutable: true })
 
   await project.restoreInstallState()

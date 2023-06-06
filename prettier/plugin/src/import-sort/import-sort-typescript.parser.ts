@@ -5,7 +5,7 @@ import type { NamedMember } from 'import-sort-parser'
 export class ImportSortTypeScriptParser implements IParser {
   constructor(private readonly program) {}
 
-  parseImports(code: string) {
+  parseImports(code: string): Array<IImport> {
     const imports: Array<IImport> = this.program.body
       .filter((node) => node.type === 'ImportDeclaration')
       .map((node) => {
@@ -48,6 +48,7 @@ export class ImportSortTypeScriptParser implements IParser {
           imp.end = lineComment.range[1]
         }
 
+        // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
         const findLeadingComments = (position: number) => {
           const leadingComment = this.program.comments.find(
             (comment) => comment.loc.start.line === position

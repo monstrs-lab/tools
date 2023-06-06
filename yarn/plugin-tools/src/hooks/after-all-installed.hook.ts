@@ -53,7 +53,7 @@ if [ -z "$husky_skip_init" ]; then
 fi
 `
 
-const hook = (command: string) =>
+const hook = (command: string): string =>
   `#!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
@@ -63,7 +63,7 @@ ${command}
 const git = (args: Array<string>): SpawnSyncReturns<Buffer> =>
   spawnSync('git', args, { stdio: 'inherit' })
 
-export const afterAllInstalled = async (project: Project) => {
+export const afterAllInstalled = async (project: Project): Promise<void> => {
   if (platform() === 'darwin') {
     const target = ppath.join(project.cwd, '.config/husky')
 

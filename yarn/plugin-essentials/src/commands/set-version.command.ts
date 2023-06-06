@@ -18,7 +18,7 @@ export class SetVersionCommand extends BaseCommand {
 
   version = Option.String()
 
-  async execute() {
+  async execute(): Promise<number> {
     const args = ['set', 'version', 'original']
 
     if (this.useYarnPath === true) {

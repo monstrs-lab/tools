@@ -6,12 +6,9 @@ import { getOctokit }     from '@actions/github'
 import { execUtils }      from '@yarnpkg/core'
 
 type GetCommitResponseData = Endpoints['GET /repos/{owner}/{repo}/commits/{ref}']['response']
+type GetCommitsResponseData = Endpoints['GET /repos/{owner}/{repo}/commits']['response']['data']
 
-export const getEventCommmits = async () => {
-  if (context.eventName === 'push') {
-    return context.payload.commits
-  }
-
+export const getPullRequestCommits = async (): Promise<GetCommitsResponseData> => {
   if (context.eventName === 'pull_request' && context.payload.pull_request) {
     const url: string = context.payload.pull_request.commits_url
 
@@ -34,7 +31,8 @@ export const getCommitData = async (ref: string): Promise<GetCommitResponseData>
 }
 
 export const getChangedCommmits = async (): Promise<Array<GetCommitResponseData>> => {
-  const eventCommits = await getEventCommmits()
+  const eventCommits =
+    context.eventName === 'push' ? context.payload.commits : await getPullRequestCommits()
 
   return Promise.all(eventCommits.map(async (commit) => getCommitData(commit.id || commit.sha)))
 }
@@ -53,7 +51,10 @@ export const getGithubChangedFiles = async (): Promise<Array<string>> => {
     .flat()
 }
 
-export const getChangedFiles = async (project: Project, gitRange?: string) => {
+export const getChangedFiles = async (
+  project: Project,
+  gitRange?: string
+): Promise<Array<string>> => {
   if (process.env.GITHUB_EVENT_PATH && process.env.GITHUB_TOKEN) {
     return getGithubChangedFiles()
   }

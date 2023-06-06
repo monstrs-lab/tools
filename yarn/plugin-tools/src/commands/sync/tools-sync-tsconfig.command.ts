@@ -12,15 +12,19 @@ import deepmerge             from 'deepmerge'
 
 import tsconfig              from '@monstrs/config-typescript'
 
-const combineMerge = (target, source, options) => {
+const combineMerge = (
+  target: Array<any>,
+  source: Array<any>,
+  options?: deepmerge.ArrayMergeOptions
+): Array<any> => {
   const destination = target.slice()
 
   source.forEach((item, index) => {
     if (typeof destination[index] === 'undefined') {
-      destination[index] = options.cloneUnlessOtherwiseSpecified(item, options)
-    } else if (options.isMergeableObject(item)) {
+      destination[index] = options?.cloneUnlessOtherwiseSpecified(item, options)
+    } else if (options?.isMergeableObject(item)) {
       destination[index] = deepmerge(target[index], item, options)
-    } else if (target.indexOf(item) === -1) {
+    } else if (target.includes(item)) {
       destination.push(item)
     }
   })
@@ -28,7 +32,7 @@ const combineMerge = (target, source, options) => {
   return destination
 }
 
-const converWorkspacesToIncludes = (workspaces: string) => {
+const converWorkspacesToIncludes = (workspaces: string): string => {
   if (workspaces.endsWith('/**/*')) {
     return workspaces
   }
@@ -43,7 +47,7 @@ const converWorkspacesToIncludes = (workspaces: string) => {
 export class ToolsSyncTSConfigCommand extends BaseCommand {
   static paths = [['tools', 'sync', 'tsconfig']]
 
-  async execute() {
+  async execute(): Promise<number> {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
     const { project } = await Project.find(configuration, this.context.cwd)
 

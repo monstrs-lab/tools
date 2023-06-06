@@ -10,7 +10,7 @@ import { GitHubChecks }              from '../utils/index.js'
 class ChecksTestUnitCommand extends AbstractChecksTestCommand {
   static paths = [['checks', 'test', 'unit']]
 
-  async execute() {
+  async execute(): Promise<number> {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
     const { project } = await Project.find(configuration, this.context.cwd)
 

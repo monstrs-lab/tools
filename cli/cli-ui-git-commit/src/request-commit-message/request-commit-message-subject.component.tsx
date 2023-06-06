@@ -1,4 +1,4 @@
-import type { FC }               from 'react'
+import type { JSX }              from 'react'
 
 import { Text }                  from 'ink'
 import { Box }                   from 'ink'
@@ -9,7 +9,9 @@ export interface RequestCommitMessageSubjectProps {
   onSubmit: (value: string) => void
 }
 
-export const RequestCommitMessageSubject: FC<RequestCommitMessageSubjectProps> = ({ onSubmit }) => (
+export const RequestCommitMessageSubject = ({
+  onSubmit,
+}: RequestCommitMessageSubjectProps): JSX.Element => (
   <Box flexDirection='column'>
     <Box>
       <Text bold color='cyanBright'>

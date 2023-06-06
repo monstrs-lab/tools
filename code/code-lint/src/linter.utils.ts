@@ -1,10 +1,11 @@
 import type { Linter as ESLinter } from '@monstrs/tools-runtime/eslint'
+import type { ESLint }             from '@monstrs/tools-runtime/eslint'
 
 export const createLintResult = (
   filePath: string,
   source: string,
   messages: Array<ESLinter.LintMessage>
-) => ({
+): ESLint.LintResult => ({
   filePath,
   source,
   messages,

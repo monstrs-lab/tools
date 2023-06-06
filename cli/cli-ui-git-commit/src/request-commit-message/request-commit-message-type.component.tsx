@@ -1,4 +1,4 @@
-import type { FC }            from 'react'
+import type { JSX }           from 'react'
 
 import { Text }               from 'ink'
 import { Box }                from 'ink'
@@ -22,7 +22,9 @@ export interface RequestCommitMessageTypeProps {
   onSubmit: (value: string) => void
 }
 
-export const RequestCommitMessageType: FC<RequestCommitMessageTypeProps> = ({ onSubmit }) => {
+export const RequestCommitMessageType = ({
+  onSubmit,
+}: RequestCommitMessageTypeProps): JSX.Element => {
   const [value, setValue] = useState('')
 
   const matches = useMemo(() => {
@@ -49,7 +51,7 @@ export const RequestCommitMessageType: FC<RequestCommitMessageTypeProps> = ({ on
           items={matches}
           indicatorComponent={IndicatorComponent}
           itemComponent={ItemComponent}
-          onSelect={(v) => {
+          onSelect={(v): void => {
             onSubmit(v.value)
           }}
         />

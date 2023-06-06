@@ -11,7 +11,7 @@ export const makeTemporaryEnv = (
     subDefinition: Record<string, any> | tests.RunFunction,
     fn?: tests.RunFunction | undefined
   ) =>
-  async (...args) => {
+  async (...args): Promise<Array<any>> => {
     const { dependencies } = (packageJson as Record<string, any>) || {}
     const { devDependencies } = (packageJson as Record<string, any>) || {}
 

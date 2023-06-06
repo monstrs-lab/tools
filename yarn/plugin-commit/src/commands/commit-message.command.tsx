@@ -46,7 +46,36 @@ export class CommitMessageCommand extends BaseCommand {
 
   args: Array<string> = Option.Rest({ required: 0 })
 
-  async execute() {
+  private formatCommit(commit: CommitProperties): string {
+    const wrapOptions = {
+      trim: true,
+      cut: false,
+      newline: '\n',
+      indent: '',
+      width: 100,
+    }
+
+    let head = `${commit.type}${commit.scope ? `(${commit.scope})` : ''}: ${commit.subject}`
+
+    if (commit.skipci) {
+      head += ' [skip ci]'
+    }
+
+    const body = commit.body ? wrap(commit.body, wrapOptions) : false
+
+    const breaking = commit.breaking
+      ? wrap(
+          `BREAKING CHANGE: ${commit.breaking.trim().replace(/^BREAKING CHANGE: /, '')}`,
+          wrapOptions
+        )
+      : false
+
+    const issues = commit.issues ? wrap(commit.issues, wrapOptions) : false
+
+    return [head, body, breaking, issues].filter(Boolean).join('\n\n')
+  }
+
+  async execute(): Promise<number> {
     const [commitMessageFile, source] = this.args
 
     if (source) {
@@ -78,34 +107,5 @@ export class CommitMessageCommand extends BaseCommand {
     }
 
     return commit ? 0 : 1
-  }
-
-  private formatCommit(commit: CommitProperties) {
-    const wrapOptions = {
-      trim: true,
-      cut: false,
-      newline: '\n',
-      indent: '',
-      width: 100,
-    }
-
-    let head = `${commit.type}${commit.scope ? `(${commit.scope})` : ''}: ${commit.subject}`
-
-    if (commit.skipci) {
-      head += ' [skip ci]'
-    }
-
-    const body = commit.body ? wrap(commit.body, wrapOptions) : false
-
-    const breaking = commit.breaking
-      ? wrap(
-          `BREAKING CHANGE: ${commit.breaking.trim().replace(/^BREAKING CHANGE: /, '')}`,
-          wrapOptions
-        )
-      : false
-
-    const issues = commit.issues ? wrap(commit.issues, wrapOptions) : false
-
-    return [head, body, breaking, issues].filter(Boolean).join('\n\n')
   }
 }

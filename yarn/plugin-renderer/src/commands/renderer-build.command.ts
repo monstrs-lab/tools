@@ -13,7 +13,7 @@ import { ppath }             from '@yarnpkg/fslib'
 export class RendererBuildCommand extends BaseCommand {
   static paths = [['renderer', 'build']]
 
-  async execute() {
+  async execute(): Promise<number> {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
 
     const commandReport = await StreamReport.start(

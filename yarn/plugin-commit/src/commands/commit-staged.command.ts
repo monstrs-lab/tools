@@ -14,7 +14,7 @@ export class CommitStagedCommand extends BaseCommand {
 
   args: Array<string> = Option.Rest({ required: 0 })
 
-  async execute() {
+  async execute(): Promise<number> {
     try {
       const passed = await lintStaged({
         config,

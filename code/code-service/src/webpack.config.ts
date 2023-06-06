@@ -35,7 +35,7 @@ export class WebpackConfig {
     return config.toConfig()
   }
 
-  private async applyCommon(config: Config, environment: WebpackEnvironment) {
+  private async applyCommon(config: Config, environment: WebpackEnvironment): Promise<void> {
     config
       .mode(environment)
       .bail(environment === 'production')
@@ -70,14 +70,14 @@ export class WebpackConfig {
     config.experiments({ outputModule: true })
   }
 
-  private async applyPlugins(config: Config, environment: WebpackEnvironment) {
+  private async applyPlugins(config: Config, environment: WebpackEnvironment): Promise<void> {
     if (environment === 'development') {
       config.plugin('hot').use(webpack.HotModuleReplacementPlugin)
     }
 
     config.plugin('ignore').use(webpack.IgnorePlugin, [
       {
-        checkResource(resource) {
+        checkResource(resource): boolean {
           if (!LAZY_IMPORTS.includes(resource)) {
             return false
           }
@@ -96,7 +96,7 @@ export class WebpackConfig {
     ])
   }
 
-  private async applyModules(config: Config) {
+  private async applyModules(config: Config): Promise<void> {
     const configFile = join(await mkdtemp(join(tmpdir(), 'tools-service-')), 'tsconfig.json')
 
     await writeFile(configFile, '{"include":["**/*"]}')

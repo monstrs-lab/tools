@@ -16,7 +16,7 @@ export class ServiceWorker {
     })
   }
 
-  async watch(cwd: string, callback: (logRecord: ServiceLogRecord) => void) {
+  async watch(cwd: string, callback: (logRecord: ServiceLogRecord) => void): Promise<void> {
     process.chdir(this.cwd)
 
     return EvalWorker.watch<ServiceLogRecord>(
