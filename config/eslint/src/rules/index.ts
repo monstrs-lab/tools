@@ -1,17 +1,6 @@
-import type { Linter }         from 'eslint'
-
-import { rules as typescript } from './typescript.rules.js'
-import { rules as security }   from './security.rules.js'
-import { rules as nextjs }     from './nextjs.rules.js'
-import { rules as react }      from './react.rules.js'
-import { rules as node }       from './node.rules.js'
-import { rules as base }       from './base.rules.js'
-
-export const rules: Linter.RulesRecord = {
-  ...typescript,
-  ...security,
-  ...nextjs,
-  ...react,
-  ...node,
-  ...base,
-}
+export { rules as typescript } from './typescript.rules.js'
+export { rules as security } from './security.rules.js'
+export { rules as nextjs } from './nextjs.rules.js'
+export { rules as react } from './react.rules.js'
+export { rules as node } from './node.rules.js'
+export { rules as base } from './base.rules.js'

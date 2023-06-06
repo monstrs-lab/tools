@@ -24,7 +24,7 @@ export interface LintOptions {
 }
 
 export class Linter {
-  #config: ESLinter.Config<ESLinter.RulesRecord, ESLinter.RulesRecord>
+  #config: Array<ESLinter.FlatConfig>
 
   private linter: ESLinter
 
@@ -35,18 +35,16 @@ export class Linter {
     this.ignore = ignorer().add(ignore)
   }
 
-  protected get config(): ESLinter.Config<ESLinter.RulesRecord, ESLinter.RulesRecord> {
+  protected get config(): Array<ESLinter.FlatConfig> {
     if (!this.#config) {
-      this.#config = [
-        deepmerge(eslintconfig[0], {
+      this.#config = eslintconfig.map((config) =>
+        deepmerge(config, {
           languageOptions: {
             parserOptions: {
               project: join(this.rootCwd, 'tsconfig.json'),
             },
           },
-        }),
-        { files: ['**/*.*'] },
-      ] as ESLinter.Config<ESLinter.RulesRecord, ESLinter.RulesRecord>
+        }))
     }
 
     return this.#config
@@ -56,9 +54,13 @@ export class Linter {
     const source = await readFile(filename, 'utf8')
 
     if (options?.fix) {
-      const { messages, fixed, output } = this.linter.verifyAndFix(source, this.config, {
-        filename,
-      })
+      const { messages, fixed, output } = this.linter.verifyAndFix(
+        source,
+        this.config as ESLinter.Config<ESLinter.RulesRecord, ESLinter.RulesRecord>,
+        {
+          filename,
+        }
+      )
 
       if (fixed) {
         await writeFile(filename, output, 'utf8')
@@ -70,9 +72,13 @@ export class Linter {
     return createLintResult(
       filename,
       source,
-      this.linter.verify(source, this.config, {
-        filename,
-      })
+      this.linter.verify(
+        source,
+        this.config as ESLinter.Config<ESLinter.RulesRecord, ESLinter.RulesRecord>,
+        {
+          filename,
+        }
+      )
     )
   }
 
