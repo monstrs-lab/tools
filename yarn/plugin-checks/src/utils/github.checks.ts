@@ -50,7 +50,7 @@ export class GitHubChecks {
 
   async complete(
     id: number,
-    output
+    output: { title: string; summary: string; annotations: Array<Annotation> }
   ): Promise<GetResponseDataTypeFromEndpointMethod<typeof this.octokit.rest.checks.create>> {
     const { payload } = context
 
@@ -72,9 +72,11 @@ export class GitHubChecks {
     })
   }
 
-  async failure(
-    output
-  ): Promise<GetResponseDataTypeFromEndpointMethod<typeof this.octokit.rest.checks.create>> {
+  async failure(output: {
+    title: string
+    summary: string
+    annotations?: Array<Annotation>
+  }): Promise<GetResponseDataTypeFromEndpointMethod<typeof this.octokit.rest.checks.create>> {
     const { payload } = context
 
     return this.create({
@@ -85,7 +87,7 @@ export class GitHubChecks {
       status: 'completed',
       conclusion: 'failure',
       output:
-        output.annotations?.length > 50
+        output.annotations && output.annotations.length > 50
           ? {
               ...output,
               annotations: output.annotations.slice(0, 50),

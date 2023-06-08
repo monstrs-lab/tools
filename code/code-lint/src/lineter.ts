@@ -50,7 +50,7 @@ export class Linter {
     return this.#config
   }
 
-  async lintFile(filename, options?: LintOptions): Promise<ESLint.LintResult> {
+  async lintFile(filename: string, options?: LintOptions): Promise<ESLint.LintResult> {
     const source = await readFile(filename, 'utf8')
 
     if (options?.fix) {

@@ -105,7 +105,7 @@ class ChecksTypeCheckCommand extends BaseCommand {
           } catch (error) {
             await checks.failure({
               title: 'Types check run failed',
-              summary: (error as any).message,
+              summary: error instanceof Error ? error.message : (error as string),
             })
           }
         })

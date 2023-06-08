@@ -1,3 +1,5 @@
+import type { Writable }      from 'node:stream'
+import type { WriteStream }   from 'node:tty'
 import type { Configuration } from '@yarnpkg/core'
 
 import { MessageName }        from '@yarnpkg/core'
@@ -12,10 +14,14 @@ export class SpinnerProgress {
 
   private position = 0
 
-  constructor(private readonly stdout, private readonly configuration: Configuration) {}
+  constructor(private readonly stdout: Writable, private readonly configuration: Configuration) {}
+
+  isEnabled(): boolean {
+    return (this.stdout as WriteStream).isTTY && !process.env.TOOLS_DISABLE_PROGRESS
+  }
 
   start(): void {
-    if (this.stdout.isTTY && !process.env.TOOLS_DISABLE_PROGRESS) {
+    if (this.isEnabled()) {
       this.running = true
       this.write()
       this.tick()
@@ -23,7 +29,7 @@ export class SpinnerProgress {
   }
 
   end(): void {
-    if (this.stdout.isTTY && this.running) {
+    if (this.isEnabled() && this.running) {
       this.running = false
       this.clear(true)
     }

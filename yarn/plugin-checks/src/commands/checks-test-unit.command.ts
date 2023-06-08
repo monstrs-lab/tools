@@ -38,7 +38,7 @@ class ChecksTestUnitCommand extends AbstractChecksTestCommand {
         } catch (error) {
           await checks.failure({
             title: 'Test:Unit run failed',
-            summary: (error as any).message,
+            summary: error instanceof Error ? error.message : (error as string),
           })
         }
       }

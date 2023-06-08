@@ -71,7 +71,7 @@ class ChecksReleaseCommand extends BaseCommand {
     } catch (error) {
       await checks.failure({
         title: 'Release run failed',
-        summary: (error as any).message,
+        summary: error instanceof Error ? error.message : (error as string),
       })
     }
   }
