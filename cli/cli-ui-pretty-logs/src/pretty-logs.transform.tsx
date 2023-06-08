@@ -1,5 +1,3 @@
-/* eslint-disable consistent-return */
-
 import { EOL }          from 'node:os'
 import { Transform }    from 'node:stream'
 
@@ -9,7 +7,7 @@ import { LogRecord }    from '@monstrs/cli-ui-log-record-component'
 import { renderStatic } from '@monstrs/cli-ui-renderer'
 
 export class PrettyLogsTransform extends Transform {
-  parse(row): unknown {
+  parse(row: string): object {
     try {
       if (row) {
         const data = JSON.parse(row)
@@ -22,25 +20,25 @@ export class PrettyLogsTransform extends Transform {
 
         return data
       }
-    } catch (error) {
-      return {
-        body: row,
-      }
+    } catch {} // eslint-disable-line
+
+    return {
+      body: row,
     }
   }
 
-  render(data = {}): string {
+  render(data: object = {}): string {
     return renderStatic(<LogRecord {...data} />)
   }
 
   // eslint-disable-next-line no-underscore-dangle
-  _transform(chunk, encoding, callback): void {
+  _transform(chunk: Buffer, encoding: string, callback: () => void): void {
     const parts = chunk.toString().split(/\r?\n/)
 
     parts
       .map(this.parse)
       .filter(Boolean)
-      .map(this.render)
+      .map((data: object) => this.render(data))
       .forEach((row: string) => {
         this.push(`${row}${EOL}`)
       })

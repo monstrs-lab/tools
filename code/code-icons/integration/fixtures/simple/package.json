@@ -4,6 +4,8 @@
   "private": true,
   "type": "module",
   "devDependencies": {
+    "@babel/core": "*",
+    "@babel/template": "*",
     "@fixtures/icons-theme": "workspace:^"
   }
 }

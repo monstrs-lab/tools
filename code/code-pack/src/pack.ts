@@ -11,7 +11,7 @@ import { getTag }           from './tag.utils.js'
 
 export const pack = async (
   { workspace, registry, publish, tagPolicy, builder, buildpack }: PackOptions,
-  context
+  context: execUtils.PipevpOptions
 ): Promise<PackOutputs> => {
   const repo = workspace.replace('@', '').replace(/\//g, '-')
   const image = `${registry}${repo}`

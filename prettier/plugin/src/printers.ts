@@ -1,4 +1,5 @@
 import type { Printer }   from 'prettier'
+import type { AST }       from 'prettier'
 
 import { extractPrinter } from './patch.js'
 
@@ -39,7 +40,7 @@ export const print: Printer['print'] = (path, options, prnt): any => {
   return result
 }
 
-export const preprocess = async (ast): Promise<unknown> => {
+export const preprocess = async (ast: AST): Promise<AST> => {
   const imports = ast.body.filter(
     (node) =>
       node.type === 'ImportDeclaration' && node.loc && node.loc.end.line === node.loc.start.line

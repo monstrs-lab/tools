@@ -8,7 +8,7 @@ export interface StartServerLoggerOptions {
 export class StartServerLogger {
   constructor(private readonly options: StartServerLoggerOptions = {}) {}
 
-  info(body): void {
+  info(body: string): void {
     if (this.options.stdout) {
       this.options.stdout.write(
         Buffer.from(
@@ -24,7 +24,7 @@ export class StartServerLogger {
     }
   }
 
-  error(error): void {
+  error(error: Error): void {
     if (this.options.stderr) {
       this.options.stderr.write(
         Buffer.from(

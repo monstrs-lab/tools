@@ -1,9 +1,10 @@
 import type { IImport }     from 'import-sort-parser'
 import type { IParser }     from 'import-sort-parser'
 import type { NamedMember } from 'import-sort-parser'
+import type { AST }         from 'prettier'
 
 export class ImportSortTypeScriptParser implements IParser {
-  constructor(private readonly program) {}
+  constructor(private readonly program: AST) {}
 
   parseImports(code: string): Array<IImport> {
     const imports: Array<IImport> = this.program.body

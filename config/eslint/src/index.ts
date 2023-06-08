@@ -69,6 +69,7 @@ const config: Array<Linter.FlatConfig> = [
   {
     files: ['**/*.{js,mjs,cjs,jsx}'],
     rules: {
+      '@typescript-eslint/explicit-module-boundary-types': 'off',
       '@typescript-eslint/explicit-function-return-type': 'off',
     },
   },
