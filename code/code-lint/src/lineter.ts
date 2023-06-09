@@ -24,11 +24,11 @@ export interface LintOptions {
 }
 
 export class Linter {
-  #config: Array<ESLinter.FlatConfig>
-
   private linter: ESLinter
 
   private ignore: typeof ignorer
+
+  #config: Array<ESLinter.FlatConfig>
 
   constructor(private readonly cwd: string, private readonly rootCwd: string) {
     this.linter = new ESLinter({ configType: 'flat' } as any)

@@ -12,16 +12,6 @@ import { unit }                  from '@monstrs/tools-runtime/jest'
 export class Tester {
   constructor(private readonly cwd: string) {}
 
-  private async isConfigExists(file): Promise<boolean> {
-    try {
-      await access(join(this.cwd, file), constants.R_OK)
-
-      return true
-    } catch {
-      return false
-    }
-  }
-
   async unit(options?: Partial<Config.Argv>, files?: Array<string>): Promise<AggregatedResult> {
     process.env.TS_JEST_DISABLE_VER_CHECKER = 'true'
 
@@ -99,5 +89,15 @@ export class Tester {
     const { results } = await runCLI(argv, [this.cwd])
 
     return results
+  }
+
+  private async isConfigExists(file): Promise<boolean> {
+    try {
+      await access(join(this.cwd, file), constants.R_OK)
+
+      return true
+    } catch {
+      return false
+    }
   }
 }
