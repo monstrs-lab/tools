@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-icons-worker",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -19,8 +19,8 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/code-icons": "workspace:0.2.3",
-    "@monstrs/code-worker-utils": "workspace:0.3.2"
+    "@monstrs/code-icons": "workspace:0.2.4",
+    "@monstrs/code-worker-utils": "workspace:0.3.3"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^24.1.0",

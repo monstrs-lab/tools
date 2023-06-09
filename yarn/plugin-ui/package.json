@@ -18,9 +18,9 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/code-format-worker": "workspace:0.3.3",
-    "@monstrs/code-icons-worker": "workspace:0.3.3",
-    "@monstrs/code-lint-worker": "workspace:0.3.4",
+    "@monstrs/code-format-worker": "workspace:0.3.4",
+    "@monstrs/code-icons-worker": "workspace:0.3.4",
+    "@monstrs/code-lint-worker": "workspace:0.3.5",
     "clipanion": "^3.2.0"
   },
   "devDependencies": {
