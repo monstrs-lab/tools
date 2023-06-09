@@ -28,6 +28,10 @@ export class StartServerPlugin {
     this.options = options
   }
 
+  apply = (compiler: webpack.Compiler): void => {
+    compiler.hooks.afterEmit.tapAsync({ name: 'StartServerPlugin' }, this.afterEmit)
+  }
+
   private afterEmit = (compilation: webpack.Compilation, callback: () => void): void => {
     if (!this.initialized) {
       this.initialized = true
@@ -40,10 +44,6 @@ export class StartServerPlugin {
 
       this.startServer(compilation, callback)
     }
-  }
-
-  apply = (compiler: webpack.Compiler): void => {
-    compiler.hooks.afterEmit.tapAsync({ name: 'StartServerPlugin' }, this.afterEmit)
   }
 
   private startServer = (compilation: webpack.Compilation, callback: () => void): void => {

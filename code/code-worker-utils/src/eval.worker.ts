@@ -8,46 +8,6 @@ import { Worker }    from 'node:worker_threads'
 import hash          from 'hash-string'
 
 export class EvalWorker {
-  private static async build(cwd: string, content: string, workerData: object): Promise<Worker> {
-    const filename: string = hash(content)
-    const file: string = join(cwd, `.yarn/dist/${filename}.mjs`)
-
-    try {
-      try {
-        await access(dirname(file))
-      } catch {
-        await mkdir(dirname(file), { recursive: true })
-      }
-
-      await access(file)
-    } catch {
-      await writeFile(file, content)
-    }
-
-    const execArgv: Array<string> = []
-
-    try {
-      await access(join(cwd, '.pnp.cjs'))
-
-      execArgv.push('--require')
-      execArgv.push(join(cwd, '.pnp.cjs'))
-    } catch {} // eslint-disable-line no-empty
-
-    try {
-      await access(join(cwd, '.pnp.cjs'))
-
-      execArgv.push('--loader')
-      execArgv.push(join(cwd, '.pnp.loader.mjs'))
-    } catch {} // eslint-disable-line no-empty
-
-    return new Worker(file, {
-      execArgv: [...execArgv, ...process.execArgv],
-      workerData,
-      env: process.env,
-      stdin: true,
-    })
-  }
-
   static async run<T>(cwd: string, content: string, workerData: object): Promise<T> {
     const worker = await EvalWorker.build(cwd, content, workerData)
 
@@ -99,6 +59,46 @@ export class EvalWorker {
 
       worker.once('error', reject)
       worker.once('exit', exitHandler)
+    })
+  }
+
+  private static async build(cwd: string, content: string, workerData: object): Promise<Worker> {
+    const filename: string = hash(content)
+    const file: string = join(cwd, `.yarn/dist/${filename}.mjs`)
+
+    try {
+      try {
+        await access(dirname(file))
+      } catch {
+        await mkdir(dirname(file), { recursive: true })
+      }
+
+      await access(file)
+    } catch {
+      await writeFile(file, content)
+    }
+
+    const execArgv: Array<string> = []
+
+    try {
+      await access(join(cwd, '.pnp.cjs'))
+
+      execArgv.push('--require')
+      execArgv.push(join(cwd, '.pnp.cjs'))
+    } catch {} // eslint-disable-line no-empty
+
+    try {
+      await access(join(cwd, '.pnp.cjs'))
+
+      execArgv.push('--loader')
+      execArgv.push(join(cwd, '.pnp.loader.mjs'))
+    } catch {} // eslint-disable-line no-empty
+
+    return new Worker(file, {
+      execArgv: [...execArgv, ...process.execArgv],
+      workerData,
+      env: process.env,
+      stdin: true,
     })
   }
 }

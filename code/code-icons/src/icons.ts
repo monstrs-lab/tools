@@ -33,6 +33,10 @@ interface IconOutput extends IconSource {
 export class Icons {
   constructor(private readonly cwd: string) {}
 
+  async generate(): Promise<void> {
+    await this.save(await this.transform(await this.read(join(this.cwd, 'icons'))))
+  }
+
   protected async compileReplacementsAndTemplate(): Promise<{
     replacements: Record<string, Record<string, any>>
     template: Config['template']
@@ -121,9 +125,5 @@ export class Icons {
       join(target, 'index.ts'),
       icons.map((icon) => `export * from './${icon.name}.icon.jsx'`).join('\n')
     )
-  }
-
-  async generate(): Promise<void> {
-    await this.save(await this.transform(await this.read(join(this.cwd, 'icons'))))
   }
 }
