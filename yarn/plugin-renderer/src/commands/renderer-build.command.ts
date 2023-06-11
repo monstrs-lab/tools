@@ -26,23 +26,25 @@ export class RendererBuildCommand extends BaseCommand {
           const stdout = new PassThrough()
           const stderr = new PassThrough()
 
-          stdout.on('data', (data) =>
+          stdout.on('data', (data: Buffer) => {
             data
               .toString()
               .split('\n')
               .filter(Boolean)
               .forEach((line) => {
                 report.reportInfo(MessageName.UNNAMED, line)
-              }))
+              })
+          })
 
-          stderr.on('data', (data) =>
+          stderr.on('data', (data: Buffer) => {
             data
               .toString()
               .split('\n')
               .filter(Boolean)
               .forEach((line) => {
                 report.reportInfo(MessageName.UNNAMED, line)
-              }))
+              })
+          })
 
           try {
             await xfs.writeJsonPromise(ppath.join(this.context.cwd, 'src/package.json'), {

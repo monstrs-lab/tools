@@ -1,7 +1,7 @@
-import type { FC }                      from 'react'
 import type { PortablePath }            from '@yarnpkg/fslib'
 import type { SubmitInjectedComponent } from '@yarnpkg/libui/sources/misc/renderForm.js'
 import type { CommitProperties }        from '@monstrs/cli-ui-git-commit-component'
+import type { ReactElement }            from 'react'
 
 import { BaseCommand }                  from '@yarnpkg/cli'
 import { xfs }                          from '@yarnpkg/fslib'
@@ -16,10 +16,13 @@ import wrap                             from 'word-wrap'
 
 import { RequestCommitMessage }         from '@monstrs/cli-ui-git-commit-component'
 
-const RequestCommitMessageSubmit: FC<SubmitInjectedComponent<{ commit: string }>> = ({
+const RequestCommitMessageSubmit = ({
   commit,
   useSubmit,
-}) => {
+}: {
+  commit: CommitProperties
+  useSubmit: (commit: CommitProperties) => void
+}): null => {
   const { stdin } = useStdin()
 
   useSubmit(commit)
@@ -31,8 +34,10 @@ const RequestCommitMessageSubmit: FC<SubmitInjectedComponent<{ commit: string }>
   return null
 }
 
-const RequestCommitMessageApp: FC<SubmitInjectedComponent<CommitProperties>> = ({ useSubmit }) => {
-  const [commit, setCommit] = useState()
+const RequestCommitMessageApp = ({
+  useSubmit,
+}: CommitProperties & { useSubmit: (commit: CommitProperties) => void }): ReactElement => {
+  const [commit, setCommit] = useState<CommitProperties>()
 
   if (!commit) {
     return <RequestCommitMessage onSubmit={setCommit} />
@@ -60,7 +65,7 @@ export class CommitMessageCommand extends BaseCommand {
     const overwroteStdin = forceStdinTty()
 
     const commit: CommitProperties | undefined = await renderForm(
-      RequestCommitMessageApp,
+      RequestCommitMessageApp as SubmitInjectedComponent<CommitProperties>,
       {},
       {
         stdin: process.stdin,

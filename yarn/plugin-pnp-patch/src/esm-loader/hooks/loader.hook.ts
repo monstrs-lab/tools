@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/no-shadow */
 
 import fs                                 from 'node:fs'
@@ -12,10 +13,16 @@ import { load as loadBaseHook }           from '@yarnpkg/pnp/lib/esm-loader/hook
 
 import * as tsLoaderUtils                 from './loader.utils.js'
 
-export const loadHook = async (
+export type loadHookFn = (
   urlString: string,
   context: { format: string | null | undefined },
-  nextLoad: typeof loadHook
+  nextLoad: loadHookFn
+) => Promise<{ format: string; source: string; shortCircuit: boolean }>
+
+export const loadHook: loadHookFn = async (
+  urlString: string,
+  context: { format: string | null | undefined },
+  nextLoad: loadHookFn
 ): Promise<{ format: string; source: string; shortCircuit: boolean }> =>
   loadBaseHook(urlString, context, async (urlString, context) => {
     const url = loaderUtils.tryParseURL(urlString)

@@ -24,7 +24,9 @@ const loadWorkspaces = (): Array<string> => {
 
       folders.forEach((folder) => {
         try {
-          const { name } = JSON.parse(readFileSync(join(folder, 'package.json'), 'utf-8'))
+          const { name }: { name: string } = JSON.parse(
+            readFileSync(join(folder, 'package.json'), 'utf-8')
+          )
 
           if (name.startsWith('@')) {
             exists.add(name)

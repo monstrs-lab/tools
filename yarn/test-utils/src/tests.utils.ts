@@ -17,7 +17,7 @@ export const makeTemporaryEnv = (
 
     if (dependencies) {
       for (const dep of Object.keys(dependencies)) {
-        if (dependencies[dep].startsWith(WorkspaceResolver.protocol)) {
+        if ((dependencies[dep] as string).startsWith(WorkspaceResolver.protocol)) {
           // eslint-disable-next-line no-await-in-loop
           dependencies[dep] = await packageUtils.pack(dep)
         }
@@ -26,12 +26,13 @@ export const makeTemporaryEnv = (
 
     if (devDependencies) {
       for (const dep of Object.keys(devDependencies)) {
-        if (devDependencies[dep].startsWith(WorkspaceResolver.protocol)) {
+        if ((devDependencies[dep] as string).startsWith(WorkspaceResolver.protocol)) {
           // eslint-disable-next-line no-await-in-loop
           devDependencies[dep] = await packageUtils.pack(dep)
         }
       }
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     return global.makeTemporaryEnv(packageJson, subDefinition, fn)(...args)
   }

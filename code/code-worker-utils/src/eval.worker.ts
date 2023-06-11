@@ -63,7 +63,7 @@ export class EvalWorker {
   }
 
   private static async build(cwd: string, content: string, workerData: object): Promise<Worker> {
-    const filename: string = hash(content)
+    const filename: string = (hash as (string) => string)(content)
     const file: string = join(cwd, `.yarn/dist/${filename}.mjs`)
 
     try {

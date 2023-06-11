@@ -17,10 +17,10 @@ export abstract class AbstractTestCommand extends BaseCommand {
   wrapOutput(): void {
     const original = process.stdout.write
 
-    process.stdout.write = (value, callback): boolean => {
-      const items = value.toString().split('\n')
+    process.stdout.write = (value: Uint8Array | string, ...rest: Array<any>): boolean => {
+      const items: Array<string> = value.toString().split('\n')
 
-      const logRecords = items.map((item) => {
+      const logRecords: Array<string> = items.map((item) => {
         try {
           const logRecord = JSON.parse(item)
 
@@ -35,7 +35,7 @@ export abstract class AbstractTestCommand extends BaseCommand {
       })
 
       logRecords.forEach((logRecord) => {
-        original.bind(process.stdout)(logRecord, callback)
+        original.bind(process.stdout)(logRecord, ...rest)
       })
 
       return true

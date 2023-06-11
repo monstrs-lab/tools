@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+
 import { YarnVersion }            from '@yarnpkg/core'
 import { main }                   from '@yarnpkg/cli'
 

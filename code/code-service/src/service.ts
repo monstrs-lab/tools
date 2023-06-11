@@ -45,7 +45,7 @@ export class Service {
 
     const pass = new PassThrough()
 
-    pass.on('data', (chunk) => {
+    pass.on('data', (chunk: Buffer) => {
       chunk
         .toString()
         .split(/\r?\n/)

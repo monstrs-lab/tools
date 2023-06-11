@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+
 import type { ReactNode }     from 'react'
 
 import { Output }             from './ink.js'

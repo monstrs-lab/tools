@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/no-shadow */
 
 import { fileURLToPath }                  from 'node:url'
@@ -7,10 +8,16 @@ import { getFormat as getFormatBaseHook } from '@yarnpkg/pnp/lib/esm-loader/hook
 
 import * as tsLoaderUtils                 from './loader.utils.js'
 
-export const getFormatHook = async (
+export type getFormatHookFn = (
   resolved: string,
   context: object,
-  defaultGetFormat: typeof getFormatHook
+  defaultGetFormat: getFormatHookFn
+) => Promise<{ format: string }>
+
+export const getFormatHook: getFormatHookFn = async (
+  resolved: string,
+  context: object,
+  defaultGetFormat: getFormatHookFn
 ): Promise<{ format: string }> =>
   getFormatBaseHook(resolved, context, async (resolved, context) => {
     const url = loaderUtils.tryParseURL(resolved)

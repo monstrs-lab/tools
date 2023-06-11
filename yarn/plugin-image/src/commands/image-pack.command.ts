@@ -50,7 +50,7 @@ class ImagePackCommand extends BaseCommand {
 
     const { project } = await Project.find(configuration, this.context.cwd)
 
-    const workspace = project.getWorkspaceByFilePath(this.context.cwd)
+    const workspace: Workspace = project.getWorkspaceByFilePath(this.context.cwd)
 
     const commandReport = await StreamReport.start(
       {
@@ -91,7 +91,9 @@ class ImagePackCommand extends BaseCommand {
             }, {}),
           })
 
-          const repo: string = workspace.manifest.raw.name.replace('@', '').replace(/\//g, '-')
+          const repo: string = (workspace.manifest.raw.name as string)
+            .replace('@', '')
+            .replace(/\//g, '-')
           const image: string = `${this.registry}${repo}`
 
           const tag = await tagUtils.getTag(this.tagPolicy || 'revision')

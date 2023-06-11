@@ -62,7 +62,7 @@ export const RequestCommitMessageAdditional = ({
   onSubmit,
 }: RequestCommitMessageAdditionalProps): JSX.Element => {
   const onSubmitValues = useCallback(
-    (values) => {
+    (values: Array<{ value: string }>) => {
       onSubmit(
         values.reduce(
           (result, value) => ({

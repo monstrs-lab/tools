@@ -10,7 +10,7 @@ import { makeTemporaryEnv }  from '@monstrs/yarn-test-utils'
 
 describe('yarn', () => {
   describe('commands', () => {
-    describe('typecheck', () => {
+    describe('types check', () => {
       test(
         'it should typecheck withouth errors',
         makeTemporaryEnv(
@@ -30,7 +30,9 @@ describe('yarn', () => {
             const { code, stdout } = await run('types', 'check')
 
             expect(code).toBe(0)
-            expect(stdout).toContain('➤ YN0000: ┌ Typecheck\n➤ YN0000: └ Completed\n➤ YN0000: Done')
+            expect(stdout).toContain(
+              '➤ YN0000: ┌ Types:Check\n➤ YN0000: └ Completed\n➤ YN0000: Done'
+            )
           }
         )
       )

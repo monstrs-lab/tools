@@ -29,7 +29,8 @@ export const RequestCommitMessageType = ({
 
   const matches = useMemo(() => {
     if (value.length > 0) {
-      return types.filter((item) => item.label.toLowerCase().includes(value.toLowerCase()))
+      return types.filter((item: { label: string; value: string }) =>
+        item.label.toLowerCase().includes(value.toLowerCase()))
     }
 
     return types

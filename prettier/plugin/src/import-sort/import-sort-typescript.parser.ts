@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+
 import type { IImport }     from 'import-sort-parser'
 import type { IParser }     from 'import-sort-parser'
 import type { NamedMember } from 'import-sort-parser'
@@ -64,11 +66,10 @@ export class ImportSortTypeScriptParser implements IParser {
           return [...parents, leadingComment]
         }
 
-        const leadingComments = findLeadingComments(node.loc.start.line - 1)
+        const leadingComments: Array<any> = findLeadingComments(node.loc.start.line - 1)
 
         if (leadingComments.length > 0) {
-          // eslint-disable-next-line prefer-destructuring
-          imp.start = leadingComments.at(0).range[0]
+          imp.start = leadingComments.at(0).range.at(0)
         }
 
         return imp

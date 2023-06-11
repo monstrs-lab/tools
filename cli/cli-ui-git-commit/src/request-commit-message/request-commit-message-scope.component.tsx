@@ -32,7 +32,8 @@ export const RequestCommitMessageScope = ({
 
   const matches = useMemo(() => {
     if (value.length > 0) {
-      return scopes.filter((item) => item.label.toLowerCase().includes(value.toLowerCase()))
+      return scopes.filter((item: { label: string; value: string }) =>
+        item.label.toLowerCase().includes(value.toLowerCase()))
     }
 
     return scopes

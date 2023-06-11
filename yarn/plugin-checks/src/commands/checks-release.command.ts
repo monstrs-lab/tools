@@ -32,11 +32,11 @@ class ChecksReleaseCommand extends BaseCommand {
     try {
       const annotations: Array<Annotation> = []
 
+      const outputWritter = (data: Buffer): boolean => this.context.stdout.write(data)
+
       for await (const workspace of workspaces) {
         if (workspace.manifest.scripts.get('build')) {
-          const context = new PassThroughRunContext()
-
-          const outputWritter = (data): boolean => this.context.stdout.write(data)
+          const context: PassThroughRunContext = new PassThroughRunContext()
 
           context.stdout.on('data', outputWritter)
           context.stderr.on('data', outputWritter)
@@ -59,6 +59,9 @@ class ChecksReleaseCommand extends BaseCommand {
               end_line: 1,
             })
           }
+
+          context.stdout.off('data', outputWritter)
+          context.stderr.off('data', outputWritter)
         }
       }
 

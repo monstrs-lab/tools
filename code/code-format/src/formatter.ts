@@ -4,7 +4,7 @@ import { relative }       from 'node:path'
 
 import { globby }         from 'globby'
 import { format }         from 'prettier/standalone'
-import ignorerPkg         from 'ignore'
+import ignorer            from 'ignore'
 import babel              from 'prettier/plugins/babel'
 import graphql            from 'prettier/plugins/graphql'
 import markdown           from 'prettier/plugins/markdown'
@@ -17,14 +17,12 @@ import plugin             from '@monstrs/prettier-plugin'
 import { ignore }         from './formatter.patterns.js'
 import { createPatterns } from './formatter.patterns.js'
 
-// TODO: moduleResolution
-const ignorer = ignorerPkg as any
-
 export class Formatter {
   constructor(private readonly cwd: string) {}
 
   async formatFiles(files: Array<string> = []): Promise<void> {
-    const formatFiles = ignorer()
+    const formatFiles = ignorer
+      .default()
       .add(ignore)
       .filter(files.map((filepath) => relative(this.cwd, filepath)))
 

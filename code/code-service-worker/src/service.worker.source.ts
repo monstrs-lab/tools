@@ -1,11 +1,13 @@
-import { parentPort } from 'node:worker_threads'
-import { workerData } from 'node:worker_threads'
+import type { webpack } from '@monstrs/tools-runtime/webpack'
 
-import { Service }    from '@monstrs/code-service'
+import { parentPort }   from 'node:worker_threads'
+import { workerData }   from 'node:worker_threads'
+
+import { Service }      from '@monstrs/code-service'
 
 const { environment, cwd } = workerData
 
-const waitSignals = async (watcher): Promise<void> =>
+const waitSignals = async (watcher: webpack.Watching): Promise<void> =>
   new Promise((resolve) => {
     process.on('SIGINT', () => {
       watcher.close(() => {
