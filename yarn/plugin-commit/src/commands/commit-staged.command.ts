@@ -16,6 +16,7 @@ export class CommitStagedCommand extends BaseCommand {
 
   async execute(): Promise<number> {
     try {
+      // @ts-expect-error
       const passed = await lintStaged({
         config,
         debug: false,

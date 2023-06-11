@@ -22,19 +22,25 @@ export const getPullRequestCommits = async (): Promise<GetCommitsResponseData> =
 }
 
 export const getCommitData = async (ref: string): Promise<GetCommitResponseData> => {
-  const commit = await getOctokit(process.env.GITHUB_TOKEN!).rest.repos.getCommit({
+  const commit = (await getOctokit(process.env.GITHUB_TOKEN!).rest.repos.getCommit({
     ...context.repo,
     ref,
-  })
+  })) as GetCommitResponseData
 
-  return commit as GetCommitResponseData
+  return commit
 }
 
 export const getChangedCommmits = async (): Promise<Array<GetCommitResponseData>> => {
-  const eventCommits =
-    context.eventName === 'push' ? context.payload.commits : await getPullRequestCommits()
+  if (context.eventName === 'push') {
+    return Promise.all(
+      (context.payload.commits as Array<{ id: string }>).map(async (commit) =>
+        getCommitData(commit.id))
+    )
+  }
 
-  return Promise.all(eventCommits.map(async (commit) => getCommitData(commit.id || commit.sha)))
+  return Promise.all(
+    (await getPullRequestCommits()).map(async (commit) => getCommitData(commit.sha))
+  )
 }
 
 export const getGithubChangedFiles = async (): Promise<Array<string>> => {

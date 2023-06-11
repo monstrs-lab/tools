@@ -32,11 +32,14 @@ export class ToolsSyncTypeScriptCommand extends BaseCommand {
               descriptor = structUtils.makeDescriptor(ident, runtime.dependencies.typescript)
             }
 
-            if (semver.valid(semver.coerce(descriptor.range))) {
+            if (
+              semver.valid(semver.coerce(descriptor.range)) &&
+              semver.valid(semver.coerce(runtime.dependencies.typescript))
+            ) {
               if (
                 !semver.eq(
-                  semver.coerce(descriptor.range),
-                  semver.coerce(runtime.dependencies.typescript)
+                  semver.coerce(descriptor.range)!,
+                  semver.coerce(runtime.dependencies.typescript)!
                 )
               ) {
                 descriptor.range = runtime.dependencies.typescript

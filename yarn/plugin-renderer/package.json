@@ -26,6 +26,7 @@
     "@jest/globals": "29.5.0",
     "@monstrs/yarn-run-utils": "workspace:0.2.1",
     "@monstrs/yarn-test-utils": "workspace:0.2.1",
+    "@types/cross-spawn": "^6.0.2",
     "@types/localtunnel": "^2.0.1",
     "@yarnpkg/builder": "^4.0.0-rc.45",
     "@yarnpkg/cli": "^4.0.0-rc.45",

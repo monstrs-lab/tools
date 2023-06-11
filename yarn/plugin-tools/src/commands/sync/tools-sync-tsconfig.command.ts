@@ -78,16 +78,14 @@ export class ToolsSyncTSConfigCommand extends BaseCommand {
             { arrayMerge: combineMerge }
           )
 
+          const includes: Array<string> = (
+            (project.topLevelWorkspace.manifest.raw.workspaces as Array<string>) || []
+          ).map(converWorkspacesToIncludes)
+
           const created = {
             ...config,
             include: Array.from(
-              new Set([
-                'project.types.d.ts',
-                ...((config as any).include || []),
-                ...(project.topLevelWorkspace.manifest.raw.workspaces || []).map(
-                  converWorkspacesToIncludes
-                ),
-              ])
+              new Set(['project.types.d.ts', ...((config as any).include || []), ...includes])
             ),
           }
 

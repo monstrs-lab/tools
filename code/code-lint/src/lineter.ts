@@ -6,7 +6,7 @@ import { relative }           from 'node:path'
 import { join }               from 'node:path'
 
 import { globby }             from 'globby'
-import ignorerPkg             from 'ignore'
+import ignorer                from 'ignore'
 import deepmerge              from 'deepmerge'
 
 import { Linter as ESLinter } from '@monstrs/tools-runtime/eslint'
@@ -16,9 +16,6 @@ import { ignore }             from './linter.patterns.js'
 import { createPatterns }     from './linter.patterns.js'
 import { createLintResult }   from './linter.utils.js'
 
-// TODO: moduleResolution
-const ignorer = ignorerPkg as any
-
 export interface LintOptions {
   fix?: boolean
 }
@@ -26,13 +23,13 @@ export interface LintOptions {
 export class Linter {
   private linter: ESLinter
 
-  private ignore: typeof ignorer
+  private ignore: ignorer.Ignore
 
   #config: Array<ESLinter.FlatConfig>
 
   constructor(private readonly cwd: string, private readonly rootCwd: string) {
     this.linter = new ESLinter({ configType: 'flat' } as any)
-    this.ignore = ignorer().add(ignore)
+    this.ignore = ignorer.default().add(ignore)
   }
 
   protected get config(): Array<ESLinter.FlatConfig> {

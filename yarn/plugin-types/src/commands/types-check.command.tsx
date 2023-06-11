@@ -27,7 +27,7 @@ export class TypesCheckCommand extends BaseCommand {
         configuration,
       },
       async (report) => {
-        await report.startTimerPromise('Typecheck', async () => {
+        await report.startTimerPromise('Types:Check', async () => {
           const progress = new SpinnerProgress(this.context.stdout, configuration)
 
           progress.start()

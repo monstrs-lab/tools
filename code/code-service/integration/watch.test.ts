@@ -1,3 +1,5 @@
+import type { webpack }  from '@monstrs/tools-runtime/webpack'
+
 import { join }          from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -7,7 +9,7 @@ import { it }            from '@jest/globals'
 
 import { Service }       from '../src/index.js'
 
-const closeWatcher = async (watcher): Promise<void> =>
+const closeWatcher = async (watcher: webpack.Watching): Promise<void> =>
   new Promise((resolve) => {
     watcher.close(() => {
       setTimeout(() => {
@@ -19,7 +21,7 @@ const closeWatcher = async (watcher): Promise<void> =>
 describe('service', () => {
   describe('watch', () => {
     it('simple', async () => {
-      const watcher = await new Service(
+      const watcher: webpack.Watching = await new Service(
         join(fileURLToPath(new URL('.', import.meta.url)), 'fixtures/simple')
       ).watch(() => {}) // eslint-disable-line @typescript-eslint/no-empty-function
 

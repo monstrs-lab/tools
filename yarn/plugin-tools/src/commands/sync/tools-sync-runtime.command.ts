@@ -33,7 +33,7 @@ export class ToolsSyncRuntimeCommand extends BaseCommand {
             }
 
             if (semver.valid(semver.coerce(descriptor.range))) {
-              if (semver.lt(semver.coerce(descriptor.range), runtime.version)) {
+              if (semver.lt(semver.coerce(descriptor.range)!, runtime.version)) {
                 descriptor.range = `^${runtime.version}`
               }
             }
