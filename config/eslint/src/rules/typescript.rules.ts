@@ -20,7 +20,91 @@ export const rules: Linter.RulesRecord = {
       fixStyle: 'separate-type-imports',
     },
   ],
-  '@typescript-eslint/member-ordering': 'error',
+  '@typescript-eslint/member-ordering': [
+    'error',
+    {
+      default: [
+        // Index signature
+        'signature',
+        'call-signature',
+
+        // Fields
+        'public-static-field',
+        'protected-static-field',
+        'private-static-field',
+        '#private-static-field',
+
+        'public-decorated-field',
+        'protected-decorated-field',
+        'private-decorated-field',
+
+        'public-instance-field',
+        'protected-instance-field',
+        'private-instance-field',
+        '#private-instance-field',
+
+        'public-abstract-field',
+        'protected-abstract-field',
+
+        'public-field',
+        'protected-field',
+        'private-field',
+        '#private-field',
+
+        'static-field',
+        'instance-field',
+        'abstract-field',
+
+        'decorated-field',
+
+        'field',
+
+        // Static initialization
+        'static-initialization',
+
+        // Constructors
+        'public-constructor',
+        'protected-constructor',
+        'private-constructor',
+
+        'constructor',
+
+        // Getters/Setters
+        ['get', 'set'],
+
+        // Methods
+        'public-static-method',
+        'protected-static-method',
+        'private-static-method',
+        '#private-static-method',
+
+        'public-decorated-method',
+        'protected-decorated-method',
+        'private-decorated-method',
+
+        'public-instance-method',
+        'protected-instance-method',
+        'private-instance-method',
+        '#private-instance-method',
+
+        'public-abstract-method',
+        'protected-abstract-method',
+
+        'public-method',
+        'protected-method',
+        'private-method',
+        '#private-method',
+
+        'static-method',
+        'instance-method',
+        'abstract-method',
+
+        'decorated-method',
+
+        'method',
+      ],
+    },
+  ],
   '@typescript-eslint/explicit-module-boundary-types': 'error',
   '@typescript-eslint/explicit-function-return-type': 'error',
   '@typescript-eslint/default-param-last': 'error',
