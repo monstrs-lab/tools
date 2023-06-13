@@ -104,3 +104,13 @@ jobs:
                 version,
               }
             })
+
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: 'rpc-modules',
+              workflow_id: 'tools.yaml',
+              ref: 'master',
+              inputs: {
+                version,
+              }
+            })
