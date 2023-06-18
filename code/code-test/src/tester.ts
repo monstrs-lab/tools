@@ -91,7 +91,7 @@ export class Tester {
     return results
   }
 
-  private async isConfigExists(file): Promise<boolean> {
+  private async isConfigExists(file: string): Promise<boolean> {
     try {
       await access(join(this.cwd, file), constants.R_OK)
 

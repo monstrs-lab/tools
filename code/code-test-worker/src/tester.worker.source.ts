@@ -8,7 +8,12 @@ import { parse }      from 'flatted'
 
 import { Tester }     from '@monstrs/code-test'
 
-const { type, cwd, options, files = [] } = workerData
+const {
+  type,
+  cwd,
+  options,
+  files = [],
+}: { type: 'integration' | 'unit'; cwd: string; options: object; files: Array<string> } = workerData
 
 const execute = async (): Promise<void> => {
   if (type === 'unit') {

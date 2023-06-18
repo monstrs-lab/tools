@@ -16,7 +16,7 @@ export class EvalWorker {
         if (code !== 0) reject(new Error(`Worker stopped with exit code ${code}`))
       }
 
-      worker.once('message', (result) => {
+      worker.once('message', (result: T) => {
         worker.off('error', reject)
         worker.off('exit', exitHandler)
 

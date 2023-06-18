@@ -5,7 +5,7 @@ import { workerData }   from 'node:worker_threads'
 
 import { Service }      from '@monstrs/code-service'
 
-const { environment, cwd } = workerData
+const { environment, cwd }: { environment: 'development' | 'production'; cwd: string } = workerData
 
 const waitSignals = async (watcher: webpack.Watching): Promise<void> =>
   new Promise((resolve) => {

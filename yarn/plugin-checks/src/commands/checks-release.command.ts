@@ -42,7 +42,7 @@ class ChecksReleaseCommand extends BaseCommand {
           context.stderr.on('data', outputWritter)
 
           const code = await this.cli.run(
-            ['workspace', workspace.manifest.raw.name, 'build'],
+            ['workspace', workspace.manifest.raw.name as string, 'build'],
             context
           )
 

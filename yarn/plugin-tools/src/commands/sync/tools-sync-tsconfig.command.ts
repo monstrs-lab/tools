@@ -19,20 +19,22 @@ const combineMerge = (
 ): Array<any> => {
   const destination = target.slice()
 
-  source.forEach((item, index) => {
+  /* eslint-disable @typescript-eslint/no-unsafe-argument */
+  source.forEach((item: any, index: number) => {
     if (typeof destination[index] === 'undefined') {
       destination[index] = options?.cloneUnlessOtherwiseSpecified(item, options)
     } else if (options?.isMergeableObject(item)) {
       destination[index] = deepmerge(target[index], item, options)
-    } else if (target.includes(item)) {
+    } else if (!target.includes(item)) {
       destination.push(item)
     }
   })
+  /* eslint-enable @typescript-eslint/no-unsafe-argument */
 
   return destination
 }
 
-const converWorkspacesToIncludes = (workspaces: string): string => {
+const convertWorkspacesToIncludes = (workspaces: string): string => {
   if (workspaces.endsWith('/**/*')) {
     return workspaces
   }
@@ -63,7 +65,7 @@ export class ToolsSyncTSConfigCommand extends BaseCommand {
             'tsconfig.json' as PortablePath
           )
 
-          const exists = (await xfs.existsPromise(tsconfigpath))
+          const exists: typeof tsconfig.compilerOptions = (await xfs.existsPromise(tsconfigpath))
             ? await xfs.readJsonPromise(tsconfigpath)
             : { compilerOptions: {} }
 
@@ -80,7 +82,7 @@ export class ToolsSyncTSConfigCommand extends BaseCommand {
 
           const includes: Array<string> = (
             (project.topLevelWorkspace.manifest.raw.workspaces as Array<string>) || []
-          ).map(converWorkspacesToIncludes)
+          ).map(convertWorkspacesToIncludes)
 
           const created = {
             ...config,

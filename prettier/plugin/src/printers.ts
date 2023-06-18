@@ -48,8 +48,8 @@ export const preprocess = async (ast: AST): Promise<AST> => {
       node.type === 'ImportDeclaration' && node.loc && node.loc.end.line === node.loc.start.line
   )
 
-  const maxAlignLength =
-    imports.length > 0 ? Math.max(...imports.map((node) => nodeImportSize(node))) : 0
+  const importsLengths: Array<number> = imports.map((node): number => nodeImportSize(node))
+  const maxAlignLength = imports.length > 0 ? Math.max(...importsLengths) : 0
 
   ast.body.forEach((node, index) => {
     if (

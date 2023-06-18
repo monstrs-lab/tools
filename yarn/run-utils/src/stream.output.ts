@@ -6,7 +6,7 @@ export class StreamOutput {
   private chunks: Array<Buffer> = []
 
   constructor() {
-    this.stream.on('data', (chunk) => this.chunks.push(chunk))
+    this.stream.on('data', (chunk: Buffer) => this.chunks.push(chunk))
   }
 
   get data(): string {

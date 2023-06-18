@@ -35,6 +35,7 @@ export abstract class AbstractTestCommand extends BaseCommand {
       })
 
       logRecords.forEach((logRecord) => {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         original.bind(process.stdout)(logRecord, ...rest)
       })
 
