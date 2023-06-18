@@ -20,7 +20,11 @@ export class WebpackConfig {
 
   async build(
     environment: WebpackEnvironment = 'production',
-    plugins: Array<any> = []
+    plugins: Array<{
+      use: Config.PluginClass<webpack.WebpackPluginInstance> | webpack.WebpackPluginInstance
+      args: Array<any>
+      name: string
+    }> = []
   ): Promise<webpack.Configuration> {
     const config = new Config()
 

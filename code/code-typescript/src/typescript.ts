@@ -27,7 +27,7 @@ class TypeScript {
     const config = deepmerge(tsconfig, { compilerOptions: override }, {
       compilerOptions: { rootDir: this.cwd },
       include,
-    } as any)
+    } as object)
 
     const { fileNames, options, errors } = ts.parseJsonConfigFileContent(config, ts.sys, this.cwd)
 

@@ -30,7 +30,7 @@ export async function parse(
   parser: Parser = sync,
   parserOpts?: ParserOptions
 ): Promise<Commit> {
-  const opts = {
+  const opts: ParserOptions = {
     ...defaultParserOpts,
     ...(parserOpts || {}),
   }

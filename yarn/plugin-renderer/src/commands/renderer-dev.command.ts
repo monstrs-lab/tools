@@ -25,7 +25,7 @@ export class RendererDevCommand extends BaseCommand {
     console.log('your url is: %s', this.#tunnel.url)
   }
 
-  startTunnel(host: string, port: number): void {
+  startTunnel(host: string, port: number = 3000): void {
     this.runTunnel(host, port)
 
     process.stdin.on('data', (data) => {
@@ -44,7 +44,8 @@ export class RendererDevCommand extends BaseCommand {
     if (this.tunnel) {
       const workspace = project.getWorkspaceByCwd(this.context.cwd)
 
-      const { tunnel: config } = workspace.manifest.raw.tools || {}
+      const { tunnel: config }: { tunnel: { host?: string; port?: number } } =
+        workspace.manifest.raw.tools || {}
 
       if (!config?.host) {
         throw new Error('Tunnel host not configured')

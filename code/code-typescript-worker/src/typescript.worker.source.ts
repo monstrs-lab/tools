@@ -6,7 +6,12 @@ import { parse }      from 'flatted'
 
 import { TypeScript } from '@monstrs/code-typescript'
 
-const { type, cwd, include, override } = workerData
+const {
+  type,
+  cwd,
+  include,
+  override,
+}: { type: 'build' | 'check'; cwd: string; include: Array<string>; override: object } = workerData
 
 const execute = async (): Promise<void> => {
   if (type === 'check') {

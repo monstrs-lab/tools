@@ -50,9 +50,9 @@ export class Service {
         .toString()
         .split(/\r?\n/)
         .filter(Boolean)
-        .forEach((row) => {
+        .forEach((row: string) => {
           try {
-            callback(JSON.parse(row))
+            callback(JSON.parse(row) as ServiceLogRecord)
           } catch {
             callback({ severityNumber: SeverityNumber.INFO, body: row })
           }
