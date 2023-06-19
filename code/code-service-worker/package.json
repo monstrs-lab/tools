@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-service-worker",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -19,11 +19,11 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/code-service": "workspace:0.3.8",
+    "@monstrs/code-service": "workspace:0.3.9",
     "@monstrs/code-worker-utils": "workspace:0.3.5"
   },
   "devDependencies": {
-    "@monstrs/tools-runtime": "workspace:0.2.8",
+    "@monstrs/tools-runtime": "workspace:0.2.9",
     "@rollup/plugin-commonjs": "^24.1.0",
     "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-node-resolve": "^15.1.0",
