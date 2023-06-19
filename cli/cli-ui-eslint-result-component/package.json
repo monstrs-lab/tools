@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/cli-ui-eslint-result-component",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@jest/globals": "29.5.0",
-    "@monstrs/cli-ui-renderer": "workspace:0.3.2",
+    "@monstrs/cli-ui-renderer": "workspace:0.3.3",
     "@types/react": "^18.2.11",
     "ink": "^4.2.0",
     "react": "^18.2.0",
