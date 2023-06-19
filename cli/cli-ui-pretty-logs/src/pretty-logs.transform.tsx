@@ -10,15 +10,11 @@ export class PrettyLogsTransform extends Transform {
   parse(row: string): object {
     try {
       if (row) {
-        const data = JSON.parse(row)
+        const data: { body?: string } = JSON.parse(row)
 
-        if (data && !data.body) {
-          return {
-            body: data,
-          }
+        if (data?.body) {
+          return data
         }
-
-        return data
       }
     } catch {} // eslint-disable-line
 

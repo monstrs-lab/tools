@@ -8,7 +8,7 @@ export class WorkspaceConfiguration {
     try {
       const { tools = {} } = JSON.parse(await readFile(join(cwd, 'package.json'), 'utf-8'))
 
-      return tools
+      return tools as WorkspaceConfigurationOptions
     } catch {
       return {}
     }

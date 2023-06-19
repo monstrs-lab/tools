@@ -33,6 +33,6 @@ export const makeTemporaryEnv = (
       }
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-return
     return global.makeTemporaryEnv(packageJson, subDefinition, fn)(...args)
   }

@@ -23,6 +23,7 @@ export const extractPrinter = async (): Promise<any> => {
 
               printer = plugin.printers.estree
 
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-return
               return typescript.parsers.typescript.parse(text, options)
             },
           },
@@ -32,5 +33,5 @@ export const extractPrinter = async (): Promise<any> => {
     parser: 'typescript',
   })
 
-  return printer
+  return printer // eslint-disable-line @typescript-eslint/no-unsafe-return
 }

@@ -15,7 +15,7 @@ export class WebpackExternals {
 
   async loadPackageJson(): Promise<IPackageJson> {
     try {
-      return JSON.parse(await readFile(join(this.cwd, 'package.json'), 'utf-8'))
+      return JSON.parse(await readFile(join(this.cwd, 'package.json'), 'utf-8')) as IPackageJson
     } catch {
       return {}
     }

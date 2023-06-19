@@ -1874,7 +1874,8 @@ const RAW_RUNTIME_STATE =
           ["@fixtures/icons-simple", "workspace:code/code-icons/integration/fixtures/simple"],\
           ["@babel/core", "npm:7.22.1"],\
           ["@babel/template", "npm:7.21.9"],\
-          ["@fixtures/icons-theme", "workspace:code/code-icons/integration/fixtures/theme"]\
+          ["@fixtures/icons-theme", "workspace:code/code-icons/integration/fixtures/theme"],\
+          ["@types/babel__template", "npm:7.4.1"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -5068,6 +5069,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/@types-babel__template-npm-7.0.2-32d369837a-ad00e561fa.zip/node_modules/@types/babel__template/",\
         "packageDependencies": [\
           ["@types/babel__template", "npm:7.0.2"],\
+          ["@babel/parser", "npm:7.22.4"],\
+          ["@babel/types", "npm:7.22.4"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:7.4.1", {\
+        "packageLocation": "./.yarn/cache/@types-babel__template-npm-7.4.1-fe1db49e53-ba9a947c2d.zip/node_modules/@types/babel__template/",\
+        "packageDependencies": [\
+          ["@types/babel__template", "npm:7.4.1"],\
           ["@babel/parser", "npm:7.22.4"],\
           ["@babel/types", "npm:7.22.4"]\
         ],\
