@@ -15,8 +15,8 @@ export default {
     noFallthroughCasesInSwitch: true,
 
     noImplicitAny: false,
-    noImplicitReturns: false,
-    noImplicitThis: false,
+    noImplicitReturns: true,
+    noImplicitThis: true,
 
     noUnusedLocals: false,
     noUnusedParameters: false,
