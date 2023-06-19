@@ -10,16 +10,16 @@ export const getPullRequestSha = (): string => {
 
   return (
     process.env.GITHUB_PULL_REQUST_HEAD_SHA ||
-    event.after ||
-    event.pull_request?.head?.sha ||
-    process.env.GITHUB_SHA
+    (event.after as string) ||
+    (event.pull_request?.head?.sha as string) ||
+    process.env.GITHUB_SHA!
   )
 }
 
 export const getPullRequestId = (): string => {
   const event = context.payload
 
-  return event.pull_request?.id
+  return event.pull_request?.id as string
 }
 
 export const getPullRequestNumber = (): string => {

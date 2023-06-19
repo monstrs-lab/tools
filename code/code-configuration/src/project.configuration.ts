@@ -17,7 +17,7 @@ export class ProjectConfiguration {
       const content = await xfs.readFilePromise(rcPath, 'utf8')
 
       try {
-        return JSON.parse(content)
+        return JSON.parse(content) as Partial<ProjectConfiguration>
       } catch (error) {
         // eslint-disable-next-line no-console
         console.error(error)

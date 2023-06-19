@@ -20,14 +20,14 @@ export const getFileFormat = (filepath: string): string | null => {
 
       if (!pkg) return 'commonjs'
 
-      return pkg.data.type ?? 'commonjs'
+      return (pkg.data.type as string) ?? 'commonjs'
     }
     case '.tsx': {
       const pkg = nodeUtils.readPackageScope(filepath)
 
       if (!pkg) return 'commonjs'
 
-      return pkg.data.type ?? 'commonjs'
+      return (pkg.data.type as string) ?? 'commonjs'
     }
     default: {
       return null
@@ -45,5 +45,5 @@ export const transformSource = (source: string, format: string, ext: 'ts' | 'tsx
     target: `node${process.versions.node}`,
   })
 
-  return code
+  return code as string
 }

@@ -6,6 +6,7 @@
   "devDependencies": {
     "@babel/core": "*",
     "@babel/template": "*",
-    "@fixtures/icons-theme": "workspace:^"
+    "@fixtures/icons-theme": "workspace:^",
+    "@types/babel__template": "^7.4.1"
   }
 }

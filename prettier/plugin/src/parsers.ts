@@ -13,7 +13,7 @@ import { typescript }                 from './imports.js'
 // TODO: moduleResolution
 const sortImports = sortImportsPkg as any
 
-const preprocess: Parser['preprocess'] = (source, { plugins }) => {
+const preprocess: Parser['preprocess'] = (source, { plugins }): string => {
   const plugin: any = plugins.find((p: any) => p.parsers?.typescript)
 
   const { code } = sortImports(
@@ -22,7 +22,7 @@ const preprocess: Parser['preprocess'] = (source, { plugins }) => {
     style
   )
 
-  return code
+  return code as string
 }
 
 const parse: Parser['parse'] = async (source, { plugins }) => {
@@ -53,7 +53,7 @@ const parse: Parser['parse'] = async (source, { plugins }) => {
     }
   })
 
-  return program
+  return program // eslint-disable-line @typescript-eslint/no-unsafe-return
 }
 
 export const parsers: Record<string, Parser> = {

@@ -26,5 +26,5 @@ export const renderStatic = (
 
   renderNodeToOutput(rootNode, output, { skipStaticElements: false })
 
-  return output.get().output
+  return output.get().output as string
 }

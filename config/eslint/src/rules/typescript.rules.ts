@@ -20,6 +20,7 @@ export const rules: Linter.RulesRecord = {
       fixStyle: 'separate-type-imports',
     },
   ],
+  '@typescript-eslint/no-unsafe-return': 'error',
   '@typescript-eslint/no-unsafe-argument': 'error',
   '@typescript-eslint/no-unsafe-call': 'error',
   '@typescript-eslint/member-ordering': [

@@ -1,6 +1,6 @@
 import { brotliDecompressSync } from 'zlib'
 
-let hook
+let hook: string | undefined
 
 export const getContent = (): string => {
   if (typeof hook === `undefined`)

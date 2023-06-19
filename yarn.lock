@@ -1030,6 +1030,7 @@ __metadata:
     "@babel/core": "npm:*"
     "@babel/template": "npm:*"
     "@fixtures/icons-theme": "workspace:^"
+    "@types/babel__template": "npm:^7.4.1"
   languageName: unknown
   linkType: soft
 
@@ -3116,6 +3117,16 @@ __metadata:
     "@babel/parser": "npm:^7.1.0"
     "@babel/types": "npm:^7.0.0"
   checksum: ad00e561fa8773b10bb2fc3848cf57de8e16a84b394b64b51c045fc7aa5d0a6f9105f7452a7aeabd8b6a7385375f27c1aea92ee0b3b1526c744016411f81da03
+  languageName: node
+  linkType: hard
+
+"@types/babel__template@npm:^7.4.1":
+  version: 7.4.1
+  resolution: "@types/babel__template@npm:7.4.1"
+  dependencies:
+    "@babel/parser": "npm:^7.1.0"
+    "@babel/types": "npm:^7.0.0"
+  checksum: ba9a947c2d7f52aae25cc4d9d1a2e47901e43f04a85b9d05603411761cd0253f983f41e34b771703328d8608150ba7292bdad4fffc20177ee42bc621f176e083
   languageName: node
   linkType: hard
 
