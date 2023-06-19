@@ -81,7 +81,7 @@ export class WebpackConfig {
 
     config.plugin('ignore').use(webpack.IgnorePlugin, [
       {
-        checkResource(resource): boolean {
+        checkResource: (resource: string): boolean => {
           if (!LAZY_IMPORTS.includes(resource)) {
             return false
           }

@@ -37,10 +37,39 @@ class ChecksLintCommand extends BaseCommand {
 
         const { id: checkId } = await checks.start()
 
-        // eslint-disable-next-line consistent-return
-        const results = await report.startTimerPromise('Lint', async () => {
+        await report.startTimerPromise('Lint', async () => {
           try {
-            return await new LinterWorker(project.cwd).run(project.cwd)
+            const results = await new LinterWorker(project.cwd).run(project.cwd)
+
+            results
+              .filter((result) => result.messages.length > 0)
+              .forEach((result) => {
+                const output = renderStatic(<ESLintResult {...result} />)
+
+                output.split('\n').forEach((line) => {
+                  report.reportInfo(MessageName.UNNAMED, line)
+                })
+              })
+
+            const annotations = this.formatResults(results, project.cwd)
+
+            const warnings: number = annotations.filter(
+              (annotation) => annotation.annotation_level === AnnotationLevel.Warning
+            ).length
+
+            const errors: number = annotations.filter(
+              (annotation) => annotation.annotation_level === AnnotationLevel.Failure
+            ).length
+
+            await checks.complete(checkId, {
+              title:
+                annotations.length > 0 ? `Errors ${errors}, Warnings ${warnings}` : 'Successful',
+              summary:
+                annotations.length > 0
+                  ? `Found ${errors} errors and ${warnings} warnings`
+                  : 'All checks passed',
+              annotations,
+            })
           } catch (error) {
             await checks.failure({
               title: 'Lint run failed',
@@ -48,37 +77,6 @@ class ChecksLintCommand extends BaseCommand {
             })
           }
         })
-
-        if (results) {
-          results
-            .filter((result) => result.messages.length > 0)
-            .forEach((result) => {
-              const output = renderStatic(<ESLintResult {...result} />)
-
-              output.split('\n').forEach((line) => {
-                report.reportInfo(MessageName.UNNAMED, line)
-              })
-            })
-
-          const annotations = this.formatResults(results, project.cwd)
-
-          const warnings: number = annotations.filter(
-            (annotation) => annotation.annotation_level === AnnotationLevel.Warning
-          ).length
-
-          const errors: number = annotations.filter(
-            (annotation) => annotation.annotation_level === AnnotationLevel.Failure
-          ).length
-
-          await checks.complete(checkId, {
-            title: annotations.length > 0 ? `Errors ${errors}, Warnings ${warnings}` : 'Successful',
-            summary:
-              annotations.length > 0
-                ? `Found ${errors} errors and ${warnings} warnings`
-                : 'All checks passed',
-            annotations,
-          })
-        }
       }
     )
 
