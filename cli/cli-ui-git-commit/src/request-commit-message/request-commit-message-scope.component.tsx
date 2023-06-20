@@ -16,6 +16,7 @@ import { IndicatorComponent }    from './select-indicator.component.jsx'
 import { ItemComponent }         from './select-item.component.jsx'
 
 const scopes = Object.keys(COMMIT_SCOPE_ENUM).map((key) => ({
+  // @ts-expect-error
   label: COMMIT_SCOPE_ENUM[key].description,
   value: key,
 }))

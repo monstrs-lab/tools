@@ -14,6 +14,7 @@ import { IndicatorComponent } from './select-indicator.component.jsx'
 import { ItemComponent }      from './select-item.component.jsx'
 
 const types = Object.keys(COMMIT_TYPE_ENUM).map((key) => ({
+  // @ts-expect-error
   label: COMMIT_TYPE_ENUM[key].description,
   value: key,
 }))

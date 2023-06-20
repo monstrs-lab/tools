@@ -20,6 +20,7 @@ import { buildCommitMesage }    from '@commitlint/lint/lib/commit-message.js'
 import isIgnoredPkg             from '@commitlint/is-ignored'
 import defaultRulesPkg          from '@commitlint/rules'
 import { sync }                 from 'conventional-commits-parser'
+// @ts-expect-error
 import defaultParserOpts        from 'conventional-changelog-angular/parser-opts.js'
 
 const isIgnored = isIgnoredPkg.default || isIgnoredPkg
@@ -27,6 +28,7 @@ const defaultRules = defaultRulesPkg.default || defaultRulesPkg
 
 export async function parse(
   message: string,
+  // @ts-expect-error
   parser: Parser = sync,
   parserOpts?: ParserOptions
 ): Promise<Commit> {

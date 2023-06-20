@@ -1,23 +1,26 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 
-import type { IImport }     from 'import-sort-parser'
-import type { IParser }     from 'import-sort-parser'
-import type { NamedMember } from 'import-sort-parser'
-import type { AST }         from 'prettier'
+import type { IImport }           from 'import-sort-parser'
+import type { IParser }           from 'import-sort-parser'
+import type { NamedMember }       from 'import-sort-parser'
+import type { AST }               from 'prettier'
+import type { Node }              from '@babel/types'
+import type { Comment }           from '@babel/types'
+import type { ImportDeclaration } from '@babel/types'
 
 export class ImportSortTypeScriptParser implements IParser {
   constructor(private readonly program: AST) {}
 
   parseImports(code: string): Array<IImport> {
     const imports: Array<IImport> = this.program.body
-      .filter((node) => node.type === 'ImportDeclaration')
-      .map((node) => {
+      .filter((node: Node) => node.type === 'ImportDeclaration')
+      .map((node: ImportDeclaration) => {
         const imp: IImport = {
-          start: node.range[0],
-          end: node.range[1],
+          start: node.range![0],
+          end: node.range![1],
 
-          importStart: node.range[0],
-          importEnd: node.range[1],
+          importStart: node.range![0],
+          importEnd: node.range![1],
 
           type: node.importKind === 'type' ? 'import-type' : 'import',
 
@@ -34,6 +37,7 @@ export class ImportSortTypeScriptParser implements IParser {
           namedMembers: node.specifiers
             .filter((specifier) => specifier.type === 'ImportSpecifier')
             .map((specifier) => ({
+              // @ts-expect-error
               name: specifier.imported.name,
               alias: specifier.local.name,
               type: node.importKind === 'type',
@@ -41,9 +45,9 @@ export class ImportSortTypeScriptParser implements IParser {
         }
 
         const lineComment = this.program.comments.find(
-          (comment) =>
-            comment.loc.start.line === node.loc.start.line &&
-            comment.loc.end.line === node.loc.end.line
+          (comment: Comment) =>
+            comment.loc!.start.line === node.loc!.start.line &&
+            comment.loc!.end.line === node.loc!.end.line
         )
 
         if (lineComment) {
@@ -51,10 +55,9 @@ export class ImportSortTypeScriptParser implements IParser {
           imp.end = lineComment.range[1]
         }
 
-        // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-        const findLeadingComments = (position: number) => {
+        const findLeadingComments = (position: number): typeof this.program.comments => {
           const leadingComment = this.program.comments.find(
-            (comment) => comment.loc.start.line === position
+            (comment: Comment) => comment.loc!.start.line === position
           )
 
           if (!leadingComment) {
@@ -66,7 +69,7 @@ export class ImportSortTypeScriptParser implements IParser {
           return [...parents, leadingComment] // eslint-disable-line @typescript-eslint/no-unsafe-return
         }
 
-        const leadingComments: Array<any> = findLeadingComments(node.loc.start.line - 1)
+        const leadingComments: Array<any> = findLeadingComments(node.loc!.start.line - 1)
 
         if (leadingComments.length > 0) {
           imp.start = leadingComments.at(0).range.at(0)

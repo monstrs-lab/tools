@@ -1,29 +1,16 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 
-import type { Parser }                from 'prettier'
+import type { Parser }                        from 'prettier'
 
-import sortImportsPkg                 from 'import-sort'
-import sortPackageJson                from 'sort-package-json'
+import sortPackageJson                        from 'sort-package-json'
 
-import { ImportSortTypeScriptParser } from './import-sort/index.js'
-import { style }                      from './import-sort/index.js'
-import { babel }                      from './imports.js'
-import { typescript }                 from './imports.js'
+import { preprocess as importSortPreprocess } from './import-sort/index.js'
+import { babel }                              from './imports.js'
+import { typescript }                         from './imports.js'
 
-// TODO: moduleResolution
-const sortImports = sortImportsPkg as any
-
-const preprocess: Parser['preprocess'] = (source, { plugins }): string => {
-  const plugin: any = plugins.find((p: any) => p.parsers?.typescript)
-
-  const { code } = sortImports(
-    source,
-    new ImportSortTypeScriptParser(plugin.parsers.typescript.parse(source)),
-    style
-  )
-
-  return code as string
-}
+// eslint-disable-next-line @typescript-eslint/no-unnecessary-type-arguments
+const preprocess: Parser<any>['preprocess'] = (source, options): string =>
+  importSortPreprocess(source, options)
 
 const parse: Parser['parse'] = async (source, { plugins }) => {
   const plugin: any = plugins.find((p: any) => p.parsers?.typescript)
@@ -34,19 +21,18 @@ const parse: Parser['parse'] = async (source, { plugins }) => {
 
   const nodes = [...program.body].reverse()
 
-  nodes.forEach((node, nodeIndex) => {
+  nodes.forEach((node, nodeIndex: number) => {
     if (node.type === 'ImportDeclaration') {
       if (node.specifiers.length > 1) {
         const index = bodyLength - nodeIndex - 1
 
         program.body.splice(index, 1)
 
-        node.specifiers.forEach((_, specifierIndex) => {
-          // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
+        node.specifiers.forEach((_: unknown, specifierIndex: number) => {
           program.body.splice(index + specifierIndex, 0, {
             ...node,
             // eslint-disable-next-line @typescript-eslint/no-shadow
-            specifiers: node.specifiers.filter((_, i) => specifierIndex === i),
+            specifiers: node.specifiers.filter((_: unknown, i: number) => specifierIndex === i),
           })
         })
       }
