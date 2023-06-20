@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-test-worker",
-  "version": "0.3.9",
+  "version": "0.3.10",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -20,8 +20,8 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/code-test": "workspace:0.3.9",
-    "@monstrs/code-worker-utils": "workspace:0.3.5",
+    "@monstrs/code-test": "workspace:0.3.10",
+    "@monstrs/code-worker-utils": "workspace:0.3.6",
     "flatted": "patch:flatted@npm%3A3.2.7#~/.yarn/patches/flatted-npm-3.2.7-0da10b7c56.patch"
   },
   "devDependencies": {
