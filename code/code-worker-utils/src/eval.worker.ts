@@ -1,11 +1,11 @@
-import { writeFile } from 'node:fs/promises'
-import { access }    from 'node:fs/promises'
-import { mkdir }     from 'node:fs/promises'
-import { join }      from 'node:path'
-import { dirname }   from 'node:path'
-import { Worker }    from 'node:worker_threads'
+import { writeFile }            from 'node:fs/promises'
+import { access }               from 'node:fs/promises'
+import { mkdir }                from 'node:fs/promises'
+import { join }                 from 'node:path'
+import { dirname }              from 'node:path'
+import { Worker }               from 'node:worker_threads'
 
-import hash          from 'hash-string'
+import { fastHashCode as hash } from 'fast-hash-code'
 
 export class EvalWorker {
   static async run<T>(cwd: string, content: string, workerData: object): Promise<T> {
@@ -37,7 +37,7 @@ export class EvalWorker {
     const worker = await EvalWorker.build(cwd, content, workerData)
 
     return new Promise((resolve, reject) => {
-      const stdinHandler = (data): void => {
+      const stdinHandler = (data: Buffer): void => {
         if (worker.stdin) {
           worker.stdin.write(data)
         }
@@ -63,7 +63,7 @@ export class EvalWorker {
   }
 
   private static async build(cwd: string, content: string, workerData: object): Promise<Worker> {
-    const filename: string = (hash as (string) => string)(content)
+    const filename: number = hash(content, { forcePositive: true })
     const file: string = join(cwd, `.yarn/dist/${filename}.mjs`)
 
     try {

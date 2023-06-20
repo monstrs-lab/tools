@@ -14,7 +14,7 @@ export default {
     moduleResolution: 'nodenext',
     noFallthroughCasesInSwitch: true,
 
-    noImplicitAny: false,
+    noImplicitAny: true,
     noImplicitReturns: true,
     noImplicitThis: true,
 

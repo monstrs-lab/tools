@@ -12,6 +12,7 @@ export const renderStatic = (
   terminalWidth: number = process.stdout.columns || 80
 ): string => {
   const rootNode = createNode('ink-root')
+  // @ts-expect-error
   const container = reconciler.createContainer(rootNode, false, false)
 
   reconciler.updateContainer(target, container, null)

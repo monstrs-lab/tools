@@ -33,5 +33,5 @@ export const extractPrinter = async (): Promise<any> => {
     parser: 'typescript',
   })
 
-  return printer // eslint-disable-line @typescript-eslint/no-unsafe-return
+  return printer
 }

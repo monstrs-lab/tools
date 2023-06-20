@@ -11,7 +11,7 @@ import packageJson                from '../package.json' assert { type: 'json' }
 const pc = getPluginConfiguration(packageJson['@yarnpkg/builder'].bundles.standard)
 
 if (pc.then) {
-  pc.then(async (pluginConfiguration) =>
+  pc.then(async (pluginConfiguration: ReturnType<getPluginConfiguration>) =>
     main({
       binaryVersion: YarnVersion || '<unknown>',
       pluginConfiguration,

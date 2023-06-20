@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-redundant-type-constituents */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-
 import type { TemplateBuilder } from '@babel/template'
 import type { types as t }      from '@babel/core'
 
@@ -14,7 +11,7 @@ interface TemplateVariables {
 }
 
 interface TemplateContext {
-  tpl: TemplateBuilder<Array<t.Statement> | t.Statement>['ast']
+  tpl: TemplateBuilder<string>['ast']
 }
 
 export default (variables: TemplateVariables, { tpl }: TemplateContext): string => tpl`

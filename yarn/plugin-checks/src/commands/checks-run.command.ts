@@ -1,9 +1,11 @@
-import { BaseCommand }   from '@yarnpkg/cli'
-import { StreamReport }  from '@yarnpkg/core'
-import { Configuration } from '@yarnpkg/core'
-import { MessageName }   from '@yarnpkg/core'
-import { Project }       from '@yarnpkg/core'
-import { execUtils }     from '@yarnpkg/core'
+import type { PortablePath } from '@yarnpkg/fslib'
+
+import { BaseCommand }       from '@yarnpkg/cli'
+import { StreamReport }      from '@yarnpkg/core'
+import { Configuration }     from '@yarnpkg/core'
+import { MessageName }       from '@yarnpkg/core'
+import { Project }           from '@yarnpkg/core'
+import { execUtils }         from '@yarnpkg/core'
 
 class ChecksRunCommand extends BaseCommand {
   static paths = [['checks', 'run']]
@@ -32,7 +34,11 @@ class ChecksRunCommand extends BaseCommand {
     return commandReport.exitCode()
   }
 
-  private async runCheck(cwd, args: Array<string>, report: StreamReport): Promise<void> {
+  private async runCheck(
+    cwd: PortablePath,
+    args: Array<string>,
+    report: StreamReport
+  ): Promise<void> {
     try {
       const { stdout, stderr } = await execUtils.execvp('yarn', ['checks', ...args], {
         cwd,
