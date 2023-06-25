@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-service-worker",
-  "version": "0.3.10",
+  "version": "0.3.11",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -19,7 +19,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/code-service": "workspace:0.3.10",
+    "@monstrs/code-service": "workspace:0.3.11",
     "@monstrs/code-worker-utils": "workspace:0.3.6"
   },
   "devDependencies": {
