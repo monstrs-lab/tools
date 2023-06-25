@@ -56,6 +56,10 @@ class TypeScript {
       .filter(
         (diagnostic) => !(diagnostic.code === 2834 && diagnostic.file?.fileName.includes('/.yarn/'))
       )
+      .filter(
+        (diagnostic) =>
+          !(diagnostic.code === 7016 && diagnostic.file?.fileName.includes('/lexical/'))
+      )
   }
 }
 
