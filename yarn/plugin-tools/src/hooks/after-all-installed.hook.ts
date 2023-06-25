@@ -63,11 +63,21 @@ ${command}
 const git = (args: Array<string>): SpawnSyncReturns<Buffer> =>
   spawnSync('git', args, { stdio: 'inherit' })
 
+const hooksExists = (): boolean => {
+  const { error, output } = git(['config', 'core.hooksPath'])
+
+  if (error) {
+    return false
+  }
+
+  return Boolean(output)
+}
+
 export const afterAllInstalled = async (project: Project): Promise<void> => {
   if (platform() === 'darwin') {
     const target = ppath.join(project.cwd, '.config/husky')
 
-    if (!(await xfs.existsPromise(ppath.join(target, '_/husky.sh')))) {
+    if (!hooksExists()) {
       await xfs.mkdirPromise(ppath.join(target, '_'), { recursive: true })
       await xfs.writeFilePromise(ppath.join(target, '_/.gitignore'), '*')
       await xfs.writeFilePromise(ppath.join(target, '_/husky.sh'), husky)
