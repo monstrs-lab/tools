@@ -18,12 +18,14 @@ export interface TypeScriptDiagnosticProps {
   file?: SourceFile
   messageText: DiagnosticMessageChain | string
   start?: number
+  code: number
 }
 
 export const TypeScriptDiagnostic: FC<TypeScriptDiagnosticProps> = ({
   start,
   file,
   messageText,
+  code,
 }) => {
   const filepath = useMemo(() => {
     if (!file) {
@@ -59,9 +61,9 @@ export const TypeScriptDiagnostic: FC<TypeScriptDiagnosticProps> = ({
           </Text>
         </Box>
       )}
-      <Box marginBottom={1} marginLeft={2}>
+      <Box marginBottom={1}>
         <Text bold color='red'>
-          Error
+          TS{code}
         </Text>
         <Text color='white'>: {flattenDiagnosticMessageText(messageText, '\n')}</Text>
       </Box>

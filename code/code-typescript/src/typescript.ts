@@ -60,6 +60,13 @@ class TypeScript {
         (diagnostic) =>
           !(diagnostic.code === 7016 && diagnostic.file?.fileName.includes('/lexical/'))
       )
+      .filter(
+        (diagnostic) =>
+          !(
+            [2411, 2304, 7006, 7016].includes(diagnostic.code) &&
+            diagnostic.file?.fileName.includes('/@strapi/')
+          )
+      )
   }
 }
 
