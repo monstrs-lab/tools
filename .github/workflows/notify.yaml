@@ -124,13 +124,3 @@ jobs:
                 version,
               }
             })
-
-            await github.rest.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: 'nextjs-modules',
-              workflow_id: 'tools.yaml',
-              ref: 'master',
-              inputs: {
-                version,
-              }
-            })

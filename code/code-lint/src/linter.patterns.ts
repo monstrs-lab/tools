@@ -18,6 +18,8 @@ const ignore = [
   '.next',
   '**/**/dist/*',
   '**/**/lib/*',
+  '**/**/build/*',
+  '**/**/.cache/*',
   '**/**/bundles/*',
   '**/**/templates/*.yaml',
   '**/templates/*.yaml',
