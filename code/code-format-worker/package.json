@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-format-worker",
-  "version": "0.3.9",
+  "version": "0.3.10",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -19,7 +19,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/code-format": "workspace:0.3.9",
+    "@monstrs/code-format": "workspace:0.3.10",
     "@monstrs/code-worker-utils": "workspace:0.3.6"
   },
   "devDependencies": {
