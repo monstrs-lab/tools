@@ -1,0 +1,6 @@
+releases:
+  "@monstrs/cli-ui-typescript-diagnostic-component": patch
+  "@monstrs/code-typescript": patch
+  "@monstrs/code-typescript-worker": patch
+  "@monstrs/yarn-cli": patch
+  "@monstrs/yarn-cli-tools": patch
