@@ -70,7 +70,7 @@ const hooksExists = (): boolean => {
     return false
   }
 
-  return Boolean(output)
+  return Boolean(output.at(1))
 }
 
 export const afterAllInstalled = async (project: Project): Promise<void> => {
