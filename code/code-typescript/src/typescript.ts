@@ -63,7 +63,7 @@ class TypeScript {
       .filter(
         (diagnostic) =>
           !(
-            [2411, 2304, 7006, 7016].includes(diagnostic.code) &&
+            [2315, 2411, 2304, 7006, 7016].includes(diagnostic.code) &&
             diagnostic.file?.fileName.includes('/@strapi/')
           )
       )
