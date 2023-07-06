@@ -14,7 +14,10 @@ export class SpinnerProgress {
 
   private position = 0
 
-  constructor(private readonly stdout: Writable, private readonly configuration: Configuration) {}
+  constructor(
+    private readonly stdout: Writable,
+    private readonly configuration: Configuration
+  ) {}
 
   isEnabled(): boolean {
     return (this.stdout as WriteStream).isTTY && !process.env.TOOLS_DISABLE_PROGRESS

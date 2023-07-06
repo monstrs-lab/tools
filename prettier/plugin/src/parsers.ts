@@ -2,11 +2,11 @@
 
 import type { Parser }                        from 'prettier'
 
+import * as babel                             from 'prettier/plugins/babel'
+import * as typescript                        from 'prettier/plugins/typescript'
 import sortPackageJson                        from 'sort-package-json'
 
 import { preprocess as importSortPreprocess } from './import-sort/index.js'
-import { babel }                              from './imports.js'
-import { typescript }                         from './imports.js'
 
 // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-arguments
 const preprocess: Parser<any>['preprocess'] = (source, options): string =>

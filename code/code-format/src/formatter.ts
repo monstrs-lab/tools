@@ -2,14 +2,16 @@ import { writeFile }      from 'node:fs/promises'
 import { readFile }       from 'node:fs/promises'
 import { relative }       from 'node:path'
 
+import * as babel         from 'prettier/plugins/babel'
+import * as graphql       from 'prettier/plugins/graphql'
+import * as markdown      from 'prettier/plugins/markdown'
+import * as typescript    from 'prettier/plugins/typescript'
+import * as yaml          from 'prettier/plugins/yaml'
+// @ts-expect-error
+import * as estree        from 'prettier/plugins/estree'
 import { globby }         from 'globby'
 import { format }         from 'prettier/standalone'
 import ignorer            from 'ignore'
-import babel              from 'prettier/plugins/babel'
-import graphql            from 'prettier/plugins/graphql'
-import markdown           from 'prettier/plugins/markdown'
-import typescript         from 'prettier/plugins/typescript'
-import yaml               from 'prettier/plugins/yaml'
 
 import config             from '@monstrs/config-prettier'
 import plugin             from '@monstrs/prettier-plugin'
@@ -34,14 +36,7 @@ export class Formatter {
       const output = await format(input, {
         ...config,
         filepath: filename,
-        plugins: [
-          yaml as any,
-          markdown as any,
-          graphql as any,
-          babel as any,
-          typescript as any,
-          plugin as any,
-        ],
+        plugins: [estree, yaml, markdown, graphql, babel, typescript, plugin],
       })
 
       if (output !== input && output) {
