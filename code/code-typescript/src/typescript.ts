@@ -67,6 +67,13 @@ class TypeScript {
             diagnostic.file?.fileName.includes('/@strapi/')
           )
       )
+      .filter(
+        (diagnostic) =>
+          !(
+            [2688, 2307, 2503].includes(diagnostic.code) &&
+            diagnostic.file?.fileName.includes('/pkg-tests-core/')
+          )
+      )
   }
 }
 

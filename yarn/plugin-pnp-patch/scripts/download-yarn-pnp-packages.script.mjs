@@ -1,5 +1,4 @@
 import { execFileSync } from 'node:child_process'
-import { execSync } from 'node:child_process'
 import { mkdtemp } from 'node:fs/promises'
 import { writeFile } from 'node:fs/promises'
 import { readFile } from 'node:fs/promises'
@@ -59,10 +58,6 @@ execFileSync('git', [
   repo,
 ])
 
-execSync(`find ./ -iname "package.json" -type f | xargs sed -i -e 's/0.15.5/0.17.15/gi'`, {
-  cwd: repo,
-})
-
 const pkgJson = await readFile(join(repo, 'packages/yarnpkg-pnp/package.json'), 'utf-8')
 
 await writeFile(
@@ -75,8 +70,6 @@ await writeFile(
         '.': './lib/index.js',
         './package.json': './package.json',
         './lib/esm-loader/loaderUtils.js': './lib/esm-loader/loaderUtils.js',
-        './lib/esm-loader/hooks/getFormat.js': './lib/esm-loader/hooks/getFormat.js',
-        './lib/esm-loader/hooks/getSource.js': './lib/esm-loader/hooks/getSource.js',
         './lib/esm-loader/loaderFlags.js': './lib/esm-loader/loaderFlags.js',
         './lib/esm-loader/hooks/load.js': './lib/esm-loader/hooks/load.js',
         './lib/loader/nodeUtils.js': './lib/loader/nodeUtils.js',

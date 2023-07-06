@@ -24,7 +24,7 @@
     "@monstrs/code-typescript-worker": "workspace:0.3.13",
     "@monstrs/tools-runtime": "workspace:0.2.11",
     "@monstrs/yarn-run-utils": "workspace:0.2.1",
-    "clipanion": "^3.2.0",
+    "clipanion": "^3.2.1",
     "react": "^18.2.0",
     "semver": "^7.5.1"
   },
@@ -32,10 +32,10 @@
     "@jest/globals": "29.5.0",
     "@monstrs/yarn-test-utils": "workspace:0.2.1",
     "@types/react": "^18.2.13",
-    "@yarnpkg/builder": "^4.0.0-rc.45",
-    "@yarnpkg/cli": "^4.0.0-rc.45",
-    "@yarnpkg/core": "^4.0.0-rc.45",
-    "@yarnpkg/fslib": "^3.0.0-rc.45",
+    "@yarnpkg/builder": "^4.0.0-rc.48",
+    "@yarnpkg/cli": "^4.0.0-rc.48",
+    "@yarnpkg/core": "^4.0.0-rc.48",
+    "@yarnpkg/fslib": "^3.0.0-rc.48",
     "typescript": "^5.1.6"
   },
   "peerDependencies": {

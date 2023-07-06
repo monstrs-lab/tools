@@ -19,10 +19,10 @@
   },
   "devDependencies": {
     "@types/node": "^20.3.0",
-    "@yarnpkg/builder": "^4.0.0-rc.45",
-    "@yarnpkg/cli": "^4.0.0-rc.45",
-    "@yarnpkg/core": "^4.0.0-rc.45",
-    "@yarnpkg/fslib": "^3.0.0-rc.45"
+    "@yarnpkg/builder": "^4.0.0-rc.48",
+    "@yarnpkg/cli": "^4.0.0-rc.48",
+    "@yarnpkg/core": "^4.0.0-rc.48",
+    "@yarnpkg/fslib": "^3.0.0-rc.48"
   },
   "peerDependencies": {
     "@yarnpkg/cli": "^4",

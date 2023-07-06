@@ -20,7 +20,7 @@
     "@monstrs/code-commit": "workspace:0.3.6",
     "@types/node": "^20.3.0",
     "@types/react": "^18.2.13",
-    "@yarnpkg/libui": "^3.0.0-rc.45",
+    "@yarnpkg/libui": "^3.0.0-rc.48",
     "camelcase": "^7.0.1",
     "figures": "^5.0.0",
     "ink": "^4.2.0",

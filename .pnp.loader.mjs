@@ -1,22 +1,20 @@
+import fs$1 from 'node:fs';
+import { fileURLToPath as fileURLToPath$1, pathToFileURL as pathToFileURL$1 } from 'node:url';
 import fs from 'fs';
 import path$1 from 'path';
-import require$$0$1, { URL as URL$1, fileURLToPath, pathToFileURL } from 'url';
+import require$$2, { URL as URL$1, fileURLToPath, pathToFileURL } from 'url';
 import moduleExports, { Module } from 'module';
-import { createRequire } from 'node:module';
-import { extname } from 'node:path';
-import { fileURLToPath as fileURLToPath$1, pathToFileURL as pathToFileURL$1 } from 'node:url';
-import fs$1 from 'node:fs';
 import require$$1 from 'util';
 import require$$1$1 from 'events';
-import require$$0, { createHash } from 'crypto';
+import require$$0$1, { createHash } from 'crypto';
 import require$$1$2, { EOL } from 'os';
+import require$$1$3 from 'buffer';
 import require$$0$2 from 'readline';
+import { createRequire } from 'node:module';
+import { extname } from 'node:path';
 import assert from 'assert';
 
 const [major, minor] = process.versions.node.split(`.`).map((value) => parseInt(value, 10));
-const HAS_CONSOLIDATED_HOOKS = major > 16 || major === 16 && minor >= 12;
-const HAS_UNFLAGGED_JSON_MODULES = major > 17 || major === 17 && minor >= 5 || major === 16 && minor >= 15;
-const HAS_JSON_IMPORT_ASSERTION_REQUIREMENT = major > 17 || major === 17 && minor >= 1 || major === 16 && minor > 14;
 const WATCH_MODE_MESSAGE_USES_ARRAYS = major > 19 || major === 19 && minor >= 2 || major === 18 && minor >= 13;
 
 const PortablePath = {
@@ -146,11 +144,7 @@ function getFileFormat$1(filepath) {
       );
     }
     case `.json`: {
-      if (HAS_UNFLAGGED_JSON_MODULES)
-        return `json`;
-      throw new Error(
-        `Unknown file extension ".json" for ${filepath}`
-      );
+      return `json`;
     }
     case `.js`: {
       const pkg = readPackageScope(filepath);
@@ -171,83 +165,9 @@ function getFileFormat$1(filepath) {
   }
 }
 
-const require = createRequire(import.meta.url);
-const getFileFormat = (filepath) => {
-  const ext = extname(filepath);
-  switch (ext) {
-    case ".mts": {
-      return "module";
-    }
-    case ".cts": {
-      return "commonjs";
-    }
-    case ".ts": {
-      const pkg = readPackageScope(filepath);
-      if (!pkg)
-        return "commonjs";
-      return pkg.data.type ?? "commonjs";
-    }
-    case ".tsx": {
-      const pkg = readPackageScope(filepath);
-      if (!pkg)
-        return "commonjs";
-      return pkg.data.type ?? "commonjs";
-    }
-    default: {
-      return null;
-    }
-  }
-};
-const transformSource = (source, format, ext) => {
-  const { transformSync } = require("esbuild");
-  const { code } = transformSync(source, {
-    format: format === "module" ? "esm" : "cjs",
-    loader: ext === "tsx" ? "tsx" : "ts",
-    target: `node${process.versions.node}`
-  });
-  return code;
-};
-
-async function getFormat$1(resolved, context, defaultGetFormat) {
-  const url = tryParseURL(resolved);
-  if ((url == null ? void 0 : url.protocol) !== `file:`)
-    return defaultGetFormat(resolved, context, defaultGetFormat);
-  const format = getFileFormat$1(fileURLToPath(url));
-  if (format) {
-    return {
-      format
-    };
-  }
-  return defaultGetFormat(resolved, context, defaultGetFormat);
+function getDefaultExportFromNamespaceIfPresent (n) {
+	return n && Object.prototype.hasOwnProperty.call(n, 'default') ? n['default'] : n;
 }
-
-const getFormatHook = async (resolved, context, defaultGetFormat) => getFormat$1(resolved, context, async (resolved2, context2) => {
-  const url = tryParseURL(resolved2);
-  if ((url == null ? void 0 : url.protocol) !== `file:`)
-    return defaultGetFormat(resolved2, context2, defaultGetFormat);
-  const filePath = fileURLToPath$1(url);
-  const format = getFileFormat(filePath);
-  if (format) {
-    return {
-      format
-    };
-  }
-  return defaultGetFormat(resolved2, context2, defaultGetFormat);
-});
-
-const getSourceHook = async (urlString, context, defaultGetSource) => {
-  const result = await getSourceHook(urlString, context, defaultGetSource);
-  const url = tryParseURL(urlString);
-  if ((url == null ? void 0 : url.protocol) !== `file:`)
-    return defaultGetSource(urlString, context, defaultGetSource);
-  return {
-    source: transformSource(
-      result.source,
-      context.format,
-      urlString.includes(".tsx") ? "tsx" : "ts"
-    )
-  };
-};
 
 var lib = {};
 
@@ -268,279 +188,307 @@ PERFORMANCE OF THIS SOFTWARE.
 /* global Reflect, Promise */
 
 var extendStatics = function(d, b) {
-    extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-    return extendStatics(d, b);
+  extendStatics = Object.setPrototypeOf ||
+      ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+      function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+  return extendStatics(d, b);
 };
 
 function __extends(d, b) {
-    if (typeof b !== "function" && b !== null)
-        throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-    extendStatics(d, b);
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  if (typeof b !== "function" && b !== null)
+      throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+  extendStatics(d, b);
+  function __() { this.constructor = d; }
+  d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 }
 
 var __assign = function() {
-    __assign = Object.assign || function __assign(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
+  __assign = Object.assign || function __assign(t) {
+      for (var s, i = 1, n = arguments.length; i < n; i++) {
+          s = arguments[i];
+          for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+      }
+      return t;
+  };
+  return __assign.apply(this, arguments);
 };
 
 function __rest(s, e) {
-    var t = {};
-    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-        t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
-        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
-                t[p[i]] = s[p[i]];
-        }
-    return t;
+  var t = {};
+  for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+      t[p] = s[p];
+  if (s != null && typeof Object.getOwnPropertySymbols === "function")
+      for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+          if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+              t[p[i]] = s[p[i]];
+      }
+  return t;
 }
 
 function __decorate(decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
+  var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+  if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+  else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  return c > 3 && r && Object.defineProperty(target, key, r), r;
 }
 
 function __param(paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
+  return function (target, key) { decorator(target, key, paramIndex); }
 }
 
 function __esDecorate(ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
-    function accept(f) { if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected"); return f; }
-    var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
-    var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
-    var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
-    var _, done = false;
-    for (var i = decorators.length - 1; i >= 0; i--) {
-        var context = {};
-        for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
-        for (var p in contextIn.access) context.access[p] = contextIn.access[p];
-        context.addInitializer = function (f) { if (done) throw new TypeError("Cannot add initializers after decoration has completed"); extraInitializers.push(accept(f || null)); };
-        var result = (0, decorators[i])(kind === "accessor" ? { get: descriptor.get, set: descriptor.set } : descriptor[key], context);
-        if (kind === "accessor") {
-            if (result === void 0) continue;
-            if (result === null || typeof result !== "object") throw new TypeError("Object expected");
-            if (_ = accept(result.get)) descriptor.get = _;
-            if (_ = accept(result.set)) descriptor.set = _;
-            if (_ = accept(result.init)) initializers.push(_);
-        }
-        else if (_ = accept(result)) {
-            if (kind === "field") initializers.push(_);
-            else descriptor[key] = _;
-        }
-    }
-    if (target) Object.defineProperty(target, contextIn.name, descriptor);
-    done = true;
+  function accept(f) { if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected"); return f; }
+  var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
+  var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
+  var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
+  var _, done = false;
+  for (var i = decorators.length - 1; i >= 0; i--) {
+      var context = {};
+      for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
+      for (var p in contextIn.access) context.access[p] = contextIn.access[p];
+      context.addInitializer = function (f) { if (done) throw new TypeError("Cannot add initializers after decoration has completed"); extraInitializers.push(accept(f || null)); };
+      var result = (0, decorators[i])(kind === "accessor" ? { get: descriptor.get, set: descriptor.set } : descriptor[key], context);
+      if (kind === "accessor") {
+          if (result === void 0) continue;
+          if (result === null || typeof result !== "object") throw new TypeError("Object expected");
+          if (_ = accept(result.get)) descriptor.get = _;
+          if (_ = accept(result.set)) descriptor.set = _;
+          if (_ = accept(result.init)) initializers.unshift(_);
+      }
+      else if (_ = accept(result)) {
+          if (kind === "field") initializers.unshift(_);
+          else descriptor[key] = _;
+      }
+  }
+  if (target) Object.defineProperty(target, contextIn.name, descriptor);
+  done = true;
 }
 function __runInitializers(thisArg, initializers, value) {
-    var useValue = arguments.length > 2;
-    for (var i = 0; i < initializers.length; i++) {
-        value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
-    }
-    return useValue ? value : void 0;
+  var useValue = arguments.length > 2;
+  for (var i = 0; i < initializers.length; i++) {
+      value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
+  }
+  return useValue ? value : void 0;
 }
 function __propKey(x) {
-    return typeof x === "symbol" ? x : "".concat(x);
+  return typeof x === "symbol" ? x : "".concat(x);
 }
 function __setFunctionName(f, name, prefix) {
-    if (typeof name === "symbol") name = name.description ? "[".concat(name.description, "]") : "";
-    return Object.defineProperty(f, "name", { configurable: true, value: prefix ? "".concat(prefix, " ", name) : name });
+  if (typeof name === "symbol") name = name.description ? "[".concat(name.description, "]") : "";
+  return Object.defineProperty(f, "name", { configurable: true, value: prefix ? "".concat(prefix, " ", name) : name });
 }
 function __metadata(metadataKey, metadataValue) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(metadataKey, metadataValue);
+  if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(metadataKey, metadataValue);
 }
 
 function __awaiter(thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
+  function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+  return new (P || (P = Promise))(function (resolve, reject) {
+      function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+      function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+      function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+      step((generator = generator.apply(thisArg, _arguments || [])).next());
+  });
 }
 
 function __generator(thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (g && (g = 0, op[0] && (_ = 0)), _) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
+  var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+  return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+  function verb(n) { return function (v) { return step([n, v]); }; }
+  function step(op) {
+      if (f) throw new TypeError("Generator is already executing.");
+      while (g && (g = 0, op[0] && (_ = 0)), _) try {
+          if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+          if (y = 0, t) op = [op[0] & 2, t.value];
+          switch (op[0]) {
+              case 0: case 1: t = op; break;
+              case 4: _.label++; return { value: op[1], done: false };
+              case 5: _.label++; y = op[1]; op = [0]; continue;
+              case 7: op = _.ops.pop(); _.trys.pop(); continue;
+              default:
+                  if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                  if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                  if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                  if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                  if (t[2]) _.ops.pop();
+                  _.trys.pop(); continue;
+          }
+          op = body.call(thisArg, _);
+      } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+      if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+  }
 }
 
 var __createBinding = Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-        desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
+  if (k2 === undefined) k2 = k;
+  var desc = Object.getOwnPropertyDescriptor(m, k);
+  if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+  }
+  Object.defineProperty(o, k2, desc);
 }) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
 });
 
 function __exportStar(m, o) {
-    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(o, p)) __createBinding(o, m, p);
+  for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(o, p)) __createBinding(o, m, p);
 }
 
 function __values(o) {
-    var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
-    if (m) return m.call(o);
-    if (o && typeof o.length === "number") return {
-        next: function () {
-            if (o && i >= o.length) o = void 0;
-            return { value: o && o[i++], done: !o };
-        }
-    };
-    throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+  var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
+  if (m) return m.call(o);
+  if (o && typeof o.length === "number") return {
+      next: function () {
+          if (o && i >= o.length) o = void 0;
+          return { value: o && o[i++], done: !o };
+      }
+  };
+  throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
 }
 
 function __read(o, n) {
-    var m = typeof Symbol === "function" && o[Symbol.iterator];
-    if (!m) return o;
-    var i = m.call(o), r, ar = [], e;
-    try {
-        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
-    }
-    catch (error) { e = { error: error }; }
-    finally {
-        try {
-            if (r && !r.done && (m = i["return"])) m.call(i);
-        }
-        finally { if (e) throw e.error; }
-    }
-    return ar;
+  var m = typeof Symbol === "function" && o[Symbol.iterator];
+  if (!m) return o;
+  var i = m.call(o), r, ar = [], e;
+  try {
+      while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+  }
+  catch (error) { e = { error: error }; }
+  finally {
+      try {
+          if (r && !r.done && (m = i["return"])) m.call(i);
+      }
+      finally { if (e) throw e.error; }
+  }
+  return ar;
 }
 
 /** @deprecated */
 function __spread() {
-    for (var ar = [], i = 0; i < arguments.length; i++)
-        ar = ar.concat(__read(arguments[i]));
-    return ar;
+  for (var ar = [], i = 0; i < arguments.length; i++)
+      ar = ar.concat(__read(arguments[i]));
+  return ar;
 }
 
 /** @deprecated */
 function __spreadArrays() {
-    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
-    for (var r = Array(s), k = 0, i = 0; i < il; i++)
-        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
-            r[k] = a[j];
-    return r;
+  for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+  for (var r = Array(s), k = 0, i = 0; i < il; i++)
+      for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+          r[k] = a[j];
+  return r;
 }
 
 function __spreadArray(to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
+  if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+      if (ar || !(i in from)) {
+          if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+          ar[i] = from[i];
+      }
+  }
+  return to.concat(ar || Array.prototype.slice.call(from));
 }
 
 function __await(v) {
-    return this instanceof __await ? (this.v = v, this) : new __await(v);
+  return this instanceof __await ? (this.v = v, this) : new __await(v);
 }
 
 function __asyncGenerator(thisArg, _arguments, generator) {
-    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
-    var g = generator.apply(thisArg, _arguments || []), i, q = [];
-    return i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i;
-    function verb(n) { if (g[n]) i[n] = function (v) { return new Promise(function (a, b) { q.push([n, v, a, b]) > 1 || resume(n, v); }); }; }
-    function resume(n, v) { try { step(g[n](v)); } catch (e) { settle(q[0][3], e); } }
-    function step(r) { r.value instanceof __await ? Promise.resolve(r.value.v).then(fulfill, reject) : settle(q[0][2], r); }
-    function fulfill(value) { resume("next", value); }
-    function reject(value) { resume("throw", value); }
-    function settle(f, v) { if (f(v), q.shift(), q.length) resume(q[0][0], q[0][1]); }
+  if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+  var g = generator.apply(thisArg, _arguments || []), i, q = [];
+  return i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i;
+  function verb(n) { if (g[n]) i[n] = function (v) { return new Promise(function (a, b) { q.push([n, v, a, b]) > 1 || resume(n, v); }); }; }
+  function resume(n, v) { try { step(g[n](v)); } catch (e) { settle(q[0][3], e); } }
+  function step(r) { r.value instanceof __await ? Promise.resolve(r.value.v).then(fulfill, reject) : settle(q[0][2], r); }
+  function fulfill(value) { resume("next", value); }
+  function reject(value) { resume("throw", value); }
+  function settle(f, v) { if (f(v), q.shift(), q.length) resume(q[0][0], q[0][1]); }
 }
 
 function __asyncDelegator(o) {
-    var i, p;
-    return i = {}, verb("next"), verb("throw", function (e) { throw e; }), verb("return"), i[Symbol.iterator] = function () { return this; }, i;
-    function verb(n, f) { i[n] = o[n] ? function (v) { return (p = !p) ? { value: __await(o[n](v)), done: false } : f ? f(v) : v; } : f; }
+  var i, p;
+  return i = {}, verb("next"), verb("throw", function (e) { throw e; }), verb("return"), i[Symbol.iterator] = function () { return this; }, i;
+  function verb(n, f) { i[n] = o[n] ? function (v) { return (p = !p) ? { value: __await(o[n](v)), done: false } : f ? f(v) : v; } : f; }
 }
 
 function __asyncValues(o) {
-    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
-    var m = o[Symbol.asyncIterator], i;
-    return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i);
-    function verb(n) { i[n] = o[n] && function (v) { return new Promise(function (resolve, reject) { v = o[n](v), settle(resolve, reject, v.done, v.value); }); }; }
-    function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ value: v, done: d }); }, reject); }
+  if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+  var m = o[Symbol.asyncIterator], i;
+  return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i);
+  function verb(n) { i[n] = o[n] && function (v) { return new Promise(function (resolve, reject) { v = o[n](v), settle(resolve, reject, v.done, v.value); }); }; }
+  function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ value: v, done: d }); }, reject); }
 }
 
 function __makeTemplateObject(cooked, raw) {
-    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
-    return cooked;
+  if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
+  return cooked;
 }
 var __setModuleDefault = Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
+  Object.defineProperty(o, "default", { enumerable: true, value: v });
 }) : function(o, v) {
-    o["default"] = v;
+  o["default"] = v;
 };
 
 function __importStar(mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  __setModuleDefault(result, mod);
+  return result;
 }
 
 function __importDefault(mod) {
-    return (mod && mod.__esModule) ? mod : { default: mod };
+  return (mod && mod.__esModule) ? mod : { default: mod };
 }
 
 function __classPrivateFieldGet(receiver, state, kind, f) {
-    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
-    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
-    return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
+  if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
+  if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
+  return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 }
 
 function __classPrivateFieldSet(receiver, state, value, kind, f) {
-    if (kind === "m") throw new TypeError("Private method is not writable");
-    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
-    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
-    return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
+  if (kind === "m") throw new TypeError("Private method is not writable");
+  if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
+  if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
+  return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
 }
 
 function __classPrivateFieldIn(state, receiver) {
-    if (receiver === null || (typeof receiver !== "object" && typeof receiver !== "function")) throw new TypeError("Cannot use 'in' operator on non-object");
-    return typeof state === "function" ? receiver === state : state.has(receiver);
+  if (receiver === null || (typeof receiver !== "object" && typeof receiver !== "function")) throw new TypeError("Cannot use 'in' operator on non-object");
+  return typeof state === "function" ? receiver === state : state.has(receiver);
 }
 
-const tslib_es6 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const tslib_es6 = {
+  __extends,
+  __assign,
+  __rest,
+  __decorate,
+  __param,
+  __metadata,
+  __awaiter,
+  __generator,
+  __createBinding,
+  __exportStar,
+  __values,
+  __read,
+  __spread,
+  __spreadArrays,
+  __spreadArray,
+  __await,
+  __asyncGenerator,
+  __asyncDelegator,
+  __asyncValues,
+  __makeTemplateObject,
+  __importStar,
+  __importDefault,
+  __classPrivateFieldGet,
+  __classPrivateFieldSet,
+  __classPrivateFieldIn,
+};
+
+const tslib_es6$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   get __assign () { return __assign; },
   __asyncDelegator,
@@ -570,8 +518,11 @@ const tslib_es6 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty(
   __spread,
   __spreadArray,
   __spreadArrays,
-  __values
+  __values,
+  default: tslib_es6
 }, Symbol.toStringTag, { value: 'Module' }));
+
+const require$$0 = /*@__PURE__*/getDefaultExportFromNamespaceIfPresent(tslib_es6$1);
 
 var constants = {};
 
@@ -672,13 +623,14 @@ function requireStatUtils () {
 	(function (exports) {
 		Object.defineProperty(exports, "__esModule", { value: true });
 		exports.areStatsEqual = exports.convertToBigIntStats = exports.clearStats = exports.makeEmptyStats = exports.makeDefaultStats = exports.BigIntStatsEntry = exports.StatEntry = exports.DirEntry = exports.DEFAULT_MODE = void 0;
-		const tslib_1 = tslib_es6;
+		const tslib_1 = require$$0;
 		const nodeUtils = tslib_1.__importStar(require$$1);
 		const constants_1 = requireConstants();
 		exports.DEFAULT_MODE = constants_1.S_IFREG | 0o644;
 		class DirEntry {
 		    constructor() {
 		        this.name = ``;
+		        this.path = ``;
 		        this.mode = 0;
 		    }
 		    isBlockDevice() {
@@ -905,8 +857,8 @@ function requireStatUtils () {
 		        return false;
 		    return true;
 		}
-		exports.areStatsEqual = areStatsEqual;
-} (statUtils));
+		exports.areStatsEqual = areStatsEqual; 
+	} (statUtils));
 	return statUtils;
 }
 
@@ -922,7 +874,7 @@ function requirePath () {
 	(function (exports) {
 		Object.defineProperty(exports, "__esModule", { value: true });
 		exports.toFilename = exports.convertPath = exports.ppath = exports.npath = exports.Filename = exports.PortablePath = void 0;
-		const tslib_1 = tslib_es6;
+		const tslib_1 = require$$0;
 		const path_1 = tslib_1.__importDefault(path$1);
 		var PathType;
 		(function (PathType) {
@@ -949,6 +901,7 @@ function requirePath () {
 		    pnpData: `.pnp.data.json`,
 		    pnpEsmLoader: `.pnp.loader.mjs`,
 		    rc: `.yarnrc.yml`,
+		    env: `.env`,
 		};
 		exports.npath = Object.create(path_1.default);
 		exports.ppath = Object.create(path_1.default.posix);
@@ -1020,8 +973,8 @@ function requirePath () {
 		        throw new Error(`Invalid filename: "${filename}"`);
 		    return filename;
 		}
-		exports.toFilename = toFilename;
-} (path));
+		exports.toFilename = toFilename; 
+	} (path));
 	return path;
 }
 
@@ -1032,7 +985,7 @@ function requireCopyPromise () {
 	hasRequiredCopyPromise = 1;
 	Object.defineProperty(copyPromise$1, "__esModule", { value: true });
 	copyPromise$1.copyPromise = copyPromise$1.setupCopyIndex = void 0;
-	const tslib_1 = tslib_es6;
+	const tslib_1 = require$$0;
 	const constants = tslib_1.__importStar(requireConstants());
 	const path_1 = requirePath();
 	const defaultTime = new Date(constants.SAFE_TIME * 1000);
@@ -1308,7 +1261,7 @@ function requireOpendir () {
 	hasRequiredOpendir = 1;
 	Object.defineProperty(opendir, "__esModule", { value: true });
 	opendir.opendir = opendir.CustomDir = void 0;
-	const tslib_1 = tslib_es6;
+	const tslib_1 = require$$0;
 	const errors = tslib_1.__importStar(requireErrors());
 	class CustomDir {
 	    constructor(path, nextDirent, opts = {}) {
@@ -1365,6 +1318,7 @@ function requireOpendir () {
 	            return null;
 	        return Object.assign(fakeFs.statSync(fakeFs.pathUtils.join(path, filename)), {
 	            name: filename,
+	            path: undefined,
 	        });
 	    };
 	    return new CustomDir(path, nextDirent, opts);
@@ -1382,146 +1336,144 @@ var hasRequiredCustomStatWatcher;
 function requireCustomStatWatcher () {
 	if (hasRequiredCustomStatWatcher) return CustomStatWatcher;
 	hasRequiredCustomStatWatcher = 1;
-	(function (exports) {
-		Object.defineProperty(exports, "__esModule", { value: true });
-		exports.CustomStatWatcher = exports.assertStatus = exports.Status = exports.Event = void 0;
-		const tslib_1 = tslib_es6;
-		const events_1 = require$$1$1;
-		const statUtils = tslib_1.__importStar(requireStatUtils());
-		var Event;
-		(function (Event) {
-		    Event["Change"] = "change";
-		    Event["Stop"] = "stop";
-		})(Event = exports.Event || (exports.Event = {}));
-		var Status;
-		(function (Status) {
-		    Status["Ready"] = "ready";
-		    Status["Running"] = "running";
-		    Status["Stopped"] = "stopped";
-		})(Status = exports.Status || (exports.Status = {}));
-		function assertStatus(current, expected) {
-		    if (current !== expected) {
-		        throw new Error(`Invalid StatWatcher status: expected '${expected}', got '${current}'`);
-		    }
-		}
-		exports.assertStatus = assertStatus;
-		class CustomStatWatcher extends events_1.EventEmitter {
-		    static create(fakeFs, path, opts) {
-		        const statWatcher = new CustomStatWatcher(fakeFs, path, opts);
-		        statWatcher.start();
-		        return statWatcher;
-		    }
-		    constructor(fakeFs, path, { bigint = false } = {}) {
-		        super();
-		        this.status = Status.Ready;
-		        this.changeListeners = new Map();
-		        this.startTimeout = null;
-		        this.fakeFs = fakeFs;
-		        this.path = path;
-		        this.bigint = bigint;
-		        this.lastStats = this.stat();
-		    }
-		    start() {
-		        assertStatus(this.status, Status.Ready);
-		        this.status = Status.Running;
-		        // Node allows other listeners to be registered up to 3 milliseconds
-		        // after the watcher has been started, so that's what we're doing too
-		        this.startTimeout = setTimeout(() => {
-		            this.startTimeout = null;
-		            // Per the Node FS docs:
-		            // "When an fs.watchFile operation results in an ENOENT error,
-		            // it will invoke the listener once, with all the fields zeroed
-		            // (or, for dates, the Unix Epoch)."
-		            if (!this.fakeFs.existsSync(this.path)) {
-		                this.emit(Event.Change, this.lastStats, this.lastStats);
-		            }
-		        }, 3);
-		    }
-		    stop() {
-		        assertStatus(this.status, Status.Running);
-		        this.status = Status.Stopped;
-		        if (this.startTimeout !== null) {
-		            clearTimeout(this.startTimeout);
-		            this.startTimeout = null;
-		        }
-		        this.emit(Event.Stop);
-		    }
-		    stat() {
-		        try {
-		            return this.fakeFs.statSync(this.path, { bigint: this.bigint });
-		        }
-		        catch (error) {
-		            // From observation, all errors seem to be mostly ignored by Node.
-		            // Checked with ENOENT, ENOTDIR, EPERM
-		            const statInstance = this.bigint
-		                ? new statUtils.BigIntStatsEntry()
-		                : new statUtils.StatEntry();
-		            return statUtils.clearStats(statInstance);
-		        }
-		    }
-		    /**
-		     * Creates an interval whose callback compares the current stats with the previous stats and notifies all listeners in case of changes.
-		     *
-		     * @param opts.persistent Decides whether the interval should be immediately unref-ed.
-		     */
-		    makeInterval(opts) {
-		        const interval = setInterval(() => {
-		            const currentStats = this.stat();
-		            const previousStats = this.lastStats;
-		            if (statUtils.areStatsEqual(currentStats, previousStats))
-		                return;
-		            this.lastStats = currentStats;
-		            this.emit(Event.Change, currentStats, previousStats);
-		        }, opts.interval);
-		        return opts.persistent ? interval : interval.unref();
-		    }
-		    /**
-		     * Registers a listener and assigns it an interval.
-		     */
-		    registerChangeListener(listener, opts) {
-		        this.addListener(Event.Change, listener);
-		        this.changeListeners.set(listener, this.makeInterval(opts));
-		    }
-		    /**
-		     * Unregisters the listener and clears the assigned interval.
-		     */
-		    unregisterChangeListener(listener) {
-		        this.removeListener(Event.Change, listener);
-		        const interval = this.changeListeners.get(listener);
-		        if (typeof interval !== `undefined`)
-		            clearInterval(interval);
-		        this.changeListeners.delete(listener);
-		    }
-		    /**
-		     * Unregisters all listeners and clears all assigned intervals.
-		     */
-		    unregisterAllChangeListeners() {
-		        for (const listener of this.changeListeners.keys()) {
-		            this.unregisterChangeListener(listener);
-		        }
-		    }
-		    hasChangeListeners() {
-		        return this.changeListeners.size > 0;
-		    }
-		    /**
-		     * Refs all stored intervals.
-		     */
-		    ref() {
-		        for (const interval of this.changeListeners.values())
-		            interval.ref();
-		        return this;
-		    }
-		    /**
-		     * Unrefs all stored intervals.
-		     */
-		    unref() {
-		        for (const interval of this.changeListeners.values())
-		            interval.unref();
-		        return this;
-		    }
-		}
-		exports.CustomStatWatcher = CustomStatWatcher;
-} (CustomStatWatcher));
+	Object.defineProperty(CustomStatWatcher, "__esModule", { value: true });
+	CustomStatWatcher.CustomStatWatcher = CustomStatWatcher.assertStatus = CustomStatWatcher.Status = CustomStatWatcher.Event = void 0;
+	const tslib_1 = require$$0;
+	const events_1 = require$$1$1;
+	const statUtils = tslib_1.__importStar(requireStatUtils());
+	var Event;
+	(function (Event) {
+	    Event["Change"] = "change";
+	    Event["Stop"] = "stop";
+	})(Event || (CustomStatWatcher.Event = Event = {}));
+	var Status;
+	(function (Status) {
+	    Status["Ready"] = "ready";
+	    Status["Running"] = "running";
+	    Status["Stopped"] = "stopped";
+	})(Status || (CustomStatWatcher.Status = Status = {}));
+	function assertStatus(current, expected) {
+	    if (current !== expected) {
+	        throw new Error(`Invalid StatWatcher status: expected '${expected}', got '${current}'`);
+	    }
+	}
+	CustomStatWatcher.assertStatus = assertStatus;
+	let CustomStatWatcher$1 = class CustomStatWatcher extends events_1.EventEmitter {
+	    static create(fakeFs, path, opts) {
+	        const statWatcher = new CustomStatWatcher(fakeFs, path, opts);
+	        statWatcher.start();
+	        return statWatcher;
+	    }
+	    constructor(fakeFs, path, { bigint = false } = {}) {
+	        super();
+	        this.status = Status.Ready;
+	        this.changeListeners = new Map();
+	        this.startTimeout = null;
+	        this.fakeFs = fakeFs;
+	        this.path = path;
+	        this.bigint = bigint;
+	        this.lastStats = this.stat();
+	    }
+	    start() {
+	        assertStatus(this.status, Status.Ready);
+	        this.status = Status.Running;
+	        // Node allows other listeners to be registered up to 3 milliseconds
+	        // after the watcher has been started, so that's what we're doing too
+	        this.startTimeout = setTimeout(() => {
+	            this.startTimeout = null;
+	            // Per the Node FS docs:
+	            // "When an fs.watchFile operation results in an ENOENT error,
+	            // it will invoke the listener once, with all the fields zeroed
+	            // (or, for dates, the Unix Epoch)."
+	            if (!this.fakeFs.existsSync(this.path)) {
+	                this.emit(Event.Change, this.lastStats, this.lastStats);
+	            }
+	        }, 3);
+	    }
+	    stop() {
+	        assertStatus(this.status, Status.Running);
+	        this.status = Status.Stopped;
+	        if (this.startTimeout !== null) {
+	            clearTimeout(this.startTimeout);
+	            this.startTimeout = null;
+	        }
+	        this.emit(Event.Stop);
+	    }
+	    stat() {
+	        try {
+	            return this.fakeFs.statSync(this.path, { bigint: this.bigint });
+	        }
+	        catch (error) {
+	            // From observation, all errors seem to be mostly ignored by Node.
+	            // Checked with ENOENT, ENOTDIR, EPERM
+	            const statInstance = this.bigint
+	                ? new statUtils.BigIntStatsEntry()
+	                : new statUtils.StatEntry();
+	            return statUtils.clearStats(statInstance);
+	        }
+	    }
+	    /**
+	     * Creates an interval whose callback compares the current stats with the previous stats and notifies all listeners in case of changes.
+	     *
+	     * @param opts.persistent Decides whether the interval should be immediately unref-ed.
+	     */
+	    makeInterval(opts) {
+	        const interval = setInterval(() => {
+	            const currentStats = this.stat();
+	            const previousStats = this.lastStats;
+	            if (statUtils.areStatsEqual(currentStats, previousStats))
+	                return;
+	            this.lastStats = currentStats;
+	            this.emit(Event.Change, currentStats, previousStats);
+	        }, opts.interval);
+	        return opts.persistent ? interval : interval.unref();
+	    }
+	    /**
+	     * Registers a listener and assigns it an interval.
+	     */
+	    registerChangeListener(listener, opts) {
+	        this.addListener(Event.Change, listener);
+	        this.changeListeners.set(listener, this.makeInterval(opts));
+	    }
+	    /**
+	     * Unregisters the listener and clears the assigned interval.
+	     */
+	    unregisterChangeListener(listener) {
+	        this.removeListener(Event.Change, listener);
+	        const interval = this.changeListeners.get(listener);
+	        if (typeof interval !== `undefined`)
+	            clearInterval(interval);
+	        this.changeListeners.delete(listener);
+	    }
+	    /**
+	     * Unregisters all listeners and clears all assigned intervals.
+	     */
+	    unregisterAllChangeListeners() {
+	        for (const listener of this.changeListeners.keys()) {
+	            this.unregisterChangeListener(listener);
+	        }
+	    }
+	    hasChangeListeners() {
+	        return this.changeListeners.size > 0;
+	    }
+	    /**
+	     * Refs all stored intervals.
+	     */
+	    ref() {
+	        for (const interval of this.changeListeners.values())
+	            interval.ref();
+	        return this;
+	    }
+	    /**
+	     * Unrefs all stored intervals.
+	     */
+	    unref() {
+	        for (const interval of this.changeListeners.values())
+	            interval.unref();
+	        return this;
+	    }
+	};
+	CustomStatWatcher.CustomStatWatcher = CustomStatWatcher$1;
 	return CustomStatWatcher;
 }
 
@@ -1609,7 +1561,7 @@ function requireFakeFS () {
 	hasRequiredFakeFS = 1;
 	Object.defineProperty(FakeFS$1, "__esModule", { value: true });
 	FakeFS$1.normalizeLineEndings = FakeFS$1.BasePortableFakeFS = FakeFS$1.FakeFS = void 0;
-	const crypto_1 = require$$0;
+	const crypto_1 = require$$0$1;
 	const os_1 = require$$1$2;
 	const copyPromise_1 = requireCopyPromise();
 	const path_1 = requirePath();
@@ -2011,11 +1963,17 @@ function requireFakeFS () {
 	            throw error;
 	        }
 	    }
-	    async writeJsonPromise(p, data) {
-	        return await this.writeFilePromise(p, `${JSON.stringify(data, null, 2)}\n`);
+	    async writeJsonPromise(p, data, { compact = false } = {}) {
+	        const space = compact
+	            ? 0
+	            : 2;
+	        return await this.writeFilePromise(p, `${JSON.stringify(data, null, space)}\n`);
 	    }
-	    writeJsonSync(p, data) {
-	        return this.writeFileSync(p, `${JSON.stringify(data, null, 2)}\n`);
+	    writeJsonSync(p, data, { compact = false } = {}) {
+	        const space = compact
+	            ? 0
+	            : 2;
+	        return this.writeFileSync(p, `${JSON.stringify(data, null, space)}\n`);
 	    }
 	    async preserveTimePromise(p, cb) {
 	        const stat = await this.lstatPromise(p);
@@ -2264,7 +2222,7 @@ function requireProxiedFS () {
 	    readFileSync(p, encoding) {
 	        return this.baseFs.readFileSync(this.fsMapToBase(p), encoding);
 	    }
-	    async readdirPromise(p, opts) {
+	    readdirPromise(p, opts) {
 	        return this.baseFs.readdirPromise(this.mapToBase(p), opts);
 	    }
 	    readdirSync(p, opts) {
@@ -2356,7 +2314,7 @@ function requireNodeFS () {
 	hasRequiredNodeFS = 1;
 	Object.defineProperty(NodeFS$1, "__esModule", { value: true });
 	NodeFS$1.NodeFS = void 0;
-	const tslib_1 = tslib_es6;
+	const tslib_1 = require$$0;
 	const fs_1 = tslib_1.__importDefault(fs);
 	const FakeFS_1 = requireFakeFS();
 	const path_1 = requirePath();
@@ -2691,8 +2649,8 @@ function requireNodeFS () {
 	    }
 	    async readdirPromise(p, opts) {
 	        return await new Promise((resolve, reject) => {
-	            if (opts === null || opts === void 0 ? void 0 : opts.withFileTypes) {
-	                this.realFs.readdir(path_1.npath.fromPortablePath(p), { withFileTypes: true }, this.makeCallback(resolve, reject));
+	            if (opts) {
+	                this.realFs.readdir(path_1.npath.fromPortablePath(p), opts, this.makeCallback(resolve, reject));
 	            }
 	            else {
 	                this.realFs.readdir(path_1.npath.fromPortablePath(p), this.makeCallback(value => resolve(value), reject));
@@ -2700,8 +2658,8 @@ function requireNodeFS () {
 	        });
 	    }
 	    readdirSync(p, opts) {
-	        if (opts === null || opts === void 0 ? void 0 : opts.withFileTypes) {
-	            return this.realFs.readdirSync(path_1.npath.fromPortablePath(p), { withFileTypes: true });
+	        if (opts) {
+	            return this.realFs.readdirSync(path_1.npath.fromPortablePath(p), opts);
 	        }
 	        else {
 	            return this.realFs.readdirSync(path_1.npath.fromPortablePath(p));
@@ -2892,7 +2850,7 @@ function requireMountFS () {
 	hasRequiredMountFS = 1;
 	Object.defineProperty(MountFS, "__esModule", { value: true });
 	MountFS.MountFS = void 0;
-	const tslib_1 = tslib_es6;
+	const tslib_1 = require$$0;
 	const fs_1 = fs;
 	const FakeFS_1 = requireFakeFS();
 	const NodeFS_1 = requireNodeFS();
@@ -3983,8 +3941,8 @@ function requireNoFS () {
 	        throw makeError();
 	    }
 	};
-	NoFS$1.instance = new NoFS$1();
 	NoFS.NoFS = NoFS$1;
+	NoFS$1.instance = new NoFS$1();
 	return NoFS;
 }
 
@@ -4124,7 +4082,9 @@ function requireNodePathFS () {
 	hasRequiredNodePathFS = 1;
 	Object.defineProperty(NodePathFS, "__esModule", { value: true });
 	NodePathFS.NodePathFS = void 0;
-	const url_1 = require$$0$1;
+	const tslib_1 = require$$0;
+	const buffer_1 = tslib_1.__importDefault(require$$1$3);
+	const url_1 = require$$2;
 	const util_1 = require$$1;
 	const ProxiedFS_1 = requireProxiedFS();
 	const path_1 = requirePath();
@@ -4152,7 +4112,7 @@ function requireNodePathFS () {
 	            return (0, url_1.fileURLToPath)(path);
 	        if (Buffer.isBuffer(path)) {
 	            const str = path.toString();
-	            if (Buffer.byteLength(str) !== path.byteLength)
+	            if (!isUtf8(path, str))
 	                throw new Error(`Non-utf8 buffers are not supported at the moment. Please upvote the following issue if you encounter this error: https://github.com/yarnpkg/berry/issues/4942`);
 	            return str;
 	        }
@@ -4160,6 +4120,12 @@ function requireNodePathFS () {
 	    }
 	};
 	NodePathFS.NodePathFS = NodePathFS$1;
+	// TODO: remove the fallback when dropping support for Node.js < 18.14.0
+	function isUtf8(buf, str) {
+	    if (typeof buffer_1.default.isUtf8 !== `undefined`)
+	        return buffer_1.default.isUtf8(buf);
+	    return Buffer.byteLength(str) === buf.byteLength;
+	}
 	return NodePathFS;
 }
 
@@ -4699,7 +4665,7 @@ function requireXfs () {
 	(function (exports) {
 		Object.defineProperty(exports, "__esModule", { value: true });
 		exports.xfs = void 0;
-		const tslib_1 = tslib_es6;
+		const tslib_1 = require$$0;
 		const os_1 = tslib_1.__importDefault(require$$1$2);
 		const NodeFS_1 = requireNodeFS();
 		const path_1 = requirePath();
@@ -4818,15 +4784,15 @@ function requireXfs () {
 		            }
 		        }
 		    },
-		});
-} (xfs));
+		}); 
+	} (xfs));
 	return xfs;
 }
 
 (function (exports) {
 	Object.defineProperty(exports, "__esModule", { value: true });
-	exports.xfs = exports.extendFs = exports.patchFs = exports.VirtualFS = exports.ProxiedFS = exports.PosixFS = exports.NodeFS = exports.NoFS = exports.MountFS = exports.LazyFS = exports.JailFS = exports.CwdFS = exports.BasePortableFakeFS = exports.FakeFS = exports.AliasFS = exports.toFilename = exports.ppath = exports.npath = exports.Filename = exports.PortablePath = exports.normalizeLineEndings = exports.unwatchAllFiles = exports.unwatchFile = exports.watchFile = exports.opendir = exports.setupCopyIndex = exports.statUtils = exports.errors = exports.constants = void 0;
-	const tslib_1 = tslib_es6;
+	exports.xfs = exports.extendFs = exports.patchFs = exports.VirtualFS = exports.ProxiedFS = exports.PosixFS = exports.NodeFS = exports.NoFS = exports.MountFS = exports.LazyFS = exports.JailFS = exports.CwdFS = exports.BasePortableFakeFS = exports.FakeFS = exports.AliasFS = exports.toFilename = exports.ppath = exports.npath = exports.Filename = exports.PortablePath = exports.normalizeLineEndings = exports.unwatchAllFiles = exports.unwatchFile = exports.watchFile = exports.CustomDir = exports.opendir = exports.setupCopyIndex = exports.statUtils = exports.errors = exports.constants = void 0;
+	const tslib_1 = require$$0;
 	const constants = tslib_1.__importStar(requireConstants());
 	exports.constants = constants;
 	const errors = tslib_1.__importStar(requireErrors());
@@ -4837,6 +4803,7 @@ function requireXfs () {
 	Object.defineProperty(exports, "setupCopyIndex", { enumerable: true, get: function () { return copyPromise_1.setupCopyIndex; } });
 	var opendir_1 = requireOpendir();
 	Object.defineProperty(exports, "opendir", { enumerable: true, get: function () { return opendir_1.opendir; } });
+	Object.defineProperty(exports, "CustomDir", { enumerable: true, get: function () { return opendir_1.CustomDir; } });
 	var watchFile_1 = requireWatchFile();
 	Object.defineProperty(exports, "watchFile", { enumerable: true, get: function () { return watchFile_1.watchFile; } });
 	Object.defineProperty(exports, "unwatchFile", { enumerable: true, get: function () { return watchFile_1.unwatchFile; } });
@@ -4877,7 +4844,7 @@ function requireXfs () {
 	Object.defineProperty(exports, "patchFs", { enumerable: true, get: function () { return patchFs_1.patchFs; } });
 	Object.defineProperty(exports, "extendFs", { enumerable: true, get: function () { return patchFs_1.extendFs; } });
 	var xfs_1 = requireXfs();
-	Object.defineProperty(exports, "xfs", { enumerable: true, get: function () { return xfs_1.xfs; } });
+	Object.defineProperty(exports, "xfs", { enumerable: true, get: function () { return xfs_1.xfs; } }); 
 } (lib));
 
 const SAFE_TIME = 456789e3;
@@ -5423,12 +5390,14 @@ class FakeFS {
       throw error;
     }
   }
-  async writeJsonPromise(p, data) {
-    return await this.writeFilePromise(p, `${JSON.stringify(data, null, 2)}
+  async writeJsonPromise(p, data, { compact = false } = {}) {
+    const space = compact ? 0 : 2;
+    return await this.writeFilePromise(p, `${JSON.stringify(data, null, space)}
 `);
   }
-  writeJsonSync(p, data) {
-    return this.writeFileSync(p, `${JSON.stringify(data, null, 2)}
+  writeJsonSync(p, data, { compact = false } = {}) {
+    const space = compact ? 0 : 2;
+    return this.writeFileSync(p, `${JSON.stringify(data, null, space)}
 `);
   }
   async preserveTimePromise(p, cb) {
@@ -5779,16 +5748,16 @@ class NodeFS extends BasePortableFakeFS {
   }
   async readdirPromise(p, opts) {
     return await new Promise((resolve, reject) => {
-      if (opts == null ? void 0 : opts.withFileTypes) {
-        this.realFs.readdir(npath.fromPortablePath(p), { withFileTypes: true }, this.makeCallback(resolve, reject));
+      if (opts) {
+        this.realFs.readdir(npath.fromPortablePath(p), opts, this.makeCallback(resolve, reject));
       } else {
         this.realFs.readdir(npath.fromPortablePath(p), this.makeCallback((value) => resolve(value), reject));
       }
     });
   }
   readdirSync(p, opts) {
-    if (opts == null ? void 0 : opts.withFileTypes) {
-      return this.realFs.readdirSync(npath.fromPortablePath(p), { withFileTypes: true });
+    if (opts) {
+      return this.realFs.readdirSync(npath.fromPortablePath(p), opts);
     } else {
       return this.realFs.readdirSync(npath.fromPortablePath(p));
     }
@@ -6043,7 +6012,7 @@ class ProxiedFS extends FakeFS {
   readFileSync(p, encoding) {
     return this.baseFs.readFileSync(this.fsMapToBase(p), encoding);
   }
-  async readdirPromise(p, opts) {
+  readdirPromise(p, opts) {
     return this.baseFs.readdirPromise(this.mapToBase(p), opts);
   }
   readdirSync(p, opts) {
@@ -6177,7 +6146,7 @@ async function load$1(urlString, context, nextLoad) {
   const format = getFileFormat$1(filePath);
   if (!format)
     return nextLoad(urlString, context, nextLoad);
-  if (HAS_JSON_IMPORT_ASSERTION_REQUIREMENT && format === `json` && ((_a = context.importAssertions) == null ? void 0 : _a.type) !== `json`) {
+  if (format === `json` && ((_a = context.importAssertions) == null ? void 0 : _a.type) !== `json`) {
     const err = new TypeError(`[ERR_IMPORT_ASSERTION_TYPE_MISSING]: Module "${urlString}" needs an import assertion of type "json"`);
     err.code = `ERR_IMPORT_ASSERTION_TYPE_MISSING`;
     throw err;
@@ -6198,6 +6167,43 @@ async function load$1(urlString, context, nextLoad) {
     shortCircuit: true
   };
 }
+
+const require = createRequire(import.meta.url);
+const getFileFormat = (filepath) => {
+  const ext = extname(filepath);
+  switch (ext) {
+    case ".mts": {
+      return "module";
+    }
+    case ".cts": {
+      return "commonjs";
+    }
+    case ".ts": {
+      const pkg = readPackageScope(filepath);
+      if (!pkg)
+        return "commonjs";
+      return pkg.data.type ?? "commonjs";
+    }
+    case ".tsx": {
+      const pkg = readPackageScope(filepath);
+      if (!pkg)
+        return "commonjs";
+      return pkg.data.type ?? "commonjs";
+    }
+    default: {
+      return null;
+    }
+  }
+};
+const transformSource = (source, format, ext) => {
+  const { transformSync } = require("esbuild");
+  const { code } = transformSync(source, {
+    format: format === "module" ? "esm" : "cjs",
+    loader: ext === "tsx" ? "tsx" : "ts",
+    target: `node${process.versions.node}`
+  });
+  return code;
+};
 
 const loadHook = async (urlString, context, nextLoad) => load$1(urlString, context, async (urlString2, context2) => {
   const url = tryParseURL(urlString2);
@@ -6702,7 +6708,7 @@ async function resolvePrivateRequest(specifier, issuer, context, nextResolve) {
   }
 }
 async function resolve$1(originalSpecifier, context, nextResolve) {
-  var _a;
+  var _a, _b;
   const { findPnpApi } = moduleExports;
   if (!findPnpApi || isBuiltinModule(originalSpecifier))
     return nextResolve(originalSpecifier, context, nextResolve);
@@ -6714,8 +6720,8 @@ async function resolve$1(originalSpecifier, context, nextResolve) {
     specifier = fileURLToPath(url);
   }
   const { parentURL, conditions = [] } = context;
-  const issuer = parentURL ? fileURLToPath(parentURL) : process.cwd();
-  const pnpapi = (_a = findPnpApi(issuer)) != null ? _a : url ? findPnpApi(specifier) : null;
+  const issuer = parentURL && ((_a = tryParseURL(parentURL)) == null ? void 0 : _a.protocol) === `file:` ? fileURLToPath(parentURL) : process.cwd();
+  const pnpapi = (_b = findPnpApi(issuer)) != null ? _b : url ? findPnpApi(specifier) : null;
   if (!pnpapi)
     return nextResolve(originalSpecifier, context, nextResolve);
   if (specifier.startsWith(`#`))
@@ -6735,10 +6741,17 @@ async function resolve$1(originalSpecifier, context, nextResolve) {
       }
     }
   }
-  const result = pnpapi.resolveRequest(specifier, issuer, {
-    conditions: new Set(conditions),
-    extensions: allowLegacyResolve ? void 0 : []
-  });
+  let result;
+  try {
+    result = pnpapi.resolveRequest(specifier, issuer, {
+      conditions: new Set(conditions),
+      extensions: allowLegacyResolve ? void 0 : []
+    });
+  } catch (err) {
+    if (err instanceof Error && `code` in err && err.code === `MODULE_NOT_FOUND`)
+      err.code = `ERR_MODULE_NOT_FOUND`;
+    throw err;
+  }
   if (!result)
     throw new Error(`Resolving '${specifier}' from '${issuer}' failed`);
   const resultURL = pathToFileURL(result);
@@ -6766,8 +6779,6 @@ const resolveHook = async (originalSpecifier, context, nextResolve) => {
 };
 
 const resolve = resolveHook;
-const getFormat = HAS_CONSOLIDATED_HOOKS ? void 0 : getFormatHook;
-const getSource = HAS_CONSOLIDATED_HOOKS ? void 0 : getSourceHook;
-const load = HAS_CONSOLIDATED_HOOKS ? loadHook : void 0;
+const load = loadHook;
 
-export { getFormat, getSource, load, resolve };
+export { load, resolve };
