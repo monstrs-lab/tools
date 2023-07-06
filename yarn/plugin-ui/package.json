@@ -24,7 +24,7 @@
     "clipanion": "^3.2.1"
   },
   "devDependencies": {
-    "@jest/globals": "29.5.0",
+    "@jest/globals": "^29.6.1",
     "@monstrs/yarn-run-utils": "workspace:0.2.1",
     "@monstrs/yarn-test-utils": "workspace:0.2.1",
     "@yarnpkg/builder": "^4.0.0-rc.48",

@@ -26,12 +26,12 @@
     "@monstrs/yarn-run-utils": "workspace:0.2.1",
     "clipanion": "^3.2.1",
     "react": "^18.2.0",
-    "semver": "^7.5.1"
+    "semver": "^7.5.3"
   },
   "devDependencies": {
-    "@jest/globals": "29.5.0",
+    "@jest/globals": "^29.6.1",
     "@monstrs/yarn-test-utils": "workspace:0.2.1",
-    "@types/react": "^18.2.13",
+    "@types/react": "^18.2.14",
     "@yarnpkg/builder": "^4.0.0-rc.48",
     "@yarnpkg/cli": "^4.0.0-rc.48",
     "@yarnpkg/core": "^4.0.0-rc.48",

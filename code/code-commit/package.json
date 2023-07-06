@@ -18,8 +18,8 @@
   },
   "dependencies": {
     "@commitlint/format": "^17.4.4",
-    "@commitlint/is-ignored": "^17.6.5",
-    "@commitlint/lint": "^17.6.5",
+    "@commitlint/is-ignored": "^17.6.6",
+    "@commitlint/lint": "^17.6.6",
     "@commitlint/load": "^17.5.0",
     "@commitlint/read": "^17.5.1",
     "@commitlint/rules": "^17.6.5",
@@ -28,9 +28,9 @@
     "conventional-commits-parser": "^3.2.4"
   },
   "devDependencies": {
-    "@jest/globals": "29.5.0",
+    "@jest/globals": "^29.6.1",
     "@types/conventional-commits-parser": "^3.0.3",
-    "@types/node": "^20.3.0"
+    "@types/node": "^20.4.0"
   },
   "publishConfig": {
     "access": "public",
