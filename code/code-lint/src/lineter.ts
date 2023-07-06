@@ -27,7 +27,10 @@ export class Linter {
 
   #config: Array<ESLinter.FlatConfig>
 
-  constructor(private readonly cwd: string, private readonly rootCwd: string) {
+  constructor(
+    private readonly cwd: string,
+    private readonly rootCwd: string
+  ) {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     this.linter = new ESLinter({ configType: 'flat' } as any)
     this.ignore = ignorer.default().add(ignore)

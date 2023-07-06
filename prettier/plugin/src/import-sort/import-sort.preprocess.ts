@@ -21,7 +21,7 @@ const findTypeScriptParser = (plugins: Array<Plugin<any>>): Parser<any> => {
     return p.parsers.typescript
   })
 
-  return plugin!.parsers!.typescript as Parser<any>
+  return plugin!.parsers!.typescript
 }
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types

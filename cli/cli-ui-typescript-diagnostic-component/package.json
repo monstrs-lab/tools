@@ -21,9 +21,9 @@
     "@monstrs/code-typescript": "workspace:0.3.13"
   },
   "devDependencies": {
-    "@jest/globals": "29.5.0",
+    "@jest/globals": "^29.6.1",
     "@monstrs/cli-ui-renderer": "workspace:0.3.4",
-    "@types/react": "^18.2.13",
+    "@types/react": "^18.2.14",
     "ink": "^4.2.0",
     "react": "^18.2.0",
     "strip-ansi": "^7.1.0",

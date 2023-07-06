@@ -21,10 +21,10 @@
     "@monstrs/config-typescript": "workspace:0.3.3",
     "@monstrs/jest-resolver": "workspace:0.3.3",
     "jest-static-stubs": "^0.0.1",
-    "ts-jest": "^29.1.0"
+    "ts-jest": "^29.1.1"
   },
   "devDependencies": {
-    "@types/node": "^20.3.0"
+    "@types/node": "^20.4.0"
   },
   "peerDependenciesMeta": {
     "jest": {

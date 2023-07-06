@@ -18,20 +18,20 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "clipanion": "^3.2.0",
+    "clipanion": "^3.2.1",
     "cross-spawn": "^7.0.3",
     "localtunnel": "^2.0.2"
   },
   "devDependencies": {
-    "@jest/globals": "29.5.0",
+    "@jest/globals": "^29.6.1",
     "@monstrs/yarn-run-utils": "workspace:0.2.1",
     "@monstrs/yarn-test-utils": "workspace:0.2.1",
     "@types/cross-spawn": "^6.0.2",
     "@types/localtunnel": "^2.0.1",
-    "@yarnpkg/builder": "^4.0.0-rc.45",
-    "@yarnpkg/cli": "^4.0.0-rc.45",
-    "@yarnpkg/core": "^4.0.0-rc.45",
-    "@yarnpkg/fslib": "^3.0.0-rc.45"
+    "@yarnpkg/builder": "^4.0.0-rc.48",
+    "@yarnpkg/cli": "^4.0.0-rc.48",
+    "@yarnpkg/core": "^4.0.0-rc.48",
+    "@yarnpkg/fslib": "^3.0.0-rc.48"
   },
   "peerDependencies": {
     "@yarnpkg/cli": "^4",

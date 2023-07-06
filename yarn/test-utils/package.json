@@ -16,10 +16,10 @@
     "yarn:download": "yarn node ./scripts/download-yarn-tests-packages.script.mjs"
   },
   "dependencies": {
-    "@yarnpkg/core": "^4.0.0-rc.45",
-    "@yarnpkg/fslib": "^3.0.0-rc.45",
-    "@yarnpkg/plugin-pack": "^4.0.0-rc.45",
-    "pkg-tests-core": "patch:pkg-tests-core@file%3Ayarn/test-utils/cache/pkg-tests-core.tgz%23yarn/test-utils/cache/pkg-tests-core.tgz%3A%3Ahash=1890e6&locator=tools%2540workspace%253A.#~/.yarn/patches/pkg-tests-core-file-91c83e0ba0.patch",
+    "@yarnpkg/core": "^4.0.0-rc.48",
+    "@yarnpkg/fslib": "^3.0.0-rc.48",
+    "@yarnpkg/plugin-pack": "^4.0.0-rc.48",
+    "pkg-tests-core": "file:./cache/pkg-tests-core.tgz",
     "pkg-tests-fixtures": "file:cache/pkg-tests-fixtures.tgz"
   },
   "publishConfig": {

@@ -11,7 +11,10 @@ import { tsLoaderPath } from '@monstrs/tools-runtime/webpack'
 import tsconfig         from '@monstrs/config-typescript'
 
 export class WebpackConfig {
-  constructor(private readonly cwd: string, private readonly target: string) {}
+  constructor(
+    private readonly cwd: string,
+    private readonly target: string
+  ) {}
 
   async build(): Promise<webpack.Configuration> {
     const config = new Config()

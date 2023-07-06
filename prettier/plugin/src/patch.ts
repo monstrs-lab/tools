@@ -1,16 +1,17 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 
-import { format }     from 'prettier/standalone'
-
-import { babel }      from './imports.js'
-import { typescript } from './imports.js'
+// @ts-expect-error
+import * as estree     from 'prettier/plugins/estree'
+import * as babel      from 'prettier/plugins/babel'
+import * as typescript from 'prettier/plugins/typescript'
+import { format }      from 'prettier/standalone'
 
 export const extractPrinter = async (): Promise<any> => {
   let printer
 
   await format('const n = 5;', {
     plugins: [
+      estree,
       babel,
       {
         ...typescript,

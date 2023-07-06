@@ -19,12 +19,12 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@jest/test-result": "^29.5.0",
-    "@jest/types": "^29.5.0",
+    "@jest/test-result": "^29.6.1",
+    "@jest/types": "^29.6.1",
     "@monstrs/tools-runtime": "workspace:0.2.11"
   },
   "devDependencies": {
-    "@types/node": "^20.3.0"
+    "@types/node": "^20.4.0"
   },
   "peerDependenciesMeta": {
     "jest": {

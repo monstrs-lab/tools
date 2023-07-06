@@ -21,17 +21,17 @@
     "@monstrs/cli-ui-renderer": "workspace:0.3.4",
     "@monstrs/cli-ui-stack-trace-component": "workspace:0.3.6",
     "@monstrs/logger": "^0.0.16",
-    "@monstrs/mikro-orm-logger": "^0.0.10",
+    "@monstrs/mikro-orm-logger": "^0.0.11",
     "decamelize": "^6.0.0",
     "nanoid": "^4.0.2",
-    "sql-formatter": "^12.2.1",
+    "sql-formatter": "^12.2.3",
     "uniqolor": "^1.1.0"
   },
   "devDependencies": {
-    "@jest/globals": "29.5.0",
+    "@jest/globals": "^29.6.1",
     "@monstrs/logger": "^0.0.16",
-    "@types/node": "^20.3.0",
-    "@types/react": "^18.2.13",
+    "@types/node": "^20.4.0",
+    "@types/react": "^18.2.14",
     "ink": "^4.2.0",
     "react": "^18.2.0",
     "strip-ansi": "^7.1.0"
