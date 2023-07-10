@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           ref: master
 
@@ -25,102 +25,30 @@ jobs:
           script: |
             const { version } = JSON.parse(require('fs').readFileSync('yarn/cli/package.json', 'utf8'))
 
-            await github.rest.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: 'common-modules',
-              workflow_id: 'tools.yaml',
-              ref: 'master',
-              inputs: {
-                version,
-              }
-            })
+            const repos = [
+              'common-modules',
+              'telemetry-modules',
+              'mikro-orm-modules',
+              'nestjs-modules',
+              'nextjs-modules',
+              'react-modules',
+              'buildpacks',
+              'rpc-modules',
+              'protobuf-modules',
+              'types',
+              'ui',
+            ]
 
-            await github.rest.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: 'telemetry-modules',
-              workflow_id: 'tools.yaml',
-              ref: 'master',
-              inputs: {
-                version,
-              }
-            })
+            for await (repo of repos) {
+              await github.rest.actions.createWorkflowDispatch({
+                owner: context.repo.owner,
+                repo,
+                workflow_id: 'tools.yaml',
+                ref: 'master',
+                inputs: {
+                  version,
+                }
+              })
 
-            await github.rest.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: 'mikro-orm-modules',
-              workflow_id: 'tools.yaml',
-              ref: 'master',
-              inputs: {
-                version,
-              }
-            })
-
-            await github.rest.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: 'nestjs-modules',
-              workflow_id: 'tools.yaml',
-              ref: 'master',
-              inputs: {
-                version,
-              }
-            })
-
-            await github.rest.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: 'react-modules',
-              workflow_id: 'tools.yaml',
-              ref: 'master',
-              inputs: {
-                version,
-              }
-            })
-
-            await github.rest.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: 'buildpacks',
-              workflow_id: 'tools.yaml',
-              ref: 'master',
-              inputs: {
-                version,
-              }
-            })
-
-            await github.rest.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: 'types',
-              workflow_id: 'tools.yaml',
-              ref: 'master',
-              inputs: {
-                version,
-              }
-            })
-
-            await github.rest.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: 'ui',
-              workflow_id: 'tools.yaml',
-              ref: 'master',
-              inputs: {
-                version,
-              }
-            })
-
-            await github.rest.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: 'rpc-modules',
-              workflow_id: 'tools.yaml',
-              ref: 'master',
-              inputs: {
-                version,
-              }
-            })
-
-            await github.rest.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: 'protobuf-modules',
-              workflow_id: 'tools.yaml',
-              ref: 'master',
-              inputs: {
-                version,
-              }
-            })
+              await require('node:timers/promises').setTimeout(5000)
+            }
