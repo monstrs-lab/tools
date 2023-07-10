@@ -28,7 +28,7 @@ export class PrettyLogsTransform extends Transform {
   }
 
   // eslint-disable-next-line no-underscore-dangle
-  override _transform(chunk: Buffer, encoding: string, callback: () => void): void {
+  override _transform(chunk: Buffer, _: string, callback: () => void): void {
     const parts = chunk.toString().split(/\r?\n/)
 
     parts

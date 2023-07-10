@@ -6,8 +6,8 @@ export default {
     noImplicitReturns: true,
     noImplicitThis: true,
     noImplicitOverride: true,
-    noUnusedLocals: false,
-    noUnusedParameters: false,
+    noUnusedLocals: true,
+    noUnusedParameters: true,
     noFallthroughCasesInSwitch: true,
 
     // Modules

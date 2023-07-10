@@ -18,8 +18,6 @@ export const style = ({
   not,
   startsWithLowerCase,
   startsWithUpperCase,
-  moduleName,
-  naturally,
 }: IStyleAPI): Array<IStyleItem> => {
   const noMember = [
     {

@@ -1,6 +1,7 @@
 /* Copy/Paste https://github.com/yarnpkg/berry/blob/master/packages/yarnpkg-core/sources/VirtualResolver.ts */
 
 /* eslint-disable */
+// @ts-nocheck
 
 import type { MinimalResolveOptions } from '@yarnpkg/core'
 import type { ResolveOptions }        from '@yarnpkg/core'

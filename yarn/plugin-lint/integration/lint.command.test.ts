@@ -20,7 +20,7 @@ describe('yarn', () => {
               '@monstrs/tools-runtime': 'workspace:*',
             },
           },
-          async ({ path, run, source }) => {
+          async ({ path, run }) => {
             await run('install')
 
             await xfs.writeFilePromise(
@@ -51,7 +51,7 @@ describe('yarn', () => {
             '@monstrs/tools-runtime': 'workspace:*',
           },
         },
-        async ({ path, run, source }) => {
+        async ({ path, run }) => {
           await run('install')
 
           await xfs.writeFilePromise(ppath.join(path, 'invalid.ts' as PortablePath), 'const n = 5')

@@ -11,7 +11,7 @@ import type { ImportDeclaration } from '@babel/types'
 export class ImportSortTypeScriptParser implements IParser {
   constructor(private readonly program: AST) {}
 
-  parseImports(code: string): Array<IImport> {
+  parseImports(_: string): Array<IImport> {
     const imports: Array<IImport> = this.program.body
       .filter((node: Node) => node.type === 'ImportDeclaration')
       .map((node: ImportDeclaration) => {
