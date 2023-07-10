@@ -1,41 +1,41 @@
 export default {
   compilerOptions: {
-    lib: ['dom', 'dom.iterable', 'esnext'],
-
-    declaration: false,
-
-    emitDecoratorMetadata: true,
-    experimentalDecorators: true,
-
-    esModuleInterop: true,
-    forceConsistentCasingInFileNames: true,
-    importHelpers: false,
-    isolatedModules: false,
-    moduleResolution: 'nodenext',
-    noFallthroughCasesInSwitch: true,
-
+    // Type Checking
+    strict: true,
     noImplicitAny: true,
     noImplicitReturns: true,
     noImplicitThis: true,
     noImplicitOverride: true,
-
     noUnusedLocals: false,
     noUnusedParameters: false,
+    noFallthroughCasesInSwitch: true,
 
-    pretty: true,
-    removeComments: true,
+    // Modules
+    moduleResolution: 'nodenext',
     resolveJsonModule: true,
-
-    strict: true,
-
-    sourceMap: false,
-
     module: 'nodenext',
-    target: 'es2021',
 
+    // Emit
+    declaration: false,
+    importHelpers: false,
+    removeComments: true,
+    sourceMap: false,
+    outDir: './dist',
+
+    // Interop Constraints
+    esModuleInterop: true,
+    isolatedModules: false,
+    forceConsistentCasingInFileNames: true,
+
+    // Language and Environment
+    lib: ['dom', 'dom.iterable', 'esnext'],
+    emitDecoratorMetadata: true,
+    experimentalDecorators: true,
+    target: 'es2021',
     jsx: 'react',
 
-    outDir: './dist',
+    // Output Formatting
+    pretty: true,
   },
   exclude: [
     '**/*/next-env.d.ts',
