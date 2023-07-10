@@ -10,7 +10,7 @@ import { getChangedFiles }        from '@monstrs/yarn-plugin-files'
 import { getChangedWorkspaces }   from '@monstrs/yarn-workspace-utils'
 
 class WorkspacesChangedListCommand extends BaseCommand {
-  static paths = [['workspaces', 'changed', 'list']]
+  static override paths = [['workspaces', 'changed', 'list']]
 
   json = Option.Boolean('--json', false)
 

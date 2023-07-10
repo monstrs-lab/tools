@@ -4,9 +4,9 @@ import { SetVersionCommand as BaseSetVersionCommand } from '@yarnpkg/plugin-esse
 import { Option }                                     from 'clipanion'
 
 export class SetVersionCommand extends BaseCommand {
-  static paths = [['set', 'version']]
+  static override paths = [['set', 'version']]
 
-  static usage = BaseSetVersionCommand.usage
+  static override usage = BaseSetVersionCommand.usage
 
   useYarnPath = Option.Boolean(`--yarn-path`, {
     description: `Set the yarnPath setting even if the version can be accessed by Corepack`,

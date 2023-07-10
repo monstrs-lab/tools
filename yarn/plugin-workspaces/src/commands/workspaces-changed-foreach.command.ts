@@ -10,7 +10,7 @@ import { getChangedFiles }        from '@monstrs/yarn-plugin-files'
 import { getChangedWorkspaces }   from '@monstrs/yarn-workspace-utils'
 
 class WorkspacesChangedForeachCommand extends BaseCommand {
-  static paths = [['workspaces', 'changed', 'foreach']]
+  static override paths = [['workspaces', 'changed', 'foreach']]
 
   verbose = Option.Boolean('-v,--verbose', false)
 

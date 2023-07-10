@@ -10,7 +10,7 @@ const config = {
 }
 
 export class CommitStagedCommand extends BaseCommand {
-  static paths = [['commit', 'staged']]
+  static override paths = [['commit', 'staged']]
 
   args: Array<string> = Option.Rest({ required: 0 })
 

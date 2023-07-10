@@ -8,7 +8,7 @@ const commands: Array<Array<string>> = [
 ]
 
 export class ToolsSyncCommand extends BaseCommand {
-  static paths = [['tools', 'sync']]
+  static override paths = [['tools', 'sync']]
 
   async execute(): Promise<number> {
     for (const command of commands) {

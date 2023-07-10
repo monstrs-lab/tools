@@ -9,7 +9,7 @@ import { TesterWorker }        from '@monstrs/code-test-worker'
 import { AbstractTestCommand } from './abstract-test.command.jsx'
 
 class TestUnitCommand extends AbstractTestCommand {
-  static paths = [['test', 'unit']]
+  static override paths = [['test', 'unit']]
 
   async execute(): Promise<number> {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)

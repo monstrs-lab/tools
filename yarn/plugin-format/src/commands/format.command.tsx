@@ -12,7 +12,7 @@ import { SpinnerProgress } from '@monstrs/yarn-run-utils'
 import { renderStatic }    from '@monstrs/cli-ui-renderer'
 
 class FormatCommand extends BaseCommand {
-  static paths = [['format']]
+  static override paths = [['format']]
 
   files: Array<string> = Option.Rest({ required: 0 })
 

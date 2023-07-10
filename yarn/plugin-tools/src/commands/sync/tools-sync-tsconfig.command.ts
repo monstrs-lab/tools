@@ -47,7 +47,7 @@ const convertWorkspacesToIncludes = (workspaces: string): string => {
 }
 
 export class ToolsSyncTSConfigCommand extends BaseCommand {
-  static paths = [['tools', 'sync', 'tsconfig']]
+  static override paths = [['tools', 'sync', 'tsconfig']]
 
   async execute(): Promise<number> {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)

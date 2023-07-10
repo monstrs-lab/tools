@@ -8,7 +8,7 @@ import semver            from 'semver'
 import runtime           from '@monstrs/tools-runtime/package.json' assert { type: 'json' }
 
 export class ToolsSyncRuntimeCommand extends BaseCommand {
-  static paths = [['tools', 'sync', 'runtime']]
+  static override paths = [['tools', 'sync', 'runtime']]
 
   async execute(): Promise<number> {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
