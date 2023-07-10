@@ -25,7 +25,7 @@ export class Linter {
 
   private ignore: ignorer.Ignore
 
-  #config: Array<ESLinter.FlatConfig>
+  #config!: Array<ESLinter.FlatConfig>
 
   constructor(
     private readonly cwd: string,

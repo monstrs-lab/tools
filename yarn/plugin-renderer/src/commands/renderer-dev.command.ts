@@ -12,7 +12,7 @@ export class RendererDevCommand extends BaseCommand {
 
   tunnel = Option.Boolean('--tunnel')
 
-  #tunnel: Tunnel
+  #tunnel!: Tunnel
 
   async runTunnel(host: string, port: number): Promise<void> {
     if (this.#tunnel) {
