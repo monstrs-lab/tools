@@ -18,12 +18,12 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/cli-ui-error-info-component": "workspace:0.3.7",
-    "@monstrs/cli-ui-log-record-component": "workspace:0.3.7",
-    "@monstrs/cli-ui-pretty-logs": "workspace:0.3.8",
+    "@monstrs/cli-ui-error-info-component": "workspace:0.3.8",
+    "@monstrs/cli-ui-log-record-component": "workspace:0.3.8",
+    "@monstrs/cli-ui-pretty-logs": "workspace:0.3.9",
     "@monstrs/cli-ui-renderer": "workspace:0.3.5",
-    "@monstrs/cli-ui-typescript-diagnostic-component": "workspace:0.3.16",
-    "@monstrs/code-typescript-worker": "workspace:0.3.16",
+    "@monstrs/cli-ui-typescript-diagnostic-component": "workspace:0.3.17",
+    "@monstrs/code-typescript-worker": "workspace:0.3.17",
     "@monstrs/yarn-run-utils": "workspace:0.2.1",
     "clipanion": "^3.2.1",
     "react": "^18.2.0",
