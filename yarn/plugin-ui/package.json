@@ -19,8 +19,8 @@
   },
   "dependencies": {
     "@monstrs/code-format-worker": "workspace:0.3.11",
-    "@monstrs/code-icons-worker": "workspace:0.3.13",
-    "@monstrs/code-lint-worker": "workspace:0.3.15",
+    "@monstrs/code-icons-worker": "workspace:0.3.14",
+    "@monstrs/code-lint-worker": "workspace:0.3.16",
     "clipanion": "^3.2.1"
   },
   "devDependencies": {

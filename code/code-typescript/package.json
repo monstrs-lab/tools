@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-typescript",
-  "version": "0.3.14",
+  "version": "0.3.15",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -18,8 +18,8 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/config-typescript": "workspace:0.3.3",
-    "@monstrs/tools-runtime": "workspace:0.2.12",
+    "@monstrs/config-typescript": "workspace:0.3.4",
+    "@monstrs/tools-runtime": "workspace:0.2.13",
     "deepmerge": "^4.3.1"
   },
   "devDependencies": {
