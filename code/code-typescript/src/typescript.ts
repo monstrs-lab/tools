@@ -62,6 +62,10 @@ class TypeScript {
       )
       .filter(
         (diagnostic) =>
+          !(diagnostic.code === 6133 && diagnostic.file?.fileName.includes('/@yarnpkg/libui/'))
+      )
+      .filter(
+        (diagnostic) =>
           !(
             [2315, 2411, 2304, 7006, 7016].includes(diagnostic.code) &&
             diagnostic.file?.fileName.includes('/@strapi/')

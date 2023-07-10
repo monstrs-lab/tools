@@ -20,7 +20,7 @@ describe('yarn', () => {
               typescript: '^5.0.3',
             },
           },
-          async ({ path, run, source }) => {
+          async ({ path, run }) => {
             await run('install')
 
             await xfs.writeFilePromise(
@@ -46,7 +46,7 @@ describe('yarn', () => {
               typescript: '^5.0.3',
             },
           },
-          async ({ path, run, source }) => {
+          async ({ path, run }) => {
             await run('install')
 
             await xfs.writeFilePromise(
@@ -72,7 +72,7 @@ describe('yarn', () => {
               typescript: '^5.0.3',
             },
           },
-          async ({ path, run, source }) => {
+          async ({ path, run }) => {
             await run('install')
 
             await xfs.mkdirPromise(ppath.join(path, 'integration' as PortablePath))
@@ -99,7 +99,7 @@ describe('yarn', () => {
               typescript: '^5.0.3',
             },
           },
-          async ({ path, run, source }) => {
+          async ({ path, run }) => {
             await run('install')
 
             await xfs.mkdirPromise(ppath.join(path, 'integration' as PortablePath))

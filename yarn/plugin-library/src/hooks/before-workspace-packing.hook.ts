@@ -8,7 +8,7 @@ export interface RawManifest {
   }
 }
 
-export const beforeWorkspacePacking = (workspace: Workspace, rawManifest: RawManifest): void => {
+export const beforeWorkspacePacking = (_: Workspace, rawManifest: RawManifest): void => {
   if (rawManifest.publishConfig) {
     if (rawManifest.publishConfig.exports) {
       // eslint-disable-next-line no-param-reassign

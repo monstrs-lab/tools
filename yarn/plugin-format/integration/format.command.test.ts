@@ -13,7 +13,7 @@ describe('yarn', () => {
     describe('format', () => {
       test(
         'it should split imports',
-        makeTemporaryEnv({}, async ({ path, run, source }) => {
+        makeTemporaryEnv({}, async ({ path, run }) => {
           await run('install')
 
           const filePath = ppath.join(path, 'split-imports.ts' as PortablePath)
@@ -34,7 +34,7 @@ import { d } from './e'
 
       test(
         'it should order imports',
-        makeTemporaryEnv({}, async ({ path, run, source }) => {
+        makeTemporaryEnv({}, async ({ path, run }) => {
           await run('install')
 
           const filePath = ppath.join(path, 'order-imports.ts' as PortablePath)
@@ -56,7 +56,7 @@ import type { c } from './d'
 
       test(
         'it should align imports',
-        makeTemporaryEnv({}, async ({ path, run, source }) => {
+        makeTemporaryEnv({}, async ({ path, run }) => {
           await run('install')
 
           const filePath = ppath.join(path, 'align-imports.ts' as PortablePath)
