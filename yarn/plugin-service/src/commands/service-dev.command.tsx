@@ -8,7 +8,7 @@ import { SpinnerProgress }        from '@monstrs/yarn-run-utils'
 import { AbstractServiceCommand } from './abstract-service.command.jsx'
 
 class ServiceDevCommand extends AbstractServiceCommand {
-  static paths = [['service', 'dev']]
+  static override paths = [['service', 'dev']]
 
   async execute(): Promise<number> {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)

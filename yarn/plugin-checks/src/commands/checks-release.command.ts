@@ -15,7 +15,7 @@ import { GitHubChecks }          from '../utils/index.js'
 import { AnnotationLevel }       from '../utils/index.js'
 
 class ChecksReleaseCommand extends BaseCommand {
-  static paths = [['checks', 'release']]
+  static override paths = [['checks', 'release']]
 
   async execute(): Promise<void> {
     const { project } = await Project.find(

@@ -11,7 +11,7 @@ import { xfs }               from '@yarnpkg/fslib'
 import { ppath }             from '@yarnpkg/fslib'
 
 export class RendererBuildCommand extends BaseCommand {
-  static paths = [['renderer', 'build']]
+  static override paths = [['renderer', 'build']]
 
   async execute(): Promise<number> {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)

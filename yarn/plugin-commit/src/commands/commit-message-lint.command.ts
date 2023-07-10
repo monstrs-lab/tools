@@ -4,7 +4,7 @@ import { CommitLinter } from '@monstrs/code-commit'
 import { read }         from '@monstrs/code-commit'
 
 class CommitMessageLintCommand extends BaseCommand {
-  static paths = [['commit', 'message', 'lint']]
+  static override paths = [['commit', 'message', 'lint']]
 
   async execute(): Promise<number> {
     const linter = new CommitLinter()

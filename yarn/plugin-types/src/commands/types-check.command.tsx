@@ -13,7 +13,7 @@ import { SpinnerProgress }      from '@monstrs/yarn-run-utils'
 import { renderStatic }         from '@monstrs/cli-ui-renderer'
 
 export class TypesCheckCommand extends BaseCommand {
-  static paths = [['types', 'check']]
+  static override paths = [['types', 'check']]
 
   args: Array<string> = Option.Rest({ required: 0 })
 

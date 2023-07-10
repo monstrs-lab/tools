@@ -8,7 +8,7 @@ import { AbstractChecksTestCommand } from './abstract-checks-test.command.js'
 import { GitHubChecks }              from '../utils/index.js'
 
 class ChecksTestIntegrationCommand extends AbstractChecksTestCommand {
-  static paths = [['checks', 'test', 'integration']]
+  static override paths = [['checks', 'test', 'integration']]
 
   async execute(): Promise<number> {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)

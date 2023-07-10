@@ -13,7 +13,7 @@ import { SpinnerProgress } from '@monstrs/yarn-run-utils'
 import { renderStatic }    from '@monstrs/cli-ui-renderer'
 
 class LintCommand extends BaseCommand {
-  static paths = [['lint']]
+  static override paths = [['lint']]
 
   fix = Option.Boolean('--fix')
 

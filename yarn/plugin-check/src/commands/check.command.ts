@@ -1,7 +1,7 @@
 import { BaseCommand } from '@yarnpkg/cli'
 
 class CheckCommand extends BaseCommand {
-  static paths = [['check']]
+  static override paths = [['check']]
 
   async execute(): Promise<void> {
     await this.cli.run(['format'])

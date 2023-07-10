@@ -21,7 +21,7 @@ import { GitHubChecks }     from '../utils/index.js'
 import { AnnotationLevel }  from '../utils/index.js'
 
 class ChecksLintCommand extends BaseCommand {
-  static paths = [['checks', 'lint']]
+  static override paths = [['checks', 'lint']]
 
   async execute(): Promise<number> {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)

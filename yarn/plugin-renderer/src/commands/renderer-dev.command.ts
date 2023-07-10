@@ -8,7 +8,7 @@ import spawn             from 'cross-spawn'
 import localtunnel       from 'localtunnel'
 
 export class RendererDevCommand extends BaseCommand {
-  static paths = [['renderer', 'dev']]
+  static override paths = [['renderer', 'dev']]
 
   tunnel = Option.Boolean('--tunnel')
 

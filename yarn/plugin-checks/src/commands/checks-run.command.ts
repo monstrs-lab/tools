@@ -8,7 +8,7 @@ import { Project }           from '@yarnpkg/core'
 import { execUtils }         from '@yarnpkg/core'
 
 class ChecksRunCommand extends BaseCommand {
-  static paths = [['checks', 'run']]
+  static override paths = [['checks', 'run']]
 
   async execute(): Promise<number> {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)

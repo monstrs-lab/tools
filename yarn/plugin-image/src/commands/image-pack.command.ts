@@ -37,7 +37,7 @@ const forRepository = async (repo: string): Promise<PortablePath> => {
 }
 
 class ImagePackCommand extends BaseCommand {
-  static paths = [['image', 'pack']]
+  static override paths = [['image', 'pack']]
 
   registry: string = Option.String('-r,--registry', { required: true })
 

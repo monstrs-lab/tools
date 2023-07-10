@@ -16,7 +16,7 @@ import { SpinnerProgress }      from '@monstrs/yarn-run-utils'
 import { renderStatic }         from '@monstrs/cli-ui-renderer'
 
 class LibraryBuildCommand extends BaseCommand {
-  static paths = [['library', 'build']]
+  static override paths = [['library', 'build']]
 
   target = Option.String('-t,--target', './dist')
 
