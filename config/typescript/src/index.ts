@@ -26,7 +26,6 @@ export default {
     resolveJsonModule: true,
 
     strict: true,
-    strictPropertyInitialization: false,
 
     sourceMap: false,
 
