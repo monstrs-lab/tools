@@ -3975,7 +3975,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@yarnpkg/fslib@npm:^3.0.0-rc.43, @yarnpkg/fslib@npm:^3.0.0-rc.48":
+"@yarnpkg/fslib@npm:^3.0.0-rc.48":
   version: 3.0.0-rc.48
   resolution: "@yarnpkg/fslib@npm:3.0.0-rc.48"
   dependencies:
@@ -4061,7 +4061,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@yarnpkg/parsers@npm:^3.0.0-rc.43, @yarnpkg/parsers@npm:^3.0.0-rc.48, @yarnpkg/parsers@npm:^3.0.0-rc.48.1":
+"@yarnpkg/parsers@npm:^3.0.0-rc.48, @yarnpkg/parsers@npm:^3.0.0-rc.48.1":
   version: 3.0.0-rc.48.1
   resolution: "@yarnpkg/parsers@npm:3.0.0-rc.48.1"
   dependencies:
@@ -4140,29 +4140,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@yarnpkg/plugin-essentials@npm:4.0.0-rc.43":
-  version: 4.0.0-rc.43
-  resolution: "@yarnpkg/plugin-essentials@npm:4.0.0-rc.43"
-  dependencies:
-    "@yarnpkg/fslib": "npm:^3.0.0-rc.43"
-    "@yarnpkg/parsers": "npm:^3.0.0-rc.43"
-    ci-info: "npm:^3.2.0"
-    clipanion: "npm:^3.2.0-rc.10"
-    enquirer: "npm:^2.3.6"
-    lodash: "npm:^4.17.15"
-    micromatch: "npm:^4.0.2"
-    semver: "npm:^7.1.2"
-    tslib: "npm:^2.4.0"
-    typanion: "npm:^3.3.0"
-  peerDependencies:
-    "@yarnpkg/cli": ^4.0.0-rc.43
-    "@yarnpkg/core": ^4.0.0-rc.43
-    "@yarnpkg/plugin-git": ^3.0.0-rc.43
-  checksum: 0305189f7d61345e517136a9cefe2868a8b5cf60f5e3afeb51ecd372d941a4d3b40c0e7c240f5b932a8794ebc44655f2f3465c9a376410ca468cc7a27b01c8e5
-  languageName: node
-  linkType: hard
-
-"@yarnpkg/plugin-essentials@npm:^4.0.0-rc.48":
+"@yarnpkg/plugin-essentials@npm:4.0.0-rc.48":
   version: 4.0.0-rc.48
   resolution: "@yarnpkg/plugin-essentials@npm:4.0.0-rc.48"
   dependencies:
@@ -4184,25 +4162,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@yarnpkg/plugin-essentials@patch:@yarnpkg/plugin-essentials@npm%3A4.0.0-rc.43#~/.yarn/patches/@yarnpkg-plugin-essentials-npm-4.0.0-rc.43-ae03fd5937.patch":
-  version: 4.0.0-rc.43
-  resolution: "@yarnpkg/plugin-essentials@patch:@yarnpkg/plugin-essentials@npm%3A4.0.0-rc.43#~/.yarn/patches/@yarnpkg-plugin-essentials-npm-4.0.0-rc.43-ae03fd5937.patch::version=4.0.0-rc.43&hash=9c18c1"
+"@yarnpkg/plugin-essentials@patch:@yarnpkg/plugin-essentials@npm%3A4.0.0-rc.48#~/.yarn/patches/@yarnpkg-plugin-essentials-npm-4.0.0-rc.48-71d7391fa6.patch":
+  version: 4.0.0-rc.48
+  resolution: "@yarnpkg/plugin-essentials@patch:@yarnpkg/plugin-essentials@npm%3A4.0.0-rc.48#~/.yarn/patches/@yarnpkg-plugin-essentials-npm-4.0.0-rc.48-71d7391fa6.patch::version=4.0.0-rc.48&hash=4fb8e6"
   dependencies:
-    "@yarnpkg/fslib": "npm:^3.0.0-rc.43"
-    "@yarnpkg/parsers": "npm:^3.0.0-rc.43"
+    "@yarnpkg/fslib": "npm:^3.0.0-rc.48"
+    "@yarnpkg/parsers": "npm:^3.0.0-rc.48"
     ci-info: "npm:^3.2.0"
-    clipanion: "npm:^3.2.0-rc.10"
+    clipanion: "npm:^3.2.1"
     enquirer: "npm:^2.3.6"
     lodash: "npm:^4.17.15"
     micromatch: "npm:^4.0.2"
     semver: "npm:^7.1.2"
     tslib: "npm:^2.4.0"
-    typanion: "npm:^3.3.0"
+    typanion: "npm:^3.12.1"
   peerDependencies:
-    "@yarnpkg/cli": ^4.0.0-rc.43
-    "@yarnpkg/core": ^4.0.0-rc.43
-    "@yarnpkg/plugin-git": ^3.0.0-rc.43
-  checksum: 71e02aac57178cfdae7bcd2e84fc806d3a5d191df9d7b41522a58933421df1737eb2272e235a2c1174a4b0dd11aadf113e2f3b023d525202e41ce5b499549e63
+    "@yarnpkg/cli": ^4.0.0-rc.48
+    "@yarnpkg/core": ^4.0.0-rc.48
+    "@yarnpkg/plugin-git": ^3.0.0-rc.48
+  checksum: 7dea31491d30b342db0e5113b7d46b451cae580b68b78c4f4db5f6127d55ec1814e05b873d8d170e5ad1423986aa43817825880352145eefa50d7ca6950b0cf7
   languageName: node
   linkType: hard
 
@@ -5793,7 +5771,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"clipanion@npm:^3.2.0-rc.10, clipanion@npm:^3.2.1":
+"clipanion@npm:^3.2.1":
   version: 3.2.1
   resolution: "clipanion@npm:3.2.1"
   dependencies:

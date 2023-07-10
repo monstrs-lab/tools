@@ -1,5 +1,5 @@
 diff --git a/lib/commands/set/version.js b/lib/commands/set/version.js
-index 72f9dce6e7a2835da6f1bf42c9b7649a7e58a1d5..f4e5fc22664c8e0276984583ade04c1f38b6ad67 100644
+index 4be3b9dc9183be2fb79c800ceed5f3bd0f3e3d82..9b89087efd911816fd38a7c7508a7c7a1a809a98 100644
 --- a/lib/commands/set/version.js
 +++ b/lib/commands/set/version.js
 @@ -83,7 +83,7 @@ class SetVersionCommand extends cli_1.BaseCommand {
