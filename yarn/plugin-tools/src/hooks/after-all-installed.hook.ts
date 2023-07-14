@@ -60,7 +60,8 @@ const hook = (command: string): string =>
 ${command}
 `
 
-const git = (args: Array<string>): SpawnSyncReturns<Buffer> => spawnSync('git', args)
+const git = (args: Array<string>): SpawnSyncReturns<string> =>
+  spawnSync('git', args, { encoding: 'utf-8' })
 
 const hooksExists = (): boolean => {
   const { error, output } = git(['config', 'core.hooksPath'])
