@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/cli-ui-typescript-diagnostic-component",
-  "version": "0.3.17",
+  "version": "0.3.18",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@monstrs/cli-ui-source-component": "workspace:0.3.6",
-    "@monstrs/code-typescript": "workspace:0.3.17"
+    "@monstrs/code-typescript": "workspace:0.3.18"
   },
   "devDependencies": {
     "@jest/globals": "^29.6.1",
