@@ -78,6 +78,13 @@ class TypeScript {
             diagnostic.file?.fileName.includes('/pkg-tests-core/')
           )
       )
+      .filter(
+        (diagnostic) =>
+          !(
+            [2307].includes(diagnostic.code) &&
+            diagnostic.file?.fileName.includes('/@nestjs/testing/')
+          )
+      )
   }
 }
 
