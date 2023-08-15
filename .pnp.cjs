@@ -2848,6 +2848,7 @@ const RAW_RUNTIME_STATE =
           ["deepmerge", "npm:4.3.1"],\
           ["globby", "npm:13.2.2"],\
           ["ignore", "npm:5.2.4"],\
+          ["p-limit", "npm:4.0.0"],\
           ["react", null],\
           ["typescript", null]\
         ],\
@@ -2867,7 +2868,8 @@ const RAW_RUNTIME_STATE =
           ["@types/node", "npm:18.16.4"],\
           ["deepmerge", "npm:4.3.1"],\
           ["globby", "npm:13.2.2"],\
-          ["ignore", "npm:5.2.4"]\
+          ["ignore", "npm:5.2.4"],\
+          ["p-limit", "npm:4.0.0"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -15251,6 +15253,14 @@ const RAW_RUNTIME_STATE =
           ["yocto-queue", "npm:0.1.0"]\
         ],\
         "linkType": "HARD"\
+      }],\
+      ["npm:4.0.0", {\
+        "packageLocation": "./.yarn/cache/p-limit-npm-4.0.0-5dccf29b67-01d9d70695.zip/node_modules/p-limit/",\
+        "packageDependencies": [\
+          ["p-limit", "npm:4.0.0"],\
+          ["yocto-queue", "npm:1.0.0"]\
+        ],\
+        "linkType": "HARD"\
       }]\
     ]],\
     ["p-locate", [\
@@ -18411,6 +18421,13 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/yocto-queue-npm-0.1.0-c6c9a7db29-f77b3d8d00.zip/node_modules/yocto-queue/",\
         "packageDependencies": [\
           ["yocto-queue", "npm:0.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:1.0.0", {\
+        "packageLocation": "./.yarn/cache/yocto-queue-npm-1.0.0-7b502f1987-2cac84540f.zip/node_modules/yocto-queue/",\
+        "packageDependencies": [\
+          ["yocto-queue", "npm:1.0.0"]\
         ],\
         "linkType": "HARD"\
       }]\
