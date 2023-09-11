@@ -185,7 +185,7 @@ LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
 OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 ***************************************************************************** */
-/* global Reflect, Promise */
+/* global Reflect, Promise, SuppressedError, Symbol */
 
 var extendStatics = function(d, b) {
   extendStatics = Object.setPrototypeOf ||
@@ -460,6 +460,53 @@ function __classPrivateFieldIn(state, receiver) {
   return typeof state === "function" ? receiver === state : state.has(receiver);
 }
 
+function __addDisposableResource(env, value, async) {
+  if (value !== null && value !== void 0) {
+    if (typeof value !== "object") throw new TypeError("Object expected.");
+    var dispose;
+    if (async) {
+        if (!Symbol.asyncDispose) throw new TypeError("Symbol.asyncDispose is not defined.");
+        dispose = value[Symbol.asyncDispose];
+    }
+    if (dispose === void 0) {
+        if (!Symbol.dispose) throw new TypeError("Symbol.dispose is not defined.");
+        dispose = value[Symbol.dispose];
+    }
+    if (typeof dispose !== "function") throw new TypeError("Object not disposable.");
+    env.stack.push({ value: value, dispose: dispose, async: async });
+  }
+  else if (async) {
+    env.stack.push({ async: true });
+  }
+  return value;
+}
+
+var _SuppressedError = typeof SuppressedError === "function" ? SuppressedError : function (error, suppressed, message) {
+  var e = new Error(message);
+  return e.name = "SuppressedError", e.error = error, e.suppressed = suppressed, e;
+};
+
+function __disposeResources(env) {
+  function fail(e) {
+    env.error = env.hasError ? new _SuppressedError(e, env.error, "An error was suppressed during disposal.") : e;
+    env.hasError = true;
+  }
+  function next() {
+    while (env.stack.length) {
+      var rec = env.stack.pop();
+      try {
+        var result = rec.dispose && rec.dispose.call(rec.value);
+        if (rec.async) return Promise.resolve(result).then(next, function(e) { fail(e); return next(); });
+      }
+      catch (e) {
+          fail(e);
+      }
+    }
+    if (env.hasError) throw env.error;
+  }
+  return next();
+}
+
 const tslib_es6 = {
   __extends,
   __assign,
@@ -486,10 +533,13 @@ const tslib_es6 = {
   __classPrivateFieldGet,
   __classPrivateFieldSet,
   __classPrivateFieldIn,
+  __addDisposableResource,
+  __disposeResources,
 };
 
 const tslib_es6$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
+  __addDisposableResource,
   get __assign () { return __assign; },
   __asyncDelegator,
   __asyncGenerator,
@@ -501,6 +551,7 @@ const tslib_es6$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.definePropert
   __classPrivateFieldSet,
   __createBinding,
   __decorate,
+  __disposeResources,
   __esDecorate,
   __exportStar,
   __extends,
@@ -761,7 +812,7 @@ function requireStatUtils () {
 		 */
 		function clearStats(stats) {
 		    for (const key in stats) {
-		        if (Object.prototype.hasOwnProperty.call(stats, key)) {
+		        if (Object.hasOwn(stats, key)) {
 		            const element = stats[key];
 		            if (typeof element === `number`) {
 		                // @ts-expect-error Typescript can't tell that stats[key] is a number
@@ -783,7 +834,7 @@ function requireStatUtils () {
 		function convertToBigIntStats(stats) {
 		    const bigintStats = new BigIntStatsEntry();
 		    for (const key in stats) {
-		        if (Object.prototype.hasOwnProperty.call(stats, key)) {
+		        if (Object.hasOwn(stats, key)) {
 		            const element = stats[key];
 		            if (typeof element === `number`) {
 		                // @ts-expect-error Typescript isn't able to tell this is valid
@@ -1019,7 +1070,6 @@ function requireCopyPromise () {
 	}
 	copyPromise$1.copyPromise = copyPromise;
 	async function copyImpl(prelayout, postlayout, destinationFs, destination, sourceFs, source, opts) {
-	    var _a, _b, _c;
 	    const destinationStat = opts.didParentExist ? await maybeLStat(destinationFs, destination) : null;
 	    const sourceStat = await sourceFs.lstatPromise(source);
 	    const { atime, mtime } = opts.stableTime
@@ -1049,8 +1099,8 @@ function requireCopyPromise () {
 	    }
 	    // We aren't allowed to modify the destination if we work with the index,
 	    // since otherwise we'd accidentally propagate the changes to all projects.
-	    if (((_a = opts.linkStrategy) === null || _a === void 0 ? void 0 : _a.type) !== `HardlinkFromIndex` || !sourceStat.isFile()) {
-	        if (updated || ((_b = destinationStat === null || destinationStat === void 0 ? void 0 : destinationStat.mtime) === null || _b === void 0 ? void 0 : _b.getTime()) !== mtime.getTime() || ((_c = destinationStat === null || destinationStat === void 0 ? void 0 : destinationStat.atime) === null || _c === void 0 ? void 0 : _c.getTime()) !== atime.getTime()) {
+	    if (opts.linkStrategy?.type !== `HardlinkFromIndex` || !sourceStat.isFile()) {
+	        if (updated || destinationStat?.mtime?.getTime() !== mtime.getTime() || destinationStat?.atime?.getTime() !== atime.getTime()) {
 	            postlayout.push(() => destinationFs.lutimesPromise(destination, atime, mtime));
 	            updated = true;
 	        }
@@ -1124,7 +1174,7 @@ function requireCopyPromise () {
 	    let indexStat = await maybeLStat(destinationFs, indexPath);
 	    if (destinationStat) {
 	        const isDestinationHardlinkedFromIndex = indexStat && destinationStat.dev === indexStat.dev && destinationStat.ino === indexStat.ino;
-	        const isIndexModified = (indexStat === null || indexStat === void 0 ? void 0 : indexStat.mtimeMs) !== defaultTimeMs;
+	        const isIndexModified = indexStat?.mtimeMs !== defaultTimeMs;
 	        if (isDestinationHardlinkedFromIndex) {
 	            // If the index is modified, we will want to repair it. However, the
 	            // default logic ensuring atomicity (creating a file in a temporary
@@ -1226,8 +1276,7 @@ function requireCopyPromise () {
 	    return true;
 	}
 	async function copyFile(prelayout, postlayout, destinationFs, destination, destinationStat, sourceFs, source, sourceStat, opts) {
-	    var _a;
-	    if (((_a = opts.linkStrategy) === null || _a === void 0 ? void 0 : _a.type) === `HardlinkFromIndex`) {
+	    if (opts.linkStrategy?.type === `HardlinkFromIndex`) {
 	        return copyFileViaIndex(prelayout, postlayout, destinationFs, destination, destinationStat, sourceFs, source, sourceStat, opts, opts.linkStrategy);
 	    }
 	    else {
@@ -1304,9 +1353,8 @@ function requireOpendir () {
 	        return Promise.resolve();
 	    }
 	    closeSync() {
-	        var _a, _b;
 	        this.throwIfClosed();
-	        (_b = (_a = this.opts).onClose) === null || _b === void 0 ? void 0 : _b.call(_a);
+	        this.opts.onClose?.();
 	        this.closed = true;
 	    }
 	}
@@ -1688,7 +1736,7 @@ function requireFakeFS () {
 	                        throw error;
 	                    }
 	                }
-	                createdDirectory !== null && createdDirectory !== void 0 ? createdDirectory : (createdDirectory = subPath);
+	                createdDirectory ??= subPath;
 	                if (chmod != null)
 	                    await this.chmodPromise(subPath, chmod);
 	                if (utimes != null) {
@@ -1722,7 +1770,7 @@ function requireFakeFS () {
 	                        throw error;
 	                    }
 	                }
-	                createdDirectory !== null && createdDirectory !== void 0 ? createdDirectory : (createdDirectory = subPath);
+	                createdDirectory ??= subPath;
 	                if (chmod != null)
 	                    this.chmodSync(subPath, chmod);
 	                if (utimes != null) {
@@ -2894,21 +2942,19 @@ function requireMountFS () {
 	        return this.baseFs.getRealPath();
 	    }
 	    saveAndClose() {
-	        var _a;
 	        (0, watchFile_1.unwatchAllFiles)(this);
 	        if (this.mountInstances) {
 	            for (const [path, { childFs }] of this.mountInstances.entries()) {
-	                (_a = childFs.saveAndClose) === null || _a === void 0 ? void 0 : _a.call(childFs);
+	                childFs.saveAndClose?.();
 	                this.mountInstances.delete(path);
 	            }
 	        }
 	    }
 	    discardAndClose() {
-	        var _a;
 	        (0, watchFile_1.unwatchAllFiles)(this);
 	        if (this.mountInstances) {
 	            for (const [path, { childFs }] of this.mountInstances.entries()) {
-	                (_a = childFs.discardAndClose) === null || _a === void 0 ? void 0 : _a.call(childFs);
+	                childFs.discardAndClose?.();
 	                this.mountInstances.delete(path);
 	            }
 	        }
@@ -3608,18 +3654,17 @@ function requireMountFS () {
 	        }
 	    }
 	    limitOpenFiles(max) {
-	        var _a, _b, _c;
 	        if (this.mountInstances === null)
 	            return;
 	        const now = Date.now();
 	        let nextExpiresAt = now + this.maxAge;
 	        let closeCount = max === null ? 0 : this.mountInstances.size - max;
 	        for (const [path, { childFs, expiresAt, refCount }] of this.mountInstances.entries()) {
-	            if (refCount !== 0 || ((_a = childFs.hasOpenFileHandles) === null || _a === void 0 ? void 0 : _a.call(childFs))) {
+	            if (refCount !== 0 || childFs.hasOpenFileHandles?.()) {
 	                continue;
 	            }
 	            else if (now >= expiresAt) {
-	                (_b = childFs.saveAndClose) === null || _b === void 0 ? void 0 : _b.call(childFs);
+	                childFs.saveAndClose?.();
 	                this.mountInstances.delete(path);
 	                closeCount -= 1;
 	                continue;
@@ -3628,7 +3673,7 @@ function requireMountFS () {
 	                nextExpiresAt = expiresAt;
 	                break;
 	            }
-	            (_c = childFs.saveAndClose) === null || _c === void 0 ? void 0 : _c.call(childFs);
+	            childFs.saveAndClose?.();
 	            this.mountInstances.delete(path);
 	            closeCount -= 1;
 	        }
@@ -3640,7 +3685,6 @@ function requireMountFS () {
 	        }
 	    }
 	    async getMountPromise(p, accept) {
-	        var _a;
 	        if (this.mountInstances) {
 	            let cachedMountFs = this.mountInstances.get(p);
 	            if (!cachedMountFs) {
@@ -3676,12 +3720,11 @@ function requireMountFS () {
 	                return await accept(mountFs);
 	            }
 	            finally {
-	                (_a = mountFs.saveAndClose) === null || _a === void 0 ? void 0 : _a.call(mountFs);
+	                mountFs.saveAndClose?.();
 	            }
 	        }
 	    }
 	    getMountSync(p, accept) {
-	        var _a;
 	        if (this.mountInstances) {
 	            let cachedMountFs = this.mountInstances.get(p);
 	            if (!cachedMountFs) {
@@ -3705,7 +3748,7 @@ function requireMountFS () {
 	                return accept(childFs);
 	            }
 	            finally {
-	                (_a = childFs.saveAndClose) === null || _a === void 0 ? void 0 : _a.call(childFs);
+	                childFs.saveAndClose?.();
 	            }
 	        }
 	    }
@@ -4161,10 +4204,9 @@ function requireFileHandle () {
 	        return this[kFd];
 	    }
 	    async appendFile(data, options) {
-	        var _e;
 	        try {
 	            this[kRef](this.appendFile);
-	            const encoding = (_e = (typeof options === `string` ? options : options === null || options === void 0 ? void 0 : options.encoding)) !== null && _e !== void 0 ? _e : undefined;
+	            const encoding = (typeof options === `string` ? options : options?.encoding) ?? undefined;
 	            return await this[kBaseFs].appendFilePromise(this.fd, data, encoding ? { encoding } : undefined);
 	        }
 	        finally {
@@ -4204,22 +4246,21 @@ function requireFileHandle () {
 	        throw new Error(`Method not implemented.`);
 	    }
 	    async read(bufferOrOptions, offset, length, position) {
-	        var _e, _f, _g;
 	        try {
 	            this[kRef](this.read);
 	            let buffer;
 	            if (!Buffer.isBuffer(bufferOrOptions)) {
-	                bufferOrOptions !== null && bufferOrOptions !== void 0 ? bufferOrOptions : (bufferOrOptions = {});
-	                buffer = (_e = bufferOrOptions.buffer) !== null && _e !== void 0 ? _e : Buffer.alloc(16384);
+	                bufferOrOptions ??= {};
+	                buffer = bufferOrOptions.buffer ?? Buffer.alloc(16384);
 	                offset = bufferOrOptions.offset || 0;
-	                length = (_f = bufferOrOptions.length) !== null && _f !== void 0 ? _f : buffer.byteLength;
-	                position = (_g = bufferOrOptions.position) !== null && _g !== void 0 ? _g : null;
+	                length = bufferOrOptions.length ?? buffer.byteLength;
+	                position = bufferOrOptions.position ?? null;
 	            }
 	            else {
 	                buffer = bufferOrOptions;
 	            }
-	            offset !== null && offset !== void 0 ? offset : (offset = 0);
-	            length !== null && length !== void 0 ? length : (length = 0);
+	            offset ??= 0;
+	            length ??= 0;
 	            if (length === 0) {
 	                return {
 	                    bytesRead: length,
@@ -4237,10 +4278,9 @@ function requireFileHandle () {
 	        }
 	    }
 	    async readFile(options) {
-	        var _e;
 	        try {
 	            this[kRef](this.readFile);
-	            const encoding = (_e = (typeof options === `string` ? options : options === null || options === void 0 ? void 0 : options.encoding)) !== null && _e !== void 0 ? _e : undefined;
+	            const encoding = (typeof options === `string` ? options : options?.encoding) ?? undefined;
 	            return await this[kBaseFs].readFilePromise(this.fd, encoding);
 	        }
 	        finally {
@@ -4276,10 +4316,9 @@ function requireFileHandle () {
 	        throw new Error(`Method not implemented.`);
 	    }
 	    async writeFile(data, options) {
-	        var _e;
 	        try {
 	            this[kRef](this.writeFile);
-	            const encoding = (_e = (typeof options === `string` ? options : options === null || options === void 0 ? void 0 : options.encoding)) !== null && _e !== void 0 ? _e : undefined;
+	            const encoding = (typeof options === `string` ? options : options?.encoding) ?? undefined;
 	            await this[kBaseFs].writeFilePromise(this.fd, data, encoding);
 	        }
 	        finally {
@@ -4291,7 +4330,7 @@ function requireFileHandle () {
 	            this[kRef](this.write);
 	            if (ArrayBuffer.isView(args[0])) {
 	                const [buffer, offset, length, position] = args;
-	                const bytesWritten = await this[kBaseFs].writePromise(this.fd, buffer, offset !== null && offset !== void 0 ? offset : undefined, length !== null && length !== void 0 ? length : undefined, position !== null && position !== void 0 ? position : undefined);
+	                const bytesWritten = await this[kBaseFs].writePromise(this.fd, buffer, offset ?? undefined, length ?? undefined, position ?? undefined);
 	                return { bytesWritten, buffer };
 	            }
 	            else {
@@ -4471,7 +4510,7 @@ function requirePatchFs () {
 	        const orig = target[name];
 	        target[name] = replacement;
 	        // Preserve any util.promisify implementations
-	        if (typeof (orig === null || orig === void 0 ? void 0 : orig[util_1.promisify.custom]) !== `undefined`) {
+	        if (typeof orig?.[util_1.promisify.custom] !== `undefined`) {
 	            replacement[util_1.promisify.custom] = orig[util_1.promisify.custom];
 	        }
 	    };
@@ -6163,7 +6202,7 @@ async function load$1(urlString, context, nextLoad) {
   }
   return {
     format,
-    source: await fs.promises.readFile(filePath, `utf8`),
+    source: format === `commonjs` ? void 0 : await fs.promises.readFile(filePath, `utf8`),
     shortCircuit: true
   };
 }
@@ -6207,12 +6246,14 @@ const transformSource = (source, format, ext) => {
 
 const loadHook = async (urlString, context, nextLoad) => load$1(urlString, context, async (urlString2, context2) => {
   const url = tryParseURL(urlString2);
-  if ((url == null ? void 0 : url.protocol) !== `file:`)
+  if ((url == null ? void 0 : url.protocol) !== `file:`) {
     return nextLoad(urlString2, context2, nextLoad);
+  }
   const filePath = fileURLToPath$1(url);
   const format = getFileFormat(filePath);
-  if (!format)
+  if (!format) {
     return nextLoad(urlString2, context2, nextLoad);
+  }
   if (process.env.WATCH_REPORT_DEPENDENCIES && process.send) {
     const pathToSend = pathToFileURL$1(
       lib.npath.fromPortablePath(lib.VirtualFS.resolveVirtual(lib.npath.toPortablePath(filePath)))

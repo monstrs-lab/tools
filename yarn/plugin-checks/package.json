@@ -32,7 +32,7 @@
     "@monstrs/yarn-plugin-files": "workspace:0.2.1",
     "@monstrs/yarn-run-utils": "workspace:0.2.1",
     "@monstrs/yarn-workspace-utils": "workspace:0.2.1",
-    "clipanion": "^3.2.1",
+    "clipanion": "^4.0.0-rc.2",
     "react": "^18.2.0",
     "strip-ansi": "^7.1.0"
   },
@@ -42,10 +42,10 @@
     "@types/babel__code-frame": "^7.0.3",
     "@types/node": "^20.4.0",
     "@types/react": "^18.2.14",
-    "@yarnpkg/builder": "^4.0.0-rc.48",
-    "@yarnpkg/cli": "^4.0.0-rc.48",
-    "@yarnpkg/core": "^4.0.0-rc.48",
-    "@yarnpkg/fslib": "^3.0.0-rc.48"
+    "@yarnpkg/builder": "^4.0.0-rc.50",
+    "@yarnpkg/cli": "^4.0.0-rc.50",
+    "@yarnpkg/core": "^4.0.0-rc.50",
+    "@yarnpkg/fslib": "^3.0.0-rc.50"
   },
   "peerDependencies": {
     "@yarnpkg/cli": "^4",
