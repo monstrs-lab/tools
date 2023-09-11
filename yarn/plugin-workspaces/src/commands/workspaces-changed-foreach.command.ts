@@ -60,7 +60,7 @@ class WorkspacesChangedForeachCommand extends BaseCommand {
 
     workspaces.forEach((ws) => {
       input.push('--include')
-      input.push(structUtils.stringifyIdent(ws.locator))
+      input.push(structUtils.stringifyIdent(ws.anchoredLocator))
     })
 
     if (this.verbose) {

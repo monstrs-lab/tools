@@ -18,9 +18,9 @@
     "postpack": "rm -rf dist"
   },
   "devDependencies": {
-    "@yarnpkg/builder": "^4.0.0-rc.48",
-    "@yarnpkg/cli": "^4.0.0-rc.48",
-    "@yarnpkg/core": "^4.0.0-rc.48"
+    "@yarnpkg/builder": "^4.0.0-rc.50",
+    "@yarnpkg/cli": "^4.0.0-rc.50",
+    "@yarnpkg/core": "^4.0.0-rc.50"
   },
   "peerDependencies": {
     "@yarnpkg/cli": "^4",

@@ -20,17 +20,17 @@
   "dependencies": {
     "@monstrs/config-typescript": "workspace:0.3.6",
     "@monstrs/tools-runtime": "workspace:0.2.15",
-    "clipanion": "^3.2.1",
+    "clipanion": "^4.0.0-rc.2",
     "deepmerge": "^4.3.1",
     "husky": "^8.0.3",
     "semver": "^7.5.3"
   },
   "devDependencies": {
     "@types/semver": "^7.5.0",
-    "@yarnpkg/builder": "^4.0.0-rc.48",
-    "@yarnpkg/cli": "^4.0.0-rc.48",
-    "@yarnpkg/core": "^4.0.0-rc.48",
-    "@yarnpkg/fslib": "^3.0.0-rc.48"
+    "@yarnpkg/builder": "^4.0.0-rc.50",
+    "@yarnpkg/cli": "^4.0.0-rc.50",
+    "@yarnpkg/core": "^4.0.0-rc.50",
+    "@yarnpkg/fslib": "^3.0.0-rc.50"
   },
   "publishConfig": {
     "access": "public",
