@@ -33,7 +33,7 @@
     "esbuild": "^0.17.19",
     "rollup": "^3.26.2",
     "rollup-plugin-esbuild": "^5.0.0",
-    "tslib": "^2.6.0"
+    "tslib": "^2.6.2"
   },
   "publishConfig": {
     "access": "public",

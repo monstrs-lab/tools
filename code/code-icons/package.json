@@ -23,14 +23,14 @@
     "@yarnpkg/cli": "^4.0.0-rc.50",
     "@yarnpkg/core": "^4.0.0-rc.50",
     "camelcase": "^7.0.1",
-    "typescript": "^5.1.6",
+    "typescript": "^5.2.2",
     "webpack-chain-5": "^8.0.2"
   },
   "devDependencies": {
-    "@jest/globals": "^29.6.1",
-    "@monstrs/logger": "^0.0.16",
-    "@types/node": "^20.4.0",
-    "@types/webpack": "^5.28.1",
+    "@jest/globals": "^29.7.0",
+    "@monstrs/logger": "^0.0.19",
+    "@types/node": "^20.6.0",
+    "@types/webpack": "^5.28.2",
     "@yarnpkg/fslib": "^3.0.0-rc.50"
   },
   "publishConfig": {

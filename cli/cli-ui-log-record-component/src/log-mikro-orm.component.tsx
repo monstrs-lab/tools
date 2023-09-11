@@ -1,5 +1,5 @@
-import type { Attributes }              from '@monstrs/logger'
-import type { AttributeValue }          from '@monstrs/logger'
+import type { LogAttributes }           from '@monstrs/logger'
+import type { LogAttributeValue }       from '@monstrs/logger'
 import type { FC }                      from 'react'
 import type { ReactElement }            from 'react'
 
@@ -13,10 +13,10 @@ import { nanoid }                       from 'nanoid'
 import React                            from 'react'
 
 export interface LogMikroOrmProps {
-  children?: Attributes
+  children?: LogAttributes
 }
 
-export const LogMikroOrmSql: FC<{ children?: AttributeValue }> = ({ children }) => {
+export const LogMikroOrmSql: FC<{ children?: LogAttributeValue }> = ({ children }) => {
   if (children) {
     return (
       <Box paddingLeft={4}>
@@ -32,7 +32,7 @@ export const LogMikroOrmSql: FC<{ children?: AttributeValue }> = ({ children }) 
   return null
 }
 
-export const LogMikroOrmParameters: FC<{ children?: AttributeValue }> = ({ children }) => {
+export const LogMikroOrmParameters: FC<{ children?: LogAttributeValue }> = ({ children }) => {
   if (children && Array.isArray(children) && children.length > 0) {
     const params = (children as Array<string>).reduce<Array<ReactElement<any, any>>>((
       result,

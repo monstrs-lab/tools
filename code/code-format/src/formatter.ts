@@ -7,10 +7,9 @@ import * as graphql       from 'prettier/plugins/graphql'
 import * as markdown      from 'prettier/plugins/markdown'
 import * as typescript    from 'prettier/plugins/typescript'
 import * as yaml          from 'prettier/plugins/yaml'
-// @ts-expect-error
 import * as estree        from 'prettier/plugins/estree'
-import { globby }         from 'globby'
 import { format }         from 'prettier/standalone'
+import { globby }         from 'globby'
 import ignorer            from 'ignore'
 
 import config             from '@monstrs/config-prettier'
@@ -36,6 +35,7 @@ export class Formatter {
       const output = await format(input, {
         ...config,
         filepath: filename,
+        // @ts-expect-error
         plugins: [estree, yaml, markdown, graphql, babel, typescript, plugin],
       })
 

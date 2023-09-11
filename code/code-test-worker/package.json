@@ -25,8 +25,8 @@
     "flatted": "patch:flatted@npm%3A3.2.7#~/.yarn/patches/flatted-npm-3.2.7-0da10b7c56.patch"
   },
   "devDependencies": {
-    "@jest/test-result": "^29.6.1",
-    "@jest/types": "^29.6.1",
+    "@jest/test-result": "^29.7.0",
+    "@jest/types": "^29.6.3",
     "@rollup/plugin-commonjs": "^24.1.0",
     "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-node-resolve": "^15.1.0",
