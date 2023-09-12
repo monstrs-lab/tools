@@ -27,8 +27,6 @@
     "@types/lodash": "4.14.198",
     "@types/node": "18.16.4",
     "@yarnpkg/core@^4.0.0-rc.45": "patch:@yarnpkg/core@npm%3A4.0.0-rc.43#./.yarn/patches/@yarnpkg-core-npm-4.0.0-rc.42-029d9f8b24.patch",
-    "@yarnpkg/plugin-essentials@npm:^3.3.0": "patch:@yarnpkg/plugin-essentials@npm%3A4.0.0-rc.48#~/.yarn/patches/@yarnpkg-plugin-essentials-npm-4.0.0-rc.48-71d7391fa6.patch",
-    "@yarnpkg/plugin-essentials@npm:^4.0.0-rc.48": "patch:@yarnpkg/plugin-essentials@npm%3A4.0.0-rc.48#~/.yarn/patches/@yarnpkg-plugin-essentials-npm-4.0.0-rc.48-71d7391fa6.patch",
     "clipanion": "4.0.0-rc.2",
     "flatted@npm:^3.2.7": "patch:flatted@npm%3A3.2.7#~/.yarn/patches/flatted-npm-3.2.7-0da10b7c56.patch",
     "ink": "^3.2.0",

@@ -1,37 +1,18 @@
-import { BaseCommand }                                from '@yarnpkg/cli'
-import { Configuration }                              from '@yarnpkg/core'
-import { SetVersionCommand as BaseSetVersionCommand } from '@yarnpkg/plugin-essentials'
-import { Option }                                     from 'clipanion'
+import { BaseCommand }   from '@yarnpkg/cli'
+import { Configuration } from '@yarnpkg/core'
+import { Option }        from 'clipanion'
 
 export class SetVersionCommand extends BaseCommand {
-  static override paths = [['set', 'version']]
+  static override paths = [['set', 'version', 'from', 'tag']]
 
-  static override usage = BaseSetVersionCommand.usage
-
-  useYarnPath = Option.Boolean(`--yarn-path`, {
-    description: `Set the yarnPath setting even if the version can be accessed by Corepack`,
-  })
-
-  onlyIfNeeded = Option.Boolean(`--only-if-needed`, false, {
-    description: `Only lock the Yarn version if it isn't already locked`,
-  })
-
-  version = Option.String()
+  tag = Option.String()
 
   async execute(): Promise<number> {
-    const args = ['set', 'version', 'original']
-
-    if (this.useYarnPath === true) {
-      args.push('--yarn-path')
-    }
-
-    if (this.onlyIfNeeded) {
-      args.push('--only-if-needed')
-    }
-
-    args.push(this.version)
-
-    const exitCode = await this.cli.run(args)
+    const exitCode = await this.cli.run([
+      'set',
+      'version',
+      `https://www.unpkg.com/@monstrs/yarn-cli@${this.tag}/dist/yarn.cjs`,
+    ])
 
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
 
