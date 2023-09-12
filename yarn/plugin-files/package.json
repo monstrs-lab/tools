@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@actions/github": "^5.1.1",
-    "@octokit/types": "^10.0.0",
+    "@octokit/types": "^11.1.0",
     "clipanion": "^4.0.0-rc.2"
   },
   "devDependencies": {

@@ -21,7 +21,7 @@
     "@types/node": "^20.6.0",
     "@types/react": "^18.2.21",
     "@yarnpkg/libui": "^3.0.0-rc.50",
-    "camelcase": "^7.0.1",
+    "camelcase": "^8.0.0",
     "figures": "^5.0.0",
     "ink": "^4.4.1",
     "ink-autocomplete": "^0.0.0",

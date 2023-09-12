@@ -21,7 +21,7 @@ import isIgnoredPkg             from '@commitlint/is-ignored'
 import defaultRulesPkg          from '@commitlint/rules'
 import { sync }                 from 'conventional-commits-parser'
 // @ts-expect-error
-import defaultParserOpts        from 'conventional-changelog-angular/parser-opts.js'
+import defaultParserOpts        from 'conventional-changelog-angular/parserOpts.js'
 
 const isIgnored = isIgnoredPkg.default || isIgnoredPkg
 const defaultRules = defaultRulesPkg.default || defaultRulesPkg

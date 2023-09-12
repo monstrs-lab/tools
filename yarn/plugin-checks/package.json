@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@monstrs/tools-runtime": "workspace:0.2.15",
-    "@octokit/types": "^10.0.0",
+    "@octokit/types": "^11.1.0",
     "@types/babel__code-frame": "^7.0.3",
     "@types/node": "^20.6.0",
     "@types/react": "^18.2.21",

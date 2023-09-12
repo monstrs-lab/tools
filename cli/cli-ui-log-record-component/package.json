@@ -24,7 +24,7 @@
     "@monstrs/mikro-orm-logger": "^0.0.14",
     "decamelize": "^6.0.0",
     "nanoid": "^4.0.2",
-    "sql-formatter": "^12.2.3",
+    "sql-formatter": "^13.0.0",
     "uniqolor": "^1.1.0"
   },
   "devDependencies": {

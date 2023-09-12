@@ -22,7 +22,7 @@
     "@monstrs/tools-runtime": "workspace:0.2.15",
     "@yarnpkg/cli": "^4.0.0-rc.50",
     "@yarnpkg/core": "^4.0.0-rc.50",
-    "camelcase": "^7.0.1",
+    "camelcase": "^8.0.0",
     "typescript": "^5.2.2",
     "webpack-chain-5": "^8.0.2"
   },
