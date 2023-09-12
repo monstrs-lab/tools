@@ -24,14 +24,14 @@
     "clipanion": "^4.0.0-rc.2",
     "commitizen": "^4.3.0",
     "force-stdin-tty": "^0.0.1",
-    "ink": "^4.2.0",
+    "ink": "^4.4.1",
     "lint-staged": "patch:lint-staged@npm%3A13.2.2#~/.yarn/patches/lint-staged-npm-13.2.2-e66c493ac4.patch",
     "react": "^18.2.0",
-    "word-wrap": "^1.2.3"
+    "word-wrap": "^1.2.5"
   },
   "devDependencies": {
     "@types/lint-staged": "^13.2.0",
-    "@types/react": "^18.2.14",
+    "@types/react": "^18.2.21",
     "@yarnpkg/builder": "^4.0.0-rc.50",
     "@yarnpkg/cli": "^4.0.0-rc.50",
     "@yarnpkg/core": "^4.0.0-rc.50",

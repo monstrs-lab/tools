@@ -17,7 +17,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
-          node-version: '20'
+          node-version: '19'
 
       - name: Install
         run: source .env && export NODE_OPTIONS && yarn install
@@ -25,7 +25,7 @@ jobs:
       - name: Npm Publish
         run: |
           source .env && export NODE_OPTIONS && yarn version apply --all
-          source .env && export NODE_OPTIONS && yarn workspaces changed foreach --verbose --topological --no-private npm publish --access public
+          source .env && export NODE_OPTIONS && yarn workspaces changed foreach --worktree --verbose --topological --no-private npm publish --access public
         env:
           YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 

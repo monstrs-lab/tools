@@ -14,6 +14,8 @@ class WorkspacesChangedForeachCommand extends BaseCommand {
 
   verbose = Option.Boolean('-v,--verbose', false)
 
+  worktree = Option.Boolean(`-W,--worktree`)
+
   parallel = Option.Boolean('-p,--parallel', false)
 
   interlaced = Option.Boolean('-i,--interlaced', false)
@@ -65,6 +67,10 @@ class WorkspacesChangedForeachCommand extends BaseCommand {
 
     if (this.verbose) {
       input.push('--verbose')
+    }
+
+    if (this.worktree) {
+      input.push('--worktree')
     }
 
     if (this.parallel) {

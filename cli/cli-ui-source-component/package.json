@@ -17,14 +17,14 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@babel/code-frame": "^7.22.5",
+    "@babel/code-frame": "^7.22.13",
     "supports-color": "^9.4.0"
   },
   "devDependencies": {
     "@types/babel__code-frame": "7.0.3",
-    "@types/node": "^20.4.0",
-    "@types/react": "^18.2.14",
-    "ink": "^4.2.0"
+    "@types/node": "^20.6.0",
+    "@types/react": "^18.2.21",
+    "ink": "^4.4.1"
   },
   "peerDependencies": {
     "ink": "^3.0.8",

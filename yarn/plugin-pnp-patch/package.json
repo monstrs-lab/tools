@@ -28,12 +28,12 @@
     "@yarnpkg/pnp": "file:./cache/yarnpkg-pnp.tgz"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^24.1.0",
-    "@rollup/plugin-node-resolve": "^15.1.0",
-    "esbuild": "^0.17.19",
-    "rollup": "^3.26.2",
+    "@rollup/plugin-commonjs": "^25.0.4",
+    "@rollup/plugin-node-resolve": "^15.2.1",
+    "esbuild": "^0.19.2",
+    "rollup": "^3.29.1",
     "rollup-plugin-esbuild": "^5.0.0",
-    "tslib": "^2.6.0"
+    "tslib": "^2.6.2"
   },
   "publishConfig": {
     "access": "public",

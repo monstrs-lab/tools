@@ -50,5 +50,5 @@ jobs:
                 }
               })
 
-              await require('node:timers/promises').setTimeout(5000)
+              await require('node:timers/promises').setTimeout(15000)
             }
