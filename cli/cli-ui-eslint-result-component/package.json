@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/cli-ui-eslint-result-component",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -17,12 +17,12 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/cli-ui-source-component": "workspace:0.3.6",
+    "@monstrs/cli-ui-source-component": "workspace:0.3.7",
     "nanoid": "^4.0.2"
   },
   "devDependencies": {
     "@jest/globals": "^29.7.0",
-    "@monstrs/cli-ui-renderer": "workspace:0.3.5",
+    "@monstrs/cli-ui-renderer": "workspace:0.3.6",
     "@types/react": "^18.2.21",
     "ink": "^4.4.1",
     "react": "^18.2.0",

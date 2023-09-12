@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-lint",
-  "version": "0.3.20",
+  "version": "0.3.21",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -17,7 +17,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/tools-runtime": "workspace:0.2.15",
+    "@monstrs/tools-runtime": "workspace:0.2.16",
     "globby": "^13.2.2",
     "ignore": "^5.2.4"
   },

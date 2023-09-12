@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/tools-runtime",
-  "version": "0.2.15",
+  "version": "0.2.16",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -26,8 +26,8 @@
   },
   "dependencies": {
     "@jest/core": "^29.7.0",
-    "@monstrs/config-eslint": "workspace:0.3.10",
-    "@monstrs/config-jest": "workspace:0.3.10",
+    "@monstrs/config-eslint": "workspace:0.3.11",
+    "@monstrs/config-jest": "workspace:0.3.11",
     "@svgr/core": "^8.1.0",
     "@svgr/plugin-jsx": "^8.1.0",
     "eslint": "^8.49.0",
