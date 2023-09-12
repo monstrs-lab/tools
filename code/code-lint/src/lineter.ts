@@ -7,7 +7,6 @@ import { join }               from 'node:path'
 
 import { globby }             from 'globby'
 import ignorer                from 'ignore'
-import set                    from 'lodash/set.js'
 
 import { Linter as ESLinter } from '@monstrs/tools-runtime/eslint'
 import { eslintconfig }       from '@monstrs/tools-runtime/eslint'
@@ -38,12 +37,16 @@ export class Linter {
 
   protected get config(): Array<ESLinter.FlatConfig> {
     if (!this.#config) {
-      this.#config = eslintconfig.map((config) =>
-        set(
-          config,
-          ['languageOptions', 'parserOptions', 'project'],
-          join(this.rootCwd, 'tsconfig.json')
-        ))
+      this.#config = eslintconfig.map((config) => ({
+        ...config,
+        languageOptions: {
+          ...(config.languageOptions || {}),
+          parserOptions: {
+            ...(config.languageOptions?.parserOptions || {}),
+            project: join(this.rootCwd, 'tsconfig.json'),
+          },
+        },
+      }))
     }
 
     return this.#config

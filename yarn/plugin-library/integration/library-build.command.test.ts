@@ -17,7 +17,7 @@ describe('yarn', () => {
           {
             dependencies: {
               '@monstrs/tools-runtime': 'workspace:*',
-              typescript: '^5.0.3',
+              typescript: '^5.2.2',
             },
           },
           async ({ path, run }) => {

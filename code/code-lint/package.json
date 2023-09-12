@@ -19,11 +19,9 @@
   "dependencies": {
     "@monstrs/tools-runtime": "workspace:0.2.15",
     "globby": "^13.2.2",
-    "ignore": "^5.2.4",
-    "lodash": "^4.17.21"
+    "ignore": "^5.2.4"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.198",
     "@types/node": "^20.6.0"
   },
   "peerDependencies": {

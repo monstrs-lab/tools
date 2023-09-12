@@ -1739,11 +1739,9 @@ __metadata:
   resolution: "@monstrs/code-lint@workspace:code/code-lint"
   dependencies:
     "@monstrs/tools-runtime": "workspace:0.2.15"
-    "@types/lodash": "npm:^4.14.198"
     "@types/node": "npm:^20.6.0"
     globby: "npm:^13.2.2"
     ignore: "npm:^5.2.4"
-    lodash: "npm:^4.17.21"
   peerDependencies:
     react: "*"
     typescript: "*"
@@ -3983,6 +3981,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@yarnpkg/fslib@npm:^2.10.3":
+  version: 2.10.3
+  resolution: "@yarnpkg/fslib@npm:2.10.3"
+  dependencies:
+    "@yarnpkg/libzip": "npm:^2.3.0"
+    tslib: "npm:^1.13.0"
+  checksum: 29b38bd2054e3ec14677c16321a20ed69ac41d9d6f2fee7d9d7bc0a5a737e6d94add79cfa5f6ab867b5a98ab6aa2df3b53cb34f81159907cc308576a7bc08c67
+  languageName: node
+  linkType: hard
+
 "@yarnpkg/fslib@npm:^3.0.0-rc.50":
   version: 3.0.0-rc.50
   resolution: "@yarnpkg/fslib@npm:3.0.0-rc.50"
@@ -4428,6 +4436,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@yarnpkg/plugin-npm-cli@npm:4.0.0-rc.50, @yarnpkg/plugin-npm-cli@npm:^4.0.0-rc.50":
+  version: 4.0.0-rc.50
+  resolution: "@yarnpkg/plugin-npm-cli@npm:4.0.0-rc.50"
+  dependencies:
+    "@yarnpkg/fslib": "npm:^3.0.0-rc.50"
+    clipanion: "npm:^4.0.0-rc.2"
+    enquirer: "npm:^2.3.6"
+    micromatch: "npm:^4.0.2"
+    semver: "npm:^7.1.2"
+    tslib: "npm:^2.4.0"
+    typanion: "npm:^3.14.0"
+  peerDependencies:
+    "@yarnpkg/cli": ^4.0.0-rc.50
+    "@yarnpkg/core": ^4.0.0-rc.50
+    "@yarnpkg/plugin-npm": ^3.0.0-rc.50
+    "@yarnpkg/plugin-pack": ^4.0.0-rc.50
+  checksum: 17d59fd256f7b8cf1e7cb248c52ff13c5cecf9b103139473c0f21e036502db899a593a609632f89338486467c8e26e7067dba2cc4f1422c9c0d50e37631d7e57
+  languageName: node
+  linkType: hard
+
 "@yarnpkg/plugin-npm-cli@npm:^3.3.0":
   version: 3.3.0
   resolution: "@yarnpkg/plugin-npm-cli@npm:3.3.0"
@@ -4448,23 +4476,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@yarnpkg/plugin-npm-cli@npm:^4.0.0-rc.50":
-  version: 4.0.0-rc.50
-  resolution: "@yarnpkg/plugin-npm-cli@npm:4.0.0-rc.50"
+"@yarnpkg/plugin-npm@npm:*":
+  version: 2.7.4
+  resolution: "@yarnpkg/plugin-npm@npm:2.7.4"
   dependencies:
-    "@yarnpkg/fslib": "npm:^3.0.0-rc.50"
-    clipanion: "npm:^4.0.0-rc.2"
+    "@yarnpkg/fslib": "npm:^2.10.3"
     enquirer: "npm:^2.3.6"
-    micromatch: "npm:^4.0.2"
     semver: "npm:^7.1.2"
-    tslib: "npm:^2.4.0"
-    typanion: "npm:^3.14.0"
+    ssri: "npm:^6.0.1"
+    tslib: "npm:^1.13.0"
   peerDependencies:
-    "@yarnpkg/cli": ^4.0.0-rc.50
-    "@yarnpkg/core": ^4.0.0-rc.50
-    "@yarnpkg/plugin-npm": ^3.0.0-rc.50
-    "@yarnpkg/plugin-pack": ^4.0.0-rc.50
-  checksum: 17d59fd256f7b8cf1e7cb248c52ff13c5cecf9b103139473c0f21e036502db899a593a609632f89338486467c8e26e7067dba2cc4f1422c9c0d50e37631d7e57
+    "@yarnpkg/core": ^3.5.2
+    "@yarnpkg/plugin-pack": ^3.2.0
+  checksum: bacabb3d48657251b1b2386eb6f0cfe4672651df2ee832529a789b475d4025da6151b3a3d4daf29cc9b80bee154533906bb754bf1e2f3c9dbade7507025686b1
   languageName: node
   linkType: hard
 
@@ -4501,7 +4525,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@yarnpkg/plugin-pack@npm:^3.2.0":
+"@yarnpkg/plugin-pack@npm:*, @yarnpkg/plugin-pack@npm:^3.2.0":
   version: 3.2.0
   resolution: "@yarnpkg/plugin-pack@npm:3.2.0"
   dependencies:
@@ -11387,13 +11411,13 @@ pem@dexus/pem:
 
 "pkg-tests-core@file:./cache/pkg-tests-core.tgz::locator=%40monstrs%2Fyarn-test-utils%40workspace%3Ayarn%2Ftest-utils":
   version: 0.0.0
-  resolution: "pkg-tests-core@file:./cache/pkg-tests-core.tgz#./cache/pkg-tests-core.tgz::hash=091b96&locator=%40monstrs%2Fyarn-test-utils%40workspace%3Ayarn%2Ftest-utils"
+  resolution: "pkg-tests-core@file:./cache/pkg-tests-core.tgz#./cache/pkg-tests-core.tgz::hash=cb6fa9&locator=%40monstrs%2Fyarn-test-utils%40workspace%3Ayarn%2Ftest-utils"
   dependencies:
     typanion: "npm:^3.14.0"
     uuid: "npm:^8.3.2"
   peerDependencies:
     pkg-tests-fixtures: ^0.0.0
-  checksum: b9a15d662d212308814eec07db7978657e5b9ae6a1a6eb8e2c4fa7949ed249e128d5e3ca2c5a1a7eb6511f845844417aa140a3c7c70303d10cfc7f528f72212f
+  checksum: 51df0006b4ed406c313edcead673159f54bbc805deb8f04b9863da95993ff27ba6e68928c55e04427af4ed68b2831f0069ca7d033eaf612a77497d95b4a734b8
   languageName: node
   linkType: hard
 
