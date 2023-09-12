@@ -30,7 +30,7 @@
     "@monstrs/config-jest": "workspace:0.3.10",
     "@svgr/core": "^8.1.0",
     "@svgr/plugin-jsx": "^8.1.0",
-    "eslint": "^8.44.0",
+    "eslint": "^8.49.0",
     "node-loader": "^2.0.0",
     "ts-loader": "^9.4.4",
     "typescript": "^5.2.2",
