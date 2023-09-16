@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/yarn-cli-tools",
-  "version": "0.2.25",
+  "version": "0.2.26",
   "license": "MIT",
   "main": "src/getPluginConfiguration.ts",
   "dependencies": {

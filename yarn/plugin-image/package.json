@@ -20,7 +20,7 @@
   "dependencies": {
     "@iarna/toml": "^2.2.5",
     "@monstrs/code-pack": "workspace:0.3.7",
-    "@monstrs/yarn-pack-utils": "workspace:0.2.8",
+    "@monstrs/yarn-pack-utils": "workspace:0.2.9",
     "@monstrs/yarn-run-utils": "workspace:0.2.1",
     "@yarnpkg/plugin-patch": "^4.0.0-rc.50",
     "clipanion": "^4.0.0-rc.2"
