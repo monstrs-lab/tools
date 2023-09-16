@@ -5,10 +5,10 @@ import { LOGGER_NAMESPACE_ATTRIBUTE_NAME } from '@monstrs/logger'
 import { Box }                             from 'ink'
 import React                               from 'react'
 
-import { LogStackTrace }                   from './log-stack-trace.component.jsx'
 import { LogMessage }                      from './log-message.component.jsx'
-import { LogNamespace }                    from './log-namespace.component.jsx'
 import { LogMikroOrm }                     from './log-mikro-orm.component.jsx'
+import { LogNamespace }                    from './log-namespace.component.jsx'
+import { LogStackTrace }                   from './log-stack-trace.component.jsx'
 
 export interface LogRecordProps extends Record {
   namespace?: string

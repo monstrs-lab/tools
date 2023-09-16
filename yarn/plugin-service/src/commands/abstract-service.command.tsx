@@ -1,8 +1,8 @@
 import type { ServiceLogRecord } from '@monstrs/code-service'
 import type { StreamReport }     from '@yarnpkg/core'
 
-import { BaseCommand }           from '@yarnpkg/cli'
 import { SeverityNumber }        from '@monstrs/logger'
+import { BaseCommand }           from '@yarnpkg/cli'
 import { MessageName }           from '@yarnpkg/core'
 import { Option }                from 'clipanion'
 import React                     from 'react'

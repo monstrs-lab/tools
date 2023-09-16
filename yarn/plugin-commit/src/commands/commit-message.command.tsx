@@ -1,6 +1,6 @@
+import type { CommitProperties }        from '@monstrs/cli-ui-git-commit-component'
 import type { PortablePath }            from '@yarnpkg/fslib'
 import type { SubmitInjectedComponent } from '@yarnpkg/libui/sources/misc/renderForm.js'
-import type { CommitProperties }        from '@monstrs/cli-ui-git-commit-component'
 import type { ReactElement }            from 'react'
 
 import { BaseCommand }                  from '@yarnpkg/cli'

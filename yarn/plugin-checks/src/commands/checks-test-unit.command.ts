@@ -4,8 +4,8 @@ import { Project }                   from '@yarnpkg/core'
 
 import { TesterWorker }              from '@monstrs/code-test-worker'
 
-import { AbstractChecksTestCommand } from './abstract-checks-test.command.js'
 import { GitHubChecks }              from '../utils/index.js'
+import { AbstractChecksTestCommand } from './abstract-checks-test.command.js'
 
 class ChecksTestUnitCommand extends AbstractChecksTestCommand {
   static override paths = [['checks', 'test', 'unit']]

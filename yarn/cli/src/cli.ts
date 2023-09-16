@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 
+import { runExit }                from '@yarnpkg/cli'
 import { npath }                  from '@yarnpkg/fslib'
 import { ppath }                  from '@yarnpkg/fslib'
-import { runExit }                from '@yarnpkg/cli'
 
 // @ts-expect-error
 import { getPluginConfiguration } from '@monstrs/yarn-cli-tools'
