@@ -21,8 +21,8 @@ import { packUtils }             from '@yarnpkg/plugin-pack'
 import tar                       from 'tar-stream'
 
 import { MultiResolver }         from './MultiResolver.js'
-import { VirtualResolver }       from './VirtualResolver.js'
 import { ProtocolResolver }      from './ProtocolResolver.js'
+import { VirtualResolver }       from './VirtualResolver.js'
 import { WorkspacePackFetcher }  from './WorkspacePackFetcher.js'
 import { WorkspacePackResolver } from './WorkspacePackResolver.js'
 

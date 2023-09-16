@@ -1,5 +1,5 @@
-import type { FC }         from 'react'
 import type { StackFrame } from '@monstrs/stack-trace'
+import type { FC }         from 'react'
 
 import { parse }           from '@monstrs/stack-trace'
 import { Text }            from 'ink'

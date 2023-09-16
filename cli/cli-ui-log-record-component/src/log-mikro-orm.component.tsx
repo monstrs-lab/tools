@@ -3,13 +3,13 @@ import type { LogAttributeValue }       from '@monstrs/logger'
 import type { FC }                      from 'react'
 import type { ReactElement }            from 'react'
 
+import { SqlHighlighter }               from '@mikro-orm/sql-highlighter'
 import { LOGGER_SQL_ATTRIBUTE_NAME }    from '@monstrs/mikro-orm-logger'
 import { LOGGER_PARAMS_ATTRIBUTE_NAME } from '@monstrs/mikro-orm-logger'
-import { SqlHighlighter }               from '@mikro-orm/sql-highlighter'
 import { Text }                         from 'ink'
 import { Box }                          from 'ink'
-import { format }                       from 'sql-formatter'
 import { nanoid }                       from 'nanoid'
+import { format }                       from 'sql-formatter'
 import React                            from 'react'
 
 export interface LogMikroOrmProps {

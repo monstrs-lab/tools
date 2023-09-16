@@ -3,11 +3,11 @@ import type { AttributeValue }    from '@monstrs/logger'
 import type { FC }                from 'react'
 
 import { Text }                   from 'ink'
-import { useMemo }                from 'react'
 import { nanoid }                 from 'nanoid'
+import { useMemo }                from 'react'
 import React                      from 'react'
-import uniqolor                   from 'uniqolor'
 import decamelize                 from 'decamelize'
+import uniqolor                   from 'uniqolor'
 
 export interface NamespaceProps {
   children?: LogAttributeValue

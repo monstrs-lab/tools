@@ -1,6 +1,6 @@
+import type { Configuration } from '@yarnpkg/core'
 import type { Writable }      from 'node:stream'
 import type { WriteStream }   from 'node:tty'
-import type { Configuration } from '@yarnpkg/core'
 
 import { MessageName }        from '@yarnpkg/core'
 import { formatUtils }        from '@yarnpkg/core'

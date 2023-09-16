@@ -2,8 +2,8 @@ import type { WebpackEnvironment } from './webpack.interfaces.js'
 
 import { writeFile }               from 'node:fs/promises'
 import { mkdtemp }                 from 'node:fs/promises'
-import { join }                    from 'node:path'
 import { tmpdir }                  from 'node:os'
+import { join }                    from 'node:path'
 
 import Config                      from 'webpack-chain-5'
 
