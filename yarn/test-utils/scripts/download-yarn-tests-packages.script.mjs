@@ -61,9 +61,9 @@ await writeFile(
   makeTemporaryEnv
     .replace(
       // eslint-disable-next-line no-template-curly-in-string
-      'const yarnBinary = require.resolve(`${__dirname}/../../../../yarnpkg-cli/bundles/yarn.js`);',
+      'require.resolve(`${__dirname}/../../../../yarnpkg-cli/bundles/yarn.js`)',
       // eslint-disable-next-line no-template-curly-in-string
-      'const yarnBinary = require.resolve(`${__dirname.substr(0, __dirname.indexOf("/.yarn"))}/yarn/cli/dist/yarn.cjs`);'
+      'require.resolve(`${__dirname.substr(0, __dirname.indexOf("/.yarn"))}/yarn/cli/dist/yarn.cjs`)'
     )
     .replace('[`YARN_NPM_REGISTRY_SERVER`]: registryUrl,', '[`YARN_PNP_ENABLE_ESM_LOADER`]: `1`,')
 )

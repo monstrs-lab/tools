@@ -20,7 +20,7 @@
   "dependencies": {
     "@monstrs/cli-ui-git-commit-component": "workspace:0.3.9",
     "@monstrs/code-commit": "workspace:0.3.8",
-    "@yarnpkg/libui": "^3.0.0-rc.50",
+    "@yarnpkg/libui": "^3.0.0-rc.51",
     "clipanion": "^4.0.0-rc.2",
     "commitizen": "^4.3.0",
     "force-stdin-tty": "^0.0.1",
@@ -32,10 +32,10 @@
   "devDependencies": {
     "@types/lint-staged": "^13.2.0",
     "@types/react": "^18.2.21",
-    "@yarnpkg/builder": "^4.0.0-rc.50",
-    "@yarnpkg/cli": "^4.0.0-rc.50",
-    "@yarnpkg/core": "^4.0.0-rc.50",
-    "@yarnpkg/fslib": "^3.0.0-rc.50"
+    "@yarnpkg/builder": "^4.0.0-rc.51",
+    "@yarnpkg/cli": "^4.0.0-rc.51",
+    "@yarnpkg/core": "^4.0.0-rc.51",
+    "@yarnpkg/fslib": "^3.0.0-rc.51"
   },
   "peerDependencies": {
     "@yarnpkg/cli": "^4",

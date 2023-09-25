@@ -20,8 +20,8 @@
   "dependencies": {
     "@monstrs/config-typescript": "workspace:0.3.6",
     "@monstrs/tools-runtime": "workspace:0.2.17",
-    "@yarnpkg/cli": "^4.0.0-rc.50",
-    "@yarnpkg/core": "^4.0.0-rc.50",
+    "@yarnpkg/cli": "^4.0.0-rc.51",
+    "@yarnpkg/core": "^4.0.0-rc.51",
     "camelcase": "^8.0.0",
     "typescript": "^5.2.2",
     "webpack-chain-5": "^8.0.2"
@@ -31,7 +31,7 @@
     "@monstrs/logger": "^0.0.19",
     "@types/node": "^20.6.0",
     "@types/webpack": "^5.28.2",
-    "@yarnpkg/fslib": "^3.0.0-rc.50"
+    "@yarnpkg/fslib": "^3.0.0-rc.51"
   },
   "publishConfig": {
     "access": "public",
