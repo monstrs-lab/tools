@@ -42,10 +42,10 @@
     "@types/babel__code-frame": "^7.0.3",
     "@types/node": "^20.6.0",
     "@types/react": "^18.2.21",
-    "@yarnpkg/builder": "^4.0.0-rc.50",
-    "@yarnpkg/cli": "^4.0.0-rc.50",
-    "@yarnpkg/core": "^4.0.0-rc.50",
-    "@yarnpkg/fslib": "^3.0.0-rc.50"
+    "@yarnpkg/builder": "^4.0.0-rc.51",
+    "@yarnpkg/cli": "^4.0.0-rc.51",
+    "@yarnpkg/core": "^4.0.0-rc.51",
+    "@yarnpkg/fslib": "^3.0.0-rc.51"
   },
   "peerDependencies": {
     "@yarnpkg/cli": "^4",
