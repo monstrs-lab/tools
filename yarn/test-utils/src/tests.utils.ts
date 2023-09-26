@@ -35,37 +35,50 @@ const mte = generatePkgDriver({
       join(fileURLToPath(new URL('.', import.meta.url)), '../../cli/dist/yarn.cjs')
     )
 
-    const res = await execFile(process.execPath, [yarnBinary, ...cwdArgs, command, ...args], {
-      cwd: cwd || path,
-      env: {
-        [`HOME`]: nativeHomePath,
-        [`USERPROFILE`]: nativeHomePath,
-        [`PATH`]: `${nativePath}/bin${delimiter}${process.env.PATH}`,
-        [`YARN_IS_TEST_ENV`]: `true`,
-        [`YARN_GLOBAL_FOLDER`]: `${nativePath}/.yarn/global`,
-        // [`YARN_NPM_REGISTRY_SERVER`]: registryUrl,
-        // [`YARN_UNSAFE_HTTP_WHITELIST`]: new URL(registryUrl).hostname,
-        [`YARN_PNP_ENABLE_ESM_LOADER`]: `1`,
-        // Otherwise we'd send telemetry event when running tests
-        [`YARN_ENABLE_TELEMETRY`]: `0`,
-        // Otherwise snapshots relying on this would break each time it's bumped
-        [`YARN_CACHE_VERSION_OVERRIDE`]: `0`,
-        // Otherwise the output isn't stable between runs
-        [`YARN_ENABLE_PROGRESS_BARS`]: `false`,
-        [`YARN_ENABLE_TIMERS`]: `false`,
-        [`FORCE_COLOR`]: `0`,
-        // Otherwise the output wouldn't be the same on CI vs non-CI
-        [`YARN_ENABLE_INLINE_BUILDS`]: `false`,
-        // Otherwise we would more often test the fallback rather than the real logic
-        [`YARN_PNP_FALLBACK_MODE`]: `none`,
-        // Otherwise tests fail on systems where this is globally set to true
-        [`YARN_ENABLE_GLOBAL_CACHE`]: `false`,
-        // Older versions of Windows need this set to not have node throw an error
-        [`NODE_SKIP_PLATFORM_CHECK`]: `1`,
-        ...rcEnv,
-        ...env,
-      },
-    })
+    const res = await execFile(
+      process.execPath,
+      [
+        '-r',
+        './.pnp.cjs',
+        '--loader',
+        './pnp.loader.mjs',
+        yarnBinary,
+        ...cwdArgs,
+        command,
+        ...args,
+      ],
+      {
+        cwd: cwd || path,
+        env: {
+          [`HOME`]: nativeHomePath,
+          [`USERPROFILE`]: nativeHomePath,
+          [`PATH`]: `${nativePath}/bin${delimiter}${process.env.PATH}`,
+          [`YARN_IS_TEST_ENV`]: `true`,
+          [`YARN_GLOBAL_FOLDER`]: `${nativePath}/.yarn/global`,
+          // [`YARN_NPM_REGISTRY_SERVER`]: registryUrl,
+          // [`YARN_UNSAFE_HTTP_WHITELIST`]: new URL(registryUrl).hostname,
+          [`YARN_PNP_ENABLE_ESM_LOADER`]: `1`,
+          // Otherwise we'd send telemetry event when running tests
+          [`YARN_ENABLE_TELEMETRY`]: `0`,
+          // Otherwise snapshots relying on this would break each time it's bumped
+          [`YARN_CACHE_VERSION_OVERRIDE`]: `0`,
+          // Otherwise the output isn't stable between runs
+          [`YARN_ENABLE_PROGRESS_BARS`]: `false`,
+          [`YARN_ENABLE_TIMERS`]: `false`,
+          [`FORCE_COLOR`]: `0`,
+          // Otherwise the output wouldn't be the same on CI vs non-CI
+          [`YARN_ENABLE_INLINE_BUILDS`]: `false`,
+          // Otherwise we would more often test the fallback rather than the real logic
+          [`YARN_PNP_FALLBACK_MODE`]: `none`,
+          // Otherwise tests fail on systems where this is globally set to true
+          [`YARN_ENABLE_GLOBAL_CACHE`]: `false`,
+          // Older versions of Windows need this set to not have node throw an error
+          [`NODE_SKIP_PLATFORM_CHECK`]: `1`,
+          ...rcEnv,
+          ...env,
+        },
+      }
+    )
 
     if (process.env.JEST_LOG_SPAWNS) {
       /* eslint-disable no-console */
