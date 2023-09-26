@@ -51,23 +51,6 @@ await writeFile(
   })
 )
 
-const makeTemporaryEnv = await readFile(
-  join(repo, 'packages/acceptance-tests/pkg-tests-core/sources/utils/makeTemporaryEnv.ts'),
-  'utf-8'
-)
-
-await writeFile(
-  join(repo, 'packages/acceptance-tests/pkg-tests-core/sources/utils/makeTemporaryEnv.ts'),
-  makeTemporaryEnv
-    .replace(
-      // eslint-disable-next-line no-template-curly-in-string
-      'require.resolve(`${__dirname}/../../../../yarnpkg-cli/bundles/yarn.js`)',
-      // eslint-disable-next-line no-template-curly-in-string
-      'require.resolve(`${__dirname.substr(0, __dirname.indexOf("/.yarn"))}/yarn/cli/dist/yarn.cjs`)'
-    )
-    .replace('[`YARN_NPM_REGISTRY_SERVER`]: registryUrl,', '[`YARN_PNP_ENABLE_ESM_LOADER`]: `1`,')
-)
-
 execFileSync(
   'yarn',
   ['workspace', 'pkg-tests-fixtures', 'pack', '--out', join(cache, 'pkg-tests-fixtures.tgz')],
