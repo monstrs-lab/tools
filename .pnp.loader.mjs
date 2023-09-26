@@ -462,7 +462,7 @@ function __classPrivateFieldIn(state, receiver) {
 
 function __addDisposableResource(env, value, async) {
   if (value !== null && value !== void 0) {
-    if (typeof value !== "object") throw new TypeError("Object expected.");
+    if (typeof value !== "object" && typeof value !== "function") throw new TypeError("Object expected.");
     var dispose;
     if (async) {
         if (!Symbol.asyncDispose) throw new TypeError("Symbol.asyncDispose is not defined.");
@@ -1364,7 +1364,8 @@ function requireOpendir () {
 	        const filename = entries.shift();
 	        if (typeof filename === `undefined`)
 	            return null;
-	        return Object.assign(fakeFs.statSync(fakeFs.pathUtils.join(path, filename)), {
+	        const entryPath = fakeFs.pathUtils.join(path, filename);
+	        return Object.assign(fakeFs.statSync(entryPath), {
 	            name: filename,
 	            path: undefined,
 	        });
@@ -2397,14 +2398,44 @@ function requireNodeFS () {
 	                this.realFs.opendir(path_1.npath.fromPortablePath(p), this.makeCallback(resolve, reject));
 	            }
 	        }).then(dir => {
-	            return Object.defineProperty(dir, `path`, { value: p, configurable: true, writable: true });
+	            // @ts-expect-error
+	            //
+	            // We need a way to tell TS that the values returned by the `read`
+	            // methods are compatible with `Dir`, especially the `name` field.
+	            //
+	            // We also can't use `Object.assign` to set the because the `path`
+	            // field to a Filename, because the property isn't writable, so
+	            // we need to use defineProperty instead.
+	            //
+	            const dirWithFixedPath = dir;
+	            Object.defineProperty(dirWithFixedPath, `path`, {
+	                value: p,
+	                configurable: true,
+	                writable: true,
+	            });
+	            return dirWithFixedPath;
 	        });
 	    }
 	    opendirSync(p, opts) {
 	        const dir = typeof opts !== `undefined`
 	            ? this.realFs.opendirSync(path_1.npath.fromPortablePath(p), opts)
 	            : this.realFs.opendirSync(path_1.npath.fromPortablePath(p));
-	        return Object.defineProperty(dir, `path`, { value: p, configurable: true, writable: true });
+	        // @ts-expect-error
+	        //
+	        // We need a way to tell TS that the values returned by the `read`
+	        // methods are compatible with `Dir`, especially the `name` field.
+	        //
+	        // We also can't use `Object.assign` to set the because the `path`
+	        // field to a Filename, because the property isn't writable, so
+	        // we need to use defineProperty instead.
+	        //
+	        const dirWithFixedPath = dir;
+	        Object.defineProperty(dirWithFixedPath, `path`, {
+	            value: p,
+	            configurable: true,
+	            writable: true,
+	        });
+	        return dirWithFixedPath;
 	    }
 	    async readPromise(fd, buffer, offset = 0, length = 0, position = -1) {
 	        return await new Promise((resolve, reject) => {
@@ -5504,12 +5535,24 @@ class NodeFS extends BasePortableFakeFS {
         this.realFs.opendir(npath.fromPortablePath(p), this.makeCallback(resolve, reject));
       }
     }).then((dir) => {
-      return Object.defineProperty(dir, `path`, { value: p, configurable: true, writable: true });
+      const dirWithFixedPath = dir;
+      Object.defineProperty(dirWithFixedPath, `path`, {
+        value: p,
+        configurable: true,
+        writable: true
+      });
+      return dirWithFixedPath;
     });
   }
   opendirSync(p, opts) {
     const dir = typeof opts !== `undefined` ? this.realFs.opendirSync(npath.fromPortablePath(p), opts) : this.realFs.opendirSync(npath.fromPortablePath(p));
-    return Object.defineProperty(dir, `path`, { value: p, configurable: true, writable: true });
+    const dirWithFixedPath = dir;
+    Object.defineProperty(dirWithFixedPath, `path`, {
+      value: p,
+      configurable: true,
+      writable: true
+    });
+    return dirWithFixedPath;
   }
   async readPromise(fd, buffer, offset = 0, length = 0, position = -1) {
     return await new Promise((resolve, reject) => {
