@@ -11,7 +11,6 @@ import { structUtils }       from '@yarnpkg/core'
 import { execUtils }         from '@yarnpkg/core'
 import { xfs }               from '@yarnpkg/fslib'
 import { ppath }             from '@yarnpkg/fslib'
-import { toFilename }        from '@yarnpkg/fslib'
 import { Option }            from 'clipanion'
 
 import { tagUtils }          from '@monstrs/code-pack'
@@ -29,7 +28,7 @@ const forRepository = async (repo: string): Promise<PortablePath> => {
     },
   }
 
-  const descriptorPath = ppath.join(await xfs.mktempPromise(), toFilename('project.toml'))
+  const descriptorPath = ppath.join(await xfs.mktempPromise(), 'project.toml')
 
   await xfs.writeFilePromise(descriptorPath, stringify(descriptor))
 

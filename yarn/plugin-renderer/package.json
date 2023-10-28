@@ -29,9 +29,9 @@
     "@types/cross-spawn": "^6.0.3",
     "@types/localtunnel": "^2.0.2",
     "@yarnpkg/builder": "^4.0.0-rc.51",
-    "@yarnpkg/cli": "^4.0.0-rc.51",
-    "@yarnpkg/core": "^4.0.0-rc.51",
-    "@yarnpkg/fslib": "^3.0.0-rc.51"
+    "@yarnpkg/cli": "^4.0.1",
+    "@yarnpkg/core": "^4.0.1",
+    "@yarnpkg/fslib": "^3.0.1"
   },
   "peerDependencies": {
     "@yarnpkg/cli": "^4",

@@ -18,13 +18,13 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@yarnpkg/plugin-essentials": "^4.0.0-rc.51",
+    "@yarnpkg/plugin-essentials": "^4.0.1",
     "clipanion": "^4.0.0-rc.2"
   },
   "devDependencies": {
     "@yarnpkg/builder": "^4.0.0-rc.51",
-    "@yarnpkg/cli": "^4.0.0-rc.51",
-    "@yarnpkg/core": "^4.0.0-rc.51"
+    "@yarnpkg/cli": "^4.0.1",
+    "@yarnpkg/core": "^4.0.1"
   },
   "peerDependencies": {
     "@yarnpkg/cli": "^4",
