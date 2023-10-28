@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@monstrs/code-format-worker": "workspace:0.3.15",
-    "@monstrs/code-icons-worker": "workspace:0.3.18",
+    "@monstrs/code-icons-worker": "workspace:0.3.19",
     "@monstrs/code-lint-worker": "workspace:0.3.22",
     "clipanion": "^4.0.0-rc.2"
   },
