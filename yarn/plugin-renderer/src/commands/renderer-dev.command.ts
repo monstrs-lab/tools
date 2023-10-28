@@ -3,6 +3,8 @@ import type { Tunnel }   from 'localtunnel'
 import { BaseCommand }   from '@yarnpkg/cli'
 import { Configuration } from '@yarnpkg/core'
 import { Project }       from '@yarnpkg/core'
+import { xfs }           from '@yarnpkg/fslib'
+import { ppath }         from '@yarnpkg/fslib'
 import { Option }        from 'clipanion'
 import spawn             from 'cross-spawn'
 import localtunnel       from 'localtunnel'
@@ -11,6 +13,8 @@ export class RendererDevCommand extends BaseCommand {
   static override paths = [['renderer', 'dev']]
 
   tunnel = Option.Boolean('--tunnel')
+
+  https = Option.Boolean('--https')
 
   #tunnel!: Tunnel
 
@@ -39,7 +43,23 @@ export class RendererDevCommand extends BaseCommand {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
     const { project } = await Project.find(configuration, this.context.cwd)
 
-    spawn('yarn', ['next', 'dev', 'src'], { stdio: 'inherit', cwd: this.context.cwd })
+    const args = ['next', 'dev', 'src']
+
+    if (this.https) {
+      if (!(await xfs.existsPromise(ppath.join(project.cwd, '.config/certs/local/dev.key')))) {
+        throw new Error('Https key not found')
+      }
+
+      if (!(await xfs.existsPromise(ppath.join(project.cwd, '.config/certs/local/dev.crt')))) {
+        throw new Error('Https cert not found')
+      }
+
+      args.push('--experimental-https')
+      args.push('--experimental-https-key', ppath.join(project.cwd, '.config/certs/local/dev.key'))
+      args.push('--experimental-https-cert', ppath.join(project.cwd, '.config/certs/local/dev.crt'))
+    }
+
+    spawn('yarn', args, { stdio: 'inherit', cwd: this.context.cwd })
 
     if (this.tunnel) {
       const workspace = project.getWorkspaceByCwd(this.context.cwd)
