@@ -27,7 +27,7 @@ export class GitHubChecks {
   }
 
   async create(
-    params: RequestParameters
+    params: RequestParameters & { owner: string; repo: string; name: string; head_sha: string }
   ): Promise<GetResponseDataTypeFromEndpointMethod<typeof this.octokit.rest.checks.create>> {
     const response = await this.octokit.rest.checks.create(params)
 
