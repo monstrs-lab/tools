@@ -29,8 +29,8 @@
   },
   "devDependencies": {
     "@jest/globals": "^29.7.0",
-    "@types/conventional-commits-parser": "^3.0.4",
-    "@types/node": "^20.6.0"
+    "@types/conventional-commits-parser": "^3.0.6",
+    "@types/node": "^20.10.5"
   },
   "publishConfig": {
     "access": "public",

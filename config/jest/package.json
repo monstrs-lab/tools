@@ -24,7 +24,7 @@
     "ts-jest": "^29.1.1"
   },
   "devDependencies": {
-    "@types/node": "^20.6.0"
+    "@types/node": "^20.10.5"
   },
   "peerDependenciesMeta": {
     "jest": {

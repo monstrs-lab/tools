@@ -30,15 +30,15 @@
     "@monstrs/config-jest": "workspace:0.3.11",
     "@svgr/core": "^8.1.0",
     "@svgr/plugin-jsx": "^8.1.0",
-    "eslint": "^8.49.0",
+    "eslint": "^8.56.0",
     "node-loader": "^2.0.0",
-    "ts-loader": "^9.4.4",
-    "typescript": "^5.2.2",
-    "webpack": "^5.88.2"
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.3",
+    "webpack": "^5.89.0"
   },
   "devDependencies": {
-    "@types/eslint": "^8.44.2",
-    "@types/node": "^20.6.0"
+    "@types/eslint": "^8.44.9",
+    "@types/node": "^20.10.5"
   },
   "publishConfig": {
     "access": "public",

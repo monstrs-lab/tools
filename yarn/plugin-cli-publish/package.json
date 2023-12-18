@@ -18,7 +18,7 @@
     "postpack": "rm -rf dist"
   },
   "devDependencies": {
-    "@types/node": "^20.6.0",
+    "@types/node": "^20.10.5",
     "@yarnpkg/builder": "^4.0.0",
     "@yarnpkg/cli": "^4.0.2",
     "@yarnpkg/core": "^4.0.2",
