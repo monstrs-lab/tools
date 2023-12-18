@@ -3203,7 +3203,7 @@ const RAW_RUNTIME_STATE =
           ["@babel/types", "npm:7.23.6"],\
           ["@types/node", "npm:20.10.5"],\
           ["@types/prettier", "npm:3.0.0"],\
-          ["globby", "npm:14.0.0"],\
+          ["globby", "npm:13.2.2"],\
           ["import-sort", "npm:6.0.0"],\
           ["import-sort-parser", "npm:6.0.0"],\
           ["import-sort-parser-typescript", "npm:6.0.0"],\
@@ -4688,15 +4688,6 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/@sindresorhus-is-npm-4.0.0-5aa71e5397-850804ccab.zip/node_modules/@sindresorhus/is/",\
         "packageDependencies": [\
           ["@sindresorhus/is", "npm:4.0.0"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["@sindresorhus/merge-streams", [\
-      ["npm:1.0.0", {\
-        "packageLocation": "./.yarn/cache/@sindresorhus-merge-streams-npm-1.0.0-2ae6684f8f-453c2a2816.zip/node_modules/@sindresorhus/merge-streams/",\
-        "packageDependencies": [\
-          ["@sindresorhus/merge-streams", "npm:1.0.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -11765,19 +11756,6 @@ const RAW_RUNTIME_STATE =
           ["slash", "npm:4.0.0"]\
         ],\
         "linkType": "HARD"\
-      }],\
-      ["npm:14.0.0", {\
-        "packageLocation": "./.yarn/cache/globby-npm-14.0.0-3bccdd5188-6e7d84bbc6.zip/node_modules/globby/",\
-        "packageDependencies": [\
-          ["globby", "npm:14.0.0"],\
-          ["@sindresorhus/merge-streams", "npm:1.0.0"],\
-          ["fast-glob", "npm:3.3.2"],\
-          ["ignore", "npm:5.3.0"],\
-          ["path-type", "npm:5.0.0"],\
-          ["slash", "npm:5.1.0"],\
-          ["unicorn-magic", "npm:0.1.0"]\
-        ],\
-        "linkType": "HARD"\
       }]\
     ]],\
     ["globrex", [\
@@ -15310,13 +15288,6 @@ const RAW_RUNTIME_STATE =
           ["path-type", "npm:4.0.0"]\
         ],\
         "linkType": "HARD"\
-      }],\
-      ["npm:5.0.0", {\
-        "packageLocation": "./.yarn/cache/path-type-npm-5.0.0-205dd6bae0-15ec24050e.zip/node_modules/path-type/",\
-        "packageDependencies": [\
-          ["path-type", "npm:5.0.0"]\
-        ],\
-        "linkType": "HARD"\
       }]\
     ]],\
     ["pem", [\
@@ -16413,13 +16384,6 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/slash-npm-4.0.0-ce4bbc4a80-da8e4af737.zip/node_modules/slash/",\
         "packageDependencies": [\
           ["slash", "npm:4.0.0"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
-      ["npm:5.1.0", {\
-        "packageLocation": "./.yarn/cache/slash-npm-5.1.0-718a84282e-2c41ec6fb1.zip/node_modules/slash/",\
-        "packageDependencies": [\
-          ["slash", "npm:5.1.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -17721,15 +17685,6 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/undici-types-npm-5.26.5-de4f7c7bb9-0097779d94.zip/node_modules/undici-types/",\
         "packageDependencies": [\
           ["undici-types", "npm:5.26.5"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["unicorn-magic", [\
-      ["npm:0.1.0", {\
-        "packageLocation": "./.yarn/cache/unicorn-magic-npm-0.1.0-12d4f6ff8b-9b4d0e9809.zip/node_modules/unicorn-magic/",\
-        "packageDependencies": [\
-          ["unicorn-magic", "npm:0.1.0"]\
         ],\
         "linkType": "HARD"\
       }]\
