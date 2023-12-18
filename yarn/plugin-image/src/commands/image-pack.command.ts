@@ -147,9 +147,7 @@ class ImagePackCommand extends BaseCommand {
     const buildCommand = scripts.get('build')
 
     const hasAllowedBuildScript = [
-      'mctl service build',
-      'mctl renderer build',
-      'build-storybook',
+      'storybook build',
       'next build',
       'builder build library',
       'app service build',
