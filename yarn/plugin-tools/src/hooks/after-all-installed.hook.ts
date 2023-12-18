@@ -1,3 +1,4 @@
+/* eslint-disable n/no-sync */
 import type { Project }          from '@yarnpkg/core'
 import type { SpawnSyncReturns } from 'node:child_process'
 

@@ -1,3 +1,4 @@
+/* eslint-disable n/no-sync */
 import { brotliDecompressSync } from 'node:zlib'
 
 let hook: string | undefined

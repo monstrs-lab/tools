@@ -1,3 +1,5 @@
+/* eslint-disable n/no-sync */
+
 import type { ESLint }      from '@monstrs/tools-runtime/eslint'
 import type { Linter }      from '@monstrs/tools-runtime/eslint'
 
