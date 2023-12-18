@@ -2745,7 +2745,7 @@ const RAW_RUNTIME_STATE =
           ["@monstrs/config-prettier", "workspace:config/prettier"],\
           ["@monstrs/prettier-plugin", "workspace:prettier/plugin"],\
           ["@types/node", "npm:20.10.5"],\
-          ["globby", "npm:14.0.0"],\
+          ["globby", "npm:13.2.2"],\
           ["ignore", "npm:5.3.0"],\
           ["prettier", "npm:3.1.1"]\
         ],\
@@ -2822,7 +2822,7 @@ const RAW_RUNTIME_STATE =
           ["@types/node", "npm:20.10.5"],\
           ["@types/react", null],\
           ["@types/typescript", null],\
-          ["globby", "npm:14.0.0"],\
+          ["globby", "npm:13.2.2"],\
           ["ignore", "npm:5.3.0"],\
           ["react", null],\
           ["typescript", null]\
@@ -2841,7 +2841,7 @@ const RAW_RUNTIME_STATE =
           ["@monstrs/code-lint", "workspace:code/code-lint"],\
           ["@monstrs/tools-runtime", "workspace:runtime/code-runtime"],\
           ["@types/node", "npm:20.10.5"],\
-          ["globby", "npm:14.0.0"],\
+          ["globby", "npm:13.2.2"],\
           ["ignore", "npm:5.3.0"]\
         ],\
         "linkType": "SOFT"\

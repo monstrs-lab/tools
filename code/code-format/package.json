@@ -19,7 +19,7 @@
   "dependencies": {
     "@monstrs/config-prettier": "workspace:0.4.4",
     "@monstrs/prettier-plugin": "workspace:0.3.11",
-    "globby": "^14.0.0",
+    "globby": "^13.2.2",
     "ignore": "^5.3.0",
     "prettier": "^3.1.1"
   },
