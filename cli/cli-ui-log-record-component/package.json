@@ -20,18 +20,18 @@
     "@mikro-orm/sql-highlighter": "^1.0.1",
     "@monstrs/cli-ui-renderer": "workspace:0.3.6",
     "@monstrs/cli-ui-stack-trace-component": "workspace:0.3.10",
-    "@monstrs/logger": "^0.0.19",
+    "@monstrs/logger": "^0.0.20",
     "@monstrs/mikro-orm-logger": "^0.0.14",
     "decamelize": "^6.0.0",
-    "nanoid": "^4.0.2",
-    "sql-formatter": "^13.0.0",
-    "uniqolor": "^1.1.0"
+    "nanoid": "^5.0.4",
+    "sql-formatter": "^15.0.2",
+    "uniqolor": "^1.1.1"
   },
   "devDependencies": {
     "@jest/globals": "^29.7.0",
-    "@monstrs/logger": "^0.0.19",
-    "@types/node": "^20.6.0",
-    "@types/react": "^18.2.21",
+    "@monstrs/logger": "^0.0.20",
+    "@types/node": "^20.10.5",
+    "@types/react": "^18.2.45",
     "ink": "^4.4.1",
     "react": "^18.2.0",
     "strip-ansi": "^7.1.0"

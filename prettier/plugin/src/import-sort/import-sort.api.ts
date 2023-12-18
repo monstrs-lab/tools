@@ -1,3 +1,5 @@
+/* eslint-disable n/no-sync */
+
 import type { IImport } from 'import-sort-parser'
 
 import { readFileSync } from 'node:fs'

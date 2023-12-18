@@ -22,10 +22,10 @@ export const getPullRequestCommits = async (): Promise<GetCommitsResponseData> =
 }
 
 export const getCommitData = async (ref: string): Promise<GetCommitResponseData> => {
-  const commit = (await getOctokit(process.env.GITHUB_TOKEN!).rest.repos.getCommit({
+  const commit = await getOctokit(process.env.GITHUB_TOKEN!).rest.repos.getCommit({
     ...context.repo,
     ref,
-  })) as GetCommitResponseData
+  })
 
   return commit
 }

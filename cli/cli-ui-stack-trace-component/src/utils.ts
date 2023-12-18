@@ -1,3 +1,5 @@
+/* eslint-disable n/no-sync */
+
 import type { StackFrame } from '@monstrs/stack-trace'
 
 import { readFileSync }    from 'node:fs'

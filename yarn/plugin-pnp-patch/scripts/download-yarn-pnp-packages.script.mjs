@@ -1,3 +1,5 @@
+/* eslint-disable n/no-sync */
+
 import { execFileSync } from 'node:child_process'
 import { mkdtemp } from 'node:fs/promises'
 import { writeFile } from 'node:fs/promises'
