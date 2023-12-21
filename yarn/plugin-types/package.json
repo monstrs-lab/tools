@@ -20,9 +20,9 @@
   "dependencies": {
     "@monstrs/cli-ui-error-info-component": "workspace:0.3.11",
     "@monstrs/cli-ui-renderer": "workspace:0.3.7",
-    "@monstrs/cli-ui-typescript-diagnostic-component": "workspace:0.3.21",
-    "@monstrs/code-typescript-worker": "workspace:0.3.21",
-    "@monstrs/tools-runtime": "workspace:0.2.18",
+    "@monstrs/cli-ui-typescript-diagnostic-component": "workspace:0.3.22",
+    "@monstrs/code-typescript-worker": "workspace:0.3.22",
+    "@monstrs/tools-runtime": "workspace:0.2.19",
     "@monstrs/yarn-run-utils": "workspace:0.2.1",
     "clipanion": "^4.0.0-rc.2",
     "react": "^18.2.0",
