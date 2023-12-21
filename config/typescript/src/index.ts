@@ -9,6 +9,7 @@ export default {
     noUnusedLocals: true,
     noUnusedParameters: true,
     noFallthroughCasesInSwitch: true,
+    skipLibCheck: true,
 
     // Modules
     moduleResolution: 'nodenext',
