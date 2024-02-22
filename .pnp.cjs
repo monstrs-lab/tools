@@ -4234,7 +4234,7 @@ const RAW_RUNTIME_STATE =
           ["@yarnpkg/fslib", "npm:3.0.1"],\
           ["@yarnpkg/plugin-pack", "virtual:8a33d492393f051ea999ec55e158d3a617bf5ba12621e2c9d7e75cbc4c1657ea41c3e078c02767da7b0649a456fe4d96f97c6c45c28e44992b9e55bee1b0c1eb#npm:4.0.0"],\
           ["pkg-tests-core", "virtual:8a33d492393f051ea999ec55e158d3a617bf5ba12621e2c9d7e75cbc4c1657ea41c3e078c02767da7b0649a456fe4d96f97c6c45c28e44992b9e55bee1b0c1eb#file:./cache/pkg-tests-core.tgz#./cache/pkg-tests-core.tgz::hash=70aa00&locator=%40monstrs%2Fyarn-test-utils%40workspace%3Ayarn%2Ftest-utils"],\
-          ["pkg-tests-fixtures", "file:cache/pkg-tests-fixtures.tgz#cache/pkg-tests-fixtures.tgz::hash=01d597&locator=%40monstrs%2Fyarn-test-utils%40workspace%3Ayarn%2Ftest-utils"]\
+          ["pkg-tests-fixtures", "file:./cache/pkg-tests-fixtures.tgz#./cache/pkg-tests-fixtures.tgz::hash=01d597&locator=%40monstrs%2Fyarn-test-utils%40workspace%3Ayarn%2Ftest-utils"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -15372,7 +15372,7 @@ const RAW_RUNTIME_STATE =
           ["klaw", "npm:4.1.0"],\
           ["minimatch", "npm:8.0.3"],\
           ["pem", "https://github.com/dexus/pem.git#commit=8bd76e390f0400a825508a37ead96984f99e998a"],\
-          ["pkg-tests-fixtures", "file:cache/pkg-tests-fixtures.tgz#cache/pkg-tests-fixtures.tgz::hash=01d597&locator=%40monstrs%2Fyarn-test-utils%40workspace%3Ayarn%2Ftest-utils"],\
+          ["pkg-tests-fixtures", "file:./cache/pkg-tests-fixtures.tgz#./cache/pkg-tests-fixtures.tgz::hash=01d597&locator=%40monstrs%2Fyarn-test-utils%40workspace%3Ayarn%2Ftest-utils"],\
           ["semver", "npm:7.5.4"],\
           ["serve-static", "npm:1.15.0"],\
           ["super-resolve", "npm:1.0.0"],\
@@ -15389,10 +15389,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["pkg-tests-fixtures", [\
-      ["file:cache/pkg-tests-fixtures.tgz#cache/pkg-tests-fixtures.tgz::hash=01d597&locator=%40monstrs%2Fyarn-test-utils%40workspace%3Ayarn%2Ftest-utils", {\
-        "packageLocation": "./.yarn/cache/pkg-tests-fixtures-file-7a1c578d69-9bf45d7c3a.zip/node_modules/pkg-tests-fixtures/",\
+      ["file:./cache/pkg-tests-fixtures.tgz#./cache/pkg-tests-fixtures.tgz::hash=01d597&locator=%40monstrs%2Fyarn-test-utils%40workspace%3Ayarn%2Ftest-utils", {\
+        "packageLocation": "./.yarn/cache/pkg-tests-fixtures-file-d8dcc9d48f-9bf45d7c3a.zip/node_modules/pkg-tests-fixtures/",\
         "packageDependencies": [\
-          ["pkg-tests-fixtures", "file:cache/pkg-tests-fixtures.tgz#cache/pkg-tests-fixtures.tgz::hash=01d597&locator=%40monstrs%2Fyarn-test-utils%40workspace%3Ayarn%2Ftest-utils"],\
+          ["pkg-tests-fixtures", "file:./cache/pkg-tests-fixtures.tgz#./cache/pkg-tests-fixtures.tgz::hash=01d597&locator=%40monstrs%2Fyarn-test-utils%40workspace%3Ayarn%2Ftest-utils"],\
           ["@yarnpkg/fslib", "npm:3.0.1"]\
         ],\
         "linkType": "HARD"\

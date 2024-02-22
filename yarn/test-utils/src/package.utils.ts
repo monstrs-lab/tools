@@ -5,9 +5,10 @@ import type { Filename }     from '@yarnpkg/fslib'
 import { Configuration }     from '@yarnpkg/core'
 import { Project }           from '@yarnpkg/core'
 import { WorkspaceResolver } from '@yarnpkg/core'
-import { ThrowReport }       from '@yarnpkg/core'
+import { StreamReport }      from '@yarnpkg/core'
 import { xfs }               from '@yarnpkg/fslib'
 import { ppath }             from '@yarnpkg/fslib'
+import { npath }             from '@yarnpkg/fslib'
 import { packUtils }         from '@yarnpkg/plugin-pack'
 
 export class PackageUtils {
@@ -84,64 +85,82 @@ export class PackageUtils {
       return target
     }
 
-    await packUtils.prepareForPack(workspace, { report: new ThrowReport() }, async () => {
-      for (const descriptor of workspace.manifest.dependencies.values()) {
-        if (descriptor.range.startsWith(WorkspaceResolver.protocol)) {
-          const dependent = project.tryWorkspaceByDescriptor(descriptor)
+    await StreamReport.start(
+      {
+        configuration,
+        stdout: process.stdout,
+      },
+      async (report) => {
+        await packUtils.prepareForPack(workspace, { report }, async () => {
+          report.reportJson({ base: npath.fromPortablePath(workspace.cwd) })
 
-          if (dependent) {
-            // eslint-disable-next-line no-await-in-loop
-            const dt = await this.packWorkspace(project, configuration, dependent)
+          for await (const descriptor of workspace.manifest.dependencies.values()) {
+            if (descriptor.range.startsWith(WorkspaceResolver.protocol)) {
+              const dependent = project.tryWorkspaceByDescriptor(descriptor)
 
-            descriptor.range = `file:${dt}`
+              if (dependent) {
+                descriptor.range = `file:${await this.packWorkspace(
+                  project,
+                  configuration,
+                  dependent
+                )}`
 
-            // eslint-disable-next-line no-param-reassign
-            workspace.manifest.raw.dependencies[dependent.manifest.raw.name] = descriptor.range
+                // eslint-disable-next-line no-param-reassign
+                workspace.manifest.raw.dependencies[dependent.manifest.raw.name] = descriptor.range
+              }
+            }
           }
-        }
-      }
 
-      for (const descriptor of workspace.manifest.devDependencies.values()) {
-        if (descriptor.range.startsWith(WorkspaceResolver.protocol)) {
-          const dependent = project.tryWorkspaceByDescriptor(descriptor)
+          for await (const descriptor of workspace.manifest.devDependencies.values()) {
+            if (descriptor.range.startsWith(WorkspaceResolver.protocol)) {
+              const dependent = project.tryWorkspaceByDescriptor(descriptor)
 
-          if (dependent) {
-            // eslint-disable-next-line no-await-in-loop
-            const dt = await this.packWorkspace(project, configuration, dependent)
+              if (dependent) {
+                descriptor.range = `file:${await this.packWorkspace(
+                  project,
+                  configuration,
+                  dependent
+                )}`
 
-            descriptor.range = `file:${dt}`
-
-            // eslint-disable-next-line no-param-reassign
-            workspace.manifest.raw.devDependencies[dependent.manifest.raw.name] = descriptor.range
+                // eslint-disable-next-line no-param-reassign
+                workspace.manifest.raw.devDependencies[dependent.manifest.raw.name] =
+                  descriptor.range
+              }
+            }
           }
-        }
+
+          if (workspace.manifest.raw.publishConfig) {
+            if (workspace.manifest.raw.publishConfig.main) {
+              // eslint-disable-next-line no-param-reassign
+              workspace.manifest.raw.main = workspace.manifest.raw.publishConfig.main
+            }
+          }
+
+          if (workspace.manifest.raw.publishConfig) {
+            if (workspace.manifest.raw.publishConfig.exports) {
+              // eslint-disable-next-line no-param-reassign
+              workspace.manifest.raw.exports = workspace.manifest.raw.publishConfig.exports
+            }
+          }
+
+          const files = await packUtils.genPackList(workspace)
+
+          for (const file of files) {
+            report.reportInfo(null, npath.fromPortablePath(file))
+            report.reportJson({ location: npath.fromPortablePath(file) })
+          }
+
+          const pack = await packUtils.genPackStream(workspace, files)
+          const write = xfs.createWriteStream(target)
+
+          pack.pipe(write)
+
+          await new Promise((resolve) => {
+            write.on('finish', resolve)
+          })
+        })
       }
-
-      if (workspace.manifest.raw.publishConfig) {
-        if (workspace.manifest.raw.publishConfig.main) {
-          // eslint-disable-next-line no-param-reassign
-          workspace.manifest.raw.main = workspace.manifest.raw.publishConfig.main
-        }
-      }
-
-      if (workspace.manifest.raw.publishConfig) {
-        if (workspace.manifest.raw.publishConfig.exports) {
-          // eslint-disable-next-line no-param-reassign
-          workspace.manifest.raw.exports = workspace.manifest.raw.publishConfig.exports
-        }
-      }
-
-      const files = await packUtils.genPackList(workspace)
-
-      const pack = await packUtils.genPackStream(workspace, files)
-      const write = xfs.createWriteStream(target)
-
-      pack.pipe(write)
-
-      await new Promise((resolve) => {
-        write.on('finish', resolve)
-      })
-    })
+    )
 
     return target
   }

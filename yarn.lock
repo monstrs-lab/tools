@@ -2553,7 +2553,7 @@ __metadata:
     "@yarnpkg/fslib": "npm:^3.0.1"
     "@yarnpkg/plugin-pack": "npm:^4.0.0"
     pkg-tests-core: "file:./cache/pkg-tests-core.tgz"
-    pkg-tests-fixtures: "file:cache/pkg-tests-fixtures.tgz"
+    pkg-tests-fixtures: "file:./cache/pkg-tests-fixtures.tgz"
   languageName: unknown
   linkType: soft
 
@@ -10672,9 +10672,9 @@ pem@dexus/pem:
   languageName: node
   linkType: hard
 
-"pkg-tests-fixtures@file:cache/pkg-tests-fixtures.tgz::locator=%40monstrs%2Fyarn-test-utils%40workspace%3Ayarn%2Ftest-utils":
+"pkg-tests-fixtures@file:./cache/pkg-tests-fixtures.tgz::locator=%40monstrs%2Fyarn-test-utils%40workspace%3Ayarn%2Ftest-utils":
   version: 0.0.0
-  resolution: "pkg-tests-fixtures@file:cache/pkg-tests-fixtures.tgz#cache/pkg-tests-fixtures.tgz::hash=01d597&locator=%40monstrs%2Fyarn-test-utils%40workspace%3Ayarn%2Ftest-utils"
+  resolution: "pkg-tests-fixtures@file:./cache/pkg-tests-fixtures.tgz#./cache/pkg-tests-fixtures.tgz::hash=01d597&locator=%40monstrs%2Fyarn-test-utils%40workspace%3Ayarn%2Ftest-utils"
   checksum: 9bf45d7c3a36fe2bd800e8f2c3b2b1f98b7e9d2e44a243c866008745fe1f81afb87fc5a02750a9e919965118b020044a37697b04c277811f165eae9714c0d6cd
   languageName: node
   linkType: hard
