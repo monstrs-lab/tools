@@ -55,3 +55,7 @@ package.tgz
 
 # next.js output
 .next
+
+# Platform dependencies
+fsevents-patch-*.zip
+@esbuild-*-npm-*.zip
