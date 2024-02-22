@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/tools-runtime",
-  "version": "0.2.19",
+  "version": "0.2.20",
   "license": "MIT",
   "type": "module",
   "exports": {

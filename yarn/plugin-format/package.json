@@ -20,7 +20,7 @@
   "dependencies": {
     "@monstrs/cli-ui-error-info-component": "workspace:0.3.11",
     "@monstrs/cli-ui-renderer": "workspace:0.3.7",
-    "@monstrs/code-format-worker": "workspace:0.3.16",
+    "@monstrs/code-format-worker": "workspace:0.3.17",
     "@monstrs/yarn-run-utils": "workspace:0.2.1",
     "clipanion": "^4.0.0-rc.2",
     "react": "^18.2.0"

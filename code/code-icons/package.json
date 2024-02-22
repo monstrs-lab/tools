@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-icons",
-  "version": "0.2.21",
+  "version": "0.2.22",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@monstrs/config-typescript": "workspace:0.3.7",
-    "@monstrs/tools-runtime": "workspace:0.2.19",
+    "@monstrs/tools-runtime": "workspace:0.2.20",
     "@yarnpkg/cli": "^4.0.2",
     "@yarnpkg/core": "^4.0.2",
     "camelcase": "^8.0.0",

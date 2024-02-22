@@ -20,7 +20,7 @@
   "dependencies": {
     "@monstrs/cli-ui-log-record-component": "workspace:0.3.11",
     "@monstrs/cli-ui-renderer": "workspace:0.3.7",
-    "@monstrs/code-test-worker": "workspace:0.3.20",
+    "@monstrs/code-test-worker": "workspace:0.3.21",
     "clipanion": "^4.0.0-rc.2",
     "react": "^18.2.0"
   },
