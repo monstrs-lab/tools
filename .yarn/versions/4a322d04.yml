@@ -1,0 +1,12 @@
+releases:
+  "@monstrs/code-configuration": patch
+  "@monstrs/code-icons": patch
+  "@monstrs/code-icons-worker": patch
+  "@monstrs/code-lint": patch
+  "@monstrs/code-lint-worker": patch
+  "@monstrs/code-pack": patch
+  "@monstrs/code-service": patch
+  "@monstrs/code-service-worker": patch
+  "@monstrs/yarn-cli": patch
+  "@monstrs/yarn-cli-tools": patch
+  "@monstrs/yarn-pack-utils": patch
