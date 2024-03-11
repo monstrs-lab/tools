@@ -21,15 +21,15 @@
     "@monstrs/code-format-worker": "workspace:0.3.17",
     "@monstrs/code-icons-worker": "workspace:0.3.22",
     "@monstrs/code-lint-worker": "workspace:0.3.25",
-    "clipanion": "^4.0.0-rc.2"
+    "clipanion": "^4.0.0-rc.3"
   },
   "devDependencies": {
     "@jest/globals": "^29.7.0",
     "@monstrs/yarn-run-utils": "workspace:0.2.1",
     "@monstrs/yarn-test-utils": "workspace:0.2.1",
     "@yarnpkg/builder": "^4.0.0",
-    "@yarnpkg/cli": "^4.0.2",
-    "@yarnpkg/core": "^4.0.2"
+    "@yarnpkg/cli": "^4.1.1",
+    "@yarnpkg/core": "^4.0.3"
   },
   "peerDependencies": {
     "@yarnpkg/cli": "^4",
