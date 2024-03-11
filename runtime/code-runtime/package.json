@@ -33,7 +33,7 @@
     "eslint": "^8.56.0",
     "node-loader": "^2.0.0",
     "ts-loader": "^9.5.1",
-    "typescript": "^5.3.3",
+    "typescript": "^5.4.2",
     "webpack": "^5.89.0"
   },
   "devDependencies": {
