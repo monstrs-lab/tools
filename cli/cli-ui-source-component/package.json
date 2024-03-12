@@ -22,8 +22,8 @@
   },
   "devDependencies": {
     "@types/babel__code-frame": "^7.0.6",
-    "@types/node": "^20.10.5",
-    "@types/react": "^18.2.45",
+    "@types/node": "^20.11.26",
+    "@types/react": "^18.2.65",
     "ink": "^4.4.1"
   },
   "peerDependencies": {

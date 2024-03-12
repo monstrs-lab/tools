@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@types/lint-staged": "^13.3.0",
-    "@types/react": "^18.2.45",
+    "@types/react": "^18.2.65",
     "@yarnpkg/builder": "^4.0.0",
     "@yarnpkg/cli": "^4.1.1",
     "@yarnpkg/core": "^4.0.3",
