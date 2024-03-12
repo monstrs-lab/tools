@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/cli-ui-git-commit-component",
-  "version": "0.3.11",
+  "version": "0.3.12",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -17,7 +17,7 @@
     "postpack": "rm -rf dist"
   },
   "devDependencies": {
-    "@monstrs/code-commit": "workspace:0.3.9",
+    "@monstrs/code-commit": "workspace:0.3.10",
     "@types/node": "^20.11.26",
     "@types/react": "^18.2.65",
     "@yarnpkg/libui": "^3.0.0",

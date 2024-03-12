@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/cli-ui-stack-trace-component",
-  "version": "0.3.11",
+  "version": "0.3.12",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -17,8 +17,8 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/cli-ui-renderer": "workspace:0.3.7",
-    "@monstrs/cli-ui-source-component": "workspace:0.3.8",
+    "@monstrs/cli-ui-renderer": "workspace:0.3.8",
+    "@monstrs/cli-ui-source-component": "workspace:0.3.9",
     "@monstrs/stack-trace": "^0.0.6",
     "nanoid": "^5.0.6"
   },
