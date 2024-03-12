@@ -19,13 +19,13 @@
   },
   "dependencies": {
     "@actions/github": "^6.0.0",
-    "@octokit/types": "^12.4.0",
-    "clipanion": "^4.0.0-rc.2"
+    "@octokit/types": "^12.6.0",
+    "clipanion": "^4.0.0-rc.3"
   },
   "devDependencies": {
     "@yarnpkg/builder": "^4.0.0",
-    "@yarnpkg/cli": "^4.0.2",
-    "@yarnpkg/core": "^4.0.2"
+    "@yarnpkg/cli": "^4.1.1",
+    "@yarnpkg/core": "^4.0.3"
   },
   "peerDependencies": {
     "@yarnpkg/cli": "^4",

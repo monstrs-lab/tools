@@ -22,17 +22,17 @@
     "@monstrs/config-typescript": "workspace:0.3.7",
     "@monstrs/tools-runtime": "workspace:0.2.20",
     "@monstrs/webpack-start-server-plugin": "workspace:0.5.8",
-    "@yarnpkg/cli": "^4.0.2",
-    "@yarnpkg/core": "^4.0.2",
-    "typescript": "^5.3.3",
+    "@yarnpkg/cli": "^4.1.1",
+    "@yarnpkg/core": "^4.0.3",
+    "typescript": "^5.4.2",
     "webpack-chain-5": "^8.0.2"
   },
   "devDependencies": {
     "@jest/globals": "^29.7.0",
     "@monstrs/logger": "^0.0.20",
-    "@types/node": "^20.10.5",
+    "@types/node": "^20.11.26",
     "@types/webpack": "^5.28.5",
-    "@yarnpkg/fslib": "^3.0.1",
+    "@yarnpkg/fslib": "^3.0.2",
     "package-json-type": "^1.0.3"
   },
   "publishConfig": {

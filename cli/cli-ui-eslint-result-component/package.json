@@ -18,12 +18,12 @@
   },
   "dependencies": {
     "@monstrs/cli-ui-source-component": "workspace:0.3.8",
-    "nanoid": "^5.0.4"
+    "nanoid": "^5.0.6"
   },
   "devDependencies": {
     "@jest/globals": "^29.7.0",
     "@monstrs/cli-ui-renderer": "workspace:0.3.7",
-    "@types/react": "^18.2.45",
+    "@types/react": "^18.2.65",
     "ink": "^4.4.1",
     "react": "^18.2.0",
     "strip-ansi": "^7.1.0"
