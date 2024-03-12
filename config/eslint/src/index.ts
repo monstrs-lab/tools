@@ -58,7 +58,6 @@ const config: Array<Linter.FlatConfig> = [
       ecmaVersion: 2021,
       sourceType: 'module',
       globals: {},
-      // @ts-expect-error
       parser,
       parserOptions: {
         project: true,
