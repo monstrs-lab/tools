@@ -17,13 +17,13 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@commitlint/format": "^18.4.3",
-    "@commitlint/is-ignored": "^18.4.3",
-    "@commitlint/lint": "^18.4.3",
-    "@commitlint/load": "^18.4.3",
-    "@commitlint/read": "^18.4.3",
-    "@commitlint/rules": "^18.4.3",
-    "@commitlint/types": "^18.4.3",
+    "@commitlint/format": "^19.0.3",
+    "@commitlint/is-ignored": "^19.0.3",
+    "@commitlint/lint": "^19.1.0",
+    "@commitlint/load": "^19.1.0",
+    "@commitlint/read": "^19.0.3",
+    "@commitlint/rules": "^19.0.3",
+    "@commitlint/types": "^19.0.3",
     "conventional-changelog-angular": "^7.0.0",
     "conventional-commits-parser": "^5.0.0"
   },
