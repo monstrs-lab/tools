@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@monstrs/cli-ui-source-component": "workspace:0.3.8",
-    "nanoid": "^5.0.4"
+    "nanoid": "^5.0.6"
   },
   "devDependencies": {
     "@jest/globals": "^29.7.0",

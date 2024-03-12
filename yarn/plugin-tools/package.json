@@ -23,7 +23,7 @@
     "clipanion": "^4.0.0-rc.3",
     "deepmerge": "^4.3.1",
     "husky": "^8.0.3",
-    "semver": "^7.5.4"
+    "semver": "^7.6.0"
   },
   "devDependencies": {
     "@types/semver": "^7.5.6",

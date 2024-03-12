@@ -22,7 +22,7 @@
     "@types/react": "^18.2.45",
     "@yarnpkg/libui": "^3.0.0",
     "camelcase": "^8.0.0",
-    "figures": "^6.0.1",
+    "figures": "^6.1.0",
     "ink": "^4.4.1",
     "ink-autocomplete": "^0.0.0",
     "ink-multi-select": "^2.0.0",
