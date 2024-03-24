@@ -26,7 +26,7 @@
     "@monstrs/cli-ui-renderer": "workspace:0.3.8",
     "@monstrs/cli-ui-typescript-diagnostic-component": "workspace:0.3.24",
     "@monstrs/code-lint-worker": "workspace:0.3.26",
-    "@monstrs/code-test-worker": "workspace:0.3.22",
+    "@monstrs/code-test-worker": "workspace:0.3.23",
     "@monstrs/code-typescript": "workspace:0.3.24",
     "@monstrs/code-typescript-worker": "workspace:0.3.24",
     "@monstrs/yarn-plugin-files": "workspace:0.2.1",
