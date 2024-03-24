@@ -16,16 +16,19 @@ const {
 }: { type: 'integration' | 'unit'; cwd: string; options: object; files: Array<string> } = workerData
 
 const execute = async (): Promise<void> => {
-  if (type === 'unit') {
-    parentPort!.postMessage(parse(stringify(await new Tester(cwd).unit(options, files))))
-  }
+  const results =
+    type === 'unit'
+      ? await new Tester(cwd).unit(options, files)
+      : await new Tester(cwd).integration(options, files)
 
-  if (type === 'integration') {
-    parentPort!.postMessage(parse(stringify(await new Tester(cwd).integration(options, files))))
+  try {
+    parentPort!.postMessage(results)
+  } catch {
+    parentPort!.postMessage(parse(stringify(results)))
   }
 }
 
 await execute()
-await setTimeout(100)
+await setTimeout(180)
 
 exit(0)
