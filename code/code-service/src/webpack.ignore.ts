@@ -3,7 +3,6 @@ export const LAZY_IMPORTS = [
   'amqp-connection-manager',
   '@grpc/grpc-js',
   'amqplib',
-  'redis',
   'mqtt',
   'nats',
 
