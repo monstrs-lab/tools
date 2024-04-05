@@ -1,5 +1,0 @@
-releases:
-  "@monstrs/code-service": patch
-  "@monstrs/code-service-worker": patch
-  "@monstrs/yarn-cli": patch
-  "@monstrs/yarn-cli-tools": patch
