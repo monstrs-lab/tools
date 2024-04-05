@@ -72,6 +72,8 @@ export class WebpackConfig {
     config.devtool(environment === 'production' ? 'source-map' : 'eval-cheap-module-source-map')
 
     config.experiments({ outputModule: true })
+
+    config.node.set('__dirname', true)
   }
 
   private async applyPlugins(config: Config, environment: WebpackEnvironment): Promise<void> {
