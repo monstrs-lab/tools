@@ -23,6 +23,7 @@ export const unit = {
         useESM: true,
       },
     ],
+    '\\.css\\.ts$': require.resolve('@vanilla-extract/jest-transform'),
   },
   resolver: require.resolve('@monstrs/jest-resolver'),
 }
