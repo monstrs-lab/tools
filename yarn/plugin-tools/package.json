@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@monstrs/config-typescript": "workspace:0.3.7",
-    "@monstrs/tools-runtime": "workspace:0.2.21",
+    "@monstrs/tools-runtime": "workspace:0.2.22",
     "clipanion": "^4.0.0-rc.3",
     "deepmerge": "^4.3.1",
     "husky": "^8.0.3",
