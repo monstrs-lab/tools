@@ -19,7 +19,7 @@
   "dependencies": {
     "@actions/github": "^6.0.0",
     "@iarna/toml": "^2.2.5",
-    "@yarnpkg/core": "^4.0.3",
+    "@yarnpkg/core": "^4.0.5",
     "@yarnpkg/fslib": "^3.0.2"
   },
   "devDependencies": {

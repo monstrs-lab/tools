@@ -14,6 +14,7 @@ export const unit = {
     '^.+\\.(jpg|jpeg|gif|png|mp4|mkv|avi|webm|swf|wav|mid)$': 'jest-static-stubs/$1',
   },
   transform: {
+    '\\.css\\.ts$': require.resolve('@vanilla-extract/jest-transform'),
     '^.+\\.[tj]sx?$': [
       require.resolve('ts-jest'),
       {
@@ -23,7 +24,6 @@ export const unit = {
         useESM: true,
       },
     ],
-    '\\.css\\.ts$': require.resolve('@vanilla-extract/jest-transform'),
   },
   resolver: require.resolve('@monstrs/jest-resolver'),
 }
