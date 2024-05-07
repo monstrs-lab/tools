@@ -35,7 +35,7 @@
   "devDependencies": {
     "@monstrs/tools-runtime": "workspace:0.2.22",
     "@types/node": "^20.11.26",
-    "@yarnpkg/builder": "^4.0.0",
+    "@yarnpkg/builder": "^4.1.1",
     "esbuild": "npm:esbuild-wasm@^0.17.18",
     "typescript": "^5.4.2"
   },
