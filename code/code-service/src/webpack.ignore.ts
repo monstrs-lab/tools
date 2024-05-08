@@ -18,6 +18,7 @@ export const LAZY_IMPORTS = [
   'mysql2',
   'mssql',
   'sql.js',
+  'libsql',
 
   // mikro-orm
   '@mikro-orm/better-sqlite',
