@@ -22,7 +22,7 @@
   "dependencies": {
     "@monstrs/code-test": "workspace:0.3.26",
     "@monstrs/code-worker-utils": "workspace:0.3.6",
-    "@ungap/structured-clone": "^1.2.0"
+    "flatted": "^3.3.1"
   },
   "devDependencies": {
     "@jest/test-result": "^29.7.0",
@@ -30,7 +30,6 @@
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
-    "@types/ungap__structured-clone": "^1.2.0",
     "esbuild": "^0.19.9",
     "rollup": "^3.29.4",
     "rollup-plugin-esbuild": "^5.0.0",

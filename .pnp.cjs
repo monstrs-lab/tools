@@ -3552,9 +3552,8 @@ const RAW_RUNTIME_STATE =
           ["@rollup/plugin-commonjs", "virtual:16c6894e71735c8ce85e88fdf2c39a69fd95d1318c61281c78f523ed65a0c4f3080b557bb22e7eedc993af5a969d2f37377c836ed4a7d514845d5d9f9777f4cb#npm:25.0.7"],\
           ["@rollup/plugin-json", "virtual:16c6894e71735c8ce85e88fdf2c39a69fd95d1318c61281c78f523ed65a0c4f3080b557bb22e7eedc993af5a969d2f37377c836ed4a7d514845d5d9f9777f4cb#npm:6.1.0"],\
           ["@rollup/plugin-node-resolve", "virtual:16c6894e71735c8ce85e88fdf2c39a69fd95d1318c61281c78f523ed65a0c4f3080b557bb22e7eedc993af5a969d2f37377c836ed4a7d514845d5d9f9777f4cb#npm:15.2.3"],\
-          ["@types/ungap__structured-clone", "npm:1.2.0"],\
-          ["@ungap/structured-clone", "npm:1.2.0"],\
           ["esbuild", "npm:0.19.9"],\
+          ["flatted", "npm:3.3.1"],\
           ["rollup", "npm:3.29.4"],\
           ["rollup-plugin-esbuild", "virtual:16c6894e71735c8ce85e88fdf2c39a69fd95d1318c61281c78f523ed65a0c4f3080b557bb22e7eedc993af5a969d2f37377c836ed4a7d514845d5d9f9777f4cb#npm:5.0.0"],\
           ["rollup-plugin-terser", "virtual:16c6894e71735c8ce85e88fdf2c39a69fd95d1318c61281c78f523ed65a0c4f3080b557bb22e7eedc993af5a969d2f37377c836ed4a7d514845d5d9f9777f4cb#npm:7.0.2"]\
@@ -6238,15 +6237,6 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/@types-treeify-npm-1.0.0-b5e04e9cd3-7d313ba9de.zip/node_modules/@types/treeify/",\
         "packageDependencies": [\
           ["@types/treeify", "npm:1.0.0"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["@types/ungap__structured-clone", [\
-      ["npm:1.2.0", {\
-        "packageLocation": "./.yarn/cache/@types-ungap__structured-clone-npm-1.2.0-d3577ef4ac-df0c3e47bb.zip/node_modules/@types/ungap__structured-clone/",\
-        "packageDependencies": [\
-          ["@types/ungap__structured-clone", "npm:1.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
