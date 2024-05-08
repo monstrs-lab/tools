@@ -7,6 +7,7 @@ export const LAZY_IMPORTS = [
   'nats',
 
   // sql
+  'mariadb/callback',
   'better-sqlite3',
   'pg-native',
   'hdb-pool',
