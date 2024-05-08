@@ -1,12 +1,12 @@
-import { exit }       from 'node:process'
-import { setTimeout } from 'node:timers/promises'
-import { parentPort } from 'node:worker_threads'
-import { workerData } from 'node:worker_threads'
+import { exit }        from 'node:process'
+import { setTimeout }  from 'node:timers/promises'
+import { parentPort }  from 'node:worker_threads'
+import { workerData }  from 'node:worker_threads'
 
-import { stringify }  from 'flatted'
-import { parse }      from 'flatted'
+import { serialize }   from '@ungap/structured-clone'
+import { deserialize } from '@ungap/structured-clone'
 
-import { Tester }     from '@monstrs/code-test'
+import { Tester }      from '@monstrs/code-test'
 
 const {
   type,
@@ -24,7 +24,7 @@ const execute = async (): Promise<void> => {
   try {
     parentPort!.postMessage(results)
   } catch {
-    parentPort!.postMessage(parse(stringify(results)))
+    parentPort!.postMessage(deserialize(serialize(results)))
   }
 }
 
