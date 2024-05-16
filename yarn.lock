@@ -2187,7 +2187,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-configuration@workspace:0.3.6, @monstrs/code-configuration@workspace:code/code-configuration":
+"@monstrs/code-configuration@workspace:0.3.7, @monstrs/code-configuration@workspace:code/code-configuration":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-configuration@workspace:code/code-configuration"
   dependencies:
@@ -2226,11 +2226,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-icons-worker@workspace:0.3.27, @monstrs/code-icons-worker@workspace:code/code-icons-worker":
+"@monstrs/code-icons-worker@workspace:0.3.28, @monstrs/code-icons-worker@workspace:code/code-icons-worker":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-icons-worker@workspace:code/code-icons-worker"
   dependencies:
-    "@monstrs/code-icons": "workspace:0.2.27"
+    "@monstrs/code-icons": "workspace:0.2.28"
     "@monstrs/code-worker-utils": "workspace:0.3.6"
     "@rollup/plugin-commonjs": "npm:^25.0.7"
     "@rollup/plugin-json": "npm:^6.1.0"
@@ -2244,7 +2244,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-icons@workspace:0.2.27, @monstrs/code-icons@workspace:code/code-icons":
+"@monstrs/code-icons@workspace:0.2.28, @monstrs/code-icons@workspace:code/code-icons":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-icons@workspace:code/code-icons"
   dependencies:
@@ -2300,7 +2300,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-pack@workspace:0.3.12, @monstrs/code-pack@workspace:code/code-pack":
+"@monstrs/code-pack@workspace:0.3.13, @monstrs/code-pack@workspace:code/code-pack":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-pack@workspace:code/code-pack"
   dependencies:
@@ -2312,11 +2312,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-service-worker@workspace:0.3.31, @monstrs/code-service-worker@workspace:code/code-service-worker":
+"@monstrs/code-service-worker@workspace:0.3.32, @monstrs/code-service-worker@workspace:code/code-service-worker":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-service-worker@workspace:code/code-service-worker"
   dependencies:
-    "@monstrs/code-service": "workspace:0.3.31"
+    "@monstrs/code-service": "workspace:0.3.32"
     "@monstrs/code-worker-utils": "workspace:0.3.6"
     "@monstrs/tools-runtime": "workspace:0.2.23"
     "@rollup/plugin-commonjs": "npm:^25.0.7"
@@ -2331,12 +2331,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-service@workspace:0.3.31, @monstrs/code-service@workspace:code/code-service":
+"@monstrs/code-service@workspace:0.3.32, @monstrs/code-service@workspace:code/code-service":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-service@workspace:code/code-service"
   dependencies:
     "@jest/globals": "npm:^29.7.0"
-    "@monstrs/code-configuration": "workspace:0.3.6"
+    "@monstrs/code-configuration": "workspace:0.3.7"
     "@monstrs/config-typescript": "workspace:0.3.7"
     "@monstrs/logger": "npm:^0.0.20"
     "@monstrs/tools-runtime": "workspace:0.2.23"
@@ -2572,7 +2572,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/yarn-cli-tools@workspace:0.2.40, @monstrs/yarn-cli-tools@workspace:yarn/cli-tools":
+"@monstrs/yarn-cli-tools@workspace:0.2.41, @monstrs/yarn-cli-tools@workspace:yarn/cli-tools":
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-cli-tools@workspace:yarn/cli-tools"
   dependencies:
@@ -2630,7 +2630,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-cli@workspace:yarn/cli"
   dependencies:
-    "@monstrs/yarn-cli-tools": "workspace:0.2.40"
+    "@monstrs/yarn-cli-tools": "workspace:0.2.41"
     "@monstrs/yarn-plugin-check": "workspace:0.2.1"
     "@monstrs/yarn-plugin-checks": "workspace:0.2.1"
     "@monstrs/yarn-plugin-cli-publish": "workspace:0.2.0"
@@ -2681,7 +2681,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/yarn-pack-utils@workspace:0.2.14, @monstrs/yarn-pack-utils@workspace:yarn/pack-utils":
+"@monstrs/yarn-pack-utils@workspace:0.2.15, @monstrs/yarn-pack-utils@workspace:yarn/pack-utils":
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-pack-utils@workspace:yarn/pack-utils"
   dependencies:
@@ -2849,8 +2849,8 @@ __metadata:
   resolution: "@monstrs/yarn-plugin-image@workspace:yarn/plugin-image"
   dependencies:
     "@iarna/toml": "npm:^2.2.5"
-    "@monstrs/code-pack": "workspace:0.3.12"
-    "@monstrs/yarn-pack-utils": "workspace:0.2.14"
+    "@monstrs/code-pack": "workspace:0.3.13"
+    "@monstrs/yarn-pack-utils": "workspace:0.2.15"
     "@monstrs/yarn-run-utils": "workspace:0.2.1"
     "@yarnpkg/builder": "npm:^4.1.1"
     "@yarnpkg/cli": "npm:^4.2.2"
@@ -2966,10 +2966,10 @@ __metadata:
     "@monstrs/cli-ui-error-info-component": "workspace:0.3.12"
     "@monstrs/cli-ui-log-record-component": "workspace:0.3.12"
     "@monstrs/cli-ui-renderer": "workspace:0.3.8"
-    "@monstrs/code-service": "workspace:0.3.31"
-    "@monstrs/code-service-worker": "workspace:0.3.31"
+    "@monstrs/code-service": "workspace:0.3.32"
+    "@monstrs/code-service-worker": "workspace:0.3.32"
     "@monstrs/logger": "npm:^0.0.20"
-    "@monstrs/yarn-pack-utils": "workspace:0.2.14"
+    "@monstrs/yarn-pack-utils": "workspace:0.2.15"
     "@monstrs/yarn-run-utils": "workspace:0.2.1"
     "@monstrs/yarn-test-utils": "workspace:0.2.1"
     "@types/react": "npm:^18.2.65"
@@ -3060,7 +3060,7 @@ __metadata:
   dependencies:
     "@jest/globals": "npm:^29.7.0"
     "@monstrs/code-format-worker": "workspace:0.3.20"
-    "@monstrs/code-icons-worker": "workspace:0.3.27"
+    "@monstrs/code-icons-worker": "workspace:0.3.28"
     "@monstrs/code-lint-worker": "workspace:0.3.30"
     "@monstrs/yarn-run-utils": "workspace:0.2.1"
     "@monstrs/yarn-test-utils": "workspace:0.2.1"
