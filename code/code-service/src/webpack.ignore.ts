@@ -1,8 +1,6 @@
 export const LAZY_IMPORTS = [
   // @nestjs/microservices
-  'amqp-connection-manager',
   '@grpc/grpc-js',
-  'amqplib',
   'mqtt',
   'nats',
 
