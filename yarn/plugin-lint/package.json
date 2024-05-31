@@ -21,7 +21,7 @@
     "@monstrs/cli-ui-error-info-component": "workspace:0.3.12",
     "@monstrs/cli-ui-eslint-result-component": "workspace:0.3.10",
     "@monstrs/cli-ui-renderer": "workspace:0.3.8",
-    "@monstrs/code-lint-worker": "workspace:0.3.30",
+    "@monstrs/code-lint-worker": "workspace:0.3.31",
     "@monstrs/yarn-run-utils": "workspace:0.2.1",
     "clipanion": "^4.0.0-rc.3",
     "react": "^18.2.0"
