@@ -1,7 +1,6 @@
 import type { Workspace }    from '@yarnpkg/core'
 import type { Report }       from '@yarnpkg/core'
 import type { PortablePath } from '@yarnpkg/fslib'
-import type { Filename }     from '@yarnpkg/fslib'
 
 import { Configuration }     from '@yarnpkg/core'
 import { Project }           from '@yarnpkg/core'
@@ -12,9 +11,6 @@ import { ppath }             from '@yarnpkg/fslib'
 import { packUtils }         from '@yarnpkg/plugin-pack'
 
 import { ExportCache }       from './export/ExportCache.js'
-import { copyRcFile }        from './copy.utils.js'
-import { copyPlugins }       from './copy.utils.js'
-import { copyYarnRelease }   from './copy.utils.js'
 import { genPackTgz }        from './export/exportUtils.js'
 import { makeFetcher }       from './export/exportUtils.js'
 import { makeResolver }      from './export/exportUtils.js'
@@ -41,15 +37,27 @@ export const pack = async (
 
     const tmpConfiguration = Configuration.create(destination, destination, configuration.plugins)
 
+    tmpConfiguration.values.set('compressionLevel', project.configuration.get('compressionLevel'))
+    tmpConfiguration.values.set('enableGlobalCache', false)
+    tmpConfiguration.values.set('enableMirror', false)
+    tmpConfiguration.values.set('globalFolder', configuration.get('globalFolder'))
+    tmpConfiguration.values.set('packageExtensions', configuration.get('packageExtensions'))
+    tmpConfiguration.values.set('pnpEnableEsmLoader', configuration.get('pnpEnableEsmLoader'))
     tmpConfiguration.values.set(
-      `bstatePath`,
-      ppath.join(destination, `build-state.yml` as Filename)
+      `cacheFolder`,
+      ppath.join(destination, `.yarn/packages` as PortablePath)
     )
+    tmpConfiguration.values.set('preferAggregateCacheInfo', true)
 
-    tmpConfiguration.values.set(`globalFolder`, configuration.get(`globalFolder`))
-    tmpConfiguration.values.set(`packageExtensions`, configuration.get(`packageExtensions`))
-    tmpConfiguration.values.set(`enableGlobalCache`, configuration.get(`enableGlobalCache`))
-    tmpConfiguration.values.set(`pnpEnableEsmLoader`, configuration.get(`pnpEnableEsmLoader`))
+    await Configuration.updateConfiguration(destination, {
+      cacheFolder: `.yarn/packages` as PortablePath,
+      compressionLevel: tmpConfiguration.get(`compressionLevel`),
+      enableGlobalCache: tmpConfiguration.get(`enableGlobalCache`),
+      enableNetwork: tmpConfiguration.get(`enableNetwork`),
+      enableMirror: tmpConfiguration.get(`enableMirror`),
+      packageExtensions: tmpConfiguration.get(`packageExtensions`),
+      nodeLinker: project.configuration.get('nodeLinker'),
+    })
 
     await tmpConfiguration.getPackageExtensions()
 
@@ -59,24 +67,8 @@ export const pack = async (
     )
 
     tmpWorkspace!.manifest.dependencies = workspace.manifest.dependencies
-    tmpWorkspace!.manifest.peerDependencies = workspace.manifest.peerDependencies
     tmpWorkspace!.manifest.resolutions = project.topLevelWorkspace.manifest.resolutions
-    tmpWorkspace!.manifest.dependenciesMeta = project.topLevelWorkspace.manifest.dependenciesMeta
     tmpWorkspace!.manifest.devDependencies.clear()
-
-    await report.startTimerPromise('Copy RC files', async () => {
-      await copyRcFile(project, destination, report)
-    })
-
-    await report.startTimerPromise('Copy plugins', async () => {
-      await copyPlugins(project, destination, report)
-    })
-
-    await report.startTimerPromise('Copy Yarn releases', async () => {
-      await copyYarnRelease(project, destination, report)
-    })
-
-    tmpProject.lockfileNeedsRefresh = true
 
     await tmpProject.install({
       cache: await ExportCache.find(tmpConfiguration, cache),
