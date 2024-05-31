@@ -6,6 +6,6 @@
   "scripts": {
     "build": "yarn service build",
     "dev": "yarn service dev",
-    "prepack": "run build"
+    "prepack": "yarn run build"
   }
 }
