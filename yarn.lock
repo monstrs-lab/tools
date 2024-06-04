@@ -2581,6 +2581,7 @@ __metadata:
     "@monstrs/yarn-plugin-cli-publish": "workspace:0.2.0"
     "@monstrs/yarn-plugin-commit": "workspace:0.2.1"
     "@monstrs/yarn-plugin-essentials": "workspace:0.2.1"
+    "@monstrs/yarn-plugin-export": "workspace:0.2.1"
     "@monstrs/yarn-plugin-files": "workspace:0.2.1"
     "@monstrs/yarn-plugin-format": "workspace:0.2.1"
     "@monstrs/yarn-plugin-image": "workspace:0.2.1"
@@ -2636,6 +2637,7 @@ __metadata:
     "@monstrs/yarn-plugin-cli-publish": "workspace:0.2.0"
     "@monstrs/yarn-plugin-commit": "workspace:0.2.1"
     "@monstrs/yarn-plugin-essentials": "workspace:0.2.1"
+    "@monstrs/yarn-plugin-export": "workspace:0.2.1"
     "@monstrs/yarn-plugin-files": "workspace:0.2.1"
     "@monstrs/yarn-plugin-format": "workspace:0.2.1"
     "@monstrs/yarn-plugin-image": "workspace:0.2.1"
@@ -2802,6 +2804,23 @@ __metadata:
     "@yarnpkg/cli": ^4
     "@yarnpkg/core": ^4
     "@yarnpkg/plugin-git": ^3
+  languageName: unknown
+  linkType: soft
+
+"@monstrs/yarn-plugin-export@workspace:0.2.1, @monstrs/yarn-plugin-export@workspace:yarn/plugin-export":
+  version: 0.0.0-use.local
+  resolution: "@monstrs/yarn-plugin-export@workspace:yarn/plugin-export"
+  dependencies:
+    "@monstrs/yarn-pack-utils": "workspace:0.2.16"
+    "@yarnpkg/builder": "npm:^4.1.1"
+    "@yarnpkg/cli": "npm:^4.2.2"
+    "@yarnpkg/core": "npm:^4.0.5"
+    "@yarnpkg/fslib": "npm:^3.1.0"
+    clipanion: "npm:^4.0.0-rc.3"
+    typescript: "npm:^5.4.2"
+  peerDependencies:
+    "@yarnpkg/cli": ^4
+    "@yarnpkg/core": ^4
   languageName: unknown
   linkType: soft
 
