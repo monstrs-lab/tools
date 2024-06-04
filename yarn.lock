@@ -2572,7 +2572,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/yarn-cli-tools@workspace:0.2.43, @monstrs/yarn-cli-tools@workspace:yarn/cli-tools":
+"@monstrs/yarn-cli-tools@workspace:0.2.44, @monstrs/yarn-cli-tools@workspace:yarn/cli-tools":
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-cli-tools@workspace:yarn/cli-tools"
   dependencies:
@@ -2631,7 +2631,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-cli@workspace:yarn/cli"
   dependencies:
-    "@monstrs/yarn-cli-tools": "workspace:0.2.43"
+    "@monstrs/yarn-cli-tools": "workspace:0.2.44"
     "@monstrs/yarn-plugin-check": "workspace:0.2.1"
     "@monstrs/yarn-plugin-checks": "workspace:0.2.1"
     "@monstrs/yarn-plugin-cli-publish": "workspace:0.2.0"
