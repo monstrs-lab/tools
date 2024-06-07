@@ -126,5 +126,11 @@ export class WebpackConfig {
       .test(/\.node$/)
       .use('node')
       .loader(nodeLoaderPath)
+
+    config.module
+      .rule('terminus')
+      .test(/@nestjs\/terminus\/dist\/utils\/.*\.ts$/)
+      .use('null-loader')
+      .loader('null-loader')
   }
 }
