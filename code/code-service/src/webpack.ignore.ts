@@ -28,6 +28,6 @@ export const LAZY_IMPORTS = [
 
   // nestjs
   '@nestjs/mongoose',
-  '@nestjs/typeorm',
-  '@nestjs/sequelize',
+  '@nestjs/typeorm/dist/common/typeorm.utils',
+  '@nestjs/sequelize/dist/common/sequelize.utils',
 ]
