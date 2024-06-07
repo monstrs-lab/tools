@@ -1,0 +1,17 @@
+releases:
+  "@monstrs/cli-ui-typescript-diagnostic-component": patch
+  "@monstrs/code-format": patch
+  "@monstrs/code-format-worker": patch
+  "@monstrs/code-icons": patch
+  "@monstrs/code-icons-worker": patch
+  "@monstrs/code-lint": patch
+  "@monstrs/code-lint-worker": patch
+  "@monstrs/code-service": patch
+  "@monstrs/code-service-worker": patch
+  "@monstrs/code-test": patch
+  "@monstrs/code-test-worker": patch
+  "@monstrs/code-typescript": patch
+  "@monstrs/code-typescript-worker": patch
+  "@monstrs/tools-runtime": patch
+  "@monstrs/yarn-cli": patch
+  "@monstrs/yarn-cli-tools": patch
