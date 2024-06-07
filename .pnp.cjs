@@ -3818,6 +3818,7 @@ const RAW_RUNTIME_STATE =
           ["@types/node", "npm:20.11.26"],\
           ["eslint", "npm:8.57.0"],\
           ["node-loader", "virtual:63c966aaff027770a3c16c69ce06aa6081b3501832ae55bd2ee580dfd2cac8216496c71a79a6b408e3d6e5843e11b50d2069143d7c07a1f10f2331e83a225460#npm:2.0.0"],\
+          ["null-loader", "virtual:63c966aaff027770a3c16c69ce06aa6081b3501832ae55bd2ee580dfd2cac8216496c71a79a6b408e3d6e5843e11b50d2069143d7c07a1f10f2331e83a225460#npm:4.0.1"],\
           ["ts-loader", "virtual:63c966aaff027770a3c16c69ce06aa6081b3501832ae55bd2ee580dfd2cac8216496c71a79a6b408e3d6e5843e11b50d2069143d7c07a1f10f2331e83a225460#npm:9.5.1"],\
           ["typescript", "patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"],\
           ["webpack", "virtual:63c966aaff027770a3c16c69ce06aa6081b3501832ae55bd2ee580dfd2cac8216496c71a79a6b408e3d6e5843e11b50d2069143d7c07a1f10f2331e83a225460#npm:5.90.3"]\
@@ -16979,6 +16980,30 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["nth-check", "npm:2.1.1"],\
           ["boolbase", "npm:1.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["null-loader", [\
+      ["npm:4.0.1", {\
+        "packageLocation": "./.yarn/cache/null-loader-npm-4.0.1-02276c1f77-eeb4c4dd2f.zip/node_modules/null-loader/",\
+        "packageDependencies": [\
+          ["null-loader", "npm:4.0.1"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:63c966aaff027770a3c16c69ce06aa6081b3501832ae55bd2ee580dfd2cac8216496c71a79a6b408e3d6e5843e11b50d2069143d7c07a1f10f2331e83a225460#npm:4.0.1", {\
+        "packageLocation": "./.yarn/__virtual__/null-loader-virtual-4f0740b6fc/0/cache/null-loader-npm-4.0.1-02276c1f77-eeb4c4dd2f.zip/node_modules/null-loader/",\
+        "packageDependencies": [\
+          ["null-loader", "virtual:63c966aaff027770a3c16c69ce06aa6081b3501832ae55bd2ee580dfd2cac8216496c71a79a6b408e3d6e5843e11b50d2069143d7c07a1f10f2331e83a225460#npm:4.0.1"],\
+          ["@types/webpack", null],\
+          ["loader-utils", "npm:2.0.4"],\
+          ["schema-utils", "npm:3.3.0"],\
+          ["webpack", "virtual:63c966aaff027770a3c16c69ce06aa6081b3501832ae55bd2ee580dfd2cac8216496c71a79a6b408e3d6e5843e11b50d2069143d7c07a1f10f2331e83a225460#npm:5.90.3"]\
+        ],\
+        "packagePeers": [\
+          "@types/webpack",\
+          "webpack"\
         ],\
         "linkType": "HARD"\
       }]\

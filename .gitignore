@@ -59,3 +59,4 @@ package.tgz
 # Platform dependencies
 fsevents-patch-*.zip
 @esbuild-*-npm-*.zip
+@rollup-rollup-*-*-npm-*.zip

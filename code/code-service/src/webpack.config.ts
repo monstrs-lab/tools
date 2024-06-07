@@ -10,6 +10,7 @@ import Config                      from 'webpack-chain-5'
 import { webpack }                 from '@monstrs/tools-runtime/webpack'
 import { tsLoaderPath }            from '@monstrs/tools-runtime/webpack'
 import { nodeLoaderPath }          from '@monstrs/tools-runtime/webpack'
+import { nullLoaderPath }          from '@monstrs/tools-runtime/webpack'
 import tsconfig                    from '@monstrs/config-typescript'
 
 import { WebpackExternals }        from './webpack.externals.js'
@@ -107,6 +108,12 @@ export class WebpackConfig {
   }
 
   private async applyModules(config: Config): Promise<void> {
+    config.module
+      .rule('d.ts')
+      .test(/\.d\.ts$/)
+      .use('null')
+      .loader(nullLoaderPath)
+
     const configFile = join(await mkdtemp(join(tmpdir(), 'tools-service-')), 'tsconfig.json')
 
     await writeFile(configFile, '{"include":["**/*"]}')
