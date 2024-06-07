@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-typescript-worker",
-  "version": "0.3.29",
+  "version": "0.3.30",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -19,7 +19,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/code-typescript": "workspace:0.3.29",
+    "@monstrs/code-typescript": "workspace:0.3.30",
     "@monstrs/code-worker-utils": "workspace:0.3.6",
     "flatted": "^3.3.1"
   },
