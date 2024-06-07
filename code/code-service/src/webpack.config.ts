@@ -84,6 +84,10 @@ export class WebpackConfig {
     config.plugin('ignore').use(webpack.IgnorePlugin, [
       {
         checkResource: (resource: string): boolean => {
+          if (resource.endsWith('js.map')) {
+            return true
+          }
+
           if (!LAZY_IMPORTS.includes(resource)) {
             return false
           }
@@ -109,7 +113,7 @@ export class WebpackConfig {
 
     config.module
       .rule('ts')
-      .test(/.tsx?$/)
+      .test(/(^.?|\.[^d]|[^.]d|[^.][^d])\.tsx?$/)
       .use('ts')
       .loader(tsLoaderPath)
       .options({
@@ -126,11 +130,5 @@ export class WebpackConfig {
       .test(/\.node$/)
       .use('node')
       .loader(nodeLoaderPath)
-
-    config.module
-      .rule('terminus')
-      .test(/@nestjs\/terminus\/dist\/utils\/.*\.ts$/)
-      .use('null-loader')
-      .loader('null-loader')
   }
 }
