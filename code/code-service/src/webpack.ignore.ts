@@ -25,4 +25,9 @@ export const LAZY_IMPORTS = [
   '@mikro-orm/mariadb',
   '@mikro-orm/sqlite',
   '@mikro-orm/mysql',
+
+  // nestjs
+  '@nestjs/mongoose',
+  '@nestjs/typeorm',
+  '@nestjs/sequelize',
 ]
