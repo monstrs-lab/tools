@@ -1,5 +1,6 @@
 import type { PortablePath } from '@yarnpkg/fslib'
 
+import { Filename }          from '@yarnpkg/fslib'
 import { describe }          from '@jest/globals'
 import { expect }            from '@jest/globals'
 import { test }              from '@jest/globals'
@@ -36,7 +37,11 @@ describe('yarn', () => {
             await xfs.mkdirPromise(ppath.join(path, 'src' as PortablePath))
             await xfs.writeFilePromise(ppath.join(path, 'src/index.ts' as PortablePath), content)
 
-            const { code, stdout } = await run('service', 'build')
+            const { code, stdout } = await run('service', 'build', {
+              env: {
+                NODE_OPTIONS: `--require ${ppath.join(path, Filename.pnpCjs)} --loader ${ppath.join(path, Filename.pnpEsmLoader)}`,
+              },
+            })
 
             expect(code).toBe(0)
             expect(stdout).toContain('➤ YN0000: └ Completed')

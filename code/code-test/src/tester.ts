@@ -79,7 +79,7 @@ export class Tester {
       runTestsByPath: false,
       testLocationInResults: true,
       config: JSON.stringify({ ...integration, ...setup }),
-      maxConcurrency: 5,
+      maxConcurrency: 1,
       notifyMode: 'failure-change',
       _: files || [],
       $0: '',

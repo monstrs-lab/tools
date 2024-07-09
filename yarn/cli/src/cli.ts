@@ -7,7 +7,7 @@ import { ppath }                  from '@yarnpkg/fslib'
 // @ts-expect-error
 import { getPluginConfiguration } from '@monstrs/yarn-cli-tools'
 
-import packageJson                from '../package.json' assert { type: 'json' }
+import packageJson                from '../package.json' with { type: 'json' }
 
 const pc = getPluginConfiguration(packageJson['@yarnpkg/builder'].bundles.standard)
 

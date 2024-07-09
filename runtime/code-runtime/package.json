@@ -34,7 +34,7 @@
     "node-loader": "^2.0.0",
     "null-loader": "^4.0.1",
     "ts-loader": "^9.5.1",
-    "typescript": "^5.4.2",
+    "typescript": "^5.5.3",
     "webpack": "^5.90.3"
   },
   "devDependencies": {

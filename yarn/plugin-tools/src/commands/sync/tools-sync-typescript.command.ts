@@ -5,7 +5,7 @@ import { StreamReport }  from '@yarnpkg/core'
 import { structUtils }   from '@yarnpkg/core'
 import semver            from 'semver'
 
-import runtime           from '@monstrs/tools-runtime/package.json' assert { type: 'json' }
+import runtime           from '@monstrs/tools-runtime/package.json' with { type: 'json' }
 
 export class ToolsSyncTypeScriptCommand extends BaseCommand {
   static override paths = [['tools', 'sync', 'typescript']]

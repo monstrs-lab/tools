@@ -1,5 +1,6 @@
 import type { PortablePath } from '@yarnpkg/fslib'
 
+import { Filename }          from '@yarnpkg/fslib'
 import { describe }          from '@jest/globals'
 import { expect }            from '@jest/globals'
 import { test }              from '@jest/globals'
@@ -28,7 +29,11 @@ describe('yarn', () => {
               `test('success', () => { expect(true).toBe(true) })`
             )
 
-            const { code, stdout, stderr } = await run('test', 'unit')
+            const { code, stdout, stderr } = await run('test', 'unit', {
+              env: {
+                NODE_OPTIONS: `--require ${ppath.join(path, Filename.pnpCjs)} --loader ${ppath.join(path, Filename.pnpEsmLoader)}`,
+              },
+            })
 
             expect(code).toBe(0)
             expect(stdout).toContain('Done')
@@ -54,7 +59,11 @@ describe('yarn', () => {
               `test('success', () => { expect(true).toBe(false) })`
             )
 
-            const { code, stdout, stderr } = await run('test', 'unit')
+            const { code, stdout, stderr } = await run('test', 'unit', {
+              env: {
+                NODE_OPTIONS: `--require ${ppath.join(path, Filename.pnpCjs)} --loader ${ppath.join(path, Filename.pnpEsmLoader)}`,
+              },
+            })
 
             expect(code).toBe(0)
             expect(stdout).toContain('Done')
@@ -81,7 +90,11 @@ describe('yarn', () => {
               `test('success', () => { expect(true).toBe(true) })`
             )
 
-            const { code, stdout, stderr } = await run('test', 'integration')
+            const { code, stdout, stderr } = await run('test', 'integration', {
+              env: {
+                NODE_OPTIONS: `--require ${ppath.join(path, Filename.pnpCjs)} --loader ${ppath.join(path, Filename.pnpEsmLoader)}`,
+              },
+            })
 
             expect(code).toBe(0)
             expect(stdout).toContain('Done')
@@ -108,7 +121,11 @@ describe('yarn', () => {
               `test('success', () => { expect(true).toBe(false) })`
             )
 
-            const { code, stdout, stderr } = await run('test', 'integration')
+            const { code, stdout, stderr } = await run('test', 'integration', {
+              env: {
+                NODE_OPTIONS: `--require ${ppath.join(path, Filename.pnpCjs)} --loader ${ppath.join(path, Filename.pnpEsmLoader)}`,
+              },
+            })
 
             expect(code).toBe(0)
             expect(stdout).toContain('Done')
