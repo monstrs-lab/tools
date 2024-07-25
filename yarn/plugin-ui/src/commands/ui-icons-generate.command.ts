@@ -4,7 +4,7 @@ import { Project }         from '@yarnpkg/core'
 import { StreamReport }    from '@yarnpkg/core'
 import { MessageName }     from '@yarnpkg/core'
 
-import { FormatterWorker } from '@monstrs/code-format-worker'
+import { Formatter }       from '@monstrs/code-format'
 import { IconsWorker }     from '@monstrs/code-icons-worker'
 import { LinterWorker }    from '@monstrs/code-lint-worker'
 import { SpinnerProgress } from '@monstrs/yarn-run-utils'
@@ -29,7 +29,7 @@ export class UiIconsGenerateCommand extends BaseCommand {
 
           try {
             await new IconsWorker(project.cwd).run(this.context.cwd)
-            await new FormatterWorker(project.cwd).run(this.context.cwd, [])
+            await new Formatter(this.context.cwd).format([])
             await new LinterWorker(project.cwd).run(this.context.cwd, [], {
               fix: true,
             })

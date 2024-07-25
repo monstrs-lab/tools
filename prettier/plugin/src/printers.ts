@@ -3,12 +3,14 @@
 
 import type { Node }              from '@babel/types'
 import type { ImportDeclaration } from '@babel/types'
+import type { Doc }               from 'prettier'
+import type { ParserOptions }     from 'prettier'
+import type { Plugin }            from 'prettier'
 import type { Printer }           from 'prettier'
 import type { AST }               from 'prettier'
+import type { AstPath }           from 'prettier'
 
-import { extractPrinter }         from './patch.js'
-
-const printer = await extractPrinter()
+import * as estree                from 'prettier/plugins/estree.js'
 
 const nodeImportSize = (node: ImportDeclaration): number => {
   if (node.specifiers.length === 0) {
@@ -23,19 +25,21 @@ const nodeImportSize = (node: ImportDeclaration): number => {
   return specifier.loc!.end.column + offset
 }
 
-export const print: Printer<Node>['print'] = (path, options, prnt): any => {
-  const node = path.getNode()
+export const print = (
+  path: AstPath<Node>,
+  options: ParserOptions<Node>,
+  prnt: (path: AstPath<Node>) => Doc
+): Doc => {
+  const node = path.getNode() as (Node & { alignOffset: number }) | undefined
 
-  const plugin: any = options.plugins.find((p: any) => p?.printers?.estree)
+  const plugin = options.plugins.find((p) => (p as Plugin).printers?.estree) as Plugin
 
-  let result = plugin.printers.estree.print(path, options, prnt)
+  let result = plugin.printers!.estree.print(path, options, prnt)
 
   if (node?.type === 'ImportDeclaration') {
     // @ts-expect-error
     result = result.map((part) => {
-      // @ts-expect-error
       if (Array.isArray(part) && part[0] === ' from' && node.alignOffset > 0) {
-        // @ts-expect-error
         const fill = Array.apply(0, Array(node.alignOffset)).fill(' ').join('')
 
         part[0] = `${fill} from` // eslint-disable-line no-param-reassign
@@ -78,7 +82,8 @@ export const preprocess = async (ast: AST): Promise<AST> => {
 
 export const printers: Record<string, Printer> = {
   'typescript-custom': {
-    ...printer,
+    // @ts-expect-error
+    ...estree.default.printers.estree,
     preprocess,
     print,
   },

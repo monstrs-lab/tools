@@ -21,7 +21,7 @@
     "@monstrs/prettier-plugin": "workspace:0.3.13",
     "globby": "^13.2.2",
     "ignore": "^5.3.1",
-    "prettier": "^3.2.5"
+    "prettier": "^3.3.3"
   },
   "devDependencies": {
     "@types/node": "^20.11.26"

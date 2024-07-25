@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 
 import type { Parser }                        from 'prettier'
+import type { ParserOptions }                 from 'prettier'
+import type { Plugin }                        from 'prettier'
 
 import * as babel                             from 'prettier/plugins/babel'
 import * as typescript                        from 'prettier/plugins/typescript'
@@ -8,15 +10,13 @@ import sortPackageJson                        from 'sort-package-json'
 
 import { preprocess as importSortPreprocess } from './import-sort/index.js'
 
-// eslint-disable-next-line @typescript-eslint/no-unnecessary-type-arguments
-const preprocess: Parser<any>['preprocess'] = (source, options): string =>
+const preprocess = (source: string, options: ParserOptions): string =>
   importSortPreprocess(source, options)
 
-const parse: Parser['parse'] = async (source, { plugins }) => {
-  const plugin: any = plugins.find((p: any) => p.parsers?.typescript)
+const parse = async (source: string, options: ParserOptions): Promise<any> => {
+  const plugin = options.plugins.find((p) => (p as Plugin).parsers?.typescript) as Plugin
 
-  const program = plugin.parsers.typescript.parse(source)
-
+  const program = plugin.parsers!.typescript.parse(source, options)
   const bodyLength = program.body.length
 
   const nodes = [...program.body].reverse()

@@ -27,11 +27,9 @@ export class Formatter {
       .add(ignore)
       .filter(files.map((filepath) => relative(this.cwd, filepath)))
 
-    for (const filename of formatFiles) {
-      // eslint-disable-next-line no-await-in-loop
+    for await (const filename of formatFiles) {
       const input = await readFile(filename, 'utf8')
 
-      // eslint-disable-next-line no-await-in-loop
       const output = await format(input, {
         ...config,
         filepath: filename,
@@ -40,7 +38,6 @@ export class Formatter {
       })
 
       if (output !== input && output) {
-        // eslint-disable-next-line no-await-in-loop
         await writeFile(filename, output, 'utf8')
       }
     }

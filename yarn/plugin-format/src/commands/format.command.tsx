@@ -2,12 +2,11 @@ import { BaseCommand }     from '@yarnpkg/cli'
 import { StreamReport }    from '@yarnpkg/core'
 import { MessageName }     from '@yarnpkg/core'
 import { Configuration }   from '@yarnpkg/core'
-import { Project }         from '@yarnpkg/core'
 import { Option }          from 'clipanion'
 import React               from 'react'
 
 import { ErrorInfo }       from '@monstrs/cli-ui-error-info-component'
-import { FormatterWorker } from '@monstrs/code-format-worker'
+import { Formatter }       from '@monstrs/code-format'
 import { SpinnerProgress } from '@monstrs/yarn-run-utils'
 import { renderStatic }    from '@monstrs/cli-ui-renderer'
 
@@ -18,7 +17,6 @@ class FormatCommand extends BaseCommand {
 
   async execute(): Promise<number> {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
-    const { project } = await Project.find(configuration, this.context.cwd)
 
     const commandReport = await StreamReport.start(
       {
@@ -32,7 +30,7 @@ class FormatCommand extends BaseCommand {
           progress.start()
 
           try {
-            await new FormatterWorker(project.cwd).run(this.context.cwd, this.files)
+            await new Formatter(this.context.cwd).format(this.files)
 
             progress.end()
           } catch (error) {
