@@ -28,7 +28,6 @@
     "@monstrs/code-lint": "workspace:0.3.32",
     "@monstrs/code-test-worker": "workspace:0.3.29",
     "@monstrs/code-typescript": "workspace:0.3.30",
-    "@monstrs/code-typescript-worker": "workspace:0.3.30",
     "@monstrs/yarn-plugin-files": "workspace:0.2.1",
     "@monstrs/yarn-run-utils": "workspace:0.2.1",
     "@monstrs/yarn-workspace-utils": "workspace:0.2.1",

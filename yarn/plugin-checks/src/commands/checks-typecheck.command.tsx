@@ -15,7 +15,7 @@ import { ppath }                         from '@yarnpkg/fslib'
 import React                             from 'react'
 
 import { TypeScriptDiagnostic }          from '@monstrs/cli-ui-typescript-diagnostic-component'
-import { TypeScriptWorker }              from '@monstrs/code-typescript-worker'
+import { TypeScript }                    from '@monstrs/code-typescript'
 import { renderStatic }                  from '@monstrs/cli-ui-renderer'
 import { flattenDiagnosticMessageText }  from '@monstrs/code-typescript'
 import { getLineAndCharacterOfPosition } from '@monstrs/code-typescript'
@@ -42,10 +42,9 @@ class ChecksTypeCheckCommand extends BaseCommand {
           const { id: checkId } = await checks.start()
 
           try {
-            const ts = new TypeScriptWorker(project.cwd)
+            const typescript = await TypeScript.initialize(project.cwd)
 
-            const diagnostics = await ts.check(
-              project.cwd,
+            const diagnostics = await typescript.check(
               project.topLevelWorkspace.manifest.workspaceDefinitions.map(
                 (definition) => definition.pattern
               )

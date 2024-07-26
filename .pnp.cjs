@@ -111,10 +111,6 @@ const RAW_RUNTIME_STATE =
       "reference": "workspace:code/code-typescript"\
     },\
     {\
-      "name": "@monstrs/code-typescript-worker",\
-      "reference": "workspace:code/code-typescript-worker"\
-    },\
-    {\
       "name": "@monstrs/code-worker-utils",\
       "reference": "workspace:code/code-worker-utils"\
     },\
@@ -278,7 +274,6 @@ const RAW_RUNTIME_STATE =
     ["@monstrs/code-test", ["virtual:69d3b9d60f876691646ebf707a456665593a6a98e47675268a0ede4753548a768abde878a11f99259e14e138a1b28bfa7667a1e752f93822817ce6bc97f0adc7#workspace:code/code-test", "workspace:code/code-test"]],\
     ["@monstrs/code-test-worker", ["workspace:code/code-test-worker"]],\
     ["@monstrs/code-typescript", ["workspace:code/code-typescript"]],\
-    ["@monstrs/code-typescript-worker", ["workspace:code/code-typescript-worker"]],\
     ["@monstrs/code-worker-utils", ["workspace:code/code-worker-utils"]],\
     ["@monstrs/config-eslint", ["virtual:63c966aaff027770a3c16c69ce06aa6081b3501832ae55bd2ee580dfd2cac8216496c71a79a6b408e3d6e5843e11b50d2069143d7c07a1f10f2331e83a225460#workspace:config/eslint", "workspace:config/eslint"]],\
     ["@monstrs/config-jest", ["virtual:63c966aaff027770a3c16c69ce06aa6081b3501832ae55bd2ee580dfd2cac8216496c71a79a6b408e3d6e5843e11b50d2069143d7c07a1f10f2331e83a225460#workspace:config/jest", "workspace:config/jest"]],\
@@ -2825,29 +2820,6 @@ const RAW_RUNTIME_STATE =
         "linkType": "SOFT"\
       }]\
     ]],\
-    ["@monstrs/code-typescript-worker", [\
-      ["workspace:code/code-typescript-worker", {\
-        "packageLocation": "./code/code-typescript-worker/",\
-        "packageDependencies": [\
-          ["@monstrs/code-typescript-worker", "workspace:code/code-typescript-worker"],\
-          ["@monstrs/code-typescript", "workspace:code/code-typescript"],\
-          ["@monstrs/code-worker-utils", "workspace:code/code-worker-utils"],\
-          ["@rollup/plugin-commonjs", "virtual:c93a6b42c6b4df2372672bc5923cf6c59c6157ab7ae2841c2fff3926b72d9770762293d43cdb85447d98dc038b6cea83e72358cc733357fdd1a0520bcb2e21fb#npm:25.0.7"],\
-          ["@rollup/plugin-json", "virtual:c93a6b42c6b4df2372672bc5923cf6c59c6157ab7ae2841c2fff3926b72d9770762293d43cdb85447d98dc038b6cea83e72358cc733357fdd1a0520bcb2e21fb#npm:6.1.0"],\
-          ["@rollup/plugin-node-resolve", "virtual:c93a6b42c6b4df2372672bc5923cf6c59c6157ab7ae2841c2fff3926b72d9770762293d43cdb85447d98dc038b6cea83e72358cc733357fdd1a0520bcb2e21fb#npm:15.2.3"],\
-          ["esbuild", [\
-            "esbuild-wasm",\
-            "npm:0.23.0"\
-          ]],\
-          ["flatted", "npm:3.3.1"],\
-          ["rollup", "npm:3.29.4"],\
-          ["rollup-plugin-esbuild", "virtual:c93a6b42c6b4df2372672bc5923cf6c59c6157ab7ae2841c2fff3926b72d9770762293d43cdb85447d98dc038b6cea83e72358cc733357fdd1a0520bcb2e21fb#npm:5.0.0"],\
-          ["rollup-plugin-terser", "virtual:c93a6b42c6b4df2372672bc5923cf6c59c6157ab7ae2841c2fff3926b72d9770762293d43cdb85447d98dc038b6cea83e72358cc733357fdd1a0520bcb2e21fb#npm:7.0.2"],\
-          ["typescript", "patch:typescript@npm%3A5.5.3#optional!builtin<compat/typescript>::version=5.5.3&hash=379a07"]\
-        ],\
-        "linkType": "SOFT"\
-      }]\
-    ]],\
     ["@monstrs/code-worker-utils", [\
       ["workspace:code/code-worker-utils", {\
         "packageLocation": "./code/code-worker-utils/",\
@@ -3261,7 +3233,6 @@ const RAW_RUNTIME_STATE =
           ["@monstrs/code-lint", "virtual:84cc809ab3e95c477581c0740c4e8e94087a756992d4cfa31045a766bfb47b89975ff65bcceef416ba90ce651413ccca39711c1ff35dca0c09600b74289c016e#workspace:code/code-lint"],\
           ["@monstrs/code-test-worker", "workspace:code/code-test-worker"],\
           ["@monstrs/code-typescript", "workspace:code/code-typescript"],\
-          ["@monstrs/code-typescript-worker", "workspace:code/code-typescript-worker"],\
           ["@monstrs/tools-runtime", "workspace:runtime/code-runtime"],\
           ["@monstrs/yarn-plugin-files", "virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-files"],\
           ["@monstrs/yarn-run-utils", "workspace:yarn/run-utils"],\
@@ -3305,7 +3276,6 @@ const RAW_RUNTIME_STATE =
           ["@monstrs/code-lint", "virtual:84cc809ab3e95c477581c0740c4e8e94087a756992d4cfa31045a766bfb47b89975ff65bcceef416ba90ce651413ccca39711c1ff35dca0c09600b74289c016e#workspace:code/code-lint"],\
           ["@monstrs/code-test-worker", "workspace:code/code-test-worker"],\
           ["@monstrs/code-typescript", "workspace:code/code-typescript"],\
-          ["@monstrs/code-typescript-worker", "workspace:code/code-typescript-worker"],\
           ["@monstrs/tools-runtime", "workspace:runtime/code-runtime"],\
           ["@monstrs/yarn-plugin-files", "virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-files"],\
           ["@monstrs/yarn-run-utils", "workspace:yarn/run-utils"],\
@@ -3643,7 +3613,7 @@ const RAW_RUNTIME_STATE =
           ["@monstrs/cli-ui-pretty-logs", "workspace:cli/cli-ui-pretty-logs"],\
           ["@monstrs/cli-ui-renderer", "workspace:cli/cli-ui-renderer"],\
           ["@monstrs/cli-ui-typescript-diagnostic-component", "virtual:84cc809ab3e95c477581c0740c4e8e94087a756992d4cfa31045a766bfb47b89975ff65bcceef416ba90ce651413ccca39711c1ff35dca0c09600b74289c016e#workspace:cli/cli-ui-typescript-diagnostic-component"],\
-          ["@monstrs/code-typescript-worker", "workspace:code/code-typescript-worker"],\
+          ["@monstrs/code-typescript", "workspace:code/code-typescript"],\
           ["@monstrs/yarn-run-utils", "workspace:yarn/run-utils"],\
           ["@monstrs/yarn-test-utils", "workspace:yarn/test-utils"],\
           ["@types/react", "npm:18.2.65"],\
@@ -3675,7 +3645,7 @@ const RAW_RUNTIME_STATE =
           ["@monstrs/cli-ui-pretty-logs", "workspace:cli/cli-ui-pretty-logs"],\
           ["@monstrs/cli-ui-renderer", "workspace:cli/cli-ui-renderer"],\
           ["@monstrs/cli-ui-typescript-diagnostic-component", "virtual:84cc809ab3e95c477581c0740c4e8e94087a756992d4cfa31045a766bfb47b89975ff65bcceef416ba90ce651413ccca39711c1ff35dca0c09600b74289c016e#workspace:cli/cli-ui-typescript-diagnostic-component"],\
-          ["@monstrs/code-typescript-worker", "workspace:code/code-typescript-worker"],\
+          ["@monstrs/code-typescript", "workspace:code/code-typescript"],\
           ["@monstrs/yarn-run-utils", "workspace:yarn/run-utils"],\
           ["@monstrs/yarn-test-utils", "workspace:yarn/test-utils"],\
           ["@types/react", "npm:18.2.65"],\
@@ -3954,7 +3924,7 @@ const RAW_RUNTIME_STATE =
           ["@monstrs/cli-ui-error-info-component", "virtual:44e1a101bd192c959a8a8b727c7f7d7852845c36d68b15e561d3419e6534ac05bdaf94cb6725106198bfdfd6466a52d13581ac5c3c6dc6ed2a751f5ca1a7d2ec#workspace:cli/cli-ui-error-info-component"],\
           ["@monstrs/cli-ui-renderer", "workspace:cli/cli-ui-renderer"],\
           ["@monstrs/cli-ui-typescript-diagnostic-component", "virtual:84cc809ab3e95c477581c0740c4e8e94087a756992d4cfa31045a766bfb47b89975ff65bcceef416ba90ce651413ccca39711c1ff35dca0c09600b74289c016e#workspace:cli/cli-ui-typescript-diagnostic-component"],\
-          ["@monstrs/code-typescript-worker", "workspace:code/code-typescript-worker"],\
+          ["@monstrs/code-typescript", "workspace:code/code-typescript"],\
           ["@monstrs/tools-runtime", "workspace:runtime/code-runtime"],\
           ["@monstrs/yarn-run-utils", "workspace:yarn/run-utils"],\
           ["@monstrs/yarn-test-utils", "workspace:yarn/test-utils"],\
@@ -3986,7 +3956,7 @@ const RAW_RUNTIME_STATE =
           ["@monstrs/cli-ui-error-info-component", "virtual:44e1a101bd192c959a8a8b727c7f7d7852845c36d68b15e561d3419e6534ac05bdaf94cb6725106198bfdfd6466a52d13581ac5c3c6dc6ed2a751f5ca1a7d2ec#workspace:cli/cli-ui-error-info-component"],\
           ["@monstrs/cli-ui-renderer", "workspace:cli/cli-ui-renderer"],\
           ["@monstrs/cli-ui-typescript-diagnostic-component", "virtual:84cc809ab3e95c477581c0740c4e8e94087a756992d4cfa31045a766bfb47b89975ff65bcceef416ba90ce651413ccca39711c1ff35dca0c09600b74289c016e#workspace:cli/cli-ui-typescript-diagnostic-component"],\
-          ["@monstrs/code-typescript-worker", "workspace:code/code-typescript-worker"],\
+          ["@monstrs/code-typescript", "workspace:code/code-typescript"],\
           ["@monstrs/tools-runtime", "workspace:runtime/code-runtime"],\
           ["@monstrs/yarn-run-utils", "workspace:yarn/run-utils"],\
           ["@monstrs/yarn-test-utils", "workspace:yarn/test-utils"],\

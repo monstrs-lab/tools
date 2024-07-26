@@ -11,7 +11,7 @@ import React                    from 'react'
 
 import { ErrorInfo }            from '@monstrs/cli-ui-error-info-component'
 import { TypeScriptDiagnostic } from '@monstrs/cli-ui-typescript-diagnostic-component'
-import { TypeScriptWorker }     from '@monstrs/code-typescript-worker'
+import { TypeScript }           from '@monstrs/code-typescript'
 import { SpinnerProgress }      from '@monstrs/yarn-run-utils'
 import { renderStatic }         from '@monstrs/cli-ui-renderer'
 
@@ -41,17 +41,13 @@ class LibraryBuildCommand extends BaseCommand {
           progress.start()
 
           try {
-            const ts = new TypeScriptWorker(configuration.projectCwd!)
+            const typescript = await TypeScript.initialize(configuration.projectCwd!)
 
-            const diagnostics = await ts.build(
-              this.context.cwd,
-              [join(this.context.cwd, './src')],
-              {
-                outDir: join(this.context.cwd, this.target),
-                module: this.module,
-                declaration: true,
-              }
-            )
+            const diagnostics = await typescript.build([join(this.context.cwd, './src')], {
+              outDir: join(this.context.cwd, this.target),
+              module: this.module,
+              declaration: true,
+            })
 
             progress.end()
 

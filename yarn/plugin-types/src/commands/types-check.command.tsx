@@ -8,7 +8,7 @@ import React                    from 'react'
 
 import { ErrorInfo }            from '@monstrs/cli-ui-error-info-component'
 import { TypeScriptDiagnostic } from '@monstrs/cli-ui-typescript-diagnostic-component'
-import { TypeScriptWorker }     from '@monstrs/code-typescript-worker'
+import { TypeScript }           from '@monstrs/code-typescript'
 import { SpinnerProgress }      from '@monstrs/yarn-run-utils'
 import { renderStatic }         from '@monstrs/cli-ui-renderer'
 
@@ -33,10 +33,9 @@ export class TypesCheckCommand extends BaseCommand {
           progress.start()
 
           try {
-            const ts = new TypeScriptWorker(project.cwd)
+            const typescript = await TypeScript.initialize(project.cwd)
 
-            const diagnostics = await ts.check(
-              this.context.cwd,
+            const diagnostics = await typescript.check(
               this.args.length > 0
                 ? this.args
                 : project.topLevelWorkspace.manifest.workspaceDefinitions.map(
