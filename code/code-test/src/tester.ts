@@ -1,16 +1,25 @@
 import type { AggregatedResult } from '@jest/test-result'
 import type { Config }           from '@jest/types'
+import type { runCLI }           from '@monstrs/tools-runtime/jest'
 
 import { constants }             from 'node:fs'
 import { access }                from 'node:fs/promises'
 import { join }                  from 'node:path'
 
-import { runCLI }                from '@monstrs/tools-runtime/jest'
 import { integration }           from '@monstrs/tools-runtime/jest'
 import { unit }                  from '@monstrs/tools-runtime/jest'
 
 export class Tester {
-  constructor(private readonly cwd: string) {}
+  protected constructor(
+    private readonly run: typeof runCLI,
+    private readonly cwd: string
+  ) {}
+
+  static async initialize(cwd: string): Promise<Tester> {
+    const { runCLI } = await import('@monstrs/tools-runtime/jest')
+
+    return new Tester(runCLI, cwd)
+  }
 
   async unit(options?: Partial<Config.Argv>, files?: Array<string>): Promise<AggregatedResult> {
     process.env.TS_JEST_DISABLE_VER_CHECKER = 'true'
@@ -45,7 +54,7 @@ export class Tester {
       ...options,
     }
 
-    const { results } = await runCLI(argv, [this.cwd])
+    const { results } = await this.run(argv, [this.cwd])
 
     return results
   }
@@ -86,7 +95,7 @@ export class Tester {
       ...options,
     }
 
-    const { results } = await runCLI(argv, [this.cwd])
+    const { results } = await this.run(argv, [this.cwd])
 
     return results
   }

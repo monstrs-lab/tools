@@ -4,7 +4,7 @@ import { StreamReport }        from '@yarnpkg/core'
 import { Configuration }       from '@yarnpkg/core'
 import { Project }             from '@yarnpkg/core'
 
-import { TesterWorker }        from '@monstrs/code-test-worker'
+import { Tester }              from '@monstrs/code-test'
 
 import { AbstractTestCommand } from './abstract-test.command.jsx'
 
@@ -40,9 +40,9 @@ class TestUnitCommand extends AbstractTestCommand {
       async () => {
         this.wrapOutput()
 
-        await new TesterWorker(project.cwd).run(
-          this.context.cwd,
-          'unit',
+        const tester = await Tester.initialize(project.cwd)
+
+        await tester.unit(
           {
             findRelatedTests: this.findRelatedTests,
             updateSnapshot: this.updateSnapshot,
