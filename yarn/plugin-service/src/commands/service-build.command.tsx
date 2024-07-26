@@ -1,8 +1,7 @@
 import { Configuration }          from '@yarnpkg/core'
 import { StreamReport }           from '@yarnpkg/core'
-import { Project }                from '@yarnpkg/core'
 
-import { ServiceWorker }          from '@monstrs/code-service-worker'
+import { Service }                from '@monstrs/code-service'
 import { SpinnerProgress }        from '@monstrs/yarn-run-utils'
 
 import { AbstractServiceCommand } from './abstract-service.command.jsx'
@@ -12,7 +11,6 @@ class ServiceBuildCommand extends AbstractServiceCommand {
 
   async execute(): Promise<number> {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
-    const { project } = await Project.find(configuration, this.context.cwd)
 
     const commandReport = await StreamReport.start(
       {
@@ -26,7 +24,9 @@ class ServiceBuildCommand extends AbstractServiceCommand {
           try {
             progress.start()
 
-            const logRecords = await new ServiceWorker(project.cwd).run(this.context.cwd)
+            const service = await Service.initialize(this.context.cwd)
+
+            const logRecords = await service.build()
 
             progress.end()
 

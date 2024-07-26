@@ -1,18 +1,17 @@
-import type { ESLint }                     from '@monstrs/tools-runtime/eslint'
-
+import type { ESLint }             from '@monstrs/tools-runtime/eslint'
 import type { Linter as ESLinter } from '@monstrs/tools-runtime/eslint'
 
-import { readFile }                        from 'node:fs/promises'
-import { writeFile }                       from 'node:fs/promises'
-import { relative }                        from 'node:path'
-import { join }                            from 'node:path'
+import { readFile }                from 'node:fs/promises'
+import { writeFile }               from 'node:fs/promises'
+import { relative }                from 'node:path'
+import { join }                    from 'node:path'
 
-import { globby }                          from 'globby'
-import ignorer                             from 'ignore'
+import { globby }                  from 'globby'
+import ignorer                     from 'ignore'
 
-import { ignore }                          from './linter.patterns.js'
-import { createPatterns }                  from './linter.patterns.js'
-import { createLintResult }                from './linter.utils.js'
+import { ignore }                  from './linter.patterns.js'
+import { createPatterns }          from './linter.patterns.js'
+import { createLintResult }        from './linter.utils.js'
 
 export interface LintOptions {
   fix?: boolean

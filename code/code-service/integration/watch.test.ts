@@ -21,9 +21,12 @@ const closeWatcher = async (watcher: webpack.Watching): Promise<void> =>
 describe('service', () => {
   describe('watch', () => {
     it('simple', async () => {
-      const watcher: webpack.Watching = await new Service(
+      const service = await Service.initialize(
         join(fileURLToPath(new URL('.', import.meta.url)), 'fixtures/simple')
-      ).watch(() => {}) // eslint-disable-line @typescript-eslint/no-empty-function
+      )
+
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      const watcher: webpack.Watching = await service.watch(() => {})
 
       await closeWatcher(watcher)
 

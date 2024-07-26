@@ -1,3 +1,5 @@
+import type { webpack as wp }    from '@monstrs/tools-runtime/webpack'
+
 import type { ServiceLogRecord } from './service.interfaces.js'
 
 import { PassThrough }           from 'node:stream'
@@ -5,17 +7,25 @@ import { PassThrough }           from 'node:stream'
 import { SeverityNumber }        from '@monstrs/logger'
 
 import { StartServerPlugin }     from '@monstrs/webpack-start-server-plugin'
-import { webpack }               from '@monstrs/tools-runtime/webpack'
 
 import { WebpackConfig }         from './webpack.config.js'
 
 export class Service {
-  constructor(private readonly cwd: string) {}
+  protected constructor(
+    private readonly webpack: typeof wp,
+    private readonly cwd: string
+  ) {}
+
+  static async initialize(cwd: string): Promise<Service> {
+    const { webpack } = await import('@monstrs/tools-runtime/webpack')
+
+    return new Service(webpack, cwd)
+  }
 
   async build(): Promise<Array<ServiceLogRecord>> {
     const config = new WebpackConfig(this.cwd)
 
-    const compiler = webpack(await config.build())
+    const compiler = this.webpack(await config.build())
 
     return new Promise((resolve, reject) => {
       compiler.run((error, stats) => {
@@ -39,7 +49,7 @@ export class Service {
     })
   }
 
-  async watch(callback: (logRecord: ServiceLogRecord) => void): Promise<webpack.Watching> {
+  async watch(callback: (logRecord: ServiceLogRecord) => void): Promise<wp.Watching> {
     const config = new WebpackConfig(this.cwd)
 
     const pass = new PassThrough()
@@ -58,7 +68,7 @@ export class Service {
         })
     })
 
-    return webpack(
+    return this.webpack(
       await config.build('development', [
         {
           name: 'start-server',

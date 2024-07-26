@@ -19,9 +19,11 @@ describe('icons', () => {
     })
 
     it('generate', async () => {
-      await new Icons(
+      const icons = await Icons.initialize(
         join(fileURLToPath(new URL('.', import.meta.url)), 'fixtures/simple')
-      ).generate()
+      )
+
+      await icons.generate()
 
       await expect(
         readFile(

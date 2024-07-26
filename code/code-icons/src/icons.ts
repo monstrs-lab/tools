@@ -1,23 +1,22 @@
-import type { Config }   from '@monstrs/tools-runtime/svgr'
+import type { Config }                     from '@monstrs/tools-runtime/svgr'
+import type { transform as svgrTransform } from '@monstrs/tools-runtime/svgr'
+import type { jsx as svgrJsx }             from '@monstrs/tools-runtime/svgr'
+import type { webpack as wp }              from '@monstrs/tools-runtime/webpack'
 
-import { access }        from 'node:fs/promises'
-import { mkdtemp }       from 'node:fs/promises'
-import { readFile }      from 'node:fs/promises'
-import { readdir }       from 'node:fs/promises'
-import { writeFile }     from 'node:fs/promises'
-import { mkdir }         from 'node:fs/promises'
-import { tmpdir }        from 'node:os'
-import { join }          from 'node:path'
-import { basename }      from 'node:path'
-import { extname }       from 'node:path'
+import { access }                          from 'node:fs/promises'
+import { mkdtemp }                         from 'node:fs/promises'
+import { readFile }                        from 'node:fs/promises'
+import { readdir }                         from 'node:fs/promises'
+import { writeFile }                       from 'node:fs/promises'
+import { mkdir }                           from 'node:fs/promises'
+import { tmpdir }                          from 'node:os'
+import { join }                            from 'node:path'
+import { basename }                        from 'node:path'
+import { extname }                         from 'node:path'
 
-import camelcase         from 'camelcase'
+import camelcase                           from 'camelcase'
 
-import { transform }     from '@monstrs/tools-runtime/svgr'
-import { jsx }           from '@monstrs/tools-runtime/svgr'
-import { webpack }       from '@monstrs/tools-runtime/webpack'
-
-import { WebpackConfig } from './webpack.config.js'
+import { WebpackConfig }                   from './webpack.config.js'
 
 interface IconSource {
   source: string
@@ -31,7 +30,18 @@ interface IconOutput extends IconSource {
 }
 
 export class Icons {
-  constructor(private readonly cwd: string) {}
+  protected constructor(
+    private readonly svgr: { transform: typeof svgrTransform; jsx: typeof svgrJsx },
+    private readonly webpack: typeof wp,
+    private readonly cwd: string
+  ) {}
+
+  static async initialize(cwd: string): Promise<Icons> {
+    const { transform, jsx } = await import('@monstrs/tools-runtime/svgr')
+    const { webpack } = await import('@monstrs/tools-runtime/webpack')
+
+    return new Icons({ transform, jsx }, webpack, cwd)
+  }
 
   async generate(): Promise<void> {
     await this.save(await this.transform(await this.read(join(this.cwd, 'icons'))))
@@ -43,7 +53,7 @@ export class Icons {
   }> {
     const target = await mkdtemp(join(tmpdir(), 'tools-icons-'))
 
-    const compiler = webpack(await new WebpackConfig(this.cwd, target).build())
+    const compiler = this.webpack(await new WebpackConfig(this.cwd, target).build())
 
     await new Promise((resolve, reject) => {
       compiler.run((error) => {
@@ -82,7 +92,7 @@ export class Icons {
 
     return Promise.all(
       icons.map(async (icon) => {
-        const output: string = await transform(
+        const output: string = await this.svgr.transform(
           icon.source,
           {
             icon: true,
@@ -95,7 +105,7 @@ export class Icons {
             componentName: `${icon.component}Icon`,
             caller: {
               name: '@monstrs/code-icons',
-              defaultPlugins: [jsx as any],
+              defaultPlugins: [this.svgr.jsx as any],
             },
           }
         )

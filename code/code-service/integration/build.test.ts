@@ -10,9 +10,11 @@ import { Service }       from '../src/index.js'
 describe('service', () => {
   describe('build', () => {
     it('simple', async () => {
-      const logRecords = await new Service(
+      const service = await Service.initialize(
         join(fileURLToPath(new URL('.', import.meta.url)), 'fixtures/simple')
-      ).build()
+      )
+
+      const logRecords = await service.build()
 
       expect(logRecords).toEqual([])
     })
