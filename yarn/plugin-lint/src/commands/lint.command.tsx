@@ -8,7 +8,7 @@ import React               from 'react'
 
 import { ErrorInfo }       from '@monstrs/cli-ui-error-info-component'
 import { ESLintResult }    from '@monstrs/cli-ui-eslint-result-component'
-import { LinterWorker }    from '@monstrs/code-lint-worker'
+import { Linter }          from '@monstrs/code-lint'
 import { SpinnerProgress } from '@monstrs/yarn-run-utils'
 import { renderStatic }    from '@monstrs/cli-ui-renderer'
 
@@ -35,7 +35,9 @@ class LintCommand extends BaseCommand {
           progress.start()
 
           try {
-            const results = await new LinterWorker(project.cwd).run(this.context.cwd, this.files, {
+            const linter = await Linter.initialize(project.cwd, this.context.cwd)
+
+            const results = await linter.lint(this.files, {
               fix: this.fix,
             })
 

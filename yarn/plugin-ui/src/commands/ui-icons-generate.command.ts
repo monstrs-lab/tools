@@ -6,7 +6,7 @@ import { MessageName }     from '@yarnpkg/core'
 
 import { Formatter }       from '@monstrs/code-format'
 import { IconsWorker }     from '@monstrs/code-icons-worker'
-import { LinterWorker }    from '@monstrs/code-lint-worker'
+import { Linter }          from '@monstrs/code-lint'
 import { SpinnerProgress } from '@monstrs/yarn-run-utils'
 
 export class UiIconsGenerateCommand extends BaseCommand {
@@ -28,11 +28,11 @@ export class UiIconsGenerateCommand extends BaseCommand {
           progress.start()
 
           try {
+            const linter = await Linter.initialize(project.cwd, this.context.cwd)
+
             await new IconsWorker(project.cwd).run(this.context.cwd)
             await new Formatter(this.context.cwd).format([])
-            await new LinterWorker(project.cwd).run(this.context.cwd, [], {
-              fix: true,
-            })
+            await linter.lint([], { fix: true })
 
             progress.end()
           } catch (error) {

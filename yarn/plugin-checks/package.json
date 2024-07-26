@@ -25,7 +25,7 @@
     "@monstrs/cli-ui-eslint-result-component": "workspace:0.3.10",
     "@monstrs/cli-ui-renderer": "workspace:0.3.8",
     "@monstrs/cli-ui-typescript-diagnostic-component": "workspace:0.3.30",
-    "@monstrs/code-lint-worker": "workspace:0.3.32",
+    "@monstrs/code-lint": "workspace:0.3.32",
     "@monstrs/code-test-worker": "workspace:0.3.29",
     "@monstrs/code-typescript": "workspace:0.3.30",
     "@monstrs/code-typescript-worker": "workspace:0.3.30",

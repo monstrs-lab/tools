@@ -30,7 +30,7 @@
     "@monstrs/config-jest": "workspace:0.3.16",
     "@svgr/core": "^8.1.0",
     "@svgr/plugin-jsx": "^8.1.0",
-    "eslint": "^8.57.0",
+    "eslint": "^9.7.0",
     "node-loader": "^2.0.0",
     "null-loader": "^4.0.1",
     "ts-loader": "^9.5.1",
@@ -38,7 +38,7 @@
     "webpack": "^5.90.3"
   },
   "devDependencies": {
-    "@types/eslint": "^8.56.5",
+    "@types/eslint": "^9.6.0",
     "@types/node": "^20.11.26"
   },
   "publishConfig": {

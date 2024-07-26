@@ -1,12 +1,9 @@
 import type { Linter }        from 'eslint'
 
-// @ts-expect-error
-import nextjsPlugin           from '@next/eslint-plugin-next'
 import typescriptEslintPlugin from '@typescript-eslint/eslint-plugin'
 import parser                 from '@typescript-eslint/parser'
 // @ts-expect-error
 import jsxA11yPlugin          from 'eslint-plugin-jsx-a11y'
-// @ts-expect-error
 import nodePlugin             from 'eslint-plugin-n'
 // @ts-expect-error
 import reactPlugin            from 'eslint-plugin-react'
@@ -17,7 +14,6 @@ import securityPlugin         from 'eslint-plugin-security'
 
 import { typescript }         from './rules/index.js'
 import { security }           from './rules/index.js'
-import { nextjs }             from './rules/index.js'
 import { react }              from './rules/index.js'
 import { node }               from './rules/index.js'
 import { base }               from './rules/index.js'
@@ -28,7 +24,7 @@ const config: Array<Linter.FlatConfig> = [
     rules: {
       ...typescript,
       ...security,
-      ...nextjs,
+      // ...nextjs,
       ...react,
       ...node,
       ...base,
@@ -38,7 +34,7 @@ const config: Array<Linter.FlatConfig> = [
       // @ts-expect-error
       '@typescript-eslint': typescriptEslintPlugin,
       'react-hooks': reactHooksPlugin,
-      '@next/next': nextjsPlugin,
+      // '@next/next': nextjsPlugin,
       'jsx-a11y': jsxA11yPlugin,
       n: nodePlugin,
       security: securityPlugin,
