@@ -33,14 +33,22 @@ export class Icons {
   protected constructor(
     private readonly svgr: { transform: typeof svgrTransform; jsx: typeof svgrJsx },
     private readonly webpack: typeof wp,
+    private readonly loaders: { tsLoader: string },
     private readonly cwd: string
   ) {}
 
   static async initialize(cwd: string): Promise<Icons> {
     const { transform, jsx } = await import('@monstrs/tools-runtime/svgr')
-    const { webpack } = await import('@monstrs/tools-runtime/webpack')
+    const { webpack, tsLoaderPath } = await import('@monstrs/tools-runtime/webpack')
 
-    return new Icons({ transform, jsx }, webpack, cwd)
+    return new Icons(
+      { transform, jsx },
+      webpack,
+      {
+        tsLoader: tsLoaderPath,
+      },
+      cwd
+    )
   }
 
   async generate(): Promise<void> {
@@ -53,7 +61,7 @@ export class Icons {
   }> {
     const target = await mkdtemp(join(tmpdir(), 'tools-icons-'))
 
-    const compiler = this.webpack(await new WebpackConfig(this.cwd, target).build())
+    const compiler = this.webpack(await new WebpackConfig(this.loaders, this.cwd, target).build())
 
     await new Promise((resolve, reject) => {
       compiler.run((error) => {

@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import { ts } from '@monstrs/tools-runtime/typescript'
+import type { ts } from '@monstrs/tools-runtime/typescript'
 
 export const flattenDiagnosticMessageText = (
   diag: string | ts.DiagnosticMessageChain,

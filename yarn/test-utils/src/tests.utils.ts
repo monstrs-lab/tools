@@ -1,3 +1,5 @@
+import type { PortablePath } from '@yarnpkg/fslib'
+
 import { createRequire }     from 'node:module'
 import { delimiter }         from 'node:path'
 import { join }              from 'node:path'
@@ -5,6 +7,8 @@ import { fileURLToPath }     from 'node:url'
 
 import { WorkspaceResolver } from '@yarnpkg/core'
 import { npath }             from '@yarnpkg/fslib'
+import { ppath }             from '@yarnpkg/fslib'
+import { xfs }               from '@yarnpkg/fslib'
 import { tests }             from 'pkg-tests-core'
 import { exec }              from 'pkg-tests-core'
 
@@ -32,10 +36,19 @@ const mte = generatePkgDriver({
     const cwdArgs = typeof projectFolder !== `undefined` ? [projectFolder] : []
 
     const yarnBinary = require.resolve(
-      join(fileURLToPath(new URL('.', import.meta.url)), '../../cli/dist/yarn.cjs')
+      join(fileURLToPath(new URL('.', import.meta.url)), '../../cli/dist/yarn.mjs')
     )
 
-    const res = await execFile(process.execPath, [yarnBinary, ...cwdArgs, command, ...args], {
+    const localYarnBinary = ppath.join(
+      npath.toPortablePath(nativePath),
+      '.yarn/releases',
+      'yarn.mjs'
+    )
+
+    await xfs.mkdirPromise(ppath.dirname(localYarnBinary), { recursive: true })
+    await xfs.copyFilePromise(yarnBinary as PortablePath, localYarnBinary)
+
+    const res = await execFile(process.execPath, [localYarnBinary, ...cwdArgs, command, ...args], {
       cwd: cwd || path,
       env: {
         [`HOME`]: nativeHomePath,

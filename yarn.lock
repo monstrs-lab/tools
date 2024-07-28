@@ -1718,9 +1718,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@monstrs/tools-runtime@workspace:0.2.24, @monstrs/tools-runtime@workspace:runtime/code-runtime":
+"@monstrs/tools-runtime@workspace:0.2.24, @monstrs/tools-runtime@workspace:runtime/tools-runtime":
   version: 0.0.0-use.local
-  resolution: "@monstrs/tools-runtime@workspace:runtime/code-runtime"
+  resolution: "@monstrs/tools-runtime@workspace:runtime/tools-runtime"
   dependencies:
     "@jest/core": "npm:^29.7.0"
     "@monstrs/config-eslint": "workspace:0.3.14"
@@ -2259,6 +2259,7 @@ __metadata:
     "@yarnpkg/builder": "npm:^4.1.1"
     "@yarnpkg/cli": "npm:^4.3.1"
     "@yarnpkg/core": "npm:^4.1.1"
+    "@yarnpkg/fslib": "npm:^3.1.0"
     clipanion: "npm:^4.0.0-rc.3"
   peerDependencies:
     "@yarnpkg/cli": ^4
@@ -3576,7 +3577,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@yarnpkg/builder@npm:^4.1.1":
+"@yarnpkg/builder@npm:4.1.1":
   version: 4.1.1
   resolution: "@yarnpkg/builder@npm:4.1.1"
   dependencies:
@@ -3591,6 +3592,24 @@ __metadata:
   bin:
     builder: ./lib/cli.js
   checksum: 10/cf20cc479adf59416be4dcd184b6679e5bfb6f811c63557a70353e9b273c6dafeacca4ae5fa480fec432ba5edce65d400962108fcbbc01609c8bcf87f4ce5bd3
+  languageName: node
+  linkType: hard
+
+"@yarnpkg/builder@patch:@yarnpkg/builder@npm%3A4.1.1#~/.yarn/patches/@yarnpkg-builder-npm-4.1.1-abb47d5979.patch":
+  version: 4.1.1
+  resolution: "@yarnpkg/builder@patch:@yarnpkg/builder@npm%3A4.1.1#~/.yarn/patches/@yarnpkg-builder-npm-4.1.1-abb47d5979.patch::version=4.1.1&hash=cb6aff"
+  dependencies:
+    "@yarnpkg/cli": "npm:^4.2.1"
+    "@yarnpkg/core": "npm:^4.0.5"
+    "@yarnpkg/fslib": "npm:^3.0.2"
+    chalk: "npm:^3.0.0"
+    clipanion: "npm:^4.0.0-rc.2"
+    esbuild: "npm:esbuild-wasm@^0.15.15"
+    semver: "npm:^7.1.2"
+    tslib: "npm:^2.4.0"
+  bin:
+    builder: ./lib/cli.js
+  checksum: 10/4e9de13cb04819019b02415cf5451357643050fa9b3b0738d8d5fb9e3b54df31a915bee85c7065853cb6d936b8ae4b7fd189c1c1d6240640bac1da8d58c98772
   languageName: node
   linkType: hard
 
@@ -12147,12 +12166,9 @@ pem@dexus/pem:
   dependencies:
     "@monstrs/tools-runtime": "workspace:0.2.24"
     "@types/node": "npm:^20.11.26"
-    "@yarnpkg/builder": "npm:^4.1.1"
+    "@yarnpkg/builder": "patch:@yarnpkg/builder@npm%3A4.1.1#~/.yarn/patches/@yarnpkg-builder-npm-4.1.1-abb47d5979.patch"
     esbuild: "npm:esbuild-wasm@^0.23.0"
     typescript: "npm:^5.5.3"
-  dependenciesMeta:
-    "@yarnpkg/builder@4.1.1":
-      unplugged: true
   languageName: unknown
   linkType: soft
 

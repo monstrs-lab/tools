@@ -10,7 +10,7 @@ export abstract class AbstractTestCommand extends BaseCommand {
 
   updateSnapshot = Option.Boolean('-u,--update-shapshot', false)
 
-  findRelatedTests = Option.Boolean('--find-related-tests', false)
+  findRelatedTests = Option.Boolean('-f,--find-related-tests', false)
 
   files: Array<string> = Option.Rest({ required: 0 })
 

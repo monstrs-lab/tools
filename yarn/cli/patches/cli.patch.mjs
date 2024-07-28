@@ -16,9 +16,13 @@ const replacements = [
     from: ',q=Y1t.simplifyRanges(w),',
     to: ';let q; try{q=Y1t.simplifyRanges(w)}catch{};let ',
   },
+  {
+    from: '}.cjs`),',
+    to: '}.mjs`),',
+  },
 ]
 
-const bundle = join(fileURLToPath(new URL('.', import.meta.url)), '../bundles/yarn.cjs')
+const bundle = join(fileURLToPath(new URL('.', import.meta.url)), '../bundles/yarn.mjs')
 const content = await readFile(bundle, 'utf-8')
 
 const patched = replacements.reduce(

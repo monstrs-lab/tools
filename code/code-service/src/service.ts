@@ -13,19 +13,29 @@ import { WebpackConfig }         from './webpack.config.js'
 export class Service {
   protected constructor(
     private readonly webpack: typeof wp,
-    private readonly cwd: string
+    private readonly config: WebpackConfig
   ) {}
 
   static async initialize(cwd: string): Promise<Service> {
-    const { webpack } = await import('@monstrs/tools-runtime/webpack')
+    const { webpack, nullLoaderPath, tsLoaderPath, nodeLoaderPath } = await import(
+      '@monstrs/tools-runtime/webpack'
+    )
 
-    return new Service(webpack, cwd)
+    const config = new WebpackConfig(
+      webpack,
+      {
+        nodeLoader: nodeLoaderPath,
+        nullLoader: nullLoaderPath,
+        tsLoader: tsLoaderPath,
+      },
+      cwd
+    )
+
+    return new Service(webpack, config)
   }
 
   async build(): Promise<Array<ServiceLogRecord>> {
-    const config = new WebpackConfig(this.cwd)
-
-    const compiler = this.webpack(await config.build())
+    const compiler = this.webpack(await this.config.build())
 
     return new Promise((resolve, reject) => {
       compiler.run((error, stats) => {
@@ -50,8 +60,6 @@ export class Service {
   }
 
   async watch(callback: (logRecord: ServiceLogRecord) => void): Promise<wp.Watching> {
-    const config = new WebpackConfig(this.cwd)
-
     const pass = new PassThrough()
 
     pass.on('data', (chunk: Buffer) => {
@@ -69,7 +77,7 @@ export class Service {
     })
 
     return this.webpack(
-      await config.build('development', [
+      await this.config.build('development', [
         {
           name: 'start-server',
           use: StartServerPlugin,

@@ -5,8 +5,6 @@ import { StreamReport }  from '@yarnpkg/core'
 import { structUtils }   from '@yarnpkg/core'
 import semver            from 'semver'
 
-import runtime           from '@monstrs/tools-runtime/package.json' with { type: 'json' }
-
 export class ToolsSyncRuntimeCommand extends BaseCommand {
   static override paths = [['tools', 'sync', 'runtime']]
 
@@ -21,6 +19,8 @@ export class ToolsSyncRuntimeCommand extends BaseCommand {
       },
       async (report) => {
         await report.startTimerPromise('Tools sync runtime version', async () => {
+          const runtime = (await import('@monstrs/tools-runtime/package.json')).default
+
           if (project.topLevelWorkspace.manifest.raw.devDependencies) {
             const ident = structUtils.parseIdent(runtime.name)
 

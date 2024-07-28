@@ -13,17 +13,11 @@
     "cli/*"
   ],
   "scripts": {
-    "cli:build": "yarn worker:build && yarn workspace @monstrs/yarn-cli build",
-    "worker:build": "yarn worker:format:build && yarn worker:lint:build && yarn worker:service:build && yarn worker:test:build && yarn worker:typescript:build && yarn worker:icons:build",
-    "worker:format:build": "yarn workspace @monstrs/code-format-worker build:worker",
-    "worker:icons:build": "yarn workspace @monstrs/code-icons-worker build:worker",
-    "worker:lint:build": "yarn workspace @monstrs/code-lint-worker build:worker",
-    "worker:service:build": "yarn workspace @monstrs/code-service-worker build:worker",
-    "worker:test:build": "yarn workspace @monstrs/code-test-worker build:worker",
-    "worker:typescript:build": "yarn workspace @monstrs/code-typescript-worker build:worker",
+    "cli:build": "yarn workspace @monstrs/yarn-cli build",
     "yarn:download": "yarn workspace @monstrs/yarn-plugin-pnp-patch yarn:download && yarn workspace @monstrs/yarn-test-utils yarn:download"
   },
   "resolutions": {
+    "@yarnpkg/builder": "patch:@yarnpkg/builder@npm%3A4.1.1#~/.yarn/patches/@yarnpkg-builder-npm-4.1.1-abb47d5979.patch",
     "@yarnpkg/core@^4.0.0-rc.45": "patch:@yarnpkg/core@npm%3A4.0.0-rc.43#./.yarn/patches/@yarnpkg-core-npm-4.0.0-rc.42-029d9f8b24.patch",
     "@yarnpkg/fslib": "3.0.1",
     "clipanion": "4.0.0-rc.2",
@@ -36,14 +30,9 @@
   "devDependencies": {
     "@monstrs/tools-runtime": "workspace:0.2.24",
     "@types/node": "^20.11.26",
-    "@yarnpkg/builder": "^4.1.1",
+    "@yarnpkg/builder": "patch:@yarnpkg/builder@npm%3A4.1.1#~/.yarn/patches/@yarnpkg-builder-npm-4.1.1-abb47d5979.patch",
     "esbuild": "npm:esbuild-wasm@^0.23.0",
     "typescript": "^5.5.3"
-  },
-  "dependenciesMeta": {
-    "@yarnpkg/builder@4.1.1": {
-      "unplugged": true
-    }
   },
   "packageManager": "yarn@3.1.0",
   "tools": {

@@ -1,10 +1,10 @@
-import type { ts as typescript }     from '@monstrs/tools-runtime/typescript'
+import type { ts as typescript }           from '@monstrs/tools-runtime/typescript'
 
-import deepmerge                     from 'deepmerge'
+import deepmerge                           from 'deepmerge'
 
-import tsconfig                      from '@monstrs/config-typescript'
+import tsconfig                            from '@monstrs/config-typescript'
 
-import { transformJsxToJsExtension } from './transformers/index.js'
+import { createTransformJsxToJsExtension } from './transformers/index.js'
 
 class TypeScript {
   protected constructor(
@@ -55,7 +55,7 @@ class TypeScript {
     })
 
     const result = program.emit(undefined, undefined, undefined, undefined, {
-      after: [transformJsxToJsExtension],
+      after: [createTransformJsxToJsExtension(this.ts)],
     })
 
     return this.filterDiagnostics(this.ts.getPreEmitDiagnostics(program).concat(result.diagnostics))

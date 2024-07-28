@@ -1,6 +1,10 @@
 import { StreamReport }              from '@yarnpkg/core'
 import { Configuration }             from '@yarnpkg/core'
 import { Project }                   from '@yarnpkg/core'
+import { Filename }                  from '@yarnpkg/fslib'
+import { execUtils }                 from '@yarnpkg/core'
+import { scriptUtils }               from '@yarnpkg/core'
+import { xfs }                       from '@yarnpkg/fslib'
 
 import { Tester }                    from '@monstrs/code-test'
 
@@ -10,7 +14,34 @@ import { AbstractChecksTestCommand } from './abstract-checks-test.command.js'
 class ChecksTestIntegrationCommand extends AbstractChecksTestCommand {
   static override paths = [['checks', 'test', 'integration']]
 
-  async execute(): Promise<number> {
+  override async execute(): Promise<number> {
+    const nodeOptions = process.env.NODE_OPTIONS ?? ''
+
+    if (nodeOptions.includes(Filename.pnpCjs) && nodeOptions.includes(Filename.pnpEsmLoader)) {
+      return this.executeRegular()
+    }
+
+    return this.executeProxy()
+  }
+
+  async executeProxy(): Promise<number> {
+    const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
+    const { project } = await Project.find(configuration, this.context.cwd)
+
+    const binFolder = await xfs.mktempPromise()
+
+    const { code } = await execUtils.pipevp('yarn', ['checks', 'test', 'integration'], {
+      cwd: this.context.cwd,
+      stdin: this.context.stdin,
+      stdout: this.context.stdout,
+      stderr: this.context.stderr,
+      env: await scriptUtils.makeScriptEnv({ binFolder, project }),
+    })
+
+    return code
+  }
+
+  async executeRegular(): Promise<number> {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
     const { project } = await Project.find(configuration, this.context.cwd)
 

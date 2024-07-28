@@ -6,19 +6,17 @@ import { constants }             from 'node:fs'
 import { access }                from 'node:fs/promises'
 import { join }                  from 'node:path'
 
-import { integration }           from '@monstrs/tools-runtime/jest'
-import { unit }                  from '@monstrs/tools-runtime/jest'
-
 export class Tester {
   protected constructor(
     private readonly run: typeof runCLI,
+    private readonly config: { unit: object; integration: object },
     private readonly cwd: string
   ) {}
 
   static async initialize(cwd: string): Promise<Tester> {
-    const { runCLI } = await import('@monstrs/tools-runtime/jest')
+    const { runCLI, unit, integration } = await import('@monstrs/tools-runtime/jest')
 
-    return new Tester(runCLI, cwd)
+    return new Tester(runCLI, { unit, integration }, cwd)
   }
 
   async unit(options?: Partial<Config.Argv>, files?: Array<string>): Promise<AggregatedResult> {
@@ -46,7 +44,7 @@ export class Tester {
       passWithNoTests: true,
       runTestsByPath: false,
       testLocationInResults: true,
-      config: JSON.stringify({ ...unit, ...setup }),
+      config: JSON.stringify({ ...this.config.unit, ...setup }),
       maxConcurrency: 5,
       notifyMode: 'failure-change',
       _: files || [],
@@ -87,7 +85,7 @@ export class Tester {
       passWithNoTests: true,
       runTestsByPath: false,
       testLocationInResults: true,
-      config: JSON.stringify({ ...integration, ...setup }),
+      config: JSON.stringify({ ...this.config.integration, ...setup }),
       maxConcurrency: 1,
       notifyMode: 'failure-change',
       _: files || [],

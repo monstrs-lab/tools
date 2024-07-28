@@ -11,7 +11,7 @@ export class SetVersionCommand extends BaseCommand {
     const exitCode = await this.cli.run([
       'set',
       'version',
-      `https://www.unpkg.com/@monstrs/yarn-cli@${this.tag}/dist/yarn.cjs`,
+      `https://www.unpkg.com/@monstrs/yarn-cli@${this.tag}/dist/yarn.mjs`,
     ])
 
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)

@@ -1,6 +1,5 @@
 import type { PortablePath } from '@yarnpkg/fslib'
 
-import { Filename }          from '@yarnpkg/fslib'
 import { describe }          from '@jest/globals'
 import { expect }            from '@jest/globals'
 import { test }              from '@jest/globals'
@@ -34,11 +33,7 @@ describe('yarn', () => {
               '{"include": ["success.ts"]}'
             )
 
-            const { code, stdout } = await run('lint', {
-              env: {
-                NODE_OPTIONS: `--require ${ppath.join(path, Filename.pnpCjs)} --loader ${ppath.join(path, Filename.pnpEsmLoader)}`,
-              },
-            })
+            const { code, stdout } = await run('lint')
 
             expect(code).toBe(0)
             expect(stdout).toContain('➤ YN0000: ┌ Lint\n➤ YN0000: └ Completed\n➤ YN0000: Done')
@@ -66,11 +61,7 @@ describe('yarn', () => {
           )
 
           try {
-            await run('lint', {
-              env: {
-                NODE_OPTIONS: `--require ${ppath.join(path, Filename.pnpCjs)} --loader ${ppath.join(path, Filename.pnpEsmLoader)}`,
-              },
-            })
+            await run('lint')
           } catch (error: any) {
             expect(error.code).toBe(1)
             expect(error.stdout).toContain(

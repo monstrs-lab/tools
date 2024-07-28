@@ -1,3 +1,5 @@
+import type { webpack as wp }      from '@monstrs/tools-runtime/webpack'
+
 import type { WebpackEnvironment } from './webpack.interfaces.js'
 
 import { writeFile }               from 'node:fs/promises'
@@ -7,26 +9,30 @@ import { join }                    from 'node:path'
 
 import Config                      from 'webpack-chain-5'
 
-import { webpack }                 from '@monstrs/tools-runtime/webpack'
-import { tsLoaderPath }            from '@monstrs/tools-runtime/webpack'
-import { nodeLoaderPath }          from '@monstrs/tools-runtime/webpack'
-import { nullLoaderPath }          from '@monstrs/tools-runtime/webpack'
 import tsconfig                    from '@monstrs/config-typescript'
 
 import { WebpackExternals }        from './webpack.externals.js'
 import { LAZY_IMPORTS }            from './webpack.ignore.js'
 
 export class WebpackConfig {
-  constructor(private readonly cwd: string) {}
+  constructor(
+    private readonly webpack: typeof wp,
+    private readonly loaders: {
+      tsLoader: string
+      nodeLoader: string
+      nullLoader: string
+    },
+    private readonly cwd: string
+  ) {}
 
   async build(
     environment: WebpackEnvironment = 'production',
     plugins: Array<{
-      use: Config.PluginClass<webpack.WebpackPluginInstance> | webpack.WebpackPluginInstance
+      use: Config.PluginClass<wp.WebpackPluginInstance> | wp.WebpackPluginInstance
       args: Array<any>
       name: string
     }> = []
-  ): Promise<webpack.Configuration> {
+  ): Promise<wp.Configuration> {
     const config = new Config()
 
     await this.applyCommon(config, environment)
@@ -79,10 +85,10 @@ export class WebpackConfig {
 
   private async applyPlugins(config: Config, environment: WebpackEnvironment): Promise<void> {
     if (environment === 'development') {
-      config.plugin('hot').use(webpack.HotModuleReplacementPlugin)
+      config.plugin('hot').use(this.webpack.HotModuleReplacementPlugin)
     }
 
-    config.plugin('ignore').use(webpack.IgnorePlugin, [
+    config.plugin('ignore').use(this.webpack.IgnorePlugin, [
       {
         checkResource: (resource: string): boolean => {
           if (resource.endsWith('js.map')) {
@@ -112,7 +118,7 @@ export class WebpackConfig {
       .rule('d.ts')
       .test(/\.d\.ts$/)
       .use('null')
-      .loader(nullLoaderPath)
+      .loader(this.loaders.nullLoader)
 
     const configFile = join(await mkdtemp(join(tmpdir(), 'tools-service-')), 'tsconfig.json')
 
@@ -122,7 +128,7 @@ export class WebpackConfig {
       .rule('ts')
       .test(/(^.?|\.[^d]|[^.]d|[^.][^d])\.tsx?$/)
       .use('ts')
-      .loader(tsLoaderPath)
+      .loader(this.loaders.tsLoader)
       .options({
         transpileOnly: true,
         experimentalWatchApi: true,
@@ -136,6 +142,6 @@ export class WebpackConfig {
       .rule('node')
       .test(/\.node$/)
       .use('node')
-      .loader(nodeLoaderPath)
+      .loader(this.loaders.nodeLoader)
   }
 }
