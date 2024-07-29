@@ -103,7 +103,7 @@ export class WebpackConfig {
             require.resolve(resource, {
               paths: [this.cwd],
             })
-          } catch (err) {
+          } catch {
             return true
           }
 

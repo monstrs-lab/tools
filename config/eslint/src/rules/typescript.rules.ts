@@ -163,7 +163,6 @@ export const rules: Linter.RulesRecord = {
       checksSpreads: true,
     },
   ],
-  '@typescript-eslint/ban-types': ['error'],
   '@typescript-eslint/array-type': [
     'error',
     {

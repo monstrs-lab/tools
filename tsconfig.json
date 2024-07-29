@@ -25,7 +25,8 @@
     "jsx": "react",
     "strictPropertyInitialization": false,
     "outDir": "./dist",
-    "noImplicitOverride": true
+    "noImplicitOverride": true,
+    "checkJs": true
   },
   "include": [
     "project.types.d.ts",

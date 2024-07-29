@@ -1,20 +1,19 @@
-import { BaseCommand }     from '@yarnpkg/cli'
-import { StreamReport }    from '@yarnpkg/core'
-import { Configuration }   from '@yarnpkg/core'
-import { MessageName }     from '@yarnpkg/core'
-import { Project }         from '@yarnpkg/core'
-import { Filename }        from '@yarnpkg/fslib'
-import { execUtils }       from '@yarnpkg/core'
-import { scriptUtils }     from '@yarnpkg/core'
-import { xfs }             from '@yarnpkg/fslib'
-import { Option }          from 'clipanion'
-import React               from 'react'
+import { BaseCommand }   from '@yarnpkg/cli'
+import { Configuration } from '@yarnpkg/core'
+import { Project }       from '@yarnpkg/core'
+import { Filename }      from '@yarnpkg/fslib'
+import { execUtils }     from '@yarnpkg/core'
+import { scriptUtils }   from '@yarnpkg/core'
+import { xfs }           from '@yarnpkg/fslib'
+import { Option }        from 'clipanion'
+import { render }        from 'ink'
+import React             from 'react'
 
-import { ErrorInfo }       from '@monstrs/cli-ui-error-info-component'
-import { ESLintResult }    from '@monstrs/cli-ui-eslint-result-component'
-import { Linter }          from '@monstrs/code-lint'
-import { SpinnerProgress } from '@monstrs/yarn-run-utils'
-import { renderStatic }    from '@monstrs/cli-ui-renderer'
+import { ErrorInfo }     from '@monstrs/cli-ui-error-info-component'
+import { ESLintResult }  from '@monstrs/cli-ui-eslint-result-component'
+import { LintProgress }  from '@monstrs/cli-ui-lint-progress-component'
+import { Linter }        from '@monstrs/code-lint'
+import { renderStatic }  from '@monstrs/cli-ui-renderer'
 
 export class LintCommand extends BaseCommand {
   static override paths = [['lint']]
@@ -60,48 +59,40 @@ export class LintCommand extends BaseCommand {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
     const { project } = await Project.find(configuration, this.context.cwd)
 
-    const commandReport = await StreamReport.start(
-      {
-        stdout: this.context.stdout,
-        configuration,
-      },
-      async (report) => {
-        await report.startTimerPromise('Lint', async () => {
-          const progress = new SpinnerProgress(this.context.stdout, configuration)
+    const linter = await Linter.initialize(project.cwd, this.context.cwd)
 
-          progress.start()
+    const { clear } = render(<LintProgress cwd={project.cwd} linter={linter} />)
 
-          try {
-            const linter = await Linter.initialize(project.cwd, this.context.cwd)
+    linter.on('lint:end', ({ result }) => {
+      if (result.messages.length > 0) {
+        const output = renderStatic(<ESLintResult {...result} />)
 
-            const results = await linter.lint(this.files, {
-              fix: this.fix,
-            })
-
-            progress.end()
-
-            results
-              .filter((result) => result.messages.length > 0)
-              .forEach((result) => {
-                const output = renderStatic(<ESLintResult {...result} />)
-
-                output.split('\n').forEach((line) => {
-                  report.reportError(MessageName.UNNAMED, line)
-                })
-              })
-          } catch (error: any) {
-            progress.end()
-
-            renderStatic(<ErrorInfo error={error as Error} />, process.stdout.columns - 12)
-              .split('\n')
-              .forEach((line) => {
-                report.reportError(MessageName.UNNAMED, line)
-              })
-          }
+        output.split('\n').forEach((line) => {
+          console.log(line) // eslint-disable-line no-console
         })
       }
-    )
+    })
 
-    return commandReport.exitCode()
+    try {
+      const results = await linter.lint(this.files, {
+        fix: this.fix,
+      })
+
+      return results.find((result) => result.messages.length > 0) ? 1 : 0
+    } catch (error) {
+      if (error instanceof Error) {
+        renderStatic(<ErrorInfo error={error} />, process.stdout.columns)
+          .split('\n')
+          .forEach((line) => {
+            console.error(`${line}\n`) // eslint-disable-line no-console
+          })
+      } else {
+        console.error(error) // eslint-disable-line no-console
+      }
+
+      return 1
+    } finally {
+      clear()
+    }
   }
 }

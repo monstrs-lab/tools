@@ -56,7 +56,7 @@ const config: Array<Linter.FlatConfig> = [
       globals: {},
       parser,
       parserOptions: {
-        project: true,
+        projectService: true,
         ecmaFeatures: {
           jsx: true,
           generators: false,

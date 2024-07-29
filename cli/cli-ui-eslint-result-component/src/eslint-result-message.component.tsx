@@ -24,7 +24,7 @@ export const ESLintResultMessage: FC<ESLintResultMessageElProp> = ({
   message,
   source,
 }) => (
-  <Box flexDirection='column'>
+  <Box flexDirection='column' borderStyle='single' borderColor='gray' paddingX={2} paddingY={1}>
     <Box marginBottom={1}>
       <Text color='cyan'>
         {filePath}
