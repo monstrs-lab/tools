@@ -59,7 +59,7 @@ export class UiIconsGenerateCommand extends BaseCommand {
           progress.start()
 
           try {
-            const formatter = new Formatter(this.context.cwd)
+            const formatter = await Formatter.initialize(this.context.cwd)
             const linter = await Linter.initialize(project.cwd, this.context.cwd)
             const icons = await Icons.initialize(this.context.cwd)
 

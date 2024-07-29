@@ -1,13 +1,15 @@
-import { Box }                    from 'ink'
 import type { ReactElement }           from 'react'
-import { useState }               from 'react'
-import { useEffect }              from 'react'
-import React                      from 'react'
 
-import { LintProgressBar }        from './lint-progress-bar.component.jsx'
 import type { LintProgressBarProps }   from './lint-progress-bar.component.jsx'
-import { LintProgressFiles }      from './lint-progress-files.component.jsx'
 import type { LintProgressFilesProps } from './lint-progress-files.component.jsx'
+
+import { Box }                         from 'ink'
+import { useState }                    from 'react'
+import { useEffect }                   from 'react'
+import React                           from 'react'
+
+import { LintProgressBar }             from './lint-progress-bar.component.jsx'
+import { LintProgressFiles }           from './lint-progress-files.component.jsx'
 
 export interface LintProgressProps {
   linter: LintProgressBarProps['linter'] & LintProgressFilesProps['linter']

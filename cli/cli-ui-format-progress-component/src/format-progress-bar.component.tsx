@@ -7,11 +7,11 @@ import { useEffect }         from 'react'
 import { useState }          from 'react'
 import React                 from 'react'
 
-export interface LintProgressBarProps {
-  linter: {
+export interface FormatProgressBarProps {
+  formatter: {
     on(event: 'start', listener: (data: { files: Array<string> }) => void): void
     on(
-      event: 'lint:end',
+      event: 'format:end',
       listener: (data: {
         result: { filePath: string; errorCount: number; warningCount: number }
       }) => void
@@ -19,7 +19,7 @@ export interface LintProgressBarProps {
     on(event: 'end', listener: () => void): void
     off(event: 'start', listener: (data: { files: Array<string> }) => void): void
     off(
-      event: 'lint:end',
+      event: 'format:end',
       listener: (data: {
         result: { filePath: string; errorCount: number; warningCount: number }
       }) => void
@@ -28,7 +28,7 @@ export interface LintProgressBarProps {
   }
 }
 
-export const LintProgressBar = ({ linter }: LintProgressBarProps): ReactElement | null => {
+export const FormatProgressBar = ({ formatter }: FormatProgressBarProps): ReactElement | null => {
   const [total, setTotal] = useState<number>(0)
   const [current, setCurrent] = useState<number>(0)
 
@@ -37,7 +37,7 @@ export const LintProgressBar = ({ linter }: LintProgressBarProps): ReactElement 
       setTotal(files.length)
     }
 
-    const onLintEnd = (): void => {
+    const onFormatEnd = (): void => {
       setCurrent((cur) => cur + 1)
     }
 
@@ -45,16 +45,16 @@ export const LintProgressBar = ({ linter }: LintProgressBarProps): ReactElement 
       setCurrent(total)
     }
 
-    linter.on('start', onStart)
-    linter.on('lint:end', onLintEnd)
-    linter.on('end', onEnd)
+    formatter.on('start', onStart)
+    formatter.on('format:end', onFormatEnd)
+    formatter.on('end', onEnd)
 
     return (): void => {
-      linter.off('start', onStart)
-      linter.off('lint:end', onLintEnd)
-      linter.off('end', onEnd)
+      formatter.off('start', onStart)
+      formatter.off('format:end', onFormatEnd)
+      formatter.off('end', onEnd)
     }
-  }, [linter, total, setTotal, setCurrent])
+  }, [formatter, total, setTotal, setCurrent])
 
   return <ProgressBar value={total > 0 ? (current / total) * 100 : 0} />
 }

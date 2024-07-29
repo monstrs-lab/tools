@@ -1,7 +1,6 @@
 {
-  "name": "@monstrs/yarn-plugin-format",
-  "version": "0.2.1",
-  "private": true,
+  "name": "@monstrs/cli-ui-format-progress-component",
+  "version": "0.3.10",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -13,32 +12,25 @@
     "dist"
   ],
   "scripts": {
-    "build": "builder build plugin",
+    "build": "yarn library build",
     "prepack": "yarn run build",
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/cli-ui-error-info-component": "workspace:0.3.12",
-    "@monstrs/cli-ui-format-progress-component": "workspace:0.3.10",
-    "@monstrs/cli-ui-renderer": "workspace:0.3.8",
-    "@monstrs/code-format": "workspace:0.3.22",
-    "@monstrs/yarn-run-utils": "workspace:0.2.1",
-    "clipanion": "^4.0.0-rc.3",
-    "ink": "^4.4.1",
-    "react": "^18.2.0"
+    "@inkjs/ui": "^2.0.0",
+    "figures": "^6.1.0"
   },
   "devDependencies": {
     "@jest/globals": "^29.7.0",
-    "@monstrs/yarn-test-utils": "workspace:0.2.1",
+    "@monstrs/cli-ui-renderer": "workspace:0.3.8",
     "@types/react": "^18.2.65",
-    "@yarnpkg/builder": "^4.1.1",
-    "@yarnpkg/cli": "^4.3.1",
-    "@yarnpkg/core": "^4.1.1",
-    "@yarnpkg/fslib": "^3.1.0"
+    "ink": "^4.4.1",
+    "react": "^18.2.0",
+    "strip-ansi": "^7.1.0"
   },
   "peerDependencies": {
-    "@yarnpkg/cli": "^4",
-    "@yarnpkg/core": "^4"
+    "ink": "^3.0.8",
+    "react": "*"
   },
   "publishConfig": {
     "access": "public",

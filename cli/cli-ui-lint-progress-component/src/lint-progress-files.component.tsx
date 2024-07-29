@@ -21,9 +21,7 @@ export interface LintProgressFilesProps {
     on(event: 'lint:start', listener: (data: { file: string }) => void): void
     on(
       event: 'lint:end',
-      listener: ({
-        result,
-      }: {
+      listener: (data: {
         result: { filePath: string; errorCount: number; warningCount: number }
       }) => void
     ): void

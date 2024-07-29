@@ -1,3 +1,4 @@
+import EventEmitter       from 'node:events'
 import { writeFile }      from 'node:fs/promises'
 import { readFile }       from 'node:fs/promises'
 import { relative }       from 'node:path'
@@ -18,16 +19,37 @@ import plugin             from '@monstrs/prettier-plugin'
 import { ignore }         from './formatter.patterns.js'
 import { createPatterns } from './formatter.patterns.js'
 
-export class Formatter {
-  constructor(private readonly cwd: string) {}
+export class Formatter extends EventEmitter {
+  protected constructor(private readonly cwd: string) {
+    super()
+  }
 
-  async formatFiles(files: Array<string> = []): Promise<void> {
-    const formatFiles = ignorer
+  static async initialize(cwd: string): Promise<Formatter> {
+    return new Formatter(cwd)
+  }
+
+  async format(files?: Array<string>): Promise<void> {
+    const filesForFormat =
+      files && files.length > 0
+        ? files
+        : await globby(createPatterns(this.cwd), {
+            dot: true,
+          })
+
+    await this.formatFiles(filesForFormat)
+  }
+
+  protected async formatFiles(files: Array<string> = []): Promise<void> {
+    const fileForFormat = ignorer
       .default()
       .add(ignore)
       .filter(files.map((filepath) => relative(this.cwd, filepath)))
 
-    for await (const filename of formatFiles) {
+    this.emit('start', { files: fileForFormat })
+
+    for await (const filename of fileForFormat) {
+      this.emit('format:start', { file: filename })
+
       const input = await readFile(filename, 'utf8')
 
       const output = await format(input, {
@@ -39,23 +61,13 @@ export class Formatter {
 
       if (output !== input && output) {
         await writeFile(filename, output, 'utf8')
+
+        this.emit('format:end', { file: filename, changed: true })
+      } else {
+        this.emit('format:end', { file: filename, changed: false })
       }
     }
-  }
 
-  async format(files?: Array<string>): Promise<void> {
-    if (files && files.length > 0) {
-      await this.formatFiles(files)
-    } else {
-      await this.formatProject()
-    }
-  }
-
-  async formatProject(): Promise<void> {
-    const files = await globby(createPatterns(this.cwd), {
-      dot: true,
-    })
-
-    await this.formatFiles(files)
+    this.emit('end')
   }
 }

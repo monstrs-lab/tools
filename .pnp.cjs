@@ -23,6 +23,10 @@ const RAW_RUNTIME_STATE =
       "reference": "workspace:cli/cli-ui-eslint-result-component"\
     },\
     {\
+      "name": "@monstrs/cli-ui-format-progress-component",\
+      "reference": "workspace:cli/cli-ui-format-progress-component"\
+    },\
+    {\
       "name": "@monstrs/cli-ui-git-commit-component",\
       "reference": "workspace:cli/cli-ui-git-commit"\
     },\
@@ -241,8 +245,9 @@ const RAW_RUNTIME_STATE =
     ["@fixtures/icons-simple", ["workspace:code/code-icons/integration/fixtures/simple"]],\
     ["@fixtures/icons-theme", ["workspace:code/code-icons/integration/fixtures/theme"]],\
     ["@fixtures/service-simple", ["workspace:code/code-service/integration/fixtures/simple"]],\
-    ["@monstrs/cli-ui-error-info-component", ["virtual:44e1a101bd192c959a8a8b727c7f7d7852845c36d68b15e561d3419e6534ac05bdaf94cb6725106198bfdfd6466a52d13581ac5c3c6dc6ed2a751f5ca1a7d2ec#workspace:cli/cli-ui-error-info-component", "virtual:578675c3be5326dfcc77ea38eb2c890a297da816d1d1ec3bf1f70a12f33282c317e53b35d2c4ff821733649944b7878f77423560b6b69c727b4372ca2f9bc67f#workspace:cli/cli-ui-error-info-component", "workspace:cli/cli-ui-error-info-component"]],\
+    ["@monstrs/cli-ui-error-info-component", ["virtual:44e1a101bd192c959a8a8b727c7f7d7852845c36d68b15e561d3419e6534ac05bdaf94cb6725106198bfdfd6466a52d13581ac5c3c6dc6ed2a751f5ca1a7d2ec#workspace:cli/cli-ui-error-info-component", "virtual:66c52beb35390fa55a978c7367f6788f0923074aa5a168a3c5e58585a051b2ddf1b7047514ee55b07af0a1465b658a6cc5096764389c38971d9cd8a279a3d82c#workspace:cli/cli-ui-error-info-component", "workspace:cli/cli-ui-error-info-component"]],\
     ["@monstrs/cli-ui-eslint-result-component", ["virtual:578675c3be5326dfcc77ea38eb2c890a297da816d1d1ec3bf1f70a12f33282c317e53b35d2c4ff821733649944b7878f77423560b6b69c727b4372ca2f9bc67f#workspace:cli/cli-ui-eslint-result-component", "virtual:84cc809ab3e95c477581c0740c4e8e94087a756992d4cfa31045a766bfb47b89975ff65bcceef416ba90ce651413ccca39711c1ff35dca0c09600b74289c016e#workspace:cli/cli-ui-eslint-result-component", "workspace:cli/cli-ui-eslint-result-component"]],\
+    ["@monstrs/cli-ui-format-progress-component", ["virtual:44e1a101bd192c959a8a8b727c7f7d7852845c36d68b15e561d3419e6534ac05bdaf94cb6725106198bfdfd6466a52d13581ac5c3c6dc6ed2a751f5ca1a7d2ec#workspace:cli/cli-ui-format-progress-component", "workspace:cli/cli-ui-format-progress-component"]],\
     ["@monstrs/cli-ui-git-commit-component", ["virtual:32d04a7d90654236611060bc71d5203217623140f8500d63cd2f6bd06103f16a3887da6674e024ef952330cff4358a2b5cdaedad2e2f0dc1ee56fff6eeb88857#workspace:cli/cli-ui-git-commit", "workspace:cli/cli-ui-git-commit"]],\
     ["@monstrs/cli-ui-lint-progress-component", ["virtual:578675c3be5326dfcc77ea38eb2c890a297da816d1d1ec3bf1f70a12f33282c317e53b35d2c4ff821733649944b7878f77423560b6b69c727b4372ca2f9bc67f#workspace:cli/cli-ui-lint-progress-component", "workspace:cli/cli-ui-lint-progress-component"]],\
     ["@monstrs/cli-ui-log-record-component", ["virtual:66c52beb35390fa55a978c7367f6788f0923074aa5a168a3c5e58585a051b2ddf1b7047514ee55b07af0a1465b658a6cc5096764389c38971d9cd8a279a3d82c#workspace:cli/cli-ui-log-record-component", "virtual:f42bd553a30f476edb3e8ef9febd4e7293213d225288960433c2c7df8174d9f1eb7978820de9e304ff9dd14762e12b6afd7703a8699992c05bc111efbd94ec6c#workspace:cli/cli-ui-log-record-component", "workspace:cli/cli-ui-log-record-component"]],\
@@ -1742,10 +1747,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:c1795e3545bddf4b2cf433609d0536a2f2d78443aae94a27ff149e12926ce8d1da96b6947e99c022743d5cf812666e77dae92cfd8d3446b9a93f6fd5492ebc16#npm:2.0.0", {\
-        "packageLocation": "./.yarn/__virtual__/@inkjs-ui-virtual-09ece5cc57/0/cache/@inkjs-ui-npm-2.0.0-71968399d2-636e427ebd.zip/node_modules/@inkjs/ui/",\
+      ["virtual:0c3432bf9464d239acea4b74410b82b9ec73f1f187fd8532d0b285f6f4a678b475baada5746bc65f70e24a77c19a6d40225b9221e5e6bc28e7e9ea3bec71d356#npm:2.0.0", {\
+        "packageLocation": "./.yarn/__virtual__/@inkjs-ui-virtual-f508737ce4/0/cache/@inkjs-ui-npm-2.0.0-71968399d2-636e427ebd.zip/node_modules/@inkjs/ui/",\
         "packageDependencies": [\
-          ["@inkjs/ui", "virtual:c1795e3545bddf4b2cf433609d0536a2f2d78443aae94a27ff149e12926ce8d1da96b6947e99c022743d5cf812666e77dae92cfd8d3446b9a93f6fd5492ebc16#npm:2.0.0"],\
+          ["@inkjs/ui", "virtual:0c3432bf9464d239acea4b74410b82b9ec73f1f187fd8532d0b285f6f4a678b475baada5746bc65f70e24a77c19a6d40225b9221e5e6bc28e7e9ea3bec71d356#npm:2.0.0"],\
           ["@types/ink", null],\
           ["@types/react", "npm:18.2.65"],\
           ["chalk", "npm:5.3.0"],\
@@ -2233,14 +2238,15 @@ const RAW_RUNTIME_STATE =
         "packagePeers": [\
           "@types/ink",\
           "@types/react",\
+          "ink",\
           "react"\
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:578675c3be5326dfcc77ea38eb2c890a297da816d1d1ec3bf1f70a12f33282c317e53b35d2c4ff821733649944b7878f77423560b6b69c727b4372ca2f9bc67f#workspace:cli/cli-ui-error-info-component", {\
-        "packageLocation": "./.yarn/__virtual__/@monstrs-cli-ui-error-info-component-virtual-0fb66b4c23/1/cli/cli-ui-error-info-component/",\
+      ["virtual:66c52beb35390fa55a978c7367f6788f0923074aa5a168a3c5e58585a051b2ddf1b7047514ee55b07af0a1465b658a6cc5096764389c38971d9cd8a279a3d82c#workspace:cli/cli-ui-error-info-component", {\
+        "packageLocation": "./.yarn/__virtual__/@monstrs-cli-ui-error-info-component-virtual-71ca1be6c7/1/cli/cli-ui-error-info-component/",\
         "packageDependencies": [\
-          ["@monstrs/cli-ui-error-info-component", "virtual:578675c3be5326dfcc77ea38eb2c890a297da816d1d1ec3bf1f70a12f33282c317e53b35d2c4ff821733649944b7878f77423560b6b69c727b4372ca2f9bc67f#workspace:cli/cli-ui-error-info-component"],\
+          ["@monstrs/cli-ui-error-info-component", "virtual:66c52beb35390fa55a978c7367f6788f0923074aa5a168a3c5e58585a051b2ddf1b7047514ee55b07af0a1465b658a6cc5096764389c38971d9cd8a279a3d82c#workspace:cli/cli-ui-error-info-component"],\
           ["@monstrs/cli-ui-stack-trace-component", "virtual:11bd5af2a80ab93c290d16e253fd5eda25f6c23efed18026ce02e3946945e078ab2eca3aaf556121c03850dbaab6f49557f766911a06a3fb3a1db705274a5786#workspace:cli/cli-ui-stack-trace-component"],\
           ["@types/ink", null],\
           ["@types/node", "npm:20.11.26"],\
@@ -2251,7 +2257,6 @@ const RAW_RUNTIME_STATE =
         "packagePeers": [\
           "@types/ink",\
           "@types/react",\
-          "ink",\
           "react"\
         ],\
         "linkType": "SOFT"\
@@ -2329,6 +2334,45 @@ const RAW_RUNTIME_STATE =
         "linkType": "SOFT"\
       }]\
     ]],\
+    ["@monstrs/cli-ui-format-progress-component", [\
+      ["virtual:44e1a101bd192c959a8a8b727c7f7d7852845c36d68b15e561d3419e6534ac05bdaf94cb6725106198bfdfd6466a52d13581ac5c3c6dc6ed2a751f5ca1a7d2ec#workspace:cli/cli-ui-format-progress-component", {\
+        "packageLocation": "./.yarn/__virtual__/@monstrs-cli-ui-format-progress-component-virtual-fef6fec0d1/1/cli/cli-ui-format-progress-component/",\
+        "packageDependencies": [\
+          ["@monstrs/cli-ui-format-progress-component", "virtual:44e1a101bd192c959a8a8b727c7f7d7852845c36d68b15e561d3419e6534ac05bdaf94cb6725106198bfdfd6466a52d13581ac5c3c6dc6ed2a751f5ca1a7d2ec#workspace:cli/cli-ui-format-progress-component"],\
+          ["@inkjs/ui", "virtual:0c3432bf9464d239acea4b74410b82b9ec73f1f187fd8532d0b285f6f4a678b475baada5746bc65f70e24a77c19a6d40225b9221e5e6bc28e7e9ea3bec71d356#npm:2.0.0"],\
+          ["@jest/globals", "npm:29.7.0"],\
+          ["@monstrs/cli-ui-renderer", "workspace:cli/cli-ui-renderer"],\
+          ["@types/ink", null],\
+          ["@types/react", "npm:18.2.65"],\
+          ["figures", "npm:6.1.0"],\
+          ["ink", "virtual:11bd5af2a80ab93c290d16e253fd5eda25f6c23efed18026ce02e3946945e078ab2eca3aaf556121c03850dbaab6f49557f766911a06a3fb3a1db705274a5786#npm:3.2.0"],\
+          ["react", "npm:18.2.0"],\
+          ["strip-ansi", "npm:7.1.0"]\
+        ],\
+        "packagePeers": [\
+          "@types/ink",\
+          "@types/react",\
+          "ink",\
+          "react"\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["workspace:cli/cli-ui-format-progress-component", {\
+        "packageLocation": "./cli/cli-ui-format-progress-component/",\
+        "packageDependencies": [\
+          ["@monstrs/cli-ui-format-progress-component", "workspace:cli/cli-ui-format-progress-component"],\
+          ["@inkjs/ui", "virtual:0c3432bf9464d239acea4b74410b82b9ec73f1f187fd8532d0b285f6f4a678b475baada5746bc65f70e24a77c19a6d40225b9221e5e6bc28e7e9ea3bec71d356#npm:2.0.0"],\
+          ["@jest/globals", "npm:29.7.0"],\
+          ["@monstrs/cli-ui-renderer", "workspace:cli/cli-ui-renderer"],\
+          ["@types/react", "npm:18.2.65"],\
+          ["figures", "npm:6.1.0"],\
+          ["ink", "virtual:11bd5af2a80ab93c290d16e253fd5eda25f6c23efed18026ce02e3946945e078ab2eca3aaf556121c03850dbaab6f49557f766911a06a3fb3a1db705274a5786#npm:3.2.0"],\
+          ["react", "npm:18.2.0"],\
+          ["strip-ansi", "npm:7.1.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }]\
+    ]],\
     ["@monstrs/cli-ui-git-commit-component", [\
       ["virtual:32d04a7d90654236611060bc71d5203217623140f8500d63cd2f6bd06103f16a3887da6674e024ef952330cff4358a2b5cdaedad2e2f0dc1ee56fff6eeb88857#workspace:cli/cli-ui-git-commit", {\
         "packageLocation": "./.yarn/__virtual__/@monstrs-cli-ui-git-commit-component-virtual-2e17cdc88a/1/cli/cli-ui-git-commit/",\
@@ -2380,7 +2424,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/__virtual__/@monstrs-cli-ui-lint-progress-component-virtual-401a59edc4/1/cli/cli-ui-lint-progress-component/",\
         "packageDependencies": [\
           ["@monstrs/cli-ui-lint-progress-component", "virtual:578675c3be5326dfcc77ea38eb2c890a297da816d1d1ec3bf1f70a12f33282c317e53b35d2c4ff821733649944b7878f77423560b6b69c727b4372ca2f9bc67f#workspace:cli/cli-ui-lint-progress-component"],\
-          ["@inkjs/ui", "virtual:c1795e3545bddf4b2cf433609d0536a2f2d78443aae94a27ff149e12926ce8d1da96b6947e99c022743d5cf812666e77dae92cfd8d3446b9a93f6fd5492ebc16#npm:2.0.0"],\
+          ["@inkjs/ui", "virtual:0c3432bf9464d239acea4b74410b82b9ec73f1f187fd8532d0b285f6f4a678b475baada5746bc65f70e24a77c19a6d40225b9221e5e6bc28e7e9ea3bec71d356#npm:2.0.0"],\
           ["@jest/globals", "npm:29.7.0"],\
           ["@monstrs/cli-ui-renderer", "workspace:cli/cli-ui-renderer"],\
           ["@types/ink", null],\
@@ -2402,7 +2446,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./cli/cli-ui-lint-progress-component/",\
         "packageDependencies": [\
           ["@monstrs/cli-ui-lint-progress-component", "workspace:cli/cli-ui-lint-progress-component"],\
-          ["@inkjs/ui", "virtual:c1795e3545bddf4b2cf433609d0536a2f2d78443aae94a27ff149e12926ce8d1da96b6947e99c022743d5cf812666e77dae92cfd8d3446b9a93f6fd5492ebc16#npm:2.0.0"],\
+          ["@inkjs/ui", "virtual:0c3432bf9464d239acea4b74410b82b9ec73f1f187fd8532d0b285f6f4a678b475baada5746bc65f70e24a77c19a6d40225b9221e5e6bc28e7e9ea3bec71d356#npm:2.0.0"],\
           ["@jest/globals", "npm:29.7.0"],\
           ["@monstrs/cli-ui-renderer", "workspace:cli/cli-ui-renderer"],\
           ["@types/react", "npm:18.2.65"],\
@@ -3545,6 +3589,7 @@ const RAW_RUNTIME_STATE =
           ["@monstrs/yarn-plugin-format", "virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-format"],\
           ["@jest/globals", "npm:29.7.0"],\
           ["@monstrs/cli-ui-error-info-component", "virtual:44e1a101bd192c959a8a8b727c7f7d7852845c36d68b15e561d3419e6534ac05bdaf94cb6725106198bfdfd6466a52d13581ac5c3c6dc6ed2a751f5ca1a7d2ec#workspace:cli/cli-ui-error-info-component"],\
+          ["@monstrs/cli-ui-format-progress-component", "virtual:44e1a101bd192c959a8a8b727c7f7d7852845c36d68b15e561d3419e6534ac05bdaf94cb6725106198bfdfd6466a52d13581ac5c3c6dc6ed2a751f5ca1a7d2ec#workspace:cli/cli-ui-format-progress-component"],\
           ["@monstrs/cli-ui-renderer", "workspace:cli/cli-ui-renderer"],\
           ["@monstrs/code-format", "workspace:code/code-format"],\
           ["@monstrs/yarn-run-utils", "workspace:yarn/run-utils"],\
@@ -3557,6 +3602,7 @@ const RAW_RUNTIME_STATE =
           ["@yarnpkg/core", "npm:4.1.1"],\
           ["@yarnpkg/fslib", "npm:3.0.1"],\
           ["clipanion", "virtual:79bd705dbf206d6bd5005d5f35924cece8938d35eed524c3106dd8d8c6d56228b3ffaf764b0b711713e3d2dfeba0155ac81f45b66f87f4323e61be254172e9b5#npm:4.0.0-rc.2"],\
+          ["ink", "virtual:11bd5af2a80ab93c290d16e253fd5eda25f6c23efed18026ce02e3946945e078ab2eca3aaf556121c03850dbaab6f49557f766911a06a3fb3a1db705274a5786#npm:3.2.0"],\
           ["react", "npm:18.2.0"]\
         ],\
         "packagePeers": [\
@@ -3573,6 +3619,7 @@ const RAW_RUNTIME_STATE =
           ["@monstrs/yarn-plugin-format", "workspace:yarn/plugin-format"],\
           ["@jest/globals", "npm:29.7.0"],\
           ["@monstrs/cli-ui-error-info-component", "virtual:44e1a101bd192c959a8a8b727c7f7d7852845c36d68b15e561d3419e6534ac05bdaf94cb6725106198bfdfd6466a52d13581ac5c3c6dc6ed2a751f5ca1a7d2ec#workspace:cli/cli-ui-error-info-component"],\
+          ["@monstrs/cli-ui-format-progress-component", "virtual:44e1a101bd192c959a8a8b727c7f7d7852845c36d68b15e561d3419e6534ac05bdaf94cb6725106198bfdfd6466a52d13581ac5c3c6dc6ed2a751f5ca1a7d2ec#workspace:cli/cli-ui-format-progress-component"],\
           ["@monstrs/cli-ui-renderer", "workspace:cli/cli-ui-renderer"],\
           ["@monstrs/code-format", "workspace:code/code-format"],\
           ["@monstrs/yarn-run-utils", "workspace:yarn/run-utils"],\
@@ -3583,6 +3630,7 @@ const RAW_RUNTIME_STATE =
           ["@yarnpkg/core", "npm:4.1.1"],\
           ["@yarnpkg/fslib", "npm:3.0.1"],\
           ["clipanion", "virtual:79bd705dbf206d6bd5005d5f35924cece8938d35eed524c3106dd8d8c6d56228b3ffaf764b0b711713e3d2dfeba0155ac81f45b66f87f4323e61be254172e9b5#npm:4.0.0-rc.2"],\
+          ["ink", "virtual:11bd5af2a80ab93c290d16e253fd5eda25f6c23efed18026ce02e3946945e078ab2eca3aaf556121c03850dbaab6f49557f766911a06a3fb3a1db705274a5786#npm:3.2.0"],\
           ["react", "npm:18.2.0"]\
         ],\
         "linkType": "SOFT"\
@@ -3643,7 +3691,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@monstrs/yarn-plugin-library", "virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-library"],\
           ["@jest/globals", "npm:29.7.0"],\
-          ["@monstrs/cli-ui-error-info-component", "virtual:44e1a101bd192c959a8a8b727c7f7d7852845c36d68b15e561d3419e6534ac05bdaf94cb6725106198bfdfd6466a52d13581ac5c3c6dc6ed2a751f5ca1a7d2ec#workspace:cli/cli-ui-error-info-component"],\
+          ["@monstrs/cli-ui-error-info-component", "virtual:66c52beb35390fa55a978c7367f6788f0923074aa5a168a3c5e58585a051b2ddf1b7047514ee55b07af0a1465b658a6cc5096764389c38971d9cd8a279a3d82c#workspace:cli/cli-ui-error-info-component"],\
           ["@monstrs/cli-ui-log-record-component", "virtual:66c52beb35390fa55a978c7367f6788f0923074aa5a168a3c5e58585a051b2ddf1b7047514ee55b07af0a1465b658a6cc5096764389c38971d9cd8a279a3d82c#workspace:cli/cli-ui-log-record-component"],\
           ["@monstrs/cli-ui-pretty-logs", "workspace:cli/cli-ui-pretty-logs"],\
           ["@monstrs/cli-ui-renderer", "workspace:cli/cli-ui-renderer"],\
@@ -3675,7 +3723,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@monstrs/yarn-plugin-library", "workspace:yarn/plugin-library"],\
           ["@jest/globals", "npm:29.7.0"],\
-          ["@monstrs/cli-ui-error-info-component", "virtual:44e1a101bd192c959a8a8b727c7f7d7852845c36d68b15e561d3419e6534ac05bdaf94cb6725106198bfdfd6466a52d13581ac5c3c6dc6ed2a751f5ca1a7d2ec#workspace:cli/cli-ui-error-info-component"],\
+          ["@monstrs/cli-ui-error-info-component", "virtual:66c52beb35390fa55a978c7367f6788f0923074aa5a168a3c5e58585a051b2ddf1b7047514ee55b07af0a1465b658a6cc5096764389c38971d9cd8a279a3d82c#workspace:cli/cli-ui-error-info-component"],\
           ["@monstrs/cli-ui-log-record-component", "virtual:66c52beb35390fa55a978c7367f6788f0923074aa5a168a3c5e58585a051b2ddf1b7047514ee55b07af0a1465b658a6cc5096764389c38971d9cd8a279a3d82c#workspace:cli/cli-ui-log-record-component"],\
           ["@monstrs/cli-ui-pretty-logs", "workspace:cli/cli-ui-pretty-logs"],\
           ["@monstrs/cli-ui-renderer", "workspace:cli/cli-ui-renderer"],\
@@ -3701,7 +3749,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@monstrs/yarn-plugin-lint", "virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-lint"],\
           ["@jest/globals", "npm:29.7.0"],\
-          ["@monstrs/cli-ui-error-info-component", "virtual:578675c3be5326dfcc77ea38eb2c890a297da816d1d1ec3bf1f70a12f33282c317e53b35d2c4ff821733649944b7878f77423560b6b69c727b4372ca2f9bc67f#workspace:cli/cli-ui-error-info-component"],\
+          ["@monstrs/cli-ui-error-info-component", "virtual:44e1a101bd192c959a8a8b727c7f7d7852845c36d68b15e561d3419e6534ac05bdaf94cb6725106198bfdfd6466a52d13581ac5c3c6dc6ed2a751f5ca1a7d2ec#workspace:cli/cli-ui-error-info-component"],\
           ["@monstrs/cli-ui-eslint-result-component", "virtual:578675c3be5326dfcc77ea38eb2c890a297da816d1d1ec3bf1f70a12f33282c317e53b35d2c4ff821733649944b7878f77423560b6b69c727b4372ca2f9bc67f#workspace:cli/cli-ui-eslint-result-component"],\
           ["@monstrs/cli-ui-lint-progress-component", "virtual:578675c3be5326dfcc77ea38eb2c890a297da816d1d1ec3bf1f70a12f33282c317e53b35d2c4ff821733649944b7878f77423560b6b69c727b4372ca2f9bc67f#workspace:cli/cli-ui-lint-progress-component"],\
           ["@monstrs/cli-ui-renderer", "workspace:cli/cli-ui-renderer"],\
@@ -3733,7 +3781,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@monstrs/yarn-plugin-lint", "workspace:yarn/plugin-lint"],\
           ["@jest/globals", "npm:29.7.0"],\
-          ["@monstrs/cli-ui-error-info-component", "virtual:578675c3be5326dfcc77ea38eb2c890a297da816d1d1ec3bf1f70a12f33282c317e53b35d2c4ff821733649944b7878f77423560b6b69c727b4372ca2f9bc67f#workspace:cli/cli-ui-error-info-component"],\
+          ["@monstrs/cli-ui-error-info-component", "virtual:44e1a101bd192c959a8a8b727c7f7d7852845c36d68b15e561d3419e6534ac05bdaf94cb6725106198bfdfd6466a52d13581ac5c3c6dc6ed2a751f5ca1a7d2ec#workspace:cli/cli-ui-error-info-component"],\
           ["@monstrs/cli-ui-eslint-result-component", "virtual:578675c3be5326dfcc77ea38eb2c890a297da816d1d1ec3bf1f70a12f33282c317e53b35d2c4ff821733649944b7878f77423560b6b69c727b4372ca2f9bc67f#workspace:cli/cli-ui-eslint-result-component"],\
           ["@monstrs/cli-ui-lint-progress-component", "virtual:578675c3be5326dfcc77ea38eb2c890a297da816d1d1ec3bf1f70a12f33282c317e53b35d2c4ff821733649944b7878f77423560b6b69c727b4372ca2f9bc67f#workspace:cli/cli-ui-lint-progress-component"],\
           ["@monstrs/cli-ui-renderer", "workspace:cli/cli-ui-renderer"],\
@@ -3830,7 +3878,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@monstrs/yarn-plugin-service", "virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-service"],\
           ["@jest/globals", "npm:29.7.0"],\
-          ["@monstrs/cli-ui-error-info-component", "virtual:44e1a101bd192c959a8a8b727c7f7d7852845c36d68b15e561d3419e6534ac05bdaf94cb6725106198bfdfd6466a52d13581ac5c3c6dc6ed2a751f5ca1a7d2ec#workspace:cli/cli-ui-error-info-component"],\
+          ["@monstrs/cli-ui-error-info-component", "virtual:66c52beb35390fa55a978c7367f6788f0923074aa5a168a3c5e58585a051b2ddf1b7047514ee55b07af0a1465b658a6cc5096764389c38971d9cd8a279a3d82c#workspace:cli/cli-ui-error-info-component"],\
           ["@monstrs/cli-ui-log-record-component", "virtual:66c52beb35390fa55a978c7367f6788f0923074aa5a168a3c5e58585a051b2ddf1b7047514ee55b07af0a1465b658a6cc5096764389c38971d9cd8a279a3d82c#workspace:cli/cli-ui-log-record-component"],\
           ["@monstrs/cli-ui-renderer", "workspace:cli/cli-ui-renderer"],\
           ["@monstrs/code-service", "workspace:code/code-service"],\
@@ -3862,7 +3910,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@monstrs/yarn-plugin-service", "workspace:yarn/plugin-service"],\
           ["@jest/globals", "npm:29.7.0"],\
-          ["@monstrs/cli-ui-error-info-component", "virtual:44e1a101bd192c959a8a8b727c7f7d7852845c36d68b15e561d3419e6534ac05bdaf94cb6725106198bfdfd6466a52d13581ac5c3c6dc6ed2a751f5ca1a7d2ec#workspace:cli/cli-ui-error-info-component"],\
+          ["@monstrs/cli-ui-error-info-component", "virtual:66c52beb35390fa55a978c7367f6788f0923074aa5a168a3c5e58585a051b2ddf1b7047514ee55b07af0a1465b658a6cc5096764389c38971d9cd8a279a3d82c#workspace:cli/cli-ui-error-info-component"],\
           ["@monstrs/cli-ui-log-record-component", "virtual:66c52beb35390fa55a978c7367f6788f0923074aa5a168a3c5e58585a051b2ddf1b7047514ee55b07af0a1465b658a6cc5096764389c38971d9cd8a279a3d82c#workspace:cli/cli-ui-log-record-component"],\
           ["@monstrs/cli-ui-renderer", "workspace:cli/cli-ui-renderer"],\
           ["@monstrs/code-service", "workspace:code/code-service"],\
@@ -3958,7 +4006,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@monstrs/yarn-plugin-types", "virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-types"],\
           ["@jest/globals", "npm:29.7.0"],\
-          ["@monstrs/cli-ui-error-info-component", "virtual:44e1a101bd192c959a8a8b727c7f7d7852845c36d68b15e561d3419e6534ac05bdaf94cb6725106198bfdfd6466a52d13581ac5c3c6dc6ed2a751f5ca1a7d2ec#workspace:cli/cli-ui-error-info-component"],\
+          ["@monstrs/cli-ui-error-info-component", "virtual:66c52beb35390fa55a978c7367f6788f0923074aa5a168a3c5e58585a051b2ddf1b7047514ee55b07af0a1465b658a6cc5096764389c38971d9cd8a279a3d82c#workspace:cli/cli-ui-error-info-component"],\
           ["@monstrs/cli-ui-renderer", "workspace:cli/cli-ui-renderer"],\
           ["@monstrs/cli-ui-typescript-diagnostic-component", "virtual:84cc809ab3e95c477581c0740c4e8e94087a756992d4cfa31045a766bfb47b89975ff65bcceef416ba90ce651413ccca39711c1ff35dca0c09600b74289c016e#workspace:cli/cli-ui-typescript-diagnostic-component"],\
           ["@monstrs/code-typescript", "workspace:code/code-typescript"],\
@@ -3990,7 +4038,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@monstrs/yarn-plugin-types", "workspace:yarn/plugin-types"],\
           ["@jest/globals", "npm:29.7.0"],\
-          ["@monstrs/cli-ui-error-info-component", "virtual:44e1a101bd192c959a8a8b727c7f7d7852845c36d68b15e561d3419e6534ac05bdaf94cb6725106198bfdfd6466a52d13581ac5c3c6dc6ed2a751f5ca1a7d2ec#workspace:cli/cli-ui-error-info-component"],\
+          ["@monstrs/cli-ui-error-info-component", "virtual:66c52beb35390fa55a978c7367f6788f0923074aa5a168a3c5e58585a051b2ddf1b7047514ee55b07af0a1465b658a6cc5096764389c38971d9cd8a279a3d82c#workspace:cli/cli-ui-error-info-component"],\
           ["@monstrs/cli-ui-renderer", "workspace:cli/cli-ui-renderer"],\
           ["@monstrs/cli-ui-typescript-diagnostic-component", "virtual:84cc809ab3e95c477581c0740c4e8e94087a756992d4cfa31045a766bfb47b89975ff65bcceef416ba90ce651413ccca39711c1ff35dca0c09600b74289c016e#workspace:cli/cli-ui-typescript-diagnostic-component"],\
           ["@monstrs/code-typescript", "workspace:code/code-typescript"],\
