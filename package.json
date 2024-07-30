@@ -5,12 +5,12 @@
   "workspaces": [
     "prettier/**/*",
     "code/**/*",
-    "webpack/*",
-    "runtime/*",
-    "config/*",
-    "yarn/*",
-    "jest/*",
-    "cli/*"
+    "webpack/**/*",
+    "runtime/**/*",
+    "config/**/*",
+    "yarn/**/*",
+    "jest/**/*",
+    "cli/**/*"
   ],
   "scripts": {
     "cli:build": "yarn workspace @monstrs/yarn-cli build",

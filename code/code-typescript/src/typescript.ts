@@ -1,16 +1,20 @@
 import type { ts as typescript }           from '@monstrs/tools-runtime/typescript'
 
+import EventEmitter                        from 'node:events'
+
 import deepmerge                           from 'deepmerge'
 
 import tsconfig                            from '@monstrs/config-typescript'
 
 import { createTransformJsxToJsExtension } from './transformers/index.js'
 
-class TypeScript {
+export class TypeScript extends EventEmitter {
   protected constructor(
     private readonly ts: typeof typescript,
     private readonly cwd: string
-  ) {}
+  ) {
+    super()
+  }
 
   static async initialize(cwd: string): Promise<TypeScript> {
     const { ts } = await import('@monstrs/tools-runtime/typescript')
@@ -19,20 +23,42 @@ class TypeScript {
   }
 
   async check(include: Array<string> = []): Promise<Array<typescript.Diagnostic>> {
-    return this.run(include)
+    const config = deepmerge(tsconfig, {
+      compilerOptions: { rootDir: this.cwd },
+      include,
+    })
+
+    const { fileNames, options, errors } = this.ts.parseJsonConfigFileContent(
+      config,
+      this.ts.sys,
+      this.cwd
+    )
+
+    if (errors.length > 0) {
+      return errors
+    }
+
+    this.emit('start', { files: fileNames })
+
+    const program = this.ts.createProgram(fileNames, {
+      ...options,
+      noEmit: true,
+    })
+
+    const result = program.emit()
+
+    const diagnostics = this.filterDiagnostics(
+      this.ts.getPreEmitDiagnostics(program).concat(result.diagnostics)
+    )
+
+    this.emit('end', { diagnostics })
+
+    return diagnostics
   }
 
   async build(
     include: Array<string> = [],
     override: Partial<typescript.CompilerOptions> = {}
-  ): Promise<Array<typescript.Diagnostic>> {
-    return this.run(include, override, false)
-  }
-
-  private async run(
-    include: Array<string> = [],
-    override: Partial<typescript.CompilerOptions> = {},
-    noEmit = true
   ): Promise<Array<typescript.Diagnostic>> {
     const config = deepmerge(tsconfig, { compilerOptions: override }, {
       compilerOptions: { rootDir: this.cwd },
@@ -49,16 +75,39 @@ class TypeScript {
       return errors
     }
 
+    this.emit('start', { files: fileNames })
+
     const program = this.ts.createProgram(fileNames, {
       ...options,
-      noEmit,
+      noEmit: false,
     })
+
+    const beforeTransformer: typescript.TransformerFactory<typescript.SourceFile> = (_) => 
+      (sourceFile) => {
+        this.emit('build:start', { file: sourceFile.fileName })
+
+        return sourceFile
+      }
+    
+
+    const afterTransformer: typescript.TransformerFactory<typescript.SourceFile> = (_) => (sourceFile) => {
+        this.emit('build:end', { file: sourceFile.fileName })
+
+        return sourceFile
+      }
 
     const result = program.emit(undefined, undefined, undefined, undefined, {
-      after: [createTransformJsxToJsExtension(this.ts)],
+      before: [beforeTransformer],
+      after: [afterTransformer, createTransformJsxToJsExtension(this.ts)],
     })
 
-    return this.filterDiagnostics(this.ts.getPreEmitDiagnostics(program).concat(result.diagnostics))
+    const diagnostics = this.filterDiagnostics(
+      this.ts.getPreEmitDiagnostics(program).concat(result.diagnostics)
+    )
+
+    this.emit('end', { diagnostics })
+
+    return diagnostics
   }
 
   private filterDiagnostics(
@@ -103,5 +152,3 @@ class TypeScript {
       )
   }
 }
-
-export { TypeScript }

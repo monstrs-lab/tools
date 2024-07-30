@@ -3,8 +3,6 @@ import { join }                 from 'node:path'
 
 import { BaseCommand }          from '@yarnpkg/cli'
 import { Configuration }        from '@yarnpkg/core'
-import { StreamReport }         from '@yarnpkg/core'
-import { MessageName }          from '@yarnpkg/core'
 import { Project }              from '@yarnpkg/core'
 import { Filename }             from '@yarnpkg/fslib'
 import { scriptUtils }          from '@yarnpkg/core'
@@ -13,11 +11,12 @@ import { xfs }                  from '@yarnpkg/fslib'
 import { Option }               from 'clipanion'
 import { isEnum }               from 'typanion'
 import React                    from 'react'
+import { render }               from 'ink'
 
+import { TypeScriptProgress }   from '@monstrs/cli-ui-typescript-progress-component'
 import { ErrorInfo }            from '@monstrs/cli-ui-error-info-component'
 import { TypeScriptDiagnostic } from '@monstrs/cli-ui-typescript-diagnostic-component'
 import { TypeScript }           from '@monstrs/code-typescript'
-import { SpinnerProgress }      from '@monstrs/yarn-run-utils'
 import { renderStatic }         from '@monstrs/cli-ui-renderer'
 
 export class LibraryBuildCommand extends BaseCommand {
@@ -69,53 +68,41 @@ export class LibraryBuildCommand extends BaseCommand {
   }
 
   async executeRegular(): Promise<number> {
-    const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
-
-    const commandReport = await StreamReport.start(
-      {
-        stdout: this.context.stdout,
-        configuration,
-      },
-      async (report) => {
         await this.cleanTarget()
 
-        await report.startTimerPromise('Library Build', async () => {
-          const progress = new SpinnerProgress(this.context.stdout, configuration)
+        const typescript = await TypeScript.initialize(this.context.cwd)
+        
+        const { clear } = render(<TypeScriptProgress typescript={typescript} />)
 
-          progress.start()
+        try {
 
-          try {
-            const typescript = await TypeScript.initialize(this.context.cwd)
+          const diagnostics = await typescript.build([join(this.context.cwd, './src')], {
+            outDir: join(this.context.cwd, this.target),
+            module: this.module as any,
+            declaration: true,
+          })
 
-            const diagnostics = await typescript.build([join(this.context.cwd, './src')], {
-              outDir: join(this.context.cwd, this.target),
-              module: this.module as any,
-              declaration: true,
+          diagnostics.forEach((diagnostic) => {
+            const output = renderStatic(<TypeScriptDiagnostic {...diagnostic} />)
+
+            output.split('\n').forEach((line) => {
+              console.log(line) // eslint-disable-line no-console
+            })
+          })
+
+          clear()
+
+          return diagnostics.length === 0 ? 0 : 1
+        } catch (error) {
+          renderStatic(<ErrorInfo error={error as Error} />, process.stdout.columns - 12)
+            .split('\n')
+            .forEach((line) => {
+              console.error(line) // eslint-disable-line no-console
             })
 
-            progress.end()
 
-            diagnostics.forEach((diagnostic) => {
-              const output = renderStatic(<TypeScriptDiagnostic {...diagnostic} />)
-
-              output.split('\n').forEach((line) => {
-                report.reportError(MessageName.UNNAMED, line)
-              })
-            })
-          } catch (error) {
-            progress.end()
-
-            renderStatic(<ErrorInfo error={error as Error} />, process.stdout.columns - 12)
-              .split('\n')
-              .forEach((line) => {
-                report.reportError(MessageName.UNNAMED, line)
-              })
-          }
-        })
-      }
-    )
-
-    return commandReport.exitCode()
+            return 1
+        }
   }
 
   protected async cleanTarget(): Promise<void> {

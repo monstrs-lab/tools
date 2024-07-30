@@ -7,5 +7,14 @@ const { level } = createSupportsColor({ isTTY: true } as WriteStream) || { level
 
 export const forceColor = level >= 1
 
-export const codeFrameSource = (source: string, line: number, column?: number): string =>
-  codeFrameColumns(source, { start: { column, line } }, { highlightCode: forceColor, forceColor })
+export const codeFrameSource = (
+  source: string,
+  line: number,
+  column?: number,
+  message?: string
+): string =>
+  codeFrameColumns(
+    source,
+    { start: { column, line } },
+    { highlightCode: forceColor, forceColor, message }
+  )

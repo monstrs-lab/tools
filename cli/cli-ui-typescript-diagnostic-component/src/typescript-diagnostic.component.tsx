@@ -48,7 +48,7 @@ export const TypeScriptDiagnostic: FC<TypeScriptDiagnosticProps> = ({
   }, [file, start])
 
   return (
-    <Box flexDirection='column' marginBottom={1}>
+    <Box flexDirection='column' borderStyle='single' borderColor='gray' paddingX={2} paddingY={1}>
       {!!filepath && (
         <Box marginBottom={1}>
           <Text color='cyan'>

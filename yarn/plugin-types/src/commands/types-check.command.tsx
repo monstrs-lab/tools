@@ -1,19 +1,18 @@
 import { BaseCommand }          from '@yarnpkg/cli'
 import { Configuration }        from '@yarnpkg/core'
 import { Project }              from '@yarnpkg/core'
-import { StreamReport }         from '@yarnpkg/core'
-import { MessageName }          from '@yarnpkg/core'
 import { Filename }             from '@yarnpkg/fslib'
 import { scriptUtils }          from '@yarnpkg/core'
 import { execUtils }            from '@yarnpkg/core'
 import { xfs }                  from '@yarnpkg/fslib'
 import { Option }               from 'clipanion'
+import { render }               from 'ink'
 import React                    from 'react'
 
 import { ErrorInfo }            from '@monstrs/cli-ui-error-info-component'
+import { TypeScriptProgress }   from '@monstrs/cli-ui-typescript-progress-component'
 import { TypeScriptDiagnostic } from '@monstrs/cli-ui-typescript-diagnostic-component'
 import { TypeScript }           from '@monstrs/code-typescript'
-import { SpinnerProgress }      from '@monstrs/yarn-run-utils'
 import { renderStatic }         from '@monstrs/cli-ui-renderer'
 
 export class TypesCheckCommand extends BaseCommand {
@@ -52,50 +51,38 @@ export class TypesCheckCommand extends BaseCommand {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
     const { project } = await Project.find(configuration, this.context.cwd)
 
-    const commandReport = await StreamReport.start(
-      {
-        stdout: this.context.stdout,
-        configuration,
-      },
-      async (report) => {
-        await report.startTimerPromise('Types:Check', async () => {
-          const progress = new SpinnerProgress(this.context.stdout, configuration)
+    const typescript = await TypeScript.initialize(project.cwd)
 
-          progress.start()
+    const { clear } = render(<TypeScriptProgress typescript={typescript} />)
 
-          try {
-            const typescript = await TypeScript.initialize(project.cwd)
-
-            const diagnostics = await typescript.check(
-              this.args.length > 0
-                ? this.args
-                : project.topLevelWorkspace.manifest.workspaceDefinitions.map(
-                    (definition) => definition.pattern
-                  )
+    try {
+      const diagnostics = await typescript.check(
+        this.args.length > 0
+          ? this.args
+          : project.topLevelWorkspace.manifest.workspaceDefinitions.map(
+              (definition) => definition.pattern
             )
+      )
 
-            progress.end()
+      diagnostics.forEach((diagnostic) => {
+        renderStatic(<TypeScriptDiagnostic {...diagnostic} />)
+          .split('\n')
+          .forEach((line) => {
+            console.log(line) // eslint-disable-line no-console
+          })
+      })
 
-            diagnostics.forEach((diagnostic) => {
-              const output = renderStatic(<TypeScriptDiagnostic {...diagnostic} />)
+      clear()
 
-              output.split('\n').forEach((line) => {
-                report.reportError(MessageName.UNNAMED, line)
-              })
-            })
-          } catch (error) {
-            progress.end()
-
-            renderStatic(<ErrorInfo error={error as Error} />, process.stdout.columns - 12)
-              .split('\n')
-              .forEach((line) => {
-                report.reportError(MessageName.UNNAMED, line)
-              })
-          }
+      return diagnostics.length === 0 ? 0 : 1
+    } catch (error) {
+      renderStatic(<ErrorInfo error={error as Error} />, process.stdout.columns)
+        .split('\n')
+        .forEach((line) => {
+          console.error(line) // eslint-disable-line no-console
         })
-      }
-    )
 
-    return commandReport.exitCode()
+      return 1
+    }
   }
 }

@@ -9,8 +9,9 @@ export interface SourcePreviewProps {
   children: string
   line: number
   column?: number
+  message?: string
 }
 
-export const SourcePreview: FC<SourcePreviewProps> = ({ children, line, column }) => (
-  <Text>{codeFrameSource(children, line, column)}</Text>
+export const SourcePreview: FC<SourcePreviewProps> = ({ children, line, column, message }) => (
+  <Text>{codeFrameSource(children, line, column, message)}</Text>
 )
