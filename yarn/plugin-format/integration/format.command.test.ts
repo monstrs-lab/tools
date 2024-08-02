@@ -1,81 +1,55 @@
-import type { PortablePath } from '@yarnpkg/fslib'
+import assert         from 'node:assert/strict'
+import { beforeEach } from 'node:test'
+import { test }       from 'node:test'
 
-import { describe }          from '@jest/globals'
-import { expect }            from '@jest/globals'
-import { test }              from '@jest/globals'
-import { xfs }               from '@yarnpkg/fslib'
-import { ppath }             from '@yarnpkg/fslib'
+import { TestEnv }    from '@monstrs/yarn-test-utils'
 
-import { makeTemporaryEnv }  from '@monstrs/yarn-test-utils'
+let testEnv: TestEnv
 
-describe('yarn', () => {
-  describe('commands', () => {
-    describe('format', () => {
-      test(
-        'it should split imports',
-        makeTemporaryEnv({}, async ({ path, run }) => {
-          await run('install')
+beforeEach(async () => {
+  testEnv = await TestEnv.create()
 
-          const filePath = ppath.join(path, 'split-imports.ts' as PortablePath)
+  await testEnv.run('install')
+})
 
-          await xfs.writeFilePromise(
-            filePath,
-            `
-import { a, b } from './c'
-import { d } from './e'
-`
-          )
+test('should split imports', async () => {
+  await testEnv.writeFile('format.ts', 'import { a, b } from "./c"\nimport { d } from "./e"')
 
-          await run('format')
+  await testEnv.run('format')
+  await testEnv.run('format')
 
-          await expect(xfs.readFilePromise(filePath, 'utf8')).resolves.toMatchSnapshot()
-        })
-      )
+  assert.equal(
+    await testEnv.readFile('format.ts'),
+    `import { a } from './c'\nimport { b } from './c'\nimport { d } from './e'\n`
+  )
+})
 
-      test(
-        'it should order imports',
-        makeTemporaryEnv({}, async ({ path, run }) => {
-          await run('install')
+test('should order imports', async () => {
+  await testEnv.writeFile(
+    'format.ts',
+    'import { a } from "./c"\nimport { b } from "@scope/name"\nimport type { c } from "./d"'
+  )
 
-          const filePath = ppath.join(path, 'order-imports.ts' as PortablePath)
+  await testEnv.run('format')
+  await testEnv.run('format')
 
-          await xfs.writeFilePromise(
-            filePath,
-            `
-import { a } from './c'
-import { b } from '@scope/name'
-import type { c } from './d'
-          `
-          )
+  assert.equal(
+    await testEnv.readFile('format.ts'),
+    `import type { c } from './d'\n\nimport { b }      from '@scope/name'\n\nimport { a }      from './c'\n`
+  )
+})
 
-          await run('format')
+test('should align imports', async () => {
+  await testEnv.writeFile(
+    'format.ts',
+    'import { first } from "./a"\nimport { second } from "./a"\nimport type { type } from "./a"\nimport third from "./a"'
+  )
 
-          await expect(xfs.readFilePromise(filePath, 'utf8')).resolves.toMatchSnapshot()
-        })
-      )
+  await testEnv.run('format')
+  await testEnv.run('format')
 
-      test(
-        'it should align imports',
-        makeTemporaryEnv({}, async ({ path, run }) => {
-          await run('install')
-
-          const filePath = ppath.join(path, 'align-imports.ts' as PortablePath)
-
-          await xfs.writeFilePromise(
-            filePath,
-            `
-import { first } from './a'
-import { second } from './a'
-import type { type } from './a'
-import third from './a'
-          `
-          )
-
-          await run('format')
-
-          await expect(xfs.readFilePromise(filePath, 'utf8')).resolves.toMatchSnapshot()
-        })
-      )
-    })
-  })
+  assert.equal(
+    await testEnv.readFile('format.ts'),
+    `import type { type } from './a'\n\nimport { first }     from './a'\nimport { second }    from './a'\nimport third         from './a'\n`
+  )
 })

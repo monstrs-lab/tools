@@ -84,7 +84,7 @@ export class LintCommand extends BaseCommand {
         renderStatic(<ErrorInfo error={error} />, process.stdout.columns)
           .split('\n')
           .forEach((line) => {
-            console.error(`${line}\n`) // eslint-disable-line no-console
+            console.error(line) // eslint-disable-line no-console
           })
       } else {
         console.error(error) // eslint-disable-line no-console

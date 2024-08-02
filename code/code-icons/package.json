@@ -27,9 +27,8 @@
     "webpack-chain-5": "^8.0.2"
   },
   "devDependencies": {
-    "@jest/globals": "^29.7.0",
     "@monstrs/logger": "^0.0.20",
-    "@types/node": "^20.11.26",
+    "@types/node": "^22.1.0",
     "@types/webpack": "^5.28.5",
     "@yarnpkg/fslib": "^3.1.0"
   },

@@ -1,12 +1,7 @@
-import type { PortablePath } from '@yarnpkg/fslib'
+import assert      from 'node:assert/strict'
+import { test }    from 'node:test'
 
-import { describe }          from '@jest/globals'
-import { expect }            from '@jest/globals'
-import { test }              from '@jest/globals'
-import { xfs }               from '@yarnpkg/fslib'
-import { ppath }             from '@yarnpkg/fslib'
-
-import { makeTemporaryEnv }  from '@monstrs/yarn-test-utils'
+import { TestEnv } from '@monstrs/yarn-test-utils'
 
 const content = `
 import { createServer } from 'node:http'
@@ -19,34 +14,16 @@ createServer((req, res) => {
 }).listen(port)
 `
 
-describe('yarn', () => {
-  describe('commands', () => {
-    describe('service', () => {
-      test(
-        'it should build withouth errors',
-        makeTemporaryEnv(
-          {
-            dependencies: {
-              '@monstrs/tools-runtime': 'workspace:*',
-            },
-          },
-          async ({ path, run }) => {
-            await run('install')
+test('should run yarn build command withouth errors', async () => {
+  const testEnv = await TestEnv.create()
 
-            await xfs.mkdirPromise(ppath.join(path, 'src' as PortablePath))
-            await xfs.writeFilePromise(ppath.join(path, 'src/index.ts' as PortablePath), content)
+  await testEnv.run('install')
+  await testEnv.mkdir('src')
+  await testEnv.writeFile('src/index.ts', content)
 
-            const { code, stdout } = await run('service', 'build')
+  const { code, stdout } = await testEnv.run('service', 'build')
 
-            expect(code).toBe(0)
-            expect(stdout).toContain('➤ YN0000: └ Completed')
-
-            await expect(
-              xfs.readFilePromise(`${path}/dist/index.js` as PortablePath, 'utf8')
-            ).resolves.toContain('Hello World!')
-          }
-        )
-      )
-    })
-  })
+  assert.equal(code, 0)
+  assert.ok(stdout.includes('➤ YN0000: └ Completed'))
+  assert.ok((await testEnv.readFile('dist/index.js')).includes(`res.end('Hello World!');`))
 })

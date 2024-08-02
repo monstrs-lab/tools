@@ -10,8 +10,8 @@ import { render }               from 'ink'
 import React                    from 'react'
 
 import { ErrorInfo }            from '@monstrs/cli-ui-error-info-component'
-import { TypeScriptProgress }   from '@monstrs/cli-ui-typescript-progress-component'
 import { TypeScriptDiagnostic } from '@monstrs/cli-ui-typescript-diagnostic-component'
+import { TypeScriptProgress }   from '@monstrs/cli-ui-typescript-progress-component'
 import { TypeScript }           from '@monstrs/code-typescript'
 import { renderStatic }         from '@monstrs/cli-ui-renderer'
 
@@ -72,8 +72,6 @@ export class TypesCheckCommand extends BaseCommand {
           })
       })
 
-      clear()
-
       return diagnostics.length === 0 ? 0 : 1
     } catch (error) {
       renderStatic(<ErrorInfo error={error as Error} />, process.stdout.columns)
@@ -83,6 +81,8 @@ export class TypesCheckCommand extends BaseCommand {
         })
 
       return 1
+    } finally {
+      clear()
     }
   }
 }

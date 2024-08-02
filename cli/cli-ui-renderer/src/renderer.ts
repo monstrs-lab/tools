@@ -9,7 +9,7 @@ import { renderNodeToOutput } from './ink.js'
 
 export const renderStatic = (
   target: ReactNode,
-  terminalWidth: number = process.stdout.columns || 80
+  terminalWidth: number = process.stdout.columns || 160
 ): string => {
   const rootNode = createNode('ink-root')
   // @ts-expect-error

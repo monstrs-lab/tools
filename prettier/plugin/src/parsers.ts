@@ -39,7 +39,7 @@ const parse = async (source: string, options: ParserOptions): Promise<any> => {
     }
   })
 
-  return program // eslint-disable-line @typescript-eslint/no-unsafe-return
+  return program
 }
 
 export const parsers: Record<string, Parser> = {

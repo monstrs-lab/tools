@@ -16,7 +16,7 @@ export interface LogRecordProps extends Record {
 }
 
 export const LogRecord: FC<LogRecordProps> = ({ namespace, body, stack, attributes = {} }) => (
-  <Box flexDirection='column'>
+  <Box flexDirection='column' borderStyle='single' borderColor='gray' paddingX={2} paddingY={1}>
     <Box flexDirection='row'>
       <Box flexGrow={1}>
         <Box paddingRight={1}>

@@ -9,7 +9,6 @@
     "runtime/**/*",
     "config/**/*",
     "yarn/**/*",
-    "jest/**/*",
     "cli/**/*"
   ],
   "scripts": {
@@ -29,7 +28,7 @@
   },
   "devDependencies": {
     "@monstrs/tools-runtime": "workspace:0.2.24",
-    "@types/node": "^20.11.26",
+    "@types/node": "^22.1.0",
     "@yarnpkg/builder": "patch:@yarnpkg/builder@npm%3A4.1.1#~/.yarn/patches/@yarnpkg-builder-npm-4.1.1-abb47d5979.patch",
     "esbuild": "npm:esbuild-wasm@^0.23.0",
     "typescript": "^5.5.3"

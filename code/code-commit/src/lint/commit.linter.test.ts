@@ -1,13 +1,10 @@
-import { describe }     from '@jest/globals'
-import { expect }       from '@jest/globals'
-import { it }           from '@jest/globals'
+import assert           from 'node:assert/strict'
+import { test }         from 'node:test'
 
 import { CommitLinter } from './commit.linter.js'
 
-describe('code-commit', () => {
-  it('lint', async () => {
-    const { valid } = await new CommitLinter().lint('feat(common): init')
+test('code-commit lint', async () => {
+  const { valid } = await new CommitLinter().lint('feat(common): init')
 
-    expect(valid).toBe(true)
-  })
+  assert.equal(valid, true)
 })

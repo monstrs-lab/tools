@@ -9,13 +9,12 @@ import { scriptUtils }          from '@yarnpkg/core'
 import { execUtils }            from '@yarnpkg/core'
 import { xfs }                  from '@yarnpkg/fslib'
 import { Option }               from 'clipanion'
-import { isEnum }               from 'typanion'
-import React                    from 'react'
 import { render }               from 'ink'
+import React                    from 'react'
 
-import { TypeScriptProgress }   from '@monstrs/cli-ui-typescript-progress-component'
 import { ErrorInfo }            from '@monstrs/cli-ui-error-info-component'
 import { TypeScriptDiagnostic } from '@monstrs/cli-ui-typescript-diagnostic-component'
+import { TypeScriptProgress }   from '@monstrs/cli-ui-typescript-progress-component'
 import { TypeScript }           from '@monstrs/code-typescript'
 import { renderStatic }         from '@monstrs/cli-ui-renderer'
 
@@ -23,10 +22,6 @@ export class LibraryBuildCommand extends BaseCommand {
   static override paths = [['library', 'build']]
 
   target = Option.String('-t,--target', './dist')
-
-  module: 'commonjs' | 'nodenext' = Option.String('-m,--module', 'nodenext', {
-    validator: isEnum(['nodenext', 'commonjs']),
-  })
 
   override async execute(): Promise<number> {
     const nodeOptions = process.env.NODE_OPTIONS ?? ''
@@ -49,11 +44,6 @@ export class LibraryBuildCommand extends BaseCommand {
       args.push(this.target)
     }
 
-    if (this.module) {
-      args.push('-m')
-      args.push(this.module)
-    }
-
     const binFolder = await xfs.mktempPromise()
 
     const { code } = await execUtils.pipevp('yarn', ['library', 'build', ...args], {
@@ -68,41 +58,38 @@ export class LibraryBuildCommand extends BaseCommand {
   }
 
   async executeRegular(): Promise<number> {
-        await this.cleanTarget()
+    await this.cleanTarget()
 
-        const typescript = await TypeScript.initialize(this.context.cwd)
-        
-        const { clear } = render(<TypeScriptProgress typescript={typescript} />)
+    const typescript = await TypeScript.initialize(this.context.cwd)
 
-        try {
+    const { clear } = render(<TypeScriptProgress typescript={typescript} />)
 
-          const diagnostics = await typescript.build([join(this.context.cwd, './src')], {
-            outDir: join(this.context.cwd, this.target),
-            module: this.module as any,
-            declaration: true,
-          })
+    try {
+      const diagnostics = await typescript.build([join(this.context.cwd, './src')], {
+        outDir: join(this.context.cwd, this.target),
+        declaration: true,
+      })
 
-          diagnostics.forEach((diagnostic) => {
-            const output = renderStatic(<TypeScriptDiagnostic {...diagnostic} />)
+      diagnostics.forEach((diagnostic) => {
+        const output = renderStatic(<TypeScriptDiagnostic {...diagnostic} />)
 
-            output.split('\n').forEach((line) => {
-              console.log(line) // eslint-disable-line no-console
-            })
-          })
+        output.split('\n').forEach((line) => {
+          console.log(line) // eslint-disable-line no-console
+        })
+      })
 
-          clear()
+      return diagnostics.length === 0 ? 0 : 1
+    } catch (error) {
+      renderStatic(<ErrorInfo error={error as Error} />, process.stdout.columns - 12)
+        .split('\n')
+        .forEach((line) => {
+          console.error(line) // eslint-disable-line no-console
+        })
 
-          return diagnostics.length === 0 ? 0 : 1
-        } catch (error) {
-          renderStatic(<ErrorInfo error={error as Error} />, process.stdout.columns - 12)
-            .split('\n')
-            .forEach((line) => {
-              console.error(line) // eslint-disable-line no-console
-            })
-
-
-            return 1
-        }
+      return 1
+    } finally {
+      clear()
+    }
   }
 
   protected async cleanTarget(): Promise<void> {

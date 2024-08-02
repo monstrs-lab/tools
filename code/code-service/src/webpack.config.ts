@@ -60,7 +60,7 @@ export class WebpackConfig {
     }
 
     config.output.path(join(this.cwd, 'dist')).filename('[name].js')
-    config.output.chunkFormat('module')
+    config.output.chunkFormat(environment === 'development' ? 'commonjs' : 'module')
     config.output.module(true)
 
     config.resolve.extensions.add('.tsx').add('.ts').add('.js')
@@ -86,6 +86,13 @@ export class WebpackConfig {
   private async applyPlugins(config: Config, environment: WebpackEnvironment): Promise<void> {
     if (environment === 'development') {
       config.plugin('hot').use(this.webpack.HotModuleReplacementPlugin)
+
+      config.plugin('banner').use(this.webpack.BannerPlugin, [
+        {
+          banner: `import { createRequire } from 'node:module'\nimport { fileURLToPath } from 'node:url'\nconst require = createRequire(import.meta.url)\nconst __filename = fileURLToPath(import.meta.url)\n`,
+          raw: true,
+        },
+      ])
     }
 
     config.plugin('ignore').use(this.webpack.IgnorePlugin, [

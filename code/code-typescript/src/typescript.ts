@@ -35,6 +35,9 @@ export class TypeScript extends EventEmitter {
     )
 
     if (errors.length > 0) {
+      this.emit('start', { files: [] })
+      this.emit('end', { diagnostics: errors })
+
       return errors
     }
 
@@ -72,6 +75,9 @@ export class TypeScript extends EventEmitter {
     )
 
     if (errors.length > 0) {
+      this.emit('start', { files: [] })
+      this.emit('end', { diagnostics: errors })
+
       return errors
     }
 
@@ -82,15 +88,15 @@ export class TypeScript extends EventEmitter {
       noEmit: false,
     })
 
-    const beforeTransformer: typescript.TransformerFactory<typescript.SourceFile> = (_) => 
+    const beforeTransformer: typescript.TransformerFactory<typescript.SourceFile> = (_) =>
       (sourceFile) => {
         this.emit('build:start', { file: sourceFile.fileName })
 
         return sourceFile
       }
-    
 
-    const afterTransformer: typescript.TransformerFactory<typescript.SourceFile> = (_) => (sourceFile) => {
+    const afterTransformer: typescript.TransformerFactory<typescript.SourceFile> = (_) =>
+      (sourceFile) => {
         this.emit('build:end', { file: sourceFile.fileName })
 
         return sourceFile
