@@ -1,12 +1,13 @@
 /* eslint-disable n/no-sync */
 
-import { existsSync }      from 'node:fs'
 import type { ResolveFnOutput } from 'node:module'
 import type { ResolveHook }     from 'node:module'
-import { dirname }         from 'node:path'
-import { join }            from 'node:path'
-import { extname }         from 'node:path'
-import { fileURLToPath }   from 'node:url'
+
+import { existsSync }           from 'node:fs'
+import { dirname }              from 'node:path'
+import { join }                 from 'node:path'
+import { extname }              from 'node:path'
+import { fileURLToPath }        from 'node:url'
 
 const mapping = new Map([
   ['.js', ['.js', '.ts', '.tsx', '.jsx']],
@@ -19,7 +20,7 @@ export const resolve: ResolveHook = (
   specifier,
   context,
   next
-): Promise<ResolveFnOutput> | ResolveFnOutput=> {
+): Promise<ResolveFnOutput> | ResolveFnOutput => {
   if (!specifier.startsWith('.')) {
     return next(specifier, context)
   }

@@ -2,6 +2,7 @@ import type { webpack as wp }    from '@monstrs/tools-runtime/webpack'
 
 import type { ServiceLogRecord } from './service.interfaces.js'
 
+import EventEmitter              from 'node:events'
 import { PassThrough }           from 'node:stream'
 
 import { SeverityNumber }        from '@monstrs/logger'
@@ -10,11 +11,13 @@ import { StartServerPlugin }     from '@monstrs/webpack-start-server-plugin'
 
 import { WebpackConfig }         from './webpack.config.js'
 
-export class Service {
+export class Service extends EventEmitter {
   protected constructor(
     private readonly webpack: typeof wp,
     private readonly config: WebpackConfig
-  ) {}
+  ) {
+    super()
+  }
 
   static async initialize(cwd: string): Promise<Service> {
     const { webpack, nullLoaderPath, tsLoaderPath, nodeLoaderPath } = await import(
@@ -35,10 +38,24 @@ export class Service {
   }
 
   async build(): Promise<Array<ServiceLogRecord>> {
-    const compiler = this.webpack(await this.config.build())
+    const compiler = this.webpack(
+      await this.config.build('production', [
+        {
+          name: 'progress',
+          use: this.webpack.ProgressPlugin,
+          args: [
+            (percent: number, message: string): void => {
+              this.emit('build:progress', { percent: percent * 100, message })
+            },
+          ],
+        },
+      ])
+    )
 
     return new Promise((resolve, reject) => {
       compiler.run((error, stats) => {
+        this.emit('end', { error, stats })
+
         if (error) {
           if (!error.message) {
             reject(error)
@@ -88,8 +105,19 @@ export class Service {
             },
           ],
         },
+        {
+          name: 'progress',
+          use: this.webpack.ProgressPlugin,
+          args: [
+            (percent: number, message: string): void => {
+              this.emit('build:progress', { percent: percent * 100, message })
+            },
+          ],
+        },
       ])
     ).watch({}, (error, stats) => {
+      this.emit('end', { error, stats })
+
       if (error) {
         callback(error)
       } else if (stats) {

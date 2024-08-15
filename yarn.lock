@@ -1015,6 +1015,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@monstrs/cli-ui-service-progress-component@workspace:0.3.10, @monstrs/cli-ui-service-progress-component@workspace:cli/cli-ui-service-progress-component":
+  version: 0.0.0-use.local
+  resolution: "@monstrs/cli-ui-service-progress-component@workspace:cli/cli-ui-service-progress-component"
+  dependencies:
+    "@inkjs/ui": "npm:^2.0.0"
+    "@monstrs/cli-ui-renderer": "workspace:0.3.8"
+    "@types/react": "npm:^18.2.65"
+    figures: "npm:^6.1.0"
+    ink: "npm:^4.4.1"
+    react: "npm:^18.2.0"
+    strip-ansi: "npm:^7.1.0"
+  peerDependencies:
+    ink: ^3.0.8
+    react: "*"
+  languageName: unknown
+  linkType: soft
+
 "@monstrs/cli-ui-source-component@workspace:0.3.9, @monstrs/cli-ui-source-component@workspace:cli/cli-ui-source-component":
   version: 0.0.0-use.local
   resolution: "@monstrs/cli-ui-source-component@workspace:cli/cli-ui-source-component"
@@ -1801,6 +1818,7 @@ __metadata:
     "@monstrs/cli-ui-error-info-component": "workspace:0.3.12"
     "@monstrs/cli-ui-log-record-component": "workspace:0.3.12"
     "@monstrs/cli-ui-renderer": "workspace:0.3.8"
+    "@monstrs/cli-ui-service-progress-component": "workspace:0.3.10"
     "@monstrs/code-service": "workspace:0.3.37"
     "@monstrs/logger": "npm:^0.0.20"
     "@monstrs/yarn-pack-utils": "workspace:0.2.16"
@@ -1812,6 +1830,7 @@ __metadata:
     "@yarnpkg/core": "npm:^4.1.1"
     "@yarnpkg/fslib": "npm:^3.1.0"
     clipanion: "npm:^4.0.0-rc.3"
+    ink: "npm:^4.4.1"
     react: "npm:^18.2.0"
     typescript: "npm:^5.5.3"
   peerDependencies:

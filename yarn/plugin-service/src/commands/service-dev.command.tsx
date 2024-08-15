@@ -1,13 +1,16 @@
 import { Configuration }          from '@yarnpkg/core'
-import { StreamReport }           from '@yarnpkg/core'
 import { Project }                from '@yarnpkg/core'
 import { Filename }               from '@yarnpkg/fslib'
 import { scriptUtils }            from '@yarnpkg/core'
 import { execUtils }              from '@yarnpkg/core'
 import { xfs }                    from '@yarnpkg/fslib'
+import { render }                 from 'ink'
+import React                      from 'react'
 
+import { ErrorInfo }              from '@monstrs/cli-ui-error-info-component'
+import { ServiceProgress }        from '@monstrs/cli-ui-service-progress-component'
 import { Service }                from '@monstrs/code-service'
-import { SpinnerProgress }        from '@monstrs/yarn-run-utils'
+import { renderStatic }           from '@monstrs/cli-ui-renderer'
 
 import { AbstractServiceCommand } from './abstract-service.command.jsx'
 
@@ -48,36 +51,30 @@ export class ServiceDevCommand extends AbstractServiceCommand {
   }
 
   async executeRegular(): Promise<number> {
-    const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
+    const service = await Service.initialize(this.context.cwd)
 
-    const commandReport = await StreamReport.start(
-      {
-        stdout: this.context.stdout,
-        configuration,
-      },
-      async (report) => {
-        await report.startTimerPromise('Service Development', async () => {
-          const progress = new SpinnerProgress(this.context.stdout, configuration)
+    const { clear } = render(<ServiceProgress service={service} />)
 
-          progress.start()
+    try {
+      await service.watch((logRecord) => {
+        this.renderLogRecord(logRecord)
+      })
 
-          try {
-            const service = await Service.initialize(this.context.cwd)
-
-            await service.watch((logRecord) => {
-              progress.end()
-
-              this.renderLogRecord(logRecord, report)
-            })
-          } catch (error) {
-            progress.end()
-
-            this.renderLogRecord(error as Error, report)
-          }
-        })
+      return 0
+    } catch (error) {
+      if (error instanceof Error) {
+        renderStatic(<ErrorInfo error={error} />, process.stdout.columns)
+          .split('\n')
+          .forEach((line) => {
+            console.error(line) // eslint-disable-line no-console
+          })
+      } else {
+        console.error(error) // eslint-disable-line no-console
       }
-    )
 
-    return commandReport.exitCode()
+      return 1
+    } finally {
+      clear()
+    }
   }
 }
