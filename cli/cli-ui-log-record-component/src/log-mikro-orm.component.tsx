@@ -57,7 +57,7 @@ export const LogMikroOrmParameters: FC<{ children?: LogAttributeValue }> = ({ ch
     }, [])
 
     return (
-      <Box paddingLeft={4}>
+      <Box paddingLeft={4} marginTop={1}>
         <Text>PARAMS:</Text>
         <Text> </Text>
         <Text color='white'>[</Text>
@@ -71,8 +71,8 @@ export const LogMikroOrmParameters: FC<{ children?: LogAttributeValue }> = ({ ch
 }
 
 export const LogMikroOrm: FC<LogMikroOrmProps> = ({ children }) => (
-  <>
+  <Box marginTop={1} flexDirection='column'>
     <LogMikroOrmSql>{children?.[LOGGER_SQL_ATTRIBUTE_NAME]}</LogMikroOrmSql>
     <LogMikroOrmParameters>{children?.[LOGGER_PARAMS_ATTRIBUTE_NAME]}</LogMikroOrmParameters>
-  </>
+  </Box>
 )

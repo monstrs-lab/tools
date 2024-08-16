@@ -16,7 +16,7 @@ export const LogStackTrace: FC<LogStackTraceProps> = ({ children }) => {
   }
 
   return (
-    <Box paddingBottom={1}>
+    <Box paddingBottom={1} marginTop={1}>
       <StackTrace>{children as string}</StackTrace>
     </Box>
   )

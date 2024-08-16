@@ -16,12 +16,18 @@ export interface ESLintResultProps {
   messages: Array<ESLintResultMessageProps>
   filePath: string
   source?: string
+  cwd?: string
 }
 
-export const ESLintResult: FC<ESLintResultProps> = ({ filePath, source, messages }) => {
+export const ESLintResult: FC<ESLintResultProps> = ({
+  filePath,
+  source,
+  messages,
+  cwd = process.cwd(),
+}) => {
   const filepath = useMemo(() => {
     if (isAbsolute(filePath)) {
-      return relative(process.cwd(), filePath)
+      return relative(cwd, filePath)
     }
 
     return filePath
@@ -32,7 +38,7 @@ export const ESLintResult: FC<ESLintResultProps> = ({ filePath, source, messages
   }
 
   return (
-    <Box flexDirection='column'>
+    <Box flexDirection='column' width='100%'>
       {messages.map((message) => (
         <ESLintResultMessage key={nanoid()} filePath={filepath} message={message} source={source} />
       ))}

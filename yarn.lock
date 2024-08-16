@@ -912,6 +912,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@monstrs/cli-ui-file-path-component@workspace:0.3.10, @monstrs/cli-ui-file-path-component@workspace:cli/cli-ui-file-path-component":
+  version: 0.0.0-use.local
+  resolution: "@monstrs/cli-ui-file-path-component@workspace:cli/cli-ui-file-path-component"
+  dependencies:
+    "@types/react": "npm:^18.2.65"
+    ink: "npm:^4.4.1"
+    ink-link: "npm:^4.1.0"
+    react: "npm:^18.2.0"
+  peerDependencies:
+    ink: ^3.0.8
+    react: "*"
+  languageName: unknown
+  linkType: soft
+
 "@monstrs/cli-ui-format-progress-component@workspace:0.3.10, @monstrs/cli-ui-format-progress-component@workspace:cli/cli-ui-format-progress-component":
   version: 0.0.0-use.local
   resolution: "@monstrs/cli-ui-format-progress-component@workspace:cli/cli-ui-format-progress-component"
@@ -944,6 +958,27 @@ __metadata:
     ink-multi-select: "npm:^2.0.0"
     ink-select-input: "npm:^5.0.0"
     ink-text-input: "npm:^5.0.1"
+  peerDependencies:
+    ink: ^3.0.8
+    react: "*"
+  languageName: unknown
+  linkType: soft
+
+"@monstrs/cli-ui-kitchen-sink@workspace:cli/cli-ui-kitchen-sink":
+  version: 0.0.0-use.local
+  resolution: "@monstrs/cli-ui-kitchen-sink@workspace:cli/cli-ui-kitchen-sink"
+  dependencies:
+    "@monstrs/cli-ui-error-info-component": "workspace:0.3.12"
+    "@monstrs/cli-ui-eslint-result-component": "workspace:0.3.10"
+    "@monstrs/cli-ui-log-record-component": "workspace:0.3.12"
+    "@monstrs/cli-ui-renderer": "workspace:0.3.8"
+    "@monstrs/cli-ui-test-failure-component": "workspace:0.3.30"
+    "@monstrs/cli-ui-typescript-diagnostic-component": "workpsace:0.3.30"
+    "@types/react": "npm:^18.2.65"
+    ink: "npm:^4.4.1"
+    react: "npm:^18.2.0"
+    strip-ansi: "npm:^7.1.0"
+    typescript: "npm:^5.5.3"
   peerDependencies:
     ink: ^3.0.8
     react: "*"
@@ -1052,6 +1087,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/cli-ui-stack-trace-component@workspace:cli/cli-ui-stack-trace-component"
   dependencies:
+    "@monstrs/cli-ui-file-path-component": "workspace:0.3.10"
     "@monstrs/cli-ui-renderer": "workspace:0.3.8"
     "@monstrs/cli-ui-source-component": "workspace:0.3.9"
     "@monstrs/stack-trace": "npm:^0.0.6"
@@ -1119,7 +1155,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/cli-ui-typescript-diagnostic-component@workspace:0.3.30, @monstrs/cli-ui-typescript-diagnostic-component@workspace:cli/cli-ui-typescript-diagnostic-component":
+"@monstrs/cli-ui-typescript-diagnostic-component@workpsace:0.3.30, @monstrs/cli-ui-typescript-diagnostic-component@workspace:0.3.30, @monstrs/cli-ui-typescript-diagnostic-component@workspace:cli/cli-ui-typescript-diagnostic-component":
   version: 0.0.0-use.local
   resolution: "@monstrs/cli-ui-typescript-diagnostic-component@workspace:cli/cli-ui-typescript-diagnostic-component"
   dependencies:
@@ -3774,6 +3810,15 @@ __metadata:
   dependencies:
     type-fest: "npm:^0.21.3"
   checksum: 10/8661034456193ffeda0c15c8c564a9636b0c04094b7f78bd01517929c17c504090a60f7a75f949f5af91289c264d3e1001d91492c1bd58efc8e100500ce04de2
+  languageName: node
+  linkType: hard
+
+"ansi-escapes@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "ansi-escapes@npm:5.0.0"
+  dependencies:
+    type-fest: "npm:^1.0.2"
+  checksum: 10/cbfb95f9f6d8a1ffc89f50fcda3313effae2d9ac2f357f89f626815b4d95fdc3f10f74e0887614ff850d01f805b7505eb1e7ebfdd26144bbfc26c5de08e19195
   languageName: node
   linkType: hard
 
@@ -6911,6 +6956,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ink-link@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "ink-link@npm:4.1.0"
+  dependencies:
+    prop-types: "npm:^15.8.1"
+    terminal-link: "npm:^3.0.0"
+  peerDependencies:
+    ink: ">=4"
+  checksum: 10/94ead37ae72088e9dfc5a6fc4c6b86f7ec6367cb99045c2374b73feef5b5262a818c9abec4e615ee3ed7df47d4b5439bb0f579e4f92beb623da79e50efe6e2e1
+  languageName: node
+  linkType: hard
+
 "ink-multi-select@npm:^2.0.0":
   version: 2.0.0
   resolution: "ink-multi-select@npm:2.0.0"
@@ -10016,6 +10073,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"supports-color@npm:^7.0.0":
+  version: 7.2.0
+  resolution: "supports-color@npm:7.2.0"
+  dependencies:
+    has-flag: "npm:^4.0.0"
+  checksum: 10/c8bb7afd564e3b26b50ca6ee47572c217526a1389fe018d00345856d4a9b08ffbd61fadaf283a87368d94c3dcdb8f5ffe2650a5a65863e21ad2730ca0f05210a
+  languageName: node
+  linkType: hard
+
 "supports-color@npm:^7.1.0":
   version: 7.1.0
   resolution: "supports-color@npm:7.1.0"
@@ -10038,6 +10104,16 @@ __metadata:
   version: 9.4.0
   resolution: "supports-color@npm:9.4.0"
   checksum: 10/cb8ff8daeaf1db642156f69a9aa545b6c01dd9c4def4f90a49f46cbf24be0c245d392fcf37acd119cd1819b99dad2cc9b7e3260813f64bcfd7f5b18b5a1eefb8
+  languageName: node
+  linkType: hard
+
+"supports-hyperlinks@npm:^2.2.0":
+  version: 2.3.0
+  resolution: "supports-hyperlinks@npm:2.3.0"
+  dependencies:
+    has-flag: "npm:^4.0.0"
+    supports-color: "npm:^7.0.0"
+  checksum: 10/3e7df6e9eaa177d7bfbbe065c91325e9b482f48de0f7c9133603e3ffa8af31cbceac104a0941cd0266a57f8e691de6eb58b79fec237852dc84ed7ad152b116b0
   languageName: node
   linkType: hard
 
@@ -10148,6 +10224,16 @@ __metadata:
     qunit: "npm:^2.8.0"
     readline-sync: "npm:1.4.9"
   checksum: 10/b28f9064e454deb2fcb5b58953e14675a57508056ea62a21477775de4b742cd50841adae5ad2ddf19c37747f5e0c55b39c7befdab27aa8e13d3b933f2216bfac
+  languageName: node
+  linkType: hard
+
+"terminal-link@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "terminal-link@npm:3.0.0"
+  dependencies:
+    ansi-escapes: "npm:^5.0.0"
+    supports-hyperlinks: "npm:^2.2.0"
+  checksum: 10/85a78ae50a2cd3c43df25922e7572f1008c92b1ea98c6c4579bbbe02fa54677a487123c3cae44fecd1a36cac782d0be2cec212a916818abb2b4df6fbb8eed341
   languageName: node
   linkType: hard
 
@@ -10425,6 +10511,13 @@ __metadata:
   version: 0.21.3
   resolution: "type-fest@npm:0.21.3"
   checksum: 10/f4254070d9c3d83a6e573bcb95173008d73474ceadbbf620dd32d273940ca18734dff39c2b2480282df9afe5d1675ebed5499a00d791758748ea81f61a38961f
+  languageName: node
+  linkType: hard
+
+"type-fest@npm:^1.0.2":
+  version: 1.4.0
+  resolution: "type-fest@npm:1.4.0"
+  checksum: 10/89875c247564601c2650bacad5ff80b859007fbdb6c9e43713ae3ffa3f584552eea60f33711dd762e16496a1ab4debd409822627be14097d9a17e39c49db591a
   languageName: node
   linkType: hard
 

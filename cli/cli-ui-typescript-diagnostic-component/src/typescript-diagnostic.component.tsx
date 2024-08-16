@@ -19,6 +19,7 @@ export interface TypeScriptDiagnosticProps {
   messageText: DiagnosticMessageChain | string
   start?: number
   code: number
+  cwd?: string
 }
 
 export const TypeScriptDiagnostic: FC<TypeScriptDiagnosticProps> = ({
@@ -26,6 +27,7 @@ export const TypeScriptDiagnostic: FC<TypeScriptDiagnosticProps> = ({
   file,
   messageText,
   code,
+  cwd = process.cwd(),
 }) => {
   const filepath = useMemo(() => {
     if (!file) {
@@ -33,7 +35,7 @@ export const TypeScriptDiagnostic: FC<TypeScriptDiagnosticProps> = ({
     }
 
     if (isAbsolute(file.fileName)) {
-      return relative(process.cwd(), file?.fileName)
+      return relative(cwd, file?.fileName)
     }
 
     return file.fileName
@@ -48,7 +50,14 @@ export const TypeScriptDiagnostic: FC<TypeScriptDiagnosticProps> = ({
   }, [file, start])
 
   return (
-    <Box flexDirection='column' borderStyle='single' borderColor='gray' paddingX={2} paddingY={1}>
+    <Box
+      flexDirection='column'
+      borderStyle='single'
+      borderColor='gray'
+      paddingX={2}
+      paddingY={1}
+      width='100%'
+    >
       {!!filepath && (
         <Box marginBottom={1}>
           <Text color='cyan'>

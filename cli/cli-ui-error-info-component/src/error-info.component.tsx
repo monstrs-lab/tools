@@ -8,6 +8,7 @@ import { StackTrace } from '@monstrs/cli-ui-stack-trace-component'
 
 export interface ErrorProps {
   error: Error
+  cwd?: string
 }
 
 export interface ErrorMessageProps {
@@ -28,12 +29,12 @@ export const ErrorMessage: FC<ErrorMessageProps> = ({ children }) => {
   )
 }
 
-export const ErrorInfo: FC<ErrorProps> = ({ error }) => (
-  <Box flexDirection='column'>
+export const ErrorInfo: FC<ErrorProps> = ({ error, cwd }) => (
+  <Box flexDirection='column' borderStyle='single' borderColor='gray' paddingX={2} paddingY={1}>
     <ErrorMessage>{error.message}</ErrorMessage>
     {!!error.stack && (
       <Box>
-        <StackTrace>{error.stack}</StackTrace>
+        <StackTrace cwd={cwd}>{error.stack}</StackTrace>
       </Box>
     )}
   </Box>
