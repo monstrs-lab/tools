@@ -21,7 +21,7 @@
     "figures": "^6.1.0"
   },
   "devDependencies": {
-    "@monstrs/cli-ui-renderer": "workspace:0.3.8",
+    "@monstrs/cli-ui-renderer-static": "workspace:0.3.8",
     "@types/react": "^18.2.65",
     "ink": "^4.4.1",
     "react": "^18.2.0",

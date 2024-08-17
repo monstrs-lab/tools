@@ -19,7 +19,7 @@ import React                             from 'react'
 
 import { TypeScriptDiagnostic }          from '@monstrs/cli-ui-typescript-diagnostic-component'
 import { TypeScript }                    from '@monstrs/code-typescript'
-import { renderStatic }                  from '@monstrs/cli-ui-renderer'
+import { renderStatic }                  from '@monstrs/cli-ui-renderer-static'
 import { flattenDiagnosticMessageText }  from '@monstrs/code-typescript'
 import { getLineAndCharacterOfPosition } from '@monstrs/code-typescript'
 

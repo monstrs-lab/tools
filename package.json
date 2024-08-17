@@ -4,10 +4,11 @@
   "type": "module",
   "workspaces": [
     "prettier/**/*",
-    "code/**/*",
     "webpack/**/*",
     "runtime/**/*",
+    "cli-ui/**/*",
     "config/**/*",
+    "code/**/*",
     "yarn/**/*",
     "cli/**/*"
   ],

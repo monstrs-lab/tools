@@ -10,7 +10,7 @@ import React                      from 'react'
 import { ErrorInfo }              from '@monstrs/cli-ui-error-info-component'
 import { ServiceProgress }        from '@monstrs/cli-ui-service-progress-component'
 import { Service }                from '@monstrs/code-service'
-import { renderStatic }           from '@monstrs/cli-ui-renderer'
+import { renderStatic }           from '@monstrs/cli-ui-renderer-static'
 
 import { AbstractServiceCommand } from './abstract-service.command.jsx'
 
@@ -63,7 +63,7 @@ export class ServiceDevCommand extends AbstractServiceCommand {
       return 0
     } catch (error) {
       if (error instanceof Error) {
-        renderStatic(<ErrorInfo error={error} />, process.stdout.columns)
+        renderStatic(<ErrorInfo error={error} />)
           .split('\n')
           .forEach((line) => {
             console.error(line) // eslint-disable-line no-console

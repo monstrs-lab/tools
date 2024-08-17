@@ -16,7 +16,7 @@ import { ErrorInfo }            from '@monstrs/cli-ui-error-info-component'
 import { TypeScriptDiagnostic } from '@monstrs/cli-ui-typescript-diagnostic-component'
 import { TypeScriptProgress }   from '@monstrs/cli-ui-typescript-progress-component'
 import { TypeScript }           from '@monstrs/code-typescript'
-import { renderStatic }         from '@monstrs/cli-ui-renderer'
+import { renderStatic }         from '@monstrs/cli-ui-renderer-static'
 
 export class LibraryBuildCommand extends BaseCommand {
   static override paths = [['library', 'build']]
@@ -80,7 +80,7 @@ export class LibraryBuildCommand extends BaseCommand {
 
       return diagnostics.length === 0 ? 0 : 1
     } catch (error) {
-      renderStatic(<ErrorInfo error={error as Error} />, process.stdout.columns - 12)
+      renderStatic(<ErrorInfo error={error as Error} />)
         .split('\n')
         .forEach((line) => {
           console.error(line) // eslint-disable-line no-console

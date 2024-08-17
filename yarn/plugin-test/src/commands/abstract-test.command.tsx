@@ -24,7 +24,7 @@ import { StdOutput }     from '@monstrs/cli-ui-std-output-component'
 import { TestFailure }   from '@monstrs/cli-ui-test-failure-component'
 import { TestProgress }  from '@monstrs/cli-ui-test-progress-component'
 import { Tester }        from '@monstrs/code-test'
-import { renderStatic }  from '@monstrs/cli-ui-renderer'
+import { renderStatic }  from '@monstrs/cli-ui-renderer-static'
 
 export abstract class AbstractTestCommand extends BaseCommand {
   target = Option.String('-t,--target')
@@ -120,7 +120,7 @@ export abstract class AbstractTestCommand extends BaseCommand {
       return results.find((result) => result.type === 'test:fail') ? 1 : 0
     } catch (error) {
       if (error instanceof Error) {
-        renderStatic(<ErrorInfo error={error} />, process.stdout.columns)
+        renderStatic(<ErrorInfo error={error} />)
           .split('\n')
           .forEach((line) => {
             console.error(line) // eslint-disable-line no-console

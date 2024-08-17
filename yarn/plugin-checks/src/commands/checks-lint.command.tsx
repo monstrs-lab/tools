@@ -21,7 +21,7 @@ import React                       from 'react'
 
 import { ESLintResult }            from '@monstrs/cli-ui-eslint-result-component'
 import { Linter }                  from '@monstrs/code-lint'
-import { renderStatic }            from '@monstrs/cli-ui-renderer'
+import { renderStatic }            from '@monstrs/cli-ui-renderer-static'
 
 import { GitHubChecks }            from '../utils/index.js'
 import { AnnotationLevel }         from '../utils/index.js'

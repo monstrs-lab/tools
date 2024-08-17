@@ -1,6 +1,6 @@
 {
-  "name": "@monstrs/cli-ui-log-record-component",
-  "version": "0.3.12",
+  "name": "@monstrs/cli-ui-renderer-static",
+  "version": "0.3.8",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -17,27 +17,12 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@mikro-orm/sql-highlighter": "^1.0.1",
-    "@monstrs/cli-ui-renderer-static": "workspace:0.3.8",
-    "@monstrs/cli-ui-stack-trace-component": "workspace:0.3.12",
-    "@monstrs/logger": "^0.0.20",
-    "@monstrs/mikro-orm-logger": "^0.0.15",
-    "decamelize": "^6.0.0",
-    "nanoid": "^5.0.6",
-    "sql-formatter": "^15.2.0",
-    "uniqolor": "^1.1.1"
+    "ink": "^4.4.1",
+    "react": "^18.2.0"
   },
   "devDependencies": {
-    "@monstrs/logger": "^0.0.20",
     "@types/node": "^22.1.0",
-    "@types/react": "^18.2.65",
-    "ink": "^4.4.1",
-    "react": "^18.2.0",
-    "strip-ansi": "^7.1.0"
-  },
-  "peerDependencies": {
-    "ink": "^3.0.8",
-    "react": "*"
+    "@types/react": "^18.2.65"
   },
   "publishConfig": {
     "access": "public",

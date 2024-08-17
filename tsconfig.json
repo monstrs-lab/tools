@@ -31,10 +31,11 @@
   "include": [
     "project.types.d.ts",
     "prettier/**/*",
-    "code/**/*",
     "webpack/**/*",
     "runtime/**/*",
+    "cli-ui/**/*",
     "config/**/*",
+    "code/**/*",
     "yarn/**/*",
     "cli/**/*"
   ],

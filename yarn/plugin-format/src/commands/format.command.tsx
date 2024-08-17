@@ -8,7 +8,7 @@ import React              from 'react'
 import { ErrorInfo }      from '@monstrs/cli-ui-error-info-component'
 import { FormatProgress } from '@monstrs/cli-ui-format-progress-component'
 import { Formatter }      from '@monstrs/code-format'
-import { renderStatic }   from '@monstrs/cli-ui-renderer'
+import { renderStatic }   from '@monstrs/cli-ui-renderer-static'
 
 export class FormatCommand extends BaseCommand {
   static override paths = [['format']]
@@ -29,10 +29,10 @@ export class FormatCommand extends BaseCommand {
       return 0
     } catch (error) {
       if (error instanceof Error) {
-        renderStatic(<ErrorInfo error={error} />, process.stdout.columns)
+        renderStatic(<ErrorInfo error={error} />)
           .split('\n')
           .forEach((line) => {
-            console.error(`${line}\n`) // eslint-disable-line no-console
+            console.log(line) // eslint-disable-line no-console
           })
       } else {
         console.error(error) // eslint-disable-line no-console

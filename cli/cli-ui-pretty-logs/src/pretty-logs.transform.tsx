@@ -4,7 +4,7 @@ import { Transform }    from 'node:stream'
 import React            from 'react'
 
 import { LogRecord }    from '@monstrs/cli-ui-log-record-component'
-import { renderStatic } from '@monstrs/cli-ui-renderer'
+import { renderStatic } from '@monstrs/cli-ui-renderer-static'
 
 export class PrettyLogsTransform extends Transform {
   parse(row: string): object {

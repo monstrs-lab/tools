@@ -13,7 +13,7 @@ import { ErrorInfo }     from '@monstrs/cli-ui-error-info-component'
 import { ESLintResult }  from '@monstrs/cli-ui-eslint-result-component'
 import { LintProgress }  from '@monstrs/cli-ui-lint-progress-component'
 import { Linter }        from '@monstrs/code-lint'
-import { renderStatic }  from '@monstrs/cli-ui-renderer'
+import { renderStatic} from '@monstrs/cli-ui-renderer-static'
 
 export class LintCommand extends BaseCommand {
   static override paths = [['lint']]
@@ -81,7 +81,7 @@ export class LintCommand extends BaseCommand {
       return results.find((result) => result.messages.length > 0) ? 1 : 0
     } catch (error) {
       if (error instanceof Error) {
-        renderStatic(<ErrorInfo error={error} />, process.stdout.columns)
+        renderStatic(<ErrorInfo error={error} />)
           .split('\n')
           .forEach((line) => {
             console.error(line) // eslint-disable-line no-console

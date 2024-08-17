@@ -20,7 +20,7 @@
   "dependencies": {
     "@monstrs/cli-ui-error-info-component": "workspace:0.3.12",
     "@monstrs/cli-ui-format-progress-component": "workspace:0.3.10",
-    "@monstrs/cli-ui-renderer": "workspace:0.3.8",
+    "@monstrs/cli-ui-renderer-static": "workspace:0.3.8",
     "@monstrs/code-format": "workspace:0.3.22",
     "@monstrs/yarn-run-utils": "workspace:0.2.1",
     "clipanion": "^4.0.0-rc.3",
