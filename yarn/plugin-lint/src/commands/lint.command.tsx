@@ -9,11 +9,11 @@ import { Option }        from 'clipanion'
 import { render }        from 'ink'
 import React             from 'react'
 
-import { ErrorInfo }     from '@monstrs/cli-ui-error-info-component'
-import { ESLintResult }  from '@monstrs/cli-ui-eslint-result-component'
-import { LintProgress }  from '@monstrs/cli-ui-lint-progress-component'
+import { ErrorInfo }     from '@monstrs/cli-ui-error-info'
+import { LintProgress }  from '@monstrs/cli-ui-lint-progress'
+import { LintResult }    from '@monstrs/cli-ui-lint-result'
 import { Linter }        from '@monstrs/code-lint'
-import { renderStatic} from '@monstrs/cli-ui-renderer-static'
+import { renderStatic }  from '@monstrs/cli-ui-renderer-static'
 
 export class LintCommand extends BaseCommand {
   static override paths = [['lint']]
@@ -65,7 +65,7 @@ export class LintCommand extends BaseCommand {
 
     linter.on('lint:end', ({ result }) => {
       if (result.messages.length > 0) {
-        const output = renderStatic(<ESLintResult {...result} />)
+        const output = renderStatic(<LintResult {...result} />)
 
         output.split('\n').forEach((line) => {
           console.log(line) // eslint-disable-line no-console

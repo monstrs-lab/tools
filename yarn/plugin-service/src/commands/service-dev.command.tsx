@@ -7,8 +7,8 @@ import { xfs }                    from '@yarnpkg/fslib'
 import { render }                 from 'ink'
 import React                      from 'react'
 
-import { ErrorInfo }              from '@monstrs/cli-ui-error-info-component'
-import { ServiceProgress }        from '@monstrs/cli-ui-service-progress-component'
+import { ErrorInfo }              from '@monstrs/cli-ui-error-info'
+import { ServiceProgress }        from '@monstrs/cli-ui-service-progress'
 import { Service }                from '@monstrs/code-service'
 import { renderStatic }           from '@monstrs/cli-ui-renderer-static'
 

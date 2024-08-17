@@ -18,11 +18,11 @@ import { render }        from 'ink'
 import { relative }      from 'path'
 import React             from 'react'
 
-import { ErrorInfo }     from '@monstrs/cli-ui-error-info-component'
-import { LogRecord }     from '@monstrs/cli-ui-log-record-component'
-import { StdOutput }     from '@monstrs/cli-ui-std-output-component'
-import { TestFailure }   from '@monstrs/cli-ui-test-failure-component'
-import { TestProgress }  from '@monstrs/cli-ui-test-progress-component'
+import { ErrorInfo }     from '@monstrs/cli-ui-error-info'
+import { LogRecord }     from '@monstrs/cli-ui-log-record'
+import { RawOutput }     from '@monstrs/cli-ui-raw-output'
+import { TestFailure }   from '@monstrs/cli-ui-test-failure'
+import { TestProgress }  from '@monstrs/cli-ui-test-progress'
 import { Tester }        from '@monstrs/code-test'
 import { renderStatic }  from '@monstrs/cli-ui-renderer-static'
 
@@ -205,7 +205,7 @@ export abstract class AbstractTestCommand extends BaseCommand {
       // eslint-disable-next-line no-console
       console.log(
         renderStatic(
-          <StdOutput file={file ? relative(process.cwd(), file) : undefined} messages={raw} />
+          <RawOutput file={file ? relative(process.cwd(), file) : undefined} messages={raw} />
         )
       )
     }

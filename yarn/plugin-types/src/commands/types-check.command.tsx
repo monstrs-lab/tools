@@ -9,9 +9,9 @@ import { Option }               from 'clipanion'
 import { render }               from 'ink'
 import React                    from 'react'
 
-import { ErrorInfo }            from '@monstrs/cli-ui-error-info-component'
-import { TypeScriptDiagnostic } from '@monstrs/cli-ui-typescript-diagnostic-component'
-import { TypeScriptProgress }   from '@monstrs/cli-ui-typescript-progress-component'
+import { ErrorInfo }            from '@monstrs/cli-ui-error-info'
+import { TypeScriptDiagnostic } from '@monstrs/cli-ui-typescript-diagnostic'
+import { TypeScriptProgress }   from '@monstrs/cli-ui-typescript-progress'
 import { TypeScript }           from '@monstrs/code-typescript'
 import { renderStatic }         from '@monstrs/cli-ui-renderer-static'
 

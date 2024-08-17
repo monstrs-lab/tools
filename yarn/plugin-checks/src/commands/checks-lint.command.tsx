@@ -19,7 +19,7 @@ import { scriptUtils }             from '@yarnpkg/core'
 import { xfs }                     from '@yarnpkg/fslib'
 import React                       from 'react'
 
-import { ESLintResult }            from '@monstrs/cli-ui-eslint-result-component'
+import { LintResult }              from '@monstrs/cli-ui-lint-result'
 import { Linter }                  from '@monstrs/code-lint'
 import { renderStatic }            from '@monstrs/cli-ui-renderer-static'
 
@@ -78,7 +78,7 @@ class ChecksLintCommand extends BaseCommand {
             results
               .filter((result) => result.messages.length > 0)
               .forEach((result) => {
-                const output = renderStatic(<ESLintResult {...result} />)
+                const output = renderStatic(<LintResult {...result} />)
 
                 output.split('\n').forEach((line) => {
                   report.reportInfo(MessageName.UNNAMED, line)

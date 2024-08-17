@@ -36,8 +36,7 @@
     "cli-ui/**/*",
     "config/**/*",
     "code/**/*",
-    "yarn/**/*",
-    "cli/**/*"
+    "yarn/**/*"
   ],
   "types": ["@monstrs/tools-runtime/types"]
 }

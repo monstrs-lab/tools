@@ -5,8 +5,8 @@ import { BaseCommand }           from '@yarnpkg/cli'
 import { Option }                from 'clipanion'
 import React                     from 'react'
 
-import { ErrorInfo }             from '@monstrs/cli-ui-error-info-component'
-import { LogRecord }             from '@monstrs/cli-ui-log-record-component'
+import { ErrorInfo }             from '@monstrs/cli-ui-error-info'
+import { LogRecord }             from '@monstrs/cli-ui-log-record'
 import { renderStatic }          from '@monstrs/cli-ui-renderer-static'
 
 export abstract class AbstractServiceCommand extends BaseCommand {

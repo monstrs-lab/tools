@@ -5,8 +5,8 @@ import { Option }         from 'clipanion'
 import { render }         from 'ink'
 import React              from 'react'
 
-import { ErrorInfo }      from '@monstrs/cli-ui-error-info-component'
-import { FormatProgress } from '@monstrs/cli-ui-format-progress-component'
+import { ErrorInfo }      from '@monstrs/cli-ui-error-info'
+import { FormatProgress } from '@monstrs/cli-ui-format-progress'
 import { Formatter }      from '@monstrs/code-format'
 import { renderStatic }   from '@monstrs/cli-ui-renderer-static'
 

@@ -880,162 +880,173 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@monstrs/cli-ui-error-info-component@workspace:0.3.12, @monstrs/cli-ui-error-info-component@workspace:cli/cli-ui-error-info-component":
+"@monstrs/cli-ui-error-info@workspace:0.3.12, @monstrs/cli-ui-error-info@workspace:cli-ui/cli-ui-error-info":
   version: 0.0.0-use.local
-  resolution: "@monstrs/cli-ui-error-info-component@workspace:cli/cli-ui-error-info-component"
+  resolution: "@monstrs/cli-ui-error-info@workspace:cli-ui/cli-ui-error-info"
   dependencies:
-    "@monstrs/cli-ui-stack-trace-component": "workspace:0.3.12"
-    "@types/node": "npm:^22.1.0"
-    "@types/react": "npm:^18.2.65"
-    ink: "npm:^4.4.1"
-    react: "npm:^18.2.0"
+    "@monstrs/cli-ui-stack-trace": "workspace:0.3.12"
+    "@types/node": "npm:^22.4.0"
+    "@types/react": "npm:^18.3.3"
+    ink: "npm:^5.0.1"
+    react: "npm:^18.3.1"
   peerDependencies:
-    ink: ^3.0.8
-    react: "*"
+    ink: ^5
+    react: ^18
   languageName: unknown
   linkType: soft
 
-"@monstrs/cli-ui-eslint-result-component@workspace:0.3.10, @monstrs/cli-ui-eslint-result-component@workspace:cli/cli-ui-eslint-result-component":
+"@monstrs/cli-ui-file-link@workspace:0.3.10, @monstrs/cli-ui-file-link@workspace:cli-ui/cli-ui-file-link":
   version: 0.0.0-use.local
-  resolution: "@monstrs/cli-ui-eslint-result-component@workspace:cli/cli-ui-eslint-result-component"
+  resolution: "@monstrs/cli-ui-file-link@workspace:cli-ui/cli-ui-file-link"
   dependencies:
-    "@monstrs/cli-ui-renderer-static": "workspace:0.3.8"
-    "@monstrs/cli-ui-source-component": "workspace:0.3.9"
-    "@types/react": "npm:^18.2.65"
-    ink: "npm:^4.4.1"
-    nanoid: "npm:^5.0.6"
-    react: "npm:^18.2.0"
+    "@types/react": "npm:^18.3.3"
+    ink: "npm:^5.0.1"
+    ink-link: "npm:^4.1.0"
+    react: "npm:^18.3.1"
+  peerDependencies:
+    ink: ^5
+    react: ^18
+  languageName: unknown
+  linkType: soft
+
+"@monstrs/cli-ui-file-path@workspace:0.3.9, @monstrs/cli-ui-file-path@workspace:cli-ui/cli-ui-file-path":
+  version: 0.0.0-use.local
+  resolution: "@monstrs/cli-ui-file-path@workspace:cli-ui/cli-ui-file-path"
+  dependencies:
+    "@types/node": "npm:^22.4.0"
+    "@types/react": "npm:^18.3.3"
+    ink: "npm:^5.0.1"
+    ink-testing-library: "npm:^4.0.0"
+    react: "npm:^18.3.1"
     strip-ansi: "npm:^7.1.0"
   peerDependencies:
-    ink: ^3.0.8
-    react: "*"
+    ink: ^5
+    react: ^18
   languageName: unknown
   linkType: soft
 
-"@monstrs/cli-ui-file-path-component@workspace:0.3.10, @monstrs/cli-ui-file-path-component@workspace:cli/cli-ui-file-path-component":
+"@monstrs/cli-ui-format-progress@workspace:0.3.10, @monstrs/cli-ui-format-progress@workspace:cli-ui/cli-ui-format-progress":
   version: 0.0.0-use.local
-  resolution: "@monstrs/cli-ui-file-path-component@workspace:cli/cli-ui-file-path-component"
-  dependencies:
-    "@types/react": "npm:^18.2.65"
-    ink: "npm:^4.4.1"
-    ink-link: "npm:^4.1.0"
-    react: "npm:^18.2.0"
-  peerDependencies:
-    ink: ^3.0.8
-    react: "*"
-  languageName: unknown
-  linkType: soft
-
-"@monstrs/cli-ui-format-progress-component@workspace:0.3.10, @monstrs/cli-ui-format-progress-component@workspace:cli/cli-ui-format-progress-component":
-  version: 0.0.0-use.local
-  resolution: "@monstrs/cli-ui-format-progress-component@workspace:cli/cli-ui-format-progress-component"
+  resolution: "@monstrs/cli-ui-format-progress@workspace:cli-ui/cli-ui-format-progress"
   dependencies:
     "@inkjs/ui": "npm:^2.0.0"
-    "@monstrs/cli-ui-renderer-static": "workspace:0.3.8"
-    "@types/react": "npm:^18.2.65"
+    "@types/react": "npm:^18.3.3"
     figures: "npm:^6.1.0"
-    ink: "npm:^4.4.1"
-    react: "npm:^18.2.0"
-    strip-ansi: "npm:^7.1.0"
+    ink: "npm:^5.0.1"
+    react: "npm:^18.3.1"
   peerDependencies:
-    ink: ^3.0.8
-    react: "*"
+    ink: ^5
+    react: ^18
   languageName: unknown
   linkType: soft
 
-"@monstrs/cli-ui-git-commit-component@workspace:0.3.12, @monstrs/cli-ui-git-commit-component@workspace:cli/cli-ui-git-commit":
+"@monstrs/cli-ui-git-commit@workspace:0.3.12, @monstrs/cli-ui-git-commit@workspace:cli-ui/cli-ui-git-commit":
   version: 0.0.0-use.local
-  resolution: "@monstrs/cli-ui-git-commit-component@workspace:cli/cli-ui-git-commit"
+  resolution: "@monstrs/cli-ui-git-commit@workspace:cli-ui/cli-ui-git-commit"
   dependencies:
+    "@inkjs/ui": "npm:^2.0.0"
     "@monstrs/code-commit": "workspace:0.3.10"
-    "@types/node": "npm:^22.1.0"
-    "@types/react": "npm:^18.2.65"
-    "@yarnpkg/libui": "npm:^3.0.0"
+    "@types/node": "npm:^22.4.0"
+    "@types/react": "npm:^18.3.3"
     camelcase: "npm:^8.0.0"
     figures: "npm:^6.1.0"
-    ink: "npm:^4.4.1"
+    ink: "npm:^5.0.1"
     ink-autocomplete: "npm:^0.0.0"
     ink-multi-select: "npm:^2.0.0"
     ink-select-input: "npm:^5.0.0"
     ink-text-input: "npm:^5.0.1"
   peerDependencies:
-    ink: ^3.0.8
-    react: "*"
+    ink: ^5
+    react: ^18
   languageName: unknown
   linkType: soft
 
-"@monstrs/cli-ui-kitchen-sink@workspace:cli/cli-ui-kitchen-sink":
+"@monstrs/cli-ui-lint-progress@workspace:0.3.10, @monstrs/cli-ui-lint-progress@workspace:cli-ui/cli-ui-lint-progress":
   version: 0.0.0-use.local
-  resolution: "@monstrs/cli-ui-kitchen-sink@workspace:cli/cli-ui-kitchen-sink"
-  dependencies:
-    "@monstrs/cli-ui-error-info-component": "workspace:0.3.12"
-    "@monstrs/cli-ui-eslint-result-component": "workspace:0.3.10"
-    "@monstrs/cli-ui-log-record-component": "workspace:0.3.12"
-    "@monstrs/cli-ui-renderer-static": "workspace:0.3.8"
-    "@monstrs/cli-ui-test-failure-component": "workspace:0.3.30"
-    "@monstrs/cli-ui-typescript-diagnostic-component": "workpsace:0.3.30"
-    "@types/react": "npm:^18.2.65"
-    ink: "npm:^4.4.1"
-    react: "npm:^18.2.0"
-    strip-ansi: "npm:^7.1.0"
-    typescript: "npm:^5.5.3"
-  peerDependencies:
-    ink: ^3.0.8
-    react: "*"
-  languageName: unknown
-  linkType: soft
-
-"@monstrs/cli-ui-lint-progress-component@workspace:0.3.10, @monstrs/cli-ui-lint-progress-component@workspace:cli/cli-ui-lint-progress-component":
-  version: 0.0.0-use.local
-  resolution: "@monstrs/cli-ui-lint-progress-component@workspace:cli/cli-ui-lint-progress-component"
+  resolution: "@monstrs/cli-ui-lint-progress@workspace:cli-ui/cli-ui-lint-progress"
   dependencies:
     "@inkjs/ui": "npm:^2.0.0"
-    "@monstrs/cli-ui-renderer-static": "workspace:0.3.8"
-    "@types/react": "npm:^18.2.65"
+    "@types/react": "npm:^18.3.3"
     figures: "npm:^6.1.0"
-    ink: "npm:^4.4.1"
-    react: "npm:^18.2.0"
-    strip-ansi: "npm:^7.1.0"
+    ink: "npm:^5.0.1"
+    react: "npm:^18.3.1"
   peerDependencies:
-    ink: ^3.0.8
-    react: "*"
+    ink: ^5
+    react: ^18
   languageName: unknown
   linkType: soft
 
-"@monstrs/cli-ui-log-record-component@workspace:0.3.12, @monstrs/cli-ui-log-record-component@workspace:cli/cli-ui-log-record-component":
+"@monstrs/cli-ui-lint-result@workspace:0.3.9, @monstrs/cli-ui-lint-result@workspace:cli-ui/cli-ui-lint-result":
   version: 0.0.0-use.local
-  resolution: "@monstrs/cli-ui-log-record-component@workspace:cli/cli-ui-log-record-component"
+  resolution: "@monstrs/cli-ui-lint-result@workspace:cli-ui/cli-ui-lint-result"
+  dependencies:
+    "@monstrs/cli-ui-file-path": "workspace:0.3.9"
+    "@monstrs/cli-ui-source-preview": "workspace:0.3.9"
+    "@types/node": "npm:^22.4.0"
+    "@types/react": "npm:^18.3.3"
+    ink: "npm:^5.0.1"
+    ink-testing-library: "npm:^4.0.0"
+    nanoid: "npm:^5.0.7"
+    react: "npm:^18.3.1"
+    strip-ansi: "npm:^7.1.0"
+  peerDependencies:
+    ink: ^5
+    react: ^18
+  languageName: unknown
+  linkType: soft
+
+"@monstrs/cli-ui-log-record@workspace:0.3.12, @monstrs/cli-ui-log-record@workspace:cli-ui/cli-ui-log-record":
+  version: 0.0.0-use.local
+  resolution: "@monstrs/cli-ui-log-record@workspace:cli-ui/cli-ui-log-record"
   dependencies:
     "@mikro-orm/sql-highlighter": "npm:^1.0.1"
     "@monstrs/cli-ui-renderer-static": "workspace:0.3.8"
-    "@monstrs/cli-ui-stack-trace-component": "workspace:0.3.12"
+    "@monstrs/cli-ui-stack-trace": "workspace:0.3.12"
     "@monstrs/logger": "npm:^0.0.20"
     "@monstrs/mikro-orm-logger": "npm:^0.0.15"
-    "@types/node": "npm:^22.1.0"
-    "@types/react": "npm:^18.2.65"
+    "@types/node": "npm:^22.4.0"
+    "@types/react": "npm:^18.3.3"
     decamelize: "npm:^6.0.0"
-    ink: "npm:^4.4.1"
+    ink: "npm:^5.0.1"
     nanoid: "npm:^5.0.6"
-    react: "npm:^18.2.0"
+    react: "npm:^18.3.1"
     sql-formatter: "npm:^15.2.0"
     strip-ansi: "npm:^7.1.0"
     uniqolor: "npm:^1.1.1"
   peerDependencies:
-    ink: ^3.0.8
-    react: "*"
+    ink: ^5
+    react: ^18
   languageName: unknown
   linkType: soft
 
-"@monstrs/cli-ui-pretty-logs@workspace:0.3.13, @monstrs/cli-ui-pretty-logs@workspace:cli/cli-ui-pretty-logs":
+"@monstrs/cli-ui-pretty-logs@workspace:0.3.13, @monstrs/cli-ui-pretty-logs@workspace:cli-ui/cli-ui-pretty-logs":
   version: 0.0.0-use.local
-  resolution: "@monstrs/cli-ui-pretty-logs@workspace:cli/cli-ui-pretty-logs"
+  resolution: "@monstrs/cli-ui-pretty-logs@workspace:cli-ui/cli-ui-pretty-logs"
   dependencies:
-    "@monstrs/cli-ui-log-record-component": "workspace:0.3.12"
+    "@monstrs/cli-ui-log-record": "workspace:0.3.12"
     "@monstrs/cli-ui-renderer-static": "workspace:0.3.8"
-    "@types/node": "npm:^22.1.0"
-    "@types/react": "npm:^18.2.65"
-    ink: "npm:^4.4.1"
-    react: "npm:^18.2.0"
+    "@types/node": "npm:^22.4.0"
+    "@types/react": "npm:^18.3.3"
+    ink: "npm:^5.0.1"
+    react: "npm:^18.3.1"
+  languageName: unknown
+  linkType: soft
+
+"@monstrs/cli-ui-raw-output@workspace:0.3.9, @monstrs/cli-ui-raw-output@workspace:cli-ui/cli-ui-raw-output":
+  version: 0.0.0-use.local
+  resolution: "@monstrs/cli-ui-raw-output@workspace:cli-ui/cli-ui-raw-output"
+  dependencies:
+    "@monstrs/cli-ui-file-path": "workspace:0.3.9"
+    "@types/node": "npm:^22.4.0"
+    "@types/react": "npm:^18.3.3"
+    ink: "npm:^5.0.1"
+    ink-testing-library: "npm:^4.0.0"
+    nanoid: "npm:^5.0.7"
+    react: "npm:^18.3.1"
+    strip-ansi: "npm:^7.1.0"
+  peerDependencies:
+    ink: ^5
+    react: ^18
   languageName: unknown
   linkType: soft
 
@@ -1043,69 +1054,59 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/cli-ui-renderer-static@workspace:cli-ui/cli-ui-render-static"
   dependencies:
-    "@types/node": "npm:^22.1.0"
-    "@types/react": "npm:^18.2.65"
-    ink: "npm:^4.4.1"
-    react: "npm:^18.2.0"
+    "@types/node": "npm:^22.4.0"
+    "@types/react": "npm:^18.3.3"
+    ink: "npm:^5.0.1"
+    react: "npm:^18.3.1"
   languageName: unknown
   linkType: soft
 
-"@monstrs/cli-ui-renderer@workspace:cli/cli-ui-renderer":
+"@monstrs/cli-ui-service-progress@workspace:0.3.10, @monstrs/cli-ui-service-progress@workspace:cli-ui/cli-ui-service-progress":
   version: 0.0.0-use.local
-  resolution: "@monstrs/cli-ui-renderer@workspace:cli/cli-ui-renderer"
-  dependencies:
-    "@types/node": "npm:^22.1.0"
-    "@types/react": "npm:^18.2.65"
-    ink: "npm:^4.4.1"
-    react: "npm:^18.2.0"
-  languageName: unknown
-  linkType: soft
-
-"@monstrs/cli-ui-service-progress-component@workspace:0.3.10, @monstrs/cli-ui-service-progress-component@workspace:cli/cli-ui-service-progress-component":
-  version: 0.0.0-use.local
-  resolution: "@monstrs/cli-ui-service-progress-component@workspace:cli/cli-ui-service-progress-component"
+  resolution: "@monstrs/cli-ui-service-progress@workspace:cli-ui/cli-ui-service-progress"
   dependencies:
     "@inkjs/ui": "npm:^2.0.0"
-    "@monstrs/cli-ui-renderer-static": "workspace:0.3.8"
-    "@types/react": "npm:^18.2.65"
+    "@types/react": "npm:^18.3.3"
     figures: "npm:^6.1.0"
-    ink: "npm:^4.4.1"
-    react: "npm:^18.2.0"
-    strip-ansi: "npm:^7.1.0"
+    ink: "npm:^5.0.1"
+    react: "npm:^18.3.1"
   peerDependencies:
-    ink: ^3.0.8
-    react: "*"
+    ink: ^5
+    react: ^18
   languageName: unknown
   linkType: soft
 
-"@monstrs/cli-ui-source-component@workspace:0.3.9, @monstrs/cli-ui-source-component@workspace:cli/cli-ui-source-component":
+"@monstrs/cli-ui-source-preview@workspace:0.3.9, @monstrs/cli-ui-source-preview@workspace:cli-ui/cli-ui-source-preview":
   version: 0.0.0-use.local
-  resolution: "@monstrs/cli-ui-source-component@workspace:cli/cli-ui-source-component"
+  resolution: "@monstrs/cli-ui-source-preview@workspace:cli-ui/cli-ui-source-preview"
   dependencies:
     "@babel/code-frame": "npm:^7.23.5"
     "@types/babel__code-frame": "npm:^7.0.6"
-    "@types/node": "npm:^22.1.0"
-    "@types/react": "npm:^18.2.65"
-    ink: "npm:^4.4.1"
+    "@types/node": "npm:^22.4.0"
+    "@types/react": "npm:^18.3.3"
+    ink: "npm:^5.0.1"
+    ink-testing-library: "npm:^4.0.0"
+    react: "npm:^18.3.1"
+    strip-ansi: "npm:^7.1.0"
     supports-color: "npm:^9.4.0"
   peerDependencies:
-    ink: ^3.0.8
-    react: "*"
+    ink: ^5
+    react: ^18
   languageName: unknown
   linkType: soft
 
-"@monstrs/cli-ui-stack-trace-component@workspace:0.3.12, @monstrs/cli-ui-stack-trace-component@workspace:cli/cli-ui-stack-trace-component":
+"@monstrs/cli-ui-stack-trace@workspace:0.3.12, @monstrs/cli-ui-stack-trace@workspace:cli-ui/cli-ui-stack-trace":
   version: 0.0.0-use.local
-  resolution: "@monstrs/cli-ui-stack-trace-component@workspace:cli/cli-ui-stack-trace-component"
+  resolution: "@monstrs/cli-ui-stack-trace@workspace:cli-ui/cli-ui-stack-trace"
   dependencies:
-    "@monstrs/cli-ui-file-path-component": "workspace:0.3.10"
+    "@monstrs/cli-ui-file-link": "workspace:0.3.10"
     "@monstrs/cli-ui-renderer-static": "workspace:0.3.8"
-    "@monstrs/cli-ui-source-component": "workspace:0.3.9"
+    "@monstrs/cli-ui-source-preview": "workspace:0.3.9"
     "@monstrs/stack-trace": "npm:^0.0.6"
-    "@types/react": "npm:^18.2.65"
-    ink: "npm:^4.4.1"
+    "@types/react": "npm:^18.3.3"
+    ink: "npm:^5.0.1"
     nanoid: "npm:^5.0.6"
-    react: "npm:^18.2.0"
+    react: "npm:^18.3.1"
     strip-ansi: "npm:^7.1.0"
   peerDependencies:
     ink: ^3.0.8
@@ -1113,91 +1114,70 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/cli-ui-std-output-component@workspace:0.3.30, @monstrs/cli-ui-std-output-component@workspace:cli/cli-ui-std-output-component":
+"@monstrs/cli-ui-test-failure@workspace:0.3.9, @monstrs/cli-ui-test-failure@workspace:cli-ui/cli-ui-test-failure":
   version: 0.0.0-use.local
-  resolution: "@monstrs/cli-ui-std-output-component@workspace:cli/cli-ui-std-output-component"
+  resolution: "@monstrs/cli-ui-test-failure@workspace:cli-ui/cli-ui-test-failure"
   dependencies:
-    "@monstrs/cli-ui-renderer-static": "workspace:0.3.8"
-    "@monstrs/cli-ui-source-component": "workspace:0.3.9"
-    "@monstrs/code-typescript": "workspace:0.3.30"
-    "@types/react": "npm:^18.2.65"
-    ink: "npm:^4.4.1"
+    "@monstrs/cli-ui-file-path": "workspace:0.3.9"
+    "@monstrs/cli-ui-source-preview": "workspace:0.3.9"
+    "@types/node": "npm:^22.4.0"
+    "@types/react": "npm:^18.3.3"
+    ink: "npm:^5.0.1"
+    ink-testing-library: "npm:^4.0.0"
     nanoid: "npm:^5.0.7"
-    react: "npm:^18.2.0"
+    react: "npm:^18.3.1"
     strip-ansi: "npm:^7.1.0"
-    typescript: "npm:^5.5.3"
   peerDependencies:
-    ink: ^3.0.8
-    react: "*"
+    ink: ^5
+    react: ^18
   languageName: unknown
   linkType: soft
 
-"@monstrs/cli-ui-test-failure-component@workspace:0.3.30, @monstrs/cli-ui-test-failure-component@workspace:cli/cli-ui-test-failure-component":
+"@monstrs/cli-ui-test-progress@workspace:0.3.10, @monstrs/cli-ui-test-progress@workspace:cli-ui/cli-ui-test-progress":
   version: 0.0.0-use.local
-  resolution: "@monstrs/cli-ui-test-failure-component@workspace:cli/cli-ui-test-failure-component"
-  dependencies:
-    "@monstrs/cli-ui-renderer-static": "workspace:0.3.8"
-    "@monstrs/cli-ui-source-component": "workspace:0.3.9"
-    "@types/react": "npm:^18.2.65"
-    ink: "npm:^4.4.1"
-    react: "npm:^18.2.0"
-    strip-ansi: "npm:^7.1.0"
-    typescript: "npm:^5.5.3"
-  peerDependencies:
-    ink: ^3.0.8
-    react: "*"
-  languageName: unknown
-  linkType: soft
-
-"@monstrs/cli-ui-test-progress-component@workspace:0.3.10, @monstrs/cli-ui-test-progress-component@workspace:cli/cli-ui-test-progress-component":
-  version: 0.0.0-use.local
-  resolution: "@monstrs/cli-ui-test-progress-component@workspace:cli/cli-ui-test-progress-component"
+  resolution: "@monstrs/cli-ui-test-progress@workspace:cli-ui/cli-ui-test-progress"
   dependencies:
     "@inkjs/ui": "npm:^2.0.0"
-    "@monstrs/cli-ui-renderer-static": "workspace:0.3.8"
-    "@types/react": "npm:^18.2.65"
+    "@types/react": "npm:^18.3.3"
     figures: "npm:^6.1.0"
-    ink: "npm:^4.4.1"
-    react: "npm:^18.2.0"
-    strip-ansi: "npm:^7.1.0"
+    ink: "npm:^5.0.1"
+    react: "npm:^18.3.1"
   peerDependencies:
-    ink: ^3.0.8
-    react: "*"
+    ink: ^5
+    react: ^18
   languageName: unknown
   linkType: soft
 
-"@monstrs/cli-ui-typescript-diagnostic-component@workpsace:0.3.30, @monstrs/cli-ui-typescript-diagnostic-component@workspace:0.3.30, @monstrs/cli-ui-typescript-diagnostic-component@workspace:cli/cli-ui-typescript-diagnostic-component":
+"@monstrs/cli-ui-typescript-diagnostic@workspace:0.3.30, @monstrs/cli-ui-typescript-diagnostic@workspace:cli-ui/cli-ui-typescript-diagnostic":
   version: 0.0.0-use.local
-  resolution: "@monstrs/cli-ui-typescript-diagnostic-component@workspace:cli/cli-ui-typescript-diagnostic-component"
+  resolution: "@monstrs/cli-ui-typescript-diagnostic@workspace:cli-ui/cli-ui-typescript-diagnostic"
   dependencies:
-    "@monstrs/cli-ui-renderer-static": "workspace:0.3.8"
-    "@monstrs/cli-ui-source-component": "workspace:0.3.9"
-    "@monstrs/code-typescript": "workspace:0.3.30"
-    "@types/react": "npm:^18.2.65"
-    ink: "npm:^4.4.1"
-    react: "npm:^18.2.0"
+    "@monstrs/cli-ui-file-path": "workspace:0.3.9"
+    "@monstrs/cli-ui-source-preview": "workspace:0.3.9"
+    "@types/react": "npm:^18.3.3"
+    ink: "npm:^5.0.1"
+    ink-testing-library: "npm:^4.0.0"
+    react: "npm:^18.3.1"
     strip-ansi: "npm:^7.1.0"
     typescript: "npm:^5.5.3"
   peerDependencies:
-    ink: ^3.0.8
-    react: "*"
+    ink: ^5
+    react: ^18
   languageName: unknown
   linkType: soft
 
-"@monstrs/cli-ui-typescript-progress-component@workspace:0.3.10, @monstrs/cli-ui-typescript-progress-component@workspace:cli/cli-ui-types-check-progress-component":
+"@monstrs/cli-ui-typescript-progress@workspace:0.3.10, @monstrs/cli-ui-typescript-progress@workspace:cli-ui/cli-ui-types-check-progress":
   version: 0.0.0-use.local
-  resolution: "@monstrs/cli-ui-typescript-progress-component@workspace:cli/cli-ui-types-check-progress-component"
+  resolution: "@monstrs/cli-ui-typescript-progress@workspace:cli-ui/cli-ui-types-check-progress"
   dependencies:
     "@inkjs/ui": "npm:^2.0.0"
-    "@monstrs/cli-ui-renderer-static": "workspace:0.3.8"
-    "@types/react": "npm:^18.2.65"
+    "@types/react": "npm:^18.3.3"
     figures: "npm:^6.1.0"
-    ink: "npm:^4.4.1"
-    react: "npm:^18.2.0"
-    strip-ansi: "npm:^7.1.0"
+    ink: "npm:^5.0.1"
+    react: "npm:^18.3.1"
   peerDependencies:
-    ink: ^3.0.8
-    react: "*"
+    ink: ^5
+    react: ^18
   languageName: unknown
   linkType: soft
 
@@ -1213,7 +1193,7 @@ __metadata:
     "@commitlint/rules": "npm:^19.0.3"
     "@commitlint/types": "npm:^19.0.3"
     "@types/conventional-commits-parser": "npm:^5.0.0"
-    "@types/node": "npm:^22.1.0"
+    "@types/node": "npm:^22.4.0"
     conventional-changelog-angular: "npm:^7.0.0"
     conventional-commits-parser: "npm:^5.0.0"
   languageName: unknown
@@ -1233,7 +1213,7 @@ __metadata:
   dependencies:
     "@monstrs/config-prettier": "workspace:0.4.6"
     "@monstrs/prettier-plugin": "workspace:0.3.13"
-    "@types/node": "npm:^22.1.0"
+    "@types/node": "npm:^22.4.0"
     globby: "npm:^13.2.2"
     ignore: "npm:^5.3.1"
     prettier: "npm:^3.3.3"
@@ -1247,7 +1227,7 @@ __metadata:
     "@monstrs/config-typescript": "workspace:0.3.7"
     "@monstrs/logger": "npm:^0.0.20"
     "@monstrs/tools-runtime": "workspace:0.2.24"
-    "@types/node": "npm:^22.1.0"
+    "@types/node": "npm:^22.4.0"
     "@types/webpack": "npm:^5.28.5"
     "@yarnpkg/cli": "npm:^4.3.1"
     "@yarnpkg/core": "npm:^4.1.1"
@@ -1263,7 +1243,7 @@ __metadata:
   resolution: "@monstrs/code-lint@workspace:code/code-lint"
   dependencies:
     "@monstrs/tools-runtime": "workspace:0.2.24"
-    "@types/node": "npm:^22.1.0"
+    "@types/node": "npm:^22.4.0"
     globby: "npm:^13.2.2"
     ignore: "npm:^5.3.1"
   peerDependencies:
@@ -1283,7 +1263,7 @@ __metadata:
   dependencies:
     "@actions/github": "npm:^6.0.0"
     "@iarna/toml": "npm:^2.2.5"
-    "@types/node": "npm:^22.1.0"
+    "@types/node": "npm:^22.4.0"
     "@yarnpkg/core": "npm:^4.1.1"
     "@yarnpkg/fslib": "npm:^3.1.0"
   languageName: unknown
@@ -1298,7 +1278,7 @@ __metadata:
     "@monstrs/logger": "npm:^0.0.20"
     "@monstrs/tools-runtime": "workspace:0.2.24"
     "@monstrs/webpack-start-server-plugin": "workspace:0.5.9"
-    "@types/node": "npm:^22.1.0"
+    "@types/node": "npm:^22.4.0"
     "@types/webpack": "npm:^5.28.5"
     "@yarnpkg/cli": "npm:^4.3.1"
     "@yarnpkg/core": "npm:^4.1.1"
@@ -1314,7 +1294,7 @@ __metadata:
   resolution: "@monstrs/code-test@workspace:code/code-test"
   dependencies:
     "@monstrs/tools-runtime": "workspace:0.2.24"
-    "@types/node": "npm:^22.1.0"
+    "@types/node": "npm:^22.4.0"
     globby: "npm:^13.2.2"
   languageName: unknown
   linkType: soft
@@ -1326,7 +1306,7 @@ __metadata:
     "@monstrs/config-typescript": "workspace:0.3.7"
     "@monstrs/tools-runtime": "workspace:0.2.24"
     "@types/deepmerge": "npm:2.2.0"
-    "@types/node": "npm:^22.1.0"
+    "@types/node": "npm:^22.4.0"
     deepmerge: "npm:^4.3.1"
     typescript: "npm:^5.5.3"
   languageName: unknown
@@ -1339,7 +1319,7 @@ __metadata:
     "@monstrs/config-prettier": "workspace:0.4.6"
     "@next/eslint-plugin-next": "npm:^14.2.5"
     "@types/eslint": "npm:^9.6.0"
-    "@types/node": "npm:^22.1.0"
+    "@types/node": "npm:^22.4.0"
     "@typescript-eslint/eslint-plugin": "npm:^8.1.0"
     "@typescript-eslint/parser": "npm:^8.1.0"
     eslint: "npm:^9.9.0"
@@ -1352,7 +1332,7 @@ __metadata:
     eslint-plugin-react-hooks: "npm:^4.6.2"
     eslint-plugin-security: "npm:^3.0.1"
     prettier: "npm:^3.3.3"
-    react: "npm:^18.2.0"
+    react: "npm:^18.3.1"
   peerDependenciesMeta:
     typescript:
       optional: true
@@ -1363,7 +1343,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/config-prettier@workspace:config/prettier"
   dependencies:
-    "@types/node": "npm:^22.1.0"
+    "@types/node": "npm:^22.4.0"
     prettier: "npm:^3.3.3"
   languageName: unknown
   linkType: soft
@@ -1404,7 +1384,7 @@ __metadata:
   resolution: "@monstrs/prettier-plugin@workspace:prettier/plugin"
   dependencies:
     "@babel/types": "npm:^7.24.0"
-    "@types/node": "npm:^22.1.0"
+    "@types/node": "npm:^22.4.0"
     "@types/prettier": "npm:^3.0.0"
     globby: "npm:^13.2.2"
     import-sort: "npm:^6.0.0"
@@ -1433,7 +1413,7 @@ __metadata:
     "@svgr/core": "npm:^8.1.0"
     "@svgr/plugin-jsx": "npm:^8.1.0"
     "@types/eslint": "npm:^9.6.0"
-    "@types/node": "npm:^22.1.0"
+    "@types/node": "npm:^22.4.0"
     eslint: "npm:^9.9.0"
     node-loader: "npm:^2.0.0"
     null-loader: "npm:^4.0.1"
@@ -1448,7 +1428,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/webpack-start-server-plugin@workspace:webpack/webpack-start-server-plugin"
   dependencies:
-    "@types/node": "npm:^22.1.0"
+    "@types/node": "npm:^22.4.0"
     webpack: "npm:^5.93.0"
   languageName: unknown
   linkType: soft
@@ -1599,9 +1579,9 @@ __metadata:
     "@actions/core": "npm:^1.10.1"
     "@actions/github": "npm:^6.0.0"
     "@babel/code-frame": "npm:^7.23.5"
-    "@monstrs/cli-ui-eslint-result-component": "workspace:0.3.10"
+    "@monstrs/cli-ui-lint-result": "workspace:0.3.9"
     "@monstrs/cli-ui-renderer-static": "workspace:0.3.8"
-    "@monstrs/cli-ui-typescript-diagnostic-component": "workspace:0.3.30"
+    "@monstrs/cli-ui-typescript-diagnostic": "workspace:0.3.30"
     "@monstrs/code-lint": "workspace:0.3.32"
     "@monstrs/code-test": "workspace:0.3.29"
     "@monstrs/code-typescript": "workspace:0.3.30"
@@ -1611,14 +1591,14 @@ __metadata:
     "@monstrs/yarn-workspace-utils": "workspace:0.2.1"
     "@octokit/types": "npm:^12.6.0"
     "@types/babel__code-frame": "npm:^7.0.6"
-    "@types/node": "npm:^22.1.0"
-    "@types/react": "npm:^18.2.65"
+    "@types/node": "npm:^22.4.0"
+    "@types/react": "npm:^18.3.3"
     "@yarnpkg/builder": "npm:^4.1.1"
     "@yarnpkg/cli": "npm:^4.3.1"
     "@yarnpkg/core": "npm:^4.1.1"
     "@yarnpkg/fslib": "npm:^3.1.0"
     clipanion: "npm:^4.0.0-rc.3"
-    react: "npm:^18.2.0"
+    react: "npm:^18.3.1"
     strip-ansi: "npm:^7.1.0"
   peerDependencies:
     "@yarnpkg/cli": ^4
@@ -1631,7 +1611,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-cli-publish@workspace:yarn/plugin-cli-publish"
   dependencies:
-    "@types/node": "npm:^22.1.0"
+    "@types/node": "npm:^22.4.0"
     "@yarnpkg/builder": "npm:^4.1.1"
     "@yarnpkg/cli": "npm:^4.3.1"
     "@yarnpkg/core": "npm:^4.1.1"
@@ -1647,10 +1627,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-commit@workspace:yarn/plugin-commit"
   dependencies:
-    "@monstrs/cli-ui-git-commit-component": "workspace:0.3.12"
+    "@monstrs/cli-ui-git-commit": "workspace:0.3.12"
     "@monstrs/code-commit": "workspace:0.3.10"
     "@types/lint-staged": "npm:^13.3.0"
-    "@types/react": "npm:^18.2.65"
+    "@types/react": "npm:^18.3.3"
     "@yarnpkg/builder": "npm:^4.1.1"
     "@yarnpkg/cli": "npm:^4.3.1"
     "@yarnpkg/core": "npm:^4.1.1"
@@ -1659,9 +1639,9 @@ __metadata:
     clipanion: "npm:^4.0.0-rc.3"
     commitizen: "npm:^4.3.0"
     force-stdin-tty: "npm:^0.0.1"
-    ink: "npm:^4.4.1"
-    lint-staged: "patch:lint-staged@npm%3A13.2.2#~/.yarn/patches/lint-staged-npm-13.2.2-e66c493ac4.patch"
-    react: "npm:^18.2.0"
+    ink: "npm:^5.0.1"
+    lint-staged: "patch:lint-staged@npm%3A15.2.9#~/.yarn/patches/lint-staged-npm-15.2.9-092f307382.patch"
+    react: "npm:^18.3.1"
     word-wrap: "npm:^1.2.5"
   peerDependencies:
     "@yarnpkg/cli": ^4
@@ -1723,20 +1703,20 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-format@workspace:yarn/plugin-format"
   dependencies:
-    "@monstrs/cli-ui-error-info-component": "workspace:0.3.12"
-    "@monstrs/cli-ui-format-progress-component": "workspace:0.3.10"
+    "@monstrs/cli-ui-error-info": "workspace:0.3.12"
+    "@monstrs/cli-ui-format-progress": "workspace:0.3.10"
     "@monstrs/cli-ui-renderer-static": "workspace:0.3.8"
     "@monstrs/code-format": "workspace:0.3.22"
     "@monstrs/yarn-run-utils": "workspace:0.2.1"
     "@monstrs/yarn-test-utils": "workspace:0.2.1"
-    "@types/react": "npm:^18.2.65"
+    "@types/react": "npm:^18.3.3"
     "@yarnpkg/builder": "npm:^4.1.1"
     "@yarnpkg/cli": "npm:^4.3.1"
     "@yarnpkg/core": "npm:^4.1.1"
     "@yarnpkg/fslib": "npm:^3.1.0"
     clipanion: "npm:^4.0.0-rc.3"
-    ink: "npm:^4.4.1"
-    react: "npm:^18.2.0"
+    ink: "npm:^5.0.1"
+    react: "npm:^18.3.1"
   peerDependencies:
     "@yarnpkg/cli": ^4
     "@yarnpkg/core": ^4
@@ -1769,23 +1749,23 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-library@workspace:yarn/plugin-library"
   dependencies:
-    "@monstrs/cli-ui-error-info-component": "workspace:0.3.12"
-    "@monstrs/cli-ui-log-record-component": "workspace:0.3.12"
+    "@monstrs/cli-ui-error-info": "workspace:0.3.12"
+    "@monstrs/cli-ui-log-record": "workspace:0.3.12"
     "@monstrs/cli-ui-pretty-logs": "workspace:0.3.13"
     "@monstrs/cli-ui-renderer-static": "workspace:0.3.8"
-    "@monstrs/cli-ui-typescript-diagnostic-component": "workspace:0.3.30"
-    "@monstrs/cli-ui-typescript-progress-component": "workspace:0.3.10"
+    "@monstrs/cli-ui-typescript-diagnostic": "workspace:0.3.30"
+    "@monstrs/cli-ui-typescript-progress": "workspace:0.3.10"
     "@monstrs/code-typescript": "workspace:0.3.30"
     "@monstrs/yarn-run-utils": "workspace:0.2.1"
     "@monstrs/yarn-test-utils": "workspace:0.2.1"
-    "@types/react": "npm:^18.2.65"
+    "@types/react": "npm:^18.3.3"
     "@yarnpkg/builder": "npm:^4.1.1"
     "@yarnpkg/cli": "npm:^4.3.1"
     "@yarnpkg/core": "npm:^4.1.1"
     "@yarnpkg/fslib": "npm:^3.1.0"
     clipanion: "npm:^4.0.0-rc.3"
     ink: "npm:^5.0.1"
-    react: "npm:^18.2.0"
+    react: "npm:^18.3.1"
     typanion: "npm:^3.14.0"
   peerDependencies:
     "@yarnpkg/cli": ^4
@@ -1797,21 +1777,21 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-lint@workspace:yarn/plugin-lint"
   dependencies:
-    "@monstrs/cli-ui-error-info-component": "workspace:0.3.12"
-    "@monstrs/cli-ui-eslint-result-component": "workspace:0.3.10"
-    "@monstrs/cli-ui-lint-progress-component": "workspace:0.3.10"
+    "@monstrs/cli-ui-error-info": "workspace:0.3.12"
+    "@monstrs/cli-ui-lint-progress": "workspace:0.3.10"
+    "@monstrs/cli-ui-lint-result": "workspace:0.3.9"
     "@monstrs/cli-ui-renderer-static": "workspace:0.3.8"
     "@monstrs/code-lint": "workspace:0.3.32"
     "@monstrs/yarn-run-utils": "workspace:0.2.1"
     "@monstrs/yarn-test-utils": "workspace:0.2.1"
-    "@types/react": "npm:^18.2.65"
+    "@types/react": "npm:^18.3.3"
     "@yarnpkg/builder": "npm:^4.1.1"
     "@yarnpkg/cli": "npm:^4.3.1"
     "@yarnpkg/core": "npm:^4.1.1"
     "@yarnpkg/fslib": "npm:^3.1.0"
     clipanion: "npm:^4.0.0-rc.3"
-    ink: "npm:^4.4.1"
-    react: "npm:^18.2.0"
+    ink: "npm:^5.0.1"
+    react: "npm:^18.3.1"
     typescript: "npm:^5.5.3"
   peerDependencies:
     "@yarnpkg/cli": ^4
@@ -1862,23 +1842,23 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-service@workspace:yarn/plugin-service"
   dependencies:
-    "@monstrs/cli-ui-error-info-component": "workspace:0.3.12"
-    "@monstrs/cli-ui-log-record-component": "workspace:0.3.12"
+    "@monstrs/cli-ui-error-info": "workspace:0.3.12"
+    "@monstrs/cli-ui-log-record": "workspace:0.3.12"
     "@monstrs/cli-ui-renderer-static": "workspace:0.3.8"
-    "@monstrs/cli-ui-service-progress-component": "workspace:0.3.10"
+    "@monstrs/cli-ui-service-progress": "workspace:0.3.10"
     "@monstrs/code-service": "workspace:0.3.37"
     "@monstrs/logger": "npm:^0.0.20"
     "@monstrs/yarn-pack-utils": "workspace:0.2.16"
     "@monstrs/yarn-run-utils": "workspace:0.2.1"
     "@monstrs/yarn-test-utils": "workspace:0.2.1"
-    "@types/react": "npm:^18.2.65"
+    "@types/react": "npm:^18.3.3"
     "@yarnpkg/builder": "npm:^4.1.1"
     "@yarnpkg/cli": "npm:^4.3.1"
     "@yarnpkg/core": "npm:^4.1.1"
     "@yarnpkg/fslib": "npm:^3.1.0"
     clipanion: "npm:^4.0.0-rc.3"
-    ink: "npm:^4.4.1"
-    react: "npm:^18.2.0"
+    ink: "npm:^5.0.1"
+    react: "npm:^18.3.1"
     typescript: "npm:^5.5.3"
   peerDependencies:
     "@yarnpkg/cli": ^4
@@ -1890,23 +1870,23 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-test@workspace:yarn/plugin-test"
   dependencies:
-    "@monstrs/cli-ui-error-info-component": "workspace:0.3.12"
-    "@monstrs/cli-ui-log-record-component": "workspace:0.3.12"
+    "@monstrs/cli-ui-error-info": "workspace:0.3.12"
+    "@monstrs/cli-ui-log-record": "workspace:0.3.12"
+    "@monstrs/cli-ui-raw-output": "workspace:0.3.9"
     "@monstrs/cli-ui-renderer-static": "workspace:0.3.8"
-    "@monstrs/cli-ui-std-output-component": "workspace:0.3.30"
-    "@monstrs/cli-ui-test-failure-component": "workspace:0.3.30"
-    "@monstrs/cli-ui-test-progress-component": "workspace:0.3.10"
+    "@monstrs/cli-ui-test-failure": "workspace:0.3.9"
+    "@monstrs/cli-ui-test-progress": "workspace:0.3.10"
     "@monstrs/code-test": "workspace:0.3.29"
     "@monstrs/config-typescript": "workspace:0.3.7"
     "@monstrs/yarn-test-utils": "workspace:0.2.1"
-    "@types/react": "npm:^18.2.65"
+    "@types/react": "npm:^18.3.3"
     "@yarnpkg/builder": "npm:^4.1.1"
     "@yarnpkg/cli": "npm:^4.3.1"
     "@yarnpkg/core": "npm:^4.1.1"
     "@yarnpkg/fslib": "npm:^3.1.0"
     clipanion: "npm:^4.0.0-rc.3"
-    ink: "npm:^4.4.1"
-    react: "npm:^18.2.0"
+    ink: "npm:^5.0.1"
+    react: "npm:^18.3.1"
     typescript: "npm:^5.5.3"
   peerDependencies:
     "@yarnpkg/cli": ^4
@@ -1936,22 +1916,22 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-types@workspace:yarn/plugin-types"
   dependencies:
-    "@monstrs/cli-ui-error-info-component": "workspace:0.3.12"
+    "@monstrs/cli-ui-error-info": "workspace:0.3.12"
     "@monstrs/cli-ui-renderer-static": "workspace:0.3.8"
-    "@monstrs/cli-ui-typescript-diagnostic-component": "workspace:0.3.30"
-    "@monstrs/cli-ui-typescript-progress-component": "workspace:0.3.10"
+    "@monstrs/cli-ui-typescript-diagnostic": "workspace:0.3.30"
+    "@monstrs/cli-ui-typescript-progress": "workspace:0.3.10"
     "@monstrs/code-typescript": "workspace:0.3.30"
     "@monstrs/tools-runtime": "workspace:0.2.24"
     "@monstrs/yarn-run-utils": "workspace:0.2.1"
     "@monstrs/yarn-test-utils": "workspace:0.2.1"
-    "@types/react": "npm:^18.2.65"
+    "@types/react": "npm:^18.3.3"
     "@yarnpkg/builder": "npm:^4.1.1"
     "@yarnpkg/cli": "npm:^4.3.1"
     "@yarnpkg/core": "npm:^4.1.1"
     "@yarnpkg/fslib": "npm:^3.1.0"
     clipanion: "npm:^4.0.0-rc.3"
     ink: "npm:^5.0.1"
-    react: "npm:^18.2.0"
+    react: "npm:^18.3.1"
     semver: "npm:^7.6.0"
     typescript: "npm:^5.5.3"
   peerDependencies:
@@ -2649,7 +2629,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^22.1.0":
+"@types/node@npm:*":
   version: 22.1.0
   resolution: "@types/node@npm:22.1.0"
   dependencies:
@@ -2664,6 +2644,15 @@ __metadata:
   dependencies:
     undici-types: "npm:~5.26.4"
   checksum: 10/b95d0c0be342275e27d882bb6ca73c0b757d1672a121cae1fc3249eda4f86a8abeb5745e5c5c1150914bcfda323a3fc51526cd34e2097f8355bf7cbf12fa6bcb
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^22.4.0":
+  version: 22.4.0
+  resolution: "@types/node@npm:22.4.0"
+  dependencies:
+    undici-types: "npm:~6.19.2"
+  checksum: 10/0b6ccc86856b8473f4d536491edc2ba21386d194219ee84024ef2b2ab054296f0b37a4f52719af797227132853cff065977992e353754a195cd86aea2e128cc7
   languageName: node
   linkType: hard
 
@@ -2692,7 +2681,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^18.2.65":
+"@types/react@npm:*":
   version: 18.2.65
   resolution: "@types/react@npm:18.2.65"
   dependencies:
@@ -2700,6 +2689,16 @@ __metadata:
     "@types/scheduler": "npm:*"
     csstype: "npm:^3.0.2"
   checksum: 10/8022689f6c68e76b5e7b3c95af794fb3d128d5b2ccac408adaa80b117724c48b04dd4a2750e5c2ca29cd70ac7719b4ed5c5b1c12cb739d6f1d52188c09fb3060
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:^18.3.3":
+  version: 18.3.3
+  resolution: "@types/react@npm:18.3.3"
+  dependencies:
+    "@types/prop-types": "npm:*"
+    csstype: "npm:^3.0.2"
+  checksum: 10/68e203b7f1f91d6cf21f33fc7af9d6d228035a26c83f514981e54aa3da695d0ec6af10c277c6336de1dd76c4adbe9563f3a21f80c4462000f41e5f370b46e96c
   languageName: node
   linkType: hard
 
@@ -3743,16 +3742,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aggregate-error@npm:^3.0.0":
-  version: 3.0.1
-  resolution: "aggregate-error@npm:3.0.1"
-  dependencies:
-    clean-stack: "npm:^2.0.0"
-    indent-string: "npm:^4.0.0"
-  checksum: 10/1f922d00cc51cf9f7f6f729c0b925689ed5a464aefc1fac8309924f622000ee3741d314d864b2d776f9627236ea79daf5a83d093f6b72edc52160571160eff82
-  languageName: node
-  linkType: hard
-
 "ajv-keywords@npm:^3.5.2":
   version: 3.5.2
   resolution: "ajv-keywords@npm:3.5.2"
@@ -3815,7 +3804,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ansi-escapes@npm:^4.2.1, ansi-escapes@npm:^4.3.0":
+"ansi-escapes@npm:^4.2.1":
   version: 4.3.2
   resolution: "ansi-escapes@npm:4.3.2"
   dependencies:
@@ -3830,6 +3819,15 @@ __metadata:
   dependencies:
     type-fest: "npm:^1.0.2"
   checksum: 10/cbfb95f9f6d8a1ffc89f50fcda3313effae2d9ac2f357f89f626815b4d95fdc3f10f74e0887614ff850d01f805b7505eb1e7ebfdd26144bbfc26c5de08e19195
+  languageName: node
+  linkType: hard
+
+"ansi-escapes@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "ansi-escapes@npm:7.0.0"
+  dependencies:
+    environment: "npm:^1.0.0"
+  checksum: 10/2d0e2345087bd7ae6bf122b9cc05ee35560d40dcc061146edcdc02bc2d7c7c50143cd12a22e69a0b5c0f62b948b7bc9a4539ee888b80f5bd33cdfd82d01a70ab
   languageName: node
   linkType: hard
 
@@ -3880,7 +3878,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ansi-styles@npm:^6.0.0, ansi-styles@npm:^6.1.0":
+"ansi-styles@npm:^6.0.0, ansi-styles@npm:^6.1.0, ansi-styles@npm:^6.2.1":
   version: 6.2.1
   resolution: "ansi-styles@npm:6.2.1"
   checksum: 10/70fdf883b704d17a5dfc9cde206e698c16bcd74e7f196ab821511651aee4f9f76c9514bdfa6ca3a27b5e49138b89cb222a28caf3afe4567570139577f991df32
@@ -4257,6 +4255,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"braces@npm:^3.0.3":
+  version: 3.0.3
+  resolution: "braces@npm:3.0.3"
+  dependencies:
+    fill-range: "npm:^7.1.1"
+  checksum: 10/fad11a0d4697a27162840b02b1fad249c1683cbc510cd5bf1a471f2f8085c046d41094308c577a50a03a579dd99d5a6b3724c4b5e8b14df2c4443844cfcda2c6
+  languageName: node
+  linkType: hard
+
 "browserslist@npm:^4.21.10, browserslist@npm:^4.22.2":
   version: 4.23.0
   resolution: "browserslist@npm:4.23.0"
@@ -4379,13 +4386,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chalk@npm:5.2.0":
-  version: 5.2.0
-  resolution: "chalk@npm:5.2.0"
-  checksum: 10/daadc187314c851cd94f1058dd870a2dd351dfaef8cf69048977fc56bce120f02f7aca77eb7ca88bf7a37ab6c15922e12b43f4ffa885f4fd2d9e15dd14c61a1b
-  languageName: node
-  linkType: hard
-
 "chalk@npm:^2.4.1, chalk@npm:^2.4.2":
   version: 2.4.2
   resolution: "chalk@npm:2.4.2"
@@ -4417,7 +4417,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chalk@npm:^5.2.0, chalk@npm:^5.3.0":
+"chalk@npm:^5.2.0, chalk@npm:^5.3.0, chalk@npm:~5.3.0":
   version: 5.3.0
   resolution: "chalk@npm:5.3.0"
   checksum: 10/6373caaab21bd64c405bfc4bd9672b145647fc9482657b5ea1d549b3b2765054e9d3d928870cdf764fb4aad67555f5061538ff247b8310f110c5c888d92397ea
@@ -4468,13 +4468,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"clean-stack@npm:^2.0.0":
-  version: 2.2.0
-  resolution: "clean-stack@npm:2.2.0"
-  checksum: 10/2ac8cd2b2f5ec986a3c743935ec85b07bc174d5421a5efc8017e1f146a1cf5f781ae962618f416352103b32c9cd7e203276e8c28241bbe946160cab16149fb68
-  languageName: node
-  linkType: hard
-
 "cli-boxes@npm:^2.2.0":
   version: 2.2.1
   resolution: "cli-boxes@npm:2.2.1"
@@ -4488,6 +4481,15 @@ __metadata:
   dependencies:
     restore-cursor: "npm:^3.1.0"
   checksum: 10/2692784c6cd2fd85cfdbd11f53aea73a463a6d64a77c3e098b2b4697a20443f430c220629e1ca3b195ea5ac4a97a74c2ee411f3807abf6df2b66211fec0c0a29
+  languageName: node
+  linkType: hard
+
+"cli-cursor@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "cli-cursor@npm:5.0.0"
+  dependencies:
+    restore-cursor: "npm:^5.0.0"
+  checksum: 10/1eb9a3f878b31addfe8d82c6d915ec2330cec8447ab1f117f4aa34f0137fbb3137ec3466e1c9a65bcb7557f6e486d343f2da57f253a2f668d691372dfa15c090
   languageName: node
   linkType: hard
 
@@ -4515,13 +4517,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cli-truncate@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "cli-truncate@npm:3.1.0"
+"cli-truncate@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "cli-truncate@npm:4.0.0"
   dependencies:
     slice-ansi: "npm:^5.0.0"
-    string-width: "npm:^5.0.0"
-  checksum: 10/c3243e41974445691c63f8b405df1d5a24049dc33d324fe448dc572e561a7b772ae982692900b1a5960901cc4fc7def25a629b9c69a4208ee89d12ab3332617a
+    string-width: "npm:^7.0.0"
+  checksum: 10/d5149175fd25ca985731bdeec46a55ec237475cf74c1a5e103baea696aceb45e372ac4acbaabf1316f06bd62e348123060f8191ffadfeedebd2a70a2a7fb199d
   languageName: node
   linkType: hard
 
@@ -4618,7 +4620,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"colorette@npm:^2.0.19":
+"colorette@npm:^2.0.20":
   version: 2.0.20
   resolution: "colorette@npm:2.0.20"
   checksum: 10/0b8de48bfa5d10afc160b8eaa2b9938f34a892530b2f7d7897e0458d9535a066e3998b49da9d21161c78225b272df19ae3a64d6df28b4c9734c0e55bbd02406f
@@ -4641,17 +4643,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^10.0.0":
-  version: 10.0.1
-  resolution: "commander@npm:10.0.1"
-  checksum: 10/8799faa84a30da985802e661cc9856adfaee324d4b138413013ef7f087e8d7924b144c30a1f1405475f0909f467665cd9e1ce13270a2f41b141dab0b7a58f3fb
-  languageName: node
-  linkType: hard
-
 "commander@npm:^2.19.0, commander@npm:^2.20.0":
   version: 2.20.3
   resolution: "commander@npm:2.20.3"
   checksum: 10/90c5b6898610cd075984c58c4f88418a4fb44af08c1b1415e9854c03171bec31b336b7f3e4cefe33de994b3f12b03c5e2d638da4316df83593b9e82554e7e95b
+  languageName: node
+  linkType: hard
+
+"commander@npm:~12.1.0":
+  version: 12.1.0
+  resolution: "commander@npm:12.1.0"
+  checksum: 10/cdaeb672d979816853a4eed7f1310a9319e8b976172485c2a6b437ed0db0a389a44cfb222bfbde772781efa9f215bdd1b936f80d6b249485b465c6cb906e1f93
   languageName: node
   linkType: hard
 
@@ -4971,7 +4973,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:^4.1.0, debug@npm:^4.3.1, debug@npm:^4.3.2, debug@npm:^4.3.4":
+"debug@npm:^4.1.0, debug@npm:^4.3.1, debug@npm:^4.3.2, debug@npm:^4.3.4, debug@npm:~4.3.6":
   version: 4.3.6
   resolution: "debug@npm:4.3.6"
   dependencies:
@@ -5300,6 +5302,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"emoji-regex@npm:^10.3.0":
+  version: 10.3.0
+  resolution: "emoji-regex@npm:10.3.0"
+  checksum: 10/b9b084ebe904f13bb4b66ee4c29fb41a7a4a1165adcc33c1ce8056c0194b882cc91ebdc782f1a779b5d7ea7375c5064643a7734893d7c657b44c5c6b9d7bf1e7
+  languageName: node
+  linkType: hard
+
 "emoji-regex@npm:^8.0.0":
   version: 8.0.0
   resolution: "emoji-regex@npm:8.0.0"
@@ -5360,6 +5369,13 @@ __metadata:
   version: 2.2.0
   resolution: "env-paths@npm:2.2.0"
   checksum: 10/ba2aea38301aafd69086be1f8cb453b92946e4840cb0de9d1c88a67e6f43a6174dcddb60b218ec36db8720b12de46b0d93c2f97ad9bbec6a267b479ab37debb6
+  languageName: node
+  linkType: hard
+
+"environment@npm:^1.0.0":
+  version: 1.1.0
+  resolution: "environment@npm:1.1.0"
+  checksum: 10/dd3c1b9825e7f71f1e72b03c2344799ac73f2e9ef81b78ea8b373e55db021786c6b9f3858ea43a436a2c4611052670ec0afe85bc029c384cc71165feee2f4ba6
   languageName: node
   linkType: hard
 
@@ -5904,6 +5920,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eventemitter3@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "eventemitter3@npm:5.0.1"
+  checksum: 10/ac6423ec31124629c84c7077eed1e6987f6d66c31cf43c6fcbf6c87791d56317ce808d9ead483652436df171b526fc7220eccdc9f3225df334e81582c3cf7dd5
+  languageName: node
+  linkType: hard
+
 "events@npm:^3.2.0":
   version: 3.3.0
   resolution: "events@npm:3.3.0"
@@ -5911,24 +5934,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"execa@npm:^7.0.0":
-  version: 7.2.0
-  resolution: "execa@npm:7.2.0"
-  dependencies:
-    cross-spawn: "npm:^7.0.3"
-    get-stream: "npm:^6.0.1"
-    human-signals: "npm:^4.3.0"
-    is-stream: "npm:^3.0.0"
-    merge-stream: "npm:^2.0.0"
-    npm-run-path: "npm:^5.1.0"
-    onetime: "npm:^6.0.0"
-    signal-exit: "npm:^3.0.7"
-    strip-final-newline: "npm:^3.0.0"
-  checksum: 10/473feff60f9d4dbe799225948de48b5158c1723021d19c4b982afe37bcd111ae84e1b4c9dfe967fae5101b0894b1a62e4dd564a286dfa3e46d7b0cfdbf7fe62b
-  languageName: node
-  linkType: hard
-
-"execa@npm:^8.0.1":
+"execa@npm:^8.0.1, execa@npm:~8.0.1":
   version: 8.0.1
   resolution: "execa@npm:8.0.1"
   dependencies:
@@ -6095,6 +6101,15 @@ __metadata:
   dependencies:
     to-regex-range: "npm:^5.0.1"
   checksum: 10/e260f7592fd196b4421504d3597cc76f4a1ca7a9488260d533b611fc3cefd61e9a9be1417cb82d3b01ad9f9c0ff2dbf258e1026d2445e26b0cf5148ff4250429
+  languageName: node
+  linkType: hard
+
+"fill-range@npm:^7.1.1":
+  version: 7.1.1
+  resolution: "fill-range@npm:7.1.1"
+  dependencies:
+    to-regex-range: "npm:^5.0.1"
+  checksum: 10/a7095cb39e5bc32fada2aa7c7249d3f6b01bd1ce461a61b0adabacccabd9198500c6fb1f68a7c851a657e273fce2233ba869638897f3d7ed2e87a2d89b4436ea
   languageName: node
   linkType: hard
 
@@ -6349,6 +6364,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"get-east-asian-width@npm:^1.0.0":
+  version: 1.2.0
+  resolution: "get-east-asian-width@npm:1.2.0"
+  checksum: 10/c9b280e7c7c67fb89fa17e867c4a9d1c9f1321aba2a9ee27bff37fb6ca9552bccda328c70a80c1f83a0e39ba1b7e3427e60f47823402d19e7a41b83417ec047a
+  languageName: node
+  linkType: hard
+
 "get-intrinsic@npm:^1.1.1, get-intrinsic@npm:^1.1.3, get-intrinsic@npm:^1.2.1, get-intrinsic@npm:^1.2.2, get-intrinsic@npm:^1.2.3, get-intrinsic@npm:^1.2.4":
   version: 1.2.4
   resolution: "get-intrinsic@npm:1.2.4"
@@ -6375,13 +6397,6 @@ __metadata:
   dependencies:
     pump: "npm:^3.0.0"
   checksum: 10/db4019d5bb195b91190ec350e25c04e9994e50c92bc045ec4eae2dc570e36b0e14d00035504b54b65122073783d1bcb8aa699d02cc93f4392b7ba45db0936415
-  languageName: node
-  linkType: hard
-
-"get-stream@npm:^6.0.1":
-  version: 6.0.1
-  resolution: "get-stream@npm:6.0.1"
-  checksum: 10/781266d29725f35c59f1d214aedc92b0ae855800a980800e2923b3fbc4e56b3cb6e462c42e09a1cf1a00c64e056a78fa407cbe06c7c92b7e5cd49b4b85c2a497
   languageName: node
   linkType: hard
 
@@ -6812,13 +6827,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"human-signals@npm:^4.3.0":
-  version: 4.3.1
-  resolution: "human-signals@npm:4.3.1"
-  checksum: 10/fa59894c358fe9f2b5549be2fb083661d5e1dff618d3ac70a49ca73495a72e873fbf6c0878561478e521e17d498292746ee391791db95ffe5747bfb5aef8765b
-  languageName: node
-  linkType: hard
-
 "human-signals@npm:^5.0.0":
   version: 5.0.0
   resolution: "human-signals@npm:5.0.0"
@@ -7014,6 +7022,18 @@ __metadata:
     ink: ^4.0.0
     react: ^18.0.0
   checksum: 10/9e21351f7ae1ad1721eca04038e25afd4b6f85ea0abd51235db2ed6894e209198687924a2ae8aca972571cb0601d735810c462676b7ebfd68ae3cafd0d67613c
+  languageName: node
+  linkType: hard
+
+"ink-testing-library@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "ink-testing-library@npm:4.0.0"
+  peerDependencies:
+    "@types/react": ">=18.0.0"
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+  checksum: 10/f1f8549fe5ade85c4561adb548ab72586186b829184868e40ae1a77c608410d6898a24467a7f9fd7867c05b5a8a9bfc01bec7a1beff30932f1bfcf64bf893603
   languageName: node
   linkType: hard
 
@@ -7273,6 +7293,15 @@ __metadata:
   version: 4.0.0
   resolution: "is-fullwidth-code-point@npm:4.0.0"
   checksum: 10/8ae89bf5057bdf4f57b346fb6c55e9c3dd2549983d54191d722d5c739397a903012cc41a04ee3403fd872e811243ef91a7c5196da7b5841dc6b6aae31a264a8d
+  languageName: node
+  linkType: hard
+
+"is-fullwidth-code-point@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "is-fullwidth-code-point@npm:5.0.0"
+  dependencies:
+    get-east-asian-width: "npm:^1.0.0"
+  checksum: 10/8dfb2d2831b9e87983c136f5c335cd9d14c1402973e357a8ff057904612ed84b8cba196319fabedf9aefe4639e14fe3afe9d9966d1d006ebeb40fe1fed4babe5
   languageName: node
   linkType: hard
 
@@ -7801,10 +7830,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lilconfig@npm:2.1.0":
-  version: 2.1.0
-  resolution: "lilconfig@npm:2.1.0"
-  checksum: 10/b1314a2e55319013d5e7d7d08be39015829d2764a1eaee130129545d40388499d81b1c31b0f9b3417d4db12775a88008b72ec33dd06e0184cf7503b32ca7cc0b
+"lilconfig@npm:~3.1.2":
+  version: 3.1.2
+  resolution: "lilconfig@npm:3.1.2"
+  checksum: 10/8058403850cfad76d6041b23db23f730e52b6c17a8c28d87b90766639ca0ee40c748a3e85c2d7bd133d572efabff166c4b015e5d25e01fd666cb4b13cfada7f0
   languageName: node
   linkType: hard
 
@@ -7815,70 +7844,57 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:13.2.2":
-  version: 13.2.2
-  resolution: "lint-staged@npm:13.2.2"
+"lint-staged@npm:15.2.9":
+  version: 15.2.9
+  resolution: "lint-staged@npm:15.2.9"
   dependencies:
-    chalk: "npm:5.2.0"
-    cli-truncate: "npm:^3.1.0"
-    commander: "npm:^10.0.0"
-    debug: "npm:^4.3.4"
-    execa: "npm:^7.0.0"
-    lilconfig: "npm:2.1.0"
-    listr2: "npm:^5.0.7"
-    micromatch: "npm:^4.0.5"
-    normalize-path: "npm:^3.0.0"
-    object-inspect: "npm:^1.12.3"
-    pidtree: "npm:^0.6.0"
-    string-argv: "npm:^0.3.1"
-    yaml: "npm:^2.2.2"
+    chalk: "npm:~5.3.0"
+    commander: "npm:~12.1.0"
+    debug: "npm:~4.3.6"
+    execa: "npm:~8.0.1"
+    lilconfig: "npm:~3.1.2"
+    listr2: "npm:~8.2.4"
+    micromatch: "npm:~4.0.7"
+    pidtree: "npm:~0.6.0"
+    string-argv: "npm:~0.3.2"
+    yaml: "npm:~2.5.0"
   bin:
     lint-staged: bin/lint-staged.js
-  checksum: 10/a37fc9203921bc1a0c63b370fae4035231e5dd94b37bd35923c1996d1ed3a70e25c8bcbd944792ed518aa949cbff90e50be63c2508478532374b70e314f3f317
+  checksum: 10/2f7342ca3fc7e2a8a0cc3db79ca8d2ad0269b98b13220f3a6745a514aacf1f83487a23a550569081ea962f9a576af7df8d687a8330a9c3c2c27348d5a4d5440e
   languageName: node
   linkType: hard
 
-"lint-staged@patch:lint-staged@npm%3A13.2.2#~/.yarn/patches/lint-staged-npm-13.2.2-e66c493ac4.patch":
-  version: 13.2.2
-  resolution: "lint-staged@patch:lint-staged@npm%3A13.2.2#~/.yarn/patches/lint-staged-npm-13.2.2-e66c493ac4.patch::version=13.2.2&hash=12112c"
+"lint-staged@patch:lint-staged@npm%3A15.2.9#~/.yarn/patches/lint-staged-npm-15.2.9-092f307382.patch":
+  version: 15.2.9
+  resolution: "lint-staged@patch:lint-staged@npm%3A15.2.9#~/.yarn/patches/lint-staged-npm-15.2.9-092f307382.patch::version=15.2.9&hash=7b2a64"
   dependencies:
-    chalk: "npm:5.2.0"
-    cli-truncate: "npm:^3.1.0"
-    commander: "npm:^10.0.0"
-    debug: "npm:^4.3.4"
-    execa: "npm:^7.0.0"
-    lilconfig: "npm:2.1.0"
-    listr2: "npm:^5.0.7"
-    micromatch: "npm:^4.0.5"
-    normalize-path: "npm:^3.0.0"
-    object-inspect: "npm:^1.12.3"
-    pidtree: "npm:^0.6.0"
-    string-argv: "npm:^0.3.1"
-    yaml: "npm:^2.2.2"
+    chalk: "npm:~5.3.0"
+    commander: "npm:~12.1.0"
+    debug: "npm:~4.3.6"
+    execa: "npm:~8.0.1"
+    lilconfig: "npm:~3.1.2"
+    listr2: "npm:~8.2.4"
+    micromatch: "npm:~4.0.7"
+    pidtree: "npm:~0.6.0"
+    string-argv: "npm:~0.3.2"
+    yaml: "npm:~2.5.0"
   bin:
     lint-staged: bin/lint-staged.js
-  checksum: 10/1e70be63c6d48a823f201c3d8bfaa8731f628998e4458f3bf940d3946395c1ff7fb7ca18a1d3c519678999efcd29f7ee8fbc5ecaf402f9235c4f533ea2583a20
+  checksum: 10/e671a5bd934287455957a04509c097ba9b6b95bfbdfc7bea8001ddec237901ac6ed721ee6567c45ed3bfdd10f9f4403a73da633531d918fc030e95cce4de1828
   languageName: node
   linkType: hard
 
-"listr2@npm:^5.0.7":
-  version: 5.0.8
-  resolution: "listr2@npm:5.0.8"
+"listr2@npm:~8.2.4":
+  version: 8.2.4
+  resolution: "listr2@npm:8.2.4"
   dependencies:
-    cli-truncate: "npm:^2.1.0"
-    colorette: "npm:^2.0.19"
-    log-update: "npm:^4.0.0"
-    p-map: "npm:^4.0.0"
-    rfdc: "npm:^1.3.0"
-    rxjs: "npm:^7.8.0"
-    through: "npm:^2.3.8"
-    wrap-ansi: "npm:^7.0.0"
-  peerDependencies:
-    enquirer: ">= 2.3.0 < 3"
-  peerDependenciesMeta:
-    enquirer:
-      optional: true
-  checksum: 10/41181bcd86d26b82acb3b26738d3836443531bc0ad6f7463cfee411af4f0268f3753485ed4c6d697c120ff01475dbb055aa34c22e6834c4c0bd84e3f242ce78e
+    cli-truncate: "npm:^4.0.0"
+    colorette: "npm:^2.0.20"
+    eventemitter3: "npm:^5.0.1"
+    log-update: "npm:^6.1.0"
+    rfdc: "npm:^1.4.1"
+    wrap-ansi: "npm:^9.0.0"
+  checksum: 10/344d2397e127bf802935925e95b54468eef745fbbaf9326eb33a1634ae2d6e86cdb527ef48cb83a19a50671955d39b3e2608c74db85530df07b5674f5de115e1
   languageName: node
   linkType: hard
 
@@ -8026,15 +8042,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"log-update@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "log-update@npm:4.0.0"
+"log-update@npm:^6.1.0":
+  version: 6.1.0
+  resolution: "log-update@npm:6.1.0"
   dependencies:
-    ansi-escapes: "npm:^4.3.0"
-    cli-cursor: "npm:^3.1.0"
-    slice-ansi: "npm:^4.0.0"
-    wrap-ansi: "npm:^6.2.0"
-  checksum: 10/ae2f85bbabc1906034154fb7d4c4477c79b3e703d22d78adee8b3862fa913942772e7fa11713e3d96fb46de4e3cabefbf5d0a544344f03b58d3c4bff52aa9eb2
+    ansi-escapes: "npm:^7.0.0"
+    cli-cursor: "npm:^5.0.0"
+    slice-ansi: "npm:^7.1.0"
+    strip-ansi: "npm:^7.1.0"
+    wrap-ansi: "npm:^9.0.0"
+  checksum: 10/5abb4131e33b1e7f8416bb194fe17a3603d83e4657c5bf5bb81ce4187f3b00ea481643b85c3d5cefe6037a452cdcf7f1391ab8ea0d9c23e75d19589830ec4f11
   languageName: node
   linkType: hard
 
@@ -8164,13 +8181,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"micromatch@npm:^4.0.0, micromatch@npm:^4.0.2, micromatch@npm:^4.0.4, micromatch@npm:^4.0.5":
+"micromatch@npm:^4.0.0, micromatch@npm:^4.0.2, micromatch@npm:^4.0.4":
   version: 4.0.5
   resolution: "micromatch@npm:4.0.5"
   dependencies:
     braces: "npm:^3.0.2"
     picomatch: "npm:^2.3.1"
   checksum: 10/a749888789fc15cac0e03273844dbd749f9f8e8d64e70c564bcf06a033129554c789bb9e30d7566d7ff6596611a08e58ac12cf2a05f6e3c9c47c50c4c7e12fa2
+  languageName: node
+  linkType: hard
+
+"micromatch@npm:~4.0.7":
+  version: 4.0.7
+  resolution: "micromatch@npm:4.0.7"
+  dependencies:
+    braces: "npm:^3.0.3"
+    picomatch: "npm:^2.3.1"
+  checksum: 10/a11ed1cb67dcbbe9a5fc02c4062cf8bb0157d73bf86956003af8dcfdf9b287f9e15ec0f6d6925ff6b8b5b496202335e497b01de4d95ef6cf06411bc5e5c474a0
   languageName: node
   linkType: hard
 
@@ -8208,6 +8235,13 @@ __metadata:
   version: 4.0.0
   resolution: "mimic-fn@npm:4.0.0"
   checksum: 10/995dcece15ee29aa16e188de6633d43a3db4611bcf93620e7e62109ec41c79c0f34277165b8ce5e361205049766e371851264c21ac64ca35499acb5421c2ba56
+  languageName: node
+  linkType: hard
+
+"mimic-function@npm:^5.0.0":
+  version: 5.0.1
+  resolution: "mimic-function@npm:5.0.1"
+  checksum: 10/eb5893c99e902ccebbc267c6c6b83092966af84682957f79313311edb95e8bb5f39fb048d77132b700474d1c86d90ccc211e99bae0935447a4834eb4c882982c
   languageName: node
   linkType: hard
 
@@ -8474,13 +8508,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"normalize-path@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "normalize-path@npm:3.0.0"
-  checksum: 10/88eeb4da891e10b1318c4b2476b6e2ecbeb5ff97d946815ffea7794c31a89017c70d7f34b3c2ebf23ef4e9fc9fb99f7dffe36da22011b5b5c6ffa34f4873ec20
-  languageName: node
-  linkType: hard
-
 "normalize-url@npm:^4.1.0":
   version: 4.5.0
   resolution: "normalize-url@npm:4.5.0"
@@ -8551,7 +8578,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"object-inspect@npm:^1.12.3, object-inspect@npm:^1.13.1":
+"object-inspect@npm:^1.13.1":
   version: 1.13.1
   resolution: "object-inspect@npm:1.13.1"
   checksum: 10/92f4989ed83422d56431bc39656d4c780348eb15d397ce352ade6b7fec08f973b53744bd41b94af021901e61acaf78fcc19e65bf464ecc0df958586a672700f0
@@ -8667,6 +8694,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"onetime@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "onetime@npm:7.0.0"
+  dependencies:
+    mimic-function: "npm:^5.0.0"
+  checksum: 10/eb08d2da9339819e2f9d52cab9caf2557d80e9af8c7d1ae86e1a0fef027d00a88e9f5bd67494d350df360f7c559fbb44e800b32f310fb989c860214eacbb561c
+  languageName: node
+  linkType: hard
+
 "openurl@npm:1.1.1":
   version: 1.1.1
   resolution: "openurl@npm:1.1.1"
@@ -8778,15 +8814,6 @@ __metadata:
   dependencies:
     p-limit: "npm:^4.0.0"
   checksum: 10/2bfe5234efa5e7a4e74b30a5479a193fdd9236f8f6b4d2f3f69e3d286d9a7d7ab0c118a2a50142efcf4e41625def635bd9332d6cbf9cc65d85eb0718c579ab38
-  languageName: node
-  linkType: hard
-
-"p-map@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "p-map@npm:4.0.0"
-  dependencies:
-    aggregate-error: "npm:^3.0.0"
-  checksum: 10/7ba4a2b1e24c05e1fc14bbaea0fc6d85cf005ae7e9c9425d4575550f37e2e584b1af97bcde78eacd7559208f20995988d52881334db16cf77bc1bcf68e48ed7c
   languageName: node
   linkType: hard
 
@@ -8937,7 +8964,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pidtree@npm:^0.6.0":
+"pidtree@npm:~0.6.0":
   version: 0.6.0
   resolution: "pidtree@npm:0.6.0"
   bin:
@@ -8985,7 +9012,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.5.10, prop-types@npm:^15.6.2, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.5.10, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -9117,23 +9144,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:*, react@npm:^18.2.0":
+"react@npm:18.2.0":
   version: 18.2.0
   resolution: "react@npm:18.2.0"
   dependencies:
     loose-envify: "npm:^1.1.0"
   checksum: 10/b9214a9bd79e99d08de55f8bef2b7fc8c39630be97c4e29d7be173d14a9a10670b5325e94485f74cd8bff4966ef3c78ee53c79a7b0b9b70cba20aa8973acc694
-  languageName: node
-  linkType: hard
-
-"react@npm:^16.13.1":
-  version: 16.14.0
-  resolution: "react@npm:16.14.0"
-  dependencies:
-    loose-envify: "npm:^1.1.0"
-    object-assign: "npm:^4.1.1"
-    prop-types: "npm:^15.6.2"
-  checksum: 10/ee04c82f5ecb70fe15a48d8cfc3fb20ce2f7e65277d4adcb56a0ac2b82c54550d4c65eabce0d5dc0cc90d053831b9586d72ee515b11cdf0c5436c7f95aafdcda
   languageName: node
   linkType: hard
 
@@ -9370,6 +9386,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"restore-cursor@npm:^5.0.0":
+  version: 5.1.0
+  resolution: "restore-cursor@npm:5.1.0"
+  dependencies:
+    onetime: "npm:^7.0.0"
+    signal-exit: "npm:^4.1.0"
+  checksum: 10/838dd54e458d89cfbc1a923b343c1b0f170a04100b4ce1733e97531842d7b440463967e521216e8ab6c6f8e89df877acc7b7f4c18ec76e99fb9bf5a60d358d2c
+  languageName: node
+  linkType: hard
+
 "ret@npm:~0.1.10":
   version: 0.1.15
   resolution: "ret@npm:0.1.15"
@@ -9384,10 +9410,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rfdc@npm:^1.3.0":
-  version: 1.3.0
-  resolution: "rfdc@npm:1.3.0"
-  checksum: 10/76dedd9700cdf132947fde7ce1a8838c9cbb7f3e8f9188af0aaf97194cce745f42094dd2cf547426934cc83252ee2c0e432b2e0222a4415ab0db32de82665c69
+"rfdc@npm:^1.4.1":
+  version: 1.4.1
+  resolution: "rfdc@npm:1.4.1"
+  checksum: 10/2f3d11d3d8929b4bfeefc9acb03aae90f971401de0add5ae6c5e38fec14f0405e6a4aad8fdb76344bfdd20c5193110e3750cbbd28ba86d73729d222b6cf4a729
   languageName: node
   linkType: hard
 
@@ -9446,7 +9472,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rxjs@npm:^7.5.5, rxjs@npm:^7.8.0":
+"rxjs@npm:^7.5.5":
   version: 7.8.1
   resolution: "rxjs@npm:7.8.1"
   dependencies:
@@ -9635,7 +9661,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"signal-exit@npm:^3.0.0, signal-exit@npm:^3.0.2, signal-exit@npm:^3.0.7":
+"signal-exit@npm:^3.0.0, signal-exit@npm:^3.0.2":
   version: 3.0.7
   resolution: "signal-exit@npm:3.0.7"
   checksum: 10/a2f098f247adc367dffc27845853e9959b9e88b01cb301658cfe4194352d8d2bb32e18467c786a7fe15f1d44b233ea35633d076d5e737870b7139949d1ab6318
@@ -9674,17 +9700,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"slice-ansi@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "slice-ansi@npm:4.0.0"
-  dependencies:
-    ansi-styles: "npm:^4.0.0"
-    astral-regex: "npm:^2.0.0"
-    is-fullwidth-code-point: "npm:^3.0.0"
-  checksum: 10/4a82d7f085b0e1b070e004941ada3c40d3818563ac44766cca4ceadd2080427d337554f9f99a13aaeb3b4a94d9964d9466c807b3d7b7541d1ec37ee32d308756
-  languageName: node
-  linkType: hard
-
 "slice-ansi@npm:^5.0.0":
   version: 5.0.0
   resolution: "slice-ansi@npm:5.0.0"
@@ -9692,6 +9707,16 @@ __metadata:
     ansi-styles: "npm:^6.0.0"
     is-fullwidth-code-point: "npm:^4.0.0"
   checksum: 10/7e600a2a55e333a21ef5214b987c8358fe28bfb03c2867ff2cbf919d62143d1812ac27b4297a077fdaf27a03da3678e49551c93e35f9498a3d90221908a1180e
+  languageName: node
+  linkType: hard
+
+"slice-ansi@npm:^7.1.0":
+  version: 7.1.0
+  resolution: "slice-ansi@npm:7.1.0"
+  dependencies:
+    ansi-styles: "npm:^6.2.1"
+    is-fullwidth-code-point: "npm:^5.0.0"
+  checksum: 10/10313dd3cf7a2e4b265f527b1684c7c568210b09743fd1bd74f2194715ed13ffba653dc93a5fa79e3b1711518b8990a732cb7143aa01ddafe626e99dfa6474b2
   languageName: node
   linkType: hard
 
@@ -9869,7 +9894,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"string-argv@npm:^0.3.1":
+"string-argv@npm:~0.3.2":
   version: 0.3.2
   resolution: "string-argv@npm:0.3.2"
   checksum: 10/f9d3addf887026b4b5f997a271149e93bf71efc8692e7dc0816e8807f960b18bcb9787b45beedf0f97ff459575ee389af3f189d8b649834cac602f2e857e75af
@@ -9908,7 +9933,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"string-width@npm:^5.0.0, string-width@npm:^5.0.1, string-width@npm:^5.1.2":
+"string-width@npm:^5.0.1, string-width@npm:^5.1.2":
   version: 5.1.2
   resolution: "string-width@npm:5.1.2"
   dependencies:
@@ -9916,6 +9941,17 @@ __metadata:
     emoji-regex: "npm:^9.2.2"
     strip-ansi: "npm:^7.0.1"
   checksum: 10/7369deaa29f21dda9a438686154b62c2c5f661f8dda60449088f9f980196f7908fc39fdd1803e3e01541970287cf5deae336798337e9319a7055af89dafa7193
+  languageName: node
+  linkType: hard
+
+"string-width@npm:^7.0.0":
+  version: 7.2.0
+  resolution: "string-width@npm:7.2.0"
+  dependencies:
+    emoji-regex: "npm:^10.3.0"
+    get-east-asian-width: "npm:^1.0.0"
+    strip-ansi: "npm:^7.1.0"
+  checksum: 10/42f9e82f61314904a81393f6ef75b832c39f39761797250de68c041d8ba4df2ef80db49ab6cd3a292923a6f0f409b8c9980d120f7d32c820b4a8a84a2598a295
   languageName: node
   linkType: hard
 
@@ -10298,7 +10334,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"through@npm:>=2.2.7 <3, through@npm:^2.3.6, through@npm:^2.3.8":
+"through@npm:>=2.2.7 <3, through@npm:^2.3.6":
   version: 2.3.8
   resolution: "through@npm:2.3.8"
   checksum: 10/5da78346f70139a7d213b65a0106f3c398d6bc5301f9248b5275f420abc2c4b1e77c2abc72d218dedc28c41efb2e7c312cb76a7730d04f9c2d37d247da3f4198
@@ -10352,10 +10388,13 @@ __metadata:
   resolution: "tools@workspace:."
   dependencies:
     "@monstrs/tools-runtime": "workspace:0.2.24"
-    "@types/node": "npm:^22.1.0"
+    "@types/node": "npm:^22.4.0"
     "@yarnpkg/builder": "patch:@yarnpkg/builder@npm%3A4.1.1#~/.yarn/patches/@yarnpkg-builder-npm-4.1.1-abb47d5979.patch"
     esbuild: "npm:esbuild-wasm@^0.23.0"
     typescript: "npm:^5.5.3"
+  dependenciesMeta:
+    ink-multi-select@2.0.0:
+      unplugged: true
   languageName: unknown
   linkType: soft
 
@@ -10634,6 +10673,13 @@ __metadata:
   version: 6.13.0
   resolution: "undici-types@npm:6.13.0"
   checksum: 10/da52e37cbc6da3a75da86fa08dd795ca8924430deb91005eb884b840e46e19013ccd4c1c289f70018e8cf0c338add24a500e7c3acfcd49b1ffb27ff9f91e38b9
+  languageName: node
+  linkType: hard
+
+"undici-types@npm:~6.19.2":
+  version: 6.19.6
+  resolution: "undici-types@npm:6.19.6"
+  checksum: 10/0ea9bc25762a86597d095b3772f6cec0bcabb796c339f7dfa2bd601c745a480289eb2939848dc285a56d4f94f50c475868160d8d6d3f54e823f1faf7ea9e9468
   languageName: node
   linkType: hard
 
@@ -10967,6 +11013,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"wrap-ansi@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "wrap-ansi@npm:9.0.0"
+  dependencies:
+    ansi-styles: "npm:^6.2.1"
+    string-width: "npm:^7.0.0"
+    strip-ansi: "npm:^7.1.0"
+  checksum: 10/b9d91564c091cf3978a7c18ca0f3e4d4606e83549dbe59cf76f5e77feefdd5ec91443155e8102630524d10a8c275efac8a7082c0f26fa43e6b989dc150d176ce
+  languageName: node
+  linkType: hard
+
 "wrappy@npm:1":
   version: 1.0.2
   resolution: "wrappy@npm:1.0.2"
@@ -11010,10 +11067,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yaml@npm:^2.2.2":
-  version: 2.2.2
-  resolution: "yaml@npm:2.2.2"
-  checksum: 10/991384bf875dd1df9ab8e3393d6db7010d222eef4e750f17590b5d3d96d3f3ad49420f58fff6a3896321fb64d08f4bb3b4edf0d337fdfd6e960119ef5aa0527c
+"yaml@npm:~2.5.0":
+  version: 2.5.0
+  resolution: "yaml@npm:2.5.0"
+  bin:
+    yaml: bin.mjs
+  checksum: 10/72e903fdbe3742058885205db4a6c9ff38e5f497f4e05e631264f7756083c05e7d10dfb5e4ce9d7a95de95338f9b20d19dd0b91c60c65f7d7608b6b3929820ad
   languageName: node
   linkType: hard
 

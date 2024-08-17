@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@babel/types": "^7.24.0",
-    "@types/node": "^22.1.0",
+    "@types/node": "^22.4.0",
     "@types/prettier": "^3.0.0"
   },
   "publishConfig": {
