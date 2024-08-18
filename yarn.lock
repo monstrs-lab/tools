@@ -1699,9 +1699,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/config-eslint@workspace:0.3.14, @monstrs/config-eslint@workspace:config/eslint":
+"@monstrs/config-eslint@workspace:0.3.14, @monstrs/config-eslint@workspace:config/config-eslint":
   version: 0.0.0-use.local
-  resolution: "@monstrs/config-eslint@workspace:config/eslint"
+  resolution: "@monstrs/config-eslint@workspace:config/config-eslint"
   dependencies:
     "@monstrs/config-prettier": "workspace:0.4.6"
     "@next/eslint-plugin-next": "npm:^14.2.5"
@@ -1726,18 +1726,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/config-prettier@workspace:0.4.6, @monstrs/config-prettier@workspace:config/prettier":
+"@monstrs/config-prettier@workspace:0.4.6, @monstrs/config-prettier@workspace:config/config-prettier":
   version: 0.0.0-use.local
-  resolution: "@monstrs/config-prettier@workspace:config/prettier"
+  resolution: "@monstrs/config-prettier@workspace:config/config-prettier"
   dependencies:
     "@types/node": "npm:^22.4.0"
     prettier: "npm:^3.3.3"
   languageName: unknown
   linkType: soft
 
-"@monstrs/config-typescript@workspace:0.3.7, @monstrs/config-typescript@workspace:config/typescript":
+"@monstrs/config-typescript@workspace:0.3.7, @monstrs/config-typescript@workspace:config/config-typescript":
   version: 0.0.0-use.local
-  resolution: "@monstrs/config-typescript@workspace:config/typescript"
+  resolution: "@monstrs/config-typescript@workspace:config/config-typescript"
   languageName: unknown
   linkType: soft
 
@@ -11321,9 +11321,6 @@ __metadata:
     "@yarnpkg/builder": "patch:@yarnpkg/builder@npm%3A4.1.2#~/.yarn/patches/@yarnpkg-builder-npm-4.1.1-abb47d5979.patch"
     esbuild: "npm:esbuild-wasm@^0.23.1"
     typescript: "npm:^5.5.4"
-  dependenciesMeta:
-    ink-multi-select@2.0.0:
-      unplugged: true
   languageName: unknown
   linkType: soft
 
