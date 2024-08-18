@@ -60,7 +60,7 @@ export const TypeScriptDiagnostic: FC<TypeScriptDiagnosticProps> = ({
     >
       {!!filePath && (
         <Box marginBottom={1}>
-          <FilePath line={position?.line ? position.line + 1 : 0} column={position?.character}>
+          <FilePath line={position ? position.line + 1 : 1} column={position?.character}>
             {filePath}
           </FilePath>
         </Box>

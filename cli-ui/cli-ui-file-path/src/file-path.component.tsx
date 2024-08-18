@@ -1,6 +1,7 @@
-import { Text }         from 'ink'
-import { ReactElement } from 'react'
-import React            from 'react'
+import type { ReactElement } from 'react'
+
+import { Text }              from 'ink'
+import React                 from 'react'
 
 export interface FilePathProps {
   children: string

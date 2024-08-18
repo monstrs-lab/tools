@@ -18,7 +18,7 @@ import { react }              from './rules/index.js'
 import { node }               from './rules/index.js'
 import { base }               from './rules/index.js'
 
-const config: Array<Linter.FlatConfig> = [
+const config: Array<Linter.Config> = [
   {
     files: ['**/*.{js,mjs,cjs,jsx,ts,tsx}'],
     rules: {

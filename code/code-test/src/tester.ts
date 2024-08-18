@@ -19,8 +19,8 @@ export class Tester extends EventEmitter {
       await globby(['**/!(integration)/*.test.{ts,tsx,js,jsx}'], {
         cwd,
         dot: true,
-        ignore: ['**/node_modules/**'],
         absolute: true,
+        ignore: ['**/node_modules/**', '**/dist/**'],
       }),
       25_000,
       true
@@ -32,8 +32,8 @@ export class Tester extends EventEmitter {
       await globby(['**/integration/**/*.test.{ts,tsx,js,jsx}'], {
         cwd,
         dot: true,
-        ignore: ['**/node_modules/**'],
         absolute: true,
+        ignore: ['**/node_modules/**', '**/dist/**'],
       }),
       240_000,
       false

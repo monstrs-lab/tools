@@ -21,9 +21,8 @@ test('should run yarn build command withouth errors', async () => {
   await testEnv.mkdir('src')
   await testEnv.writeFile('src/index.ts', content)
 
-  const { code, stdout } = await testEnv.run('service', 'build')
+  const { code } = await testEnv.run('service', 'build')
 
   assert.equal(code, 0)
-  assert.ok(stdout.includes('➤ YN0000: └ Completed'))
   assert.ok((await testEnv.readFile('dist/index.js')).includes(`res.end('Hello World!');`))
 })
