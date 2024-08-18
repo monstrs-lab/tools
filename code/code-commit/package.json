@@ -17,15 +17,16 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@commitlint/format": "^19.0.3",
-    "@commitlint/is-ignored": "^19.0.3",
-    "@commitlint/lint": "^19.1.0",
-    "@commitlint/load": "^19.1.0",
-    "@commitlint/read": "^19.0.3",
+    "@commitlint/format": "^19.3.0",
+    "@commitlint/is-ignored": "^19.2.2",
+    "@commitlint/lint": "^19.2.2",
+    "@commitlint/load": "^19.4.0",
+    "@commitlint/read": "^19.4.0",
     "@commitlint/rules": "^19.0.3",
     "@commitlint/types": "^19.0.3",
-    "conventional-changelog-angular": "^7.0.0",
-    "conventional-commits-parser": "^5.0.0"
+    "@monstrs/config-commitlint": "workspace:0.3.14",
+    "conventional-changelog-angular": "^8.0.0",
+    "conventional-commits-parser": "^6.0.0"
   },
   "devDependencies": {
     "@types/conventional-commits-parser": "^5.0.0",

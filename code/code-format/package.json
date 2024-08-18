@@ -20,7 +20,7 @@
     "@monstrs/config-prettier": "workspace:0.4.6",
     "@monstrs/prettier-plugin": "workspace:0.3.13",
     "globby": "^13.2.2",
-    "ignore": "^5.3.1",
+    "ignore": "^5.3.2",
     "prettier": "^3.3.3"
   },
   "devDependencies": {

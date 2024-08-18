@@ -22,14 +22,14 @@
     "@monstrs/tools-runtime": "workspace:0.2.24",
     "clipanion": "^4.0.0-rc.3",
     "deepmerge": "^4.3.1",
-    "husky": "^8.0.3",
-    "semver": "^7.6.0"
+    "husky": "^9.1.4",
+    "semver": "^7.6.3"
   },
   "devDependencies": {
     "@types/semver": "^7.5.8",
-    "@yarnpkg/builder": "^4.1.1",
-    "@yarnpkg/cli": "^4.3.1",
-    "@yarnpkg/core": "^4.1.1",
+    "@yarnpkg/builder": "^4.1.2",
+    "@yarnpkg/cli": "^4.4.0",
+    "@yarnpkg/core": "^4.1.2",
     "@yarnpkg/fslib": "^3.1.0"
   },
   "publishConfig": {

@@ -16,11 +16,10 @@
     "yarn:download": "yarn workspace @monstrs/yarn-plugin-pnp-patch yarn:download && yarn workspace @monstrs/yarn-test-utils yarn:download"
   },
   "resolutions": {
-    "@yarnpkg/builder": "patch:@yarnpkg/builder@npm%3A4.1.1#~/.yarn/patches/@yarnpkg-builder-npm-4.1.1-abb47d5979.patch",
+    "@yarnpkg/builder": "patch:@yarnpkg/builder@npm%3A4.1.2#~/.yarn/patches/@yarnpkg-builder-npm-4.1.1-abb47d5979.patch",
     "@yarnpkg/core@^4.0.0-rc.45": "patch:@yarnpkg/core@npm%3A4.0.0-rc.43#./.yarn/patches/@yarnpkg-core-npm-4.0.0-rc.42-029d9f8b24.patch",
     "@yarnpkg/fslib": "3.0.1",
     "clipanion": "4.0.0-rc.2",
-    "esbuild": "npm:esbuild-wasm@^0.23.0",
     "flatted@npm:^3.2.7": "patch:flatted@npm%3A3.2.7#~/.yarn/patches/flatted-npm-3.2.7-0da10b7c56.patch",
     "ink": "^3.2.0",
     "react": "18.2.0",
@@ -30,9 +29,9 @@
   "devDependencies": {
     "@monstrs/tools-runtime": "workspace:0.2.24",
     "@types/node": "^22.4.0",
-    "@yarnpkg/builder": "patch:@yarnpkg/builder@npm%3A4.1.1#~/.yarn/patches/@yarnpkg-builder-npm-4.1.1-abb47d5979.patch",
-    "esbuild": "npm:esbuild-wasm@^0.23.0",
-    "typescript": "^5.5.3"
+    "@yarnpkg/builder": "patch:@yarnpkg/builder@npm%3A4.1.2#~/.yarn/patches/@yarnpkg-builder-npm-4.1.1-abb47d5979.patch",
+    "esbuild": "npm:esbuild-wasm@^0.23.1",
+    "typescript": "^5.5.4"
   },
   "dependenciesMeta": {
     "ink-multi-select@2.0.0": {
