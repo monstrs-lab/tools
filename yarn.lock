@@ -1987,6 +1987,7 @@ __metadata:
     clipanion: "npm:^4.0.0-rc.3"
     react: "npm:^18.3.1"
     strip-ansi: "npm:^7.1.0"
+    typescript: "npm:^5.5.4"
   peerDependencies:
     "@yarnpkg/cli": ^4
     "@yarnpkg/core": ^4

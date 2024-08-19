@@ -291,7 +291,7 @@ const RAW_RUNTIME_STATE =
     ["@monstrs/code-configuration", ["workspace:code/code-configuration"]],\
     ["@monstrs/code-format", ["workspace:code/code-format"]],\
     ["@monstrs/code-icons", ["workspace:code/code-icons"]],\
-    ["@monstrs/code-lint", ["virtual:578675c3be5326dfcc77ea38eb2c890a297da816d1d1ec3bf1f70a12f33282c317e53b35d2c4ff821733649944b7878f77423560b6b69c727b4372ca2f9bc67f#workspace:code/code-lint", "virtual:84cc809ab3e95c477581c0740c4e8e94087a756992d4cfa31045a766bfb47b89975ff65bcceef416ba90ce651413ccca39711c1ff35dca0c09600b74289c016e#workspace:code/code-lint", "virtual:c4901bdf3aefd89fb5f91e4a60ab30a621adc0d1270f5294e5f066a27e10d702b692c1fa905d5fb78f0328a183f219411cf1d58083a3ec03b8e39b77bbec0a07#workspace:code/code-lint", "workspace:code/code-lint"]],\
+    ["@monstrs/code-lint", ["virtual:84cc809ab3e95c477581c0740c4e8e94087a756992d4cfa31045a766bfb47b89975ff65bcceef416ba90ce651413ccca39711c1ff35dca0c09600b74289c016e#workspace:code/code-lint", "virtual:c4901bdf3aefd89fb5f91e4a60ab30a621adc0d1270f5294e5f066a27e10d702b692c1fa905d5fb78f0328a183f219411cf1d58083a3ec03b8e39b77bbec0a07#workspace:code/code-lint", "workspace:code/code-lint"]],\
     ["@monstrs/code-pack", ["workspace:code/code-pack"]],\
     ["@monstrs/code-service", ["workspace:code/code-service"]],\
     ["@monstrs/code-test", ["workspace:code/code-test"]],\
@@ -2593,27 +2593,6 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@monstrs/code-lint", [\
-      ["virtual:578675c3be5326dfcc77ea38eb2c890a297da816d1d1ec3bf1f70a12f33282c317e53b35d2c4ff821733649944b7878f77423560b6b69c727b4372ca2f9bc67f#workspace:code/code-lint", {\
-        "packageLocation": "./.yarn/__virtual__/@monstrs-code-lint-virtual-3848aed9b3/1/code/code-lint/",\
-        "packageDependencies": [\
-          ["@monstrs/code-lint", "virtual:578675c3be5326dfcc77ea38eb2c890a297da816d1d1ec3bf1f70a12f33282c317e53b35d2c4ff821733649944b7878f77423560b6b69c727b4372ca2f9bc67f#workspace:code/code-lint"],\
-          ["@monstrs/tools-runtime", "workspace:runtime/tools-runtime"],\
-          ["@types/node", "npm:22.4.0"],\
-          ["@types/react", "npm:18.3.3"],\
-          ["@types/typescript", null],\
-          ["globby", "npm:13.2.2"],\
-          ["ignore", "npm:5.3.2"],\
-          ["react", "npm:18.2.0"],\
-          ["typescript", "patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=379a07"]\
-        ],\
-        "packagePeers": [\
-          "@types/react",\
-          "@types/typescript",\
-          "react",\
-          "typescript"\
-        ],\
-        "linkType": "SOFT"\
-      }],\
       ["virtual:84cc809ab3e95c477581c0740c4e8e94087a756992d4cfa31045a766bfb47b89975ff65bcceef416ba90ce651413ccca39711c1ff35dca0c09600b74289c016e#workspace:code/code-lint", {\
         "packageLocation": "./.yarn/__virtual__/@monstrs-code-lint-virtual-3134174c3b/1/code/code-lint/",\
         "packageDependencies": [\
@@ -2625,7 +2604,7 @@ const RAW_RUNTIME_STATE =
           ["globby", "npm:13.2.2"],\
           ["ignore", "npm:5.3.2"],\
           ["react", "npm:18.2.0"],\
-          ["typescript", null]\
+          ["typescript", "patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=379a07"]\
         ],\
         "packagePeers": [\
           "@types/react",\
@@ -3109,7 +3088,8 @@ const RAW_RUNTIME_STATE =
           ["@yarnpkg/fslib", "npm:3.0.1"],\
           ["clipanion", "virtual:79bd705dbf206d6bd5005d5f35924cece8938d35eed524c3106dd8d8c6d56228b3ffaf764b0b711713e3d2dfeba0155ac81f45b66f87f4323e61be254172e9b5#npm:4.0.0-rc.2"],\
           ["react", "npm:18.2.0"],\
-          ["strip-ansi", "npm:7.1.0"]\
+          ["strip-ansi", "npm:7.1.0"],\
+          ["typescript", "patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=379a07"]\
         ],\
         "packagePeers": [\
           "@types/yarnpkg__cli",\
@@ -3148,7 +3128,8 @@ const RAW_RUNTIME_STATE =
           ["@yarnpkg/fslib", "npm:3.0.1"],\
           ["clipanion", "virtual:79bd705dbf206d6bd5005d5f35924cece8938d35eed524c3106dd8d8c6d56228b3ffaf764b0b711713e3d2dfeba0155ac81f45b66f87f4323e61be254172e9b5#npm:4.0.0-rc.2"],\
           ["react", "npm:18.2.0"],\
-          ["strip-ansi", "npm:7.1.0"]\
+          ["strip-ansi", "npm:7.1.0"],\
+          ["typescript", "patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=379a07"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -3531,7 +3512,7 @@ const RAW_RUNTIME_STATE =
           ["@monstrs/cli-ui-lint-progress", "virtual:578675c3be5326dfcc77ea38eb2c890a297da816d1d1ec3bf1f70a12f33282c317e53b35d2c4ff821733649944b7878f77423560b6b69c727b4372ca2f9bc67f#workspace:cli-ui/cli-ui-lint-progress"],\
           ["@monstrs/cli-ui-lint-result", "virtual:578675c3be5326dfcc77ea38eb2c890a297da816d1d1ec3bf1f70a12f33282c317e53b35d2c4ff821733649944b7878f77423560b6b69c727b4372ca2f9bc67f#workspace:cli-ui/cli-ui-lint-result"],\
           ["@monstrs/cli-ui-renderer-static", "workspace:cli-ui/cli-ui-render-static"],\
-          ["@monstrs/code-lint", "virtual:578675c3be5326dfcc77ea38eb2c890a297da816d1d1ec3bf1f70a12f33282c317e53b35d2c4ff821733649944b7878f77423560b6b69c727b4372ca2f9bc67f#workspace:code/code-lint"],\
+          ["@monstrs/code-lint", "virtual:84cc809ab3e95c477581c0740c4e8e94087a756992d4cfa31045a766bfb47b89975ff65bcceef416ba90ce651413ccca39711c1ff35dca0c09600b74289c016e#workspace:code/code-lint"],\
           ["@monstrs/yarn-run-utils", "workspace:yarn/run-utils"],\
           ["@monstrs/yarn-test-utils", "workspace:yarn/test-utils"],\
           ["@types/react", "npm:18.3.3"],\
@@ -3562,7 +3543,7 @@ const RAW_RUNTIME_STATE =
           ["@monstrs/cli-ui-lint-progress", "virtual:578675c3be5326dfcc77ea38eb2c890a297da816d1d1ec3bf1f70a12f33282c317e53b35d2c4ff821733649944b7878f77423560b6b69c727b4372ca2f9bc67f#workspace:cli-ui/cli-ui-lint-progress"],\
           ["@monstrs/cli-ui-lint-result", "virtual:578675c3be5326dfcc77ea38eb2c890a297da816d1d1ec3bf1f70a12f33282c317e53b35d2c4ff821733649944b7878f77423560b6b69c727b4372ca2f9bc67f#workspace:cli-ui/cli-ui-lint-result"],\
           ["@monstrs/cli-ui-renderer-static", "workspace:cli-ui/cli-ui-render-static"],\
-          ["@monstrs/code-lint", "virtual:578675c3be5326dfcc77ea38eb2c890a297da816d1d1ec3bf1f70a12f33282c317e53b35d2c4ff821733649944b7878f77423560b6b69c727b4372ca2f9bc67f#workspace:code/code-lint"],\
+          ["@monstrs/code-lint", "virtual:84cc809ab3e95c477581c0740c4e8e94087a756992d4cfa31045a766bfb47b89975ff65bcceef416ba90ce651413ccca39711c1ff35dca0c09600b74289c016e#workspace:code/code-lint"],\
           ["@monstrs/yarn-run-utils", "workspace:yarn/run-utils"],\
           ["@monstrs/yarn-test-utils", "workspace:yarn/test-utils"],\
           ["@types/react", "npm:18.3.3"],\
