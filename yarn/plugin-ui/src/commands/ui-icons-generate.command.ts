@@ -7,6 +7,7 @@ import { Filename }        from '@yarnpkg/fslib'
 import { execUtils }       from '@yarnpkg/core'
 import { scriptUtils }     from '@yarnpkg/core'
 import { xfs }             from '@yarnpkg/fslib'
+import { Option }          from 'clipanion'
 
 import { Formatter }       from '@monstrs/code-format'
 import { Icons }           from '@monstrs/code-icons'
@@ -15,6 +16,8 @@ import { SpinnerProgress } from '@monstrs/yarn-run-utils'
 
 export class UiIconsGenerateCommand extends BaseCommand {
   static override paths = [['ui', 'icons', 'generate']]
+
+  native: boolean = Option.Boolean('-n, --native', false)
 
   override async execute(): Promise<number> {
     const nodeOptions = process.env.NODE_OPTIONS ?? ''
@@ -63,7 +66,7 @@ export class UiIconsGenerateCommand extends BaseCommand {
             const linter = await Linter.initialize(project.cwd, this.context.cwd)
             const icons = await Icons.initialize(this.context.cwd)
 
-            await icons.generate()
+            await icons.generate({ native: this.native })
             await formatter.format([])
             await linter.lint([], { fix: true })
 

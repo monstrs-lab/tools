@@ -51,8 +51,8 @@ export class Icons {
     )
   }
 
-  async generate(): Promise<void> {
-    await this.save(await this.transform(await this.read(join(this.cwd, 'icons'))))
+  async generate(config: Partial<Config>): Promise<void> {
+    await this.save(await this.transform(await this.read(join(this.cwd, 'icons')), config))
   }
 
   protected async compileReplacementsAndTemplate(): Promise<{
@@ -95,7 +95,10 @@ export class Icons {
     )
   }
 
-  protected async transform(icons: Array<IconSource>): Promise<Array<IconOutput>> {
+  protected async transform(
+    icons: Array<IconSource>,
+    config: Partial<Config>
+  ): Promise<Array<IconOutput>> {
     const { replacements, template } = await this.compileReplacementsAndTemplate()
 
     return Promise.all(
@@ -103,6 +106,7 @@ export class Icons {
         const output: string = await this.svgr.transform(
           icon.source,
           {
+            ...config,
             icon: true,
             template,
             typescript: true,

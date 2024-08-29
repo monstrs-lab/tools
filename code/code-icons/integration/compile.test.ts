@@ -19,7 +19,7 @@ test('should generate icons', async () => {
     join(fileURLToPath(new URL('.', import.meta.url)), 'fixtures/simple')
   )
 
-  await icons.generate()
+  await icons.generate({})
 
   assert.equal(
     await readFile(
