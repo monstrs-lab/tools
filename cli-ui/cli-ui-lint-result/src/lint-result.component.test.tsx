@@ -30,19 +30,19 @@ import React             from 'react'
 
   assert.equal(
     stripAnsi(lastFrame()!),
-    `┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+    `╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
 │                                                                                                  │
-│  cli-ui/cli-ui-lint-result/src/lint-result.component.test.tsx:1:1                                │
+│  cli-ui/cli-ui-lint-result/src/lint-result.component.test.tsx:1:1                          some  │
 │                                                                                                  │
-│    Error: some message some                                                                      │
-│                                                                                                  │
-│  > 1 | import assert            from 'node:assert/strict'                                        │
-│      | ^                                                                                         │
-│    2 | import { test }          from 'node:test'                                                 │
-│    3 |                                                                                           │
-│    4 | import { render }        from 'ink-testing-library'                                       │
+│> 1 | import assert            from 'node:assert/strict'                                          │
+│    | ^                                                                                           │
+│  2 | import { test }          from 'node:test'                                                   │
+│  3 |                                                                                             │
+│  4 | import { render }        from 'ink-testing-library'                                         │
 │                                                                                                  │
 │                                                                                                  │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘`
+│   some message                                                                                   │
+│                                                                                                  │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯`
   )
 })

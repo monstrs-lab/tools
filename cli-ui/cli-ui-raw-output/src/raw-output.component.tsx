@@ -7,6 +7,7 @@ import { useMemo }  from 'react'
 import React        from 'react'
 
 import { FilePath } from '@monstrs/cli-ui-file-path'
+import { Line }     from '@monstrs/cli-ui-line'
 
 export interface RawOutputProps {
   messages: Array<string>
@@ -23,20 +24,23 @@ export const RawOutput: FC<RawOutputProps> = ({ file, messages = [] }) => {
   )
 
   return (
-    <Box flexDirection='column' borderStyle='single' borderColor='gray' paddingX={2} paddingY={1}>
+    <Box flexDirection='column' borderStyle='single' borderColor='gray'>
       {!!file && (
-        <Box marginBottom={1}>
+        <Box marginBottom={1} marginTop={1} marginX={2}>
           <FilePath>{file}</FilePath>
         </Box>
       )}
       {lines.length > 0 && (
-        <Box flexDirection='column' marginBottom={1}>
-          {lines.map((line) => (
-            <Box key={nanoid()}>
-              <Text>{line}</Text>
-            </Box>
-          ))}
-        </Box>
+        <>
+          <Line offset={2} />
+          <Box flexDirection='column' marginBottom={1} marginTop={1} marginX={2}>
+            {lines.map((line) => (
+              <Box key={nanoid()}>
+                <Text>{line}</Text>
+              </Box>
+            ))}
+          </Box>
+        </>
       )}
     </Box>
   )

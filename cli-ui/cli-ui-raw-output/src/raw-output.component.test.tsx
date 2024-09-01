@@ -21,9 +21,9 @@ test('should render raw output', () => {
 │                                                                                                  │
 │  cli-ui/cli-ui-test-failure/src/test-failure.component.test.tsx:0:0                              │
 │                                                                                                  │
+│                                                                                                  │
 │  Some message one                                                                                │
 │  Some message two                                                                                │
-│                                                                                                  │
 │                                                                                                  │
 └──────────────────────────────────────────────────────────────────────────────────────────────────┘`
   )

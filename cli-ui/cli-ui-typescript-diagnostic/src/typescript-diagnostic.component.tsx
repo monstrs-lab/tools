@@ -12,6 +12,7 @@ import { flattenDiagnosticMessageText } from 'typescript'
 import React                            from 'react'
 
 import { FilePath }                     from '@monstrs/cli-ui-file-path'
+import { Line }                         from '@monstrs/cli-ui-line'
 import { SourcePreview }                from '@monstrs/cli-ui-source-preview'
 
 export interface TypeScriptDiagnosticProps {
@@ -50,34 +51,35 @@ export const TypeScriptDiagnostic: FC<TypeScriptDiagnosticProps> = ({
   }, [file, start])
 
   return (
-    <Box
-      flexDirection='column'
-      borderStyle='single'
-      borderColor='gray'
-      paddingX={2}
-      paddingY={1}
-      width='100%'
-    >
+    <Box flexDirection='column' borderStyle='round' borderColor='gray' paddingY={1} width='100%'>
       {!!filePath && (
-        <Box marginBottom={1}>
-          <FilePath line={position ? position.line + 1 : 1} column={position?.character}>
-            {filePath}
-          </FilePath>
+        <Box flexDirection='row'>
+          <Box marginBottom={1} paddingX={2} flexGrow={1}>
+            <FilePath line={position ? position.line + 1 : 1} column={position?.character}>
+              {filePath}
+            </FilePath>
+          </Box>
+          <Box paddingX={2}>
+            <Text bold color='red'>
+              TS{code}
+            </Text>
+          </Box>
         </Box>
       )}
-      <Box marginBottom={1}>
-        <Text bold color='red'>
-          TS{code}
-        </Text>
-        <Text color='white'>: {flattenDiagnosticMessageText(messageText, '\n')}</Text>
-      </Box>
+      <Line offset={2} />
       {!!file?.text && !!position && (
-        <Box marginBottom={1}>
-          <SourcePreview line={position.line + 1} column={position.character}>
-            {file.text}
-          </SourcePreview>
-        </Box>
+        <>
+          <Box>
+            <SourcePreview line={position.line + 1} column={position.character}>
+              {file.text}
+            </SourcePreview>
+          </Box>
+          <Line offset={2} />
+        </>
       )}
+      <Box marginTop={1} paddingX={2}>
+        <Text color='white'>{flattenDiagnosticMessageText(messageText, '\n')}</Text>
+      </Box>
     </Box>
   )
 }

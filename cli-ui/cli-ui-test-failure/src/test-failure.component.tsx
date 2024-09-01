@@ -5,6 +5,7 @@ import { Box }               from 'ink'
 import React                 from 'react'
 
 import { FilePath }          from '@monstrs/cli-ui-file-path'
+import { Line }              from '@monstrs/cli-ui-line'
 import { SourcePreview }     from '@monstrs/cli-ui-source-preview'
 
 export interface TestFailureProps {
@@ -28,7 +29,7 @@ export const TestFailure = ({
     return (
       <Box
         flexDirection='column'
-        borderStyle='single'
+        borderStyle='round'
         borderColor='gray'
         paddingX={2}
         paddingY={1}
@@ -40,26 +41,21 @@ export const TestFailure = ({
   }
 
   return (
-    <Box
-      flexDirection='column'
-      borderStyle='single'
-      borderColor='gray'
-      paddingX={2}
-      paddingY={1}
-      width='100%'
-    >
-      <Box marginBottom={1}>
+    <Box flexDirection='column' borderStyle='round' borderColor='gray' width='100%'>
+      <Box marginBottom={1} marginTop={1} paddingX={2}>
         <FilePath line={line} column={column}>
           {file}
         </FilePath>
       </Box>
-      <Box marginBottom={1}>
-        <Text color='white'>{details.error.message}</Text>
-      </Box>
+      <Line offset={2} />
       <Box marginBottom={1}>
         <SourcePreview line={line ?? 1} column={column ?? 1}>
           {source}
         </SourcePreview>
+      </Box>
+      <Line offset={2} />
+      <Box marginBottom={1} marginTop={1} paddingX={2}>
+        <Text color='white'>{details.error.message}</Text>
       </Box>
     </Box>
   )

@@ -25,19 +25,19 @@ import React             from 'react'
 
   assert.equal(
     stripAnsi(lastFrame()!),
-    `┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+    `╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
 │                                                                                                  │
 │  cli-ui/cli-ui-test-failure/src/test-failure.component.test.tsx:0:0                              │
 │                                                                                                  │
+│> 1 | import assert            from 'node:assert/strict'                                          │
+│    | ^                                                                                           │
+│  2 | import { test }          from 'node:test'                                                   │
+│  3 |                                                                                             │
+│  4 | import { render }        from 'ink-testing-library'                                         │
+│                                                                                                  │
+│                                                                                                  │
 │  Test failure                                                                                    │
 │                                                                                                  │
-│  > 1 | import assert            from 'node:assert/strict'                                        │
-│      | ^                                                                                         │
-│    2 | import { test }          from 'node:test'                                                 │
-│    3 |                                                                                           │
-│    4 | import { render }        from 'ink-testing-library'                                       │
-│                                                                                                  │
-│                                                                                                  │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘`
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯`
   )
 })
