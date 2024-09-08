@@ -3,6 +3,7 @@ import type { transform as svgrTransform } from '@monstrs/tools-runtime/svgr'
 import type { jsx as svgrJsx }             from '@monstrs/tools-runtime/svgr'
 import type { webpack as wp }              from '@monstrs/tools-runtime/webpack'
 
+import EventEmitter                        from 'node:events'
 import { access }                          from 'node:fs/promises'
 import { mkdtemp }                         from 'node:fs/promises'
 import { readFile }                        from 'node:fs/promises'
@@ -29,13 +30,15 @@ interface IconOutput extends IconSource {
   output: string
 }
 
-export class Icons {
+export class Icons extends EventEmitter {
   protected constructor(
     private readonly svgr: { transform: typeof svgrTransform; jsx: typeof svgrJsx },
     private readonly webpack: typeof wp,
     private readonly loaders: { tsLoader: string },
     private readonly cwd: string
-  ) {}
+  ) {
+    super()
+  }
 
   static async initialize(cwd: string): Promise<Icons> {
     const { transform, jsx } = await import('@monstrs/tools-runtime/svgr')
@@ -80,9 +83,11 @@ export class Icons {
   }
 
   protected async read(iconspath: string): Promise<Array<IconSource>> {
+    this.emit('read:start')
+
     const files = await readdir(iconspath)
 
-    return Promise.all(
+    const source = await Promise.all(
       files
         .filter((file) => file.endsWith('.svg'))
         .map(async (file) => ({
@@ -93,15 +98,21 @@ export class Icons {
           file,
         }))
     )
+
+    this.emit('read:end')
+
+    return source
   }
 
   protected async transform(
     icons: Array<IconSource>,
     config: Partial<Config>
   ): Promise<Array<IconOutput>> {
+    this.emit('transform:start')
+
     const { replacements, template } = await this.compileReplacementsAndTemplate()
 
-    return Promise.all(
+    const outputs = await Promise.all(
       icons.map(async (icon) => {
         const output: string = await this.svgr.transform(
           icon.source,
@@ -128,9 +139,15 @@ export class Icons {
         }
       })
     )
+
+    this.emit('transform:end')
+
+    return outputs
   }
 
   protected async save(icons: Array<IconOutput>): Promise<void> {
+    this.emit('save:start')
+
     const target = join(this.cwd, 'src')
 
     try {
@@ -147,5 +164,7 @@ export class Icons {
       join(target, 'index.ts'),
       icons.map((icon) => `export * from './${icon.name}.icon.jsx'`).join('\n')
     )
+
+    this.emit('save:end')
   }
 }
