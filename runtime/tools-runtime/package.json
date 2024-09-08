@@ -29,17 +29,17 @@
     "@monstrs/config-eslint": "workspace:0.3.14",
     "@svgr/core": "^8.1.0",
     "@svgr/plugin-jsx": "^8.1.0",
-    "eslint": "^9.9.0",
+    "eslint": "^9.10.0",
     "node-loader": "^2.0.0",
     "null-loader": "^4.0.1",
     "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4",
-    "webpack": "^5.93.0"
+    "webpack": "^5.94.0"
   },
   "devDependencies": {
-    "@types/eslint": "^9.6.0",
-    "@types/node": "^22.4.0"
+    "@types/eslint": "^9.6.1",
+    "@types/node": "^22.5.4"
   },
   "publishConfig": {
     "access": "public",

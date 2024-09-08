@@ -20,11 +20,11 @@
   "dependencies": {
     "@actions/github": "^6.0.0",
     "@octokit/types": "^13.5.0",
-    "clipanion": "^4.0.0-rc.3"
+    "clipanion": "^4.0.0-rc.4"
   },
   "devDependencies": {
     "@yarnpkg/builder": "^4.1.2",
-    "@yarnpkg/cli": "^4.4.0",
+    "@yarnpkg/cli": "^4.4.1",
     "@yarnpkg/core": "^4.1.2"
   },
   "peerDependencies": {

@@ -51,7 +51,7 @@ export class Icons {
     )
   }
 
-  async generate(config: Partial<Config>): Promise<void> {
+  async generate(config: Partial<Config> = {}): Promise<void> {
     await this.save(await this.transform(await this.read(join(this.cwd, 'icons')), config))
   }
 

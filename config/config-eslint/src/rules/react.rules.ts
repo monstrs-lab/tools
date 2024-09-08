@@ -181,14 +181,7 @@ export const rules: Linter.RulesRecord = {
       extensions: ['.js', '.jsx', '.tsx'],
     },
   ],
-  'react/prop-types': [
-    'error',
-    {
-      ignore: [],
-      customValidators: [],
-      skipUndeclared: false,
-    },
-  ],
+  'react/prop-types': ['off'],
   'react/no-danger': ['off'],
   'react/jsx-child-element-spacing': 'off',
   'react/jsx-closing-bracket-location': 'off',

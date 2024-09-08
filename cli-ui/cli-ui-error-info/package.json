@@ -20,8 +20,8 @@
     "@monstrs/cli-ui-stack-trace": "workspace:0.3.12"
   },
   "devDependencies": {
-    "@types/node": "^22.4.0",
-    "@types/react": "^18.3.3",
+    "@types/node": "^22.5.4",
+    "@types/react": "^18.3.5",
     "ink": "^5.0.1",
     "react": "^18.3.1"
   },

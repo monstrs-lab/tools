@@ -35,7 +35,13 @@ export class UiIconsGenerateCommand extends BaseCommand {
 
     const binFolder = await xfs.mktempPromise()
 
-    const { code } = await execUtils.pipevp('yarn', ['ui', 'icons', 'generate'], {
+    const args: Array<string> = []
+
+    if (this.native) {
+      args.push('--native')
+    }
+
+    const { code } = await execUtils.pipevp('yarn', ['ui', 'icons', 'generate', ...args], {
       cwd: this.context.cwd,
       stdin: this.context.stdin,
       stdout: this.context.stdout,

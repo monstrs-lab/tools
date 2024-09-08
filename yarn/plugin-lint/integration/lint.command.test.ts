@@ -28,9 +28,8 @@ test('should run yarn lint command with errors', async () => {
   const { code, stdout } = await testEnv.run('lint')
 
   assert.equal(code, 1)
-  assert.ok(
-    stdout.includes("'n' is assigned a value but never used. @typescript-eslint/no-unused-vars")
-  )
+  assert.ok(stdout.includes("'n' is assigned a value but never used."))
+  assert.ok(stdout.includes('@typescript-eslint/no-unused-vars'))
   assert.ok(stdout.includes('> 1 | const n = 5'))
   assert.ok(stdout.includes('invalid.ts:1:7'))
 })
