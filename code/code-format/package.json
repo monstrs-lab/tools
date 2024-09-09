@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-format",
-  "version": "0.3.22",
+  "version": "1.0.0",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -17,8 +17,8 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/config-prettier": "workspace:0.4.6",
-    "@monstrs/prettier-plugin": "workspace:0.3.13",
+    "@monstrs/config-prettier": "workspace:1.0.0",
+    "@monstrs/prettier-plugin": "workspace:1.0.0",
     "globby": "^13.2.2",
     "ignore": "^5.3.2",
     "prettier": "^3.3.3"

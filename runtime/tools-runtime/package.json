@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/tools-runtime",
-  "version": "0.2.24",
+  "version": "1.0.0",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -26,7 +26,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/config-eslint": "workspace:0.3.14",
+    "@monstrs/config-eslint": "workspace:1.0.0",
     "@svgr/core": "^8.1.0",
     "@svgr/plugin-jsx": "^8.1.0",
     "eslint": "^9.10.0",

@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/cli-ui-git-commit",
-  "version": "0.3.12",
+  "version": "1.0.0",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -18,8 +18,8 @@
   },
   "devDependencies": {
     "@inkjs/ui": "^2.0.0",
-    "@monstrs/code-commit": "workspace:0.3.10",
-    "@monstrs/config-commitlint": "workspace:0.3.14",
+    "@monstrs/code-commit": "workspace:1.0.0",
+    "@monstrs/config-commitlint": "workspace:1.0.0",
     "@types/node": "^22.5.4",
     "@types/react": "^18.3.5",
     "camelcase": "^8.0.0",

@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/yarn-pack-utils",
-  "version": "0.2.16",
+  "version": "1.0.0",
   "license": "MIT",
   "type": "module",
   "exports": {

@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-test",
-  "version": "0.3.29",
+  "version": "1.0.0",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -19,7 +19,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/tools-runtime": "workspace:0.2.24",
+    "@monstrs/tools-runtime": "workspace:1.0.0",
     "globby": "^13.2.2"
   },
   "devDependencies": {

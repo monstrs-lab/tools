@@ -18,10 +18,10 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/cli-ui-error-info": "workspace:0.3.12",
-    "@monstrs/cli-ui-icons-progress": "workspace:0.3.10",
-    "@monstrs/cli-ui-renderer-static": "workspace:0.3.8",
-    "@monstrs/code-icons": "workspace:0.2.30",
+    "@monstrs/cli-ui-error-info": "workspace:1.0.0",
+    "@monstrs/cli-ui-icons-progress": "workspace:1.0.0",
+    "@monstrs/cli-ui-renderer-static": "workspace:1.0.0",
+    "@monstrs/code-icons": "workspace:1.0.0",
     "clipanion": "^4.0.0-rc.4",
     "globby": "^13.2.2",
     "ink": "^5.0.1",
