@@ -2,6 +2,7 @@ import { BaseCommand }          from '@yarnpkg/cli'
 import { Configuration }        from '@yarnpkg/core'
 import { Project }              from '@yarnpkg/core'
 import { Filename }             from '@yarnpkg/fslib'
+import { ppath }      from '@yarnpkg/fslib'
 import { scriptUtils }          from '@yarnpkg/core'
 import { execUtils }            from '@yarnpkg/core'
 import { xfs }                  from '@yarnpkg/fslib'
@@ -56,13 +57,7 @@ export class TypesCheckCommand extends BaseCommand {
     const { clear } = render(<TypeScriptProgress typescript={typescript} />)
 
     try {
-      const diagnostics = await typescript.check(
-        this.args.length > 0
-          ? this.args
-          : project.topLevelWorkspace.manifest.workspaceDefinitions.map(
-              (definition) => definition.pattern
-            )
-      )
+      const diagnostics = await typescript.check(await this.getIncludes(project))
 
       diagnostics.forEach((diagnostic) => {
         renderStatic(<TypeScriptDiagnostic {...diagnostic} />)
@@ -84,5 +79,25 @@ export class TypesCheckCommand extends BaseCommand {
     } finally {
       clear()
     }
+  }
+
+  protected async getIncludes(project: Project): Promise<Array<string>> {
+    if (this.args.length > 0) {
+      return this.args
+    }
+
+    if (await xfs.existsPromise(ppath.join(project.cwd, 'tsconfig.json'))) {
+      const tsconfig: { include?: Array<string> } = await xfs.readJsonPromise(
+        ppath.join(project.cwd, 'tsconfig.json')
+      )
+
+      if (tsconfig.include && tsconfig.include.length > 0) {
+        return tsconfig.include
+      }
+    }
+
+    return project.topLevelWorkspace.manifest.workspaceDefinitions.map(
+      (definition) => definition.pattern
+    )
   }
 }
