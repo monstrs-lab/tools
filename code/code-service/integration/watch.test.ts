@@ -1,11 +1,9 @@
 import type { webpack }  from '@monstrs/tools-runtime/webpack'
 
+import assert            from 'node:assert/strict'
 import { join }          from 'node:path'
+import { test }          from 'node:test'
 import { fileURLToPath } from 'node:url'
-
-import { describe }      from '@jest/globals'
-import { expect }        from '@jest/globals'
-import { it }            from '@jest/globals'
 
 import { Service }       from '../src/index.js'
 
@@ -18,16 +16,15 @@ const closeWatcher = async (watcher: webpack.Watching): Promise<void> =>
     })
   })
 
-describe('service', () => {
-  describe('watch', () => {
-    it('simple', async () => {
-      const watcher: webpack.Watching = await new Service(
-        join(fileURLToPath(new URL('.', import.meta.url)), 'fixtures/simple')
-      ).watch(() => {}) // eslint-disable-line @typescript-eslint/no-empty-function
+test('should watch service', async () => {
+  const service = await Service.initialize(
+    join(fileURLToPath(new URL('.', import.meta.url)), 'fixtures/simple')
+  )
 
-      await closeWatcher(watcher)
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  const watcher: webpack.Watching = await service.watch(() => {})
 
-      expect(true).toBe(true)
-    })
-  })
+  await closeWatcher(watcher)
+
+  assert.ok(true)
 })

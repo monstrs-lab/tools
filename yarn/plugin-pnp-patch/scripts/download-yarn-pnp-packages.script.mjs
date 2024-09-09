@@ -8,7 +8,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-import pkg from '../package.json' assert { type: 'json' }
+import pkg from '../package.json' with { type: 'json' }
 
 const repo = await mkdtemp(join(tmpdir(), 'yarn-pnp-'))
 const cache = join(fileURLToPath(new URL('.', import.meta.url)), '../cache')

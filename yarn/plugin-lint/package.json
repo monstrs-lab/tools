@@ -18,23 +18,24 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/cli-ui-error-info-component": "workspace:0.3.12",
-    "@monstrs/cli-ui-eslint-result-component": "workspace:0.3.10",
-    "@monstrs/cli-ui-renderer": "workspace:0.3.8",
-    "@monstrs/code-lint-worker": "workspace:0.3.32",
+    "@monstrs/cli-ui-error-info": "workspace:0.3.12",
+    "@monstrs/cli-ui-lint-progress": "workspace:0.3.10",
+    "@monstrs/cli-ui-lint-result": "workspace:0.3.9",
+    "@monstrs/cli-ui-renderer-static": "workspace:0.3.8",
+    "@monstrs/code-lint": "workspace:0.3.32",
     "@monstrs/yarn-run-utils": "workspace:0.2.1",
-    "clipanion": "^4.0.0-rc.3",
-    "react": "^18.2.0"
+    "clipanion": "^4.0.0-rc.4",
+    "ink": "^5.0.1",
+    "react": "^18.3.1"
   },
   "devDependencies": {
-    "@jest/globals": "^29.7.0",
     "@monstrs/yarn-test-utils": "workspace:0.2.1",
-    "@types/react": "^18.2.65",
-    "@yarnpkg/builder": "^4.1.1",
-    "@yarnpkg/cli": "^4.2.2",
-    "@yarnpkg/core": "^4.0.5",
+    "@types/react": "^18.3.5",
+    "@yarnpkg/builder": "^4.1.2",
+    "@yarnpkg/cli": "^4.4.1",
+    "@yarnpkg/core": "^4.1.2",
     "@yarnpkg/fslib": "^3.1.0",
-    "typescript": "^5.4.2"
+    "typescript": "^5.5.4"
   },
   "peerDependencies": {
     "@yarnpkg/cli": "^4",

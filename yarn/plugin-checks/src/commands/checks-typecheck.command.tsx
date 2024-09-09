@@ -1,32 +1,61 @@
-import type { PortablePath }             from '@yarnpkg/fslib'
+import type { PortablePath }            from '@yarnpkg/fslib'
 
-import type { Annotation }               from '../utils/index.js'
+import type { Annotation }              from '../utils/index.js'
 
-import { EOL }                           from 'node:os'
+import { EOL }                          from 'node:os'
 
-import { BaseCommand }                   from '@yarnpkg/cli'
-import { Configuration }                 from '@yarnpkg/core'
-import { Project }                       from '@yarnpkg/core'
-import { StreamReport }                  from '@yarnpkg/core'
-import { MessageName }                   from '@yarnpkg/core'
-import { codeFrameColumns }              from '@babel/code-frame'
-import { xfs }                           from '@yarnpkg/fslib'
-import { ppath }                         from '@yarnpkg/fslib'
-import React                             from 'react'
+import { BaseCommand }                  from '@yarnpkg/cli'
+import { Configuration }                from '@yarnpkg/core'
+import { Project }                      from '@yarnpkg/core'
+import { StreamReport }                 from '@yarnpkg/core'
+import { MessageName }                  from '@yarnpkg/core'
+import { Filename }                     from '@yarnpkg/fslib'
+import { codeFrameColumns }             from '@babel/code-frame'
+import { execUtils }                    from '@yarnpkg/core'
+import { scriptUtils }                  from '@yarnpkg/core'
+import { xfs }                          from '@yarnpkg/fslib'
+import { ppath }                        from '@yarnpkg/fslib'
+import { flattenDiagnosticMessageText } from 'typescript'
+import React                            from 'react'
 
-import { TypeScriptDiagnostic }          from '@monstrs/cli-ui-typescript-diagnostic-component'
-import { TypeScriptWorker }              from '@monstrs/code-typescript-worker'
-import { renderStatic }                  from '@monstrs/cli-ui-renderer'
-import { flattenDiagnosticMessageText }  from '@monstrs/code-typescript'
-import { getLineAndCharacterOfPosition } from '@monstrs/code-typescript'
+import { TypeScriptDiagnostic }         from '@monstrs/cli-ui-typescript-diagnostic'
+import { TypeScript }                   from '@monstrs/code-typescript'
+import { renderStatic }                 from '@monstrs/cli-ui-renderer-static'
 
-import { GitHubChecks }                  from '../utils/index.js'
-import { AnnotationLevel }               from '../utils/index.js'
+import { GitHubChecks }                 from '../utils/index.js'
+import { AnnotationLevel }              from '../utils/index.js'
 
 class ChecksTypeCheckCommand extends BaseCommand {
   static override paths = [['checks', 'typecheck']]
 
-  async execute(): Promise<number> {
+  override async execute(): Promise<number> {
+    const nodeOptions = process.env.NODE_OPTIONS ?? ''
+
+    if (nodeOptions.includes(Filename.pnpCjs) && nodeOptions.includes(Filename.pnpEsmLoader)) {
+      return this.executeRegular()
+    }
+
+    return this.executeProxy()
+  }
+
+  async executeProxy(): Promise<number> {
+    const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
+    const { project } = await Project.find(configuration, this.context.cwd)
+
+    const binFolder = await xfs.mktempPromise()
+
+    const { code } = await execUtils.pipevp('yarn', ['checks', 'typecheck'], {
+      cwd: this.context.cwd,
+      stdin: this.context.stdin,
+      stdout: this.context.stdout,
+      stderr: this.context.stderr,
+      env: await scriptUtils.makeScriptEnv({ binFolder, project }),
+    })
+
+    return code
+  }
+
+  async executeRegular(): Promise<number> {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
     const { project } = await Project.find(configuration, this.context.cwd)
 
@@ -42,10 +71,9 @@ class ChecksTypeCheckCommand extends BaseCommand {
           const { id: checkId } = await checks.start()
 
           try {
-            const ts = new TypeScriptWorker(project.cwd)
+            const typescript = await TypeScript.initialize(project.cwd)
 
-            const diagnostics = await ts.check(
-              project.cwd,
+            const diagnostics = await typescript.check(
               project.topLevelWorkspace.manifest.workspaceDefinitions.map(
                 (definition) => definition.pattern
               )
@@ -65,7 +93,7 @@ class ChecksTypeCheckCommand extends BaseCommand {
               if (diagnostic.file) {
                 const position =
                   (diagnostic.file as any).lineMap && diagnostic.start
-                    ? getLineAndCharacterOfPosition(diagnostic.file, diagnostic.start)
+                    ? diagnostic.file.getLineAndCharacterOfPosition(diagnostic.start)
                     : null
 
                 annotations.push({

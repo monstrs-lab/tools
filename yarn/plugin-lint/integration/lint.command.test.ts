@@ -1,77 +1,35 @@
-import type { PortablePath } from '@yarnpkg/fslib'
+import assert         from 'node:assert/strict'
+import { beforeEach } from 'node:test'
+import { test }       from 'node:test'
 
-import { describe }          from '@jest/globals'
-import { expect }            from '@jest/globals'
-import { test }              from '@jest/globals'
-import { xfs }               from '@yarnpkg/fslib'
-import { ppath }             from '@yarnpkg/fslib'
+import { TestEnv }    from '@monstrs/yarn-test-utils'
 
-import { makeTemporaryEnv }  from '@monstrs/yarn-test-utils'
+let testEnv: TestEnv
 
-describe('yarn', () => {
-  describe('commands', () => {
-    describe('lint', () => {
-      test(
-        'it should lint withouth errors',
-        makeTemporaryEnv(
-          {
-            dependencies: {
-              typescript: '^5.2.2',
-              '@monstrs/tools-runtime': 'workspace:*',
-            },
-          },
-          async ({ path, run }) => {
-            await run('install')
+beforeEach(async () => {
+  testEnv = await TestEnv.create()
 
-            await xfs.writeFilePromise(
-              ppath.join(path, 'success.ts' as PortablePath),
-              `const n = (v: number): number => v; n(5);`
-            )
+  await testEnv.run('install')
+})
 
-            await xfs.writeFilePromise(
-              ppath.join(path, 'tsconfig.json' as PortablePath),
-              '{"include": ["success.ts"]}'
-            )
+test('should run yarn lint command withouth errors', async () => {
+  await testEnv.writeFile('success.ts', 'const n = (v: number): number => v; n(5);')
+  await testEnv.writeFile('tsconfig.json', '{"include": ["success.ts"]}')
 
-            const { code, stdout } = await run('lint')
+  const { code } = await testEnv.run('lint')
 
-            expect(code).toBe(0)
-            expect(stdout).toContain('➤ YN0000: ┌ Lint\n➤ YN0000: └ Completed\n➤ YN0000: Done')
-          }
-        )
-      )
-    })
+  assert.equal(code, 0)
+})
 
-    test(
-      'it should lint with errors',
-      makeTemporaryEnv(
-        {
-          dependencies: {
-            typescript: '^5.2.2',
-            '@monstrs/tools-runtime': 'workspace:*',
-          },
-        },
-        async ({ path, run }) => {
-          await run('install')
+test('should run yarn lint command with errors', async () => {
+  await testEnv.writeFile('invalid.ts', 'const n = 5')
+  await testEnv.writeFile('tsconfig.json', '{"include": ["invalid.ts"]}')
 
-          await xfs.writeFilePromise(ppath.join(path, 'invalid.ts' as PortablePath), 'const n = 5')
-          await xfs.writeFilePromise(
-            ppath.join(path, 'tsconfig.json' as PortablePath),
-            '{"include": ["invalid.ts"]}'
-          )
+  const { code, stdout } = await testEnv.run('lint')
 
-          try {
-            await run('lint')
-          } catch (error: any) {
-            expect(error.code).toBe(1)
-            expect(error.stdout).toContain(
-              "'n' is assigned a value but never used @typescript-eslint/no-unused-vars"
-            )
-            expect(error.stdout).toContain('> 1 | const n = 5')
-            expect(error.stdout).toContain('invalid.ts:1:7')
-          }
-        }
-      )
-    )
-  })
+  assert.equal(code, 1)
+  assert.ok(stdout.includes("'n' is assigned a value but never used."))
+  assert.ok(stdout.includes('@typescript-eslint/no-unused-vars'))
+  assert.ok(stdout.includes('> 1 | const n = 5'))
+  assert.ok(stdout.includes('invalid.ts:1:7'))
 })

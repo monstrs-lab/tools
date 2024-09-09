@@ -18,18 +18,23 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/code-format-worker": "workspace:0.3.22",
-    "@monstrs/code-icons-worker": "workspace:0.3.30",
-    "@monstrs/code-lint-worker": "workspace:0.3.32",
-    "clipanion": "^4.0.0-rc.3"
+    "@monstrs/cli-ui-error-info": "workspace:0.3.12",
+    "@monstrs/cli-ui-icons-progress": "workspace:0.3.10",
+    "@monstrs/cli-ui-renderer-static": "workspace:0.3.8",
+    "@monstrs/code-icons": "workspace:0.2.30",
+    "clipanion": "^4.0.0-rc.4",
+    "globby": "^13.2.2",
+    "ink": "^5.0.1",
+    "react": "^18.3.1"
   },
   "devDependencies": {
-    "@jest/globals": "^29.7.0",
     "@monstrs/yarn-run-utils": "workspace:0.2.1",
     "@monstrs/yarn-test-utils": "workspace:0.2.1",
-    "@yarnpkg/builder": "^4.1.1",
-    "@yarnpkg/cli": "^4.2.2",
-    "@yarnpkg/core": "^4.0.5"
+    "@types/react": "^18.3.5",
+    "@yarnpkg/builder": "^4.1.2",
+    "@yarnpkg/cli": "^4.4.1",
+    "@yarnpkg/core": "^4.1.2",
+    "@yarnpkg/fslib": "^3.1.0"
   },
   "peerDependencies": {
     "@yarnpkg/cli": "^4",

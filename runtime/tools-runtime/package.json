@@ -1,0 +1,88 @@
+{
+  "name": "@monstrs/tools-runtime",
+  "version": "0.2.24",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    "./types": "./types/index.d.ts",
+    ".": "./src/index.ts",
+    "./eslint": "./src/eslint.ts",
+    "./webpack": "./src/webpack.ts",
+    "./typescript": "./src/typescript.ts",
+    "./svgr": "./src/svgr.ts",
+    "./ts-node-register": "./src/ts-node-register.ts",
+    "./ts-ext-register": "./src/ts-ext-register.ts"
+  },
+  "main": "src/index.ts",
+  "types": "types/index.d.ts",
+  "files": [
+    "types",
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn library build",
+    "prepack": "yarn run build",
+    "postpack": "rm -rf dist"
+  },
+  "dependencies": {
+    "@monstrs/config-eslint": "workspace:0.3.14",
+    "@svgr/core": "^8.1.0",
+    "@svgr/plugin-jsx": "^8.1.0",
+    "eslint": "^9.10.0",
+    "node-loader": "^2.0.0",
+    "null-loader": "^4.0.1",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4",
+    "webpack": "^5.94.0"
+  },
+  "devDependencies": {
+    "@types/eslint": "^9.6.1",
+    "@types/node": "^22.5.4"
+  },
+  "publishConfig": {
+    "access": "public",
+    "exports": {
+      "./package.json": "./package.json",
+      "./types": "./types/index.d.ts",
+      ".": {
+        "import": "./dist/index.js",
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "./eslint": {
+        "import": "./dist/eslint.js",
+        "default": "./dist/eslint.js",
+        "types": "./dist/eslint.d.ts"
+      },
+      "./webpack": {
+        "import": "./dist/webpack.js",
+        "default": "./dist/webpack.js",
+        "types": "./dist/webpack.d.ts"
+      },
+      "./typescript": {
+        "import": "./dist/typescript.js",
+        "default": "./dist/typescript.js",
+        "types": "./dist/typescript.d.ts"
+      },
+      "./svgr": {
+        "import": "./dist/svgr.js",
+        "default": "./dist/svgr.js",
+        "types": "./dist/svgr.d.ts"
+      },
+      "./ts-node-register": {
+        "import": "./dist/ts-node-register.js",
+        "default": "./dist/ts-node-register.js",
+        "types": "./dist/ts-node-register.d.ts"
+      },
+      "./ts-ext-register": {
+        "import": "./dist/ts-ext-register.js",
+        "default": "./dist/ts-ext-register.js",
+        "types": "./dist/ts-ext-register.d.ts"
+      }
+    },
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts"
+  }
+}

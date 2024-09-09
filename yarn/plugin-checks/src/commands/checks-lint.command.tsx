@@ -1,31 +1,62 @@
 /* eslint-disable n/no-sync */
 
-import type { ESLint }      from '@monstrs/tools-runtime/eslint'
-import type { Linter }      from '@monstrs/tools-runtime/eslint'
+import type { ESLint }             from '@monstrs/tools-runtime/eslint'
+import type { Linter as ESLinter } from '@monstrs/tools-runtime/eslint'
 
-import type { Annotation }  from '../utils/index.js'
+import type { Annotation }         from '../utils/index.js'
 
-import { readFileSync }     from 'node:fs'
+import { readFileSync }            from 'node:fs'
 
-import { BaseCommand }      from '@yarnpkg/cli'
-import { StreamReport }     from '@yarnpkg/core'
-import { Configuration }    from '@yarnpkg/core'
-import { MessageName }      from '@yarnpkg/core'
-import { Project }          from '@yarnpkg/core'
-import { codeFrameColumns } from '@babel/code-frame'
-import React                from 'react'
+import { BaseCommand }             from '@yarnpkg/cli'
+import { StreamReport }            from '@yarnpkg/core'
+import { Configuration }           from '@yarnpkg/core'
+import { MessageName }             from '@yarnpkg/core'
+import { Project }                 from '@yarnpkg/core'
+import { Filename }                from '@yarnpkg/fslib'
+import { codeFrameColumns }        from '@babel/code-frame'
+import { execUtils }               from '@yarnpkg/core'
+import { scriptUtils }             from '@yarnpkg/core'
+import { xfs }                     from '@yarnpkg/fslib'
+import React                       from 'react'
 
-import { ESLintResult }     from '@monstrs/cli-ui-eslint-result-component'
-import { LinterWorker }     from '@monstrs/code-lint-worker'
-import { renderStatic }     from '@monstrs/cli-ui-renderer'
+import { LintResult }              from '@monstrs/cli-ui-lint-result'
+import { Linter }                  from '@monstrs/code-lint'
+import { renderStatic }            from '@monstrs/cli-ui-renderer-static'
 
-import { GitHubChecks }     from '../utils/index.js'
-import { AnnotationLevel }  from '../utils/index.js'
+import { GitHubChecks }            from '../utils/index.js'
+import { AnnotationLevel }         from '../utils/index.js'
 
 class ChecksLintCommand extends BaseCommand {
   static override paths = [['checks', 'lint']]
 
-  async execute(): Promise<number> {
+  override async execute(): Promise<number> {
+    const nodeOptions = process.env.NODE_OPTIONS ?? ''
+
+    if (nodeOptions.includes(Filename.pnpCjs) && nodeOptions.includes(Filename.pnpEsmLoader)) {
+      return this.executeRegular()
+    }
+
+    return this.executeProxy()
+  }
+
+  async executeProxy(): Promise<number> {
+    const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
+    const { project } = await Project.find(configuration, this.context.cwd)
+
+    const binFolder = await xfs.mktempPromise()
+
+    const { code } = await execUtils.pipevp('yarn', ['checks', 'lint'], {
+      cwd: this.context.cwd,
+      stdin: this.context.stdin,
+      stdout: this.context.stdout,
+      stderr: this.context.stderr,
+      env: await scriptUtils.makeScriptEnv({ binFolder, project }),
+    })
+
+    return code
+  }
+
+  async executeRegular(): Promise<number> {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
     const { project } = await Project.find(configuration, this.context.cwd)
 
@@ -41,12 +72,13 @@ class ChecksLintCommand extends BaseCommand {
 
         await report.startTimerPromise('Lint', async () => {
           try {
-            const results = await new LinterWorker(project.cwd).run(project.cwd)
+            const linter = await Linter.initialize(project.cwd, this.context.cwd)
+            const results = await linter.lint()
 
             results
               .filter((result) => result.messages.length > 0)
               .forEach((result) => {
-                const output = renderStatic(<ESLintResult {...result} />)
+                const output = renderStatic(<LintResult {...result} />)
 
                 output.split('\n').forEach((line) => {
                   report.reportInfo(MessageName.UNNAMED, line)
@@ -85,7 +117,7 @@ class ChecksLintCommand extends BaseCommand {
     return commandReport.exitCode()
   }
 
-  private getAnnotationLevel(severity: Linter.Severity): AnnotationLevel {
+  private getAnnotationLevel(severity: ESLinter.Severity): AnnotationLevel {
     if (severity === 1) {
       return AnnotationLevel.Warning
     }

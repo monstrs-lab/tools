@@ -8,6 +8,6 @@ export interface RawManifest {
 export const beforeWorkspacePacking = (_: Workspace, rawManifest: RawManifest): void => {
   if (rawManifest.name === '@monstrs/yarn-cli') {
     // eslint-disable-next-line no-param-reassign
-    rawManifest.dependencies = new Proxy({}, { set: () => true })
+    rawManifest.dependencies = new Proxy({}, { set: (): boolean => true })
   }
 }

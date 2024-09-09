@@ -11,11 +11,13 @@ import require$$2, { fileURLToPath, pathToFileURL } from 'url';
 import require$$0$2 from 'readline';
 import { createRequire } from 'node:module';
 import { extname } from 'node:path';
-import moduleExports, { isBuiltin } from 'module';
+import esmModule, { createRequire as createRequire$1, isBuiltin } from 'module';
 import assert from 'assert';
 
 const [major, minor] = process.versions.node.split(`.`).map((value) => parseInt(value, 10));
 const WATCH_MODE_MESSAGE_USES_ARRAYS = major > 19 || major === 19 && minor >= 2 || major === 18 && minor >= 13;
+const SUPPORTS_IMPORT_ATTRIBUTES = major >= 21 || major === 20 && minor >= 10 || major === 18 && minor >= 20;
+const SUPPORTS_IMPORT_ATTRIBUTES_ONLY = major >= 22;
 
 const PortablePath = {
   root: `/`,
@@ -5838,6 +5840,18 @@ class NodeFS extends BasePortableFakeFS {
   rmdirSync(p, opts) {
     return this.realFs.rmdirSync(npath.fromPortablePath(p), opts);
   }
+  async rmPromise(p, opts) {
+    return await new Promise((resolve, reject) => {
+      if (opts) {
+        this.realFs.rm(npath.fromPortablePath(p), opts, this.makeCallback(resolve, reject));
+      } else {
+        this.realFs.rm(npath.fromPortablePath(p), this.makeCallback(resolve, reject));
+      }
+    });
+  }
+  rmSync(p, opts) {
+    return this.realFs.rmSync(npath.fromPortablePath(p), opts);
+  }
   async linkPromise(existingP, newP) {
     return await new Promise((resolve, reject) => {
       this.realFs.link(npath.fromPortablePath(existingP), npath.fromPortablePath(newP), this.makeCallback(resolve, reject));
@@ -6118,6 +6132,12 @@ class ProxiedFS extends FakeFS {
   rmdirSync(p, opts) {
     return this.baseFs.rmdirSync(this.mapToBase(p), opts);
   }
+  async rmPromise(p, opts) {
+    return this.baseFs.rmPromise(this.mapToBase(p), opts);
+  }
+  rmSync(p, opts) {
+    return this.baseFs.rmSync(this.mapToBase(p), opts);
+  }
   async linkPromise(existingP, newP) {
     return this.baseFs.linkPromise(this.mapToBase(existingP), this.mapToBase(newP));
   }
@@ -6272,7 +6292,7 @@ class VirtualFS extends ProxiedFS {
 }
 
 async function load$1(urlString, context, nextLoad) {
-  var _a;
+  var _a, _b, _c;
   const url = tryParseURL(urlString);
   if ((url == null ? void 0 : url.protocol) !== `file:`)
     return nextLoad(urlString, context, nextLoad);
@@ -6280,10 +6300,21 @@ async function load$1(urlString, context, nextLoad) {
   const format = getFileFormat$1(filePath);
   if (!format)
     return nextLoad(urlString, context, nextLoad);
-  if (format === `json` && ((_a = context.importAssertions) == null ? void 0 : _a.type) !== `json`) {
-    const err = new TypeError(`[ERR_IMPORT_ASSERTION_TYPE_MISSING]: Module "${urlString}" needs an import assertion of type "json"`);
-    err.code = `ERR_IMPORT_ASSERTION_TYPE_MISSING`;
-    throw err;
+  if (format === `json`) {
+    if (SUPPORTS_IMPORT_ATTRIBUTES_ONLY) {
+      if (((_a = context.importAttributes) == null ? void 0 : _a.type) !== `json`) {
+        const err = new TypeError(`[ERR_IMPORT_ATTRIBUTE_MISSING]: Module "${urlString}" needs an import attribute of "type: json"`);
+        err.code = `ERR_IMPORT_ATTRIBUTE_MISSING`;
+        throw err;
+      }
+    } else {
+      const type = `importAttributes` in context ? (_b = context.importAttributes) == null ? void 0 : _b.type : (_c = context.importAssertions) == null ? void 0 : _c.type;
+      if (type !== `json`) {
+        const err = new TypeError(`[ERR_IMPORT_ASSERTION_TYPE_MISSING]: Module "${urlString}" needs an import ${SUPPORTS_IMPORT_ATTRIBUTES ? `attribute` : `assertion`} of type "json"`);
+        err.code = `ERR_IMPORT_ASSERTION_TYPE_MISSING`;
+        throw err;
+      }
+    }
   }
   if (process.env.WATCH_REPORT_DEPENDENCIES && process.send) {
     const pathToSend = pathToFileURL(
@@ -6314,14 +6345,12 @@ const getFileFormat = (filepath) => {
     }
     case ".ts": {
       const pkg = readPackageScope(filepath);
-      if (!pkg)
-        return "commonjs";
+      if (!pkg) return "commonjs";
       return pkg.data.type ?? "commonjs";
     }
     case ".tsx": {
       const pkg = readPackageScope(filepath);
-      if (!pkg)
-        return "commonjs";
+      if (!pkg) return "commonjs";
       return pkg.data.type ?? "commonjs";
     }
     default: {
@@ -6817,6 +6846,13 @@ function packageImportsResolve({ name, base, conditions, readFileSyncFn }) {
   throwImportNotDefined(name, packageJSONUrl, base);
 }
 
+let findPnpApi = esmModule.findPnpApi;
+if (!findPnpApi) {
+  const require = createRequire$1(import.meta.url);
+  const pnpApi = require(`./.pnp.cjs`);
+  pnpApi.setup();
+  findPnpApi = esmModule.findPnpApi;
+}
 const pathRegExp = /^(?![a-zA-Z]:[\\/]|\\\\|\.{0,2}(?:\/|$))((?:node:)?(?:@[^/]+\/)?[^/]+)\/*(.*|)$/;
 const isRelativeRegexp = /^\.{0,2}\//;
 function tryReadFile(filePath) {
@@ -6845,7 +6881,6 @@ async function resolvePrivateRequest(specifier, issuer, context, nextResolve) {
 }
 async function resolve$1(originalSpecifier, context, nextResolve) {
   var _a, _b;
-  const { findPnpApi } = moduleExports;
   if (!findPnpApi || isBuiltin(originalSpecifier))
     return nextResolve(originalSpecifier, context, nextResolve);
   let specifier = originalSpecifier;
@@ -6908,8 +6943,7 @@ const resolveHook = async (originalSpecifier, context, nextResolve) => {
   try {
     return await resolve$1(tsSpecifier, context, nextResolve);
   } catch (err) {
-    if (tsSpecifier === originalSpecifier)
-      throw err;
+    if (tsSpecifier === originalSpecifier) throw err;
     return resolve$1(originalSpecifier, context, nextResolve);
   }
 };

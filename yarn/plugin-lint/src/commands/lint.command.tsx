@@ -1,70 +1,98 @@
-import { BaseCommand }     from '@yarnpkg/cli'
-import { StreamReport }    from '@yarnpkg/core'
-import { Configuration }   from '@yarnpkg/core'
-import { MessageName }     from '@yarnpkg/core'
-import { Project }         from '@yarnpkg/core'
-import { Option }          from 'clipanion'
-import React               from 'react'
+import { BaseCommand }   from '@yarnpkg/cli'
+import { Configuration } from '@yarnpkg/core'
+import { Project }       from '@yarnpkg/core'
+import { Filename }      from '@yarnpkg/fslib'
+import { execUtils }     from '@yarnpkg/core'
+import { scriptUtils }   from '@yarnpkg/core'
+import { xfs }           from '@yarnpkg/fslib'
+import { Option }        from 'clipanion'
+import { render }        from 'ink'
+import React             from 'react'
 
-import { ErrorInfo }       from '@monstrs/cli-ui-error-info-component'
-import { ESLintResult }    from '@monstrs/cli-ui-eslint-result-component'
-import { LinterWorker }    from '@monstrs/code-lint-worker'
-import { SpinnerProgress } from '@monstrs/yarn-run-utils'
-import { renderStatic }    from '@monstrs/cli-ui-renderer'
+import { ErrorInfo }     from '@monstrs/cli-ui-error-info'
+import { LintProgress }  from '@monstrs/cli-ui-lint-progress'
+import { LintResult }    from '@monstrs/cli-ui-lint-result'
+import { Linter }        from '@monstrs/code-lint'
+import { renderStatic }  from '@monstrs/cli-ui-renderer-static'
 
-class LintCommand extends BaseCommand {
+export class LintCommand extends BaseCommand {
   static override paths = [['lint']]
 
   fix = Option.Boolean('--fix')
 
   files: Array<string> = Option.Rest({ required: 0 })
 
-  async execute(): Promise<number> {
+  override async execute(): Promise<number> {
+    const nodeOptions = process.env.NODE_OPTIONS ?? ''
+
+    if (nodeOptions.includes(Filename.pnpCjs) && nodeOptions.includes(Filename.pnpEsmLoader)) {
+      return this.executeRegular()
+    }
+
+    return this.executeProxy()
+  }
+
+  async executeProxy(): Promise<number> {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
     const { project } = await Project.find(configuration, this.context.cwd)
 
-    const commandReport = await StreamReport.start(
-      {
-        stdout: this.context.stdout,
-        configuration,
-      },
-      async (report) => {
-        await report.startTimerPromise('Lint', async () => {
-          const progress = new SpinnerProgress(this.context.stdout, configuration)
+    const binFolder = await xfs.mktempPromise()
 
-          progress.start()
+    const args = []
 
-          try {
-            const results = await new LinterWorker(project.cwd).run(this.context.cwd, this.files, {
-              fix: this.fix,
-            })
+    if (this.fix) {
+      args.push('--fix')
+    }
 
-            progress.end()
+    const { code } = await execUtils.pipevp('yarn', ['lint', ...args, ...this.files], {
+      cwd: this.context.cwd,
+      stdin: this.context.stdin,
+      stdout: this.context.stdout,
+      stderr: this.context.stderr,
+      env: await scriptUtils.makeScriptEnv({ binFolder, project }),
+    })
 
-            results
-              .filter((result) => result.messages.length > 0)
-              .forEach((result) => {
-                const output = renderStatic(<ESLintResult {...result} />)
+    return code
+  }
 
-                output.split('\n').forEach((line) => {
-                  report.reportError(MessageName.UNNAMED, line)
-                })
-              })
-          } catch (error: any) {
-            progress.end()
+  async executeRegular(): Promise<number> {
+    const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
+    const { project } = await Project.find(configuration, this.context.cwd)
 
-            renderStatic(<ErrorInfo error={error as Error} />, process.stdout.columns - 12)
-              .split('\n')
-              .forEach((line) => {
-                report.reportError(MessageName.UNNAMED, line)
-              })
-          }
+    const linter = await Linter.initialize(project.cwd, this.context.cwd)
+
+    const { clear } = render(<LintProgress cwd={project.cwd} linter={linter} />)
+
+    linter.on('lint:end', ({ result }) => {
+      if (result.messages.length > 0) {
+        const output = renderStatic(<LintResult {...result} />)
+
+        output.split('\n').forEach((line) => {
+          console.log(line) // eslint-disable-line no-console
         })
       }
-    )
+    })
 
-    return commandReport.exitCode()
+    try {
+      const results = await linter.lint(this.files, {
+        fix: this.fix,
+      })
+
+      return results.find((result) => result.messages.length > 0) ? 1 : 0
+    } catch (error) {
+      if (error instanceof Error) {
+        renderStatic(<ErrorInfo error={error} />)
+          .split('\n')
+          .forEach((line) => {
+            console.error(line) // eslint-disable-line no-console
+          })
+      } else {
+        console.error(error) // eslint-disable-line no-console
+      }
+
+      return 1
+    } finally {
+      clear()
+    }
   }
 }
-
-export { LintCommand }

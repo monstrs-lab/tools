@@ -1,0 +1,49 @@
+{
+  "name": "@monstrs/cli-ui-stack-trace",
+  "version": "0.3.12",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": "./src/index.ts"
+  },
+  "main": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn library build",
+    "prepack": "yarn run build",
+    "postpack": "rm -rf dist"
+  },
+  "dependencies": {
+    "@monstrs/cli-ui-file-link": "workspace:0.3.10",
+    "@monstrs/cli-ui-renderer-static": "workspace:0.3.8",
+    "@monstrs/cli-ui-source-preview": "workspace:0.3.9",
+    "@monstrs/stack-trace": "^0.0.6",
+    "nanoid": "^5.0.7"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.5",
+    "ink": "^5.0.1",
+    "react": "^18.3.1",
+    "strip-ansi": "^7.1.0"
+  },
+  "peerDependencies": {
+    "ink": "^3.0.8",
+    "react": "*"
+  },
+  "publishConfig": {
+    "access": "public",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "import": "./dist/index.js",
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts"
+  }
+}

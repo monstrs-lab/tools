@@ -1,4 +1,4 @@
-import type { CommitProperties }        from '@monstrs/cli-ui-git-commit-component'
+import type { CommitProperties }        from '@monstrs/cli-ui-git-commit'
 import type { PortablePath }            from '@yarnpkg/fslib'
 import type { SubmitInjectedComponent } from '@yarnpkg/libui/sources/misc/renderForm.js'
 import type { ReactElement }            from 'react'
@@ -14,7 +14,7 @@ import { useState }                     from 'react'
 import React                            from 'react'
 import wrap                             from 'word-wrap'
 
-import { RequestCommitMessage }         from '@monstrs/cli-ui-git-commit-component'
+import { RequestCommitMessage }         from '@monstrs/cli-ui-git-commit'
 
 const RequestCommitMessageSubmit = ({
   commit,

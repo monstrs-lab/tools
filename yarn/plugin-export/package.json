@@ -19,14 +19,14 @@
   },
   "dependencies": {
     "@monstrs/yarn-pack-utils": "workspace:0.2.16",
-    "clipanion": "^4.0.0-rc.3"
+    "clipanion": "^4.0.0-rc.4"
   },
   "devDependencies": {
-    "@yarnpkg/builder": "^4.1.1",
-    "@yarnpkg/cli": "^4.2.2",
-    "@yarnpkg/core": "^4.0.5",
+    "@yarnpkg/builder": "^4.1.2",
+    "@yarnpkg/cli": "^4.4.1",
+    "@yarnpkg/core": "^4.1.2",
     "@yarnpkg/fslib": "^3.1.0",
-    "typescript": "^5.4.2"
+    "typescript": "^5.5.4"
   },
   "peerDependencies": {
     "@yarnpkg/cli": "^4",

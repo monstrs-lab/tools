@@ -20,23 +20,23 @@
     "removeComments": true,
     "resolveJsonModule": true,
     "strict": true,
-    "sourceMap": false,
+    "sourceMap": true,
     "target": "es2021",
     "jsx": "react",
     "strictPropertyInitialization": false,
     "outDir": "./dist",
-    "noImplicitOverride": true
+    "noImplicitOverride": true,
+    "checkJs": true
   },
   "include": [
     "project.types.d.ts",
     "prettier/**/*",
-    "code/**/*",
     "webpack/**/*",
     "runtime/**/*",
+    "cli-ui/**/*",
     "config/**/*",
-    "yarn/**/*",
-    "jest/**/*",
-    "cli/**/*"
+    "code/**/*",
+    "yarn/**/*"
   ],
   "types": ["@monstrs/tools-runtime/types"]
 }

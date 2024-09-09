@@ -1,44 +1,25 @@
-import type { PortablePath } from '@yarnpkg/fslib'
+import assert       from 'node:assert/strict'
+import { describe } from 'node:test'
+import { test }     from 'node:test'
 
-import { describe }          from '@jest/globals'
-import { expect }            from '@jest/globals'
-import { test }              from '@jest/globals'
-import { xfs }               from '@yarnpkg/fslib'
-import { ppath }             from '@yarnpkg/fslib'
-
-import { makeTemporaryEnv }  from '@monstrs/yarn-test-utils'
+import { TestEnv }  from '@monstrs/yarn-test-utils'
 
 describe('yarn', () => {
   describe('commands', () => {
     describe('library', () => {
-      test(
-        'it should build withouth errors',
-        makeTemporaryEnv(
-          {
-            dependencies: {
-              '@monstrs/tools-runtime': 'workspace:*',
-              typescript: '^5.2.2',
-            },
-          },
-          async ({ path, run }) => {
-            await run('install')
+      test('should build withouth errors', async () => {
+        const testEnv = await TestEnv.create()
 
-            await xfs.mkdirPromise(ppath.join(path, 'src' as PortablePath))
-            await xfs.writeFilePromise(
-              ppath.join(path, 'src/index.ts' as PortablePath),
-              'export const test = (n: number) => n * 2'
-            )
+        await testEnv.run('install')
 
-            const { code } = await run('library', 'build')
+        await testEnv.mkdir('src')
+        await testEnv.writeFile('src/index.ts', 'export const test = (n: number) => n * 2')
 
-            expect(code).toBe(0)
+        const { code } = await testEnv.run('library', 'build')
 
-            await expect(
-              xfs.readFilePromise(`${path}/dist/index.js` as PortablePath, 'utf8')
-            ).resolves.toContain('const test = (n) => n * 2;')
-          }
-        )
-      )
+        assert.equal(code, 0)
+        assert.equal(await testEnv.readFile('dist/index.js'), 'export const test = (n) => n * 2;\n')
+      })
     })
   })
 })

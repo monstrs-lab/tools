@@ -1,20 +1,16 @@
+import assert            from 'node:assert/strict'
 import { join }          from 'node:path'
+import { test }          from 'node:test'
 import { fileURLToPath } from 'node:url'
-
-import { describe }      from '@jest/globals'
-import { expect }        from '@jest/globals'
-import { it }            from '@jest/globals'
 
 import { Service }       from '../src/index.js'
 
-describe('service', () => {
-  describe('build', () => {
-    it('simple', async () => {
-      const logRecords = await new Service(
-        join(fileURLToPath(new URL('.', import.meta.url)), 'fixtures/simple')
-      ).build()
+test('should build service with empty logs', async () => {
+  const service = await Service.initialize(
+    join(fileURLToPath(new URL('.', import.meta.url)), 'fixtures/simple')
+  )
 
-      expect(logRecords).toEqual([])
-    })
-  })
+  const logRecords = await service.build()
+
+  assert.deepEqual(logRecords, [])
 })
