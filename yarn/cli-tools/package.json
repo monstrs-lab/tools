@@ -18,7 +18,6 @@
     "@monstrs/yarn-plugin-renderer": "workspace:0.2.1",
     "@monstrs/yarn-plugin-service": "workspace:0.2.1",
     "@monstrs/yarn-plugin-test": "workspace:0.2.1",
-    "@monstrs/yarn-plugin-tools": "workspace:0.2.1",
     "@monstrs/yarn-plugin-types": "workspace:0.2.1",
     "@monstrs/yarn-plugin-ui": "workspace:0.2.1",
     "@monstrs/yarn-plugin-workspaces": "workspace:0.2.1",

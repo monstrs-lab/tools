@@ -13,9 +13,10 @@ import { preprocess as importSortPreprocess } from './import-sort/index.js'
 const preprocess = (source: string, options: ParserOptions): string =>
   importSortPreprocess(source, options)
 
-const parse = async (source: string, options: ParserOptions): Promise<any> => {
+const parse = async (source: string, options: ParserOptions): Promise<unknown> => {
   const plugin = options.plugins.find((p) => (p as Plugin).parsers?.typescript) as Plugin
 
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const program = plugin.parsers!.typescript.parse(source, options)
   const bodyLength = program.body.length
 

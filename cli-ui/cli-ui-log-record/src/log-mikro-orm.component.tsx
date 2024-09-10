@@ -41,7 +41,7 @@ export const LogMikroOrmParameters = ({
   children?: LogAttributeValue
 }): ReactElement | null => {
   if (children && Array.isArray(children) && children.length > 0) {
-    const params = (children as Array<string>).reduce<Array<ReactElement<any, any>>>((
+    const params = (children as Array<string>).reduce<Array<ReactElement<unknown, string>>>((
       result,
       param,
       index

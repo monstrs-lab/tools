@@ -2,14 +2,14 @@ import type { Linter }        from 'eslint'
 
 import typescriptEslintPlugin from '@typescript-eslint/eslint-plugin'
 import parser                 from '@typescript-eslint/parser'
-// @ts-expect-error
+// @ts-expect-error: Invalid import
 import jsxA11yPlugin          from 'eslint-plugin-jsx-a11y'
 import nodePlugin             from 'eslint-plugin-n'
-// @ts-expect-error
+// @ts-expect-error: Invalid import
 import reactPlugin            from 'eslint-plugin-react'
-// @ts-expect-error
+// @ts-expect-error: Invalid import
 import reactHooksPlugin       from 'eslint-plugin-react-hooks'
-// @ts-expect-error
+// @ts-expect-error: Invalid import
 import securityPlugin         from 'eslint-plugin-security'
 
 import { typescript }         from './rules/index.js'
@@ -31,7 +31,7 @@ const config: Array<Linter.Config> = [
     },
     plugins: {
       'eslint-plugin-react-hooks': reactHooksPlugin,
-      // @ts-expect-error
+      // @ts-expect-error: Invalid types
       '@typescript-eslint': typescriptEslintPlugin,
       'react-hooks': reactHooksPlugin,
       // '@next/next': nextjsPlugin,

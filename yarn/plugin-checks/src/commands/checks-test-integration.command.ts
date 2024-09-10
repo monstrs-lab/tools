@@ -36,13 +36,13 @@ class ChecksTestIntegrationCommand extends AbstractChecksTestCommand {
 
     const env = await scriptUtils.makeScriptEnv({ binFolder, project })
 
-    if (!env.NODE_OPTIONS!.includes('@monstrs/tools-runtime/ts-node-register')) {
+    if (!env.NODE_OPTIONS?.includes('@monstrs/tools-runtime/ts-node-register')) {
       env.NODE_OPTIONS = `${env.NODE_OPTIONS} --loader @monstrs/tools-runtime/ts-node-register`
       env.NODE_OPTIONS = `${env.NODE_OPTIONS} --loader ${pathToFileURL(npath.fromPortablePath(ppath.join(project.cwd, Filename.pnpEsmLoader))).href}`
       env.NODE_OPTIONS = `${env.NODE_OPTIONS} --loader @monstrs/tools-runtime/ts-ext-register`
     }
 
-    if (!env.NODE_OPTIONS!.includes('--enable-source-maps')) {
+    if (!env.NODE_OPTIONS?.includes('--enable-source-maps')) {
       env.NODE_OPTIONS = `${env.NODE_OPTIONS} --enable-source-maps`
     }
 

@@ -9,6 +9,7 @@ import figures               from 'figures'
 
 import { ItemComponent }     from './select-item.component.jsx'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const MultiSelect = (MultiSelectPkg as any).default || (MultiSelectPkg as any)
 
 const COMMIT_ADDITIONAL = [

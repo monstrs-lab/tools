@@ -49,6 +49,7 @@ export class StartServerPlugin {
   private startServer = (compilation: webpack.Compilation, callback: () => void): void => {
     this.logger.info('Starting server...')
 
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     this.entryFile = join(compilation.compiler.options.output.path!, 'index.js')
 
     this.runWorker(this.entryFile, (worker) => {

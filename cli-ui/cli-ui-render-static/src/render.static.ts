@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import type { ReactElement } from 'react'
 
 import { EventEmitter }      from 'node:events'

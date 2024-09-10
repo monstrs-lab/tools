@@ -78,7 +78,7 @@ export class RendererBuildCommand extends BaseCommand {
             ppath.join(
               this.context.cwd,
               'src/.next/standalone',
-              this.context.cwd.replace(`${configuration.projectCwd!}/`, '') as PortablePath,
+              this.context.cwd.replace(`${configuration.projectCwd ?? ''}/`, '') as PortablePath,
               'src'
             )
           )

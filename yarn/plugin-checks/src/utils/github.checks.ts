@@ -23,7 +23,11 @@ export class GitHubChecks {
   private octokit: ReturnType<typeof getOctokit>
 
   constructor(private readonly name: string) {
-    this.octokit = getOctokit(process.env.GITHUB_TOKEN!)
+    if (process.env.GITHUB_TOKEN == null) {
+      throw new Error('GITHUB_TOKEN is not defined')
+    }
+
+    this.octokit = getOctokit(process.env.GITHUB_TOKEN)
   }
 
   async create(
@@ -42,7 +46,7 @@ export class GitHubChecks {
     return this.create({
       ...context.repo,
       name: this.name,
-      head_sha: payload.after || payload.pull_request?.head.sha || (process.env.GITHUB_SHA as any),
+      head_sha: payload.after || payload.pull_request?.head.sha || process.env.GITHUB_SHA,
       started_at: new Date().toISOString(),
       status: 'in_progress',
     })
@@ -58,7 +62,7 @@ export class GitHubChecks {
       ...context.repo,
       check_run_id: id,
       name: this.name,
-      head_sha: payload.after || payload.pull_request?.head.sha || (process.env.GITHUB_SHA as any),
+      head_sha: payload.after || payload.pull_request?.head.sha || process.env.GITHUB_SHA,
       completed_at: new Date().toISOString(),
       status: 'completed',
       conclusion: output.annotations.length > 0 ? 'failure' : 'success',
@@ -82,7 +86,7 @@ export class GitHubChecks {
     return this.create({
       ...context.repo,
       name: this.name,
-      head_sha: payload.after || payload.pull_request?.head.sha || (process.env.GITHUB_SHA as any),
+      head_sha: payload.after || payload.pull_request?.head.sha || process.env.GITHUB_SHA,
       completed_at: new Date().toISOString(),
       status: 'completed',
       conclusion: 'failure',

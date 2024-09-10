@@ -29,7 +29,7 @@ export class WebpackConfig {
     environment: WebpackEnvironment = 'production',
     plugins: Array<{
       use: Config.PluginClass<wp.WebpackPluginInstance> | wp.WebpackPluginInstance
-      args: Array<any>
+      args: Array<unknown>
       name: string
     }> = []
   ): Promise<wp.Configuration> {

@@ -1,10 +1,10 @@
 import type { Workspace } from '@yarnpkg/core'
 
 export interface RawManifest {
-  exports: Record<string, any>
+  exports: Record<string, unknown>
 
   publishConfig: {
-    exports: Record<string, any>
+    exports: Record<string, unknown>
   }
 }
 

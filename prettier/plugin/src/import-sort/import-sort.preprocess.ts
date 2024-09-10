@@ -1,14 +1,12 @@
-/* eslint-disable @typescript-eslint/no-unnecessary-type-arguments */
-
 import type { Parser }                from 'prettier'
-import type { Plugin }                from 'prettier'
+import type { ParserOptions }                 from 'prettier'
 
 import { sortImports }                from 'import-sort'
 
 import { ImportSortTypeScriptParser } from './import-sort-typescript.parser.js'
 import { style }                      from './import-sort.style.js'
 
-const findTypeScriptParser = (plugins: Array<Plugin<any>>): Parser<any> => {
+const findTypeScriptParser = (plugins: ParserOptions['plugins']): Parser<unknown> => {
   const plugin = plugins.find((p) => {
     if (typeof p === 'string') {
       return false
@@ -21,14 +19,14 @@ const findTypeScriptParser = (plugins: Array<Plugin<any>>): Parser<any> => {
     return p.parsers.typescript
   })
 
-  return plugin!.parsers!.typescript
+  // @ts-expect-error: Skip string matching
+  return plugin!.parsers!.typescript // eslint-disable-line @typescript-eslint/no-non-null-assertion,  @typescript-eslint/no-unsafe-return
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export const preprocess = (source: string, { plugins }: any): string => {
-  const typescript = findTypeScriptParser(plugins as Array<Plugin<any>>)
+export const preprocess = (source: string, { plugins }: ParserOptions): string => {
+  const typescript = findTypeScriptParser(plugins)
 
-  // @ts-expect-error
+  // @ts-expect-error: Invalid arguments
   const parser = new ImportSortTypeScriptParser(typescript.parse(source))
 
   const { code } = sortImports(source, parser, style)

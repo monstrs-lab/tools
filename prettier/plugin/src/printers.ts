@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 
@@ -19,7 +20,7 @@ const nodeImportSize = (node: ImportDeclaration): number => {
 
   const specifier = node.specifiers[node.specifiers.length - 1]
 
-  // @ts-expect-error
+  // @ts-expect-error: Extended node
   const offset = specifier.imported ? 8 : 6
 
   return specifier.loc!.end.column + offset
@@ -37,7 +38,7 @@ export const print = (
   let result = plugin.printers!.estree.print(path, options, prnt)
 
   if (node?.type === 'ImportDeclaration') {
-    // @ts-expect-error
+    // @ts-expect-error: Invalid type
     result = result.map((part) => {
       if (Array.isArray(part) && part[0] === ' from' && node.alignOffset > 0) {
         const fill = Array.apply(0, Array(node.alignOffset)).fill(' ').join('')
@@ -82,7 +83,7 @@ export const preprocess = async (ast: AST): Promise<AST> => {
 
 export const printers: Record<string, Printer> = {
   'typescript-custom': {
-    // @ts-expect-error
+    // @ts-expect-error Printers are not typed
     ...estree.default.printers.estree,
     preprocess,
     print,

@@ -55,8 +55,8 @@ export class Formatter extends EventEmitter {
       const output = await format(input, {
         ...config,
         filepath: filename,
-        // @ts-expect-error
-        plugins: [estree, yaml, markdown, graphql, babel, typescript, plugin],
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        plugins: [estree as any, yaml, markdown, graphql, babel, typescript, plugin],
       })
 
       if (output !== input && output) {
