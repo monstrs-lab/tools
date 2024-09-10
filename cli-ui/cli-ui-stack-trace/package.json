@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/cli-ui-stack-trace",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -18,8 +18,8 @@
   },
   "dependencies": {
     "@monstrs/cli-ui-file-link": "workspace:1.0.0",
-    "@monstrs/cli-ui-renderer-static": "workspace:1.0.0",
-    "@monstrs/cli-ui-source-preview": "workspace:1.0.0",
+    "@monstrs/cli-ui-renderer-static": "workspace:1.0.1",
+    "@monstrs/cli-ui-source-preview": "workspace:1.0.1",
     "@monstrs/stack-trace": "^0.0.6",
     "nanoid": "^5.0.7"
   },

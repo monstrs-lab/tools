@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-service",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -20,8 +20,8 @@
   "dependencies": {
     "@monstrs/code-configuration": "workspace:1.0.0",
     "@monstrs/config-typescript": "workspace:1.0.0",
-    "@monstrs/tools-runtime": "workspace:1.0.0",
-    "@monstrs/webpack-start-server-plugin": "workspace:1.0.0",
+    "@monstrs/tools-runtime": "workspace:1.0.1",
+    "@monstrs/webpack-start-server-plugin": "workspace:1.0.1",
     "@yarnpkg/cli": "^4.4.1",
     "@yarnpkg/core": "^4.1.2",
     "typescript": "^5.5.4",

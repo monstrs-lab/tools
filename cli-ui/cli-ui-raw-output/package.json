@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/cli-ui-raw-output",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -17,7 +17,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/cli-ui-file-path": "workspace:1.0.0",
+    "@monstrs/cli-ui-file-path": "workspace:1.0.1",
     "@monstrs/cli-ui-line": "workspace:1.0.0",
     "nanoid": "^5.0.7"
   },
