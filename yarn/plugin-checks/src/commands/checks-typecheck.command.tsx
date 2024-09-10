@@ -73,11 +73,7 @@ class ChecksTypeCheckCommand extends BaseCommand {
           try {
             const typescript = await TypeScript.initialize(project.cwd)
 
-            const diagnostics = await typescript.check(
-              project.topLevelWorkspace.manifest.workspaceDefinitions.map(
-                (definition) => definition.pattern
-              )
-            )
+            const diagnostics = await typescript.check(await this.getIncludes(project))
 
             diagnostics.forEach((diagnostic) => {
               const output = renderStatic(<TypeScriptDiagnostic {...diagnostic} />)
@@ -141,6 +137,22 @@ class ChecksTypeCheckCommand extends BaseCommand {
     )
 
     return commandReport.exitCode()
+  }
+
+  protected async getIncludes(project: Project): Promise<Array<string>> {
+    if (await xfs.existsPromise(ppath.join(project.cwd, 'tsconfig.json'))) {
+      const tsconfig: { include?: Array<string> } = await xfs.readJsonPromise(
+        ppath.join(project.cwd, 'tsconfig.json')
+      )
+
+      if (tsconfig.include && tsconfig.include.length > 0) {
+        return tsconfig.include
+      }
+    }
+
+    return project.topLevelWorkspace.manifest.workspaceDefinitions.map(
+      (definition) => definition.pattern
+    )
   }
 }
 
