@@ -28,7 +28,11 @@ export class PackageUtils {
       .getRecursiveWorkspaceChildren()
       .find((ws) => ws.manifest.raw.name === name)
 
-    return ppath.resolve(workspace!.cwd, 'package.tgz' as Filename)
+    if (!workspace) {
+      throw new Error('Workspace not found')
+    }
+
+    return ppath.resolve(workspace.cwd, 'package.tgz' as Filename)
   }
 
   async getConfiguration(): Promise<Configuration> {
@@ -47,8 +51,12 @@ export class PackageUtils {
     if (!this.project) {
       const { project, workspace } = await Project.find(await this.getConfiguration(), this.cwd)
 
+      if (!workspace) {
+        throw new Error('Root workspace not found')
+      }
+
       this.project = project
-      this.rootWorkspace = workspace!
+      this.rootWorkspace = workspace
     }
 
     return this.project
@@ -66,13 +74,21 @@ export class PackageUtils {
     const configuration = await this.getConfiguration()
     const { project, workspace } = await Project.find(configuration, this.cwd)
 
-    const workspaceForPackage = workspace!
+    if (!workspace) {
+      throw new Error('Root workspace not found')
+    }
+
+    const workspaceForPackage = workspace
       .getRecursiveWorkspaceChildren()
       .find((ws) => workspaces === ws.manifest.raw.name)
 
+    if (!workspaceForPackage) {
+      throw new Error('Workspace for package not found')
+    }
+
     await project.restoreInstallState()
 
-    return this.packWorkspace(project, configuration, workspaceForPackage!)
+    return this.packWorkspace(project, configuration, workspaceForPackage)
   }
 
   async packWorkspace(

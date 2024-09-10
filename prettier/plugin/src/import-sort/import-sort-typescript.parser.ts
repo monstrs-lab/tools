@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 
 import type { Node }              from '@babel/types'
@@ -37,7 +38,7 @@ export class ImportSortTypeScriptParser implements IParser {
           namedMembers: node.specifiers
             .filter((specifier) => specifier.type === 'ImportSpecifier')
             .map((specifier) => ({
-              // @ts-expect-error
+              // @ts-expect-error Invalid arguments
               name: specifier.imported.name,
               alias: specifier.local.name,
               type: node.importKind === 'type',
@@ -69,10 +70,10 @@ export class ImportSortTypeScriptParser implements IParser {
           return [...parents, leadingComment]
         }
 
-        const leadingComments: Array<any> = findLeadingComments(node.loc!.start.line - 1)
+        const leadingComments: Array<{ range: Array<number> }> = findLeadingComments(node.loc!.start.line - 1)
 
         if (leadingComments.length > 0) {
-          imp.start = leadingComments.at(0).range.at(0)
+          imp.start = leadingComments.at(0)!.range.at(0)!
         }
 
         return imp

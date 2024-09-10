@@ -10,6 +10,6 @@ export type WebpackEnvironment = 'development' | 'production'
 
 export interface WebpackConfigPlugin {
   name: string
-  use: any
-  args: Array<any>
+  use: unknown
+  args: Array<unknown>
 }

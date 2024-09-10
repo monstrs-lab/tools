@@ -4,7 +4,7 @@ import { runExit }                from '@yarnpkg/cli'
 import { npath }                  from '@yarnpkg/fslib'
 import { ppath }                  from '@yarnpkg/fslib'
 
-// @ts-expect-error
+// @ts-expect-error: Cjs export
 import { getPluginConfiguration } from '@monstrs/yarn-cli-tools'
 
 import packageJson                from '../package.json' with { type: 'json' }

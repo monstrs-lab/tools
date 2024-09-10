@@ -48,13 +48,13 @@ export abstract class AbstractTestCommand extends BaseCommand {
 
     const env = await scriptUtils.makeScriptEnv({ binFolder, project })
 
-    if (!env.NODE_OPTIONS!.includes('@monstrs/tools-runtime/ts-node-register')) {
+    if (!env.NODE_OPTIONS?.includes('@monstrs/tools-runtime/ts-node-register')) {
       env.NODE_OPTIONS = `${env.NODE_OPTIONS} --loader @monstrs/tools-runtime/ts-node-register`
       env.NODE_OPTIONS = `${env.NODE_OPTIONS} --loader ${pathToFileURL(npath.fromPortablePath(ppath.join(project.cwd, Filename.pnpEsmLoader))).href}`
       env.NODE_OPTIONS = `${env.NODE_OPTIONS} --loader @monstrs/tools-runtime/ts-ext-register`
     }
 
-    if (!env.NODE_OPTIONS!.includes('--enable-source-maps')) {
+    if (!env.NODE_OPTIONS?.includes('--enable-source-maps')) {
       env.NODE_OPTIONS = `${env.NODE_OPTIONS} --enable-source-maps`
     }
 
@@ -147,7 +147,7 @@ export abstract class AbstractTestCommand extends BaseCommand {
   ): void {
     if (this.std.keys().next().value) {
       if (this.std.has(data.file)) {
-        this.std.get(data.file)!.push(data.message)
+        this.std.get(data.file)?.push(data.message)
 
         if (this.bufferedStdTimeout) {
           clearTimeout(this.bufferedStdTimeout)
@@ -156,14 +156,14 @@ export abstract class AbstractTestCommand extends BaseCommand {
         this.bufferedStdTimeout = setTimeout(() => {
           const key: string | undefined = this.std.keys().next().value
 
-          callback({ file: key, messages: this.std.get(key)! })
+          callback({ file: key, messages: this.std.get(key) ?? [] })
 
           this.std.delete(key)
         }, 100)
       } else {
         const key: string | undefined = this.std.keys().next().value
 
-        callback({ file: key, messages: this.std.get(key)! })
+        callback({ file: key, messages: this.std.get(key) ?? [] })
 
         this.std.delete(key)
 
@@ -178,7 +178,7 @@ export abstract class AbstractTestCommand extends BaseCommand {
     const items = messages.map((message) => message.split('\n').filter(Boolean)).flat()
 
     const { logRecords, raw } = items.reduce(
-      (result: { logRecords: Array<any>; raw: Array<string> }, item: string) => {
+      (result: { logRecords: Array<unknown>; raw: Array<string> }, item: string) => {
         try {
           const logRecord = JSON.parse(item)
 

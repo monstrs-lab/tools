@@ -19,7 +19,7 @@ import React             from 'react'`}
   )
 
   assert.equal(
-    stripAnsi(lastFrame()!),
+    stripAnsi(lastFrame()!), // eslint-disable-line @typescript-eslint/no-non-null-assertion
     `> 1 | import assert            from 'node:assert/strict'
     | ^ Test
   2 | import { test }          from 'node:test'

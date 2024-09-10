@@ -26,7 +26,7 @@ export const LogNamespace = ({
 
   const color = useMemo(() => {
     if (value && typeof value === 'string') {
-      return uniqolor(value.split(':').at(0)!).color
+      return uniqolor(value.split(':')[0]).color
     }
 
     return '#d75f00'

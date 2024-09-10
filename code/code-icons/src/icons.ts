@@ -59,7 +59,7 @@ export class Icons extends EventEmitter {
   }
 
   protected async compileReplacementsAndTemplate(): Promise<{
-    replacements: Record<string, Record<string, any>>
+    replacements: Record<string, Record<string, string>>
     template: Config['template']
   }> {
     const target = await mkdtemp(join(tmpdir(), 'tools-icons-'))
@@ -128,7 +128,7 @@ export class Icons extends EventEmitter {
             componentName: `${icon.component}Icon`,
             caller: {
               name: '@monstrs/code-icons',
-              defaultPlugins: [this.svgr.jsx as any],
+              defaultPlugins: [this.svgr.jsx as any], // eslint-disable-line @typescript-eslint/no-explicit-any
             },
           }
         )

@@ -243,10 +243,6 @@ const RAW_RUNTIME_STATE =
       "reference": "workspace:yarn/plugin-test"\
     },\
     {\
-      "name": "@monstrs/yarn-plugin-tools",\
-      "reference": "workspace:yarn/plugin-tools"\
-    },\
-    {\
       "name": "@monstrs/yarn-plugin-types",\
       "reference": "workspace:yarn/plugin-types"\
     },\
@@ -331,7 +327,6 @@ const RAW_RUNTIME_STATE =
     ["@monstrs/yarn-plugin-renderer", ["virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-renderer", "workspace:yarn/plugin-renderer"]],\
     ["@monstrs/yarn-plugin-service", ["virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-service", "workspace:yarn/plugin-service"]],\
     ["@monstrs/yarn-plugin-test", ["virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-test", "workspace:yarn/plugin-test"]],\
-    ["@monstrs/yarn-plugin-tools", ["workspace:yarn/plugin-tools"]],\
     ["@monstrs/yarn-plugin-types", ["virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-types", "workspace:yarn/plugin-types"]],\
     ["@monstrs/yarn-plugin-ui", ["virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-ui", "workspace:yarn/plugin-ui"]],\
     ["@monstrs/yarn-plugin-workspaces", ["virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-workspaces", "workspace:yarn/plugin-workspaces"]],\
@@ -2746,7 +2741,6 @@ const RAW_RUNTIME_STATE =
           ["@monstrs/yarn-plugin-renderer", "virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-renderer"],\
           ["@monstrs/yarn-plugin-service", "virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-service"],\
           ["@monstrs/yarn-plugin-test", "virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-test"],\
-          ["@monstrs/yarn-plugin-tools", "workspace:yarn/plugin-tools"],\
           ["@monstrs/yarn-plugin-types", "virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-types"],\
           ["@monstrs/yarn-plugin-ui", "virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-ui"],\
           ["@monstrs/yarn-plugin-workspaces", "virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-workspaces"],\
@@ -2803,7 +2797,6 @@ const RAW_RUNTIME_STATE =
           ["@monstrs/yarn-plugin-renderer", "virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-renderer"],\
           ["@monstrs/yarn-plugin-service", "virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-service"],\
           ["@monstrs/yarn-plugin-test", "virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-test"],\
-          ["@monstrs/yarn-plugin-tools", "workspace:yarn/plugin-tools"],\
           ["@monstrs/yarn-plugin-types", "virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-types"],\
           ["@monstrs/yarn-plugin-ui", "virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-ui"],\
           ["@monstrs/yarn-plugin-workspaces", "virtual:d3ba6cb6f3b3827bf65c57ada10681cb705d902b3dcaf5d02555b1edc6aa105daf7adbba9b9c6f50e3fce65c61ee6f17f12aabd48438c8646e7a55c5a8ad1565#workspace:yarn/plugin-workspaces"],\
@@ -3572,26 +3565,6 @@ const RAW_RUNTIME_STATE =
           ["ink", "virtual:30da6a87d5efa622498ef555df46a838fb4d52d8da59964b53572bb2b93297c85550142bba99def487ef9cfc072438c983e9940c2113fe3e9d97d7f1ccc36295#npm:3.2.0"],\
           ["react", "npm:18.2.0"],\
           ["typescript", "patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=379a07"]\
-        ],\
-        "linkType": "SOFT"\
-      }]\
-    ]],\
-    ["@monstrs/yarn-plugin-tools", [\
-      ["workspace:yarn/plugin-tools", {\
-        "packageLocation": "./yarn/plugin-tools/",\
-        "packageDependencies": [\
-          ["@monstrs/yarn-plugin-tools", "workspace:yarn/plugin-tools"],\
-          ["@monstrs/config-typescript", "workspace:config/config-typescript"],\
-          ["@monstrs/tools-runtime", "workspace:runtime/tools-runtime"],\
-          ["@types/semver", "npm:7.5.8"],\
-          ["@yarnpkg/builder", "patch:@yarnpkg/builder@npm%3A4.1.2#~/.yarn/patches/@yarnpkg-builder-npm-4.1.2-2648882e59.patch::version=4.1.2&hash=4e0592"],\
-          ["@yarnpkg/cli", "virtual:42494b80a716ac0c604ae3f1d417bc6bb93b7e76a1bcae22b4d364199fb73ed23f68ee9f682ec5a1fe48ecfa35e3ca6ead5558857a990ec3372660ec1c80a116#npm:4.4.1"],\
-          ["@yarnpkg/core", "npm:4.1.2"],\
-          ["@yarnpkg/fslib", "npm:3.0.1"],\
-          ["clipanion", "virtual:79bd705dbf206d6bd5005d5f35924cece8938d35eed524c3106dd8d8c6d56228b3ffaf764b0b711713e3d2dfeba0155ac81f45b66f87f4323e61be254172e9b5#npm:4.0.0-rc.2"],\
-          ["deepmerge", "npm:4.3.1"],\
-          ["husky", "npm:9.1.5"],\
-          ["semver", "npm:7.6.3"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -10551,15 +10524,6 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/human-signals-npm-5.0.0-ed25a9f58c-30f8870d83.zip/node_modules/human-signals/",\
         "packageDependencies": [\
           ["human-signals", "npm:5.0.0"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["husky", [\
-      ["npm:9.1.5", {\
-        "packageLocation": "./.yarn/cache/husky-npm-9.1.5-691154a935-21a3036dd0.zip/node_modules/husky/",\
-        "packageDependencies": [\
-          ["husky", "npm:9.1.5"]\
         ],\
         "linkType": "HARD"\
       }]\

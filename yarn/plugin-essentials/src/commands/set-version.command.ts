@@ -17,8 +17,7 @@ export class SetVersionCommand extends BaseCommand {
     const configuration = await Configuration.find(this.context.cwd, this.context.plugins)
 
     await configuration.triggerHook(
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-      (hooks) => (hooks as any).afterYarnVersionSet,
+      (hooks) => (hooks as { afterYarnVersionSet: (configuration: Configuration, context: unknown) => void }).afterYarnVersionSet,
       configuration,
       this.context
     )

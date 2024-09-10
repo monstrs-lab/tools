@@ -15,7 +15,7 @@ test('should render file path', () => {
   )
 
   assert.equal(
-    stripAnsi(lastFrame()!),
+    stripAnsi(lastFrame()!), // eslint-disable-line @typescript-eslint/no-non-null-assertion
     'cli-ui/cli-ui-file-path/src/file-path.component.test.tsx:1:1'
   )
 })
