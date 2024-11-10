@@ -1,0 +1,4 @@
+releases:
+  "@monstrs/cli-ui-lint-result": patch
+  "@monstrs/yarn-cli": patch
+  "@monstrs/yarn-cli-tools": patch
