@@ -903,7 +903,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@commitlint/parse", "npm:19.5.0"],\
           ["@commitlint/types", "npm:19.5.0"],\
-          ["conventional-changelog-angular", "npm:7.0.0"],\
+          ["conventional-changelog-angular", "patch:conventional-changelog-angular@npm%3A7.0.0#~/.yarn/patches/conventional-changelog-angular-npm-7.0.0-de5edb79f0.patch::version=7.0.0&hash=89143f"],\
           ["conventional-commits-parser", "npm:5.0.0"]\
         ],\
         "linkType": "HARD"\
@@ -2422,9 +2422,7 @@ const RAW_RUNTIME_STATE =
           ["@commitlint/types", "npm:19.5.0"],\
           ["@monstrs/config-commitlint", "workspace:config/config-commitlint"],\
           ["@types/conventional-commits-parser", "npm:5.0.0"],\
-          ["@types/node", "npm:22.9.0"],\
-          ["conventional-changelog-angular", "npm:8.0.0"],\
-          ["conventional-commits-parser", "npm:6.0.0"]\
+          ["@types/node", "npm:22.9.0"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -7932,18 +7930,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["conventional-changelog-angular", [\
-      ["npm:7.0.0", {\
-        "packageLocation": "./.yarn/cache/conventional-changelog-angular-npm-7.0.0-de5edb79f0-e7966d2fee.zip/node_modules/conventional-changelog-angular/",\
+      ["patch:conventional-changelog-angular@npm%3A7.0.0#~/.yarn/patches/conventional-changelog-angular-npm-7.0.0-de5edb79f0.patch::version=7.0.0&hash=89143f", {\
+        "packageLocation": "./.yarn/cache/conventional-changelog-angular-patch-073dd937fa-3a1ad0a1dc.zip/node_modules/conventional-changelog-angular/",\
         "packageDependencies": [\
-          ["conventional-changelog-angular", "npm:7.0.0"],\
-          ["compare-func", "npm:2.0.0"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
-      ["npm:8.0.0", {\
-        "packageLocation": "./.yarn/cache/conventional-changelog-angular-npm-8.0.0-80898aa2c5-856e465201.zip/node_modules/conventional-changelog-angular/",\
-        "packageDependencies": [\
-          ["conventional-changelog-angular", "npm:8.0.0"],\
+          ["conventional-changelog-angular", "patch:conventional-changelog-angular@npm%3A7.0.0#~/.yarn/patches/conventional-changelog-angular-npm-7.0.0-de5edb79f0.patch::version=7.0.0&hash=89143f"],\
           ["compare-func", "npm:2.0.0"]\
         ],\
         "linkType": "HARD"\
@@ -7967,14 +7957,6 @@ const RAW_RUNTIME_STATE =
           ["is-text-path", "npm:2.0.0"],\
           ["meow", "npm:12.1.1"],\
           ["split2", "npm:4.2.0"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
-      ["npm:6.0.0", {\
-        "packageLocation": "./.yarn/cache/conventional-commits-parser-npm-6.0.0-43cd397b56-ba754fb578.zip/node_modules/conventional-commits-parser/",\
-        "packageDependencies": [\
-          ["conventional-commits-parser", "npm:6.0.0"],\
-          ["meow", "npm:13.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -12132,13 +12114,6 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/meow-npm-12.1.1-bd7858d088-8594c319f4.zip/node_modules/meow/",\
         "packageDependencies": [\
           ["meow", "npm:12.1.1"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
-      ["npm:13.2.0", {\
-        "packageLocation": "./.yarn/cache/meow-npm-13.2.0-9907f89171-4eff5bc921.zip/node_modules/meow/",\
-        "packageDependencies": [\
-          ["meow", "npm:13.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
