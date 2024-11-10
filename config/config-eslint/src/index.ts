@@ -1,11 +1,12 @@
 import type { Linter }        from 'eslint'
 
+// @ts-expect-error: Invalid import
+import nextjsPlugin           from '@next/eslint-plugin-next'
 import typescriptEslintPlugin from '@typescript-eslint/eslint-plugin'
 import parser                 from '@typescript-eslint/parser'
 // @ts-expect-error: Invalid import
 import jsxA11yPlugin          from 'eslint-plugin-jsx-a11y'
 import nodePlugin             from 'eslint-plugin-n'
-// @ts-expect-error: Invalid import
 import reactPlugin            from 'eslint-plugin-react'
 // @ts-expect-error: Invalid import
 import reactHooksPlugin       from 'eslint-plugin-react-hooks'
@@ -17,6 +18,7 @@ import { security }           from './rules/index.js'
 import { react }              from './rules/index.js'
 import { node }               from './rules/index.js'
 import { base }               from './rules/index.js'
+import { nextjs }             from './rules/index.js'
 
 const config: Array<Linter.Config> = [
   {
@@ -24,7 +26,7 @@ const config: Array<Linter.Config> = [
     rules: {
       ...typescript,
       ...security,
-      // ...nextjs,
+      ...nextjs,
       ...react,
       ...node,
       ...base,
@@ -34,10 +36,11 @@ const config: Array<Linter.Config> = [
       // @ts-expect-error: Invalid types
       '@typescript-eslint': typescriptEslintPlugin,
       'react-hooks': reactHooksPlugin,
-      // '@next/next': nextjsPlugin,
+      '@next/next': nextjsPlugin,
       'jsx-a11y': jsxA11yPlugin,
       n: nodePlugin,
       security: securityPlugin,
+      // @ts-expect-error: Invalid types
       react: reactPlugin,
     },
     linterOptions: {

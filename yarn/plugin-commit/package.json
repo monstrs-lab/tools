@@ -20,9 +20,9 @@
   "dependencies": {
     "@monstrs/cli-ui-git-commit": "workspace:1.0.1",
     "@monstrs/code-commit": "workspace:1.0.0",
-    "@yarnpkg/libui": "^3.0.0",
+    "@yarnpkg/libui": "^3.0.1",
     "clipanion": "^4.0.0-rc.4",
-    "commitizen": "^4.3.0",
+    "commitizen": "^4.3.1",
     "force-stdin-tty": "^0.0.1",
     "ink": "^5.0.1",
     "lint-staged": "patch:lint-staged@npm%3A15.2.9#~/.yarn/patches/lint-staged-npm-15.2.9-092f307382.patch",
@@ -31,10 +31,10 @@
   },
   "devDependencies": {
     "@types/lint-staged": "^13.3.0",
-    "@types/react": "^18.3.5",
-    "@yarnpkg/builder": "^4.1.2",
-    "@yarnpkg/cli": "^4.4.1",
-    "@yarnpkg/core": "^4.1.2",
+    "@types/react": "^18.3.12",
+    "@yarnpkg/builder": "^4.2.0",
+    "@yarnpkg/cli": "^4.5.1",
+    "@yarnpkg/core": "^4.1.4",
     "@yarnpkg/fslib": "^3.1.0"
   },
   "peerDependencies": {

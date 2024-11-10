@@ -18,9 +18,9 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@actions/core": "^1.10.1",
+    "@actions/core": "^1.11.1",
     "@actions/github": "^6.0.0",
-    "@babel/code-frame": "^7.24.7",
+    "@babel/code-frame": "^7.26.2",
     "@monstrs/cli-ui-lint-result": "workspace:1.0.1",
     "@monstrs/cli-ui-renderer-static": "workspace:1.0.1",
     "@monstrs/cli-ui-typescript-diagnostic": "workspace:1.0.1",
@@ -36,15 +36,15 @@
   },
   "devDependencies": {
     "@monstrs/tools-runtime": "workspace:1.0.1",
-    "@octokit/types": "^13.5.0",
+    "@octokit/types": "^13.6.1",
     "@types/babel__code-frame": "^7.0.6",
-    "@types/node": "^22.5.4",
-    "@types/react": "^18.3.5",
-    "@yarnpkg/builder": "^4.1.2",
-    "@yarnpkg/cli": "^4.4.1",
-    "@yarnpkg/core": "^4.1.2",
+    "@types/node": "^22.9.0",
+    "@types/react": "^18.3.12",
+    "@yarnpkg/builder": "^4.2.0",
+    "@yarnpkg/cli": "^4.5.1",
+    "@yarnpkg/core": "^4.1.4",
     "@yarnpkg/fslib": "^3.1.0",
-    "typescript": "^5.5.4"
+    "typescript": "^5.6.3"
   },
   "peerDependencies": {
     "@yarnpkg/cli": "^4",

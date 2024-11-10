@@ -19,11 +19,11 @@
   "dependencies": {
     "@actions/github": "^6.0.0",
     "@iarna/toml": "^2.2.5",
-    "@yarnpkg/core": "^4.1.2",
+    "@yarnpkg/core": "^4.1.4",
     "@yarnpkg/fslib": "^3.1.0"
   },
   "devDependencies": {
-    "@types/node": "^22.5.4"
+    "@types/node": "^22.9.0"
   },
   "publishConfig": {
     "access": "public",
