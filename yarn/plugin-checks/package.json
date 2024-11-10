@@ -40,9 +40,9 @@
     "@types/babel__code-frame": "^7.0.6",
     "@types/node": "^22.5.4",
     "@types/react": "^18.3.5",
-    "@yarnpkg/builder": "^4.1.2",
-    "@yarnpkg/cli": "^4.4.1",
-    "@yarnpkg/core": "^4.1.2",
+    "@yarnpkg/builder": "^4.2.0",
+    "@yarnpkg/cli": "^4.5.1",
+    "@yarnpkg/core": "^4.1.4",
     "@yarnpkg/fslib": "^3.1.0",
     "typescript": "^5.5.4"
   },

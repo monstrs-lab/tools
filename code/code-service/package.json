@@ -22,8 +22,8 @@
     "@monstrs/config-typescript": "workspace:1.0.0",
     "@monstrs/tools-runtime": "workspace:1.0.1",
     "@monstrs/webpack-start-server-plugin": "workspace:1.0.1",
-    "@yarnpkg/cli": "^4.4.1",
-    "@yarnpkg/core": "^4.1.2",
+    "@yarnpkg/cli": "^4.5.1",
+    "@yarnpkg/core": "^4.1.4",
     "typescript": "^5.5.4",
     "webpack-chain-5": "^8.0.2"
   },
