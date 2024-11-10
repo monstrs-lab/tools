@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "devDependencies": {
-    "@babel/core": "^7.25.2",
-    "@babel/template": "^7.25.0",
+    "@babel/core": "^7.26.0",
+    "@babel/template": "^7.25.9",
     "@fixtures/icons-theme": "workspace:^",
     "@types/babel__core": "^7.20.5",
     "@types/babel__template": "^7.4.4"

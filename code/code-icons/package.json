@@ -23,12 +23,12 @@
     "@yarnpkg/cli": "^4.5.1",
     "@yarnpkg/core": "^4.1.4",
     "camelcase": "^8.0.0",
-    "typescript": "^5.5.4",
+    "typescript": "^5.6.3",
     "webpack-chain-5": "^8.0.2"
   },
   "devDependencies": {
     "@monstrs/logger": "^0.0.20",
-    "@types/node": "^22.5.4",
+    "@types/node": "^22.9.0",
     "@types/webpack": "^5.28.5",
     "@yarnpkg/fslib": "^3.1.0"
   },

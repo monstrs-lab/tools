@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "clipanion": "^4.0.0-rc.4",
-    "cross-spawn": "^7.0.3",
+    "cross-spawn": "^7.0.5",
     "localtunnel": "^2.0.2"
   },
   "devDependencies": {

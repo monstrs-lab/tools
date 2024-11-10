@@ -20,7 +20,7 @@
     "prettier": "^3.3.3"
   },
   "devDependencies": {
-    "@types/node": "^22.5.4"
+    "@types/node": "^22.9.0"
   },
   "publishConfig": {
     "access": "public",
