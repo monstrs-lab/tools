@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/cli-ui-test-failure",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -17,9 +17,9 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/cli-ui-file-path": "workspace:1.0.1",
-    "@monstrs/cli-ui-line": "workspace:1.0.0",
-    "@monstrs/cli-ui-source-preview": "workspace:1.0.1",
+    "@monstrs/cli-ui-file-path": "workspace:1.0.2",
+    "@monstrs/cli-ui-line": "workspace:1.0.1",
+    "@monstrs/cli-ui-source-preview": "workspace:1.0.2",
     "nanoid": "^5.0.8"
   },
   "devDependencies": {

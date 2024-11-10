@@ -18,8 +18,8 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/cli-ui-git-commit": "workspace:1.0.1",
-    "@monstrs/code-commit": "workspace:1.0.0",
+    "@monstrs/cli-ui-git-commit": "workspace:1.0.2",
+    "@monstrs/code-commit": "workspace:1.0.1",
     "@yarnpkg/libui": "^3.0.1",
     "clipanion": "^4.0.0-rc.4",
     "commitizen": "^4.3.1",

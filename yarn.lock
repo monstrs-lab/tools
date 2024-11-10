@@ -1046,11 +1046,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@monstrs/cli-ui-error-info@workspace:1.0.1, @monstrs/cli-ui-error-info@workspace:cli-ui/cli-ui-error-info":
+"@monstrs/cli-ui-error-info@workspace:1.0.2, @monstrs/cli-ui-error-info@workspace:cli-ui/cli-ui-error-info":
   version: 0.0.0-use.local
   resolution: "@monstrs/cli-ui-error-info@workspace:cli-ui/cli-ui-error-info"
   dependencies:
-    "@monstrs/cli-ui-stack-trace": "workspace:1.0.1"
+    "@monstrs/cli-ui-stack-trace": "workspace:1.0.2"
     "@types/node": "npm:^22.9.0"
     "@types/react": "npm:^18.3.12"
     ink: "npm:^5.0.1"
@@ -1061,7 +1061,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/cli-ui-file-link@workspace:1.0.0, @monstrs/cli-ui-file-link@workspace:cli-ui/cli-ui-file-link":
+"@monstrs/cli-ui-file-link@workspace:1.0.1, @monstrs/cli-ui-file-link@workspace:cli-ui/cli-ui-file-link":
   version: 0.0.0-use.local
   resolution: "@monstrs/cli-ui-file-link@workspace:cli-ui/cli-ui-file-link"
   dependencies:
@@ -1075,7 +1075,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/cli-ui-file-path@workspace:1.0.1, @monstrs/cli-ui-file-path@workspace:cli-ui/cli-ui-file-path":
+"@monstrs/cli-ui-file-path@workspace:1.0.2, @monstrs/cli-ui-file-path@workspace:cli-ui/cli-ui-file-path":
   version: 0.0.0-use.local
   resolution: "@monstrs/cli-ui-file-path@workspace:cli-ui/cli-ui-file-path"
   dependencies:
@@ -1091,7 +1091,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/cli-ui-format-progress@workspace:1.0.0, @monstrs/cli-ui-format-progress@workspace:cli-ui/cli-ui-format-progress":
+"@monstrs/cli-ui-format-progress@workspace:1.0.1, @monstrs/cli-ui-format-progress@workspace:cli-ui/cli-ui-format-progress":
   version: 0.0.0-use.local
   resolution: "@monstrs/cli-ui-format-progress@workspace:cli-ui/cli-ui-format-progress"
   dependencies:
@@ -1106,13 +1106,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/cli-ui-git-commit@workspace:1.0.1, @monstrs/cli-ui-git-commit@workspace:cli-ui/cli-ui-git-commit":
+"@monstrs/cli-ui-git-commit@workspace:1.0.2, @monstrs/cli-ui-git-commit@workspace:cli-ui/cli-ui-git-commit":
   version: 0.0.0-use.local
   resolution: "@monstrs/cli-ui-git-commit@workspace:cli-ui/cli-ui-git-commit"
   dependencies:
     "@inkjs/ui": "npm:^2.0.0"
-    "@monstrs/code-commit": "workspace:1.0.0"
-    "@monstrs/config-commitlint": "workspace:1.0.0"
+    "@monstrs/code-commit": "workspace:1.0.1"
+    "@monstrs/config-commitlint": "workspace:1.0.1"
     "@types/node": "npm:^22.9.0"
     "@types/react": "npm:^18.3.12"
     camelcase: "npm:^8.0.0"
@@ -1128,7 +1128,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/cli-ui-icons-progress@workspace:1.0.0, @monstrs/cli-ui-icons-progress@workspace:cli-ui/cli-ui-icons-progress":
+"@monstrs/cli-ui-icons-progress@workspace:1.0.1, @monstrs/cli-ui-icons-progress@workspace:cli-ui/cli-ui-icons-progress":
   version: 0.0.0-use.local
   resolution: "@monstrs/cli-ui-icons-progress@workspace:cli-ui/cli-ui-icons-progress"
   dependencies:
@@ -1143,7 +1143,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/cli-ui-line@workspace:1.0.0, @monstrs/cli-ui-line@workspace:cli-ui/cli-ui-line":
+"@monstrs/cli-ui-line@workspace:1.0.1, @monstrs/cli-ui-line@workspace:cli-ui/cli-ui-line":
   version: 0.0.0-use.local
   resolution: "@monstrs/cli-ui-line@workspace:cli-ui/cli-ui-line"
   dependencies:
@@ -1159,7 +1159,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/cli-ui-lint-progress@workspace:1.0.0, @monstrs/cli-ui-lint-progress@workspace:cli-ui/cli-ui-lint-progress":
+"@monstrs/cli-ui-lint-progress@workspace:1.0.1, @monstrs/cli-ui-lint-progress@workspace:cli-ui/cli-ui-lint-progress":
   version: 0.0.0-use.local
   resolution: "@monstrs/cli-ui-lint-progress@workspace:cli-ui/cli-ui-lint-progress"
   dependencies:
@@ -1174,13 +1174,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/cli-ui-lint-result@workspace:1.0.1, @monstrs/cli-ui-lint-result@workspace:cli-ui/cli-ui-lint-result":
+"@monstrs/cli-ui-lint-result@workspace:1.0.2, @monstrs/cli-ui-lint-result@workspace:cli-ui/cli-ui-lint-result":
   version: 0.0.0-use.local
   resolution: "@monstrs/cli-ui-lint-result@workspace:cli-ui/cli-ui-lint-result"
   dependencies:
-    "@monstrs/cli-ui-file-path": "workspace:1.0.1"
-    "@monstrs/cli-ui-line": "workspace:1.0.0"
-    "@monstrs/cli-ui-source-preview": "workspace:1.0.1"
+    "@monstrs/cli-ui-file-path": "workspace:1.0.2"
+    "@monstrs/cli-ui-line": "workspace:1.0.1"
+    "@monstrs/cli-ui-source-preview": "workspace:1.0.2"
     "@types/node": "npm:^22.9.0"
     "@types/react": "npm:^18.3.12"
     ink: "npm:^5.0.1"
@@ -1194,13 +1194,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/cli-ui-log-record@workspace:1.0.1, @monstrs/cli-ui-log-record@workspace:cli-ui/cli-ui-log-record":
+"@monstrs/cli-ui-log-record@workspace:1.0.2, @monstrs/cli-ui-log-record@workspace:cli-ui/cli-ui-log-record":
   version: 0.0.0-use.local
   resolution: "@monstrs/cli-ui-log-record@workspace:cli-ui/cli-ui-log-record"
   dependencies:
     "@mikro-orm/sql-highlighter": "npm:^1.0.1"
-    "@monstrs/cli-ui-renderer-static": "workspace:1.0.1"
-    "@monstrs/cli-ui-stack-trace": "workspace:1.0.1"
+    "@monstrs/cli-ui-renderer-static": "workspace:1.0.2"
+    "@monstrs/cli-ui-stack-trace": "workspace:1.0.2"
     "@monstrs/logger": "npm:^0.0.20"
     "@monstrs/mikro-orm-logger": "npm:^0.0.16"
     "@types/node": "npm:^22.9.0"
@@ -1218,12 +1218,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/cli-ui-pretty-logs@workspace:1.0.1, @monstrs/cli-ui-pretty-logs@workspace:cli-ui/cli-ui-pretty-logs":
+"@monstrs/cli-ui-pretty-logs@workspace:1.0.2, @monstrs/cli-ui-pretty-logs@workspace:cli-ui/cli-ui-pretty-logs":
   version: 0.0.0-use.local
   resolution: "@monstrs/cli-ui-pretty-logs@workspace:cli-ui/cli-ui-pretty-logs"
   dependencies:
-    "@monstrs/cli-ui-log-record": "workspace:1.0.1"
-    "@monstrs/cli-ui-renderer-static": "workspace:1.0.1"
+    "@monstrs/cli-ui-log-record": "workspace:1.0.2"
+    "@monstrs/cli-ui-renderer-static": "workspace:1.0.2"
     "@types/node": "npm:^22.9.0"
     "@types/react": "npm:^18.3.12"
     ink: "npm:^5.0.1"
@@ -1231,12 +1231,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/cli-ui-raw-output@workspace:1.0.1, @monstrs/cli-ui-raw-output@workspace:cli-ui/cli-ui-raw-output":
+"@monstrs/cli-ui-raw-output@workspace:1.0.2, @monstrs/cli-ui-raw-output@workspace:cli-ui/cli-ui-raw-output":
   version: 0.0.0-use.local
   resolution: "@monstrs/cli-ui-raw-output@workspace:cli-ui/cli-ui-raw-output"
   dependencies:
-    "@monstrs/cli-ui-file-path": "workspace:1.0.1"
-    "@monstrs/cli-ui-line": "workspace:1.0.0"
+    "@monstrs/cli-ui-file-path": "workspace:1.0.2"
+    "@monstrs/cli-ui-line": "workspace:1.0.1"
     "@types/node": "npm:^22.9.0"
     "@types/react": "npm:^18.3.12"
     ink: "npm:^5.0.1"
@@ -1250,7 +1250,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/cli-ui-renderer-static@workspace:1.0.1, @monstrs/cli-ui-renderer-static@workspace:cli-ui/cli-ui-render-static":
+"@monstrs/cli-ui-renderer-static@workspace:1.0.2, @monstrs/cli-ui-renderer-static@workspace:cli-ui/cli-ui-render-static":
   version: 0.0.0-use.local
   resolution: "@monstrs/cli-ui-renderer-static@workspace:cli-ui/cli-ui-render-static"
   dependencies:
@@ -1261,7 +1261,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/cli-ui-service-progress@workspace:1.0.0, @monstrs/cli-ui-service-progress@workspace:cli-ui/cli-ui-service-progress":
+"@monstrs/cli-ui-service-progress@workspace:1.0.1, @monstrs/cli-ui-service-progress@workspace:cli-ui/cli-ui-service-progress":
   version: 0.0.0-use.local
   resolution: "@monstrs/cli-ui-service-progress@workspace:cli-ui/cli-ui-service-progress"
   dependencies:
@@ -1276,7 +1276,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/cli-ui-source-preview@workspace:1.0.1, @monstrs/cli-ui-source-preview@workspace:cli-ui/cli-ui-source-preview":
+"@monstrs/cli-ui-source-preview@workspace:1.0.2, @monstrs/cli-ui-source-preview@workspace:cli-ui/cli-ui-source-preview":
   version: 0.0.0-use.local
   resolution: "@monstrs/cli-ui-source-preview@workspace:cli-ui/cli-ui-source-preview"
   dependencies:
@@ -1295,13 +1295,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/cli-ui-stack-trace@workspace:1.0.1, @monstrs/cli-ui-stack-trace@workspace:cli-ui/cli-ui-stack-trace":
+"@monstrs/cli-ui-stack-trace@workspace:1.0.2, @monstrs/cli-ui-stack-trace@workspace:cli-ui/cli-ui-stack-trace":
   version: 0.0.0-use.local
   resolution: "@monstrs/cli-ui-stack-trace@workspace:cli-ui/cli-ui-stack-trace"
   dependencies:
-    "@monstrs/cli-ui-file-link": "workspace:1.0.0"
-    "@monstrs/cli-ui-renderer-static": "workspace:1.0.1"
-    "@monstrs/cli-ui-source-preview": "workspace:1.0.1"
+    "@monstrs/cli-ui-file-link": "workspace:1.0.1"
+    "@monstrs/cli-ui-renderer-static": "workspace:1.0.2"
+    "@monstrs/cli-ui-source-preview": "workspace:1.0.2"
     "@monstrs/stack-trace": "npm:^0.0.6"
     "@types/react": "npm:^18.3.12"
     ink: "npm:^5.0.1"
@@ -1314,13 +1314,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/cli-ui-test-failure@workspace:1.0.1, @monstrs/cli-ui-test-failure@workspace:cli-ui/cli-ui-test-failure":
+"@monstrs/cli-ui-test-failure@workspace:1.0.2, @monstrs/cli-ui-test-failure@workspace:cli-ui/cli-ui-test-failure":
   version: 0.0.0-use.local
   resolution: "@monstrs/cli-ui-test-failure@workspace:cli-ui/cli-ui-test-failure"
   dependencies:
-    "@monstrs/cli-ui-file-path": "workspace:1.0.1"
-    "@monstrs/cli-ui-line": "workspace:1.0.0"
-    "@monstrs/cli-ui-source-preview": "workspace:1.0.1"
+    "@monstrs/cli-ui-file-path": "workspace:1.0.2"
+    "@monstrs/cli-ui-line": "workspace:1.0.1"
+    "@monstrs/cli-ui-source-preview": "workspace:1.0.2"
     "@types/node": "npm:^22.9.0"
     "@types/react": "npm:^18.3.12"
     ink: "npm:^5.0.1"
@@ -1334,7 +1334,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/cli-ui-test-progress@workspace:1.0.0, @monstrs/cli-ui-test-progress@workspace:cli-ui/cli-ui-test-progress":
+"@monstrs/cli-ui-test-progress@workspace:1.0.1, @monstrs/cli-ui-test-progress@workspace:cli-ui/cli-ui-test-progress":
   version: 0.0.0-use.local
   resolution: "@monstrs/cli-ui-test-progress@workspace:cli-ui/cli-ui-test-progress"
   dependencies:
@@ -1349,13 +1349,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/cli-ui-typescript-diagnostic@workspace:1.0.1, @monstrs/cli-ui-typescript-diagnostic@workspace:cli-ui/cli-ui-typescript-diagnostic":
+"@monstrs/cli-ui-typescript-diagnostic@workspace:1.0.2, @monstrs/cli-ui-typescript-diagnostic@workspace:cli-ui/cli-ui-typescript-diagnostic":
   version: 0.0.0-use.local
   resolution: "@monstrs/cli-ui-typescript-diagnostic@workspace:cli-ui/cli-ui-typescript-diagnostic"
   dependencies:
-    "@monstrs/cli-ui-file-path": "workspace:1.0.1"
-    "@monstrs/cli-ui-line": "workspace:1.0.0"
-    "@monstrs/cli-ui-source-preview": "workspace:1.0.1"
+    "@monstrs/cli-ui-file-path": "workspace:1.0.2"
+    "@monstrs/cli-ui-line": "workspace:1.0.1"
+    "@monstrs/cli-ui-source-preview": "workspace:1.0.2"
     "@types/react": "npm:^18.3.12"
     ink: "npm:^5.0.1"
     ink-testing-library: "npm:^4.0.0"
@@ -1368,7 +1368,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/cli-ui-typescript-progress@workspace:1.0.0, @monstrs/cli-ui-typescript-progress@workspace:cli-ui/cli-ui-types-check-progress":
+"@monstrs/cli-ui-typescript-progress@workspace:1.0.1, @monstrs/cli-ui-typescript-progress@workspace:cli-ui/cli-ui-types-check-progress":
   version: 0.0.0-use.local
   resolution: "@monstrs/cli-ui-typescript-progress@workspace:cli-ui/cli-ui-types-check-progress"
   dependencies:
@@ -1383,7 +1383,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-commit@workspace:1.0.0, @monstrs/code-commit@workspace:code/code-commit":
+"@monstrs/code-commit@workspace:1.0.1, @monstrs/code-commit@workspace:code/code-commit":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-commit@workspace:code/code-commit"
   dependencies:
@@ -1394,7 +1394,7 @@ __metadata:
     "@commitlint/read": "npm:^19.5.0"
     "@commitlint/rules": "npm:^19.5.0"
     "@commitlint/types": "npm:^19.5.0"
-    "@monstrs/config-commitlint": "workspace:1.0.0"
+    "@monstrs/config-commitlint": "workspace:1.0.1"
     "@types/conventional-commits-parser": "npm:^5.0.0"
     "@types/node": "npm:^22.9.0"
   languageName: unknown
@@ -1408,12 +1408,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-format@workspace:1.0.1, @monstrs/code-format@workspace:code/code-format":
+"@monstrs/code-format@workspace:1.0.2, @monstrs/code-format@workspace:code/code-format":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-format@workspace:code/code-format"
   dependencies:
-    "@monstrs/config-prettier": "workspace:1.0.0"
-    "@monstrs/prettier-plugin": "workspace:1.0.1"
+    "@monstrs/config-prettier": "workspace:1.0.1"
+    "@monstrs/prettier-plugin": "workspace:1.0.2"
     "@types/node": "npm:^22.9.0"
     globby: "npm:^13.2.2"
     ignore: "npm:^5.3.2"
@@ -1421,13 +1421,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-icons@workspace:1.0.1, @monstrs/code-icons@workspace:code/code-icons":
+"@monstrs/code-icons@workspace:1.0.2, @monstrs/code-icons@workspace:code/code-icons":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-icons@workspace:code/code-icons"
   dependencies:
     "@monstrs/config-typescript": "workspace:1.0.0"
     "@monstrs/logger": "npm:^0.0.20"
-    "@monstrs/tools-runtime": "workspace:1.0.1"
+    "@monstrs/tools-runtime": "workspace:1.0.2"
     "@types/node": "npm:^22.9.0"
     "@types/webpack": "npm:^5.28.5"
     "@yarnpkg/cli": "npm:^4.5.1"
@@ -1439,11 +1439,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-lint@workspace:1.0.1, @monstrs/code-lint@workspace:code/code-lint":
+"@monstrs/code-lint@workspace:1.0.2, @monstrs/code-lint@workspace:code/code-lint":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-lint@workspace:code/code-lint"
   dependencies:
-    "@monstrs/tools-runtime": "workspace:1.0.1"
+    "@monstrs/tools-runtime": "workspace:1.0.2"
     "@types/node": "npm:^22.9.0"
     globby: "npm:^13.2.2"
     ignore: "npm:^5.3.2"
@@ -1458,7 +1458,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-pack@workspace:1.0.1, @monstrs/code-pack@workspace:code/code-pack":
+"@monstrs/code-pack@workspace:1.0.2, @monstrs/code-pack@workspace:code/code-pack":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-pack@workspace:code/code-pack"
   dependencies:
@@ -1470,15 +1470,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-service@workspace:1.0.1, @monstrs/code-service@workspace:code/code-service":
+"@monstrs/code-service@workspace:1.0.2, @monstrs/code-service@workspace:code/code-service":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-service@workspace:code/code-service"
   dependencies:
     "@monstrs/code-configuration": "workspace:1.0.0"
     "@monstrs/config-typescript": "workspace:1.0.0"
     "@monstrs/logger": "npm:^0.0.20"
-    "@monstrs/tools-runtime": "workspace:1.0.1"
-    "@monstrs/webpack-start-server-plugin": "workspace:1.0.1"
+    "@monstrs/tools-runtime": "workspace:1.0.2"
+    "@monstrs/webpack-start-server-plugin": "workspace:1.0.2"
     "@types/node": "npm:^22.9.0"
     "@types/webpack": "npm:^5.28.5"
     "@yarnpkg/cli": "npm:^4.5.1"
@@ -1490,22 +1490,22 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-test@workspace:1.0.1, @monstrs/code-test@workspace:code/code-test":
+"@monstrs/code-test@workspace:1.0.2, @monstrs/code-test@workspace:code/code-test":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-test@workspace:code/code-test"
   dependencies:
-    "@monstrs/tools-runtime": "workspace:1.0.1"
+    "@monstrs/tools-runtime": "workspace:1.0.2"
     "@types/node": "npm:^22.9.0"
     globby: "npm:^13.2.2"
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-typescript@workspace:1.0.1, @monstrs/code-typescript@workspace:code/code-typescript":
+"@monstrs/code-typescript@workspace:1.0.2, @monstrs/code-typescript@workspace:code/code-typescript":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-typescript@workspace:code/code-typescript"
   dependencies:
     "@monstrs/config-typescript": "workspace:1.0.0"
-    "@monstrs/tools-runtime": "workspace:1.0.1"
+    "@monstrs/tools-runtime": "workspace:1.0.2"
     "@types/deepmerge": "npm:2.2.3"
     "@types/node": "npm:^22.9.0"
     deepmerge: "npm:^4.3.1"
@@ -1513,7 +1513,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/config-commitlint@workspace:1.0.0, @monstrs/config-commitlint@workspace:config/config-commitlint":
+"@monstrs/config-commitlint@workspace:1.0.1, @monstrs/config-commitlint@workspace:config/config-commitlint":
   version: 0.0.0-use.local
   resolution: "@monstrs/config-commitlint@workspace:config/config-commitlint"
   dependencies:
@@ -1521,11 +1521,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/config-eslint@workspace:1.0.1, @monstrs/config-eslint@workspace:config/config-eslint":
+"@monstrs/config-eslint@workspace:1.0.2, @monstrs/config-eslint@workspace:config/config-eslint":
   version: 0.0.0-use.local
   resolution: "@monstrs/config-eslint@workspace:config/config-eslint"
   dependencies:
-    "@monstrs/config-prettier": "workspace:1.0.0"
+    "@monstrs/config-prettier": "workspace:1.0.1"
     "@next/eslint-plugin-next": "npm:^15.0.3"
     "@types/eslint": "npm:^9.6.1"
     "@types/node": "npm:^22.9.0"
@@ -1548,7 +1548,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/config-prettier@workspace:1.0.0, @monstrs/config-prettier@workspace:config/config-prettier":
+"@monstrs/config-prettier@workspace:1.0.1, @monstrs/config-prettier@workspace:config/config-prettier":
   version: 0.0.0-use.local
   resolution: "@monstrs/config-prettier@workspace:config/config-prettier"
   dependencies:
@@ -1588,7 +1588,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@monstrs/prettier-plugin@workspace:1.0.1, @monstrs/prettier-plugin@workspace:prettier/plugin":
+"@monstrs/prettier-plugin@workspace:1.0.2, @monstrs/prettier-plugin@workspace:prettier/plugin":
   version: 0.0.0-use.local
   resolution: "@monstrs/prettier-plugin@workspace:prettier/plugin"
   dependencies:
@@ -1614,11 +1614,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@monstrs/tools-runtime@workspace:1.0.1, @monstrs/tools-runtime@workspace:runtime/tools-runtime":
+"@monstrs/tools-runtime@workspace:1.0.2, @monstrs/tools-runtime@workspace:runtime/tools-runtime":
   version: 0.0.0-use.local
   resolution: "@monstrs/tools-runtime@workspace:runtime/tools-runtime"
   dependencies:
-    "@monstrs/config-eslint": "workspace:1.0.1"
+    "@monstrs/config-eslint": "workspace:1.0.2"
     "@svgr/core": "npm:^8.1.0"
     "@svgr/plugin-jsx": "npm:^8.1.0"
     "@types/eslint": "npm:^9.6.1"
@@ -1633,7 +1633,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/webpack-start-server-plugin@workspace:1.0.1, @monstrs/webpack-start-server-plugin@workspace:webpack/webpack-start-server-plugin":
+"@monstrs/webpack-start-server-plugin@workspace:1.0.2, @monstrs/webpack-start-server-plugin@workspace:webpack/webpack-start-server-plugin":
   version: 0.0.0-use.local
   resolution: "@monstrs/webpack-start-server-plugin@workspace:webpack/webpack-start-server-plugin"
   dependencies:
@@ -1642,7 +1642,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/yarn-cli-tools@workspace:1.0.4, @monstrs/yarn-cli-tools@workspace:yarn/cli-tools":
+"@monstrs/yarn-cli-tools@workspace:1.0.5, @monstrs/yarn-cli-tools@workspace:yarn/cli-tools":
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-cli-tools@workspace:yarn/cli-tools"
   dependencies:
@@ -1701,7 +1701,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-cli@workspace:yarn/cli"
   dependencies:
-    "@monstrs/yarn-cli-tools": "workspace:1.0.4"
+    "@monstrs/yarn-cli-tools": "workspace:1.0.5"
     "@monstrs/yarn-plugin-check": "workspace:0.2.1"
     "@monstrs/yarn-plugin-checks": "workspace:0.2.1"
     "@monstrs/yarn-plugin-cli-publish": "workspace:0.2.0"
@@ -1753,7 +1753,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/yarn-pack-utils@workspace:1.0.1, @monstrs/yarn-pack-utils@workspace:yarn/pack-utils":
+"@monstrs/yarn-pack-utils@workspace:1.0.2, @monstrs/yarn-pack-utils@workspace:yarn/pack-utils":
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-pack-utils@workspace:yarn/pack-utils"
   dependencies:
@@ -1788,13 +1788,13 @@ __metadata:
     "@actions/core": "npm:^1.11.1"
     "@actions/github": "npm:^6.0.0"
     "@babel/code-frame": "npm:^7.26.2"
-    "@monstrs/cli-ui-lint-result": "workspace:1.0.1"
-    "@monstrs/cli-ui-renderer-static": "workspace:1.0.1"
-    "@monstrs/cli-ui-typescript-diagnostic": "workspace:1.0.1"
-    "@monstrs/code-lint": "workspace:1.0.1"
-    "@monstrs/code-test": "workspace:1.0.1"
-    "@monstrs/code-typescript": "workspace:1.0.1"
-    "@monstrs/tools-runtime": "workspace:1.0.1"
+    "@monstrs/cli-ui-lint-result": "workspace:1.0.2"
+    "@monstrs/cli-ui-renderer-static": "workspace:1.0.2"
+    "@monstrs/cli-ui-typescript-diagnostic": "workspace:1.0.2"
+    "@monstrs/code-lint": "workspace:1.0.2"
+    "@monstrs/code-test": "workspace:1.0.2"
+    "@monstrs/code-typescript": "workspace:1.0.2"
+    "@monstrs/tools-runtime": "workspace:1.0.2"
     "@monstrs/yarn-plugin-files": "workspace:0.2.1"
     "@monstrs/yarn-run-utils": "workspace:0.2.1"
     "@monstrs/yarn-workspace-utils": "workspace:0.2.1"
@@ -1837,8 +1837,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-commit@workspace:yarn/plugin-commit"
   dependencies:
-    "@monstrs/cli-ui-git-commit": "workspace:1.0.1"
-    "@monstrs/code-commit": "workspace:1.0.0"
+    "@monstrs/cli-ui-git-commit": "workspace:1.0.2"
+    "@monstrs/code-commit": "workspace:1.0.1"
     "@types/lint-staged": "npm:^13.3.0"
     "@types/react": "npm:^18.3.12"
     "@yarnpkg/builder": "npm:^4.2.0"
@@ -1880,7 +1880,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-export@workspace:yarn/plugin-export"
   dependencies:
-    "@monstrs/yarn-pack-utils": "workspace:1.0.1"
+    "@monstrs/yarn-pack-utils": "workspace:1.0.2"
     "@yarnpkg/builder": "npm:^4.2.0"
     "@yarnpkg/cli": "npm:^4.5.1"
     "@yarnpkg/core": "npm:^4.1.4"
@@ -1913,10 +1913,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-format@workspace:yarn/plugin-format"
   dependencies:
-    "@monstrs/cli-ui-error-info": "workspace:1.0.1"
-    "@monstrs/cli-ui-format-progress": "workspace:1.0.0"
-    "@monstrs/cli-ui-renderer-static": "workspace:1.0.1"
-    "@monstrs/code-format": "workspace:1.0.1"
+    "@monstrs/cli-ui-error-info": "workspace:1.0.2"
+    "@monstrs/cli-ui-format-progress": "workspace:1.0.1"
+    "@monstrs/cli-ui-renderer-static": "workspace:1.0.2"
+    "@monstrs/code-format": "workspace:1.0.2"
     "@monstrs/yarn-run-utils": "workspace:0.2.1"
     "@monstrs/yarn-test-utils": "workspace:0.2.1"
     "@types/react": "npm:^18.3.12"
@@ -1938,8 +1938,8 @@ __metadata:
   resolution: "@monstrs/yarn-plugin-image@workspace:yarn/plugin-image"
   dependencies:
     "@iarna/toml": "npm:^2.2.5"
-    "@monstrs/code-pack": "workspace:1.0.1"
-    "@monstrs/yarn-pack-utils": "workspace:1.0.1"
+    "@monstrs/code-pack": "workspace:1.0.2"
+    "@monstrs/yarn-pack-utils": "workspace:1.0.2"
     "@monstrs/yarn-run-utils": "workspace:0.2.1"
     "@yarnpkg/builder": "npm:^4.2.0"
     "@yarnpkg/cli": "npm:^4.5.1"
@@ -1959,13 +1959,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-library@workspace:yarn/plugin-library"
   dependencies:
-    "@monstrs/cli-ui-error-info": "workspace:1.0.1"
-    "@monstrs/cli-ui-log-record": "workspace:1.0.1"
-    "@monstrs/cli-ui-pretty-logs": "workspace:1.0.1"
-    "@monstrs/cli-ui-renderer-static": "workspace:1.0.1"
-    "@monstrs/cli-ui-typescript-diagnostic": "workspace:1.0.1"
-    "@monstrs/cli-ui-typescript-progress": "workspace:1.0.0"
-    "@monstrs/code-typescript": "workspace:1.0.1"
+    "@monstrs/cli-ui-error-info": "workspace:1.0.2"
+    "@monstrs/cli-ui-log-record": "workspace:1.0.2"
+    "@monstrs/cli-ui-pretty-logs": "workspace:1.0.2"
+    "@monstrs/cli-ui-renderer-static": "workspace:1.0.2"
+    "@monstrs/cli-ui-typescript-diagnostic": "workspace:1.0.2"
+    "@monstrs/cli-ui-typescript-progress": "workspace:1.0.1"
+    "@monstrs/code-typescript": "workspace:1.0.2"
     "@monstrs/yarn-run-utils": "workspace:0.2.1"
     "@monstrs/yarn-test-utils": "workspace:0.2.1"
     "@types/react": "npm:^18.3.12"
@@ -1987,11 +1987,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-lint@workspace:yarn/plugin-lint"
   dependencies:
-    "@monstrs/cli-ui-error-info": "workspace:1.0.1"
-    "@monstrs/cli-ui-lint-progress": "workspace:1.0.0"
-    "@monstrs/cli-ui-lint-result": "workspace:1.0.1"
-    "@monstrs/cli-ui-renderer-static": "workspace:1.0.1"
-    "@monstrs/code-lint": "workspace:1.0.1"
+    "@monstrs/cli-ui-error-info": "workspace:1.0.2"
+    "@monstrs/cli-ui-lint-progress": "workspace:1.0.1"
+    "@monstrs/cli-ui-lint-result": "workspace:1.0.2"
+    "@monstrs/cli-ui-renderer-static": "workspace:1.0.2"
+    "@monstrs/code-lint": "workspace:1.0.2"
     "@monstrs/yarn-run-utils": "workspace:0.2.1"
     "@monstrs/yarn-test-utils": "workspace:0.2.1"
     "@types/react": "npm:^18.3.12"
@@ -2052,13 +2052,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-service@workspace:yarn/plugin-service"
   dependencies:
-    "@monstrs/cli-ui-error-info": "workspace:1.0.1"
-    "@monstrs/cli-ui-log-record": "workspace:1.0.1"
-    "@monstrs/cli-ui-renderer-static": "workspace:1.0.1"
-    "@monstrs/cli-ui-service-progress": "workspace:1.0.0"
-    "@monstrs/code-service": "workspace:1.0.1"
+    "@monstrs/cli-ui-error-info": "workspace:1.0.2"
+    "@monstrs/cli-ui-log-record": "workspace:1.0.2"
+    "@monstrs/cli-ui-renderer-static": "workspace:1.0.2"
+    "@monstrs/cli-ui-service-progress": "workspace:1.0.1"
+    "@monstrs/code-service": "workspace:1.0.2"
     "@monstrs/logger": "npm:^0.0.20"
-    "@monstrs/yarn-pack-utils": "workspace:1.0.1"
+    "@monstrs/yarn-pack-utils": "workspace:1.0.2"
     "@monstrs/yarn-run-utils": "workspace:0.2.1"
     "@monstrs/yarn-test-utils": "workspace:0.2.1"
     "@types/react": "npm:^18.3.12"
@@ -2080,13 +2080,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-test@workspace:yarn/plugin-test"
   dependencies:
-    "@monstrs/cli-ui-error-info": "workspace:1.0.1"
-    "@monstrs/cli-ui-log-record": "workspace:1.0.1"
-    "@monstrs/cli-ui-raw-output": "workspace:1.0.1"
-    "@monstrs/cli-ui-renderer-static": "workspace:1.0.1"
-    "@monstrs/cli-ui-test-failure": "workspace:1.0.1"
-    "@monstrs/cli-ui-test-progress": "workspace:1.0.0"
-    "@monstrs/code-test": "workspace:1.0.1"
+    "@monstrs/cli-ui-error-info": "workspace:1.0.2"
+    "@monstrs/cli-ui-log-record": "workspace:1.0.2"
+    "@monstrs/cli-ui-raw-output": "workspace:1.0.2"
+    "@monstrs/cli-ui-renderer-static": "workspace:1.0.2"
+    "@monstrs/cli-ui-test-failure": "workspace:1.0.2"
+    "@monstrs/cli-ui-test-progress": "workspace:1.0.1"
+    "@monstrs/code-test": "workspace:1.0.2"
     "@monstrs/config-typescript": "workspace:1.0.0"
     "@monstrs/yarn-test-utils": "workspace:0.2.1"
     "@types/react": "npm:^18.3.12"
@@ -2125,12 +2125,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-types@workspace:yarn/plugin-types"
   dependencies:
-    "@monstrs/cli-ui-error-info": "workspace:1.0.1"
-    "@monstrs/cli-ui-renderer-static": "workspace:1.0.1"
-    "@monstrs/cli-ui-typescript-diagnostic": "workspace:1.0.1"
-    "@monstrs/cli-ui-typescript-progress": "workspace:1.0.0"
-    "@monstrs/code-typescript": "workspace:1.0.1"
-    "@monstrs/tools-runtime": "workspace:1.0.1"
+    "@monstrs/cli-ui-error-info": "workspace:1.0.2"
+    "@monstrs/cli-ui-renderer-static": "workspace:1.0.2"
+    "@monstrs/cli-ui-typescript-diagnostic": "workspace:1.0.2"
+    "@monstrs/cli-ui-typescript-progress": "workspace:1.0.1"
+    "@monstrs/code-typescript": "workspace:1.0.2"
+    "@monstrs/tools-runtime": "workspace:1.0.2"
     "@monstrs/yarn-run-utils": "workspace:0.2.1"
     "@monstrs/yarn-test-utils": "workspace:0.2.1"
     "@types/react": "npm:^18.3.12"
@@ -2153,10 +2153,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-plugin-ui@workspace:yarn/plugin-ui"
   dependencies:
-    "@monstrs/cli-ui-error-info": "workspace:1.0.1"
-    "@monstrs/cli-ui-icons-progress": "workspace:1.0.0"
-    "@monstrs/cli-ui-renderer-static": "workspace:1.0.1"
-    "@monstrs/code-icons": "workspace:1.0.1"
+    "@monstrs/cli-ui-error-info": "workspace:1.0.2"
+    "@monstrs/cli-ui-icons-progress": "workspace:1.0.1"
+    "@monstrs/cli-ui-renderer-static": "workspace:1.0.2"
+    "@monstrs/code-icons": "workspace:1.0.2"
     "@monstrs/yarn-run-utils": "workspace:0.2.1"
     "@monstrs/yarn-test-utils": "workspace:0.2.1"
     "@types/react": "npm:^18.3.12"
@@ -10733,7 +10733,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "tools@workspace:."
   dependencies:
-    "@monstrs/tools-runtime": "workspace:1.0.1"
+    "@monstrs/tools-runtime": "workspace:1.0.2"
     "@types/node": "npm:^22.9.0"
     "@yarnpkg/builder": "patch:@yarnpkg/builder@npm%3A4.1.2#~/.yarn/patches/@yarnpkg-builder-npm-4.1.2-2648882e59.patch"
     esbuild: "npm:esbuild-wasm@^0.23.1"

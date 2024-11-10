@@ -1,6 +1,6 @@
 {
   "name": "@monstrs/code-commit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -24,7 +24,7 @@
     "@commitlint/read": "^19.5.0",
     "@commitlint/rules": "^19.5.0",
     "@commitlint/types": "^19.5.0",
-    "@monstrs/config-commitlint": "workspace:1.0.0"
+    "@monstrs/config-commitlint": "workspace:1.0.1"
   },
   "devDependencies": {
     "@types/conventional-commits-parser": "^5.0.0",
