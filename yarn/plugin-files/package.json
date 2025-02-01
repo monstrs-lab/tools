@@ -24,8 +24,8 @@
   },
   "devDependencies": {
     "@yarnpkg/builder": "^4.2.0",
-    "@yarnpkg/cli": "^4.5.1",
-    "@yarnpkg/core": "^4.1.4"
+    "@yarnpkg/cli": "^4.6.0",
+    "@yarnpkg/core": "^4.2.0"
   },
   "peerDependencies": {
     "@yarnpkg/cli": "^4",
