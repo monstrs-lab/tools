@@ -24,7 +24,7 @@
     "@monstrs/cli-ui-renderer-static": "workspace:1.0.2",
     "@monstrs/cli-ui-test-failure": "workspace:1.0.2",
     "@monstrs/cli-ui-test-progress": "workspace:1.0.1",
-    "@monstrs/code-test": "workspace:1.0.2",
+    "@monstrs/code-test": "workspace:1.0.3",
     "clipanion": "^4.0.0-rc.4",
     "ink": "^5.0.1",
     "react": "^18.3.1"

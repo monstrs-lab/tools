@@ -18,7 +18,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@monstrs/yarn-pack-utils": "workspace:1.0.2",
+    "@monstrs/yarn-pack-utils": "workspace:1.0.3",
     "clipanion": "^4.0.0-rc.4"
   },
   "devDependencies": {
