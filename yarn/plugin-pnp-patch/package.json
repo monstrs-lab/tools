@@ -22,9 +22,9 @@
   },
   "dependencies": {
     "@yarnpkg/builder": "^4.2.0",
-    "@yarnpkg/core": "^4.1.4",
-    "@yarnpkg/fslib": "^3.1.0",
-    "@yarnpkg/plugin-pnp": "^4.0.5",
+    "@yarnpkg/core": "^4.2.0",
+    "@yarnpkg/fslib": "^3.1.1",
+    "@yarnpkg/plugin-pnp": "^4.0.6",
     "@yarnpkg/pnp": "file:./cache/yarnpkg-pnp.tgz"
   },
   "devDependencies": {
