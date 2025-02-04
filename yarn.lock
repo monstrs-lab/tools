@@ -1458,7 +1458,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/code-pack@workspace:1.0.3, @monstrs/code-pack@workspace:code/code-pack":
+"@monstrs/code-pack@workspace:1.0.4, @monstrs/code-pack@workspace:code/code-pack":
   version: 0.0.0-use.local
   resolution: "@monstrs/code-pack@workspace:code/code-pack"
   dependencies:
@@ -1642,7 +1642,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@monstrs/yarn-cli-tools@workspace:1.0.6, @monstrs/yarn-cli-tools@workspace:yarn/cli-tools":
+"@monstrs/yarn-cli-tools@workspace:1.0.7, @monstrs/yarn-cli-tools@workspace:yarn/cli-tools":
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-cli-tools@workspace:yarn/cli-tools"
   dependencies:
@@ -1701,7 +1701,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@monstrs/yarn-cli@workspace:yarn/cli"
   dependencies:
-    "@monstrs/yarn-cli-tools": "workspace:1.0.6"
+    "@monstrs/yarn-cli-tools": "workspace:1.0.7"
     "@monstrs/yarn-plugin-check": "workspace:0.2.1"
     "@monstrs/yarn-plugin-checks": "workspace:0.2.1"
     "@monstrs/yarn-plugin-cli-publish": "workspace:0.2.0"
@@ -1938,7 +1938,7 @@ __metadata:
   resolution: "@monstrs/yarn-plugin-image@workspace:yarn/plugin-image"
   dependencies:
     "@iarna/toml": "npm:^2.2.5"
-    "@monstrs/code-pack": "workspace:1.0.3"
+    "@monstrs/code-pack": "workspace:1.0.4"
     "@monstrs/yarn-pack-utils": "workspace:1.0.3"
     "@monstrs/yarn-run-utils": "workspace:0.2.1"
     "@yarnpkg/builder": "npm:^4.2.0"
