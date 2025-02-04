@@ -1,0 +1,4 @@
+releases:
+  "@monstrs/code-pack": patch
+  "@monstrs/yarn-cli": patch
+  "@monstrs/yarn-cli-tools": patch
