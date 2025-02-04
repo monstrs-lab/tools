@@ -16,7 +16,25 @@ import { Option }            from 'clipanion'
 import { tagUtils }          from '@monstrs/code-pack'
 import { packUtils }         from '@monstrs/yarn-pack-utils'
 
-const forRepository = async (repo: string): Promise<PortablePath> => {
+const forRepository = async (repo: string, workspace: string, packConfiguration: { require?: Array<string> } = {}): Promise<PortablePath> => {
+  const envs = [
+    {
+      name: 'WORKSPACE',
+      value: workspace,
+    },
+    {
+      name: 'CNB_USER_ID',
+      value: '1001',
+    },
+  ]
+
+  if (packConfiguration.require && packConfiguration.require.length > 0) {
+    envs.push({
+      name: 'BP_REQUIRE',
+      value: packConfiguration.require.join(','),
+    })
+  }
+
   const descriptor = {
     project: {
       id: repo,
@@ -25,6 +43,7 @@ const forRepository = async (repo: string): Promise<PortablePath> => {
     },
     build: {
       exclude: ['.git'],
+      env: envs
     },
   }
 
@@ -78,7 +97,7 @@ class ImagePackCommand extends BaseCommand {
 
           const tag = await tagUtils.getTag(this.tagPolicy || 'revision')
 
-          const descriptorPath = await forRepository(repo)
+          const descriptorPath = await forRepository(repo, workspace.manifest.raw.name as string, workspace.manifest.raw.packConfiguration as { require?: Array<string> })
 
           const args = [
             'build',

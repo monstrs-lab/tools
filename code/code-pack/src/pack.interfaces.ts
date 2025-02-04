@@ -4,6 +4,7 @@ export interface PackOptions {
   publish: boolean
   builder?: string
   buildpack?: string
+  require?: Array<string>
   tagPolicy: TagPolicy
 }
 
