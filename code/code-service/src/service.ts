@@ -24,6 +24,8 @@ export class Service extends EventEmitter {
       '@monstrs/tools-runtime/webpack'
     )
 
+    const { deepkitTypeCompiler } = await import('@monstrs/tools-runtime/deepkit')
+
     const config = new WebpackConfig(
       webpack,
       {
@@ -31,6 +33,7 @@ export class Service extends EventEmitter {
         nullLoader: nullLoaderPath,
         tsLoader: tsLoaderPath,
       },
+      deepkitTypeCompiler,
       cwd
     )
 

@@ -22,6 +22,7 @@ export class WebpackConfig {
       nodeLoader: string
       nullLoader: string
     },
+    private readonly deepkitTypeCompiler: any,
     private readonly cwd: string
   ) {}
 
@@ -143,6 +144,10 @@ export class WebpackConfig {
         compilerOptions: { ...tsconfig.compilerOptions, sourceMap: true },
         context: this.cwd,
         configFile,
+        getCustomTransformers: () => ({
+          before: [this.deepkitTypeCompiler.transformer],
+          afterDeclarations: [this.deepkitTypeCompiler.declarationTransformer],
+        })
       })
 
     config.module
